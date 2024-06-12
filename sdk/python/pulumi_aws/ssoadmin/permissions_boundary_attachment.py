@@ -129,7 +129,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
-                 permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']]] = None,
+                 permissions_boundary: Optional[pulumi.Input[Union['PermissionsBoundaryAttachmentPermissionsBoundaryArgs', 'PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict']]] = None,
                  __props__=None):
         """
         Attaches a permissions boundary policy to a Single Sign-On (SSO) Permission Set resource.
@@ -163,12 +163,12 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         example_permissions_boundary_attachment = aws.ssoadmin.PermissionsBoundaryAttachment("example",
             instance_arn=example_permission_set.instance_arn,
             permission_set_arn=example_permission_set.arn,
-            permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs(
-                customer_managed_policy_reference=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs(
-                    name=example_policy.name,
-                    path="/",
-                ),
-            ))
+            permissions_boundary={
+                "customerManagedPolicyReference": {
+                    "name": example_policy.name,
+                    "path": "/",
+                },
+            })
         ```
 
         ### Attaching an AWS-managed policy
@@ -180,9 +180,9 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         example = aws.ssoadmin.PermissionsBoundaryAttachment("example",
             instance_arn=example_aws_ssoadmin_permission_set["instanceArn"],
             permission_set_arn=example_aws_ssoadmin_permission_set["arn"],
-            permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs(
-                managed_policy_arn="arn:aws:iam::aws:policy/ReadOnlyAccess",
-            ))
+            permissions_boundary={
+                "managedPolicyArn": "arn:aws:iam::aws:policy/ReadOnlyAccess",
+            })
         ```
 
         ## Import
@@ -197,7 +197,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
-        :param pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']] permissions_boundary: The permissions boundary policy. See below.
+        :param pulumi.Input[Union['PermissionsBoundaryAttachmentPermissionsBoundaryArgs', 'PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict']] permissions_boundary: The permissions boundary policy. See below.
         """
         ...
     @overload
@@ -237,12 +237,12 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         example_permissions_boundary_attachment = aws.ssoadmin.PermissionsBoundaryAttachment("example",
             instance_arn=example_permission_set.instance_arn,
             permission_set_arn=example_permission_set.arn,
-            permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs(
-                customer_managed_policy_reference=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs(
-                    name=example_policy.name,
-                    path="/",
-                ),
-            ))
+            permissions_boundary={
+                "customerManagedPolicyReference": {
+                    "name": example_policy.name,
+                    "path": "/",
+                },
+            })
         ```
 
         ### Attaching an AWS-managed policy
@@ -254,9 +254,9 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         example = aws.ssoadmin.PermissionsBoundaryAttachment("example",
             instance_arn=example_aws_ssoadmin_permission_set["instanceArn"],
             permission_set_arn=example_aws_ssoadmin_permission_set["arn"],
-            permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs(
-                managed_policy_arn="arn:aws:iam::aws:policy/ReadOnlyAccess",
-            ))
+            permissions_boundary={
+                "managedPolicyArn": "arn:aws:iam::aws:policy/ReadOnlyAccess",
+            })
         ```
 
         ## Import
@@ -284,7 +284,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
-                 permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']]] = None,
+                 permissions_boundary: Optional[pulumi.Input[Union['PermissionsBoundaryAttachmentPermissionsBoundaryArgs', 'PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -315,7 +315,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             instance_arn: Optional[pulumi.Input[str]] = None,
             permission_set_arn: Optional[pulumi.Input[str]] = None,
-            permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']]] = None) -> 'PermissionsBoundaryAttachment':
+            permissions_boundary: Optional[pulumi.Input[Union['PermissionsBoundaryAttachmentPermissionsBoundaryArgs', 'PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict']]] = None) -> 'PermissionsBoundaryAttachment':
         """
         Get an existing PermissionsBoundaryAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -325,7 +325,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
-        :param pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']] permissions_boundary: The permissions boundary policy. See below.
+        :param pulumi.Input[Union['PermissionsBoundaryAttachmentPermissionsBoundaryArgs', 'PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict']] permissions_boundary: The permissions boundary policy. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

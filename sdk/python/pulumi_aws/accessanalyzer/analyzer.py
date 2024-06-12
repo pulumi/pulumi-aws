@@ -208,7 +208,7 @@ class Analyzer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['AnalyzerConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -252,7 +252,7 @@ class Analyzer(pulumi.CustomResource):
         :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['AnalyzerConfigurationArgs']] configuration: A block that specifies the configuration of the analyzer. Documented below
+        :param pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']] configuration: A block that specifies the configuration of the analyzer. Documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
         """
@@ -313,7 +313,7 @@ class Analyzer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['AnalyzerConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -345,7 +345,7 @@ class Analyzer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             analyzer_name: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['AnalyzerConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Analyzer':
@@ -360,7 +360,7 @@ class Analyzer(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] arn: ARN of the Analyzer.
-        :param pulumi.Input[pulumi.InputType['AnalyzerConfigurationArgs']] configuration: A block that specifies the configuration of the analyzer. Documented below
+        :param pulumi.Input[Union['AnalyzerConfigurationArgs', 'AnalyzerConfigurationArgsDict']] configuration: A block that specifies the configuration of the analyzer. Documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.

@@ -234,7 +234,7 @@ class ContactList(pulumi.CustomResource):
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
@@ -259,12 +259,12 @@ class ContactList(pulumi.CustomResource):
         example = aws.sesv2.ContactList("example",
             contact_list_name="example",
             description="description",
-            topics=[aws.sesv2.ContactListTopicArgs(
-                default_subscription_status="OPT_IN",
-                description="topic description",
-                display_name="Example Topic",
-                topic_name="example-topic",
-            )])
+            topics=[{
+                "defaultSubscriptionStatus": "OPT_IN",
+                "description": "topic description",
+                "displayName": "Example Topic",
+                "topicName": "example-topic",
+            }])
         ```
 
         ## Import
@@ -282,7 +282,7 @@ class ContactList(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of what the contact list is about.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
         ...
     @overload
@@ -313,12 +313,12 @@ class ContactList(pulumi.CustomResource):
         example = aws.sesv2.ContactList("example",
             contact_list_name="example",
             description="description",
-            topics=[aws.sesv2.ContactListTopicArgs(
-                default_subscription_status="OPT_IN",
-                description="topic description",
-                display_name="Example Topic",
-                topic_name="example-topic",
-            )])
+            topics=[{
+                "defaultSubscriptionStatus": "OPT_IN",
+                "description": "topic description",
+                "displayName": "Example Topic",
+                "topicName": "example-topic",
+            }])
         ```
 
         ## Import
@@ -347,7 +347,7 @@ class ContactList(pulumi.CustomResource):
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -384,7 +384,7 @@ class ContactList(pulumi.CustomResource):
             last_updated_timestamp: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None) -> 'ContactList':
+            topics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None) -> 'ContactList':
         """
         Get an existing ContactList resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -399,7 +399,7 @@ class ContactList(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of what the contact list is about.
         :param pulumi.Input[str] last_updated_timestamp: Timestamp noting the last time the contact list was updated in ISO 8601 format.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

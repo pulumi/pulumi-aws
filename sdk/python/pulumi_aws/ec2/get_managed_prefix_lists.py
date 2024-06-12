@@ -76,7 +76,7 @@ class AwaitableGetManagedPrefixListsResult(GetManagedPrefixListsResult):
             tags=self.tags)
 
 
-def get_managed_prefix_lists(filters: Optional[Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']]] = None,
+def get_managed_prefix_lists(filters: Optional[Sequence[Union['GetManagedPrefixListsFilterArgs', 'GetManagedPrefixListsFilterArgsDict']]] = None,
                              tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrefixListsResult:
     """
@@ -97,7 +97,7 @@ def get_managed_prefix_lists(filters: Optional[Sequence[pulumi.InputType['GetMan
     ```
 
 
-    :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetManagedPrefixListsFilterArgs', 'GetManagedPrefixListsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired .
            
@@ -118,7 +118,7 @@ def get_managed_prefix_lists(filters: Optional[Sequence[pulumi.InputType['GetMan
 
 
 @_utilities.lift_output_func(get_managed_prefix_lists)
-def get_managed_prefix_lists_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']]]]] = None,
+def get_managed_prefix_lists_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetManagedPrefixListsFilterArgs', 'GetManagedPrefixListsFilterArgsDict']]]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrefixListsResult]:
     """
@@ -139,7 +139,7 @@ def get_managed_prefix_lists_output(filters: Optional[pulumi.Input[Optional[Sequ
     ```
 
 
-    :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetManagedPrefixListsFilterArgs', 'GetManagedPrefixListsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired .
            

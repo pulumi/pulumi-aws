@@ -749,9 +749,9 @@ class AmiCopy(pulumi.CustomResource):
                  deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_outpost_arn: Optional[pulumi.Input[str]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEbsBlockDeviceArgs', 'AmiCopyEbsBlockDeviceArgsDict']]]]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEphemeralBlockDeviceArgs', 'AmiCopyEphemeralBlockDeviceArgsDict']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_ami_id: Optional[pulumi.Input[str]] = None,
@@ -793,10 +793,10 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
         :param pulumi.Input[str] destination_outpost_arn: ARN of the Outpost to which to copy the AMI.
                Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEbsBlockDeviceArgs', 'AmiCopyEbsBlockDeviceArgsDict']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[bool] encrypted: Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEphemeralBlockDeviceArgs', 'AmiCopyEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         :param pulumi.Input[str] name: Region-unique name for the AMI.
@@ -859,9 +859,9 @@ class AmiCopy(pulumi.CustomResource):
                  deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_outpost_arn: Optional[pulumi.Input[str]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEbsBlockDeviceArgs', 'AmiCopyEbsBlockDeviceArgsDict']]]]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEphemeralBlockDeviceArgs', 'AmiCopyEphemeralBlockDeviceArgsDict']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_ami_id: Optional[pulumi.Input[str]] = None,
@@ -930,10 +930,10 @@ class AmiCopy(pulumi.CustomResource):
             deprecation_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             destination_outpost_arn: Optional[pulumi.Input[str]] = None,
-            ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
+            ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEbsBlockDeviceArgs', 'AmiCopyEbsBlockDeviceArgsDict']]]]] = None,
             ena_support: Optional[pulumi.Input[bool]] = None,
             encrypted: Optional[pulumi.Input[bool]] = None,
-            ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]]] = None,
+            ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEphemeralBlockDeviceArgs', 'AmiCopyEphemeralBlockDeviceArgsDict']]]]] = None,
             hypervisor: Optional[pulumi.Input[str]] = None,
             image_location: Optional[pulumi.Input[str]] = None,
             image_owner_alias: Optional[pulumi.Input[str]] = None,
@@ -972,11 +972,11 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
         :param pulumi.Input[str] destination_outpost_arn: ARN of the Outpost to which to copy the AMI.
                Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEbsBlockDeviceArgs', 'AmiCopyEbsBlockDeviceArgsDict']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
         :param pulumi.Input[bool] encrypted: Whether the destination snapshots of the copied image should be encrypted. Defaults to `false`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEphemeralBlockDeviceArgs', 'AmiCopyEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
                by the `ec2-upload-bundle` command in the EC2 command line tools.

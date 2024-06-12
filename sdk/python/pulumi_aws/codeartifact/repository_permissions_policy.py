@@ -227,15 +227,15 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         example_repository = aws.codeartifact.Repository("example",
             repository="example",
             domain=example_domain.domain)
-        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["codeartifact:ReadFromRepository"],
-            resources=[example_repository.arn],
-        )])
+        example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["codeartifact:ReadFromRepository"],
+            "resources": [example_repository.arn],
+        }])
         example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("example",
             repository=example_repository.repository,
             domain=example_domain.domain,
@@ -280,15 +280,15 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         example_repository = aws.codeartifact.Repository("example",
             repository="example",
             domain=example_domain.domain)
-        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["codeartifact:ReadFromRepository"],
-            resources=[example_repository.arn],
-        )])
+        example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["codeartifact:ReadFromRepository"],
+            "resources": [example_repository.arn],
+        }])
         example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("example",
             repository=example_repository.repository,
             domain=example_domain.domain,

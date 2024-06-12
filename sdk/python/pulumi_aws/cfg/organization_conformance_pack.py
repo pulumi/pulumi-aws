@@ -277,7 +277,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConformancePackInputParameterArgs']]]]] = None,
+                 input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_s3_uri: Optional[pulumi.Input[str]] = None,
@@ -300,10 +300,10 @@ class OrganizationConformancePack(pulumi.CustomResource):
             feature_set="ALL")
         example = aws.cfg.OrganizationConformancePack("example",
             name="example",
-            input_parameters=[aws.cfg.OrganizationConformancePackInputParameterArgs(
-                parameter_name="AccessKeysRotatedParameterMaxAccessKeyAge",
-                parameter_value="90",
-            )],
+            input_parameters=[{
+                "parameterName": "AccessKeysRotatedParameterMaxAccessKeyAge",
+                "parameterValue": "90",
+            }],
             template_body=\"\"\"Parameters:
           AccessKeysRotatedParameterMaxAccessKeyAge:
             Type: String
@@ -366,7 +366,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         :param pulumi.Input[str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
         :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_accounts: Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConformancePackInputParameterArgs']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[str] name: The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         :param pulumi.Input[str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
@@ -395,10 +395,10 @@ class OrganizationConformancePack(pulumi.CustomResource):
             feature_set="ALL")
         example = aws.cfg.OrganizationConformancePack("example",
             name="example",
-            input_parameters=[aws.cfg.OrganizationConformancePackInputParameterArgs(
-                parameter_name="AccessKeysRotatedParameterMaxAccessKeyAge",
-                parameter_value="90",
-            )],
+            input_parameters=[{
+                "parameterName": "AccessKeysRotatedParameterMaxAccessKeyAge",
+                "parameterValue": "90",
+            }],
             template_body=\"\"\"Parameters:
           AccessKeysRotatedParameterMaxAccessKeyAge:
             Type: String
@@ -474,7 +474,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
                  delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConformancePackInputParameterArgs']]]]] = None,
+                 input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_s3_uri: Optional[pulumi.Input[str]] = None,
@@ -509,7 +509,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
             delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
             delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
             excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConformancePackInputParameterArgs']]]]] = None,
+            input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             template_body: Optional[pulumi.Input[str]] = None,
             template_s3_uri: Optional[pulumi.Input[str]] = None) -> 'OrganizationConformancePack':
@@ -524,7 +524,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         :param pulumi.Input[str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
         :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_accounts: Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConformancePackInputParameterArgs']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[str] name: The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         :param pulumi.Input[str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.

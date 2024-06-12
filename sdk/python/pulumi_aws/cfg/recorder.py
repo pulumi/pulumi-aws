@@ -162,8 +162,8 @@ class Recorder(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 recording_group: Optional[pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']]] = None,
-                 recording_mode: Optional[pulumi.Input[pulumi.InputType['RecorderRecordingModeArgs']]] = None,
+                 recording_group: Optional[pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
+                 recording_mode: Optional[pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -179,14 +179,14 @@ class Recorder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["config.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         r = aws.iam.Role("r",
             name="awsconfig-example",
             assume_role_policy=assume_role.json)
@@ -204,15 +204,15 @@ class Recorder(pulumi.CustomResource):
         foo = aws.cfg.Recorder("foo",
             name="example",
             role_arn=r["arn"],
-            recording_group=aws.cfg.RecorderRecordingGroupArgs(
-                all_supported=False,
-                exclusion_by_resource_types=[aws.cfg.RecorderRecordingGroupExclusionByResourceTypeArgs(
-                    resource_types=["AWS::EC2::Instance"],
-                )],
-                recording_strategies=[aws.cfg.RecorderRecordingGroupRecordingStrategyArgs(
-                    use_only="EXCLUSION_BY_RESOURCE_TYPES",
-                )],
-            ))
+            recording_group={
+                "allSupported": False,
+                "exclusionByResourceTypes": [{
+                    "resourceTypes": ["AWS::EC2::Instance"],
+                }],
+                "recordingStrategies": [{
+                    "useOnly": "EXCLUSION_BY_RESOURCE_TYPES",
+                }],
+            })
         ```
 
         ### Periodic Recording
@@ -224,22 +224,22 @@ class Recorder(pulumi.CustomResource):
         foo = aws.cfg.Recorder("foo",
             name="example",
             role_arn=r["arn"],
-            recording_group=aws.cfg.RecorderRecordingGroupArgs(
-                all_supported=False,
-                include_global_resource_types=False,
-                resource_types=[
+            recording_group={
+                "allSupported": False,
+                "includeGlobalResourceTypes": False,
+                "resourceTypes": [
                     "AWS::EC2::Instance",
                     "AWS::EC2::NetworkInterface",
                 ],
-            ),
-            recording_mode=aws.cfg.RecorderRecordingModeArgs(
-                recording_frequency="CONTINUOUS",
-                recording_mode_override=aws.cfg.RecorderRecordingModeRecordingModeOverrideArgs(
-                    description="Only record EC2 network interfaces daily",
-                    resource_types=["AWS::EC2::NetworkInterface"],
-                    recording_frequency="DAILY",
-                ),
-            ))
+            },
+            recording_mode={
+                "recordingFrequency": "CONTINUOUS",
+                "recordingModeOverride": {
+                    "description": "Only record EC2 network interfaces daily",
+                    "resourceTypes": ["AWS::EC2::NetworkInterface"],
+                    "recordingFrequency": "DAILY",
+                },
+            })
         ```
 
         ## Import
@@ -253,8 +253,8 @@ class Recorder(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']] recording_group: Recording group - see below.
-        :param pulumi.Input[pulumi.InputType['RecorderRecordingModeArgs']] recording_mode: Recording mode - see below.
+        :param pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']] recording_group: Recording group - see below.
+        :param pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']] recording_mode: Recording mode - see below.
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         ...
@@ -276,14 +276,14 @@ class Recorder(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["config.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         r = aws.iam.Role("r",
             name="awsconfig-example",
             assume_role_policy=assume_role.json)
@@ -301,15 +301,15 @@ class Recorder(pulumi.CustomResource):
         foo = aws.cfg.Recorder("foo",
             name="example",
             role_arn=r["arn"],
-            recording_group=aws.cfg.RecorderRecordingGroupArgs(
-                all_supported=False,
-                exclusion_by_resource_types=[aws.cfg.RecorderRecordingGroupExclusionByResourceTypeArgs(
-                    resource_types=["AWS::EC2::Instance"],
-                )],
-                recording_strategies=[aws.cfg.RecorderRecordingGroupRecordingStrategyArgs(
-                    use_only="EXCLUSION_BY_RESOURCE_TYPES",
-                )],
-            ))
+            recording_group={
+                "allSupported": False,
+                "exclusionByResourceTypes": [{
+                    "resourceTypes": ["AWS::EC2::Instance"],
+                }],
+                "recordingStrategies": [{
+                    "useOnly": "EXCLUSION_BY_RESOURCE_TYPES",
+                }],
+            })
         ```
 
         ### Periodic Recording
@@ -321,22 +321,22 @@ class Recorder(pulumi.CustomResource):
         foo = aws.cfg.Recorder("foo",
             name="example",
             role_arn=r["arn"],
-            recording_group=aws.cfg.RecorderRecordingGroupArgs(
-                all_supported=False,
-                include_global_resource_types=False,
-                resource_types=[
+            recording_group={
+                "allSupported": False,
+                "includeGlobalResourceTypes": False,
+                "resourceTypes": [
                     "AWS::EC2::Instance",
                     "AWS::EC2::NetworkInterface",
                 ],
-            ),
-            recording_mode=aws.cfg.RecorderRecordingModeArgs(
-                recording_frequency="CONTINUOUS",
-                recording_mode_override=aws.cfg.RecorderRecordingModeRecordingModeOverrideArgs(
-                    description="Only record EC2 network interfaces daily",
-                    resource_types=["AWS::EC2::NetworkInterface"],
-                    recording_frequency="DAILY",
-                ),
-            ))
+            },
+            recording_mode={
+                "recordingFrequency": "CONTINUOUS",
+                "recordingModeOverride": {
+                    "description": "Only record EC2 network interfaces daily",
+                    "resourceTypes": ["AWS::EC2::NetworkInterface"],
+                    "recordingFrequency": "DAILY",
+                },
+            })
         ```
 
         ## Import
@@ -363,8 +363,8 @@ class Recorder(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 recording_group: Optional[pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']]] = None,
-                 recording_mode: Optional[pulumi.Input[pulumi.InputType['RecorderRecordingModeArgs']]] = None,
+                 recording_group: Optional[pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
+                 recording_mode: Optional[pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -392,8 +392,8 @@ class Recorder(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            recording_group: Optional[pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']]] = None,
-            recording_mode: Optional[pulumi.Input[pulumi.InputType['RecorderRecordingModeArgs']]] = None,
+            recording_group: Optional[pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']]] = None,
+            recording_mode: Optional[pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None) -> 'Recorder':
         """
         Get an existing Recorder resource's state with the given name, id, and optional extra
@@ -403,8 +403,8 @@ class Recorder(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']] recording_group: Recording group - see below.
-        :param pulumi.Input[pulumi.InputType['RecorderRecordingModeArgs']] recording_mode: Recording mode - see below.
+        :param pulumi.Input[Union['RecorderRecordingGroupArgs', 'RecorderRecordingGroupArgsDict']] recording_group: Recording group - see below.
+        :param pulumi.Input[Union['RecorderRecordingModeArgs', 'RecorderRecordingModeArgsDict']] recording_mode: Recording mode - see below.
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

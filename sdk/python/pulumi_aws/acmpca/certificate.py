@@ -279,7 +279,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  template_arn: Optional[pulumi.Input[str]] = None,
-                 validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None,
+                 validity: Optional[pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
@@ -299,28 +299,28 @@ class Certificate(pulumi.CustomResource):
         import pulumi_tls as tls
 
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
+            certificate_authority_configuration={
+                "keyAlgorithm": "RSA_4096",
+                "signingAlgorithm": "SHA512WITHRSA",
+                "subject": {
+                    "commonName": "example.com",
+                },
+            },
             permanent_deletion_time_in_days=7)
         key = tls.PrivateKey("key", algorithm="RSA")
         csr = tls.CertRequest("csr",
             private_key_pem=key.private_key_pem,
-            subject=tls.CertRequestSubjectArgs(
-                common_name="example",
-            ))
+            subject={
+                "commonName": "example",
+            })
         example = aws.acmpca.Certificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate_signing_request=csr.cert_request_pem,
             signing_algorithm="SHA256WITHRSA",
-            validity=aws.acmpca.CertificateValidityArgs(
-                type="YEARS",
-                value="1",
-            ))
+            validity={
+                "type": "YEARS",
+                "value": "1",
+            })
         ```
 
         ## Import
@@ -339,7 +339,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input[str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity: Configures end of the validity period for the certificate. See validity block below.
+        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']] validity: Configures end of the validity period for the certificate. See validity block below.
         """
         ...
     @overload
@@ -365,28 +365,28 @@ class Certificate(pulumi.CustomResource):
         import pulumi_tls as tls
 
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ),
+            certificate_authority_configuration={
+                "keyAlgorithm": "RSA_4096",
+                "signingAlgorithm": "SHA512WITHRSA",
+                "subject": {
+                    "commonName": "example.com",
+                },
+            },
             permanent_deletion_time_in_days=7)
         key = tls.PrivateKey("key", algorithm="RSA")
         csr = tls.CertRequest("csr",
             private_key_pem=key.private_key_pem,
-            subject=tls.CertRequestSubjectArgs(
-                common_name="example",
-            ))
+            subject={
+                "commonName": "example",
+            })
         example = aws.acmpca.Certificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate_signing_request=csr.cert_request_pem,
             signing_algorithm="SHA256WITHRSA",
-            validity=aws.acmpca.CertificateValidityArgs(
-                type="YEARS",
-                value="1",
-            ))
+            validity={
+                "type": "YEARS",
+                "value": "1",
+            })
         ```
 
         ## Import
@@ -417,7 +417,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  template_arn: Optional[pulumi.Input[str]] = None,
-                 validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None,
+                 validity: Optional[pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -462,7 +462,7 @@ class Certificate(pulumi.CustomResource):
             certificate_signing_request: Optional[pulumi.Input[str]] = None,
             signing_algorithm: Optional[pulumi.Input[str]] = None,
             template_arn: Optional[pulumi.Input[str]] = None,
-            validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None) -> 'Certificate':
+            validity: Optional[pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -479,7 +479,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input[str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity: Configures end of the validity period for the certificate. See validity block below.
+        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']] validity: Configures end of the validity period for the certificate. See validity block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -176,7 +176,7 @@ class AwaitableGetVpcDhcpOptionsResult(GetVpcDhcpOptionsResult):
 
 
 def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
-                         filters: Optional[Sequence[pulumi.InputType['GetVpcDhcpOptionsFilterArgs']]] = None,
+                         filters: Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']]] = None,
                          tags: Optional[Mapping[str, str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcDhcpOptionsResult:
     """
@@ -200,20 +200,20 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
     import pulumi_aws as aws
 
     example = aws.ec2.get_vpc_dhcp_options(filters=[
-        aws.ec2.GetVpcDhcpOptionsFilterArgs(
-            name="key",
-            values=["domain-name"],
-        ),
-        aws.ec2.GetVpcDhcpOptionsFilterArgs(
-            name="value",
-            values=["example.com"],
-        ),
+        {
+            "name": "key",
+            "values": ["domain-name"],
+        },
+        {
+            "name": "value",
+            "values": ["example.com"],
+        },
     ])
     ```
 
 
     :param str dhcp_options_id: EC2 DHCP Options ID.
-    :param Sequence[pulumi.InputType['GetVpcDhcpOptionsFilterArgs']] filters: List of custom filters as described below.
+    :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']] filters: List of custom filters as described below.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
@@ -240,7 +240,7 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_vpc_dhcp_options)
 def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcDhcpOptionsFilterArgs']]]]] = None,
+                                filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']]]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcDhcpOptionsResult]:
     """
@@ -264,20 +264,20 @@ def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[
     import pulumi_aws as aws
 
     example = aws.ec2.get_vpc_dhcp_options(filters=[
-        aws.ec2.GetVpcDhcpOptionsFilterArgs(
-            name="key",
-            values=["domain-name"],
-        ),
-        aws.ec2.GetVpcDhcpOptionsFilterArgs(
-            name="value",
-            values=["example.com"],
-        ),
+        {
+            "name": "key",
+            "values": ["domain-name"],
+        },
+        {
+            "name": "value",
+            "values": ["example.com"],
+        },
     ])
     ```
 
 
     :param str dhcp_options_id: EC2 DHCP Options ID.
-    :param Sequence[pulumi.InputType['GetVpcDhcpOptionsFilterArgs']] filters: List of custom filters as described below.
+    :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']] filters: List of custom filters as described below.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
     ...

@@ -238,7 +238,7 @@ class Map(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['MapConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -253,9 +253,9 @@ class Map(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.location.Map("example",
-            configuration=aws.location.MapConfigurationArgs(
-                style="VectorHereBerlin",
-            ),
+            configuration={
+                "style": "VectorHereBerlin",
+            },
             map_name="example")
         ```
 
@@ -269,7 +269,7 @@ class Map(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MapConfigurationArgs']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
+        :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_name: The name for the map resource.
                
@@ -292,9 +292,9 @@ class Map(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.location.Map("example",
-            configuration=aws.location.MapConfigurationArgs(
-                style="VectorHereBerlin",
-            ),
+            configuration={
+                "style": "VectorHereBerlin",
+            },
             map_name="example")
         ```
 
@@ -321,7 +321,7 @@ class Map(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['MapConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -356,7 +356,7 @@ class Map(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['MapConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']]] = None,
             create_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             map_arn: Optional[pulumi.Input[str]] = None,
@@ -371,7 +371,7 @@ class Map(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MapConfigurationArgs']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
+        :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[str] create_time: The timestamp for when the map resource was created in ISO 8601 format.
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_arn: The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.

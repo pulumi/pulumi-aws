@@ -184,7 +184,7 @@ class AwaitableGetNetworkInsightsPathResult(GetNetworkInsightsPathResult):
             tags=self.tags)
 
 
-def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNetworkInsightsPathFilterArgs']]] = None,
+def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']]] = None,
                               network_insights_path_id: Optional[str] = None,
                               tags: Optional[Mapping[str, str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsPathResult:
@@ -201,7 +201,7 @@ def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNe
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkInsightsPathFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str network_insights_path_id: ID of the Network Insights Path to select.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """
@@ -229,7 +229,7 @@ def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNe
 
 
 @_utilities.lift_output_func(get_network_insights_path)
-def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkInsightsPathFilterArgs']]]]] = None,
+def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']]]]] = None,
                                      network_insights_path_id: Optional[pulumi.Input[Optional[str]]] = None,
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
@@ -246,7 +246,7 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkInsightsPathFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str network_insights_path_id: ID of the Network Insights Path to select.
     :param Mapping[str, str] tags: Map of tags assigned to the resource.
     """

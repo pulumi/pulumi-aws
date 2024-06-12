@@ -96,7 +96,7 @@ class BackupPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy: Optional[pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArgs']]] = None,
+                 backup_policy: Optional[pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -112,9 +112,9 @@ class BackupPolicy(pulumi.CustomResource):
         fs = aws.efs.FileSystem("fs", creation_token="my-product")
         policy = aws.efs.BackupPolicy("policy",
             file_system_id=fs.id,
-            backup_policy=aws.efs.BackupPolicyBackupPolicyArgs(
-                status="ENABLED",
-            ))
+            backup_policy={
+                "status": "ENABLED",
+            })
         ```
 
         ## Import
@@ -127,7 +127,7 @@ class BackupPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArgs']] backup_policy: A backup_policy object (documented below).
+        :param pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system.
         """
         ...
@@ -149,9 +149,9 @@ class BackupPolicy(pulumi.CustomResource):
         fs = aws.efs.FileSystem("fs", creation_token="my-product")
         policy = aws.efs.BackupPolicy("policy",
             file_system_id=fs.id,
-            backup_policy=aws.efs.BackupPolicyBackupPolicyArgs(
-                status="ENABLED",
-            ))
+            backup_policy={
+                "status": "ENABLED",
+            })
         ```
 
         ## Import
@@ -177,7 +177,7 @@ class BackupPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_policy: Optional[pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArgs']]] = None,
+                 backup_policy: Optional[pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -204,7 +204,7 @@ class BackupPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_policy: Optional[pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArgs']]] = None,
+            backup_policy: Optional[pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
             file_system_id: Optional[pulumi.Input[str]] = None) -> 'BackupPolicy':
         """
         Get an existing BackupPolicy resource's state with the given name, id, and optional extra
@@ -213,7 +213,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BackupPolicyBackupPolicyArgs']] backup_policy: A backup_policy object (documented below).
+        :param pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[str] file_system_id: The ID of the EFS file system.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

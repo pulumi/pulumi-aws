@@ -408,7 +408,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
+                 jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -475,7 +475,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_sources: Identity sources for which authorization is requested.
                For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
                For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+        :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
         :param pulumi.Input[str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
         """
@@ -551,7 +551,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
+                 jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -594,7 +594,7 @@ class Authorizer(pulumi.CustomResource):
             authorizer_uri: Optional[pulumi.Input[str]] = None,
             enable_simple_responses: Optional[pulumi.Input[bool]] = None,
             identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
+            jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Authorizer':
         """
         Get an existing Authorizer resource's state with the given name, id, and optional extra
@@ -622,7 +622,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_sources: Identity sources for which authorization is requested.
                For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
                For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+        :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
         :param pulumi.Input[str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
         """

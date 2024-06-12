@@ -85,7 +85,7 @@ class AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
             restorable_by_user_ids=self.restorable_by_user_ids)
 
 
-def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']]] = None,
+def get_snapshot_ids(filters: Optional[Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']]] = None,
                      owners: Optional[Sequence[str]] = None,
                      restorable_by_user_ids: Optional[Sequence[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotIdsResult:
@@ -101,19 +101,19 @@ def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIds
 
     ebs_volumes = aws.ebs.get_snapshot_ids(owners=["self"],
         filters=[
-            aws.ebs.GetSnapshotIdsFilterArgs(
-                name="volume-size",
-                values=["40"],
-            ),
-            aws.ebs.GetSnapshotIdsFilterArgs(
-                name="tag:Name",
-                values=["Example"],
-            ),
+            {
+                "name": "volume-size",
+                "values": ["40"],
+            },
+            {
+                "name": "tag:Name",
+                "values": ["Example"],
+            },
         ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference][1].
     :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
@@ -135,7 +135,7 @@ def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIds
 
 
 @_utilities.lift_output_func(get_snapshot_ids)
-def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']]]]] = None,
+def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']]]]] = None,
                             owners: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                             restorable_by_user_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotIdsResult]:
@@ -151,19 +151,19 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
 
     ebs_volumes = aws.ebs.get_snapshot_ids(owners=["self"],
         filters=[
-            aws.ebs.GetSnapshotIdsFilterArgs(
-                name="volume-size",
-                values=["40"],
-            ),
-            aws.ebs.GetSnapshotIdsFilterArgs(
-                name="tag:Name",
-                values=["Example"],
-            ),
+            {
+                "name": "volume-size",
+                "values": ["40"],
+            },
+            {
+                "name": "tag:Name",
+                "values": ["Example"],
+            },
         ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference][1].
     :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.

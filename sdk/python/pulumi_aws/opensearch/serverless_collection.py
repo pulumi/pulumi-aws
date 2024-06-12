@@ -312,7 +312,7 @@ class ServerlessCollection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  standby_replicas: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -426,7 +426,7 @@ class ServerlessCollection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  standby_replicas: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -467,7 +467,7 @@ class ServerlessCollection(pulumi.CustomResource):
             standby_replicas: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ServerlessCollection':
         """
         Get an existing ServerlessCollection resource's state with the given name, id, and optional extra

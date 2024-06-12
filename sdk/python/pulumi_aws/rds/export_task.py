@@ -420,7 +420,7 @@ class ExportTask(pulumi.CustomResource):
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_prefix: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ExportTaskTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS RDS (Relational Database) Export Task.
@@ -468,25 +468,25 @@ class ExportTask(pulumi.CustomResource):
                 }],
             }))
         example = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=["s3:ListAllMyBuckets"],
-                resources=["*"],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=[
+            {
+                "actions": ["s3:ListAllMyBuckets"],
+                "resources": ["*"],
+            },
+            {
+                "actions": [
                     "s3:GetBucketLocation",
                     "s3:ListBucket",
                 ],
-                resources=[example_bucket_v2.arn],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=[
+                "resources": [example_bucket_v2.arn],
+            },
+            {
+                "actions": [
                     "s3:GetObject",
                     "s3:PutObject",
                     "s3:DeleteObject",
                 ],
-                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
-            ),
+                "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+            },
         ])
         example_policy = aws.iam.Policy("example",
             name="example",
@@ -591,25 +591,25 @@ class ExportTask(pulumi.CustomResource):
                 }],
             }))
         example = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=["s3:ListAllMyBuckets"],
-                resources=["*"],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=[
+            {
+                "actions": ["s3:ListAllMyBuckets"],
+                "resources": ["*"],
+            },
+            {
+                "actions": [
                     "s3:GetBucketLocation",
                     "s3:ListBucket",
                 ],
-                resources=[example_bucket_v2.arn],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                actions=[
+                "resources": [example_bucket_v2.arn],
+            },
+            {
+                "actions": [
                     "s3:GetObject",
                     "s3:PutObject",
                     "s3:DeleteObject",
                 ],
-                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
-            ),
+                "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/*")],
+            },
         ])
         example_policy = aws.iam.Policy("example",
             name="example",
@@ -672,7 +672,7 @@ class ExportTask(pulumi.CustomResource):
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_prefix: Optional[pulumi.Input[str]] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ExportTaskTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -732,7 +732,7 @@ class ExportTask(pulumi.CustomResource):
             status: Optional[pulumi.Input[str]] = None,
             task_end_time: Optional[pulumi.Input[str]] = None,
             task_start_time: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ExportTaskTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[Union['ExportTaskTimeoutsArgs', 'ExportTaskTimeoutsArgsDict']]] = None,
             warning_message: Optional[pulumi.Input[str]] = None) -> 'ExportTask':
         """
         Get an existing ExportTask resource's state with the given name, id, and optional extra

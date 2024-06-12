@@ -79,11 +79,11 @@ def get_hosted_zone_id(load_balancer_type: Optional[str] = None,
         zone_id=primary["zoneId"],
         name="example.com",
         type=aws.route53.RecordType.A,
-        aliases=[aws.route53.RecordAliasArgs(
-            name=main_aws_lb["dnsName"],
-            zone_id=main.id,
-            evaluate_target_health=True,
-        )])
+        aliases=[{
+            "name": main_aws_lb["dnsName"],
+            "zoneId": main.id,
+            "evaluateTargetHealth": True,
+        }])
     ```
 
 
@@ -121,11 +121,11 @@ def get_hosted_zone_id_output(load_balancer_type: Optional[pulumi.Input[Optional
         zone_id=primary["zoneId"],
         name="example.com",
         type=aws.route53.RecordType.A,
-        aliases=[aws.route53.RecordAliasArgs(
-            name=main_aws_lb["dnsName"],
-            zone_id=main.id,
-            evaluate_target_health=True,
-        )])
+        aliases=[{
+            "name": main_aws_lb["dnsName"],
+            "zoneId": main.id,
+            "evaluateTargetHealth": True,
+        }])
     ```
 
 

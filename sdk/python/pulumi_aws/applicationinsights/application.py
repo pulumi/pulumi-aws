@@ -354,15 +354,15 @@ class Application(pulumi.CustomResource):
 
         example_group = aws.resourcegroups.Group("example",
             name="example",
-            resource_query=aws.resourcegroups.GroupResourceQueryArgs(
-                query=json.dumps({
+            resource_query={
+                "query": json.dumps({
                     "ResourceTypeFilters": ["AWS::EC2::Instance"],
                     "TagFilters": [{
                         "Key": "Stage",
                         "Values": ["Test"],
                     }],
                 }),
-            ))
+            })
         example = aws.applicationinsights.Application("example", resource_group_name=example_group.name)
         ```
 
@@ -405,15 +405,15 @@ class Application(pulumi.CustomResource):
 
         example_group = aws.resourcegroups.Group("example",
             name="example",
-            resource_query=aws.resourcegroups.GroupResourceQueryArgs(
-                query=json.dumps({
+            resource_query={
+                "query": json.dumps({
                     "ResourceTypeFilters": ["AWS::EC2::Instance"],
                     "TagFilters": [{
                         "Key": "Stage",
                         "Values": ["Test"],
                     }],
                 }),
-            ))
+            })
         example = aws.applicationinsights.Application("example", resource_group_name=example_group.name)
         ```
 

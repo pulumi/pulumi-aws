@@ -69,15 +69,15 @@ def get_log_delivery_canonical_user_id(region: Optional[str] = None,
     example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
     example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
         bucket=example_bucket_v2.id,
-        access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
-            grants=[aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
-                grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
-                    id=example.id,
-                    type="CanonicalUser",
-                ),
-                permission="FULL_CONTROL",
-            )],
-        ))
+        access_control_policy={
+            "grants": [{
+                "grantee": {
+                    "id": example.id,
+                    "type": "CanonicalUser",
+                },
+                "permission": "FULL_CONTROL",
+            }],
+        })
     ```
 
 
@@ -110,15 +110,15 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
     example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
     example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
         bucket=example_bucket_v2.id,
-        access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
-            grants=[aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
-                grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
-                    id=example.id,
-                    type="CanonicalUser",
-                ),
-                permission="FULL_CONTROL",
-            )],
-        ))
+        access_control_policy={
+            "grants": [{
+                "grantee": {
+                    "id": example.id,
+                    "type": "CanonicalUser",
+                },
+                "permission": "FULL_CONTROL",
+            }],
+        })
     ```
 
 

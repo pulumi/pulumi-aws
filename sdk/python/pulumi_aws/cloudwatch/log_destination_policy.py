@@ -143,15 +143,15 @@ class LogDestinationPolicy(pulumi.CustomResource):
             name="test_destination",
             role_arn=iam_for_cloudwatch["arn"],
             target_arn=kinesis_for_cloudwatch["arn"])
-        test_destination_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=["logs:PutSubscriptionFilter"],
-            resources=[test_destination.arn],
-        )])
+        test_destination_policy = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["123456789012"],
+            }],
+            "actions": ["logs:PutSubscriptionFilter"],
+            "resources": [test_destination.arn],
+        }])
         test_destination_policy_log_destination_policy = aws.cloudwatch.LogDestinationPolicy("test_destination_policy",
             destination_name=test_destination.name,
             access_policy=test_destination_policy.json)
@@ -190,15 +190,15 @@ class LogDestinationPolicy(pulumi.CustomResource):
             name="test_destination",
             role_arn=iam_for_cloudwatch["arn"],
             target_arn=kinesis_for_cloudwatch["arn"])
-        test_destination_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=["logs:PutSubscriptionFilter"],
-            resources=[test_destination.arn],
-        )])
+        test_destination_policy = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["123456789012"],
+            }],
+            "actions": ["logs:PutSubscriptionFilter"],
+            "resources": [test_destination.arn],
+        }])
         test_destination_policy_log_destination_policy = aws.cloudwatch.LogDestinationPolicy("test_destination_policy",
             destination_name=test_destination.name,
             access_policy=test_destination_policy.json)

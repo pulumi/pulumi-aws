@@ -159,10 +159,10 @@ def get_bucket(bucket: Optional[str] = None,
         zone_id=test_zone.id,
         name="bucket",
         type=aws.route53.RecordType.A,
-        aliases=[aws.route53.RecordAliasArgs(
-            name=selected.website_domain,
-            zone_id=selected.hosted_zone_id,
-        )])
+        aliases=[{
+            "name": selected.website_domain,
+            "zoneId": selected.hosted_zone_id,
+        }])
     ```
 
     ### CloudFront Origin
@@ -172,10 +172,10 @@ def get_bucket(bucket: Optional[str] = None,
     import pulumi_aws as aws
 
     selected = aws.s3.get_bucket(bucket="a-test-bucket")
-    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArgs(
-        domain_name=selected.bucket_domain_name,
-        origin_id="s3-selected-bucket",
-    )])
+    test = aws.cloudfront.Distribution("test", origins=[{
+        "domainName": selected.bucket_domain_name,
+        "originId": "s3-selected-bucket",
+    }])
     ```
 
 
@@ -221,10 +221,10 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
         zone_id=test_zone.id,
         name="bucket",
         type=aws.route53.RecordType.A,
-        aliases=[aws.route53.RecordAliasArgs(
-            name=selected.website_domain,
-            zone_id=selected.hosted_zone_id,
-        )])
+        aliases=[{
+            "name": selected.website_domain,
+            "zoneId": selected.hosted_zone_id,
+        }])
     ```
 
     ### CloudFront Origin
@@ -234,10 +234,10 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
     import pulumi_aws as aws
 
     selected = aws.s3.get_bucket(bucket="a-test-bucket")
-    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArgs(
-        domain_name=selected.bucket_domain_name,
-        origin_id="s3-selected-bucket",
-    )])
+    test = aws.cloudfront.Distribution("test", origins=[{
+        "domainName": selected.bucket_domain_name,
+        "originId": "s3-selected-bucket",
+    }])
     ```
 
 

@@ -222,7 +222,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -243,10 +243,10 @@ class User(pulumi.CustomResource):
         example_user = aws.memorydb.User("example",
             user_name="my-user",
             access_string="on ~* &* +@all",
-            authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
-                type="password",
-                passwords=[example["result"]],
-            ))
+            authentication_mode={
+                "type": "password",
+                "passwords": [example["result"]],
+            })
         ```
 
         ## Import
@@ -261,7 +261,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user.
-        :param pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_name: Name of the MemoryDB user. Up to 40 characters.
                
@@ -290,10 +290,10 @@ class User(pulumi.CustomResource):
         example_user = aws.memorydb.User("example",
             user_name="my-user",
             access_string="on ~* &* +@all",
-            authentication_mode=aws.memorydb.UserAuthenticationModeArgs(
-                type="password",
-                passwords=[example["result"]],
-            ))
+            authentication_mode={
+                "type": "password",
+                "passwords": [example["result"]],
+            })
         ```
 
         ## Import
@@ -321,7 +321,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -358,7 +358,7 @@ class User(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_string: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            authentication_mode: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']]] = None,
+            authentication_mode: Optional[pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
             minimum_engine_version: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -372,7 +372,7 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user.
         :param pulumi.Input[str] arn: ARN of the user.
-        :param pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[str] minimum_engine_version: Minimum engine version supported for the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

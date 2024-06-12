@@ -76,7 +76,7 @@ class AwaitableGetVpcPeeringConnectionsResult(GetVpcPeeringConnectionsResult):
             tags=self.tags)
 
 
-def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']]] = None,
+def get_vpc_peering_connections(filters: Optional[Sequence[Union['GetVpcPeeringConnectionsFilterArgs', 'GetVpcPeeringConnectionsFilterArgsDict']]] = None,
                                 tags: Optional[Mapping[str, str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcPeeringConnectionsResult:
     """
@@ -93,16 +93,16 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
     import pulumi_aws as aws
 
     # Declare the data source
-    pcs = aws.ec2.get_vpc_peering_connections(filters=[aws.ec2.GetVpcPeeringConnectionsFilterArgs(
-        name="requester-vpc-info.vpc-id",
-        values=[foo["id"]],
-    )])
+    pcs = aws.ec2.get_vpc_peering_connections(filters=[{
+        "name": "requester-vpc-info.vpc-id",
+        "values": [foo["id"]],
+    }])
     # get the details of each resource
     pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in range(len(pcs.ids))]
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcPeeringConnectionsFilterArgs', 'GetVpcPeeringConnectionsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
            
@@ -123,7 +123,7 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
 
 
 @_utilities.lift_output_func(get_vpc_peering_connections)
-def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']]]]] = None,
+def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcPeeringConnectionsFilterArgs', 'GetVpcPeeringConnectionsFilterArgsDict']]]]] = None,
                                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcPeeringConnectionsResult]:
     """
@@ -140,16 +140,16 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
     import pulumi_aws as aws
 
     # Declare the data source
-    pcs = aws.ec2.get_vpc_peering_connections(filters=[aws.ec2.GetVpcPeeringConnectionsFilterArgs(
-        name="requester-vpc-info.vpc-id",
-        values=[foo["id"]],
-    )])
+    pcs = aws.ec2.get_vpc_peering_connections(filters=[{
+        "name": "requester-vpc-info.vpc-id",
+        "values": [foo["id"]],
+    }])
     # get the details of each resource
     pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in range(len(pcs.ids))]
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcPeeringConnectionsFilterArgs', 'GetVpcPeeringConnectionsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
            

@@ -107,10 +107,10 @@ class LbAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         test = aws.lightsail.Lb("test",
             name="test-load-balancer",
             health_check_path="/",
@@ -157,10 +157,10 @@ class LbAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         test = aws.lightsail.Lb("test",
             name="test-load-balancer",
             health_check_path="/",

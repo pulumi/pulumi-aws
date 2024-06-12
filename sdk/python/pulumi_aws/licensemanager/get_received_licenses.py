@@ -67,7 +67,7 @@ class AwaitableGetReceivedLicensesResult(GetReceivedLicensesResult):
             id=self.id)
 
 
-def get_received_licenses(filters: Optional[Sequence[pulumi.InputType['GetReceivedLicensesFilterArgs']]] = None,
+def get_received_licenses(filters: Optional[Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReceivedLicensesResult:
     """
     This resource can be used to get a set of license ARNs matching a filter.
@@ -80,14 +80,14 @@ def get_received_licenses(filters: Optional[Sequence[pulumi.InputType['GetReceiv
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArgs(
-        name="IssuerName",
-        values=["AWS/Marketplace"],
-    )])
+    test = aws.licensemanager.get_received_licenses(filters=[{
+        "name": "IssuerName",
+        "values": ["AWS/Marketplace"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetReceivedLicensesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -104,7 +104,7 @@ def get_received_licenses(filters: Optional[Sequence[pulumi.InputType['GetReceiv
 
 
 @_utilities.lift_output_func(get_received_licenses)
-def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetReceivedLicensesFilterArgs']]]]] = None,
+def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReceivedLicensesResult]:
     """
     This resource can be used to get a set of license ARNs matching a filter.
@@ -117,14 +117,14 @@ def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequenc
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArgs(
-        name="IssuerName",
-        values=["AWS/Marketplace"],
-    )])
+    test = aws.licensemanager.get_received_licenses(filters=[{
+        "name": "IssuerName",
+        "values": ["AWS/Marketplace"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetReceivedLicensesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

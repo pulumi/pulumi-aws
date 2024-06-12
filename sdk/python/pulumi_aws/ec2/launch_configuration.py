@@ -633,19 +633,19 @@ class LaunchConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEbsBlockDeviceArgs', 'LaunchConfigurationEbsBlockDeviceArgsDict']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  enable_monitoring: Optional[pulumi.Input[bool]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict']]]]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  image_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
-                 metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']]] = None,
+                 metadata_options: Optional[pulumi.Input[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  placement_tenancy: Optional[pulumi.Input[str]] = None,
-                 root_block_device: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']]] = None,
+                 root_block_device: Optional[pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict']]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
@@ -666,14 +666,14 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ubuntu = aws.ec2.get_ami(most_recent=True,
             filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
+                {
+                    "name": "name",
+                    "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+                },
+                {
+                    "name": "virtualization-type",
+                    "values": ["hvm"],
+                },
             ],
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("as_conf",
@@ -693,21 +693,21 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEbsBlockDeviceArgs', 'LaunchConfigurationEbsBlockDeviceArgsDict']]]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
                
                The following arguments are optional:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
-        :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
+        :param pulumi.Input[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
-        :param pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
+        :param pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
@@ -734,14 +734,14 @@ class LaunchConfiguration(pulumi.CustomResource):
 
         ubuntu = aws.ec2.get_ami(most_recent=True,
             filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
+                {
+                    "name": "name",
+                    "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+                },
+                {
+                    "name": "virtualization-type",
+                    "values": ["hvm"],
+                },
             ],
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("as_conf",
@@ -774,19 +774,19 @@ class LaunchConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEbsBlockDeviceArgs', 'LaunchConfigurationEbsBlockDeviceArgsDict']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  enable_monitoring: Optional[pulumi.Input[bool]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict']]]]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  image_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
-                 metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']]] = None,
+                 metadata_options: Optional[pulumi.Input[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  placement_tenancy: Optional[pulumi.Input[str]] = None,
-                 root_block_device: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']]] = None,
+                 root_block_device: Optional[pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict']]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
@@ -835,19 +835,19 @@ class LaunchConfiguration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
-            ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]]] = None,
+            ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEbsBlockDeviceArgs', 'LaunchConfigurationEbsBlockDeviceArgsDict']]]]] = None,
             ebs_optimized: Optional[pulumi.Input[bool]] = None,
             enable_monitoring: Optional[pulumi.Input[bool]] = None,
-            ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]]] = None,
+            ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict']]]]] = None,
             iam_instance_profile: Optional[pulumi.Input[str]] = None,
             image_id: Optional[pulumi.Input[str]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
-            metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']]] = None,
+            metadata_options: Optional[pulumi.Input[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             placement_tenancy: Optional[pulumi.Input[str]] = None,
-            root_block_device: Optional[pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']]] = None,
+            root_block_device: Optional[pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict']]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             spot_price: Optional[pulumi.Input[str]] = None,
             user_data: Optional[pulumi.Input[str]] = None,
@@ -861,21 +861,21 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name of the launch configuration.
         :param pulumi.Input[bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEbsBlockDeviceArgs']]]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEbsBlockDeviceArgs', 'LaunchConfigurationEbsBlockDeviceArgsDict']]]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[bool] enable_monitoring: Enables/disables detailed monitoring. This is enabled by default.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchConfigurationEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEphemeralBlockDeviceArgs', 'LaunchConfigurationEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details.
         :param pulumi.Input[str] iam_instance_profile: The name attribute of the IAM instance profile to associate with launched instances.
         :param pulumi.Input[str] image_id: The EC2 image ID to launch.
         :param pulumi.Input[str] instance_type: The size of instance to launch.
                
                The following arguments are optional:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
-        :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
+        :param pulumi.Input[Union['LaunchConfigurationMetadataOptionsArgs', 'LaunchConfigurationMetadataOptionsArgsDict']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
-        :param pulumi.Input[pulumi.InputType['LaunchConfigurationRootBlockDeviceArgs']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
+        :param pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[str] spot_price: The maximum price to use for reserving spot instances.
         :param pulumi.Input[str] user_data: The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.

@@ -307,9 +307,9 @@ class Domain(pulumi.CustomResource):
                  domain_execution_role: Optional[pulumi.Input[str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 single_sign_on: Optional[pulumi.Input[pulumi.InputType['DomainSingleSignOnArgs']]] = None,
+                 single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DomainTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DataZone Domain.
@@ -350,9 +350,9 @@ class Domain(pulumi.CustomResource):
                     },
                 ],
             }),
-            inline_policies=[aws.iam.RoleInlinePolicyArgs(
-                name="domain_execution_policy",
-                policy=json.dumps({
+            inline_policies=[{
+                "name": "domain_execution_policy",
+                "policy": json.dumps({
                     "Version": "2012-10-17",
                     "Statement": [{
                         "Action": [
@@ -365,7 +365,7 @@ class Domain(pulumi.CustomResource):
                         "Resource": "*",
                     }],
                 }),
-            )])
+            }])
         example = aws.datazone.Domain("example",
             name="example",
             domain_execution_role=domain_execution_role.arn)
@@ -387,7 +387,7 @@ class Domain(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[str] kms_key_identifier: ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         :param pulumi.Input[str] name: Name of the Domain.
-        :param pulumi.Input[pulumi.InputType['DomainSingleSignOnArgs']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
+        :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         """
         ...
     @overload
@@ -434,9 +434,9 @@ class Domain(pulumi.CustomResource):
                     },
                 ],
             }),
-            inline_policies=[aws.iam.RoleInlinePolicyArgs(
-                name="domain_execution_policy",
-                policy=json.dumps({
+            inline_policies=[{
+                "name": "domain_execution_policy",
+                "policy": json.dumps({
                     "Version": "2012-10-17",
                     "Statement": [{
                         "Action": [
@@ -449,7 +449,7 @@ class Domain(pulumi.CustomResource):
                         "Resource": "*",
                     }],
                 }),
-            )])
+            }])
         example = aws.datazone.Domain("example",
             name="example",
             domain_execution_role=domain_execution_role.arn)
@@ -482,9 +482,9 @@ class Domain(pulumi.CustomResource):
                  domain_execution_role: Optional[pulumi.Input[str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 single_sign_on: Optional[pulumi.Input[pulumi.InputType['DomainSingleSignOnArgs']]] = None,
+                 single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DomainTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -522,10 +522,10 @@ class Domain(pulumi.CustomResource):
             kms_key_identifier: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             portal_url: Optional[pulumi.Input[str]] = None,
-            single_sign_on: Optional[pulumi.Input[pulumi.InputType['DomainSingleSignOnArgs']]] = None,
+            single_sign_on: Optional[pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['DomainTimeoutsArgs']]] = None) -> 'Domain':
+            timeouts: Optional[pulumi.Input[Union['DomainTimeoutsArgs', 'DomainTimeoutsArgsDict']]] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -541,7 +541,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_identifier: ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         :param pulumi.Input[str] name: Name of the Domain.
         :param pulumi.Input[str] portal_url: URL of the data portal for the Domain.
-        :param pulumi.Input[pulumi.InputType['DomainSingleSignOnArgs']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
+        :param pulumi.Input[Union['DomainSingleSignOnArgs', 'DomainSingleSignOnArgsDict']] single_sign_on: Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

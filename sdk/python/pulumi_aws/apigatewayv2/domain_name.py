@@ -215,8 +215,8 @@ class DomainName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_name_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]] = None,
-                 mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
+                 domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -236,11 +236,11 @@ class DomainName(pulumi.CustomResource):
 
         example = aws.apigatewayv2.DomainName("example",
             domain_name="ws-api.example.com",
-            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=example_aws_acm_certificate["arn"],
-                endpoint_type="REGIONAL",
-                security_policy="TLS_1_2",
-            ))
+            domain_name_configuration={
+                "certificateArn": example_aws_acm_certificate["arn"],
+                "endpointType": "REGIONAL",
+                "securityPolicy": "TLS_1_2",
+            })
         ```
 
         ### Associated Route 53 Resource Record
@@ -251,20 +251,20 @@ class DomainName(pulumi.CustomResource):
 
         example = aws.apigatewayv2.DomainName("example",
             domain_name="http-api.example.com",
-            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=example_aws_acm_certificate["arn"],
-                endpoint_type="REGIONAL",
-                security_policy="TLS_1_2",
-            ))
+            domain_name_configuration={
+                "certificateArn": example_aws_acm_certificate["arn"],
+                "endpointType": "REGIONAL",
+                "securityPolicy": "TLS_1_2",
+            })
         example_record = aws.route53.Record("example",
             name=example.domain_name,
             type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["zoneId"],
-            aliases=[aws.route53.RecordAliasArgs(
-                name=example.domain_name_configuration.target_domain_name,
-                zone_id=example.domain_name_configuration.hosted_zone_id,
-                evaluate_target_health=False,
-            )])
+            aliases=[{
+                "name": example.domain_name_configuration.target_domain_name,
+                "zoneId": example.domain_name_configuration.hosted_zone_id,
+                "evaluateTargetHealth": False,
+            }])
         ```
 
         ## Import
@@ -278,8 +278,8 @@ class DomainName(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: Domain name. Must be between 1 and 512 characters in length.
-        :param pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']] domain_name_configuration: Domain name configuration. See below.
-        :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']] domain_name_configuration: Domain name configuration. See below.
+        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -305,11 +305,11 @@ class DomainName(pulumi.CustomResource):
 
         example = aws.apigatewayv2.DomainName("example",
             domain_name="ws-api.example.com",
-            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=example_aws_acm_certificate["arn"],
-                endpoint_type="REGIONAL",
-                security_policy="TLS_1_2",
-            ))
+            domain_name_configuration={
+                "certificateArn": example_aws_acm_certificate["arn"],
+                "endpointType": "REGIONAL",
+                "securityPolicy": "TLS_1_2",
+            })
         ```
 
         ### Associated Route 53 Resource Record
@@ -320,20 +320,20 @@ class DomainName(pulumi.CustomResource):
 
         example = aws.apigatewayv2.DomainName("example",
             domain_name="http-api.example.com",
-            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
-                certificate_arn=example_aws_acm_certificate["arn"],
-                endpoint_type="REGIONAL",
-                security_policy="TLS_1_2",
-            ))
+            domain_name_configuration={
+                "certificateArn": example_aws_acm_certificate["arn"],
+                "endpointType": "REGIONAL",
+                "securityPolicy": "TLS_1_2",
+            })
         example_record = aws.route53.Record("example",
             name=example.domain_name,
             type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["zoneId"],
-            aliases=[aws.route53.RecordAliasArgs(
-                name=example.domain_name_configuration.target_domain_name,
-                zone_id=example.domain_name_configuration.hosted_zone_id,
-                evaluate_target_health=False,
-            )])
+            aliases=[{
+                "name": example.domain_name_configuration.target_domain_name,
+                "zoneId": example.domain_name_configuration.hosted_zone_id,
+                "evaluateTargetHealth": False,
+            }])
         ```
 
         ## Import
@@ -360,8 +360,8 @@ class DomainName(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_name_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]] = None,
-                 mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
+                 domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
+                 mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -396,8 +396,8 @@ class DomainName(pulumi.CustomResource):
             api_mapping_selection_expression: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
-            domain_name_configuration: Optional[pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']]] = None,
-            mutual_tls_authentication: Optional[pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']]] = None,
+            domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
+            mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DomainName':
         """
@@ -410,8 +410,8 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[str] api_mapping_selection_expression: [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
         :param pulumi.Input[str] arn: ARN of the domain name.
         :param pulumi.Input[str] domain_name: Domain name. Must be between 1 and 512 characters in length.
-        :param pulumi.Input[pulumi.InputType['DomainNameDomainNameConfigurationArgs']] domain_name_configuration: Domain name configuration. See below.
-        :param pulumi.Input[pulumi.InputType['DomainNameMutualTlsAuthenticationArgs']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
+        :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']] domain_name_configuration: Domain name configuration. See below.
+        :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

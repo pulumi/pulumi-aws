@@ -313,8 +313,8 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRuleActionArgs']]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['AutomationRuleCriteriaArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]]] = None,
+                 criteria: Optional[pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_terminal: Optional[pulumi.Input[bool]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
@@ -337,29 +337,29 @@ class AutomationRule(pulumi.CustomResource):
             description="Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
             rule_name="Elevate severity of findings that relate to important resources",
             rule_order=1,
-            actions=[aws.securityhub.AutomationRuleActionArgs(
-                finding_fields_update=aws.securityhub.AutomationRuleActionFindingFieldsUpdateArgs(
-                    severity=aws.securityhub.AutomationRuleActionFindingFieldsUpdateSeverityArgs(
-                        label="CRITICAL",
-                        product=0,
-                    ),
-                    note=aws.securityhub.AutomationRuleActionFindingFieldsUpdateNoteArgs(
-                        text="This is a critical resource. Please review ASAP.",
-                        updated_by="sechub-automation",
-                    ),
-                    types=["Software and Configuration Checks/Industry and Regulatory Standards"],
-                    user_defined_fields={
+            actions=[{
+                "findingFieldsUpdate": {
+                    "severity": {
+                        "label": "CRITICAL",
+                        "product": 0,
+                    },
+                    "note": {
+                        "text": "This is a critical resource. Please review ASAP.",
+                        "updatedBy": "sechub-automation",
+                    },
+                    "types": ["Software and Configuration Checks/Industry and Regulatory Standards"],
+                    "userDefinedFields": {
                         "key": "value",
                     },
-                ),
-                type="FINDING_FIELDS_UPDATE",
-            )],
-            criteria=aws.securityhub.AutomationRuleCriteriaArgs(
-                resource_ids=[aws.securityhub.AutomationRuleCriteriaResourceIdArgs(
-                    comparison="EQUALS",
-                    value="arn:aws:s3:::examplebucket/*",
-                )],
-            ))
+                },
+                "type": "FINDING_FIELDS_UPDATE",
+            }],
+            criteria={
+                "resourceIds": [{
+                    "comparison": "EQUALS",
+                    "value": "arn:aws:s3:::examplebucket/*",
+                }],
+            })
         ```
 
         ## Import
@@ -372,8 +372,8 @@ class AutomationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRuleActionArgs']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        :param pulumi.Input[pulumi.InputType['AutomationRuleCriteriaArgs']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
+        :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[str] description: The description of the rule.
         :param pulumi.Input[bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
         :param pulumi.Input[str] rule_name: The name of the rule.
@@ -401,29 +401,29 @@ class AutomationRule(pulumi.CustomResource):
             description="Elevate finding severity to CRITICAL when specific resources such as an S3 bucket is at risk",
             rule_name="Elevate severity of findings that relate to important resources",
             rule_order=1,
-            actions=[aws.securityhub.AutomationRuleActionArgs(
-                finding_fields_update=aws.securityhub.AutomationRuleActionFindingFieldsUpdateArgs(
-                    severity=aws.securityhub.AutomationRuleActionFindingFieldsUpdateSeverityArgs(
-                        label="CRITICAL",
-                        product=0,
-                    ),
-                    note=aws.securityhub.AutomationRuleActionFindingFieldsUpdateNoteArgs(
-                        text="This is a critical resource. Please review ASAP.",
-                        updated_by="sechub-automation",
-                    ),
-                    types=["Software and Configuration Checks/Industry and Regulatory Standards"],
-                    user_defined_fields={
+            actions=[{
+                "findingFieldsUpdate": {
+                    "severity": {
+                        "label": "CRITICAL",
+                        "product": 0,
+                    },
+                    "note": {
+                        "text": "This is a critical resource. Please review ASAP.",
+                        "updatedBy": "sechub-automation",
+                    },
+                    "types": ["Software and Configuration Checks/Industry and Regulatory Standards"],
+                    "userDefinedFields": {
                         "key": "value",
                     },
-                ),
-                type="FINDING_FIELDS_UPDATE",
-            )],
-            criteria=aws.securityhub.AutomationRuleCriteriaArgs(
-                resource_ids=[aws.securityhub.AutomationRuleCriteriaResourceIdArgs(
-                    comparison="EQUALS",
-                    value="arn:aws:s3:::examplebucket/*",
-                )],
-            ))
+                },
+                "type": "FINDING_FIELDS_UPDATE",
+            }],
+            criteria={
+                "resourceIds": [{
+                    "comparison": "EQUALS",
+                    "value": "arn:aws:s3:::examplebucket/*",
+                }],
+            })
         ```
 
         ## Import
@@ -449,8 +449,8 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRuleActionArgs']]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['AutomationRuleCriteriaArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]]] = None,
+                 criteria: Optional[pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_terminal: Optional[pulumi.Input[bool]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
@@ -492,9 +492,9 @@ class AutomationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRuleActionArgs']]]]] = None,
+            actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            criteria: Optional[pulumi.Input[pulumi.InputType['AutomationRuleCriteriaArgs']]] = None,
+            criteria: Optional[pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             is_terminal: Optional[pulumi.Input[bool]] = None,
             rule_name: Optional[pulumi.Input[str]] = None,
@@ -509,9 +509,9 @@ class AutomationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRuleActionArgs']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionArgs', 'AutomationRuleActionArgsDict']]]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         :param pulumi.Input[str] arn: The ARN of the Security Hub automation rule.
-        :param pulumi.Input[pulumi.InputType['AutomationRuleCriteriaArgs']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
+        :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[str] description: The description of the rule.
         :param pulumi.Input[bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
         :param pulumi.Input[str] rule_name: The name of the rule.

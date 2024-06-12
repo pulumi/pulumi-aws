@@ -84,31 +84,31 @@ def get_service_account(region: Optional[str] = None,
     elb_logs_acl = aws.s3.BucketAclV2("elb_logs_acl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        effect="Allow",
-        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-            type="AWS",
-            identifiers=[main.arn],
-        )],
-        actions=["s3:PutObject"],
-        resources=[f"{arn}/AWSLogs/*"],
-    )]))
+    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        "effect": "Allow",
+        "principals": [{
+            "type": "AWS",
+            "identifiers": [main.arn],
+        }],
+        "actions": ["s3:PutObject"],
+        "resources": [f"{arn}/AWSLogs/*"],
+    }]))
     allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allow_elb_logging",
         bucket=elb_logs.id,
         policy=allow_elb_logging.json)
     bar = aws.elb.LoadBalancer("bar",
         name="my-foobar-elb",
         availability_zones=["us-west-2a"],
-        access_logs=aws.elb.LoadBalancerAccessLogsArgs(
-            bucket=elb_logs.id,
-            interval=5,
-        ),
-        listeners=[aws.elb.LoadBalancerListenerArgs(
-            instance_port=8000,
-            instance_protocol="http",
-            lb_port=80,
-            lb_protocol="http",
-        )])
+        access_logs={
+            "bucket": elb_logs.id,
+            "interval": 5,
+        },
+        listeners=[{
+            "instancePort": 8000,
+            "instanceProtocol": "http",
+            "lbPort": 80,
+            "lbProtocol": "http",
+        }])
     ```
 
 
@@ -146,31 +146,31 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     elb_logs_acl = aws.s3.BucketAclV2("elb_logs_acl",
         bucket=elb_logs.id,
         acl="private")
-    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        effect="Allow",
-        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-            type="AWS",
-            identifiers=[main.arn],
-        )],
-        actions=["s3:PutObject"],
-        resources=[f"{arn}/AWSLogs/*"],
-    )]))
+    allow_elb_logging = elb_logs.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        "effect": "Allow",
+        "principals": [{
+            "type": "AWS",
+            "identifiers": [main.arn],
+        }],
+        "actions": ["s3:PutObject"],
+        "resources": [f"{arn}/AWSLogs/*"],
+    }]))
     allow_elb_logging_bucket_policy = aws.s3.BucketPolicy("allow_elb_logging",
         bucket=elb_logs.id,
         policy=allow_elb_logging.json)
     bar = aws.elb.LoadBalancer("bar",
         name="my-foobar-elb",
         availability_zones=["us-west-2a"],
-        access_logs=aws.elb.LoadBalancerAccessLogsArgs(
-            bucket=elb_logs.id,
-            interval=5,
-        ),
-        listeners=[aws.elb.LoadBalancerListenerArgs(
-            instance_port=8000,
-            instance_protocol="http",
-            lb_port=80,
-            lb_protocol="http",
-        )])
+        access_logs={
+            "bucket": elb_logs.id,
+            "interval": 5,
+        },
+        listeners=[{
+            "instancePort": 8000,
+            "instanceProtocol": "http",
+            "lbPort": 80,
+            "lbProtocol": "http",
+        }])
     ```
 
 

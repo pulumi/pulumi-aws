@@ -264,10 +264,10 @@ class TableReplica(pulumi.CustomResource):
             billing_mode="PAY_PER_REQUEST",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="BrodoBaggins",
-                type="S",
-            )])
+            attributes=[{
+                "name": "BrodoBaggins",
+                "type": "S",
+            }])
         example_table_replica = aws.dynamodb.TableReplica("example",
             global_table_arn=example.arn,
             tags={
@@ -323,10 +323,10 @@ class TableReplica(pulumi.CustomResource):
             billing_mode="PAY_PER_REQUEST",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="BrodoBaggins",
-                type="S",
-            )])
+            attributes=[{
+                "name": "BrodoBaggins",
+                "type": "S",
+            }])
         example_table_replica = aws.dynamodb.TableReplica("example",
             global_table_arn=example.arn,
             tags={

@@ -287,7 +287,7 @@ class Room(pulumi.CustomResource):
                  logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  maximum_message_length: Optional[pulumi.Input[int]] = None,
                  maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
-                 message_review_handler: Optional[pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']]] = None,
+                 message_review_handler: Optional[pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -322,7 +322,7 @@ class Room(pulumi.CustomResource):
                specifically to rune/code-point count, not number of bytes.
         :param pulumi.Input[int] maximum_message_rate_per_second: Maximum number of messages per
                second that can be sent to the room (by all clients).
-        :param pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']] message_review_handler: Configuration information for optional
+        :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']] message_review_handler: Configuration information for optional
                review of messages.
         :param pulumi.Input[str] name: Room name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -373,7 +373,7 @@ class Room(pulumi.CustomResource):
                  logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  maximum_message_length: Optional[pulumi.Input[int]] = None,
                  maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
-                 message_review_handler: Optional[pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']]] = None,
+                 message_review_handler: Optional[pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -407,7 +407,7 @@ class Room(pulumi.CustomResource):
             logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             maximum_message_length: Optional[pulumi.Input[int]] = None,
             maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
-            message_review_handler: Optional[pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']]] = None,
+            message_review_handler: Optional[pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Room':
@@ -426,7 +426,7 @@ class Room(pulumi.CustomResource):
                specifically to rune/code-point count, not number of bytes.
         :param pulumi.Input[int] maximum_message_rate_per_second: Maximum number of messages per
                second that can be sent to the room (by all clients).
-        :param pulumi.Input[pulumi.InputType['RoomMessageReviewHandlerArgs']] message_review_handler: Configuration information for optional
+        :param pulumi.Input[Union['RoomMessageReviewHandlerArgs', 'RoomMessageReviewHandlerArgsDict']] message_review_handler: Configuration information for optional
                review of messages.
         :param pulumi.Input[str] name: Room name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

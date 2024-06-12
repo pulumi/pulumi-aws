@@ -322,11 +322,11 @@ class LifecycleHook(pulumi.CustomResource):
             name="test-foobar5",
             health_check_type="EC2",
             termination_policies=["OldestInstance"],
-            tags=[aws.autoscaling.GroupTagArgs(
-                key="Foo",
-                value="foo-bar",
-                propagate_at_launch=True,
-            )])
+            tags=[{
+                "key": "Foo",
+                "value": "foo-bar",
+                "propagateAtLaunch": True,
+            }])
         foobar_lifecycle_hook = aws.autoscaling.LifecycleHook("foobar",
             name="foobar",
             autoscaling_group_name=foobar.name,
@@ -392,11 +392,11 @@ class LifecycleHook(pulumi.CustomResource):
             name="test-foobar5",
             health_check_type="EC2",
             termination_policies=["OldestInstance"],
-            tags=[aws.autoscaling.GroupTagArgs(
-                key="Foo",
-                value="foo-bar",
-                propagate_at_launch=True,
-            )])
+            tags=[{
+                "key": "Foo",
+                "value": "foo-bar",
+                "propagateAtLaunch": True,
+            }])
         foobar_lifecycle_hook = aws.autoscaling.LifecycleHook("foobar",
             name="foobar",
             autoscaling_group_name=foobar.name,

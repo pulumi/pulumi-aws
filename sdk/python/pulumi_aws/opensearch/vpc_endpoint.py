@@ -113,7 +113,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_arn: Optional[pulumi.Input[str]] = None,
-                 vpc_options: Optional[pulumi.Input[pulumi.InputType['VpcEndpointVpcOptionsArgs']]] = None,
+                 vpc_options: Optional[pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
@@ -128,16 +128,16 @@ class VpcEndpoint(pulumi.CustomResource):
 
         foo = aws.opensearch.VpcEndpoint("foo",
             domain_arn=domain1["arn"],
-            vpc_options=aws.opensearch.VpcEndpointVpcOptionsArgs(
-                security_group_ids=[
+            vpc_options={
+                "securityGroupIds": [
                     test["id"],
                     test2["id"],
                 ],
-                subnet_ids=[
+                "subnetIds": [
                     test_aws_subnet["id"],
                     test2_aws_subnet["id"],
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -151,7 +151,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_arn: Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        :param pulumi.Input[pulumi.InputType['VpcEndpointVpcOptionsArgs']] vpc_options: Options to specify the subnets and security groups for the endpoint.
+        :param pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']] vpc_options: Options to specify the subnets and security groups for the endpoint.
         """
         ...
     @overload
@@ -172,16 +172,16 @@ class VpcEndpoint(pulumi.CustomResource):
 
         foo = aws.opensearch.VpcEndpoint("foo",
             domain_arn=domain1["arn"],
-            vpc_options=aws.opensearch.VpcEndpointVpcOptionsArgs(
-                security_group_ids=[
+            vpc_options={
+                "securityGroupIds": [
                     test["id"],
                     test2["id"],
                 ],
-                subnet_ids=[
+                "subnetIds": [
                     test_aws_subnet["id"],
                     test2_aws_subnet["id"],
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -208,7 +208,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_arn: Optional[pulumi.Input[str]] = None,
-                 vpc_options: Optional[pulumi.Input[pulumi.InputType['VpcEndpointVpcOptionsArgs']]] = None,
+                 vpc_options: Optional[pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -237,7 +237,7 @@ class VpcEndpoint(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             domain_arn: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
-            vpc_options: Optional[pulumi.Input[pulumi.InputType['VpcEndpointVpcOptionsArgs']]] = None) -> 'VpcEndpoint':
+            vpc_options: Optional[pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']]] = None) -> 'VpcEndpoint':
         """
         Get an existing VpcEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -247,7 +247,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_arn: Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
         :param pulumi.Input[str] endpoint: The connection endpoint ID for connecting to the domain.
-        :param pulumi.Input[pulumi.InputType['VpcEndpointVpcOptionsArgs']] vpc_options: Options to specify the subnets and security groups for the endpoint.
+        :param pulumi.Input[Union['VpcEndpointVpcOptionsArgs', 'VpcEndpointVpcOptionsArgsDict']] vpc_options: Options to specify the subnets and security groups for the endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

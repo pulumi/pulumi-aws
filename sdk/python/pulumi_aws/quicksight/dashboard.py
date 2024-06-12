@@ -492,11 +492,11 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
-                 dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardDashboardPublishOptionsArgs']]] = None,
+                 dashboard_publish_options: Optional[pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardPermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]]] = None,
+                 source_entity: Optional[pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
@@ -516,15 +516,15 @@ class Dashboard(pulumi.CustomResource):
             dashboard_id="example-id",
             name="example-name",
             version_description="version",
-            source_entity=aws.quicksight.DashboardSourceEntityArgs(
-                source_template=aws.quicksight.DashboardSourceEntitySourceTemplateArgs(
-                    arn=source["arn"],
-                    data_set_references=[aws.quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=dataset["arn"],
-                        data_set_placeholder="1",
-                    )],
-                ),
-            ))
+            source_entity={
+                "sourceTemplate": {
+                    "arn": source["arn"],
+                    "dataSetReferences": [{
+                        "dataSetArn": dataset["arn"],
+                        "dataSetPlaceholder": "1",
+                    }],
+                },
+            })
         ```
 
         ## Import
@@ -539,11 +539,11 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] dashboard_id: Identifier for the dashboard.
-        :param pulumi.Input[pulumi.InputType['DashboardDashboardPublishOptionsArgs']] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
+        :param pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
         :param pulumi.Input[str] name: Display name for the dashboard.
-        :param pulumi.Input[pulumi.InputType['DashboardParametersArgs']] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardPermissionArgs']]]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
-        :param pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         :param pulumi.Input[str] version_description: A description of the current dashboard version being created/updated.
@@ -571,15 +571,15 @@ class Dashboard(pulumi.CustomResource):
             dashboard_id="example-id",
             name="example-name",
             version_description="version",
-            source_entity=aws.quicksight.DashboardSourceEntityArgs(
-                source_template=aws.quicksight.DashboardSourceEntitySourceTemplateArgs(
-                    arn=source["arn"],
-                    data_set_references=[aws.quicksight.DashboardSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=dataset["arn"],
-                        data_set_placeholder="1",
-                    )],
-                ),
-            ))
+            source_entity={
+                "sourceTemplate": {
+                    "arn": source["arn"],
+                    "dataSetReferences": [{
+                        "dataSetArn": dataset["arn"],
+                        "dataSetPlaceholder": "1",
+                    }],
+                },
+            })
         ```
 
         ## Import
@@ -607,11 +607,11 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  dashboard_id: Optional[pulumi.Input[str]] = None,
-                 dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardDashboardPublishOptionsArgs']]] = None,
+                 dashboard_publish_options: Optional[pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardPermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']]] = None,
+                 parameters: Optional[pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]]] = None,
+                 source_entity: Optional[pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
@@ -660,13 +660,13 @@ class Dashboard(pulumi.CustomResource):
             aws_account_id: Optional[pulumi.Input[str]] = None,
             created_time: Optional[pulumi.Input[str]] = None,
             dashboard_id: Optional[pulumi.Input[str]] = None,
-            dashboard_publish_options: Optional[pulumi.Input[pulumi.InputType['DashboardDashboardPublishOptionsArgs']]] = None,
+            dashboard_publish_options: Optional[pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']]] = None,
             last_published_time: Optional[pulumi.Input[str]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[pulumi.InputType['DashboardParametersArgs']]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardPermissionArgs']]]]] = None,
-            source_entity: Optional[pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']]] = None,
+            parameters: Optional[pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']]] = None,
+            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]]] = None,
+            source_entity: Optional[pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
             source_entity_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -685,12 +685,12 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] created_time: The time that the dashboard was created.
         :param pulumi.Input[str] dashboard_id: Identifier for the dashboard.
-        :param pulumi.Input[pulumi.InputType['DashboardDashboardPublishOptionsArgs']] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
+        :param pulumi.Input[Union['DashboardDashboardPublishOptionsArgs', 'DashboardDashboardPublishOptionsArgsDict']] dashboard_publish_options: Options for publishing the dashboard. See dashboard_publish_options.
         :param pulumi.Input[str] last_updated_time: The time that the dashboard was last updated.
         :param pulumi.Input[str] name: Display name for the dashboard.
-        :param pulumi.Input[pulumi.InputType['DashboardParametersArgs']] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DashboardPermissionArgs']]]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
-        :param pulumi.Input[pulumi.InputType['DashboardSourceEntityArgs']] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['DashboardParametersArgs', 'DashboardParametersArgsDict']] parameters: The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[str] source_entity_arn: Amazon Resource Name (ARN) of a template that was used to create this dashboard.
         :param pulumi.Input[str] status: The dashboard creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

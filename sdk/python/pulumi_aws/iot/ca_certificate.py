@@ -349,7 +349,7 @@ class CaCertificate(pulumi.CustomResource):
                  allow_auto_registration: Optional[pulumi.Input[bool]] = None,
                  ca_certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input[str]] = None,
-                 registration_config: Optional[pulumi.Input[pulumi.InputType['CaCertificateRegistrationConfigArgs']]] = None,
+                 registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -366,10 +366,10 @@ class CaCertificate(pulumi.CustomResource):
         ca_private_key = tls.PrivateKey("ca", algorithm="RSA")
         ca = tls.SelfSignedCert("ca",
             private_key_pem=ca_private_key.private_key_pem,
-            subject=tls.SelfSignedCertSubjectArgs(
-                common_name="example.com",
-                organization="ACME Examples, Inc",
-            ),
+            subject={
+                "commonName": "example.com",
+                "organization": "ACME Examples, Inc",
+            },
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -381,9 +381,9 @@ class CaCertificate(pulumi.CustomResource):
         example = aws.iot.get_registration_code()
         verification = tls.CertRequest("verification",
             private_key_pem=verification_private_key.private_key_pem,
-            subject=tls.CertRequestSubjectArgs(
-                common_name=example.registration_code,
-            ))
+            subject={
+                "commonName": example.registration_code,
+            })
         verification_locally_signed_cert = tls.LocallySignedCert("verification",
             cert_request_pem=verification.cert_request_pem,
             ca_private_key_pem=ca_private_key.private_key_pem,
@@ -407,7 +407,7 @@ class CaCertificate(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
         :param pulumi.Input[str] ca_certificate_pem: PEM encoded CA certificate.
         :param pulumi.Input[str] certificate_mode: The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
-        :param pulumi.Input[pulumi.InputType['CaCertificateRegistrationConfigArgs']] registration_config: Information about the registration configuration. See below.
+        :param pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']] registration_config: Information about the registration configuration. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] verification_certificate_pem: PEM encoded verification certificate containing the common name of a registration code. Review
                [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
@@ -431,10 +431,10 @@ class CaCertificate(pulumi.CustomResource):
         ca_private_key = tls.PrivateKey("ca", algorithm="RSA")
         ca = tls.SelfSignedCert("ca",
             private_key_pem=ca_private_key.private_key_pem,
-            subject=tls.SelfSignedCertSubjectArgs(
-                common_name="example.com",
-                organization="ACME Examples, Inc",
-            ),
+            subject={
+                "commonName": "example.com",
+                "organization": "ACME Examples, Inc",
+            },
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -446,9 +446,9 @@ class CaCertificate(pulumi.CustomResource):
         example = aws.iot.get_registration_code()
         verification = tls.CertRequest("verification",
             private_key_pem=verification_private_key.private_key_pem,
-            subject=tls.CertRequestSubjectArgs(
-                common_name=example.registration_code,
-            ))
+            subject={
+                "commonName": example.registration_code,
+            })
         verification_locally_signed_cert = tls.LocallySignedCert("verification",
             cert_request_pem=verification.cert_request_pem,
             ca_private_key_pem=ca_private_key.private_key_pem,
@@ -485,7 +485,7 @@ class CaCertificate(pulumi.CustomResource):
                  allow_auto_registration: Optional[pulumi.Input[bool]] = None,
                  ca_certificate_pem: Optional[pulumi.Input[str]] = None,
                  certificate_mode: Optional[pulumi.Input[str]] = None,
-                 registration_config: Optional[pulumi.Input[pulumi.InputType['CaCertificateRegistrationConfigArgs']]] = None,
+                 registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -534,10 +534,10 @@ class CaCertificate(pulumi.CustomResource):
             certificate_mode: Optional[pulumi.Input[str]] = None,
             customer_version: Optional[pulumi.Input[int]] = None,
             generation_id: Optional[pulumi.Input[str]] = None,
-            registration_config: Optional[pulumi.Input[pulumi.InputType['CaCertificateRegistrationConfigArgs']]] = None,
+            registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            validities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CaCertificateValidityArgs']]]]] = None,
+            validities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CaCertificateValidityArgs', 'CaCertificateValidityArgsDict']]]]] = None,
             verification_certificate_pem: Optional[pulumi.Input[str]] = None) -> 'CaCertificate':
         """
         Get an existing CaCertificate resource's state with the given name, id, and optional extra
@@ -553,10 +553,10 @@ class CaCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_mode: The certificate mode in which the CA will be registered. Valida values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         :param pulumi.Input[int] customer_version: The customer version of the CA certificate.
         :param pulumi.Input[str] generation_id: The generation ID of the CA certificate.
-        :param pulumi.Input[pulumi.InputType['CaCertificateRegistrationConfigArgs']] registration_config: Information about the registration configuration. See below.
+        :param pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']] registration_config: Information about the registration configuration. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CaCertificateValidityArgs']]]] validities: When the CA certificate is valid.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CaCertificateValidityArgs', 'CaCertificateValidityArgsDict']]]] validities: When the CA certificate is valid.
         :param pulumi.Input[str] verification_certificate_pem: PEM encoded verification certificate containing the common name of a registration code. Review
                [CreateVerificationCSR](https://docs.aws.amazon.com/iot/latest/developerguide/register-CA-cert.html). Reuired if `certificate_mode` is `DEFAULT`.
         """

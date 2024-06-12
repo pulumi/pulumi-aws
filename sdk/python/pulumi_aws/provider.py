@@ -567,17 +567,17 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
-                 assume_role_with_web_identity: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleWithWebIdentityArgs']]] = None,
+                 assume_role: Optional[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
+                 assume_role_with_web_identity: Optional[pulumi.Input[Union['ProviderAssumeRoleWithWebIdentityArgs', 'ProviderAssumeRoleWithWebIdentityArgsDict']]] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
-                 default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
+                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
                  ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
                  https_proxy: Optional[pulumi.Input[str]] = None,
-                 ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
+                 ignore_tags: Optional[pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  no_proxy: Optional[pulumi.Input[str]] = None,
@@ -610,7 +610,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[str] custom_ca_bundle: File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
                variable. (Setting `ca_bundle` in the shared config file is not supported.)
-        :param pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']] default_tags: Configuration block with settings to default resource tags across all resources.
+        :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: Configuration block with settings to default resource tags across all resources.
         :param pulumi.Input[str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the
                `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         :param pulumi.Input[str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
@@ -619,7 +619,7 @@ class Provider(pulumi.ProviderResource):
                `http_proxy` environment variables.
         :param pulumi.Input[str] https_proxy: URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or
                `https_proxy` environment variables.
-        :param pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
+        :param pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] no_proxy: Comma-separated list of hosts that should not use HTTP or HTTPS proxies. Can also be set using the `NO_PROXY` or
@@ -678,17 +678,17 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
-                 assume_role_with_web_identity: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleWithWebIdentityArgs']]] = None,
+                 assume_role: Optional[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
+                 assume_role_with_web_identity: Optional[pulumi.Input[Union['ProviderAssumeRoleWithWebIdentityArgs', 'ProviderAssumeRoleWithWebIdentityArgsDict']]] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
-                 default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
+                 default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
                  ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
                  https_proxy: Optional[pulumi.Input[str]] = None,
-                 ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
+                 ignore_tags: Optional[pulumi.Input[Union['ProviderIgnoreTagsArgs', 'ProviderIgnoreTagsArgsDict']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  no_proxy: Optional[pulumi.Input[str]] = None,

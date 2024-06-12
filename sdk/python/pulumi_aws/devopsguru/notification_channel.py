@@ -106,8 +106,8 @@ class NotificationChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['NotificationChannelFiltersArgs']]] = None,
-                 sns: Optional[pulumi.Input[pulumi.InputType['NotificationChannelSnsArgs']]] = None,
+                 filters: Optional[pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']]] = None,
+                 sns: Optional[pulumi.Input[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS DevOps Guru Notification Channel.
@@ -120,9 +120,9 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.devopsguru.NotificationChannel("example", sns=aws.devopsguru.NotificationChannelSnsArgs(
-            topic_arn=example_aws_sns_topic["arn"],
-        ))
+        example = aws.devopsguru.NotificationChannel("example", sns={
+            "topicArn": example_aws_sns_topic["arn"],
+        })
         ```
 
         ### Filters
@@ -132,13 +132,13 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.NotificationChannel("example",
-            sns=aws.devopsguru.NotificationChannelSnsArgs(
-                topic_arn=example_aws_sns_topic["arn"],
-            ),
-            filters=aws.devopsguru.NotificationChannelFiltersArgs(
-                message_types=["NEW_INSIGHT"],
-                severities=["HIGH"],
-            ))
+            sns={
+                "topicArn": example_aws_sns_topic["arn"],
+            },
+            filters={
+                "messageTypes": ["NEW_INSIGHT"],
+                "severities": ["HIGH"],
+            })
         ```
 
         ## Import
@@ -151,8 +151,8 @@ class NotificationChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['NotificationChannelFiltersArgs']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-        :param pulumi.Input[pulumi.InputType['NotificationChannelSnsArgs']] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
+        :param pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict']] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
         """
@@ -173,9 +173,9 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.devopsguru.NotificationChannel("example", sns=aws.devopsguru.NotificationChannelSnsArgs(
-            topic_arn=example_aws_sns_topic["arn"],
-        ))
+        example = aws.devopsguru.NotificationChannel("example", sns={
+            "topicArn": example_aws_sns_topic["arn"],
+        })
         ```
 
         ### Filters
@@ -185,13 +185,13 @@ class NotificationChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devopsguru.NotificationChannel("example",
-            sns=aws.devopsguru.NotificationChannelSnsArgs(
-                topic_arn=example_aws_sns_topic["arn"],
-            ),
-            filters=aws.devopsguru.NotificationChannelFiltersArgs(
-                message_types=["NEW_INSIGHT"],
-                severities=["HIGH"],
-            ))
+            sns={
+                "topicArn": example_aws_sns_topic["arn"],
+            },
+            filters={
+                "messageTypes": ["NEW_INSIGHT"],
+                "severities": ["HIGH"],
+            })
         ```
 
         ## Import
@@ -217,8 +217,8 @@ class NotificationChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['NotificationChannelFiltersArgs']]] = None,
-                 sns: Optional[pulumi.Input[pulumi.InputType['NotificationChannelSnsArgs']]] = None,
+                 filters: Optional[pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']]] = None,
+                 sns: Optional[pulumi.Input[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -240,8 +240,8 @@ class NotificationChannel(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            filters: Optional[pulumi.Input[pulumi.InputType['NotificationChannelFiltersArgs']]] = None,
-            sns: Optional[pulumi.Input[pulumi.InputType['NotificationChannelSnsArgs']]] = None) -> 'NotificationChannel':
+            filters: Optional[pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']]] = None,
+            sns: Optional[pulumi.Input[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict']]] = None) -> 'NotificationChannel':
         """
         Get an existing NotificationChannel resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -249,8 +249,8 @@ class NotificationChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['NotificationChannelFiltersArgs']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-        :param pulumi.Input[pulumi.InputType['NotificationChannelSnsArgs']] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
+        :param pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict']] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
         """

@@ -199,8 +199,8 @@ class V2modelsBotVersion(pulumi.CustomResource):
                  bot_id: Optional[pulumi.Input[str]] = None,
                  bot_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['V2modelsBotVersionLocaleSpecificationArgs']]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsBotVersionTimeoutsArgs']]] = None,
+                 locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
+                 timeouts: Optional[pulumi.Input[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lex V2 Models Bot Version.
@@ -216,9 +216,9 @@ class V2modelsBotVersion(pulumi.CustomResource):
         test = aws.lex.V2modelsBotVersion("test",
             bot_id=test_aws_lexv2models["id"],
             locale_specification={
-                "en_US": aws.lex.V2modelsBotVersionLocaleSpecificationArgs(
-                    source_bot_version="DRAFT",
-                ),
+                "en_US": {
+                    "sourceBotVersion": "DRAFT",
+                },
             })
         ```
 
@@ -235,7 +235,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
         :param pulumi.Input[str] bot_id: Idientifier of the bot to create the version for.
         :param pulumi.Input[str] bot_version: Version number assigned to the version.
         :param pulumi.Input[str] description: A description of the version. Use the description to help identify the version in lists.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['V2modelsBotVersionLocaleSpecificationArgs']]]] locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]] locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
                
                The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
                * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
@@ -260,9 +260,9 @@ class V2modelsBotVersion(pulumi.CustomResource):
         test = aws.lex.V2modelsBotVersion("test",
             bot_id=test_aws_lexv2models["id"],
             locale_specification={
-                "en_US": aws.lex.V2modelsBotVersionLocaleSpecificationArgs(
-                    source_bot_version="DRAFT",
-                ),
+                "en_US": {
+                    "sourceBotVersion": "DRAFT",
+                },
             })
         ```
 
@@ -292,8 +292,8 @@ class V2modelsBotVersion(pulumi.CustomResource):
                  bot_id: Optional[pulumi.Input[str]] = None,
                  bot_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['V2modelsBotVersionLocaleSpecificationArgs']]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsBotVersionTimeoutsArgs']]] = None,
+                 locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
+                 timeouts: Optional[pulumi.Input[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -325,8 +325,8 @@ class V2modelsBotVersion(pulumi.CustomResource):
             bot_id: Optional[pulumi.Input[str]] = None,
             bot_version: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['V2modelsBotVersionLocaleSpecificationArgs']]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsBotVersionTimeoutsArgs']]] = None) -> 'V2modelsBotVersion':
+            locale_specification: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]]] = None,
+            timeouts: Optional[pulumi.Input[Union['V2modelsBotVersionTimeoutsArgs', 'V2modelsBotVersionTimeoutsArgsDict']]] = None) -> 'V2modelsBotVersion':
         """
         Get an existing V2modelsBotVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -337,7 +337,7 @@ class V2modelsBotVersion(pulumi.CustomResource):
         :param pulumi.Input[str] bot_id: Idientifier of the bot to create the version for.
         :param pulumi.Input[str] bot_version: Version number assigned to the version.
         :param pulumi.Input[str] description: A description of the version. Use the description to help identify the version in lists.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['V2modelsBotVersionLocaleSpecificationArgs']]]] locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['V2modelsBotVersionLocaleSpecificationArgs', 'V2modelsBotVersionLocaleSpecificationArgsDict']]]] locale_specification: Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
                
                The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
                * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.

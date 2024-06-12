@@ -283,7 +283,7 @@ class UserProfile(pulumi.CustomResource):
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
-                 user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']]] = None,
+                 user_settings: Optional[pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Provides a SageMaker User Profile resource.
@@ -316,7 +316,7 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_profile_name: The name for the User Profile.
-        :param pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']] user_settings: The user settings. See User Settings below.
+        :param pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']] user_settings: The user settings. See User Settings below.
         """
         ...
     @overload
@@ -368,7 +368,7 @@ class UserProfile(pulumi.CustomResource):
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
-                 user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']]] = None,
+                 user_settings: Optional[pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -409,7 +409,7 @@ class UserProfile(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_profile_name: Optional[pulumi.Input[str]] = None,
-            user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']]] = None) -> 'UserProfile':
+            user_settings: Optional[pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None) -> 'UserProfile':
         """
         Get an existing UserProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -425,7 +425,7 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_profile_name: The name for the User Profile.
-        :param pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']] user_settings: The user settings. See User Settings below.
+        :param pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']] user_settings: The user settings. See User Settings below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

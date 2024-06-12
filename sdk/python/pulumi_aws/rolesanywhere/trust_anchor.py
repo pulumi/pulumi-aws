@@ -201,7 +201,7 @@ class TrustAnchor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -216,35 +216,35 @@ class TrustAnchor(pulumi.CustomResource):
         example = aws.acmpca.CertificateAuthority("example",
             permanent_deletion_time_in_days=7,
             type="ROOT",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ))
+            certificate_authority_configuration={
+                "keyAlgorithm": "RSA_4096",
+                "signingAlgorithm": "SHA512WITHRSA",
+                "subject": {
+                    "commonName": "example.com",
+                },
+            })
         current = aws.get_partition()
         test = aws.acmpca.Certificate("test",
             certificate_authority_arn=example.arn,
             certificate_signing_request=example.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
-                type="YEARS",
-                value="1",
-            ))
+            validity={
+                "type": "YEARS",
+                "value": "1",
+            })
         example_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("example",
             certificate_authority_arn=example.arn,
             certificate=example_aws_acmpca_certificate["certificate"],
             certificate_chain=example_aws_acmpca_certificate["certificateChain"])
         test_trust_anchor = aws.rolesanywhere.TrustAnchor("test",
             name="example",
-            source=aws.rolesanywhere.TrustAnchorSourceArgs(
-                source_data=aws.rolesanywhere.TrustAnchorSourceSourceDataArgs(
-                    acm_pca_arn=example.arn,
-                ),
-                source_type="AWS_ACM_PCA",
-            ),
+            source={
+                "sourceData": {
+                    "acmPcaArn": example.arn,
+                },
+                "sourceType": "AWS_ACM_PCA",
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
         ```
 
@@ -260,7 +260,7 @@ class TrustAnchor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether or not the Trust Anchor should be enabled.
         :param pulumi.Input[str] name: The name of the Trust Anchor.
-        :param pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']] source: The source of trust, documented below
+        :param pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']] source: The source of trust, documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -281,35 +281,35 @@ class TrustAnchor(pulumi.CustomResource):
         example = aws.acmpca.CertificateAuthority("example",
             permanent_deletion_time_in_days=7,
             type="ROOT",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ))
+            certificate_authority_configuration={
+                "keyAlgorithm": "RSA_4096",
+                "signingAlgorithm": "SHA512WITHRSA",
+                "subject": {
+                    "commonName": "example.com",
+                },
+            })
         current = aws.get_partition()
         test = aws.acmpca.Certificate("test",
             certificate_authority_arn=example.arn,
             certificate_signing_request=example.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
-                type="YEARS",
-                value="1",
-            ))
+            validity={
+                "type": "YEARS",
+                "value": "1",
+            })
         example_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("example",
             certificate_authority_arn=example.arn,
             certificate=example_aws_acmpca_certificate["certificate"],
             certificate_chain=example_aws_acmpca_certificate["certificateChain"])
         test_trust_anchor = aws.rolesanywhere.TrustAnchor("test",
             name="example",
-            source=aws.rolesanywhere.TrustAnchorSourceArgs(
-                source_data=aws.rolesanywhere.TrustAnchorSourceSourceDataArgs(
-                    acm_pca_arn=example.arn,
-                ),
-                source_type="AWS_ACM_PCA",
-            ),
+            source={
+                "sourceData": {
+                    "acmPcaArn": example.arn,
+                },
+                "sourceType": "AWS_ACM_PCA",
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
         ```
 
@@ -338,7 +338,7 @@ class TrustAnchor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -370,7 +370,7 @@ class TrustAnchor(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']]] = None,
+            source: Optional[pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'TrustAnchor':
         """
@@ -383,7 +383,7 @@ class TrustAnchor(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Trust Anchor
         :param pulumi.Input[bool] enabled: Whether or not the Trust Anchor should be enabled.
         :param pulumi.Input[str] name: The name of the Trust Anchor.
-        :param pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']] source: The source of trust, documented below
+        :param pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']] source: The source of trust, documented below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

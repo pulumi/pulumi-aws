@@ -67,9 +67,9 @@ class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
             sns=self.sns)
 
 
-def get_notification_channel(filters: Optional[Sequence[pulumi.InputType['GetNotificationChannelFilterArgs']]] = None,
+def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']]] = None,
                              id: Optional[str] = None,
-                             sns: Optional[Sequence[pulumi.InputType['GetNotificationChannelSnArgs']]] = None,
+                             sns: Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationChannelResult:
     """
     Data source for managing an AWS DevOps Guru Notification Channel.
@@ -86,9 +86,9 @@ def get_notification_channel(filters: Optional[Sequence[pulumi.InputType['GetNot
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNotificationChannelFilterArgs']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
+    :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
     :param str id: Unique identifier for the notification channel.
-    :param Sequence[pulumi.InputType['GetNotificationChannelSnArgs']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
+    :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -104,9 +104,9 @@ def get_notification_channel(filters: Optional[Sequence[pulumi.InputType['GetNot
 
 
 @_utilities.lift_output_func(get_notification_channel)
-def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNotificationChannelFilterArgs']]]]] = None,
+def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']]]]] = None,
                                     id: Optional[pulumi.Input[str]] = None,
-                                    sns: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNotificationChannelSnArgs']]]]] = None,
+                                    sns: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
     Data source for managing an AWS DevOps Guru Notification Channel.
@@ -123,8 +123,8 @@ def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequ
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNotificationChannelFilterArgs']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
+    :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
     :param str id: Unique identifier for the notification channel.
-    :param Sequence[pulumi.InputType['GetNotificationChannelSnArgs']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
+    :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
     """
     ...

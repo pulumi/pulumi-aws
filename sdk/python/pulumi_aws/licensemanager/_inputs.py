@@ -28,10 +28,10 @@ class GetLicenseGrantsFilterArgs:
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArgs(
-                   name="ProductSKU",
-                   values=[""],
-               )])
+               selected = aws.licensemanager.get_license_grants(filters=[{
+                   "name": "ProductSKU",
+                   "values": [""],
+               }])
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
@@ -50,10 +50,10 @@ class GetLicenseGrantsFilterArgs:
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArgs(
-            name="ProductSKU",
-            values=[""],
-        )])
+        selected = aws.licensemanager.get_license_grants(filters=[{
+            "name": "ProductSKU",
+            "values": [""],
+        }])
         ```
         """
         return pulumi.get(self, "name")
@@ -89,10 +89,10 @@ class GetReceivedLicensesFilterArgs:
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArgs(
-                   name="ProductSKU",
-                   values=[""],
-               )])
+               selected = aws.licensemanager.get_received_licenses(filters=[{
+                   "name": "ProductSKU",
+                   "values": [""],
+               }])
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
@@ -111,10 +111,10 @@ class GetReceivedLicensesFilterArgs:
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArgs(
-            name="ProductSKU",
-            values=[""],
-        )])
+        selected = aws.licensemanager.get_received_licenses(filters=[{
+            "name": "ProductSKU",
+            "values": [""],
+        }])
         ```
         """
         return pulumi.get(self, "name")

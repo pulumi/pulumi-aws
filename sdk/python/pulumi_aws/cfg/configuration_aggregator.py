@@ -208,9 +208,9 @@ class ConfigurationAggregator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_aggregation_source: Optional[pulumi.Input[pulumi.InputType['ConfigurationAggregatorAccountAggregationSourceArgs']]] = None,
+                 account_aggregation_source: Optional[pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 organization_aggregation_source: Optional[pulumi.Input[pulumi.InputType['ConfigurationAggregatorOrganizationAggregationSourceArgs']]] = None,
+                 organization_aggregation_source: Optional[pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -226,10 +226,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         account = aws.cfg.ConfigurationAggregator("account",
             name="example",
-            account_aggregation_source=aws.cfg.ConfigurationAggregatorAccountAggregationSourceArgs(
-                account_ids=["123456789012"],
-                regions=["us-west-2"],
-            ))
+            account_aggregation_source={
+                "accountIds": ["123456789012"],
+                "regions": ["us-west-2"],
+            })
         ```
 
         ### Organization Based Aggregation
@@ -238,14 +238,14 @@ class ConfigurationAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["config.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         organization_role = aws.iam.Role("organization",
             name="example",
             assume_role_policy=assume_role.json)
@@ -254,10 +254,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
         organization = aws.cfg.ConfigurationAggregator("organization",
             name="example",
-            organization_aggregation_source=aws.cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs(
-                all_regions=True,
-                role_arn=organization_role.arn,
-            ),
+            organization_aggregation_source={
+                "allRegions": True,
+                "roleArn": organization_role.arn,
+            },
             opts=pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
         ```
 
@@ -271,9 +271,9 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAggregatorAccountAggregationSourceArgs']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
+        :param pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
         :param pulumi.Input[str] name: The name of the configuration aggregator.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAggregatorOrganizationAggregationSourceArgs']] organization_aggregation_source: The organization to aggregate config data from as documented below.
+        :param pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']] organization_aggregation_source: The organization to aggregate config data from as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
@@ -297,10 +297,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         account = aws.cfg.ConfigurationAggregator("account",
             name="example",
-            account_aggregation_source=aws.cfg.ConfigurationAggregatorAccountAggregationSourceArgs(
-                account_ids=["123456789012"],
-                regions=["us-west-2"],
-            ))
+            account_aggregation_source={
+                "accountIds": ["123456789012"],
+                "regions": ["us-west-2"],
+            })
         ```
 
         ### Organization Based Aggregation
@@ -309,14 +309,14 @@ class ConfigurationAggregator(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["config.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         organization_role = aws.iam.Role("organization",
             name="example",
             assume_role_policy=assume_role.json)
@@ -325,10 +325,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
         organization = aws.cfg.ConfigurationAggregator("organization",
             name="example",
-            organization_aggregation_source=aws.cfg.ConfigurationAggregatorOrganizationAggregationSourceArgs(
-                all_regions=True,
-                role_arn=organization_role.arn,
-            ),
+            organization_aggregation_source={
+                "allRegions": True,
+                "roleArn": organization_role.arn,
+            },
             opts=pulumi.ResourceOptions(depends_on=[organization_role_policy_attachment]))
         ```
 
@@ -355,9 +355,9 @@ class ConfigurationAggregator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_aggregation_source: Optional[pulumi.Input[pulumi.InputType['ConfigurationAggregatorAccountAggregationSourceArgs']]] = None,
+                 account_aggregation_source: Optional[pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 organization_aggregation_source: Optional[pulumi.Input[pulumi.InputType['ConfigurationAggregatorOrganizationAggregationSourceArgs']]] = None,
+                 organization_aggregation_source: Optional[pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -384,10 +384,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_aggregation_source: Optional[pulumi.Input[pulumi.InputType['ConfigurationAggregatorAccountAggregationSourceArgs']]] = None,
+            account_aggregation_source: Optional[pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            organization_aggregation_source: Optional[pulumi.Input[pulumi.InputType['ConfigurationAggregatorOrganizationAggregationSourceArgs']]] = None,
+            organization_aggregation_source: Optional[pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ConfigurationAggregator':
         """
@@ -397,10 +397,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAggregatorAccountAggregationSourceArgs']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
+        :param pulumi.Input[Union['ConfigurationAggregatorAccountAggregationSourceArgs', 'ConfigurationAggregatorAccountAggregationSourceArgsDict']] account_aggregation_source: The account(s) to aggregate config data from as documented below.
         :param pulumi.Input[str] arn: The ARN of the aggregator
         :param pulumi.Input[str] name: The name of the configuration aggregator.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAggregatorOrganizationAggregationSourceArgs']] organization_aggregation_source: The organization to aggregate config data from as documented below.
+        :param pulumi.Input[Union['ConfigurationAggregatorOrganizationAggregationSourceArgs', 'ConfigurationAggregatorOrganizationAggregationSourceArgsDict']] organization_aggregation_source: The organization to aggregate config data from as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                Either `account_aggregation_source` or `organization_aggregation_source` must be specified.

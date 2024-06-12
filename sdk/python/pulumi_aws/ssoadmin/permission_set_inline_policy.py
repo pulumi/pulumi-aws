@@ -140,14 +140,14 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         example_permission_set = aws.ssoadmin.PermissionSet("example",
             name="Example",
             instance_arn=example.arns[0])
-        example_get_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="1",
-            actions=[
+        example_get_policy_document = aws.iam.get_policy_document(statements=[{
+            "sid": "1",
+            "actions": [
                 "s3:ListAllMyBuckets",
                 "s3:GetBucketLocation",
             ],
-            resources=["arn:aws:s3:::*"],
-        )])
+            "resources": ["arn:aws:s3:::*"],
+        }])
         example_permission_set_inline_policy = aws.ssoadmin.PermissionSetInlinePolicy("example",
             inline_policy=example_get_policy_document.json,
             instance_arn=example.arns[0],
@@ -185,14 +185,14 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         example_permission_set = aws.ssoadmin.PermissionSet("example",
             name="Example",
             instance_arn=example.arns[0])
-        example_get_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="1",
-            actions=[
+        example_get_policy_document = aws.iam.get_policy_document(statements=[{
+            "sid": "1",
+            "actions": [
                 "s3:ListAllMyBuckets",
                 "s3:GetBucketLocation",
             ],
-            resources=["arn:aws:s3:::*"],
-        )])
+            "resources": ["arn:aws:s3:::*"],
+        }])
         example_permission_set_inline_policy = aws.ssoadmin.PermissionSetInlinePolicy("example",
             inline_policy=example_get_policy_document.json,
             instance_arn=example.arns[0],

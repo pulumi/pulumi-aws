@@ -727,7 +727,7 @@ class OntapFileSystem(pulumi.CustomResource):
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input[pulumi.InputType['OntapFileSystemDiskIopsConfigurationArgs']]] = None,
+                 disk_iops_configuration: Optional[pulumi.Input[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']]] = None,
                  endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
                  fsx_admin_password: Optional[pulumi.Input[str]] = None,
                  ha_pairs: Optional[pulumi.Input[int]] = None,
@@ -790,7 +790,7 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
-        :param pulumi.Input[pulumi.InputType['OntapFileSystemDiskIopsConfigurationArgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
+        :param pulumi.Input[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] endpoint_ip_address_range: Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
         :param pulumi.Input[str] fsx_admin_password: The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         :param pulumi.Input[int] ha_pairs: The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
@@ -872,7 +872,7 @@ class OntapFileSystem(pulumi.CustomResource):
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input[pulumi.InputType['OntapFileSystemDiskIopsConfigurationArgs']]] = None,
+                 disk_iops_configuration: Optional[pulumi.Input[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']]] = None,
                  endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
                  fsx_admin_password: Optional[pulumi.Input[str]] = None,
                  ha_pairs: Optional[pulumi.Input[int]] = None,
@@ -945,10 +945,10 @@ class OntapFileSystem(pulumi.CustomResource):
             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
             deployment_type: Optional[pulumi.Input[str]] = None,
-            disk_iops_configuration: Optional[pulumi.Input[pulumi.InputType['OntapFileSystemDiskIopsConfigurationArgs']]] = None,
+            disk_iops_configuration: Optional[pulumi.Input[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OntapFileSystemEndpointArgs']]]]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OntapFileSystemEndpointArgs', 'OntapFileSystemEndpointArgsDict']]]]] = None,
             fsx_admin_password: Optional[pulumi.Input[str]] = None,
             ha_pairs: Optional[pulumi.Input[int]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -977,10 +977,10 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
-        :param pulumi.Input[pulumi.InputType['OntapFileSystemDiskIopsConfigurationArgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
+        :param pulumi.Input[Union['OntapFileSystemDiskIopsConfigurationArgs', 'OntapFileSystemDiskIopsConfigurationArgsDict']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
         :param pulumi.Input[str] endpoint_ip_address_range: Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OntapFileSystemEndpointArgs']]]] endpoints: The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OntapFileSystemEndpointArgs', 'OntapFileSystemEndpointArgsDict']]]] endpoints: The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         :param pulumi.Input[str] fsx_admin_password: The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
         :param pulumi.Input[int] ha_pairs: The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.

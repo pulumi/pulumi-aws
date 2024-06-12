@@ -85,7 +85,7 @@ class AwaitableGetRouteTablesResult(GetRouteTablesResult):
             vpc_id=self.vpc_id)
 
 
-def get_route_tables(filters: Optional[Sequence[pulumi.InputType['GetRouteTablesFilterArgs']]] = None,
+def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']]] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      vpc_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTablesResult:
@@ -103,10 +103,10 @@ def get_route_tables(filters: Optional[Sequence[pulumi.InputType['GetRouteTables
     import pulumi_aws as aws
 
     rts = aws.ec2.get_route_tables(vpc_id=vpc_id,
-        filters=[aws.ec2.GetRouteTablesFilterArgs(
-            name="tag:kubernetes.io/kops/role",
-            values=["private*"],
-        )])
+        filters=[{
+            "name": "tag:kubernetes.io/kops/role",
+            "values": ["private*"],
+        }])
     r = []
     for range in [{"value": i} for i in range(0, len(rts.ids))]:
         r.append(aws.ec2.Route(f"r-{range['value']}",
@@ -116,7 +116,7 @@ def get_route_tables(filters: Optional[Sequence[pulumi.InputType['GetRouteTables
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTablesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired route tables.
            
@@ -140,7 +140,7 @@ def get_route_tables(filters: Optional[Sequence[pulumi.InputType['GetRouteTables
 
 
 @_utilities.lift_output_func(get_route_tables)
-def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRouteTablesFilterArgs']]]]] = None,
+def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']]]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTablesResult]:
@@ -158,10 +158,10 @@ def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi_aws as aws
 
     rts = aws.ec2.get_route_tables(vpc_id=vpc_id,
-        filters=[aws.ec2.GetRouteTablesFilterArgs(
-            name="tag:kubernetes.io/kops/role",
-            values=["private*"],
-        )])
+        filters=[{
+            "name": "tag:kubernetes.io/kops/role",
+            "values": ["private*"],
+        }])
     r = []
     for range in [{"value": i} for i in range(0, len(rts.ids))]:
         r.append(aws.ec2.Route(f"r-{range['value']}",
@@ -171,7 +171,7 @@ def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTablesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetRouteTablesFilterArgs', 'GetRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired route tables.
            

@@ -96,7 +96,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorTerminationCredentialsCredentialArgs']]]]] = None,
+                 credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorTerminationCredentialsCredentialArgs', 'VoiceConnectorTerminationCredentialsCredentialArgsDict']]]]] = None,
                  voice_connector_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -124,10 +124,10 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
             voice_connector_id=default.id)
         default_voice_connector_termination_credentials = aws.chime.VoiceConnectorTerminationCredentials("default",
             voice_connector_id=default.id,
-            credentials=[aws.chime.VoiceConnectorTerminationCredentialsCredentialArgs(
-                username="test",
-                password="test!",
-            )],
+            credentials=[{
+                "username": "test",
+                "password": "test!",
+            }],
             opts=pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
         ```
 
@@ -141,7 +141,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorTerminationCredentialsCredentialArgs']]]] credentials: List of termination SIP credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorTerminationCredentialsCredentialArgs', 'VoiceConnectorTerminationCredentialsCredentialArgsDict']]]] credentials: List of termination SIP credentials.
         :param pulumi.Input[str] voice_connector_id: Amazon Chime Voice Connector ID.
         """
         ...
@@ -175,10 +175,10 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
             voice_connector_id=default.id)
         default_voice_connector_termination_credentials = aws.chime.VoiceConnectorTerminationCredentials("default",
             voice_connector_id=default.id,
-            credentials=[aws.chime.VoiceConnectorTerminationCredentialsCredentialArgs(
-                username="test",
-                password="test!",
-            )],
+            credentials=[{
+                "username": "test",
+                "password": "test!",
+            }],
             opts=pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
         ```
 
@@ -205,7 +205,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorTerminationCredentialsCredentialArgs']]]]] = None,
+                 credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorTerminationCredentialsCredentialArgs', 'VoiceConnectorTerminationCredentialsCredentialArgsDict']]]]] = None,
                  voice_connector_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -232,7 +232,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorTerminationCredentialsCredentialArgs']]]]] = None,
+            credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorTerminationCredentialsCredentialArgs', 'VoiceConnectorTerminationCredentialsCredentialArgsDict']]]]] = None,
             voice_connector_id: Optional[pulumi.Input[str]] = None) -> 'VoiceConnectorTerminationCredentials':
         """
         Get an existing VoiceConnectorTerminationCredentials resource's state with the given name, id, and optional extra
@@ -241,7 +241,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorTerminationCredentialsCredentialArgs']]]] credentials: List of termination SIP credentials.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorTerminationCredentialsCredentialArgs', 'VoiceConnectorTerminationCredentialsCredentialArgsDict']]]] credentials: List of termination SIP credentials.
         :param pulumi.Input[str] voice_connector_id: Amazon Chime Voice Connector ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

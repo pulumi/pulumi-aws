@@ -167,7 +167,7 @@ class VirtualCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_provider: Optional[pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']]] = None,
+                 container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -183,15 +183,15 @@ class VirtualCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrcontainers.VirtualCluster("example",
-            container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
-                id=example_aws_eks_cluster["name"],
-                type="EKS",
-                info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
-                    eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
-                        namespace="default",
-                    ),
-                ),
-            ),
+            container_provider={
+                "id": example_aws_eks_cluster["name"],
+                "type": "EKS",
+                "info": {
+                    "eksInfo": {
+                        "namespace": "default",
+                    },
+                },
+            },
             name="example")
         ```
 
@@ -205,7 +205,7 @@ class VirtualCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']] container_provider: Configuration block for the container provider associated with your cluster.
+        :param pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']] container_provider: Configuration block for the container provider associated with your cluster.
         :param pulumi.Input[str] name: Name of the virtual cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -227,15 +227,15 @@ class VirtualCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrcontainers.VirtualCluster("example",
-            container_provider=aws.emrcontainers.VirtualClusterContainerProviderArgs(
-                id=example_aws_eks_cluster["name"],
-                type="EKS",
-                info=aws.emrcontainers.VirtualClusterContainerProviderInfoArgs(
-                    eks_info=aws.emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs(
-                        namespace="default",
-                    ),
-                ),
-            ),
+            container_provider={
+                "id": example_aws_eks_cluster["name"],
+                "type": "EKS",
+                "info": {
+                    "eksInfo": {
+                        "namespace": "default",
+                    },
+                },
+            },
             name="example")
         ```
 
@@ -262,7 +262,7 @@ class VirtualCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_provider: Optional[pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']]] = None,
+                 container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -292,7 +292,7 @@ class VirtualCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            container_provider: Optional[pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']]] = None,
+            container_provider: Optional[pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VirtualCluster':
@@ -304,7 +304,7 @@ class VirtualCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the cluster.
-        :param pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']] container_provider: Configuration block for the container provider associated with your cluster.
+        :param pulumi.Input[Union['VirtualClusterContainerProviderArgs', 'VirtualClusterContainerProviderArgsDict']] container_provider: Configuration block for the container provider associated with your cluster.
         :param pulumi.Input[str] name: Name of the virtual cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

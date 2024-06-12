@@ -347,7 +347,7 @@ class AwaitableGetDomainResult(GetDomainResult):
 
 
 def get_domain(domain_name: Optional[str] = None,
-               off_peak_window_options: Optional[pulumi.InputType['GetDomainOffPeakWindowOptionsArgs']] = None,
+               off_peak_window_options: Optional[Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict']] = None,
                tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
@@ -364,7 +364,7 @@ def get_domain(domain_name: Optional[str] = None,
 
 
     :param str domain_name: Name of the domain.
-    :param pulumi.InputType['GetDomainOffPeakWindowOptionsArgs'] off_peak_window_options: Off Peak update options
+    :param Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict'] off_peak_window_options: Off Peak update options
     :param Mapping[str, str] tags: Tags assigned to the domain.
     """
     __args__ = dict()
@@ -405,7 +405,7 @@ def get_domain(domain_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_domain)
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
-                      off_peak_window_options: Optional[pulumi.Input[Optional[pulumi.InputType['GetDomainOffPeakWindowOptionsArgs']]]] = None,
+                      off_peak_window_options: Optional[pulumi.Input[Optional[Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict']]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -422,7 +422,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str domain_name: Name of the domain.
-    :param pulumi.InputType['GetDomainOffPeakWindowOptionsArgs'] off_peak_window_options: Off Peak update options
+    :param Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict'] off_peak_window_options: Off Peak update options
     :param Mapping[str, str] tags: Tags assigned to the domain.
     """
     ...

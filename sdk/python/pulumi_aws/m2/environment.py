@@ -583,17 +583,17 @@ class Environment(pulumi.CustomResource):
                  engine_type: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  force_update: Optional[pulumi.Input[bool]] = None,
-                 high_availability_config: Optional[pulumi.Input[pulumi.InputType['EnvironmentHighAvailabilityConfigArgs']]] = None,
+                 high_availability_config: Optional[pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentStorageConfigurationArgs']]] = None,
+                 storage_configuration: Optional[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['EnvironmentTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an [AWS Mainframe Modernization Environment](https://docs.aws.amazon.com/m2/latest/userguide/environments-m2.html).
@@ -663,17 +663,17 @@ class Environment(pulumi.CustomResource):
                  engine_type: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  force_update: Optional[pulumi.Input[bool]] = None,
-                 high_availability_config: Optional[pulumi.Input[pulumi.InputType['EnvironmentHighAvailabilityConfigArgs']]] = None,
+                 high_availability_config: Optional[pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 storage_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentStorageConfigurationArgs']]] = None,
+                 storage_configuration: Optional[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['EnvironmentTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -724,7 +724,7 @@ class Environment(pulumi.CustomResource):
             engine_version: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
             force_update: Optional[pulumi.Input[bool]] = None,
-            high_availability_config: Optional[pulumi.Input[pulumi.InputType['EnvironmentHighAvailabilityConfigArgs']]] = None,
+            high_availability_config: Optional[pulumi.Input[Union['EnvironmentHighAvailabilityConfigArgs', 'EnvironmentHighAvailabilityConfigArgsDict']]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             load_balancer_arn: Optional[pulumi.Input[str]] = None,
@@ -732,11 +732,11 @@ class Environment(pulumi.CustomResource):
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            storage_configuration: Optional[pulumi.Input[pulumi.InputType['EnvironmentStorageConfigurationArgs']]] = None,
+            storage_configuration: Optional[pulumi.Input[Union['EnvironmentStorageConfigurationArgs', 'EnvironmentStorageConfigurationArgsDict']]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['EnvironmentTimeoutsArgs']]] = None) -> 'Environment':
+            timeouts: Optional[pulumi.Input[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

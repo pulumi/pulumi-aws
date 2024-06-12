@@ -212,7 +212,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[str]] = None,
                  data_redundancy: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['DirectoryBucketLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -226,9 +226,9 @@ class DirectoryBucket(pulumi.CustomResource):
 
         example = aws.s3.DirectoryBucket("example",
             bucket="example--usw2-az1--x-s3",
-            location=aws.s3.DirectoryBucketLocationArgs(
-                name="usw2-az1",
-            ))
+            location={
+                "name": "usw2-az1",
+            })
         ```
 
         ## Import
@@ -244,7 +244,7 @@ class DirectoryBucket(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
         :param pulumi.Input[str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`.
         :param pulumi.Input[bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[pulumi.InputType['DirectoryBucketLocationArgs']] location: Bucket location. See Location below for more details.
+        :param pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']] location: Bucket location. See Location below for more details.
         :param pulumi.Input[str] type: Bucket type. Valid values: `Directory`.
         """
         ...
@@ -264,9 +264,9 @@ class DirectoryBucket(pulumi.CustomResource):
 
         example = aws.s3.DirectoryBucket("example",
             bucket="example--usw2-az1--x-s3",
-            location=aws.s3.DirectoryBucketLocationArgs(
-                name="usw2-az1",
-            ))
+            location={
+                "name": "usw2-az1",
+            })
         ```
 
         ## Import
@@ -295,7 +295,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[str]] = None,
                  data_redundancy: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['DirectoryBucketLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -328,7 +328,7 @@ class DirectoryBucket(pulumi.CustomResource):
             bucket: Optional[pulumi.Input[str]] = None,
             data_redundancy: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
-            location: Optional[pulumi.Input[pulumi.InputType['DirectoryBucketLocationArgs']]] = None,
+            location: Optional[pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'DirectoryBucket':
         """
         Get an existing DirectoryBucket resource's state with the given name, id, and optional extra
@@ -341,7 +341,7 @@ class DirectoryBucket(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: Name of the bucket. The name must be in the format `[bucket_name]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
         :param pulumi.Input[str] data_redundancy: Data redundancy. Valid values: `SingleAvailabilityZone`.
         :param pulumi.Input[bool] force_destroy: Boolean that indicates all objects should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
-        :param pulumi.Input[pulumi.InputType['DirectoryBucketLocationArgs']] location: Bucket location. See Location below for more details.
+        :param pulumi.Input[Union['DirectoryBucketLocationArgs', 'DirectoryBucketLocationArgsDict']] location: Bucket location. See Location below for more details.
         :param pulumi.Input[str] type: Bucket type. Valid values: `Directory`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

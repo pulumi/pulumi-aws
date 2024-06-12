@@ -441,7 +441,7 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
-                 flexible_time_window: Optional[pulumi.Input[pulumi.InputType['ScheduleFlexibleTimeWindowArgs']]] = None,
+                 flexible_time_window: Optional[pulumi.Input[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict']]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -450,7 +450,7 @@ class Schedule(pulumi.CustomResource):
                  schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 target: Optional[pulumi.Input[pulumi.InputType['ScheduleTargetArgs']]] = None,
+                 target: Optional[pulumi.Input[Union['ScheduleTargetArgs', 'ScheduleTargetArgsDict']]] = None,
                  __props__=None):
         """
         Provides an EventBridge Scheduler Schedule resource.
@@ -470,14 +470,14 @@ class Schedule(pulumi.CustomResource):
         example = aws.scheduler.Schedule("example",
             name="my-schedule",
             group_name="default",
-            flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
-                mode="OFF",
-            ),
+            flexible_time_window={
+                "mode": "OFF",
+            },
             schedule_expression="rate(1 hours)",
-            target=aws.scheduler.ScheduleTargetArgs(
-                arn=example_aws_sqs_queue["arn"],
-                role_arn=example_aws_iam_role["arn"],
-            ))
+            target={
+                "arn": example_aws_sqs_queue["arn"],
+                "roleArn": example_aws_iam_role["arn"],
+            })
         ```
 
         ### Universal Target
@@ -490,18 +490,18 @@ class Schedule(pulumi.CustomResource):
         example = aws.sqs.Queue("example")
         example_schedule = aws.scheduler.Schedule("example",
             name="my-schedule",
-            flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
-                mode="OFF",
-            ),
+            flexible_time_window={
+                "mode": "OFF",
+            },
             schedule_expression="rate(1 hours)",
-            target=aws.scheduler.ScheduleTargetArgs(
-                arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                role_arn=example_aws_iam_role["arn"],
-                input=pulumi.Output.json_dumps({
+            target={
+                "arn": "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
+                "roleArn": example_aws_iam_role["arn"],
+                "input": pulumi.Output.json_dumps({
                     "MessageBody": "Greetings, programs!",
                     "QueueUrl": example.url,
                 }),
-            ))
+            })
         ```
 
         ## Import
@@ -516,7 +516,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Brief description of the schedule.
         :param pulumi.Input[str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        :param pulumi.Input[pulumi.InputType['ScheduleFlexibleTimeWindowArgs']] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
+        :param pulumi.Input[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict']] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
         :param pulumi.Input[str] group_name: Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
         :param pulumi.Input[str] kms_key_arn: ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
         :param pulumi.Input[str] name: Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -525,7 +525,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] schedule_expression_timezone: Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
         :param pulumi.Input[str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         :param pulumi.Input[str] state: Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        :param pulumi.Input[pulumi.InputType['ScheduleTargetArgs']] target: Configures the target of the schedule. Detailed below.
+        :param pulumi.Input[Union['ScheduleTargetArgs', 'ScheduleTargetArgsDict']] target: Configures the target of the schedule. Detailed below.
                
                The following arguments are optional:
         """
@@ -553,14 +553,14 @@ class Schedule(pulumi.CustomResource):
         example = aws.scheduler.Schedule("example",
             name="my-schedule",
             group_name="default",
-            flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
-                mode="OFF",
-            ),
+            flexible_time_window={
+                "mode": "OFF",
+            },
             schedule_expression="rate(1 hours)",
-            target=aws.scheduler.ScheduleTargetArgs(
-                arn=example_aws_sqs_queue["arn"],
-                role_arn=example_aws_iam_role["arn"],
-            ))
+            target={
+                "arn": example_aws_sqs_queue["arn"],
+                "roleArn": example_aws_iam_role["arn"],
+            })
         ```
 
         ### Universal Target
@@ -573,18 +573,18 @@ class Schedule(pulumi.CustomResource):
         example = aws.sqs.Queue("example")
         example_schedule = aws.scheduler.Schedule("example",
             name="my-schedule",
-            flexible_time_window=aws.scheduler.ScheduleFlexibleTimeWindowArgs(
-                mode="OFF",
-            ),
+            flexible_time_window={
+                "mode": "OFF",
+            },
             schedule_expression="rate(1 hours)",
-            target=aws.scheduler.ScheduleTargetArgs(
-                arn="arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
-                role_arn=example_aws_iam_role["arn"],
-                input=pulumi.Output.json_dumps({
+            target={
+                "arn": "arn:aws:scheduler:::aws-sdk:sqs:sendMessage",
+                "roleArn": example_aws_iam_role["arn"],
+                "input": pulumi.Output.json_dumps({
                     "MessageBody": "Greetings, programs!",
                     "QueueUrl": example.url,
                 }),
-            ))
+            })
         ```
 
         ## Import
@@ -612,7 +612,7 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
-                 flexible_time_window: Optional[pulumi.Input[pulumi.InputType['ScheduleFlexibleTimeWindowArgs']]] = None,
+                 flexible_time_window: Optional[pulumi.Input[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict']]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -621,7 +621,7 @@ class Schedule(pulumi.CustomResource):
                  schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 target: Optional[pulumi.Input[pulumi.InputType['ScheduleTargetArgs']]] = None,
+                 target: Optional[pulumi.Input[Union['ScheduleTargetArgs', 'ScheduleTargetArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -663,7 +663,7 @@ class Schedule(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             end_date: Optional[pulumi.Input[str]] = None,
-            flexible_time_window: Optional[pulumi.Input[pulumi.InputType['ScheduleFlexibleTimeWindowArgs']]] = None,
+            flexible_time_window: Optional[pulumi.Input[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict']]] = None,
             group_name: Optional[pulumi.Input[str]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -672,7 +672,7 @@ class Schedule(pulumi.CustomResource):
             schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
             start_date: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
-            target: Optional[pulumi.Input[pulumi.InputType['ScheduleTargetArgs']]] = None) -> 'Schedule':
+            target: Optional[pulumi.Input[Union['ScheduleTargetArgs', 'ScheduleTargetArgsDict']]] = None) -> 'Schedule':
         """
         Get an existing Schedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -683,7 +683,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the schedule.
         :param pulumi.Input[str] description: Brief description of the schedule.
         :param pulumi.Input[str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the end date you specify. EventBridge Scheduler ignores the end date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
-        :param pulumi.Input[pulumi.InputType['ScheduleFlexibleTimeWindowArgs']] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
+        :param pulumi.Input[Union['ScheduleFlexibleTimeWindowArgs', 'ScheduleFlexibleTimeWindowArgsDict']] flexible_time_window: Configures a time window during which EventBridge Scheduler invokes the schedule. Detailed below.
         :param pulumi.Input[str] group_name: Name of the schedule group to associate with this schedule. When omitted, the `default` schedule group is used.
         :param pulumi.Input[str] kms_key_arn: ARN for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.
         :param pulumi.Input[str] name: Name of the schedule. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -692,7 +692,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] schedule_expression_timezone: Timezone in which the scheduling expression is evaluated. Defaults to `UTC`. Example: `Australia/Sydney`.
         :param pulumi.Input[str] start_date: The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the start date you specify. EventBridge Scheduler ignores the start date for one-time schedules. Example: `2030-01-01T01:00:00Z`.
         :param pulumi.Input[str] state: Specifies whether the schedule is enabled or disabled. One of: `ENABLED` (default), `DISABLED`.
-        :param pulumi.Input[pulumi.InputType['ScheduleTargetArgs']] target: Configures the target of the schedule. Detailed below.
+        :param pulumi.Input[Union['ScheduleTargetArgs', 'ScheduleTargetArgsDict']] target: Configures the target of the schedule. Detailed below.
                
                The following arguments are optional:
         """

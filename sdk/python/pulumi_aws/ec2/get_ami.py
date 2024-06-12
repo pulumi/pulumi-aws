@@ -496,7 +496,7 @@ class AwaitableGetAmiResult(GetAmiResult):
 
 
 def get_ami(executable_users: Optional[Sequence[str]] = None,
-            filters: Optional[Sequence[pulumi.InputType['GetAmiFilterArgs']]] = None,
+            filters: Optional[Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']]] = None,
             include_deprecated: Optional[bool] = None,
             most_recent: Optional[bool] = None,
             name_regex: Optional[str] = None,
@@ -518,25 +518,25 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         name_regex="^myami-\\\\d{3}",
         owners=["self"],
         filters=[
-            aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["myami-*"],
-            ),
-            aws.ec2.GetAmiFilterArgs(
-                name="root-device-type",
-                values=["ebs"],
-            ),
-            aws.ec2.GetAmiFilterArgs(
-                name="virtualization-type",
-                values=["hvm"],
-            ),
+            {
+                "name": "name",
+                "values": ["myami-*"],
+            },
+            {
+                "name": "root-device-type",
+                "values": ["ebs"],
+            },
+            {
+                "name": "virtualization-type",
+                "values": ["hvm"],
+            },
         ])
     ```
 
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
     :param bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
@@ -612,7 +612,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
 
 @_utilities.lift_output_func(get_ami)
 def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                   filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiFilterArgs']]]]] = None,
+                   filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']]]]] = None,
                    include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
                    most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                    name_regex: Optional[pulumi.Input[Optional[str]]] = None,
@@ -634,25 +634,25 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
         name_regex="^myami-\\\\d{3}",
         owners=["self"],
         filters=[
-            aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["myami-*"],
-            ),
-            aws.ec2.GetAmiFilterArgs(
-                name="root-device-type",
-                values=["ebs"],
-            ),
-            aws.ec2.GetAmiFilterArgs(
-                name="virtualization-type",
-                values=["hvm"],
-            ),
+            {
+                "name": "name",
+                "values": ["myami-*"],
+            },
+            {
+                "name": "root-device-type",
+                "values": ["ebs"],
+            },
+            {
+                "name": "virtualization-type",
+                "values": ["hvm"],
+            },
         ])
     ```
 
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[Union['GetAmiFilterArgs', 'GetAmiFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
     :param bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.

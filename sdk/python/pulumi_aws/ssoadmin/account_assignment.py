@@ -241,12 +241,12 @@ class AccountAssignment(pulumi.CustomResource):
         example_get_permission_set = aws.ssoadmin.get_permission_set(instance_arn=example.arns[0],
             name="AWSReadOnlyAccess")
         example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-            alternate_identifier=aws.identitystore.GetGroupAlternateIdentifierArgs(
-                unique_attribute=aws.identitystore.GetGroupAlternateIdentifierUniqueAttributeArgs(
-                    attribute_path="DisplayName",
-                    attribute_value="ExampleGroup",
-                ),
-            ))
+            alternate_identifier={
+                "uniqueAttribute": {
+                    "attributePath": "DisplayName",
+                    "attributeValue": "ExampleGroup",
+                },
+            })
         example_account_assignment = aws.ssoadmin.AccountAssignment("example",
             instance_arn=example.arns[0],
             permission_set_arn=example_get_permission_set.arn,
@@ -324,12 +324,12 @@ class AccountAssignment(pulumi.CustomResource):
         example_get_permission_set = aws.ssoadmin.get_permission_set(instance_arn=example.arns[0],
             name="AWSReadOnlyAccess")
         example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-            alternate_identifier=aws.identitystore.GetGroupAlternateIdentifierArgs(
-                unique_attribute=aws.identitystore.GetGroupAlternateIdentifierUniqueAttributeArgs(
-                    attribute_path="DisplayName",
-                    attribute_value="ExampleGroup",
-                ),
-            ))
+            alternate_identifier={
+                "uniqueAttribute": {
+                    "attributePath": "DisplayName",
+                    "attributeValue": "ExampleGroup",
+                },
+            })
         example_account_assignment = aws.ssoadmin.AccountAssignment("example",
             instance_arn=example.arns[0],
             permission_set_arn=example_get_permission_set.arn,

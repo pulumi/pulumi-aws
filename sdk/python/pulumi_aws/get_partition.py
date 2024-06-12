@@ -93,11 +93,11 @@ def get_partition(id: Optional[str] = None,
     import pulumi_aws as aws
 
     current = aws.get_partition()
-    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        sid="1",
-        actions=["s3:ListBucket"],
-        resources=[f"arn:{current.partition}:s3:::my-bucket"],
-    )])
+    s3_policy = aws.iam.get_policy_document(statements=[{
+        "sid": "1",
+        "actions": ["s3:ListBucket"],
+        "resources": [f"arn:{current.partition}:s3:::my-bucket"],
+    }])
     ```
 
 
@@ -129,11 +129,11 @@ def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi_aws as aws
 
     current = aws.get_partition()
-    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        sid="1",
-        actions=["s3:ListBucket"],
-        resources=[f"arn:{current.partition}:s3:::my-bucket"],
-    )])
+    s3_policy = aws.iam.get_policy_document(statements=[{
+        "sid": "1",
+        "actions": ["s3:ListBucket"],
+        "resources": [f"arn:{current.partition}:s3:::my-bucket"],
+    }])
     ```
 
 

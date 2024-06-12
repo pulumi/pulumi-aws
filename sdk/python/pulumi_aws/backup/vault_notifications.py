@@ -156,16 +156,16 @@ class VaultNotifications(pulumi.CustomResource):
 
         test_topic = aws.sns.Topic("test", name="backup-vault-events")
         test = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                actions=["SNS:Publish"],
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["backup.amazonaws.com"],
-                )],
-                resources=[arn],
-                sid="__default_statement_ID",
-            )]))
+            statements=[{
+                "actions": ["SNS:Publish"],
+                "effect": "Allow",
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["backup.amazonaws.com"],
+                }],
+                "resources": [arn],
+                "sid": "__default_statement_ID",
+            }]))
         test_topic_policy = aws.sns.TopicPolicy("test",
             arn=test_topic.arn,
             policy=test.json)
@@ -209,16 +209,16 @@ class VaultNotifications(pulumi.CustomResource):
 
         test_topic = aws.sns.Topic("test", name="backup-vault-events")
         test = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                actions=["SNS:Publish"],
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["backup.amazonaws.com"],
-                )],
-                resources=[arn],
-                sid="__default_statement_ID",
-            )]))
+            statements=[{
+                "actions": ["SNS:Publish"],
+                "effect": "Allow",
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["backup.amazonaws.com"],
+                }],
+                "resources": [arn],
+                "sid": "__default_statement_ID",
+            }]))
         test_topic_policy = aws.sns.TopicPolicy("test",
             arn=test_topic.arn,
             policy=test.json)

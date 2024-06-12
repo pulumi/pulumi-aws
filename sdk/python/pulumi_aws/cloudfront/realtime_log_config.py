@@ -175,7 +175,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint: Optional[pulumi.Input[pulumi.InputType['RealtimeLogConfigEndpointArgs']]] = None,
+                 endpoint: Optional[pulumi.Input[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']]] = None,
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
@@ -189,27 +189,27 @@ class RealtimeLogConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["cloudfront.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["cloudfront.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         example_role = aws.iam.Role("example",
             name="cloudfront-realtime-log-config-example",
             assume_role_policy=assume_role.json)
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
+        example = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": [
                 "kinesis:DescribeStreamSummary",
                 "kinesis:DescribeStream",
                 "kinesis:PutRecord",
                 "kinesis:PutRecords",
             ],
-            resources=[example_aws_kinesis_stream["arn"]],
-        )])
+            "resources": [example_aws_kinesis_stream["arn"]],
+        }])
         example_role_policy = aws.iam.RolePolicy("example",
             name="cloudfront-realtime-log-config-example",
             role=example_role.id,
@@ -221,13 +221,13 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 "timestamp",
                 "c-ip",
             ],
-            endpoint=aws.cloudfront.RealtimeLogConfigEndpointArgs(
-                stream_type="Kinesis",
-                kinesis_stream_config=aws.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs(
-                    role_arn=example_role.arn,
-                    stream_arn=example_aws_kinesis_stream["arn"],
-                ),
-            ),
+            endpoint={
+                "streamType": "Kinesis",
+                "kinesisStreamConfig": {
+                    "roleArn": example_role.arn,
+                    "streamArn": example_aws_kinesis_stream["arn"],
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
         ```
 
@@ -241,7 +241,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RealtimeLogConfigEndpointArgs']] endpoint: The Amazon Kinesis data streams where real-time log data is sent.
+        :param pulumi.Input[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']] endpoint: The Amazon Kinesis data streams where real-time log data is sent.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         :param pulumi.Input[str] name: The unique name to identify this real-time log configuration.
         :param pulumi.Input[int] sampling_rate: The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
@@ -261,27 +261,27 @@ class RealtimeLogConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["cloudfront.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["cloudfront.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         example_role = aws.iam.Role("example",
             name="cloudfront-realtime-log-config-example",
             assume_role_policy=assume_role.json)
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
+        example = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": [
                 "kinesis:DescribeStreamSummary",
                 "kinesis:DescribeStream",
                 "kinesis:PutRecord",
                 "kinesis:PutRecords",
             ],
-            resources=[example_aws_kinesis_stream["arn"]],
-        )])
+            "resources": [example_aws_kinesis_stream["arn"]],
+        }])
         example_role_policy = aws.iam.RolePolicy("example",
             name="cloudfront-realtime-log-config-example",
             role=example_role.id,
@@ -293,13 +293,13 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 "timestamp",
                 "c-ip",
             ],
-            endpoint=aws.cloudfront.RealtimeLogConfigEndpointArgs(
-                stream_type="Kinesis",
-                kinesis_stream_config=aws.cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs(
-                    role_arn=example_role.arn,
-                    stream_arn=example_aws_kinesis_stream["arn"],
-                ),
-            ),
+            endpoint={
+                "streamType": "Kinesis",
+                "kinesisStreamConfig": {
+                    "roleArn": example_role.arn,
+                    "streamArn": example_aws_kinesis_stream["arn"],
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_role_policy]))
         ```
 
@@ -326,7 +326,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint: Optional[pulumi.Input[pulumi.InputType['RealtimeLogConfigEndpointArgs']]] = None,
+                 endpoint: Optional[pulumi.Input[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']]] = None,
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sampling_rate: Optional[pulumi.Input[int]] = None,
@@ -361,7 +361,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            endpoint: Optional[pulumi.Input[pulumi.InputType['RealtimeLogConfigEndpointArgs']]] = None,
+            endpoint: Optional[pulumi.Input[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']]] = None,
             fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             sampling_rate: Optional[pulumi.Input[int]] = None) -> 'RealtimeLogConfig':
@@ -373,7 +373,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-        :param pulumi.Input[pulumi.InputType['RealtimeLogConfigEndpointArgs']] endpoint: The Amazon Kinesis data streams where real-time log data is sent.
+        :param pulumi.Input[Union['RealtimeLogConfigEndpointArgs', 'RealtimeLogConfigEndpointArgsDict']] endpoint: The Amazon Kinesis data streams where real-time log data is sent.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
         :param pulumi.Input[str] name: The unique name to identify this real-time log configuration.
         :param pulumi.Input[int] sampling_rate: The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.

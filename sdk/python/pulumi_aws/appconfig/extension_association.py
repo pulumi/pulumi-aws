@@ -172,27 +172,27 @@ class ExtensionAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_topic = aws.sns.Topic("test", name="test")
-        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appconfig.amazonaws.com"],
-            )],
-        )])
+        test = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["appconfig.amazonaws.com"],
+            }],
+        }])
         test_role = aws.iam.Role("test",
             name="test",
             assume_role_policy=test.json)
         test_extension = aws.appconfig.Extension("test",
             name="test",
             description="test description",
-            action_points=[aws.appconfig.ExtensionActionPointArgs(
-                point="ON_DEPLOYMENT_COMPLETE",
-                actions=[aws.appconfig.ExtensionActionPointActionArgs(
-                    name="test",
-                    role_arn=test_role.arn,
-                    uri=test_topic.arn,
-                )],
-            )],
+            action_points=[{
+                "point": "ON_DEPLOYMENT_COMPLETE",
+                "actions": [{
+                    "name": "test",
+                    "roleArn": test_role.arn,
+                    "uri": test_topic.arn,
+                }],
+            }],
             tags={
                 "Type": "AppConfig Extension",
             })
@@ -232,27 +232,27 @@ class ExtensionAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_topic = aws.sns.Topic("test", name="test")
-        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["appconfig.amazonaws.com"],
-            )],
-        )])
+        test = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["appconfig.amazonaws.com"],
+            }],
+        }])
         test_role = aws.iam.Role("test",
             name="test",
             assume_role_policy=test.json)
         test_extension = aws.appconfig.Extension("test",
             name="test",
             description="test description",
-            action_points=[aws.appconfig.ExtensionActionPointArgs(
-                point="ON_DEPLOYMENT_COMPLETE",
-                actions=[aws.appconfig.ExtensionActionPointActionArgs(
-                    name="test",
-                    role_arn=test_role.arn,
-                    uri=test_topic.arn,
-                )],
-            )],
+            action_points=[{
+                "point": "ON_DEPLOYMENT_COMPLETE",
+                "actions": [{
+                    "name": "test",
+                    "roleArn": test_role.arn,
+                    "uri": test_topic.arn,
+                }],
+            }],
             tags={
                 "Type": "AppConfig Extension",
             })

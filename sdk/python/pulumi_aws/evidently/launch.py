@@ -423,12 +423,12 @@ class Launch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupArgs']]]]] = None,
-                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricMonitorArgs']]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]]] = None,
+                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
-                 scheduled_splits_config: Optional[pulumi.Input[pulumi.InputType['LaunchScheduledSplitsConfigArgs']]] = None,
+                 scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -445,19 +445,19 @@ class Launch(pulumi.CustomResource):
         example = aws.evidently.Launch("example",
             name="example",
             project=example_aws_evidently_project["name"],
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=example_aws_evidently_feature["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                     },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-07 01:43:59+00:00",
+                }],
+            })
         ```
 
         ### With description
@@ -470,19 +470,19 @@ class Launch(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             description="example description",
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=example_aws_evidently_feature["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                     },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-07 01:43:59+00:00",
+                }],
+            })
         ```
 
         ### With multiple groups
@@ -495,28 +495,28 @@ class Launch(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                    description="first-group",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                    description="second-group",
-                ),
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation1",
+                    "variation": "Variation1",
+                    "description": "first-group",
+                },
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation2",
+                    "variation": "Variation2",
+                    "description": "second-group",
+                },
             ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                         "Variation2": 0,
                     },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-07 01:43:59+00:00",
+                }],
+            })
         ```
 
         ### With metric_monitors
@@ -528,39 +528,39 @@ class Launch(pulumi.CustomResource):
         example = aws.evidently.Launch("example",
             name="example",
             project=example_aws_evidently_project["name"],
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=example_aws_evidently_feature["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
             metric_monitors=[
-                aws.evidently.LaunchMetricMonitorArgs(
-                    metric_definition=aws.evidently.LaunchMetricMonitorMetricDefinitionArgs(
-                        entity_id_key="entity_id_key1",
-                        event_pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",11,\\"<=\\",22]}]}",
-                        name="name1",
-                        unit_label="unit_label1",
-                        value_key="value_key1",
-                    ),
-                ),
-                aws.evidently.LaunchMetricMonitorArgs(
-                    metric_definition=aws.evidently.LaunchMetricMonitorMetricDefinitionArgs(
-                        entity_id_key="entity_id_key2",
-                        event_pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",9,\\"<=\\",19]}]}",
-                        name="name2",
-                        unit_label="unit_label2",
-                        value_key="value_key2",
-                    ),
-                ),
+                {
+                    "metricDefinition": {
+                        "entityIdKey": "entity_id_key1",
+                        "eventPattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",11,\\"<=\\",22]}]}",
+                        "name": "name1",
+                        "unitLabel": "unit_label1",
+                        "valueKey": "value_key1",
+                    },
+                },
+                {
+                    "metricDefinition": {
+                        "entityIdKey": "entity_id_key2",
+                        "eventPattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",9,\\"<=\\",19]}]}",
+                        "name": "name2",
+                        "unitLabel": "unit_label2",
+                        "valueKey": "value_key2",
+                    },
+                },
             ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                     },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-07 01:43:59+00:00",
+                }],
+            })
         ```
 
         ### With randomization_salt
@@ -573,19 +573,19 @@ class Launch(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             randomization_salt="example randomization salt",
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=example_aws_evidently_feature["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                     },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-07 01:43:59+00:00",
+                }],
+            })
         ```
 
         ### With multiple steps
@@ -598,35 +598,35 @@ class Launch(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                ),
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation1",
+                    "variation": "Variation1",
+                },
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation2",
+                    "variation": "Variation2",
+                },
             ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[
-                    aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                        group_weights={
+            scheduled_splits_config={
+                "steps": [
+                    {
+                        "groupWeights": {
                             "Variation1": 15,
                             "Variation2": 10,
                         },
-                        start_time="2024-01-07 01:43:59+00:00",
-                    ),
-                    aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                        group_weights={
+                        "startTime": "2024-01-07 01:43:59+00:00",
+                    },
+                    {
+                        "groupWeights": {
                             "Variation1": 20,
                             "Variation2": 25,
                         },
-                        start_time="2024-01-08 01:43:59+00:00",
-                    ),
+                        "startTime": "2024-01-08 01:43:59+00:00",
+                    },
                 ],
-            ))
+            })
         ```
 
         ### With segment overrides
@@ -639,43 +639,43 @@ class Launch(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                ),
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation1",
+                    "variation": "Variation1",
+                },
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation2",
+                    "variation": "Variation2",
+                },
             ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                         "Variation2": 0,
                     },
-                    segment_overrides=[
-                        aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
-                            evaluation_order=1,
-                            segment=example_aws_evidently_segment["name"],
-                            weights={
+                    "segmentOverrides": [
+                        {
+                            "evaluationOrder": 1,
+                            "segment": example_aws_evidently_segment["name"],
+                            "weights": {
                                 "Variation2": 10000,
                             },
-                        ),
-                        aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
-                            evaluation_order=2,
-                            segment=example_aws_evidently_segment["name"],
-                            weights={
+                        },
+                        {
+                            "evaluationOrder": 2,
+                            "segment": example_aws_evidently_segment["name"],
+                            "weights": {
                                 "Variation1": 40000,
                                 "Variation2": 30000,
                             },
-                        ),
+                        },
                     ],
-                    start_time="2024-01-08 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-08 01:43:59+00:00",
+                }],
+            })
         ```
 
         ## Import
@@ -698,12 +698,12 @@ class Launch(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Specifies the description of the launch.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupArgs']]]] groups: One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricMonitorArgs']]]] metric_monitors: One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]] groups: One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]] metric_monitors: One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         :param pulumi.Input[str] name: The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[str] project: The name or ARN of the project that is to contain the new launch.
         :param pulumi.Input[str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-        :param pulumi.Input[pulumi.InputType['LaunchScheduledSplitsConfigArgs']] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
+        :param pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -726,19 +726,19 @@ class Launch(pulumi.CustomResource):
         example = aws.evidently.Launch("example",
             name="example",
             project=example_aws_evidently_project["name"],
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=example_aws_evidently_feature["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                     },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-07 01:43:59+00:00",
+                }],
+            })
         ```
 
         ### With description
@@ -751,19 +751,19 @@ class Launch(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             description="example description",
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=example_aws_evidently_feature["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                     },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-07 01:43:59+00:00",
+                }],
+            })
         ```
 
         ### With multiple groups
@@ -776,28 +776,28 @@ class Launch(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                    description="first-group",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                    description="second-group",
-                ),
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation1",
+                    "variation": "Variation1",
+                    "description": "first-group",
+                },
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation2",
+                    "variation": "Variation2",
+                    "description": "second-group",
+                },
             ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                         "Variation2": 0,
                     },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-07 01:43:59+00:00",
+                }],
+            })
         ```
 
         ### With metric_monitors
@@ -809,39 +809,39 @@ class Launch(pulumi.CustomResource):
         example = aws.evidently.Launch("example",
             name="example",
             project=example_aws_evidently_project["name"],
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=example_aws_evidently_feature["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
             metric_monitors=[
-                aws.evidently.LaunchMetricMonitorArgs(
-                    metric_definition=aws.evidently.LaunchMetricMonitorMetricDefinitionArgs(
-                        entity_id_key="entity_id_key1",
-                        event_pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",11,\\"<=\\",22]}]}",
-                        name="name1",
-                        unit_label="unit_label1",
-                        value_key="value_key1",
-                    ),
-                ),
-                aws.evidently.LaunchMetricMonitorArgs(
-                    metric_definition=aws.evidently.LaunchMetricMonitorMetricDefinitionArgs(
-                        entity_id_key="entity_id_key2",
-                        event_pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",9,\\"<=\\",19]}]}",
-                        name="name2",
-                        unit_label="unit_label2",
-                        value_key="value_key2",
-                    ),
-                ),
+                {
+                    "metricDefinition": {
+                        "entityIdKey": "entity_id_key1",
+                        "eventPattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",11,\\"<=\\",22]}]}",
+                        "name": "name1",
+                        "unitLabel": "unit_label1",
+                        "valueKey": "value_key1",
+                    },
+                },
+                {
+                    "metricDefinition": {
+                        "entityIdKey": "entity_id_key2",
+                        "eventPattern": "{\\"Price\\":[{\\"numeric\\":[\\">\\",9,\\"<=\\",19]}]}",
+                        "name": "name2",
+                        "unitLabel": "unit_label2",
+                        "valueKey": "value_key2",
+                    },
+                },
             ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                     },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-07 01:43:59+00:00",
+                }],
+            })
         ```
 
         ### With randomization_salt
@@ -854,19 +854,19 @@ class Launch(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             randomization_salt="example randomization salt",
-            groups=[aws.evidently.LaunchGroupArgs(
-                feature=example_aws_evidently_feature["name"],
-                name="Variation1",
-                variation="Variation1",
-            )],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            groups=[{
+                "feature": example_aws_evidently_feature["name"],
+                "name": "Variation1",
+                "variation": "Variation1",
+            }],
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                     },
-                    start_time="2024-01-07 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-07 01:43:59+00:00",
+                }],
+            })
         ```
 
         ### With multiple steps
@@ -879,35 +879,35 @@ class Launch(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                ),
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation1",
+                    "variation": "Variation1",
+                },
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation2",
+                    "variation": "Variation2",
+                },
             ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[
-                    aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                        group_weights={
+            scheduled_splits_config={
+                "steps": [
+                    {
+                        "groupWeights": {
                             "Variation1": 15,
                             "Variation2": 10,
                         },
-                        start_time="2024-01-07 01:43:59+00:00",
-                    ),
-                    aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                        group_weights={
+                        "startTime": "2024-01-07 01:43:59+00:00",
+                    },
+                    {
+                        "groupWeights": {
                             "Variation1": 20,
                             "Variation2": 25,
                         },
-                        start_time="2024-01-08 01:43:59+00:00",
-                    ),
+                        "startTime": "2024-01-08 01:43:59+00:00",
+                    },
                 ],
-            ))
+            })
         ```
 
         ### With segment overrides
@@ -920,43 +920,43 @@ class Launch(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             groups=[
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation1",
-                    variation="Variation1",
-                ),
-                aws.evidently.LaunchGroupArgs(
-                    feature=example_aws_evidently_feature["name"],
-                    name="Variation2",
-                    variation="Variation2",
-                ),
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation1",
+                    "variation": "Variation1",
+                },
+                {
+                    "feature": example_aws_evidently_feature["name"],
+                    "name": "Variation2",
+                    "variation": "Variation2",
+                },
             ],
-            scheduled_splits_config=aws.evidently.LaunchScheduledSplitsConfigArgs(
-                steps=[aws.evidently.LaunchScheduledSplitsConfigStepArgs(
-                    group_weights={
+            scheduled_splits_config={
+                "steps": [{
+                    "groupWeights": {
                         "Variation1": 0,
                         "Variation2": 0,
                     },
-                    segment_overrides=[
-                        aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
-                            evaluation_order=1,
-                            segment=example_aws_evidently_segment["name"],
-                            weights={
+                    "segmentOverrides": [
+                        {
+                            "evaluationOrder": 1,
+                            "segment": example_aws_evidently_segment["name"],
+                            "weights": {
                                 "Variation2": 10000,
                             },
-                        ),
-                        aws.evidently.LaunchScheduledSplitsConfigStepSegmentOverrideArgs(
-                            evaluation_order=2,
-                            segment=example_aws_evidently_segment["name"],
-                            weights={
+                        },
+                        {
+                            "evaluationOrder": 2,
+                            "segment": example_aws_evidently_segment["name"],
+                            "weights": {
                                 "Variation1": 40000,
                                 "Variation2": 30000,
                             },
-                        ),
+                        },
                     ],
-                    start_time="2024-01-08 01:43:59+00:00",
-                )],
-            ))
+                    "startTime": "2024-01-08 01:43:59+00:00",
+                }],
+            })
         ```
 
         ## Import
@@ -992,12 +992,12 @@ class Launch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupArgs']]]]] = None,
-                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricMonitorArgs']]]]] = None,
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]]] = None,
+                 metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  randomization_salt: Optional[pulumi.Input[str]] = None,
-                 scheduled_splits_config: Optional[pulumi.Input[pulumi.InputType['LaunchScheduledSplitsConfigArgs']]] = None,
+                 scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1041,14 +1041,14 @@ class Launch(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             created_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            executions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchExecutionArgs']]]]] = None,
-            groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupArgs']]]]] = None,
+            executions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchExecutionArgs', 'LaunchExecutionArgsDict']]]]] = None,
+            groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
-            metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricMonitorArgs']]]]] = None,
+            metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             project: Optional[pulumi.Input[str]] = None,
             randomization_salt: Optional[pulumi.Input[str]] = None,
-            scheduled_splits_config: Optional[pulumi.Input[pulumi.InputType['LaunchScheduledSplitsConfigArgs']]] = None,
+            scheduled_splits_config: Optional[pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             status_reason: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1064,14 +1064,14 @@ class Launch(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the launch.
         :param pulumi.Input[str] created_time: The date and time that the launch is created.
         :param pulumi.Input[str] description: Specifies the description of the launch.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchExecutionArgs']]]] executions: A block that contains information about the start and end times of the launch. Detailed below
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupArgs']]]] groups: One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchExecutionArgs', 'LaunchExecutionArgsDict']]]] executions: A block that contains information about the start and end times of the launch. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchGroupArgs', 'LaunchGroupArgsDict']]]] groups: One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
         :param pulumi.Input[str] last_updated_time: The date and time that the launch was most recently updated.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricMonitorArgs']]]] metric_monitors: One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchMetricMonitorArgs', 'LaunchMetricMonitorArgsDict']]]] metric_monitors: One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         :param pulumi.Input[str] name: The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[str] project: The name or ARN of the project that is to contain the new launch.
         :param pulumi.Input[str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
-        :param pulumi.Input[pulumi.InputType['LaunchScheduledSplitsConfigArgs']] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
+        :param pulumi.Input[Union['LaunchScheduledSplitsConfigArgs', 'LaunchScheduledSplitsConfigArgsDict']] scheduled_splits_config: A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         :param pulumi.Input[str] status: The current state of the launch. Valid values are `CREATED`, `UPDATING`, `RUNNING`, `COMPLETED`, and `CANCELLED`.
         :param pulumi.Input[str] status_reason: If the launch was stopped, this is the string that was entered by the person who stopped the launch, to explain why it was stopped.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -200,7 +200,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter_expression: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 insights_configuration: Optional[pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']]] = None,
+                 insights_configuration: Optional[pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -215,10 +215,10 @@ class Group(pulumi.CustomResource):
         example = aws.xray.Group("example",
             group_name="example",
             filter_expression="responsetime > 5",
-            insights_configuration=aws.xray.GroupInsightsConfigurationArgs(
-                insights_enabled=True,
-                notifications_enabled=True,
-            ))
+            insights_configuration={
+                "insightsEnabled": True,
+                "notificationsEnabled": True,
+            })
         ```
 
         ## Import
@@ -233,7 +233,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         :param pulumi.Input[str] group_name: The name of the group.
-        :param pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']] insights_configuration: Configuration options for enabling insights.
+        :param pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']] insights_configuration: Configuration options for enabling insights.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
@@ -254,10 +254,10 @@ class Group(pulumi.CustomResource):
         example = aws.xray.Group("example",
             group_name="example",
             filter_expression="responsetime > 5",
-            insights_configuration=aws.xray.GroupInsightsConfigurationArgs(
-                insights_enabled=True,
-                notifications_enabled=True,
-            ))
+            insights_configuration={
+                "insightsEnabled": True,
+                "notificationsEnabled": True,
+            })
         ```
 
         ## Import
@@ -285,7 +285,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter_expression: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 insights_configuration: Optional[pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']]] = None,
+                 insights_configuration: Optional[pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -319,7 +319,7 @@ class Group(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             filter_expression: Optional[pulumi.Input[str]] = None,
             group_name: Optional[pulumi.Input[str]] = None,
-            insights_configuration: Optional[pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']]] = None,
+            insights_configuration: Optional[pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Group':
         """
@@ -332,7 +332,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Group.
         :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         :param pulumi.Input[str] group_name: The name of the group.
-        :param pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']] insights_configuration: Configuration options for enabling insights.
+        :param pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict']] insights_configuration: Configuration options for enabling insights.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

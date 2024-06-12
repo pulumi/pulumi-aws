@@ -817,7 +817,7 @@ class CustomLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['CustomLayerCloudwatchConfigurationArgs']]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[Union['CustomLayerCloudwatchConfigurationArgs', 'CustomLayerCloudwatchConfigurationArgsDict']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -827,11 +827,11 @@ class CustomLayer(pulumi.CustomResource):
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomLayerEbsVolumeArgs', 'CustomLayerEbsVolumeArgsDict']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['CustomLayerLoadBasedAutoScalingArgs']]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[Union['CustomLayerLoadBasedAutoScalingArgs', 'CustomLayerLoadBasedAutoScalingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -867,16 +867,16 @@ class CustomLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
-        :param pulumi.Input[pulumi.InputType['CustomLayerCloudwatchConfigurationArgs']] cloudwatch_configuration: Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+        :param pulumi.Input[Union['CustomLayerCloudwatchConfigurationArgs', 'CustomLayerCloudwatchConfigurationArgsDict']] cloudwatch_configuration: Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLayerEbsVolumeArgs']]]] ebs_volumes: Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomLayerEbsVolumeArgs', 'CustomLayerEbsVolumeArgsDict']]]] ebs_volumes: Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-        :param pulumi.Input[pulumi.InputType['CustomLayerLoadBasedAutoScalingArgs']] load_based_auto_scaling: Load-based auto scaling configuration. See Load Based AutoScaling
+        :param pulumi.Input[Union['CustomLayerLoadBasedAutoScalingArgs', 'CustomLayerLoadBasedAutoScalingArgsDict']] load_based_auto_scaling: Load-based auto scaling configuration. See Load Based AutoScaling
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
@@ -935,7 +935,7 @@ class CustomLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['CustomLayerCloudwatchConfigurationArgs']]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[Union['CustomLayerCloudwatchConfigurationArgs', 'CustomLayerCloudwatchConfigurationArgsDict']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -945,11 +945,11 @@ class CustomLayer(pulumi.CustomResource):
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomLayerEbsVolumeArgs', 'CustomLayerEbsVolumeArgsDict']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['CustomLayerLoadBasedAutoScalingArgs']]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[Union['CustomLayerLoadBasedAutoScalingArgs', 'CustomLayerLoadBasedAutoScalingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -1009,7 +1009,7 @@ class CustomLayer(pulumi.CustomResource):
             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
             auto_healing: Optional[pulumi.Input[bool]] = None,
-            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['CustomLayerCloudwatchConfigurationArgs']]] = None,
+            cloudwatch_configuration: Optional[pulumi.Input[Union['CustomLayerCloudwatchConfigurationArgs', 'CustomLayerCloudwatchConfigurationArgsDict']]] = None,
             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -1019,11 +1019,11 @@ class CustomLayer(pulumi.CustomResource):
             custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLayerEbsVolumeArgs']]]]] = None,
+            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomLayerEbsVolumeArgs', 'CustomLayerEbsVolumeArgsDict']]]]] = None,
             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['CustomLayerLoadBasedAutoScalingArgs']]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[Union['CustomLayerLoadBasedAutoScalingArgs', 'CustomLayerLoadBasedAutoScalingArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             short_name: Optional[pulumi.Input[str]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
@@ -1042,16 +1042,16 @@ class CustomLayer(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
         :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
         :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
-        :param pulumi.Input[pulumi.InputType['CustomLayerCloudwatchConfigurationArgs']] cloudwatch_configuration: Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
+        :param pulumi.Input[Union['CustomLayerCloudwatchConfigurationArgs', 'CustomLayerCloudwatchConfigurationArgsDict']] cloudwatch_configuration: Will create an EBS volume and connect it to the layer's instances. See Cloudwatch Configuration.
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLayerEbsVolumeArgs']]]] ebs_volumes: Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomLayerEbsVolumeArgs', 'CustomLayerEbsVolumeArgsDict']]]] ebs_volumes: Will create an EBS volume and connect it to the layer's instances. See EBS Volume.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-        :param pulumi.Input[pulumi.InputType['CustomLayerLoadBasedAutoScalingArgs']] load_based_auto_scaling: Load-based auto scaling configuration. See Load Based AutoScaling
+        :param pulumi.Input[Union['CustomLayerLoadBasedAutoScalingArgs', 'CustomLayerLoadBasedAutoScalingArgsDict']] load_based_auto_scaling: Load-based auto scaling configuration. See Load Based AutoScaling
         :param pulumi.Input[str] name: A human-readable name for the layer.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the layer, which will be used to identify it in the Chef node JSON.
         :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.

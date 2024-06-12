@@ -112,23 +112,23 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
             auto_enable=False,
             auto_enable_standards="NONE",
-            organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
-                configuration_type="CENTRAL",
-            ),
+            organization_configuration={
+                "configurationType": "CENTRAL",
+            },
             opts=pulumi.ResourceOptions(depends_on=[example]))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
-            configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
-                service_enabled=True,
-                enabled_standard_arns=[
+            configuration_policy={
+                "serviceEnabled": True,
+                "enabledStandardArns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                security_controls_configuration=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(
-                    disabled_control_identifiers=[],
-                ),
-            ),
+                "securityControlsConfiguration": {
+                    "disabledControlIdentifiers": [],
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
         account_example = aws.securityhub.ConfigurationPolicyAssociation("account_example",
             target_id="123456789012",
@@ -175,23 +175,23 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
             auto_enable=False,
             auto_enable_standards="NONE",
-            organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
-                configuration_type="CENTRAL",
-            ),
+            organization_configuration={
+                "configurationType": "CENTRAL",
+            },
             opts=pulumi.ResourceOptions(depends_on=[example]))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
-            configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
-                service_enabled=True,
-                enabled_standard_arns=[
+            configuration_policy={
+                "serviceEnabled": True,
+                "enabledStandardArns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                security_controls_configuration=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(
-                    disabled_control_identifiers=[],
-                ),
-            ),
+                "securityControlsConfiguration": {
+                    "disabledControlIdentifiers": [],
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
         account_example = aws.securityhub.ConfigurationPolicyAssociation("account_example",
             target_id="123456789012",

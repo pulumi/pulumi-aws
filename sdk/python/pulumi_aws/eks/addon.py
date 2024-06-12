@@ -578,21 +578,21 @@ class Addon(pulumi.CustomResource):
             client_id_lists=["sts.amazonaws.com"],
             thumbprint_lists=[example.certificates[0].sha1_fingerprint],
             url=example_cluster.identities[0].oidcs[0].issuer)
-        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRoleWithWebIdentity"],
-            effect="Allow",
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="StringEquals",
-                variable=std.replace_output(text=example_open_id_connect_provider.url,
+        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["sts:AssumeRoleWithWebIdentity"],
+            "effect": "Allow",
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": std.replace_output(text=example_open_id_connect_provider.url,
                     search="https://",
                     replace="").apply(lambda invoke: f"{invoke.result}:sub"),
-                values=["system:serviceaccount:kube-system:aws-node"],
-            )],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=[example_open_id_connect_provider.arn],
-                type="Federated",
-            )],
-        )])
+                "values": ["system:serviceaccount:kube-system:aws-node"],
+            }],
+            "principals": [{
+                "identifiers": [example_open_id_connect_provider.arn],
+                "type": "Federated",
+            }],
+        }])
         example_role = aws.iam.Role("example",
             assume_role_policy=example_assume_role_policy.json,
             name="example-vpc-cni-role")
@@ -721,21 +721,21 @@ class Addon(pulumi.CustomResource):
             client_id_lists=["sts.amazonaws.com"],
             thumbprint_lists=[example.certificates[0].sha1_fingerprint],
             url=example_cluster.identities[0].oidcs[0].issuer)
-        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRoleWithWebIdentity"],
-            effect="Allow",
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="StringEquals",
-                variable=std.replace_output(text=example_open_id_connect_provider.url,
+        example_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["sts:AssumeRoleWithWebIdentity"],
+            "effect": "Allow",
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": std.replace_output(text=example_open_id_connect_provider.url,
                     search="https://",
                     replace="").apply(lambda invoke: f"{invoke.result}:sub"),
-                values=["system:serviceaccount:kube-system:aws-node"],
-            )],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=[example_open_id_connect_provider.arn],
-                type="Federated",
-            )],
-        )])
+                "values": ["system:serviceaccount:kube-system:aws-node"],
+            }],
+            "principals": [{
+                "identifiers": [example_open_id_connect_provider.arn],
+                "type": "Federated",
+            }],
+        }])
         example_role = aws.iam.Role("example",
             assume_role_policy=example_assume_role_policy.json,
             name="example-vpc-cni-role")

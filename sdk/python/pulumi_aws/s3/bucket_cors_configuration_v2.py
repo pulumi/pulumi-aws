@@ -129,7 +129,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]]] = None,
+                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict']]]]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -149,20 +149,20 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         example_bucket_cors_configuration_v2 = aws.s3.BucketCorsConfigurationV2("example",
             bucket=example.id,
             cors_rules=[
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_headers=["*"],
-                    allowed_methods=[
+                {
+                    "allowedHeaders": ["*"],
+                    "allowedMethods": [
                         "PUT",
                         "POST",
                     ],
-                    allowed_origins=["https://s3-website-test.domain.example"],
-                    expose_headers=["ETag"],
-                    max_age_seconds=3000,
-                ),
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_methods=["GET"],
-                    allowed_origins=["*"],
-                ),
+                    "allowedOrigins": ["https://s3-website-test.domain.example"],
+                    "exposeHeaders": ["ETag"],
+                    "maxAgeSeconds": 3000,
+                },
+                {
+                    "allowedMethods": ["GET"],
+                    "allowedOrigins": ["*"],
+                },
             ])
         ```
 
@@ -186,7 +186,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         ...
@@ -212,20 +212,20 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         example_bucket_cors_configuration_v2 = aws.s3.BucketCorsConfigurationV2("example",
             bucket=example.id,
             cors_rules=[
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_headers=["*"],
-                    allowed_methods=[
+                {
+                    "allowedHeaders": ["*"],
+                    "allowedMethods": [
                         "PUT",
                         "POST",
                     ],
-                    allowed_origins=["https://s3-website-test.domain.example"],
-                    expose_headers=["ETag"],
-                    max_age_seconds=3000,
-                ),
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_methods=["GET"],
-                    allowed_origins=["*"],
-                ),
+                    "allowedOrigins": ["https://s3-website-test.domain.example"],
+                    "exposeHeaders": ["ETag"],
+                    "maxAgeSeconds": 3000,
+                },
+                {
+                    "allowedMethods": ["GET"],
+                    "allowedOrigins": ["*"],
+                },
             ])
         ```
 
@@ -262,7 +262,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]]] = None,
+                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict']]]]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -291,7 +291,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[str]] = None,
-            cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]]] = None,
+            cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict']]]]] = None,
             expected_bucket_owner: Optional[pulumi.Input[str]] = None) -> 'BucketCorsConfigurationV2':
         """
         Get an existing BucketCorsConfigurationV2 resource's state with the given name, id, and optional extra
@@ -301,7 +301,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketCorsConfigurationV2CorsRuleArgs', 'BucketCorsConfigurationV2CorsRuleArgsDict']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

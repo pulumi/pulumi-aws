@@ -82,7 +82,7 @@ class AwaitableGetLocalGatewayVirtualInterfaceGroupResult(GetLocalGatewayVirtual
             tags=self.tags)
 
 
-def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupFilterArgs']]] = None,
+def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupFilterArgsDict']]] = None,
                                               id: Optional[str] = None,
                                               local_gateway_id: Optional[str] = None,
                                               tags: Optional[Mapping[str, str]] = None,
@@ -100,7 +100,7 @@ def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[pulumi.
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
     :param str id: Identifier of EC2 Local Gateway Virtual Interface Group.
     :param str local_gateway_id: Identifier of EC2 Local Gateway.
     :param Mapping[str, str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
@@ -122,7 +122,7 @@ def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[pulumi.
 
 
 @_utilities.lift_output_func(get_local_gateway_virtual_interface_group)
-def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupFilterArgs']]]]] = None,
+def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceGroupFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupFilterArgsDict']]]]] = None,
                                                      id: Optional[pulumi.Input[Optional[str]]] = None,
                                                      local_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -140,7 +140,7 @@ def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.In
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetLocalGatewayVirtualInterfaceGroupFilterArgs', 'GetLocalGatewayVirtualInterfaceGroupFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
     :param str id: Identifier of EC2 Local Gateway Virtual Interface Group.
     :param str local_gateway_id: Identifier of EC2 Local Gateway.
     :param Mapping[str, str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.

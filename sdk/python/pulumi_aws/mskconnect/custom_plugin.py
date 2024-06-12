@@ -218,7 +218,7 @@ class CustomPlugin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -240,12 +240,12 @@ class CustomPlugin(pulumi.CustomResource):
         example_custom_plugin = aws.mskconnect.CustomPlugin("example",
             name="debezium-example",
             content_type="ZIP",
-            location=aws.mskconnect.CustomPluginLocationArgs(
-                s3=aws.mskconnect.CustomPluginLocationS3Args(
-                    bucket_arn=example.arn,
-                    file_key=example_bucket_objectv2.key,
-                ),
-            ))
+            location={
+                "s3": {
+                    "bucketArn": example.arn,
+                    "fileKey": example_bucket_objectv2.key,
+                },
+            })
         ```
 
         ## Import
@@ -260,7 +260,7 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[str] description: A summary description of the custom plugin.
-        :param pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']] location: Information about the location of a custom plugin. See below.
+        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See below.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: The name of the custom plugin..
@@ -290,12 +290,12 @@ class CustomPlugin(pulumi.CustomResource):
         example_custom_plugin = aws.mskconnect.CustomPlugin("example",
             name="debezium-example",
             content_type="ZIP",
-            location=aws.mskconnect.CustomPluginLocationArgs(
-                s3=aws.mskconnect.CustomPluginLocationS3Args(
-                    bucket_arn=example.arn,
-                    file_key=example_bucket_objectv2.key,
-                ),
-            ))
+            location={
+                "s3": {
+                    "bucketArn": example.arn,
+                    "fileKey": example_bucket_objectv2.key,
+                },
+            })
         ```
 
         ## Import
@@ -323,7 +323,7 @@ class CustomPlugin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -359,7 +359,7 @@ class CustomPlugin(pulumi.CustomResource):
             content_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             latest_revision: Optional[pulumi.Input[int]] = None,
-            location: Optional[pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']]] = None,
+            location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None) -> 'CustomPlugin':
         """
@@ -373,7 +373,7 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[str] description: A summary description of the custom plugin.
         :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
-        :param pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']] location: Information about the location of a custom plugin. See below.
+        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See below.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: The name of the custom plugin..

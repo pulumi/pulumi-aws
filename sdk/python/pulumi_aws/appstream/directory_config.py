@@ -145,7 +145,7 @@ class DirectoryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_name: Optional[pulumi.Input[str]] = None,
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 service_account_credentials: Optional[pulumi.Input[pulumi.InputType['DirectoryConfigServiceAccountCredentialsArgs']]] = None,
+                 service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
                  __props__=None):
         """
         Provides an AppStream Directory Config.
@@ -159,10 +159,10 @@ class DirectoryConfig(pulumi.CustomResource):
         example = aws.appstream.DirectoryConfig("example",
             directory_name="NAME OF DIRECTORY",
             organizational_unit_distinguished_names=["DISTINGUISHED NAME"],
-            service_account_credentials=aws.appstream.DirectoryConfigServiceAccountCredentialsArgs(
-                account_name="NAME OF ACCOUNT",
-                account_password="PASSWORD OF ACCOUNT",
-            ))
+            service_account_credentials={
+                "accountName": "NAME OF ACCOUNT",
+                "accountPassword": "PASSWORD OF ACCOUNT",
+            })
         ```
 
         ## Import
@@ -177,7 +177,7 @@ class DirectoryConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
-        :param pulumi.Input[pulumi.InputType['DirectoryConfigServiceAccountCredentialsArgs']] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+        :param pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         """
         ...
     @overload
@@ -197,10 +197,10 @@ class DirectoryConfig(pulumi.CustomResource):
         example = aws.appstream.DirectoryConfig("example",
             directory_name="NAME OF DIRECTORY",
             organizational_unit_distinguished_names=["DISTINGUISHED NAME"],
-            service_account_credentials=aws.appstream.DirectoryConfigServiceAccountCredentialsArgs(
-                account_name="NAME OF ACCOUNT",
-                account_password="PASSWORD OF ACCOUNT",
-            ))
+            service_account_credentials={
+                "accountName": "NAME OF ACCOUNT",
+                "accountPassword": "PASSWORD OF ACCOUNT",
+            })
         ```
 
         ## Import
@@ -228,7 +228,7 @@ class DirectoryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_name: Optional[pulumi.Input[str]] = None,
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 service_account_credentials: Optional[pulumi.Input[pulumi.InputType['DirectoryConfigServiceAccountCredentialsArgs']]] = None,
+                 service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -261,7 +261,7 @@ class DirectoryConfig(pulumi.CustomResource):
             created_time: Optional[pulumi.Input[str]] = None,
             directory_name: Optional[pulumi.Input[str]] = None,
             organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            service_account_credentials: Optional[pulumi.Input[pulumi.InputType['DirectoryConfigServiceAccountCredentialsArgs']]] = None) -> 'DirectoryConfig':
+            service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None) -> 'DirectoryConfig':
         """
         Get an existing DirectoryConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -272,7 +272,7 @@ class DirectoryConfig(pulumi.CustomResource):
         :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         :param pulumi.Input[str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
-        :param pulumi.Input[pulumi.InputType['DirectoryConfigServiceAccountCredentialsArgs']] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+        :param pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

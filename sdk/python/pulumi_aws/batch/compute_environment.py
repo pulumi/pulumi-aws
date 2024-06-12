@@ -409,13 +409,13 @@ class ComputeEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
                  compute_environment_name_prefix: Optional[pulumi.Input[str]] = None,
-                 compute_resources: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']]] = None,
-                 eks_configuration: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']]] = None,
+                 compute_resources: Optional[pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']]] = None,
+                 eks_configuration: Optional[pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None,
+                 update_policy: Optional[pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']]] = None,
                  __props__=None):
         """
         Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
@@ -434,14 +434,14 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ec2_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        ec2_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["ec2.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         ecs_instance_role = aws.iam.Role("ecs_instance_role",
             name="ecs_instance_role",
             assume_role_policy=ec2_assume_role.json)
@@ -451,14 +451,14 @@ class ComputeEnvironment(pulumi.CustomResource):
         ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecs_instance_role",
             name="ecs_instance_role",
             role=ecs_instance_role.name)
-        batch_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["batch.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        batch_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["batch.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         aws_batch_service_role = aws.iam.Role("aws_batch_service_role",
             name="aws_batch_service_role",
             assume_role_policy=batch_assume_role.json)
@@ -467,12 +467,12 @@ class ComputeEnvironment(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
         sample = aws.ec2.SecurityGroup("sample",
             name="aws_batch_compute_environment_security_group",
-            egress=[aws.ec2.SecurityGroupEgressArgs(
-                from_port=0,
-                to_port=0,
-                protocol="-1",
-                cidr_blocks=["0.0.0.0/0"],
-            )])
+            egress=[{
+                "fromPort": 0,
+                "toPort": 0,
+                "protocol": "-1",
+                "cidrBlocks": ["0.0.0.0/0"],
+            }])
         sample_vpc = aws.ec2.Vpc("sample", cidr_block="10.1.0.0/16")
         sample_subnet = aws.ec2.Subnet("sample",
             vpc_id=sample_vpc.id,
@@ -482,16 +482,16 @@ class ComputeEnvironment(pulumi.CustomResource):
             strategy=aws.ec2.PlacementStrategy.CLUSTER)
         sample_compute_environment = aws.batch.ComputeEnvironment("sample",
             compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                instance_role=ecs_instance_role_instance_profile.arn,
-                instance_types=["c4.large"],
-                max_vcpus=16,
-                min_vcpus=0,
-                placement_group=sample_placement_group.name,
-                security_group_ids=[sample.id],
-                subnets=[sample_subnet.id],
-                type="EC2",
-            ),
+            compute_resources={
+                "instanceRole": ecs_instance_role_instance_profile.arn,
+                "instanceTypes": ["c4.large"],
+                "maxVcpus": 16,
+                "minVcpus": 0,
+                "placementGroup": sample_placement_group.name,
+                "securityGroupIds": [sample.id],
+                "subnets": [sample_subnet.id],
+                "type": "EC2",
+            },
             service_role=aws_batch_service_role.arn,
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
@@ -505,12 +505,12 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         sample = aws.batch.ComputeEnvironment("sample",
             compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                max_vcpus=16,
-                security_group_ids=[sample_aws_security_group["id"]],
-                subnets=[sample_aws_subnet["id"]],
-                type="FARGATE",
-            ),
+            compute_resources={
+                "maxVcpus": 16,
+                "securityGroupIds": [sample_aws_security_group["id"]],
+                "subnets": [sample_aws_subnet["id"]],
+                "type": "FARGATE",
+            },
             service_role=aws_batch_service_role_aws_iam_role["arn"],
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role]))
@@ -524,20 +524,20 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         sample = aws.batch.ComputeEnvironment("sample",
             compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                allocation_strategy="BEST_FIT_PROGRESSIVE",
-                instance_role=ecs_instance["arn"],
-                instance_types=["optimal"],
-                max_vcpus=4,
-                min_vcpus=0,
-                security_group_ids=[sample_aws_security_group["id"]],
-                subnets=[sample_aws_subnet["id"]],
-                type="EC2",
-            ),
-            update_policy=aws.batch.ComputeEnvironmentUpdatePolicyArgs(
-                job_execution_timeout_minutes=30,
-                terminate_jobs_on_update=False,
-            ),
+            compute_resources={
+                "allocationStrategy": "BEST_FIT_PROGRESSIVE",
+                "instanceRole": ecs_instance["arn"],
+                "instanceTypes": ["optimal"],
+                "maxVcpus": 4,
+                "minVcpus": 0,
+                "securityGroupIds": [sample_aws_security_group["id"]],
+                "subnets": [sample_aws_subnet["id"]],
+                "type": "EC2",
+            },
+            update_policy={
+                "jobExecutionTimeoutMinutes": 30,
+                "terminateJobsOnUpdate": False,
+            },
             type="MANAGED")
         ```
 
@@ -553,13 +553,13 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
         :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
         """
         ...
     @overload
@@ -584,14 +584,14 @@ class ComputeEnvironment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ec2_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        ec2_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["ec2.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         ecs_instance_role = aws.iam.Role("ecs_instance_role",
             name="ecs_instance_role",
             assume_role_policy=ec2_assume_role.json)
@@ -601,14 +601,14 @@ class ComputeEnvironment(pulumi.CustomResource):
         ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecs_instance_role",
             name="ecs_instance_role",
             role=ecs_instance_role.name)
-        batch_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["batch.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        batch_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["batch.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         aws_batch_service_role = aws.iam.Role("aws_batch_service_role",
             name="aws_batch_service_role",
             assume_role_policy=batch_assume_role.json)
@@ -617,12 +617,12 @@ class ComputeEnvironment(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
         sample = aws.ec2.SecurityGroup("sample",
             name="aws_batch_compute_environment_security_group",
-            egress=[aws.ec2.SecurityGroupEgressArgs(
-                from_port=0,
-                to_port=0,
-                protocol="-1",
-                cidr_blocks=["0.0.0.0/0"],
-            )])
+            egress=[{
+                "fromPort": 0,
+                "toPort": 0,
+                "protocol": "-1",
+                "cidrBlocks": ["0.0.0.0/0"],
+            }])
         sample_vpc = aws.ec2.Vpc("sample", cidr_block="10.1.0.0/16")
         sample_subnet = aws.ec2.Subnet("sample",
             vpc_id=sample_vpc.id,
@@ -632,16 +632,16 @@ class ComputeEnvironment(pulumi.CustomResource):
             strategy=aws.ec2.PlacementStrategy.CLUSTER)
         sample_compute_environment = aws.batch.ComputeEnvironment("sample",
             compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                instance_role=ecs_instance_role_instance_profile.arn,
-                instance_types=["c4.large"],
-                max_vcpus=16,
-                min_vcpus=0,
-                placement_group=sample_placement_group.name,
-                security_group_ids=[sample.id],
-                subnets=[sample_subnet.id],
-                type="EC2",
-            ),
+            compute_resources={
+                "instanceRole": ecs_instance_role_instance_profile.arn,
+                "instanceTypes": ["c4.large"],
+                "maxVcpus": 16,
+                "minVcpus": 0,
+                "placementGroup": sample_placement_group.name,
+                "securityGroupIds": [sample.id],
+                "subnets": [sample_subnet.id],
+                "type": "EC2",
+            },
             service_role=aws_batch_service_role.arn,
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
@@ -655,12 +655,12 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         sample = aws.batch.ComputeEnvironment("sample",
             compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                max_vcpus=16,
-                security_group_ids=[sample_aws_security_group["id"]],
-                subnets=[sample_aws_subnet["id"]],
-                type="FARGATE",
-            ),
+            compute_resources={
+                "maxVcpus": 16,
+                "securityGroupIds": [sample_aws_security_group["id"]],
+                "subnets": [sample_aws_subnet["id"]],
+                "type": "FARGATE",
+            },
             service_role=aws_batch_service_role_aws_iam_role["arn"],
             type="MANAGED",
             opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role]))
@@ -674,20 +674,20 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         sample = aws.batch.ComputeEnvironment("sample",
             compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                allocation_strategy="BEST_FIT_PROGRESSIVE",
-                instance_role=ecs_instance["arn"],
-                instance_types=["optimal"],
-                max_vcpus=4,
-                min_vcpus=0,
-                security_group_ids=[sample_aws_security_group["id"]],
-                subnets=[sample_aws_subnet["id"]],
-                type="EC2",
-            ),
-            update_policy=aws.batch.ComputeEnvironmentUpdatePolicyArgs(
-                job_execution_timeout_minutes=30,
-                terminate_jobs_on_update=False,
-            ),
+            compute_resources={
+                "allocationStrategy": "BEST_FIT_PROGRESSIVE",
+                "instanceRole": ecs_instance["arn"],
+                "instanceTypes": ["optimal"],
+                "maxVcpus": 4,
+                "minVcpus": 0,
+                "securityGroupIds": [sample_aws_security_group["id"]],
+                "subnets": [sample_aws_subnet["id"]],
+                "type": "EC2",
+            },
+            update_policy={
+                "jobExecutionTimeoutMinutes": 30,
+                "terminateJobsOnUpdate": False,
+            },
             type="MANAGED")
         ```
 
@@ -716,13 +716,13 @@ class ComputeEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_environment_name: Optional[pulumi.Input[str]] = None,
                  compute_environment_name_prefix: Optional[pulumi.Input[str]] = None,
-                 compute_resources: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']]] = None,
-                 eks_configuration: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']]] = None,
+                 compute_resources: Optional[pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']]] = None,
+                 eks_configuration: Optional[pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None,
+                 update_policy: Optional[pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -761,9 +761,9 @@ class ComputeEnvironment(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             compute_environment_name: Optional[pulumi.Input[str]] = None,
             compute_environment_name_prefix: Optional[pulumi.Input[str]] = None,
-            compute_resources: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']]] = None,
+            compute_resources: Optional[pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']]] = None,
             ecs_cluster_arn: Optional[pulumi.Input[str]] = None,
-            eks_configuration: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']]] = None,
+            eks_configuration: Optional[pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']]] = None,
             service_role: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -771,7 +771,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            update_policy: Optional[pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']]] = None) -> 'ComputeEnvironment':
+            update_policy: Optional[pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']]] = None) -> 'ComputeEnvironment':
         """
         Get an existing ComputeEnvironment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -782,9 +782,9 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the compute environment.
         :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentComputeResourcesArgs', 'ComputeEnvironmentComputeResourcesArgsDict']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         :param pulumi.Input[str] ecs_cluster_arn: The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentEksConfigurationArgs', 'ComputeEnvironmentEksConfigurationArgsDict']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
         :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[str] status: The current status of the compute environment (for example, CREATING or VALID).
@@ -792,7 +792,7 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentUpdatePolicyArgs']] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
+        :param pulumi.Input[Union['ComputeEnvironmentUpdatePolicyArgs', 'ComputeEnvironmentUpdatePolicyArgsDict']] update_policy: Specifies the infrastructure update policy for the compute environment. See details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

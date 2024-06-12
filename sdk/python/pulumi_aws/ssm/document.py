@@ -550,7 +550,7 @@ class Document(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
+                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  document_format: Optional[pulumi.Input[str]] = None,
                  document_type: Optional[pulumi.Input[str]] = None,
@@ -630,7 +630,7 @@ class Document(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         :param pulumi.Input[str] content: The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         :param pulumi.Input[str] document_format: The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         :param pulumi.Input[str] document_type: The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
@@ -729,7 +729,7 @@ class Document(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
+                 attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  document_format: Optional[pulumi.Input[str]] = None,
                  document_type: Optional[pulumi.Input[str]] = None,
@@ -785,7 +785,7 @@ class Document(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]]] = None,
+            attachments_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
             content: Optional[pulumi.Input[str]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             default_version: Optional[pulumi.Input[str]] = None,
@@ -798,7 +798,7 @@ class Document(pulumi.CustomResource):
             latest_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentParameterArgs']]]]] = None,
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentParameterArgs', 'DocumentParameterArgsDict']]]]] = None,
             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             platform_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             schema_version: Optional[pulumi.Input[str]] = None,
@@ -815,7 +815,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the document.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentAttachmentsSourceArgs']]]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         :param pulumi.Input[str] content: The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         :param pulumi.Input[str] created_date: The date the document was created.
         :param pulumi.Input[str] default_version: The default version of the document.
@@ -828,7 +828,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[str] latest_version: The latest version of the document.
         :param pulumi.Input[str] name: The name of the document.
         :param pulumi.Input[str] owner: The Amazon Web Services user that created the document.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DocumentParameterArgs']]]] parameters: One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentParameterArgs', 'DocumentParameterArgsDict']]]] parameters: One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: Additional permissions to attach to the document. See Permissions below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] platform_types: The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
         :param pulumi.Input[str] schema_version: The schema version of the document.

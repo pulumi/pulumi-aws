@@ -132,7 +132,7 @@ class ParameterGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a DAX Parameter Group resource.
@@ -146,14 +146,14 @@ class ParameterGroup(pulumi.CustomResource):
         example = aws.dax.ParameterGroup("example",
             name="example",
             parameters=[
-                aws.dax.ParameterGroupParameterArgs(
-                    name="query-ttl-millis",
-                    value="100000",
-                ),
-                aws.dax.ParameterGroupParameterArgs(
-                    name="record-ttl-millis",
-                    value="100000",
-                ),
+                {
+                    "name": "query-ttl-millis",
+                    "value": "100000",
+                },
+                {
+                    "name": "record-ttl-millis",
+                    "value": "100000",
+                },
             ])
         ```
 
@@ -169,7 +169,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: The parameters of the parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: The parameters of the parameter group.
         """
         ...
     @overload
@@ -189,14 +189,14 @@ class ParameterGroup(pulumi.CustomResource):
         example = aws.dax.ParameterGroup("example",
             name="example",
             parameters=[
-                aws.dax.ParameterGroupParameterArgs(
-                    name="query-ttl-millis",
-                    value="100000",
-                ),
-                aws.dax.ParameterGroupParameterArgs(
-                    name="record-ttl-millis",
-                    value="100000",
-                ),
+                {
+                    "name": "query-ttl-millis",
+                    "value": "100000",
+                },
+                {
+                    "name": "record-ttl-millis",
+                    "value": "100000",
+                },
             ])
         ```
 
@@ -225,7 +225,7 @@ class ParameterGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -250,7 +250,7 @@ class ParameterGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None) -> 'ParameterGroup':
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None) -> 'ParameterGroup':
         """
         Get an existing ParameterGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -260,7 +260,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the parameter group.
         :param pulumi.Input[str] name: The name of the parameter group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: The parameters of the parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: The parameters of the parameter group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

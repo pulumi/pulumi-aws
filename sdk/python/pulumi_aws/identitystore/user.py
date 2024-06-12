@@ -519,14 +519,14 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: Optional[pulumi.Input[pulumi.InputType['UserAddressesArgs']]] = None,
+                 addresses: Optional[pulumi.Input[Union['UserAddressesArgs', 'UserAddressesArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 emails: Optional[pulumi.Input[pulumi.InputType['UserEmailsArgs']]] = None,
+                 emails: Optional[pulumi.Input[Union['UserEmailsArgs', 'UserEmailsArgsDict']]] = None,
                  identity_store_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[pulumi.InputType['UserNameArgs']]] = None,
+                 name: Optional[pulumi.Input[Union['UserNameArgs', 'UserNameArgsDict']]] = None,
                  nickname: Optional[pulumi.Input[str]] = None,
-                 phone_numbers: Optional[pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']]] = None,
+                 phone_numbers: Optional[pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  profile_url: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -554,13 +554,13 @@ class User(pulumi.CustomResource):
             identity_store_id=example_aws_ssoadmin_instances["identityStoreIds"],
             display_name="John Doe",
             user_name="johndoe",
-            name=aws.identitystore.UserNameArgs(
-                given_name="John",
-                family_name="Doe",
-            ),
-            emails=aws.identitystore.UserEmailsArgs(
-                value="john@example.com",
-            ))
+            name={
+                "givenName": "John",
+                "familyName": "Doe",
+            },
+            emails={
+                "value": "john@example.com",
+            })
         ```
 
         ## Import
@@ -573,14 +573,14 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserAddressesArgs']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
+        :param pulumi.Input[Union['UserAddressesArgs', 'UserAddressesArgsDict']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
         :param pulumi.Input[str] display_name: The name that is typically displayed when the user is referenced.
-        :param pulumi.Input[pulumi.InputType['UserEmailsArgs']] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
+        :param pulumi.Input[Union['UserEmailsArgs', 'UserEmailsArgsDict']] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store that this user is in.
         :param pulumi.Input[str] locale: The user's geographical region or location.
-        :param pulumi.Input[pulumi.InputType['UserNameArgs']] name: Details about the user's full name. Detailed below.
+        :param pulumi.Input[Union['UserNameArgs', 'UserNameArgsDict']] name: Details about the user's full name. Detailed below.
         :param pulumi.Input[str] nickname: An alternate name for the user.
-        :param pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
+        :param pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[str] preferred_language: The preferred language of the user.
         :param pulumi.Input[str] profile_url: An URL that may be associated with the user.
         :param pulumi.Input[str] timezone: The user's time zone.
@@ -616,13 +616,13 @@ class User(pulumi.CustomResource):
             identity_store_id=example_aws_ssoadmin_instances["identityStoreIds"],
             display_name="John Doe",
             user_name="johndoe",
-            name=aws.identitystore.UserNameArgs(
-                given_name="John",
-                family_name="Doe",
-            ),
-            emails=aws.identitystore.UserEmailsArgs(
-                value="john@example.com",
-            ))
+            name={
+                "givenName": "John",
+                "familyName": "Doe",
+            },
+            emails={
+                "value": "john@example.com",
+            })
         ```
 
         ## Import
@@ -648,14 +648,14 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: Optional[pulumi.Input[pulumi.InputType['UserAddressesArgs']]] = None,
+                 addresses: Optional[pulumi.Input[Union['UserAddressesArgs', 'UserAddressesArgsDict']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 emails: Optional[pulumi.Input[pulumi.InputType['UserEmailsArgs']]] = None,
+                 emails: Optional[pulumi.Input[Union['UserEmailsArgs', 'UserEmailsArgsDict']]] = None,
                  identity_store_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[pulumi.InputType['UserNameArgs']]] = None,
+                 name: Optional[pulumi.Input[Union['UserNameArgs', 'UserNameArgsDict']]] = None,
                  nickname: Optional[pulumi.Input[str]] = None,
-                 phone_numbers: Optional[pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']]] = None,
+                 phone_numbers: Optional[pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  profile_url: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -703,15 +703,15 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            addresses: Optional[pulumi.Input[pulumi.InputType['UserAddressesArgs']]] = None,
+            addresses: Optional[pulumi.Input[Union['UserAddressesArgs', 'UserAddressesArgsDict']]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            emails: Optional[pulumi.Input[pulumi.InputType['UserEmailsArgs']]] = None,
-            external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserExternalIdArgs']]]]] = None,
+            emails: Optional[pulumi.Input[Union['UserEmailsArgs', 'UserEmailsArgsDict']]] = None,
+            external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserExternalIdArgs', 'UserExternalIdArgsDict']]]]] = None,
             identity_store_id: Optional[pulumi.Input[str]] = None,
             locale: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[pulumi.InputType['UserNameArgs']]] = None,
+            name: Optional[pulumi.Input[Union['UserNameArgs', 'UserNameArgsDict']]] = None,
             nickname: Optional[pulumi.Input[str]] = None,
-            phone_numbers: Optional[pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']]] = None,
+            phone_numbers: Optional[pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']]] = None,
             preferred_language: Optional[pulumi.Input[str]] = None,
             profile_url: Optional[pulumi.Input[str]] = None,
             timezone: Optional[pulumi.Input[str]] = None,
@@ -726,15 +726,15 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserAddressesArgs']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
+        :param pulumi.Input[Union['UserAddressesArgs', 'UserAddressesArgsDict']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
         :param pulumi.Input[str] display_name: The name that is typically displayed when the user is referenced.
-        :param pulumi.Input[pulumi.InputType['UserEmailsArgs']] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserExternalIdArgs']]]] external_ids: A list of identifiers issued to this resource by an external identity provider.
+        :param pulumi.Input[Union['UserEmailsArgs', 'UserEmailsArgsDict']] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserExternalIdArgs', 'UserExternalIdArgsDict']]]] external_ids: A list of identifiers issued to this resource by an external identity provider.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store that this user is in.
         :param pulumi.Input[str] locale: The user's geographical region or location.
-        :param pulumi.Input[pulumi.InputType['UserNameArgs']] name: Details about the user's full name. Detailed below.
+        :param pulumi.Input[Union['UserNameArgs', 'UserNameArgsDict']] name: Details about the user's full name. Detailed below.
         :param pulumi.Input[str] nickname: An alternate name for the user.
-        :param pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
+        :param pulumi.Input[Union['UserPhoneNumbersArgs', 'UserPhoneNumbersArgsDict']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[str] preferred_language: The preferred language of the user.
         :param pulumi.Input[str] profile_url: An URL that may be associated with the user.
         :param pulumi.Input[str] timezone: The user's time zone.

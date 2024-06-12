@@ -704,13 +704,13 @@ class DevEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["glue.amazonaws.com"],
-            )],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["glue.amazonaws.com"],
+            }],
+        }])
         example_role = aws.iam.Role("example",
             name="AWSGlueServiceRole-foo",
             assume_role_policy=example.json)
@@ -765,13 +765,13 @@ class DevEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["glue.amazonaws.com"],
-            )],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["glue.amazonaws.com"],
+            }],
+        }])
         example_role = aws.iam.Role("example",
             name="AWSGlueServiceRole-foo",
             assume_role_policy=example.json)

@@ -454,9 +454,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
                  task_arn: Optional[pulumi.Input[str]] = None,
-                 task_invocation_parameters: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']]] = None,
+                 task_invocation_parameters: Optional[pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
                  window_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -478,19 +478,19 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_arn="AWS-RestartEC2Instance",
             task_type="AUTOMATION",
             window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
-                key="InstanceIds",
-                values=[example_aws_instance["id"]],
-            )],
-            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
-                automation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs(
-                    document_version="$LATEST",
-                    parameters=[aws.ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs(
-                        name="InstanceId",
-                        values=[example_aws_instance["id"]],
-                    )],
-                ),
-            ))
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            task_invocation_parameters={
+                "automationParameters": {
+                    "documentVersion": "$LATEST",
+                    "parameters": [{
+                        "name": "InstanceId",
+                        "values": [example_aws_instance["id"]],
+                    }],
+                },
+            })
         ```
 
         ### Lambda Tasks
@@ -507,16 +507,16 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_arn=example_aws_lambda_function["arn"],
             task_type="LAMBDA",
             window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
-                key="InstanceIds",
-                values=[example_aws_instance["id"]],
-            )],
-            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
-                lambda_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs(
-                    client_context=std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
-                    payload="{\\"key1\\":\\"value1\\"}",
-                ),
-            ))
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            task_invocation_parameters={
+                "lambdaParameters": {
+                    "clientContext": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
+                    "payload": "{\\"key1\\":\\"value1\\"}",
+                },
+            })
         ```
 
         ### Run Command Tasks
@@ -532,27 +532,27 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_arn="AWS-RunShellScript",
             task_type="RUN_COMMAND",
             window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
-                key="InstanceIds",
-                values=[example_aws_instance["id"]],
-            )],
-            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
-                run_command_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs(
-                    output_s3_bucket=example_aws_s3_bucket["id"],
-                    output_s3_key_prefix="output",
-                    service_role_arn=example_aws_iam_role["arn"],
-                    timeout_seconds=600,
-                    notification_config=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs(
-                        notification_arn=example_aws_sns_topic["arn"],
-                        notification_events=["All"],
-                        notification_type="Command",
-                    ),
-                    parameters=[aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs(
-                        name="commands",
-                        values=["date"],
-                    )],
-                ),
-            ))
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            task_invocation_parameters={
+                "runCommandParameters": {
+                    "outputS3Bucket": example_aws_s3_bucket["id"],
+                    "outputS3KeyPrefix": "output",
+                    "serviceRoleArn": example_aws_iam_role["arn"],
+                    "timeoutSeconds": 600,
+                    "notificationConfig": {
+                        "notificationArn": example_aws_sns_topic["arn"],
+                        "notificationEvents": ["All"],
+                        "notificationType": "Command",
+                    },
+                    "parameters": [{
+                        "name": "commands",
+                        "values": ["date"],
+                    }],
+                },
+            })
         ```
 
         ### Step Function Tasks
@@ -568,16 +568,16 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_arn=example_aws_sfn_activity["id"],
             task_type="STEP_FUNCTIONS",
             window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
-                key="InstanceIds",
-                values=[example_aws_instance["id"]],
-            )],
-            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
-                step_functions_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs(
-                    input="{\\"key1\\":\\"value1\\"}",
-                    name="example",
-                ),
-            ))
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            task_invocation_parameters={
+                "stepFunctionsParameters": {
+                    "input": "{\\"key1\\":\\"value1\\"}",
+                    "name": "example",
+                },
+            })
         ```
 
         ## Import
@@ -597,9 +597,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the maintenance window task.
         :param pulumi.Input[int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']] task_invocation_parameters: Configuration block with parameters for task execution.
+        :param pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']] task_invocation_parameters: Configuration block with parameters for task execution.
         :param pulumi.Input[str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
         """
@@ -627,19 +627,19 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_arn="AWS-RestartEC2Instance",
             task_type="AUTOMATION",
             window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
-                key="InstanceIds",
-                values=[example_aws_instance["id"]],
-            )],
-            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
-                automation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs(
-                    document_version="$LATEST",
-                    parameters=[aws.ssm.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs(
-                        name="InstanceId",
-                        values=[example_aws_instance["id"]],
-                    )],
-                ),
-            ))
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            task_invocation_parameters={
+                "automationParameters": {
+                    "documentVersion": "$LATEST",
+                    "parameters": [{
+                        "name": "InstanceId",
+                        "values": [example_aws_instance["id"]],
+                    }],
+                },
+            })
         ```
 
         ### Lambda Tasks
@@ -656,16 +656,16 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_arn=example_aws_lambda_function["arn"],
             task_type="LAMBDA",
             window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
-                key="InstanceIds",
-                values=[example_aws_instance["id"]],
-            )],
-            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
-                lambda_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs(
-                    client_context=std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
-                    payload="{\\"key1\\":\\"value1\\"}",
-                ),
-            ))
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            task_invocation_parameters={
+                "lambdaParameters": {
+                    "clientContext": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
+                    "payload": "{\\"key1\\":\\"value1\\"}",
+                },
+            })
         ```
 
         ### Run Command Tasks
@@ -681,27 +681,27 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_arn="AWS-RunShellScript",
             task_type="RUN_COMMAND",
             window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
-                key="InstanceIds",
-                values=[example_aws_instance["id"]],
-            )],
-            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
-                run_command_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs(
-                    output_s3_bucket=example_aws_s3_bucket["id"],
-                    output_s3_key_prefix="output",
-                    service_role_arn=example_aws_iam_role["arn"],
-                    timeout_seconds=600,
-                    notification_config=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs(
-                        notification_arn=example_aws_sns_topic["arn"],
-                        notification_events=["All"],
-                        notification_type="Command",
-                    ),
-                    parameters=[aws.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs(
-                        name="commands",
-                        values=["date"],
-                    )],
-                ),
-            ))
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            task_invocation_parameters={
+                "runCommandParameters": {
+                    "outputS3Bucket": example_aws_s3_bucket["id"],
+                    "outputS3KeyPrefix": "output",
+                    "serviceRoleArn": example_aws_iam_role["arn"],
+                    "timeoutSeconds": 600,
+                    "notificationConfig": {
+                        "notificationArn": example_aws_sns_topic["arn"],
+                        "notificationEvents": ["All"],
+                        "notificationType": "Command",
+                    },
+                    "parameters": [{
+                        "name": "commands",
+                        "values": ["date"],
+                    }],
+                },
+            })
         ```
 
         ### Step Function Tasks
@@ -717,16 +717,16 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_arn=example_aws_sfn_activity["id"],
             task_type="STEP_FUNCTIONS",
             window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[aws.ssm.MaintenanceWindowTaskTargetArgs(
-                key="InstanceIds",
-                values=[example_aws_instance["id"]],
-            )],
-            task_invocation_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersArgs(
-                step_functions_parameters=aws.ssm.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs(
-                    input="{\\"key1\\":\\"value1\\"}",
-                    name="example",
-                ),
-            ))
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            task_invocation_parameters={
+                "stepFunctionsParameters": {
+                    "input": "{\\"key1\\":\\"value1\\"}",
+                    "name": "example",
+                },
+            })
         ```
 
         ## Import
@@ -759,9 +759,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
                  task_arn: Optional[pulumi.Input[str]] = None,
-                 task_invocation_parameters: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']]] = None,
+                 task_invocation_parameters: Optional[pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
                  window_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -811,9 +811,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             service_role_arn: Optional[pulumi.Input[str]] = None,
-            targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]]] = None,
+            targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
             task_arn: Optional[pulumi.Input[str]] = None,
-            task_invocation_parameters: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']]] = None,
+            task_invocation_parameters: Optional[pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
             task_type: Optional[pulumi.Input[str]] = None,
             window_id: Optional[pulumi.Input[str]] = None,
             window_task_id: Optional[pulumi.Input[str]] = None) -> 'MaintenanceWindowTask':
@@ -832,9 +832,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the maintenance window task.
         :param pulumi.Input[int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTargetArgs']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
-        :param pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']] task_invocation_parameters: Configuration block with parameters for task execution.
+        :param pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']] task_invocation_parameters: Configuration block with parameters for task execution.
         :param pulumi.Input[str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
         :param pulumi.Input[str] window_task_id: The ID of the maintenance window task.

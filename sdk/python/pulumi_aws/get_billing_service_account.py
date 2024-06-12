@@ -73,27 +73,27 @@ def get_billing_service_account(id: Optional[str] = None,
         bucket=billing_logs.id,
         acl="private")
     allow_billing_logging = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=[
+        {
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": [
                 "s3:GetBucketAcl",
                 "s3:GetBucketPolicy",
             ],
-            resources=[billing_logs_arn],
-        ),
-        aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:PutObject"],
-            resources=[f"{billing_logs_arn1}/*"],
-        ),
+            "resources": [billing_logs_arn],
+        },
+        {
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": ["s3:PutObject"],
+            "resources": [f"{billing_logs_arn1}/*"],
+        },
     ]))
     allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allow_billing_logging",
         bucket=billing_logs.id,
@@ -131,27 +131,27 @@ def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[str]]]
         bucket=billing_logs.id,
         acl="private")
     allow_billing_logging = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=[
+        {
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": [
                 "s3:GetBucketAcl",
                 "s3:GetBucketPolicy",
             ],
-            resources=[billing_logs_arn],
-        ),
-        aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:PutObject"],
-            resources=[f"{billing_logs_arn1}/*"],
-        ),
+            "resources": [billing_logs_arn],
+        },
+        {
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": ["s3:PutObject"],
+            "resources": [f"{billing_logs_arn1}/*"],
+        },
     ]))
     allow_billing_logging_bucket_policy = aws.s3.BucketPolicy("allow_billing_logging",
         bucket=billing_logs.id,

@@ -322,8 +322,8 @@ class CostCategory(pulumi.CustomResource):
                  effective_start: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_version: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]]] = None,
-                 split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
+                 split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -339,36 +339,36 @@ class CostCategory(pulumi.CustomResource):
             name="NAME",
             rule_version="CostCategoryExpression.v1",
             rules=[
-                aws.costexplorer.CostCategoryRuleArgs(
-                    value="production",
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            values=["-prod"],
-                            match_options=["ENDS_WITH"],
-                        ),
-                    ),
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
-                    value="staging",
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            values=["-stg"],
-                            match_options=["ENDS_WITH"],
-                        ),
-                    ),
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
-                    value="testing",
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            values=["-dev"],
-                            match_options=["ENDS_WITH"],
-                        ),
-                    ),
-                ),
+                {
+                    "value": "production",
+                    "rule": {
+                        "dimension": {
+                            "key": "LINKED_ACCOUNT_NAME",
+                            "values": ["-prod"],
+                            "matchOptions": ["ENDS_WITH"],
+                        },
+                    },
+                },
+                {
+                    "value": "staging",
+                    "rule": {
+                        "dimension": {
+                            "key": "LINKED_ACCOUNT_NAME",
+                            "values": ["-stg"],
+                            "matchOptions": ["ENDS_WITH"],
+                        },
+                    },
+                },
+                {
+                    "value": "testing",
+                    "rule": {
+                        "dimension": {
+                            "key": "LINKED_ACCOUNT_NAME",
+                            "values": ["-dev"],
+                            "matchOptions": ["ENDS_WITH"],
+                        },
+                    },
+                },
             ])
         ```
 
@@ -388,8 +388,8 @@ class CostCategory(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -411,36 +411,36 @@ class CostCategory(pulumi.CustomResource):
             name="NAME",
             rule_version="CostCategoryExpression.v1",
             rules=[
-                aws.costexplorer.CostCategoryRuleArgs(
-                    value="production",
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            values=["-prod"],
-                            match_options=["ENDS_WITH"],
-                        ),
-                    ),
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
-                    value="staging",
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            values=["-stg"],
-                            match_options=["ENDS_WITH"],
-                        ),
-                    ),
-                ),
-                aws.costexplorer.CostCategoryRuleArgs(
-                    value="testing",
-                    rule=aws.costexplorer.CostCategoryRuleRuleArgs(
-                        dimension=aws.costexplorer.CostCategoryRuleRuleDimensionArgs(
-                            key="LINKED_ACCOUNT_NAME",
-                            values=["-dev"],
-                            match_options=["ENDS_WITH"],
-                        ),
-                    ),
-                ),
+                {
+                    "value": "production",
+                    "rule": {
+                        "dimension": {
+                            "key": "LINKED_ACCOUNT_NAME",
+                            "values": ["-prod"],
+                            "matchOptions": ["ENDS_WITH"],
+                        },
+                    },
+                },
+                {
+                    "value": "staging",
+                    "rule": {
+                        "dimension": {
+                            "key": "LINKED_ACCOUNT_NAME",
+                            "values": ["-stg"],
+                            "matchOptions": ["ENDS_WITH"],
+                        },
+                    },
+                },
+                {
+                    "value": "testing",
+                    "rule": {
+                        "dimension": {
+                            "key": "LINKED_ACCOUNT_NAME",
+                            "values": ["-dev"],
+                            "matchOptions": ["ENDS_WITH"],
+                        },
+                    },
+                },
             ])
         ```
 
@@ -471,8 +471,8 @@ class CostCategory(pulumi.CustomResource):
                  effective_start: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_version: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]]] = None,
-                 split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
+                 split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -513,8 +513,8 @@ class CostCategory(pulumi.CustomResource):
             effective_start: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rule_version: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]]] = None,
-            split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]]] = None,
+            split_charge_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CostCategory':
         """
@@ -532,8 +532,8 @@ class CostCategory(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[str] name: Unique name for the Cost Category.
         :param pulumi.Input[str] rule_version: Rule schema version in this particular Cost Category.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategoryRuleArgs']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CostCategorySplitChargeRuleArgs']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategoryRuleArgs', 'CostCategoryRuleArgsDict']]]] rules: Configuration block for the Cost Category rules used to categorize costs. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CostCategorySplitChargeRuleArgs', 'CostCategorySplitChargeRuleArgsDict']]]] split_charge_rules: Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

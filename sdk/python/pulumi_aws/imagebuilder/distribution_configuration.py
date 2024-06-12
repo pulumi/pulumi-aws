@@ -240,7 +240,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]]] = None,
+                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -255,21 +255,21 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         example = aws.imagebuilder.DistributionConfiguration("example",
             name="example",
-            distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
-                ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
-                    ami_tags={
+            distributions=[{
+                "amiDistributionConfiguration": {
+                    "amiTags": {
                         "CostCenter": "IT",
                     },
-                    name="example-{{ imagebuilder:buildDate }}",
-                    launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
-                        user_ids=["123456789012"],
-                    ),
-                ),
-                launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
-                    launch_template_id="lt-0aaa1bcde2ff3456",
-                )],
-                region="us-east-1",
-            )])
+                    "name": "example-{{ imagebuilder:buildDate }}",
+                    "launchPermission": {
+                        "userIds": ["123456789012"],
+                    },
+                },
+                "launchTemplateConfigurations": [{
+                    "launchTemplateId": "lt-0aaa1bcde2ff3456",
+                }],
+                "region": "us-east-1",
+            }])
         ```
 
         ## Import
@@ -283,7 +283,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the distribution configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Name of the distribution configuration.
@@ -306,21 +306,21 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         example = aws.imagebuilder.DistributionConfiguration("example",
             name="example",
-            distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
-                ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
-                    ami_tags={
+            distributions=[{
+                "amiDistributionConfiguration": {
+                    "amiTags": {
                         "CostCenter": "IT",
                     },
-                    name="example-{{ imagebuilder:buildDate }}",
-                    launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
-                        user_ids=["123456789012"],
-                    ),
-                ),
-                launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
-                    launch_template_id="lt-0aaa1bcde2ff3456",
-                )],
-                region="us-east-1",
-            )])
+                    "name": "example-{{ imagebuilder:buildDate }}",
+                    "launchPermission": {
+                        "userIds": ["123456789012"],
+                    },
+                },
+                "launchTemplateConfigurations": [{
+                    "launchTemplateId": "lt-0aaa1bcde2ff3456",
+                }],
+                "region": "us-east-1",
+            }])
         ```
 
         ## Import
@@ -347,7 +347,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]]] = None,
+                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -383,7 +383,7 @@ class DistributionConfiguration(pulumi.CustomResource):
             date_created: Optional[pulumi.Input[str]] = None,
             date_updated: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]]] = None,
+            distributions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DistributionConfiguration':
@@ -398,7 +398,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] date_created: Date the distribution configuration was created.
         :param pulumi.Input[str] date_updated: Date the distribution configuration was updated.
         :param pulumi.Input[str] description: Description of the distribution configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionConfigurationDistributionArgs', 'DistributionConfigurationDistributionArgsDict']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Name of the distribution configuration.

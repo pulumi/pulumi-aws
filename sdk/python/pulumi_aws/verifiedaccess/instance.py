@@ -332,7 +332,7 @@ class Instance(pulumi.CustomResource):
             last_updated_time: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVerifiedAccessTrustProviderArgs']]]]] = None) -> 'Instance':
+            verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict']]]]] = None) -> 'Instance':
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -345,7 +345,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[str] last_updated_time: The time that the Verified Access Instance was last updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVerifiedAccessTrustProviderArgs']]]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict']]]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

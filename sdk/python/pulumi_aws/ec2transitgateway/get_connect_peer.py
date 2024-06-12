@@ -172,7 +172,7 @@ class AwaitableGetConnectPeerResult(GetConnectPeerResult):
             transit_gateway_connect_peer_id=self.transit_gateway_connect_peer_id)
 
 
-def get_connect_peer(filters: Optional[Sequence[pulumi.InputType['GetConnectPeerFilterArgs']]] = None,
+def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']]] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      transit_gateway_connect_peer_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectPeerResult:
@@ -187,10 +187,10 @@ def get_connect_peer(filters: Optional[Sequence[pulumi.InputType['GetConnectPeer
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_connect_peer(filters=[aws.ec2transitgateway.GetConnectPeerFilterArgs(
-        name="transit-gateway-attachment-id",
-        values=["tgw-attach-12345678"],
-    )])
+    example = aws.ec2transitgateway.get_connect_peer(filters=[{
+        "name": "transit-gateway-attachment-id",
+        "values": ["tgw-attach-12345678"],
+    }])
     ```
 
     ### By Identifier
@@ -203,7 +203,7 @@ def get_connect_peer(filters: Optional[Sequence[pulumi.InputType['GetConnectPeer
     ```
 
 
-    :param Sequence[pulumi.InputType['GetConnectPeerFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Connect Peer
     :param str transit_gateway_connect_peer_id: Identifier of the EC2 Transit Gateway Connect Peer.
     """
@@ -230,7 +230,7 @@ def get_connect_peer(filters: Optional[Sequence[pulumi.InputType['GetConnectPeer
 
 
 @_utilities.lift_output_func(get_connect_peer)
-def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetConnectPeerFilterArgs']]]]] = None,
+def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']]]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             transit_gateway_connect_peer_id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectPeerResult]:
@@ -245,10 +245,10 @@ def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_connect_peer(filters=[aws.ec2transitgateway.GetConnectPeerFilterArgs(
-        name="transit-gateway-attachment-id",
-        values=["tgw-attach-12345678"],
-    )])
+    example = aws.ec2transitgateway.get_connect_peer(filters=[{
+        "name": "transit-gateway-attachment-id",
+        "values": ["tgw-attach-12345678"],
+    }])
     ```
 
     ### By Identifier
@@ -261,7 +261,7 @@ def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     ```
 
 
-    :param Sequence[pulumi.InputType['GetConnectPeerFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Connect Peer
     :param str transit_gateway_connect_peer_id: Identifier of the EC2 Transit Gateway Connect Peer.
     """

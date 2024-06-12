@@ -264,14 +264,14 @@ class MulticastDomain(pulumi.CustomResource):
         amazon_linux = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["amzn-ami-hvm-*-x86_64-gp2"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="owner-alias",
-                    values=["amazon"],
-                ),
+                {
+                    "name": "name",
+                    "values": ["amzn-ami-hvm-*-x86_64-gp2"],
+                },
+                {
+                    "name": "owner-alias",
+                    "values": ["amazon"],
+                },
             ])
         vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
         vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")
@@ -378,14 +378,14 @@ class MulticastDomain(pulumi.CustomResource):
         amazon_linux = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["amzn-ami-hvm-*-x86_64-gp2"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="owner-alias",
-                    values=["amazon"],
-                ),
+                {
+                    "name": "name",
+                    "values": ["amzn-ami-hvm-*-x86_64-gp2"],
+                },
+                {
+                    "name": "owner-alias",
+                    "values": ["amazon"],
+                },
             ])
         vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
         vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")

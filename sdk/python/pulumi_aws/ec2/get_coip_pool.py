@@ -106,7 +106,7 @@ class AwaitableGetCoipPoolResult(GetCoipPoolResult):
             tags=self.tags)
 
 
-def get_coip_pool(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolFilterArgs']]] = None,
+def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'GetCoipPoolFilterArgsDict']]] = None,
                   local_gateway_route_table_id: Optional[str] = None,
                   pool_id: Optional[str] = None,
                   tags: Optional[Mapping[str, str]] = None,
@@ -146,7 +146,7 @@ def get_coip_pool(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolFilter
 
 
 @_utilities.lift_output_func(get_coip_pool)
-def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetCoipPoolFilterArgs']]]]] = None,
+def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetCoipPoolFilterArgs', 'GetCoipPoolFilterArgsDict']]]]] = None,
                          local_gateway_route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
                          pool_id: Optional[pulumi.Input[Optional[str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,

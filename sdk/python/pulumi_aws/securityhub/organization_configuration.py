@@ -131,7 +131,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: Optional[pulumi.Input[bool]] = None,
                  auto_enable_standards: Optional[pulumi.Input[str]] = None,
-                 organization_configuration: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationOrganizationConfigurationArgs']]] = None,
+                 organization_configuration: Optional[pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Manages the Security Hub Organization Configuration.
@@ -173,9 +173,9 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
             auto_enable=False,
             auto_enable_standards="NONE",
-            organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
-                configuration_type="CENTRAL",
-            ),
+            organization_configuration={
+                "configurationType": "CENTRAL",
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
 
@@ -191,7 +191,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         :param pulumi.Input[str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-        :param pulumi.Input[pulumi.InputType['OrganizationConfigurationOrganizationConfigurationArgs']] organization_configuration: Provides information about the way an organization is configured in Security Hub.
+        :param pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']] organization_configuration: Provides information about the way an organization is configured in Security Hub.
         """
         ...
     @overload
@@ -239,9 +239,9 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
             auto_enable=False,
             auto_enable_standards="NONE",
-            organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
-                configuration_type="CENTRAL",
-            ),
+            organization_configuration={
+                "configurationType": "CENTRAL",
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
 
@@ -270,7 +270,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: Optional[pulumi.Input[bool]] = None,
                  auto_enable_standards: Optional[pulumi.Input[str]] = None,
-                 organization_configuration: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationOrganizationConfigurationArgs']]] = None,
+                 organization_configuration: Optional[pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -297,7 +297,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_enable: Optional[pulumi.Input[bool]] = None,
             auto_enable_standards: Optional[pulumi.Input[str]] = None,
-            organization_configuration: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationOrganizationConfigurationArgs']]] = None) -> 'OrganizationConfiguration':
+            organization_configuration: Optional[pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']]] = None) -> 'OrganizationConfiguration':
         """
         Get an existing OrganizationConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -307,7 +307,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         :param pulumi.Input[str] auto_enable_standards: Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
-        :param pulumi.Input[pulumi.InputType['OrganizationConfigurationOrganizationConfigurationArgs']] organization_configuration: Provides information about the way an organization is configured in Security Hub.
+        :param pulumi.Input[Union['OrganizationConfigurationOrganizationConfigurationArgs', 'OrganizationConfigurationOrganizationConfigurationArgsDict']] organization_configuration: Provides information about the way an organization is configured in Security Hub.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

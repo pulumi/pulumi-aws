@@ -374,12 +374,12 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
-                 destination_port_range: Optional[pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleDestinationPortRangeArgs']]] = None,
+                 destination_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[int]] = None,
                  rule_action: Optional[pulumi.Input[str]] = None,
                  rule_number: Optional[pulumi.Input[int]] = None,
                  source_cidr_block: Optional[pulumi.Input[str]] = None,
-                 source_port_range: Optional[pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleSourcePortRangeArgs']]] = None,
+                 source_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleSourcePortRangeArgs', 'TrafficMirrorFilterRuleSourcePortRangeArgsDict']]] = None,
                  traffic_direction: Optional[pulumi.Input[str]] = None,
                  traffic_mirror_filter_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -415,14 +415,14 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             rule_action="accept",
             traffic_direction="ingress",
             protocol=6,
-            destination_port_range=aws.ec2.TrafficMirrorFilterRuleDestinationPortRangeArgs(
-                from_port=22,
-                to_port=53,
-            ),
-            source_port_range=aws.ec2.TrafficMirrorFilterRuleSourcePortRangeArgs(
-                from_port=0,
-                to_port=10,
-            ))
+            destination_port_range={
+                "fromPort": 22,
+                "toPort": 53,
+            },
+            source_port_range={
+                "fromPort": 0,
+                "toPort": 10,
+            })
         ```
 
         ## Import
@@ -437,12 +437,12 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the traffic mirror filter rule.
         :param pulumi.Input[str] destination_cidr_block: Destination CIDR block to assign to the Traffic Mirror rule.
-        :param pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleDestinationPortRangeArgs']] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        :param pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[int] protocol: Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         :param pulumi.Input[str] rule_action: Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         :param pulumi.Input[int] rule_number: Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         :param pulumi.Input[str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
-        :param pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleSourcePortRangeArgs']] source_port_range: Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        :param pulumi.Input[Union['TrafficMirrorFilterRuleSourcePortRangeArgs', 'TrafficMirrorFilterRuleSourcePortRangeArgsDict']] source_port_range: Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[str] traffic_direction: Direction of traffic to be captured. Valid values are `ingress` and `egress`
                
                Traffic mirror port range support following attributes:
@@ -486,14 +486,14 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             rule_action="accept",
             traffic_direction="ingress",
             protocol=6,
-            destination_port_range=aws.ec2.TrafficMirrorFilterRuleDestinationPortRangeArgs(
-                from_port=22,
-                to_port=53,
-            ),
-            source_port_range=aws.ec2.TrafficMirrorFilterRuleSourcePortRangeArgs(
-                from_port=0,
-                to_port=10,
-            ))
+            destination_port_range={
+                "fromPort": 22,
+                "toPort": 53,
+            },
+            source_port_range={
+                "fromPort": 0,
+                "toPort": 10,
+            })
         ```
 
         ## Import
@@ -521,12 +521,12 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
-                 destination_port_range: Optional[pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleDestinationPortRangeArgs']]] = None,
+                 destination_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[int]] = None,
                  rule_action: Optional[pulumi.Input[str]] = None,
                  rule_number: Optional[pulumi.Input[int]] = None,
                  source_cidr_block: Optional[pulumi.Input[str]] = None,
-                 source_port_range: Optional[pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleSourcePortRangeArgs']]] = None,
+                 source_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleSourcePortRangeArgs', 'TrafficMirrorFilterRuleSourcePortRangeArgsDict']]] = None,
                  traffic_direction: Optional[pulumi.Input[str]] = None,
                  traffic_mirror_filter_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -574,12 +574,12 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             destination_cidr_block: Optional[pulumi.Input[str]] = None,
-            destination_port_range: Optional[pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleDestinationPortRangeArgs']]] = None,
+            destination_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']]] = None,
             protocol: Optional[pulumi.Input[int]] = None,
             rule_action: Optional[pulumi.Input[str]] = None,
             rule_number: Optional[pulumi.Input[int]] = None,
             source_cidr_block: Optional[pulumi.Input[str]] = None,
-            source_port_range: Optional[pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleSourcePortRangeArgs']]] = None,
+            source_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleSourcePortRangeArgs', 'TrafficMirrorFilterRuleSourcePortRangeArgsDict']]] = None,
             traffic_direction: Optional[pulumi.Input[str]] = None,
             traffic_mirror_filter_id: Optional[pulumi.Input[str]] = None) -> 'TrafficMirrorFilterRule':
         """
@@ -592,12 +592,12 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the traffic mirror filter rule.
         :param pulumi.Input[str] description: Description of the traffic mirror filter rule.
         :param pulumi.Input[str] destination_cidr_block: Destination CIDR block to assign to the Traffic Mirror rule.
-        :param pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleDestinationPortRangeArgs']] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        :param pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[int] protocol: Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         :param pulumi.Input[str] rule_action: Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         :param pulumi.Input[int] rule_number: Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         :param pulumi.Input[str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
-        :param pulumi.Input[pulumi.InputType['TrafficMirrorFilterRuleSourcePortRangeArgs']] source_port_range: Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
+        :param pulumi.Input[Union['TrafficMirrorFilterRuleSourcePortRangeArgs', 'TrafficMirrorFilterRuleSourcePortRangeArgsDict']] source_port_range: Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[str] traffic_direction: Direction of traffic to be captured. Valid values are `ingress` and `egress`
                
                Traffic mirror port range support following attributes:

@@ -267,7 +267,7 @@ class Partition(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  partition_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 storage_descriptor: Optional[pulumi.Input[pulumi.InputType['PartitionStorageDescriptorArgs']]] = None,
+                 storage_descriptor: Optional[pulumi.Input[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -287,7 +287,7 @@ class Partition(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_values: The values that define the partition.
-        :param pulumi.Input[pulumi.InputType['PartitionStorageDescriptorArgs']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        :param pulumi.Input[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         """
         ...
     @overload
@@ -325,7 +325,7 @@ class Partition(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  partition_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 storage_descriptor: Optional[pulumi.Input[pulumi.InputType['PartitionStorageDescriptorArgs']]] = None,
+                 storage_descriptor: Optional[pulumi.Input[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -368,7 +368,7 @@ class Partition(pulumi.CustomResource):
             last_analyzed_time: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             partition_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            storage_descriptor: Optional[pulumi.Input[pulumi.InputType['PartitionStorageDescriptorArgs']]] = None,
+            storage_descriptor: Optional[pulumi.Input[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict']]] = None,
             table_name: Optional[pulumi.Input[str]] = None) -> 'Partition':
         """
         Get an existing Partition resource's state with the given name, id, and optional extra
@@ -384,7 +384,7 @@ class Partition(pulumi.CustomResource):
         :param pulumi.Input[str] last_analyzed_time: The last time at which column statistics were computed for this partition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_values: The values that define the partition.
-        :param pulumi.Input[pulumi.InputType['PartitionStorageDescriptorArgs']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
+        :param pulumi.Input[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

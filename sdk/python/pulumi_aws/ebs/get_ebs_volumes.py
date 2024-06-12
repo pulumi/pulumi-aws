@@ -77,7 +77,7 @@ class AwaitableGetEbsVolumesResult(GetEbsVolumesResult):
             tags=self.tags)
 
 
-def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']]] = None,
+def get_ebs_volumes(filters: Optional[Sequence[Union['GetEbsVolumesFilterArgs', 'GetEbsVolumesFilterArgsDict']]] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEbsVolumesResult:
     """
@@ -96,15 +96,15 @@ def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFi
     example = aws.ebs.get_ebs_volumes(tags={
         "VolumeSet": "TestVolumeSet",
     })
-    example_get_volume = {__key: aws.ebs.get_volume(filters=[aws.ebs.GetVolumeFilterArgs(
-        name="volume-id",
-        values=[__value],
-    )]) for __key, __value in example.ids}
+    example_get_volume = {__key: aws.ebs.get_volume(filters=[{
+        "name": "volume-id",
+        "values": [__value],
+    }]) for __key, __value in example.ids}
     pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume})
     ```
 
 
-    :param Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetEbsVolumesFilterArgs', 'GetEbsVolumesFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired volumes.
            
@@ -125,7 +125,7 @@ def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFi
 
 
 @_utilities.lift_output_func(get_ebs_volumes)
-def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']]]]] = None,
+def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEbsVolumesFilterArgs', 'GetEbsVolumesFilterArgsDict']]]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEbsVolumesResult]:
     """
@@ -144,15 +144,15 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     example = aws.ebs.get_ebs_volumes(tags={
         "VolumeSet": "TestVolumeSet",
     })
-    example_get_volume = {__key: aws.ebs.get_volume(filters=[aws.ebs.GetVolumeFilterArgs(
-        name="volume-id",
-        values=[__value],
-    )]) for __key, __value in example.ids}
+    example_get_volume = {__key: aws.ebs.get_volume(filters=[{
+        "name": "volume-id",
+        "values": [__value],
+    }]) for __key, __value in example.ids}
     pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume})
     ```
 
 
-    :param Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetEbsVolumesFilterArgs', 'GetEbsVolumesFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired volumes.
            

@@ -162,9 +162,9 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 storage_class_analysis: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationStorageClassAnalysisArgs']]] = None,
+                 storage_class_analysis: Optional[pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']]] = None,
                  __props__=None):
         """
         Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
@@ -184,15 +184,15 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
             bucket=example.id,
             name="EntireBucket",
-            storage_class_analysis=aws.s3.AnalyticsConfigurationStorageClassAnalysisArgs(
-                data_export=aws.s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs(
-                    destination=aws.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs(
-                        s3_bucket_destination=aws.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs(
-                            bucket_arn=analytics.arn,
-                        ),
-                    ),
-                ),
-            ))
+            storage_class_analysis={
+                "dataExport": {
+                    "destination": {
+                        "s3BucketDestination": {
+                            "bucketArn": analytics.arn,
+                        },
+                    },
+                },
+            })
         ```
 
         ### Add analytics configuration with S3 object filter
@@ -205,13 +205,13 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
             bucket=example.id,
             name="ImportantBlueDocuments",
-            filter=aws.s3.AnalyticsConfigurationFilterArgs(
-                prefix="documents/",
-                tags={
+            filter={
+                "prefix": "documents/",
+                "tags": {
                     "priority": "high",
                     "class": "blue",
                 },
-            ))
+            })
         ```
 
         ## Import
@@ -225,9 +225,9 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Name of the bucket this analytics configuration is associated with.
-        :param pulumi.Input[pulumi.InputType['AnalyticsConfigurationFilterArgs']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[str] name: Unique identifier of the analytics configuration for the bucket.
-        :param pulumi.Input[pulumi.InputType['AnalyticsConfigurationStorageClassAnalysisArgs']] storage_class_analysis: Configuration for the analytics data export (documented below).
+        :param pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         ...
     @overload
@@ -253,15 +253,15 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
             bucket=example.id,
             name="EntireBucket",
-            storage_class_analysis=aws.s3.AnalyticsConfigurationStorageClassAnalysisArgs(
-                data_export=aws.s3.AnalyticsConfigurationStorageClassAnalysisDataExportArgs(
-                    destination=aws.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs(
-                        s3_bucket_destination=aws.s3.AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs(
-                            bucket_arn=analytics.arn,
-                        ),
-                    ),
-                ),
-            ))
+            storage_class_analysis={
+                "dataExport": {
+                    "destination": {
+                        "s3BucketDestination": {
+                            "bucketArn": analytics.arn,
+                        },
+                    },
+                },
+            })
         ```
 
         ### Add analytics configuration with S3 object filter
@@ -274,13 +274,13 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
             bucket=example.id,
             name="ImportantBlueDocuments",
-            filter=aws.s3.AnalyticsConfigurationFilterArgs(
-                prefix="documents/",
-                tags={
+            filter={
+                "prefix": "documents/",
+                "tags": {
                     "priority": "high",
                     "class": "blue",
                 },
-            ))
+            })
         ```
 
         ## Import
@@ -307,9 +307,9 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 storage_class_analysis: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationStorageClassAnalysisArgs']]] = None,
+                 storage_class_analysis: Optional[pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -336,9 +336,9 @@ class AnalyticsConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[str]] = None,
-            filter: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationFilterArgs']]] = None,
+            filter: Optional[pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            storage_class_analysis: Optional[pulumi.Input[pulumi.InputType['AnalyticsConfigurationStorageClassAnalysisArgs']]] = None) -> 'AnalyticsConfiguration':
+            storage_class_analysis: Optional[pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']]] = None) -> 'AnalyticsConfiguration':
         """
         Get an existing AnalyticsConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -347,9 +347,9 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Name of the bucket this analytics configuration is associated with.
-        :param pulumi.Input[pulumi.InputType['AnalyticsConfigurationFilterArgs']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
+        :param pulumi.Input[Union['AnalyticsConfigurationFilterArgs', 'AnalyticsConfigurationFilterArgsDict']] filter: Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[str] name: Unique identifier of the analytics configuration for the bucket.
-        :param pulumi.Input[pulumi.InputType['AnalyticsConfigurationStorageClassAnalysisArgs']] storage_class_analysis: Configuration for the analytics data export (documented below).
+        :param pulumi.Input[Union['AnalyticsConfigurationStorageClassAnalysisArgs', 'AnalyticsConfigurationStorageClassAnalysisArgsDict']] storage_class_analysis: Configuration for the analytics data export (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

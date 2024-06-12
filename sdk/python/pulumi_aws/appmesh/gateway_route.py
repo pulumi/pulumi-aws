@@ -312,7 +312,7 @@ class GatewayRoute(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['GatewayRouteSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_gateway_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -329,20 +329,20 @@ class GatewayRoute(pulumi.CustomResource):
             name="example-gateway-route",
             mesh_name="example-service-mesh",
             virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
-            spec=aws.appmesh.GatewayRouteSpecArgs(
-                http_route=aws.appmesh.GatewayRouteSpecHttpRouteArgs(
-                    action=aws.appmesh.GatewayRouteSpecHttpRouteActionArgs(
-                        target=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetArgs(
-                            virtual_service=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs(
-                                virtual_service_name=example_aws_appmesh_virtual_service["name"],
-                            ),
-                        ),
-                    ),
-                    match=aws.appmesh.GatewayRouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                ),
-            ),
+            spec={
+                "httpRoute": {
+                    "action": {
+                        "target": {
+                            "virtualService": {
+                                "virtualServiceName": example_aws_appmesh_virtual_service["name"],
+                            },
+                        },
+                    },
+                    "match": {
+                        "prefix": "/",
+                    },
+                },
+            },
             tags={
                 "Environment": "test",
             })
@@ -361,7 +361,7 @@ class GatewayRoute(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the gateway route. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the gateway route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[pulumi.InputType['GatewayRouteSpecArgs']] spec: Gateway route specification to apply.
+        :param pulumi.Input[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict']] spec: Gateway route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] virtual_gateway_name: Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         """
@@ -384,20 +384,20 @@ class GatewayRoute(pulumi.CustomResource):
             name="example-gateway-route",
             mesh_name="example-service-mesh",
             virtual_gateway_name=example_aws_appmesh_virtual_gateway["name"],
-            spec=aws.appmesh.GatewayRouteSpecArgs(
-                http_route=aws.appmesh.GatewayRouteSpecHttpRouteArgs(
-                    action=aws.appmesh.GatewayRouteSpecHttpRouteActionArgs(
-                        target=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetArgs(
-                            virtual_service=aws.appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs(
-                                virtual_service_name=example_aws_appmesh_virtual_service["name"],
-                            ),
-                        ),
-                    ),
-                    match=aws.appmesh.GatewayRouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                ),
-            ),
+            spec={
+                "httpRoute": {
+                    "action": {
+                        "target": {
+                            "virtualService": {
+                                "virtualServiceName": example_aws_appmesh_virtual_service["name"],
+                            },
+                        },
+                    },
+                    "match": {
+                        "prefix": "/",
+                    },
+                },
+            },
             tags={
                 "Environment": "test",
             })
@@ -429,7 +429,7 @@ class GatewayRoute(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['GatewayRouteSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_gateway_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -475,7 +475,7 @@ class GatewayRoute(pulumi.CustomResource):
             mesh_owner: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_owner: Optional[pulumi.Input[str]] = None,
-            spec: Optional[pulumi.Input[pulumi.InputType['GatewayRouteSpecArgs']]] = None,
+            spec: Optional[pulumi.Input[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_gateway_name: Optional[pulumi.Input[str]] = None) -> 'GatewayRoute':
@@ -493,7 +493,7 @@ class GatewayRoute(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the gateway route. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[pulumi.InputType['GatewayRouteSpecArgs']] spec: Gateway route specification to apply.
+        :param pulumi.Input[Union['GatewayRouteSpecArgs', 'GatewayRouteSpecArgsDict']] spec: Gateway route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] virtual_gateway_name: Name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.

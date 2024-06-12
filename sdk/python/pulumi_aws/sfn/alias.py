@@ -163,7 +163,7 @@ class Alias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']]]]] = None,
+                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a Step Function State Machine Alias.
@@ -178,21 +178,21 @@ class Alias(pulumi.CustomResource):
 
         sfn_alias = aws.sfn.Alias("sfn_alias",
             name="my_sfn_alias",
-            routing_configurations=[aws.sfn.AliasRoutingConfigurationArgs(
-                state_machine_version_arn=sfn_test["stateMachineVersionArn"],
-                weight=100,
-            )])
+            routing_configurations=[{
+                "stateMachineVersionArn": sfn_test["stateMachineVersionArn"],
+                "weight": 100,
+            }])
         my_sfn_alias = aws.sfn.Alias("my_sfn_alias",
             name="my_sfn_alias",
             routing_configurations=[
-                aws.sfn.AliasRoutingConfigurationArgs(
-                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:3",
-                    weight=50,
-                ),
-                aws.sfn.AliasRoutingConfigurationArgs(
-                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:2",
-                    weight=50,
-                ),
+                {
+                    "stateMachineVersionArn": "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
+                    "weight": 50,
+                },
+                {
+                    "stateMachineVersionArn": "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
+                    "weight": 50,
+                },
             ])
         ```
 
@@ -208,7 +208,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name for the alias you are creating.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']]]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
         """
         ...
     @overload
@@ -229,21 +229,21 @@ class Alias(pulumi.CustomResource):
 
         sfn_alias = aws.sfn.Alias("sfn_alias",
             name="my_sfn_alias",
-            routing_configurations=[aws.sfn.AliasRoutingConfigurationArgs(
-                state_machine_version_arn=sfn_test["stateMachineVersionArn"],
-                weight=100,
-            )])
+            routing_configurations=[{
+                "stateMachineVersionArn": sfn_test["stateMachineVersionArn"],
+                "weight": 100,
+            }])
         my_sfn_alias = aws.sfn.Alias("my_sfn_alias",
             name="my_sfn_alias",
             routing_configurations=[
-                aws.sfn.AliasRoutingConfigurationArgs(
-                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:3",
-                    weight=50,
-                ),
-                aws.sfn.AliasRoutingConfigurationArgs(
-                    state_machine_version_arn="arn:aws:states:us-east-1:12345:stateMachine:demo:2",
-                    weight=50,
-                ),
+                {
+                    "stateMachineVersionArn": "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
+                    "weight": 50,
+                },
+                {
+                    "stateMachineVersionArn": "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
+                    "weight": 50,
+                },
             ])
         ```
 
@@ -272,7 +272,7 @@ class Alias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']]]]] = None,
+                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -303,7 +303,7 @@ class Alias(pulumi.CustomResource):
             creation_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']]]]] = None) -> 'Alias':
+            routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]]]] = None) -> 'Alias':
         """
         Get an existing Alias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -315,7 +315,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] creation_date: The date the state machine alias was created.
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name for the alias you are creating.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AliasRoutingConfigurationArgs']]]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]]] routing_configurations: The StateMachine alias' route configuration settings. Fields documented below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

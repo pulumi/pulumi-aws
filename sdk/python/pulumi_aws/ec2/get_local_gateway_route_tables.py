@@ -76,7 +76,7 @@ class AwaitableGetLocalGatewayRouteTablesResult(GetLocalGatewayRouteTablesResult
             tags=self.tags)
 
 
-def get_local_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayRouteTablesFilterArgs']]] = None,
+def get_local_gateway_route_tables(filters: Optional[Sequence[Union['GetLocalGatewayRouteTablesFilterArgs', 'GetLocalGatewayRouteTablesFilterArgsDict']]] = None,
                                    tags: Optional[Mapping[str, str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayRouteTablesResult:
     """
@@ -95,7 +95,7 @@ def get_local_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType['
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLocalGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetLocalGatewayRouteTablesFilterArgs', 'GetLocalGatewayRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -116,7 +116,7 @@ def get_local_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType['
 
 
 @_utilities.lift_output_func(get_local_gateway_route_tables)
-def get_local_gateway_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewayRouteTablesFilterArgs']]]]] = None,
+def get_local_gateway_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayRouteTablesFilterArgs', 'GetLocalGatewayRouteTablesFilterArgsDict']]]]] = None,
                                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTablesResult]:
     """
@@ -135,7 +135,7 @@ def get_local_gateway_route_tables_output(filters: Optional[pulumi.Input[Optiona
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLocalGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetLocalGatewayRouteTablesFilterArgs', 'GetLocalGatewayRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

@@ -67,7 +67,7 @@ class AwaitableGetSecretsResult(GetSecretsResult):
             secrets=self.secrets)
 
 
-def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArgs']]] = None,
+def get_secrets(secrets: Optional[Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsResult:
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
@@ -82,7 +82,7 @@ def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArg
     That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
 
 
-    :param Sequence[pulumi.InputType['GetSecretsSecretArgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    :param Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
     """
     __args__ = dict()
     __args__['secrets'] = secrets
@@ -96,7 +96,7 @@ def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArg
 
 
 @_utilities.lift_output_func(get_secrets)
-def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType['GetSecretsSecretArgs']]]] = None,
+def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretsResult]:
     """
     Decrypt multiple secrets from data encrypted with the AWS KMS service.
@@ -111,6 +111,6 @@ def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType[
     That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
 
 
-    :param Sequence[pulumi.InputType['GetSecretsSecretArgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    :param Sequence[Union['GetSecretsSecretArgs', 'GetSecretsSecretArgsDict']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
     """
     ...

@@ -113,10 +113,10 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         example = aws.dynamodb.Table("example",
             name="orders",
             hash_key="id",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="id",
-                type="S",
-            )])
+            attributes=[{
+                "name": "id",
+                "type": "S",
+            }])
         example_stream = aws.kinesis.Stream("example",
             name="order_item_changes",
             shard_count=1)
@@ -157,10 +157,10 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         example = aws.dynamodb.Table("example",
             name="orders",
             hash_key="id",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="id",
-                type="S",
-            )])
+            attributes=[{
+                "name": "id",
+                "type": "S",
+            }])
         example_stream = aws.kinesis.Stream("example",
             name="order_item_changes",
             shard_count=1)

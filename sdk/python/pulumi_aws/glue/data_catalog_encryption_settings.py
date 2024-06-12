@@ -98,7 +98,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]] = None,
+                 data_catalog_encryption_settings: Optional[pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Glue Data Catalog Encryption Settings resource.
@@ -109,17 +109,17 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
-            connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
-                aws_kms_key_id=test["arn"],
-                return_connection_password_encrypted=True,
-            ),
-            encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
-                catalog_encryption_mode="SSE-KMS",
-                catalog_encryption_service_role=role["test"]["arn"],
-                sse_aws_kms_key_id=test["arn"],
-            ),
-        ))
+        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings={
+            "connectionPasswordEncryption": {
+                "awsKmsKeyId": test["arn"],
+                "returnConnectionPasswordEncrypted": True,
+            },
+            "encryptionAtRest": {
+                "catalogEncryptionMode": "SSE-KMS",
+                "catalogEncryptionServiceRole": role["test"]["arn"],
+                "sseAwsKmsKeyId": test["arn"],
+            },
+        })
         ```
 
         ## Import
@@ -133,7 +133,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-        :param pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
+        :param pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         """
         ...
     @overload
@@ -150,17 +150,17 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
-            connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
-                aws_kms_key_id=test["arn"],
-                return_connection_password_encrypted=True,
-            ),
-            encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
-                catalog_encryption_mode="SSE-KMS",
-                catalog_encryption_service_role=role["test"]["arn"],
-                sse_aws_kms_key_id=test["arn"],
-            ),
-        ))
+        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings={
+            "connectionPasswordEncryption": {
+                "awsKmsKeyId": test["arn"],
+                "returnConnectionPasswordEncrypted": True,
+            },
+            "encryptionAtRest": {
+                "catalogEncryptionMode": "SSE-KMS",
+                "catalogEncryptionServiceRole": role["test"]["arn"],
+                "sseAwsKmsKeyId": test["arn"],
+            },
+        })
         ```
 
         ## Import
@@ -187,7 +187,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]] = None,
+                 data_catalog_encryption_settings: Optional[pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -212,7 +212,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_id: Optional[pulumi.Input[str]] = None,
-            data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]] = None) -> 'DataCatalogEncryptionSettings':
+            data_catalog_encryption_settings: Optional[pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']]] = None) -> 'DataCatalogEncryptionSettings':
         """
         Get an existing DataCatalogEncryptionSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -221,7 +221,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-        :param pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
+        :param pulumi.Input[Union['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -67,7 +67,7 @@ class AwaitableGetLicenseGrantsResult(GetLicenseGrantsResult):
             id=self.id)
 
 
-def get_license_grants(filters: Optional[Sequence[pulumi.InputType['GetLicenseGrantsFilterArgs']]] = None,
+def get_license_grants(filters: Optional[Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLicenseGrantsResult:
     """
     This resource can be used to get a set of license grant ARNs matching a filter.
@@ -81,14 +81,14 @@ def get_license_grants(filters: Optional[Sequence[pulumi.InputType['GetLicenseGr
     import pulumi_aws as aws
 
     current = aws.get_caller_identity()
-    test = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArgs(
-        name="GranteePrincipalARN",
-        values=[f"arn:aws:iam::{current.account_id}:root"],
-    )])
+    test = aws.licensemanager.get_license_grants(filters=[{
+        "name": "GranteePrincipalARN",
+        "values": [f"arn:aws:iam::{current.account_id}:root"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLicenseGrantsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -105,7 +105,7 @@ def get_license_grants(filters: Optional[Sequence[pulumi.InputType['GetLicenseGr
 
 
 @_utilities.lift_output_func(get_license_grants)
-def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLicenseGrantsFilterArgs']]]]] = None,
+def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicenseGrantsResult]:
     """
     This resource can be used to get a set of license grant ARNs matching a filter.
@@ -119,14 +119,14 @@ def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi_aws as aws
 
     current = aws.get_caller_identity()
-    test = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArgs(
-        name="GranteePrincipalARN",
-        values=[f"arn:aws:iam::{current.account_id}:root"],
-    )])
+    test = aws.licensemanager.get_license_grants(filters=[{
+        "name": "GranteePrincipalARN",
+        "values": [f"arn:aws:iam::{current.account_id}:root"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLicenseGrantsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

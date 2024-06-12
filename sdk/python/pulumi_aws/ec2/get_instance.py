@@ -595,7 +595,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterArgs']]] = None,
+def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']]] = None,
                  get_password_data: Optional[bool] = None,
                  get_user_data: Optional[bool] = None,
                  instance_id: Optional[str] = None,
@@ -613,19 +613,19 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
 
     foo = aws.ec2.get_instance(instance_id="i-instanceid",
         filters=[
-            aws.ec2.GetInstanceFilterArgs(
-                name="image-id",
-                values=["ami-xxxxxxxx"],
-            ),
-            aws.ec2.GetInstanceFilterArgs(
-                name="tag:Name",
-                values=["instance-name-tag"],
-            ),
+            {
+                "name": "image-id",
+                "values": ["ami-xxxxxxxx"],
+            },
+            {
+                "name": "tag:Name",
+                "values": ["instance-name-tag"],
+            },
         ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstanceFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -703,7 +703,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
 
 
 @_utilities.lift_output_func(get_instance)
-def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceFilterArgs']]]]] = None,
+def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']]]]] = None,
                         get_password_data: Optional[pulumi.Input[Optional[bool]]] = None,
                         get_user_data: Optional[pulumi.Input[Optional[bool]]] = None,
                         instance_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -721,19 +721,19 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     foo = aws.ec2.get_instance(instance_id="i-instanceid",
         filters=[
-            aws.ec2.GetInstanceFilterArgs(
-                name="image-id",
-                values=["ami-xxxxxxxx"],
-            ),
-            aws.ec2.GetInstanceFilterArgs(
-                name="tag:Name",
-                values=["instance-name-tag"],
-            ),
+            {
+                "name": "image-id",
+                "values": ["ami-xxxxxxxx"],
+            },
+            {
+                "name": "tag:Name",
+                "values": ["instance-name-tag"],
+            },
         ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstanceFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.

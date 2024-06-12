@@ -736,22 +736,22 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: Optional[pulumi.Input[str]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']]] = None,
-                 auto_tune_options: Optional[pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']]] = None,
-                 cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
-                 cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
-                 domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']]] = None,
+                 advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
+                 auto_tune_options: Optional[pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
+                 cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
+                 cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
+                 domain_endpoint_options: Optional[pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
-                 encrypt_at_rest: Optional[pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']]] = None,
+                 ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
+                 encrypt_at_rest: Optional[pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
-                 log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]]] = None,
-                 node_to_node_encryption: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']]] = None,
-                 off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
-                 snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
-                 software_update_options: Optional[pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']]] = None,
+                 log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
+                 node_to_node_encryption: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
+                 off_peak_window_options: Optional[pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
+                 snapshot_options: Optional[pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
+                 software_update_options: Optional[pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
+                 vpc_options: Optional[pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an Amazon OpenSearch Domain.
@@ -784,9 +784,9 @@ class Domain(pulumi.CustomResource):
         example = aws.opensearch.Domain("example",
             domain_name="example",
             engine_version="Elasticsearch_7.10",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r4.large.search",
-            ),
+            cluster_config={
+                "instanceType": "r4.large.search",
+            },
             tags={
                 "Domain": "TestDomain",
             })
@@ -806,20 +806,20 @@ class Domain(pulumi.CustomResource):
             domain = "tf-test"
         current = aws.get_region()
         current_get_caller_identity = aws.get_caller_identity()
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["es:*"],
-            resources=[f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["66.193.100.22/32"],
-            )],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["es:*"],
+            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+            "conditions": [{
+                "test": "IpAddress",
+                "variable": "aws:SourceIp",
+                "values": ["66.193.100.22/32"],
+            }],
+        }])
         example_domain = aws.opensearch.Domain("example",
             domain_name=domain,
             access_policies=example.json)
@@ -832,26 +832,26 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("example", name="example")
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["es.amazonaws.com"],
-            )],
-            actions=[
+        example = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["es.amazonaws.com"],
+            }],
+            "actions": [
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
                 "logs:CreateLogStream",
             ],
-            resources=["arn:aws:logs:*"],
-        )])
+            "resources": ["arn:aws:logs:*"],
+        }])
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_name="example",
             policy_document=example.json)
-        example_domain = aws.opensearch.Domain("example", log_publishing_options=[aws.opensearch.DomainLogPublishingOptionArgs(
-            cloudwatch_log_group_arn=example_log_group.arn,
-            log_type="INDEX_SLOW_LOGS",
-        )])
+        example_domain = aws.opensearch.Domain("example", log_publishing_options=[{
+            "cloudwatchLogGroupArn": example_log_group.arn,
+            "logType": "INDEX_SLOW_LOGS",
+        }])
         ```
 
         ### VPC based OpenSearch
@@ -868,10 +868,10 @@ class Domain(pulumi.CustomResource):
         example = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        example_get_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-                name="vpc-id",
-                values=[example.id],
-            )],
+        example_get_subnets = aws.ec2.get_subnets(filters=[{
+                "name": "vpc-id",
+                "values": [example.id],
+            }],
             tags={
                 "Tier": "private",
             })
@@ -881,36 +881,36 @@ class Domain(pulumi.CustomResource):
             name=f"{vpc}-opensearch-{domain}",
             description="Managed by Pulumi",
             vpc_id=example.id,
-            ingress=[aws.ec2.SecurityGroupIngressArgs(
-                from_port=443,
-                to_port=443,
-                protocol="tcp",
-                cidr_blocks=[example.cidr_block],
-            )])
+            ingress=[{
+                "fromPort": 443,
+                "toPort": 443,
+                "protocol": "tcp",
+                "cidrBlocks": [example.cidr_block],
+            }])
         example_service_linked_role = aws.iam.ServiceLinkedRole("example", aws_service_name="opensearchservice.amazonaws.com")
-        example_get_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["es:*"],
-            resources=[f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
-        )])
+        example_get_policy_document = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["es:*"],
+            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+        }])
         example_domain = aws.opensearch.Domain("example",
             domain_name=domain,
             engine_version="OpenSearch_1.0",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="m4.large.search",
-                zone_awareness_enabled=True,
-            ),
-            vpc_options=aws.opensearch.DomainVpcOptionsArgs(
-                subnet_ids=[
+            cluster_config={
+                "instanceType": "m4.large.search",
+                "zoneAwarenessEnabled": True,
+            },
+            vpc_options={
+                "subnetIds": [
                     example_get_subnets.ids[0],
                     example_get_subnets.ids[1],
                 ],
-                security_group_ids=[example_security_group.id],
-            ),
+                "securityGroupIds": [example_security_group.id],
+            },
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
             },
@@ -934,32 +934,32 @@ class Domain(pulumi.CustomResource):
         example = aws.opensearch.Domain("example",
             domain_name="ggkitty",
             engine_version="Elasticsearch_7.1",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r5.large.search",
-            ),
-            advanced_security_options=aws.opensearch.DomainAdvancedSecurityOptionsArgs(
-                enabled=False,
-                anonymous_auth_enabled=True,
-                internal_user_database_enabled=True,
-                master_user_options=aws.opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs(
-                    master_user_name="example",
-                    master_user_password="Barbarbarbar1!",
-                ),
-            ),
-            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
-                enabled=True,
-            ),
-            domain_endpoint_options=aws.opensearch.DomainDomainEndpointOptionsArgs(
-                enforce_https=True,
-                tls_security_policy="Policy-Min-TLS-1-2-2019-07",
-            ),
-            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
-                enabled=True,
-            ),
-            ebs_options=aws.opensearch.DomainEbsOptionsArgs(
-                ebs_enabled=True,
-                volume_size=10,
-            ))
+            cluster_config={
+                "instanceType": "r5.large.search",
+            },
+            advanced_security_options={
+                "enabled": False,
+                "anonymousAuthEnabled": True,
+                "internalUserDatabaseEnabled": True,
+                "masterUserOptions": {
+                    "masterUserName": "example",
+                    "masterUserPassword": "Barbarbarbar1!",
+                },
+            },
+            encrypt_at_rest={
+                "enabled": True,
+            },
+            domain_endpoint_options={
+                "enforceHttps": True,
+                "tlsSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
+            },
+            node_to_node_encryption={
+                "enabled": True,
+            },
+            ebs_options={
+                "ebsEnabled": True,
+                "volumeSize": 10,
+            })
         ```
 
         ### Second apply
@@ -973,32 +973,32 @@ class Domain(pulumi.CustomResource):
         example = aws.opensearch.Domain("example",
             domain_name="ggkitty",
             engine_version="Elasticsearch_7.1",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r5.large.search",
-            ),
-            advanced_security_options=aws.opensearch.DomainAdvancedSecurityOptionsArgs(
-                enabled=True,
-                anonymous_auth_enabled=True,
-                internal_user_database_enabled=True,
-                master_user_options=aws.opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs(
-                    master_user_name="example",
-                    master_user_password="Barbarbarbar1!",
-                ),
-            ),
-            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
-                enabled=True,
-            ),
-            domain_endpoint_options=aws.opensearch.DomainDomainEndpointOptionsArgs(
-                enforce_https=True,
-                tls_security_policy="Policy-Min-TLS-1-2-2019-07",
-            ),
-            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
-                enabled=True,
-            ),
-            ebs_options=aws.opensearch.DomainEbsOptionsArgs(
-                ebs_enabled=True,
-                volume_size=10,
-            ))
+            cluster_config={
+                "instanceType": "r5.large.search",
+            },
+            advanced_security_options={
+                "enabled": True,
+                "anonymousAuthEnabled": True,
+                "internalUserDatabaseEnabled": True,
+                "masterUserOptions": {
+                    "masterUserName": "example",
+                    "masterUserPassword": "Barbarbarbar1!",
+                },
+            },
+            encrypt_at_rest={
+                "enabled": True,
+            },
+            domain_endpoint_options={
+                "enforceHttps": True,
+                "tlsSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
+            },
+            node_to_node_encryption={
+                "enabled": True,
+            },
+            ebs_options={
+                "ebsEnabled": True,
+                "volumeSize": 10,
+            })
         ```
 
         ## Import
@@ -1013,26 +1013,26 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
-        :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
+        :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
+        :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
+        :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
+        :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
+        :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
+        :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
+        :param pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         :param pulumi.Input[str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
-        :param pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']] software_update_options: Software update options for the domain. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
+        :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
+        :param pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+        :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
+        :param pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']] software_update_options: Software update options for the domain. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
+        :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         """
         ...
     @overload
@@ -1071,9 +1071,9 @@ class Domain(pulumi.CustomResource):
         example = aws.opensearch.Domain("example",
             domain_name="example",
             engine_version="Elasticsearch_7.10",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r4.large.search",
-            ),
+            cluster_config={
+                "instanceType": "r4.large.search",
+            },
             tags={
                 "Domain": "TestDomain",
             })
@@ -1093,20 +1093,20 @@ class Domain(pulumi.CustomResource):
             domain = "tf-test"
         current = aws.get_region()
         current_get_caller_identity = aws.get_caller_identity()
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["es:*"],
-            resources=[f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["66.193.100.22/32"],
-            )],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["es:*"],
+            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+            "conditions": [{
+                "test": "IpAddress",
+                "variable": "aws:SourceIp",
+                "values": ["66.193.100.22/32"],
+            }],
+        }])
         example_domain = aws.opensearch.Domain("example",
             domain_name=domain,
             access_policies=example.json)
@@ -1119,26 +1119,26 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("example", name="example")
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["es.amazonaws.com"],
-            )],
-            actions=[
+        example = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["es.amazonaws.com"],
+            }],
+            "actions": [
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
                 "logs:CreateLogStream",
             ],
-            resources=["arn:aws:logs:*"],
-        )])
+            "resources": ["arn:aws:logs:*"],
+        }])
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_name="example",
             policy_document=example.json)
-        example_domain = aws.opensearch.Domain("example", log_publishing_options=[aws.opensearch.DomainLogPublishingOptionArgs(
-            cloudwatch_log_group_arn=example_log_group.arn,
-            log_type="INDEX_SLOW_LOGS",
-        )])
+        example_domain = aws.opensearch.Domain("example", log_publishing_options=[{
+            "cloudwatchLogGroupArn": example_log_group.arn,
+            "logType": "INDEX_SLOW_LOGS",
+        }])
         ```
 
         ### VPC based OpenSearch
@@ -1155,10 +1155,10 @@ class Domain(pulumi.CustomResource):
         example = aws.ec2.get_vpc(tags={
             "Name": vpc,
         })
-        example_get_subnets = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-                name="vpc-id",
-                values=[example.id],
-            )],
+        example_get_subnets = aws.ec2.get_subnets(filters=[{
+                "name": "vpc-id",
+                "values": [example.id],
+            }],
             tags={
                 "Tier": "private",
             })
@@ -1168,36 +1168,36 @@ class Domain(pulumi.CustomResource):
             name=f"{vpc}-opensearch-{domain}",
             description="Managed by Pulumi",
             vpc_id=example.id,
-            ingress=[aws.ec2.SecurityGroupIngressArgs(
-                from_port=443,
-                to_port=443,
-                protocol="tcp",
-                cidr_blocks=[example.cidr_block],
-            )])
+            ingress=[{
+                "fromPort": 443,
+                "toPort": 443,
+                "protocol": "tcp",
+                "cidrBlocks": [example.cidr_block],
+            }])
         example_service_linked_role = aws.iam.ServiceLinkedRole("example", aws_service_name="opensearchservice.amazonaws.com")
-        example_get_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["es:*"],
-            resources=[f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
-        )])
+        example_get_policy_document = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["es:*"],
+            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+        }])
         example_domain = aws.opensearch.Domain("example",
             domain_name=domain,
             engine_version="OpenSearch_1.0",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="m4.large.search",
-                zone_awareness_enabled=True,
-            ),
-            vpc_options=aws.opensearch.DomainVpcOptionsArgs(
-                subnet_ids=[
+            cluster_config={
+                "instanceType": "m4.large.search",
+                "zoneAwarenessEnabled": True,
+            },
+            vpc_options={
+                "subnetIds": [
                     example_get_subnets.ids[0],
                     example_get_subnets.ids[1],
                 ],
-                security_group_ids=[example_security_group.id],
-            ),
+                "securityGroupIds": [example_security_group.id],
+            },
             advanced_options={
                 "rest.action.multi.allow_explicit_index": "true",
             },
@@ -1221,32 +1221,32 @@ class Domain(pulumi.CustomResource):
         example = aws.opensearch.Domain("example",
             domain_name="ggkitty",
             engine_version="Elasticsearch_7.1",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r5.large.search",
-            ),
-            advanced_security_options=aws.opensearch.DomainAdvancedSecurityOptionsArgs(
-                enabled=False,
-                anonymous_auth_enabled=True,
-                internal_user_database_enabled=True,
-                master_user_options=aws.opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs(
-                    master_user_name="example",
-                    master_user_password="Barbarbarbar1!",
-                ),
-            ),
-            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
-                enabled=True,
-            ),
-            domain_endpoint_options=aws.opensearch.DomainDomainEndpointOptionsArgs(
-                enforce_https=True,
-                tls_security_policy="Policy-Min-TLS-1-2-2019-07",
-            ),
-            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
-                enabled=True,
-            ),
-            ebs_options=aws.opensearch.DomainEbsOptionsArgs(
-                ebs_enabled=True,
-                volume_size=10,
-            ))
+            cluster_config={
+                "instanceType": "r5.large.search",
+            },
+            advanced_security_options={
+                "enabled": False,
+                "anonymousAuthEnabled": True,
+                "internalUserDatabaseEnabled": True,
+                "masterUserOptions": {
+                    "masterUserName": "example",
+                    "masterUserPassword": "Barbarbarbar1!",
+                },
+            },
+            encrypt_at_rest={
+                "enabled": True,
+            },
+            domain_endpoint_options={
+                "enforceHttps": True,
+                "tlsSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
+            },
+            node_to_node_encryption={
+                "enabled": True,
+            },
+            ebs_options={
+                "ebsEnabled": True,
+                "volumeSize": 10,
+            })
         ```
 
         ### Second apply
@@ -1260,32 +1260,32 @@ class Domain(pulumi.CustomResource):
         example = aws.opensearch.Domain("example",
             domain_name="ggkitty",
             engine_version="Elasticsearch_7.1",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r5.large.search",
-            ),
-            advanced_security_options=aws.opensearch.DomainAdvancedSecurityOptionsArgs(
-                enabled=True,
-                anonymous_auth_enabled=True,
-                internal_user_database_enabled=True,
-                master_user_options=aws.opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs(
-                    master_user_name="example",
-                    master_user_password="Barbarbarbar1!",
-                ),
-            ),
-            encrypt_at_rest=aws.opensearch.DomainEncryptAtRestArgs(
-                enabled=True,
-            ),
-            domain_endpoint_options=aws.opensearch.DomainDomainEndpointOptionsArgs(
-                enforce_https=True,
-                tls_security_policy="Policy-Min-TLS-1-2-2019-07",
-            ),
-            node_to_node_encryption=aws.opensearch.DomainNodeToNodeEncryptionArgs(
-                enabled=True,
-            ),
-            ebs_options=aws.opensearch.DomainEbsOptionsArgs(
-                ebs_enabled=True,
-                volume_size=10,
-            ))
+            cluster_config={
+                "instanceType": "r5.large.search",
+            },
+            advanced_security_options={
+                "enabled": True,
+                "anonymousAuthEnabled": True,
+                "internalUserDatabaseEnabled": True,
+                "masterUserOptions": {
+                    "masterUserName": "example",
+                    "masterUserPassword": "Barbarbarbar1!",
+                },
+            },
+            encrypt_at_rest={
+                "enabled": True,
+            },
+            domain_endpoint_options={
+                "enforceHttps": True,
+                "tlsSecurityPolicy": "Policy-Min-TLS-1-2-2019-07",
+            },
+            node_to_node_encryption={
+                "enabled": True,
+            },
+            ebs_options={
+                "ebsEnabled": True,
+                "volumeSize": 10,
+            })
         ```
 
         ## Import
@@ -1313,22 +1313,22 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policies: Optional[pulumi.Input[str]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']]] = None,
-                 auto_tune_options: Optional[pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']]] = None,
-                 cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
-                 cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
-                 domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']]] = None,
+                 advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
+                 auto_tune_options: Optional[pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
+                 cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
+                 cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
+                 domain_endpoint_options: Optional[pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
-                 encrypt_at_rest: Optional[pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']]] = None,
+                 ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
+                 encrypt_at_rest: Optional[pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
-                 log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]]] = None,
-                 node_to_node_encryption: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']]] = None,
-                 off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
-                 snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
-                 software_update_options: Optional[pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']]] = None,
+                 log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
+                 node_to_node_encryption: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
+                 off_peak_window_options: Optional[pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
+                 snapshot_options: Optional[pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
+                 software_update_options: Optional[pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None,
+                 vpc_options: Optional[pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1374,28 +1374,28 @@ class Domain(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_policies: Optional[pulumi.Input[str]] = None,
             advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']]] = None,
+            advanced_security_options: Optional[pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            auto_tune_options: Optional[pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']]] = None,
-            cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
-            cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
+            auto_tune_options: Optional[pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']]] = None,
+            cluster_config: Optional[pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']]] = None,
+            cognito_options: Optional[pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']]] = None,
             dashboard_endpoint: Optional[pulumi.Input[str]] = None,
-            domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']]] = None,
+            domain_endpoint_options: Optional[pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']]] = None,
             domain_id: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
-            ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
-            encrypt_at_rest: Optional[pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']]] = None,
+            ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
+            encrypt_at_rest: Optional[pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             kibana_endpoint: Optional[pulumi.Input[str]] = None,
-            log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]]] = None,
-            node_to_node_encryption: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']]] = None,
-            off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
-            snapshot_options: Optional[pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']]] = None,
-            software_update_options: Optional[pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']]] = None,
+            log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
+            node_to_node_encryption: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
+            off_peak_window_options: Optional[pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
+            snapshot_options: Optional[pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
+            software_update_options: Optional[pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vpc_options: Optional[pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']]] = None) -> 'Domain':
+            vpc_options: Optional[pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']]] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1405,32 +1405,32 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] advanced_options: Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your OpenSearch domain on every apply.
-        :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
+        :param pulumi.Input[Union['DomainAdvancedSecurityOptionsArgs', 'DomainAdvancedSecurityOptionsArgsDict']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[str] arn: ARN of the domain.
-        :param pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
+        :param pulumi.Input[Union['DomainAutoTuneOptionsArgs', 'DomainAutoTuneOptionsArgsDict']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
+        :param pulumi.Input[Union['DomainClusterConfigArgs', 'DomainClusterConfigArgsDict']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
+        :param pulumi.Input[Union['DomainCognitoOptionsArgs', 'DomainCognitoOptionsArgsDict']] cognito_options: Configuration block for authenticating dashboard with Cognito. Detailed below.
         :param pulumi.Input[str] dashboard_endpoint: Domain-specific endpoint for Dashboard without https scheme.
-        :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
+        :param pulumi.Input[Union['DomainDomainEndpointOptionsArgs', 'DomainDomainEndpointOptionsArgsDict']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
         :param pulumi.Input[str] domain_id: Unique identifier for the domain.
         :param pulumi.Input[str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
+        :param pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']] ebs_options: Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
+        :param pulumi.Input[Union['DomainEncryptAtRestArgs', 'DomainEncryptAtRestArgsDict']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
         :param pulumi.Input[str] endpoint: Domain-specific endpoint used to submit index, search, and data upload requests.
         :param pulumi.Input[str] engine_version: Either `Elasticsearch_X.Y` or `OpenSearch_X.Y` to specify the engine version for the Amazon OpenSearch Service domain. For example, `OpenSearch_1.0` or `Elasticsearch_7.9`.
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
         :param pulumi.Input[str] kibana_endpoint: (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
-        :param pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']] software_update_options: Software update options for the domain. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
+        :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
+        :param pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+        :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
+        :param pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']] software_update_options: Software update options for the domain. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
+        :param pulumi.Input[Union['DomainVpcOptionsArgs', 'DomainVpcOptionsArgsDict']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -334,14 +334,14 @@ class JobQueue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueComputeEnvironmentOrderArgs']]]]] = None,
+                 compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
                  compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['JobQueueTimeoutsArgs', 'JobQueueTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Batch Job Queue resource.
@@ -359,14 +359,14 @@ class JobQueue(pulumi.CustomResource):
             state="ENABLED",
             priority=1,
             compute_environment_orders=[
-                aws.batch.JobQueueComputeEnvironmentOrderArgs(
-                    order=1,
-                    compute_environment=test_environment1["arn"],
-                ),
-                aws.batch.JobQueueComputeEnvironmentOrderArgs(
-                    order=2,
-                    compute_environment=test_environment2["arn"],
-                ),
+                {
+                    "order": 1,
+                    "computeEnvironment": test_environment1["arn"],
+                },
+                {
+                    "order": 2,
+                    "computeEnvironment": test_environment2["arn"],
+                },
             ])
         ```
 
@@ -378,28 +378,28 @@ class JobQueue(pulumi.CustomResource):
 
         example = aws.batch.SchedulingPolicy("example",
             name="example",
-            fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
-                compute_reservation=1,
-                share_decay_seconds=3600,
-                share_distributions=[aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                    share_identifier="A1*",
-                    weight_factor=0.1,
-                )],
-            ))
+            fair_share_policy={
+                "computeReservation": 1,
+                "shareDecaySeconds": 3600,
+                "shareDistributions": [{
+                    "shareIdentifier": "A1*",
+                    "weightFactor": 0.1,
+                }],
+            })
         example_job_queue = aws.batch.JobQueue("example",
             name="tf-test-batch-job-queue",
             scheduling_policy_arn=example.arn,
             state="ENABLED",
             priority=1,
             compute_environment_orders=[
-                aws.batch.JobQueueComputeEnvironmentOrderArgs(
-                    order=1,
-                    compute_environment=test_environment1["arn"],
-                ),
-                aws.batch.JobQueueComputeEnvironmentOrderArgs(
-                    order=2,
-                    compute_environment=test_environment2["arn"],
-                ),
+                {
+                    "order": 1,
+                    "computeEnvironment": test_environment1["arn"],
+                },
+                {
+                    "order": 2,
+                    "computeEnvironment": test_environment2["arn"],
+                },
             ])
         ```
 
@@ -413,7 +413,7 @@ class JobQueue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueComputeEnvironmentOrderArgs']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
@@ -444,14 +444,14 @@ class JobQueue(pulumi.CustomResource):
             state="ENABLED",
             priority=1,
             compute_environment_orders=[
-                aws.batch.JobQueueComputeEnvironmentOrderArgs(
-                    order=1,
-                    compute_environment=test_environment1["arn"],
-                ),
-                aws.batch.JobQueueComputeEnvironmentOrderArgs(
-                    order=2,
-                    compute_environment=test_environment2["arn"],
-                ),
+                {
+                    "order": 1,
+                    "computeEnvironment": test_environment1["arn"],
+                },
+                {
+                    "order": 2,
+                    "computeEnvironment": test_environment2["arn"],
+                },
             ])
         ```
 
@@ -463,28 +463,28 @@ class JobQueue(pulumi.CustomResource):
 
         example = aws.batch.SchedulingPolicy("example",
             name="example",
-            fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
-                compute_reservation=1,
-                share_decay_seconds=3600,
-                share_distributions=[aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                    share_identifier="A1*",
-                    weight_factor=0.1,
-                )],
-            ))
+            fair_share_policy={
+                "computeReservation": 1,
+                "shareDecaySeconds": 3600,
+                "shareDistributions": [{
+                    "shareIdentifier": "A1*",
+                    "weightFactor": 0.1,
+                }],
+            })
         example_job_queue = aws.batch.JobQueue("example",
             name="tf-test-batch-job-queue",
             scheduling_policy_arn=example.arn,
             state="ENABLED",
             priority=1,
             compute_environment_orders=[
-                aws.batch.JobQueueComputeEnvironmentOrderArgs(
-                    order=1,
-                    compute_environment=test_environment1["arn"],
-                ),
-                aws.batch.JobQueueComputeEnvironmentOrderArgs(
-                    order=2,
-                    compute_environment=test_environment2["arn"],
-                ),
+                {
+                    "order": 1,
+                    "computeEnvironment": test_environment1["arn"],
+                },
+                {
+                    "order": 2,
+                    "computeEnvironment": test_environment2["arn"],
+                },
             ])
         ```
 
@@ -511,14 +511,14 @@ class JobQueue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueComputeEnvironmentOrderArgs']]]]] = None,
+                 compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
                  compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['JobQueueTimeoutsArgs', 'JobQueueTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -553,7 +553,7 @@ class JobQueue(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueComputeEnvironmentOrderArgs']]]]] = None,
+            compute_environment_orders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]]] = None,
             compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
@@ -561,7 +561,7 @@ class JobQueue(pulumi.CustomResource):
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArgs']]] = None) -> 'JobQueue':
+            timeouts: Optional[pulumi.Input[Union['JobQueueTimeoutsArgs', 'JobQueueTimeoutsArgsDict']]] = None) -> 'JobQueue':
         """
         Get an existing JobQueue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -570,7 +570,7 @@ class JobQueue(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name of the job queue.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobQueueComputeEnvironmentOrderArgs']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobQueueComputeEnvironmentOrderArgs', 'JobQueueComputeEnvironmentOrderArgsDict']]]] compute_environment_orders: The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority

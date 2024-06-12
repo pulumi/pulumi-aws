@@ -344,12 +344,12 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]]] = None,
+                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['RuleScopeArgs']]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['RuleSourceArgs']]] = None,
+                 scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
+                 source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -367,14 +367,14 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["config.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         r_role = aws.iam.Role("r",
             name="my-awsconfig-role",
             assume_role_policy=assume_role.json)
@@ -383,16 +383,16 @@ class Rule(pulumi.CustomResource):
             role_arn=r_role.arn)
         r = aws.cfg.Rule("r",
             name="example",
-            source=aws.cfg.RuleSourceArgs(
-                owner="AWS",
-                source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-            ),
+            source={
+                "owner": "AWS",
+                "sourceIdentifier": "S3_BUCKET_VERSIONING_ENABLED",
+            },
             opts=pulumi.ResourceOptions(depends_on=[foo]))
-        p = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["config:Put*"],
-            resources=["*"],
-        )])
+        p = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["config:Put*"],
+            "resources": ["*"],
+        }])
         p_role_policy = aws.iam.RolePolicy("p",
             name="my-awsconfig-policy",
             role=r_role.id,
@@ -414,10 +414,10 @@ class Rule(pulumi.CustomResource):
             function=example_function.arn,
             principal="config.amazonaws.com",
             statement_id="AllowExecutionFromConfig")
-        example_rule = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
-            owner="CUSTOM_LAMBDA",
-            source_identifier=example_function.arn,
-        ),
+        example_rule = aws.cfg.Rule("example", source={
+            "owner": "CUSTOM_LAMBDA",
+            "sourceIdentifier": example_function.arn,
+        },
         opts=pulumi.ResourceOptions(depends_on=[
                 example,
                 example_permission,
@@ -432,14 +432,14 @@ class Rule(pulumi.CustomResource):
 
         example = aws.cfg.Rule("example",
             name="example",
-            source=aws.cfg.RuleSourceArgs(
-                owner="CUSTOM_POLICY",
-                source_details=[aws.cfg.RuleSourceSourceDetailArgs(
-                    message_type="ConfigurationItemChangeNotification",
-                )],
-                custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
-                    policy_runtime="guard-2.x.x",
-                    policy_text=\"\"\"\\x09  rule tableisactive when
+            source={
+                "owner": "CUSTOM_POLICY",
+                "sourceDetails": [{
+                    "messageType": "ConfigurationItemChangeNotification",
+                }],
+                "customPolicyDetails": {
+                    "policyRuntime": "guard-2.x.x",
+                    "policyText": \"\"\"\\x09  rule tableisactive when
         \\x09\\x09  resourceType == "AWS::DynamoDB::Table" {
         \\x09\\x09  configuration.tableStatus == ['ACTIVE']
         \\x09  }
@@ -450,8 +450,8 @@ class Rule(pulumi.CustomResource):
         \\x09\\x09\\x09  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
         \\x09  }
         \"\"\",
-                ),
-            ))
+                },
+            })
         ```
 
         ## Import
@@ -465,12 +465,12 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[str] name: The name of the rule
-        :param pulumi.Input[pulumi.InputType['RuleScopeArgs']] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
-        :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
+        :param pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
+        :param pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -494,14 +494,14 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["config.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         r_role = aws.iam.Role("r",
             name="my-awsconfig-role",
             assume_role_policy=assume_role.json)
@@ -510,16 +510,16 @@ class Rule(pulumi.CustomResource):
             role_arn=r_role.arn)
         r = aws.cfg.Rule("r",
             name="example",
-            source=aws.cfg.RuleSourceArgs(
-                owner="AWS",
-                source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-            ),
+            source={
+                "owner": "AWS",
+                "sourceIdentifier": "S3_BUCKET_VERSIONING_ENABLED",
+            },
             opts=pulumi.ResourceOptions(depends_on=[foo]))
-        p = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["config:Put*"],
-            resources=["*"],
-        )])
+        p = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["config:Put*"],
+            "resources": ["*"],
+        }])
         p_role_policy = aws.iam.RolePolicy("p",
             name="my-awsconfig-policy",
             role=r_role.id,
@@ -541,10 +541,10 @@ class Rule(pulumi.CustomResource):
             function=example_function.arn,
             principal="config.amazonaws.com",
             statement_id="AllowExecutionFromConfig")
-        example_rule = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
-            owner="CUSTOM_LAMBDA",
-            source_identifier=example_function.arn,
-        ),
+        example_rule = aws.cfg.Rule("example", source={
+            "owner": "CUSTOM_LAMBDA",
+            "sourceIdentifier": example_function.arn,
+        },
         opts=pulumi.ResourceOptions(depends_on=[
                 example,
                 example_permission,
@@ -559,14 +559,14 @@ class Rule(pulumi.CustomResource):
 
         example = aws.cfg.Rule("example",
             name="example",
-            source=aws.cfg.RuleSourceArgs(
-                owner="CUSTOM_POLICY",
-                source_details=[aws.cfg.RuleSourceSourceDetailArgs(
-                    message_type="ConfigurationItemChangeNotification",
-                )],
-                custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
-                    policy_runtime="guard-2.x.x",
-                    policy_text=\"\"\"\\x09  rule tableisactive when
+            source={
+                "owner": "CUSTOM_POLICY",
+                "sourceDetails": [{
+                    "messageType": "ConfigurationItemChangeNotification",
+                }],
+                "customPolicyDetails": {
+                    "policyRuntime": "guard-2.x.x",
+                    "policyText": \"\"\"\\x09  rule tableisactive when
         \\x09\\x09  resourceType == "AWS::DynamoDB::Table" {
         \\x09\\x09  configuration.tableStatus == ['ACTIVE']
         \\x09  }
@@ -577,8 +577,8 @@ class Rule(pulumi.CustomResource):
         \\x09\\x09\\x09  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
         \\x09  }
         \"\"\",
-                ),
-            ))
+                },
+            })
         ```
 
         ## Import
@@ -605,12 +605,12 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]]] = None,
+                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['RuleScopeArgs']]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['RuleSourceArgs']]] = None,
+                 scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
+                 source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -646,13 +646,13 @@ class Rule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]]] = None,
+            evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]]] = None,
             input_parameters: Optional[pulumi.Input[str]] = None,
             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rule_id: Optional[pulumi.Input[str]] = None,
-            scope: Optional[pulumi.Input[pulumi.InputType['RuleScopeArgs']]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['RuleSourceArgs']]] = None,
+            scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
+            source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Rule':
         """
@@ -664,13 +664,13 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the config rule
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleEvaluationModeArgs', 'RuleEvaluationModeArgsDict']]]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[str] name: The name of the rule
         :param pulumi.Input[str] rule_id: The ID of the config rule
-        :param pulumi.Input[pulumi.InputType['RuleScopeArgs']] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
-        :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
+        :param pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
+        :param pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

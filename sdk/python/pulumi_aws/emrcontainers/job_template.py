@@ -199,7 +199,7 @@ class JobTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_template_data: Optional[pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArgs']]] = None,
+                 job_template_data: Optional[pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -216,15 +216,15 @@ class JobTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrcontainers.JobTemplate("example",
-            job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
-                execution_role_arn=example_aws_iam_role["arn"],
-                release_label="emr-6.10.0-latest",
-                job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
-                    spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
-                        entry_point="default",
-                    ),
-                ),
-            ),
+            job_template_data={
+                "executionRoleArn": example_aws_iam_role["arn"],
+                "releaseLabel": "emr-6.10.0-latest",
+                "jobDriver": {
+                    "sparkSqlJobDriver": {
+                        "entryPoint": "default",
+                    },
+                },
+            },
             name="example")
         ```
 
@@ -238,7 +238,7 @@ class JobTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArgs']] job_template_data: The job template data which holds values of StartJobRun API request.
+        :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[str] name: The specified name of the job template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -261,15 +261,15 @@ class JobTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrcontainers.JobTemplate("example",
-            job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
-                execution_role_arn=example_aws_iam_role["arn"],
-                release_label="emr-6.10.0-latest",
-                job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
-                    spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
-                        entry_point="default",
-                    ),
-                ),
-            ),
+            job_template_data={
+                "executionRoleArn": example_aws_iam_role["arn"],
+                "releaseLabel": "emr-6.10.0-latest",
+                "jobDriver": {
+                    "sparkSqlJobDriver": {
+                        "entryPoint": "default",
+                    },
+                },
+            },
             name="example")
         ```
 
@@ -296,7 +296,7 @@ class JobTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_template_data: Optional[pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArgs']]] = None,
+                 job_template_data: Optional[pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -328,7 +328,7 @@ class JobTemplate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            job_template_data: Optional[pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArgs']]] = None,
+            job_template_data: Optional[pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -341,7 +341,7 @@ class JobTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the job template.
-        :param pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArgs']] job_template_data: The job template data which holds values of StartJobRun API request.
+        :param pulumi.Input[Union['JobTemplateJobTemplateDataArgs', 'JobTemplateJobTemplateDataArgsDict']] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[str] name: The specified name of the job template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

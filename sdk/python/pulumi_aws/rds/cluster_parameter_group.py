@@ -271,7 +271,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterParameterGroupParameterArgs', 'ClusterParameterGroupParameterArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -291,14 +291,14 @@ class ClusterParameterGroup(pulumi.CustomResource):
             family="aurora5.6",
             description="RDS default cluster parameter group",
             parameters=[
-                aws.rds.ClusterParameterGroupParameterArgs(
-                    name="character_set_server",
-                    value="utf8",
-                ),
-                aws.rds.ClusterParameterGroupParameterArgs(
-                    name="character_set_client",
-                    value="utf8",
-                ),
+                {
+                    "name": "character_set_server",
+                    "value": "utf8",
+                },
+                {
+                    "name": "character_set_client",
+                    "value": "utf8",
+                },
             ])
         ```
 
@@ -316,7 +316,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] family: The family of the DB cluster parameter group.
         :param pulumi.Input[str] name: The name of the DB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterParameterGroupParameterArgs', 'ClusterParameterGroupParameterArgsDict']]]] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -342,14 +342,14 @@ class ClusterParameterGroup(pulumi.CustomResource):
             family="aurora5.6",
             description="RDS default cluster parameter group",
             parameters=[
-                aws.rds.ClusterParameterGroupParameterArgs(
-                    name="character_set_server",
-                    value="utf8",
-                ),
-                aws.rds.ClusterParameterGroupParameterArgs(
-                    name="character_set_client",
-                    value="utf8",
-                ),
+                {
+                    "name": "character_set_server",
+                    "value": "utf8",
+                },
+                {
+                    "name": "character_set_client",
+                    "value": "utf8",
+                },
             ])
         ```
 
@@ -380,7 +380,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterParameterGroupParameterArgs', 'ClusterParameterGroupParameterArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -418,7 +418,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
             family: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]]] = None,
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterParameterGroupParameterArgs', 'ClusterParameterGroupParameterArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ClusterParameterGroup':
         """
@@ -433,7 +433,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] family: The family of the DB cluster parameter group.
         :param pulumi.Input[str] name: The name of the DB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterParameterGroupParameterArgs', 'ClusterParameterGroupParameterArgsDict']]]] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

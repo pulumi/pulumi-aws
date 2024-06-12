@@ -338,10 +338,10 @@ class Key(pulumi.CustomResource):
                  deletion_window_in_days: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exportable: Optional[pulumi.Input[bool]] = None,
-                 key_attributes: Optional[pulumi.Input[pulumi.InputType['KeyKeyAttributesArgs']]] = None,
+                 key_attributes: Optional[pulumi.Input[Union['KeyKeyAttributesArgs', 'KeyKeyAttributesArgsDict']]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['KeyTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Payment Cryptography Control Plane Key.
@@ -360,7 +360,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether to enable the key.
         :param pulumi.Input[bool] exportable: Whether the key is exportable from the service.
-        :param pulumi.Input[pulumi.InputType['KeyKeyAttributesArgs']] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
+        :param pulumi.Input[Union['KeyKeyAttributesArgs', 'KeyKeyAttributesArgsDict']] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
                
                The following arguments are optional:
         :param pulumi.Input[str] key_check_value_algorithm: Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
@@ -403,10 +403,10 @@ class Key(pulumi.CustomResource):
                  deletion_window_in_days: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  exportable: Optional[pulumi.Input[bool]] = None,
-                 key_attributes: Optional[pulumi.Input[pulumi.InputType['KeyKeyAttributesArgs']]] = None,
+                 key_attributes: Optional[pulumi.Input[Union['KeyKeyAttributesArgs', 'KeyKeyAttributesArgsDict']]] = None,
                  key_check_value_algorithm: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['KeyTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -444,14 +444,14 @@ class Key(pulumi.CustomResource):
             deletion_window_in_days: Optional[pulumi.Input[int]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             exportable: Optional[pulumi.Input[bool]] = None,
-            key_attributes: Optional[pulumi.Input[pulumi.InputType['KeyKeyAttributesArgs']]] = None,
+            key_attributes: Optional[pulumi.Input[Union['KeyKeyAttributesArgs', 'KeyKeyAttributesArgsDict']]] = None,
             key_check_value: Optional[pulumi.Input[str]] = None,
             key_check_value_algorithm: Optional[pulumi.Input[str]] = None,
             key_origin: Optional[pulumi.Input[str]] = None,
             key_state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['KeyTimeoutsArgs']]] = None) -> 'Key':
+            timeouts: Optional[pulumi.Input[Union['KeyTimeoutsArgs', 'KeyTimeoutsArgsDict']]] = None) -> 'Key':
         """
         Get an existing Key resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -462,7 +462,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the key.
         :param pulumi.Input[bool] enabled: Whether to enable the key.
         :param pulumi.Input[bool] exportable: Whether the key is exportable from the service.
-        :param pulumi.Input[pulumi.InputType['KeyKeyAttributesArgs']] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
+        :param pulumi.Input[Union['KeyKeyAttributesArgs', 'KeyKeyAttributesArgsDict']] key_attributes: Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
                
                The following arguments are optional:
         :param pulumi.Input[str] key_check_value: Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.

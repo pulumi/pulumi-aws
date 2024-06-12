@@ -178,7 +178,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
-                 cidr_authorization_context: Optional[pulumi.Input[pulumi.InputType['VpcIpamPoolCidrCidrAuthorizationContextArgs']]] = None,
+                 cidr_authorization_context: Optional[pulumi.Input[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']]] = None,
                  ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  netmask_length: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -199,9 +199,9 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
+        example = aws.ec2.VpcIpam("example", operating_regions=[{
+            "regionName": current.name,
+        }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example.private_default_scope_id,
@@ -218,9 +218,9 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
+        example = aws.ec2.VpcIpam("example", operating_regions=[{
+            "regionName": current.name,
+        }])
         ipv6_test_public = aws.ec2.VpcIpamPool("ipv6_test_public",
             address_family="ipv6",
             ipam_scope_id=example.public_default_scope_id,
@@ -247,7 +247,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
-        :param pulumi.Input[pulumi.InputType['VpcIpamPoolCidrCidrAuthorizationContextArgs']] cidr_authorization_context: A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
+        :param pulumi.Input[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']] cidr_authorization_context: A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[int] netmask_length: If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
         """
@@ -274,9 +274,9 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
+        example = aws.ec2.VpcIpam("example", operating_regions=[{
+            "regionName": current.name,
+        }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example.private_default_scope_id,
@@ -293,9 +293,9 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
+        example = aws.ec2.VpcIpam("example", operating_regions=[{
+            "regionName": current.name,
+        }])
         ipv6_test_public = aws.ec2.VpcIpamPool("ipv6_test_public",
             address_family="ipv6",
             ipam_scope_id=example.public_default_scope_id,
@@ -335,7 +335,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
-                 cidr_authorization_context: Optional[pulumi.Input[pulumi.InputType['VpcIpamPoolCidrCidrAuthorizationContextArgs']]] = None,
+                 cidr_authorization_context: Optional[pulumi.Input[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']]] = None,
                  ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  netmask_length: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -365,7 +365,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cidr: Optional[pulumi.Input[str]] = None,
-            cidr_authorization_context: Optional[pulumi.Input[pulumi.InputType['VpcIpamPoolCidrCidrAuthorizationContextArgs']]] = None,
+            cidr_authorization_context: Optional[pulumi.Input[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']]] = None,
             ipam_pool_cidr_id: Optional[pulumi.Input[str]] = None,
             ipam_pool_id: Optional[pulumi.Input[str]] = None,
             netmask_length: Optional[pulumi.Input[int]] = None) -> 'VpcIpamPoolCidr':
@@ -377,7 +377,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool. Conflicts with `netmask_length`.
-        :param pulumi.Input[pulumi.InputType['VpcIpamPoolCidrCidrAuthorizationContextArgs']] cidr_authorization_context: A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
+        :param pulumi.Input[Union['VpcIpamPoolCidrCidrAuthorizationContextArgs', 'VpcIpamPoolCidrCidrAuthorizationContextArgsDict']] cidr_authorization_context: A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
         :param pulumi.Input[str] ipam_pool_cidr_id: The unique ID generated by AWS for the pool cidr. Typically this is the resource `id` but this attribute was added to the API calls after the fact and is therefore not used as the resource id.
         :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[int] netmask_length: If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.

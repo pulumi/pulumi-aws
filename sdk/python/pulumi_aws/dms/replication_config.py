@@ -418,7 +418,7 @@ class ReplicationConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_config: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']]] = None,
+                 compute_config: Optional[pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
                  replication_config_identifier: Optional[pulumi.Input[str]] = None,
                  replication_settings: Optional[pulumi.Input[str]] = None,
                  replication_type: Optional[pulumi.Input[str]] = None,
@@ -452,12 +452,12 @@ class ReplicationConfig(pulumi.CustomResource):
           }
         \"\"\",
             start_replication=True,
-            compute_config=aws.dms.ReplicationConfigComputeConfigArgs(
-                replication_subnet_group_id=default["replicationSubnetGroupId"],
-                max_capacity_units=64,
-                min_capacity_units=2,
-                preferred_maintenance_window="sun:23:45-mon:00:30",
-            ))
+            compute_config={
+                "replicationSubnetGroupId": default["replicationSubnetGroupId"],
+                "maxCapacityUnits": 64,
+                "minCapacityUnits": 2,
+                "preferredMaintenanceWindow": "sun:23:45-mon:00:30",
+            })
         ```
 
         ## Import
@@ -470,7 +470,7 @@ class ReplicationConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']] compute_config: Configuration block for provisioning an DMS Serverless replication.
+        :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']] compute_config: Configuration block for provisioning an DMS Serverless replication.
         :param pulumi.Input[str] replication_config_identifier: Unique identifier that you want to use to create the config.
         :param pulumi.Input[str] replication_settings: An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
         :param pulumi.Input[str] replication_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -510,12 +510,12 @@ class ReplicationConfig(pulumi.CustomResource):
           }
         \"\"\",
             start_replication=True,
-            compute_config=aws.dms.ReplicationConfigComputeConfigArgs(
-                replication_subnet_group_id=default["replicationSubnetGroupId"],
-                max_capacity_units=64,
-                min_capacity_units=2,
-                preferred_maintenance_window="sun:23:45-mon:00:30",
-            ))
+            compute_config={
+                "replicationSubnetGroupId": default["replicationSubnetGroupId"],
+                "maxCapacityUnits": 64,
+                "minCapacityUnits": 2,
+                "preferredMaintenanceWindow": "sun:23:45-mon:00:30",
+            })
         ```
 
         ## Import
@@ -541,7 +541,7 @@ class ReplicationConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_config: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']]] = None,
+                 compute_config: Optional[pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
                  replication_config_identifier: Optional[pulumi.Input[str]] = None,
                  replication_settings: Optional[pulumi.Input[str]] = None,
                  replication_type: Optional[pulumi.Input[str]] = None,
@@ -597,7 +597,7 @@ class ReplicationConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            compute_config: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']]] = None,
+            compute_config: Optional[pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']]] = None,
             replication_config_identifier: Optional[pulumi.Input[str]] = None,
             replication_settings: Optional[pulumi.Input[str]] = None,
             replication_type: Optional[pulumi.Input[str]] = None,
@@ -617,7 +617,7 @@ class ReplicationConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for the serverless replication config.
-        :param pulumi.Input[pulumi.InputType['ReplicationConfigComputeConfigArgs']] compute_config: Configuration block for provisioning an DMS Serverless replication.
+        :param pulumi.Input[Union['ReplicationConfigComputeConfigArgs', 'ReplicationConfigComputeConfigArgsDict']] compute_config: Configuration block for provisioning an DMS Serverless replication.
         :param pulumi.Input[str] replication_config_identifier: Unique identifier that you want to use to create the config.
         :param pulumi.Input[str] replication_settings: An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
         :param pulumi.Input[str] replication_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.

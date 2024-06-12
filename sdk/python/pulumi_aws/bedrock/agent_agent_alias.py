@@ -281,9 +281,9 @@ class AgentAgentAlias(pulumi.CustomResource):
                  agent_alias_name: Optional[pulumi.Input[str]] = None,
                  agent_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentAliasRoutingConfigurationArgs']]]]] = None,
+                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['AgentAgentAliasTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Agent Alias.
@@ -305,7 +305,7 @@ class AgentAgentAlias(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the alias.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentAliasRoutingConfigurationArgs']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -345,9 +345,9 @@ class AgentAgentAlias(pulumi.CustomResource):
                  agent_alias_name: Optional[pulumi.Input[str]] = None,
                  agent_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentAliasRoutingConfigurationArgs']]]]] = None,
+                 routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['AgentAgentAliasTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -385,10 +385,10 @@ class AgentAgentAlias(pulumi.CustomResource):
             agent_alias_name: Optional[pulumi.Input[str]] = None,
             agent_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentAliasRoutingConfigurationArgs']]]]] = None,
+            routing_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['AgentAgentAliasTimeoutsArgs']]] = None) -> 'AgentAgentAlias':
+            timeouts: Optional[pulumi.Input[Union['AgentAgentAliasTimeoutsArgs', 'AgentAgentAliasTimeoutsArgsDict']]] = None) -> 'AgentAgentAlias':
         """
         Get an existing AgentAgentAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -403,7 +403,7 @@ class AgentAgentAlias(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the alias.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentAliasRoutingConfigurationArgs']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentAliasRoutingConfigurationArgs', 'AgentAgentAliasRoutingConfigurationArgsDict']]]] routing_configurations: Details about the routing configuration of the alias. See `routing_configuration` block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

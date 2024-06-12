@@ -55,7 +55,7 @@ class AwaitableGetSecretResult(GetSecretResult):
             secrets=self.secrets)
 
 
-def get_secret(secrets: Optional[Sequence[pulumi.InputType['GetSecretSecretArgs']]] = None,
+def get_secret(secrets: Optional[Sequence[Union['GetSecretSecretArgs', 'GetSecretSecretArgsDict']]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     Use this data source to access information about an existing resource.
@@ -71,7 +71,7 @@ def get_secret(secrets: Optional[Sequence[pulumi.InputType['GetSecretSecretArgs'
 
 
 @_utilities.lift_output_func(get_secret)
-def get_secret_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType['GetSecretSecretArgs']]]] = None,
+def get_secret_output(secrets: Optional[pulumi.Input[Sequence[Union['GetSecretSecretArgs', 'GetSecretSecretArgsDict']]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
     Use this data source to access information about an existing resource.

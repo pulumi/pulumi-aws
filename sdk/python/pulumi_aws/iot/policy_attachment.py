@@ -107,11 +107,11 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        pubsub = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["iot:*"],
-            resources=["*"],
-        )])
+        pubsub = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["iot:*"],
+            "resources": ["*"],
+        }])
         pubsub_policy = aws.iot.Policy("pubsub",
             name="PubSubToAnyTopic",
             policy=pubsub.json)
@@ -144,11 +144,11 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        pubsub = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["iot:*"],
-            resources=["*"],
-        )])
+        pubsub = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["iot:*"],
+            "resources": ["*"],
+        }])
         pubsub_policy = aws.iot.Policy("pubsub",
             name="PubSubToAnyTopic",
             policy=pubsub.json)

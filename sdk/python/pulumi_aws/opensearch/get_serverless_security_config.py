@@ -116,7 +116,7 @@ class AwaitableGetServerlessSecurityConfigResult(GetServerlessSecurityConfigResu
 
 
 def get_serverless_security_config(id: Optional[str] = None,
-                                   saml_options: Optional[pulumi.InputType['GetServerlessSecurityConfigSamlOptionsArgs']] = None,
+                                   saml_options: Optional[Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict']] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessSecurityConfigResult:
     """
     Data source for managing an AWS OpenSearch Serverless Security Config.
@@ -134,7 +134,7 @@ def get_serverless_security_config(id: Optional[str] = None,
 
 
     :param str id: The unique identifier of the security configuration.
-    :param pulumi.InputType['GetServerlessSecurityConfigSamlOptionsArgs'] saml_options: SAML options for the security configuration.
+    :param Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict'] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -154,7 +154,7 @@ def get_serverless_security_config(id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_serverless_security_config)
 def get_serverless_security_config_output(id: Optional[pulumi.Input[str]] = None,
-                                          saml_options: Optional[pulumi.Input[Optional[pulumi.InputType['GetServerlessSecurityConfigSamlOptionsArgs']]]] = None,
+                                          saml_options: Optional[pulumi.Input[Optional[Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict']]]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessSecurityConfigResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Security Config.
@@ -172,6 +172,6 @@ def get_serverless_security_config_output(id: Optional[pulumi.Input[str]] = None
 
 
     :param str id: The unique identifier of the security configuration.
-    :param pulumi.InputType['GetServerlessSecurityConfigSamlOptionsArgs'] saml_options: SAML options for the security configuration.
+    :param Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict'] saml_options: SAML options for the security configuration.
     """
     ...

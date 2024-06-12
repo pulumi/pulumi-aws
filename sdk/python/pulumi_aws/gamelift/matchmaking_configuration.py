@@ -585,7 +585,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  custom_event_data: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  flex_match_mode: Optional[pulumi.Input[str]] = None,
-                 game_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationGamePropertyArgs']]]]] = None,
+                 game_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]]] = None,
                  game_session_data: Optional[pulumi.Input[str]] = None,
                  game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -614,7 +614,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] custom_event_data: Information to be added to all events related to this matchmaking configuration.
         :param pulumi.Input[str] description: A human-readable description of the matchmaking configuration.
         :param pulumi.Input[str] flex_match_mode: Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationGamePropertyArgs']]]] game_properties: One or more custom game properties. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]] game_properties: One or more custom game properties. See below.
         :param pulumi.Input[str] game_session_data: A set of custom game session properties.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] game_session_queue_arns: The ARNs of the GameLift game session queue resources.
         :param pulumi.Input[str] name: Name of the matchmaking configuration
@@ -662,7 +662,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  custom_event_data: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  flex_match_mode: Optional[pulumi.Input[str]] = None,
-                 game_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationGamePropertyArgs']]]]] = None,
+                 game_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]]] = None,
                  game_session_data: Optional[pulumi.Input[str]] = None,
                  game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -721,7 +721,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
             custom_event_data: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             flex_match_mode: Optional[pulumi.Input[str]] = None,
-            game_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationGamePropertyArgs']]]]] = None,
+            game_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]]] = None,
             game_session_data: Optional[pulumi.Input[str]] = None,
             game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -747,7 +747,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] custom_event_data: Information to be added to all events related to this matchmaking configuration.
         :param pulumi.Input[str] description: A human-readable description of the matchmaking configuration.
         :param pulumi.Input[str] flex_match_mode: Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationGamePropertyArgs']]]] game_properties: One or more custom game properties. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchmakingConfigurationGamePropertyArgs', 'MatchmakingConfigurationGamePropertyArgsDict']]]] game_properties: One or more custom game properties. See below.
         :param pulumi.Input[str] game_session_data: A set of custom game session properties.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] game_session_queue_arns: The ARNs of the GameLift game session queue resources.
         :param pulumi.Input[str] name: Name of the matchmaking configuration

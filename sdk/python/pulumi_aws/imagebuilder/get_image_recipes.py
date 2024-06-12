@@ -88,7 +88,7 @@ class AwaitableGetImageRecipesResult(GetImageRecipesResult):
             owner=self.owner)
 
 
-def get_image_recipes(filters: Optional[Sequence[pulumi.InputType['GetImageRecipesFilterArgs']]] = None,
+def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']]] = None,
                       owner: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageRecipesResult:
     """
@@ -101,14 +101,14 @@ def get_image_recipes(filters: Optional[Sequence[pulumi.InputType['GetImageRecip
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_image_recipes(owner="Self",
-        filters=[aws.imagebuilder.GetImageRecipesFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )])
+        filters=[{
+            "name": "platform",
+            "values": ["Linux"],
+        }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetImageRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
     __args__ = dict()
@@ -126,7 +126,7 @@ def get_image_recipes(filters: Optional[Sequence[pulumi.InputType['GetImageRecip
 
 
 @_utilities.lift_output_func(get_image_recipes)
-def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetImageRecipesFilterArgs']]]]] = None,
+def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']]]]] = None,
                              owner: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipesResult]:
     """
@@ -139,14 +139,14 @@ def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_image_recipes(owner="Self",
-        filters=[aws.imagebuilder.GetImageRecipesFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )])
+        filters=[{
+            "name": "platform",
+            "values": ["Linux"],
+        }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetImageRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
     ...

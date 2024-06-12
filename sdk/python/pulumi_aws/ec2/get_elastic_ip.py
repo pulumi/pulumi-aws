@@ -244,7 +244,7 @@ class AwaitableGetElasticIpResult(GetElasticIpResult):
             tags=self.tags)
 
 
-def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilterArgs']]] = None,
+def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']]] = None,
                    id: Optional[str] = None,
                    public_ip: Optional[str] = None,
                    tags: Optional[Mapping[str, str]] = None,
@@ -269,10 +269,10 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     import pulumi
     import pulumi_aws as aws
 
-    by_filter = aws.ec2.get_elastic_ip(filters=[aws.ec2.GetElasticIpFilterArgs(
-        name="tag:Name",
-        values=["exampleNameTagValue"],
-    )])
+    by_filter = aws.ec2.get_elastic_ip(filters=[{
+        "name": "tag:Name",
+        "values": ["exampleNameTagValue"],
+    }])
     ```
 
     ### Search By Public IP (EC2-Classic or VPC)
@@ -296,7 +296,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     ```
 
 
-    :param Sequence[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+    :param Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
     :param str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
     :param str public_ip: Public IP of the specific EIP to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
@@ -331,7 +331,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
 
 
 @_utilities.lift_output_func(get_elastic_ip)
-def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetElasticIpFilterArgs']]]]] = None,
+def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']]]]] = None,
                           id: Optional[pulumi.Input[Optional[str]]] = None,
                           public_ip: Optional[pulumi.Input[Optional[str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -356,10 +356,10 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     import pulumi
     import pulumi_aws as aws
 
-    by_filter = aws.ec2.get_elastic_ip(filters=[aws.ec2.GetElasticIpFilterArgs(
-        name="tag:Name",
-        values=["exampleNameTagValue"],
-    )])
+    by_filter = aws.ec2.get_elastic_ip(filters=[{
+        "name": "tag:Name",
+        "values": ["exampleNameTagValue"],
+    }])
     ```
 
     ### Search By Public IP (EC2-Classic or VPC)
@@ -383,7 +383,7 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     ```
 
 
-    :param Sequence[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+    :param Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
     :param str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
     :param str public_ip: Public IP of the specific EIP to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP

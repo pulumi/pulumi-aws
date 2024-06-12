@@ -160,7 +160,7 @@ class MethodSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  method_path: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -182,9 +182,9 @@ class MethodSettings(pulumi.CustomResource):
             rest_api=example["id"],
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="OFF",
-            ))
+            settings={
+                "loggingLevel": "OFF",
+            })
         ```
 
         ### Errors Only
@@ -197,11 +197,11 @@ class MethodSettings(pulumi.CustomResource):
             rest_api=example["id"],
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="ERROR",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
+            settings={
+                "loggingLevel": "ERROR",
+                "metricsEnabled": True,
+                "dataTraceEnabled": False,
+            })
         ```
 
         ### Errors and Info Logs
@@ -214,11 +214,11 @@ class MethodSettings(pulumi.CustomResource):
             rest_api=example["id"],
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
+            settings={
+                "loggingLevel": "INFO",
+                "metricsEnabled": True,
+                "dataTraceEnabled": False,
+            })
         ```
 
         ### Full Request and Response Logs
@@ -231,11 +231,11 @@ class MethodSettings(pulumi.CustomResource):
             rest_api=example["id"],
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=True,
-            ))
+            settings={
+                "loggingLevel": "INFO",
+                "metricsEnabled": True,
+                "dataTraceEnabled": True,
+            })
         ```
 
         ## Import
@@ -250,7 +250,7 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[str] rest_api: ID of the REST API
-        :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: Settings block, see below.
+        :param pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']] settings: Settings block, see below.
         :param pulumi.Input[str] stage_name: Name of the stage
         """
         ...
@@ -278,9 +278,9 @@ class MethodSettings(pulumi.CustomResource):
             rest_api=example["id"],
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="OFF",
-            ))
+            settings={
+                "loggingLevel": "OFF",
+            })
         ```
 
         ### Errors Only
@@ -293,11 +293,11 @@ class MethodSettings(pulumi.CustomResource):
             rest_api=example["id"],
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="ERROR",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
+            settings={
+                "loggingLevel": "ERROR",
+                "metricsEnabled": True,
+                "dataTraceEnabled": False,
+            })
         ```
 
         ### Errors and Info Logs
@@ -310,11 +310,11 @@ class MethodSettings(pulumi.CustomResource):
             rest_api=example["id"],
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=False,
-            ))
+            settings={
+                "loggingLevel": "INFO",
+                "metricsEnabled": True,
+                "dataTraceEnabled": False,
+            })
         ```
 
         ### Full Request and Response Logs
@@ -327,11 +327,11 @@ class MethodSettings(pulumi.CustomResource):
             rest_api=example["id"],
             stage_name=example_aws_api_gateway_stage["stageName"],
             method_path="path1/GET",
-            settings=aws.apigateway.MethodSettingsSettingsArgs(
-                logging_level="INFO",
-                metrics_enabled=True,
-                data_trace_enabled=True,
-            ))
+            settings={
+                "loggingLevel": "INFO",
+                "metricsEnabled": True,
+                "dataTraceEnabled": True,
+            })
         ```
 
         ## Import
@@ -359,7 +359,7 @@ class MethodSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  method_path: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -394,7 +394,7 @@ class MethodSettings(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             method_path: Optional[pulumi.Input[str]] = None,
             rest_api: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']]] = None,
+            settings: Optional[pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
             stage_name: Optional[pulumi.Input[str]] = None) -> 'MethodSettings':
         """
         Get an existing MethodSettings resource's state with the given name, id, and optional extra
@@ -405,7 +405,7 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[str] rest_api: ID of the REST API
-        :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: Settings block, see below.
+        :param pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']] settings: Settings block, see below.
         :param pulumi.Input[str] stage_name: Name of the stage
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

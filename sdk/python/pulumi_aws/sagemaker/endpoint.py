@@ -199,7 +199,7 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_config: Optional[pulumi.Input[pulumi.InputType['EndpointDeploymentConfigArgs']]] = None,
+                 deployment_config: Optional[pulumi.Input[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict']]] = None,
                  endpoint_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -233,7 +233,7 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EndpointDeploymentConfigArgs']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+        :param pulumi.Input[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
         :param pulumi.Input[str] name: The name of the endpoint. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -286,7 +286,7 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_config: Optional[pulumi.Input[pulumi.InputType['EndpointDeploymentConfigArgs']]] = None,
+                 deployment_config: Optional[pulumi.Input[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict']]] = None,
                  endpoint_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -318,7 +318,7 @@ class Endpoint(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            deployment_config: Optional[pulumi.Input[pulumi.InputType['EndpointDeploymentConfigArgs']]] = None,
+            deployment_config: Optional[pulumi.Input[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict']]] = None,
             endpoint_config_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -331,7 +331,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-        :param pulumi.Input[pulumi.InputType['EndpointDeploymentConfigArgs']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+        :param pulumi.Input[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
         :param pulumi.Input[str] name: The name of the endpoint. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

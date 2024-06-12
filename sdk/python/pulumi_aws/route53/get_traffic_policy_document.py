@@ -112,9 +112,9 @@ class AwaitableGetTrafficPolicyDocumentResult(GetTrafficPolicyDocumentResult):
             version=self.version)
 
 
-def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['GetTrafficPolicyDocumentEndpointArgs']]] = None,
+def get_traffic_policy_document(endpoints: Optional[Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']]] = None,
                                 record_type: Optional[str] = None,
-                                rules: Optional[Sequence[pulumi.InputType['GetTrafficPolicyDocumentRuleArgs']]] = None,
+                                rules: Optional[Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']]] = None,
                                 start_endpoint: Optional[str] = None,
                                 start_rule: Optional[str] = None,
                                 version: Optional[str] = None,
@@ -134,28 +134,28 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
     example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="site_switch",
         endpoints=[
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="my_elb",
-                type="elastic-load-balancer",
-                value=f"elb-111111.{current.name}.elb.amazonaws.com",
-            ),
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="site_down_banner",
-                type="s3-website",
-                region=current.name,
-                value="www.example.com",
-            ),
+            {
+                "id": "my_elb",
+                "type": "elastic-load-balancer",
+                "value": f"elb-111111.{current.name}.elb.amazonaws.com",
+            },
+            {
+                "id": "site_down_banner",
+                "type": "s3-website",
+                "region": current.name,
+                "value": "www.example.com",
+            },
         ],
-        rules=[aws.route53.GetTrafficPolicyDocumentRuleArgs(
-            id="site_switch",
-            type="failover",
-            primary=aws.route53.GetTrafficPolicyDocumentRulePrimaryArgs(
-                endpoint_reference="my_elb",
-            ),
-            secondary=aws.route53.GetTrafficPolicyDocumentRuleSecondaryArgs(
-                endpoint_reference="site_down_banner",
-            ),
-        )])
+        rules=[{
+            "id": "site_switch",
+            "type": "failover",
+            "primary": {
+                "endpointReference": "my_elb",
+            },
+            "secondary": {
+                "endpointReference": "site_down_banner",
+            },
+        }])
     example_traffic_policy = aws.route53.TrafficPolicy("example",
         name="example",
         comment="example comment",
@@ -173,62 +173,62 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
     example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="geoproximity_rule",
         endpoints=[
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="na_endpoint_a",
-                type="elastic-load-balancer",
-                value="elb-111111.us-west-1.elb.amazonaws.com",
-            ),
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="na_endpoint_b",
-                type="elastic-load-balancer",
-                value="elb-222222.us-west-1.elb.amazonaws.com",
-            ),
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="eu_endpoint",
-                type="elastic-load-balancer",
-                value="elb-333333.eu-west-1.elb.amazonaws.com",
-            ),
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="ap_endpoint",
-                type="elastic-load-balancer",
-                value="elb-444444.ap-northeast-2.elb.amazonaws.com",
-            ),
+            {
+                "id": "na_endpoint_a",
+                "type": "elastic-load-balancer",
+                "value": "elb-111111.us-west-1.elb.amazonaws.com",
+            },
+            {
+                "id": "na_endpoint_b",
+                "type": "elastic-load-balancer",
+                "value": "elb-222222.us-west-1.elb.amazonaws.com",
+            },
+            {
+                "id": "eu_endpoint",
+                "type": "elastic-load-balancer",
+                "value": "elb-333333.eu-west-1.elb.amazonaws.com",
+            },
+            {
+                "id": "ap_endpoint",
+                "type": "elastic-load-balancer",
+                "value": "elb-444444.ap-northeast-2.elb.amazonaws.com",
+            },
         ],
         rules=[
-            aws.route53.GetTrafficPolicyDocumentRuleArgs(
-                id="na_rule",
-                type="failover",
-                primary=aws.route53.GetTrafficPolicyDocumentRulePrimaryArgs(
-                    endpoint_reference="na_endpoint_a",
-                ),
-                secondary=aws.route53.GetTrafficPolicyDocumentRuleSecondaryArgs(
-                    endpoint_reference="na_endpoint_b",
-                ),
-            ),
-            aws.route53.GetTrafficPolicyDocumentRuleArgs(
-                id="geoproximity_rule",
-                type="geoproximity",
-                geo_proximity_locations=[
-                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
-                        region="aws:route53:us-west-1",
-                        bias="10",
-                        evaluate_target_health=True,
-                        rule_reference="na_rule",
-                    ),
-                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
-                        region="aws:route53:eu-west-1",
-                        bias="10",
-                        evaluate_target_health=True,
-                        endpoint_reference="eu_endpoint",
-                    ),
-                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
-                        region="aws:route53:ap-northeast-2",
-                        bias="0",
-                        evaluate_target_health=True,
-                        endpoint_reference="ap_endpoint",
-                    ),
+            {
+                "id": "na_rule",
+                "type": "failover",
+                "primary": {
+                    "endpointReference": "na_endpoint_a",
+                },
+                "secondary": {
+                    "endpointReference": "na_endpoint_b",
+                },
+            },
+            {
+                "id": "geoproximity_rule",
+                "type": "geoproximity",
+                "geoProximityLocations": [
+                    {
+                        "region": "aws:route53:us-west-1",
+                        "bias": "10",
+                        "evaluateTargetHealth": True,
+                        "ruleReference": "na_rule",
+                    },
+                    {
+                        "region": "aws:route53:eu-west-1",
+                        "bias": "10",
+                        "evaluateTargetHealth": True,
+                        "endpointReference": "eu_endpoint",
+                    },
+                    {
+                        "region": "aws:route53:ap-northeast-2",
+                        "bias": "0",
+                        "evaluateTargetHealth": True,
+                        "endpointReference": "ap_endpoint",
+                    },
                 ],
-            ),
+            },
         ])
     example_traffic_policy = aws.route53.TrafficPolicy("example",
         name="example",
@@ -237,9 +237,9 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
     ```
 
 
-    :param Sequence[pulumi.InputType['GetTrafficPolicyDocumentEndpointArgs']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
+    :param Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
     :param str record_type: DNS type of all of the resource record sets that Amazon Route 53 will create based on this traffic policy.
-    :param Sequence[pulumi.InputType['GetTrafficPolicyDocumentRuleArgs']] rules: Configuration block for definitions of the rules that you want to use in this traffic policy. See below
+    :param Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']] rules: Configuration block for definitions of the rules that you want to use in this traffic policy. See below
     :param str start_endpoint: An endpoint to be as the starting point for the traffic policy.
     :param str start_rule: A rule to be as the starting point for the traffic policy.
     :param str version: Version of the traffic policy format.
@@ -266,9 +266,9 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
 
 
 @_utilities.lift_output_func(get_traffic_policy_document)
-def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTrafficPolicyDocumentEndpointArgs']]]]] = None,
+def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional[Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']]]]] = None,
                                        record_type: Optional[pulumi.Input[Optional[str]]] = None,
-                                       rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTrafficPolicyDocumentRuleArgs']]]]] = None,
+                                       rules: Optional[pulumi.Input[Optional[Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']]]]] = None,
                                        start_endpoint: Optional[pulumi.Input[Optional[str]]] = None,
                                        start_rule: Optional[pulumi.Input[Optional[str]]] = None,
                                        version: Optional[pulumi.Input[Optional[str]]] = None,
@@ -288,28 +288,28 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
     example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="site_switch",
         endpoints=[
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="my_elb",
-                type="elastic-load-balancer",
-                value=f"elb-111111.{current.name}.elb.amazonaws.com",
-            ),
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="site_down_banner",
-                type="s3-website",
-                region=current.name,
-                value="www.example.com",
-            ),
+            {
+                "id": "my_elb",
+                "type": "elastic-load-balancer",
+                "value": f"elb-111111.{current.name}.elb.amazonaws.com",
+            },
+            {
+                "id": "site_down_banner",
+                "type": "s3-website",
+                "region": current.name,
+                "value": "www.example.com",
+            },
         ],
-        rules=[aws.route53.GetTrafficPolicyDocumentRuleArgs(
-            id="site_switch",
-            type="failover",
-            primary=aws.route53.GetTrafficPolicyDocumentRulePrimaryArgs(
-                endpoint_reference="my_elb",
-            ),
-            secondary=aws.route53.GetTrafficPolicyDocumentRuleSecondaryArgs(
-                endpoint_reference="site_down_banner",
-            ),
-        )])
+        rules=[{
+            "id": "site_switch",
+            "type": "failover",
+            "primary": {
+                "endpointReference": "my_elb",
+            },
+            "secondary": {
+                "endpointReference": "site_down_banner",
+            },
+        }])
     example_traffic_policy = aws.route53.TrafficPolicy("example",
         name="example",
         comment="example comment",
@@ -327,62 +327,62 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
     example = aws.route53.get_traffic_policy_document(record_type="A",
         start_rule="geoproximity_rule",
         endpoints=[
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="na_endpoint_a",
-                type="elastic-load-balancer",
-                value="elb-111111.us-west-1.elb.amazonaws.com",
-            ),
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="na_endpoint_b",
-                type="elastic-load-balancer",
-                value="elb-222222.us-west-1.elb.amazonaws.com",
-            ),
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="eu_endpoint",
-                type="elastic-load-balancer",
-                value="elb-333333.eu-west-1.elb.amazonaws.com",
-            ),
-            aws.route53.GetTrafficPolicyDocumentEndpointArgs(
-                id="ap_endpoint",
-                type="elastic-load-balancer",
-                value="elb-444444.ap-northeast-2.elb.amazonaws.com",
-            ),
+            {
+                "id": "na_endpoint_a",
+                "type": "elastic-load-balancer",
+                "value": "elb-111111.us-west-1.elb.amazonaws.com",
+            },
+            {
+                "id": "na_endpoint_b",
+                "type": "elastic-load-balancer",
+                "value": "elb-222222.us-west-1.elb.amazonaws.com",
+            },
+            {
+                "id": "eu_endpoint",
+                "type": "elastic-load-balancer",
+                "value": "elb-333333.eu-west-1.elb.amazonaws.com",
+            },
+            {
+                "id": "ap_endpoint",
+                "type": "elastic-load-balancer",
+                "value": "elb-444444.ap-northeast-2.elb.amazonaws.com",
+            },
         ],
         rules=[
-            aws.route53.GetTrafficPolicyDocumentRuleArgs(
-                id="na_rule",
-                type="failover",
-                primary=aws.route53.GetTrafficPolicyDocumentRulePrimaryArgs(
-                    endpoint_reference="na_endpoint_a",
-                ),
-                secondary=aws.route53.GetTrafficPolicyDocumentRuleSecondaryArgs(
-                    endpoint_reference="na_endpoint_b",
-                ),
-            ),
-            aws.route53.GetTrafficPolicyDocumentRuleArgs(
-                id="geoproximity_rule",
-                type="geoproximity",
-                geo_proximity_locations=[
-                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
-                        region="aws:route53:us-west-1",
-                        bias="10",
-                        evaluate_target_health=True,
-                        rule_reference="na_rule",
-                    ),
-                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
-                        region="aws:route53:eu-west-1",
-                        bias="10",
-                        evaluate_target_health=True,
-                        endpoint_reference="eu_endpoint",
-                    ),
-                    aws.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs(
-                        region="aws:route53:ap-northeast-2",
-                        bias="0",
-                        evaluate_target_health=True,
-                        endpoint_reference="ap_endpoint",
-                    ),
+            {
+                "id": "na_rule",
+                "type": "failover",
+                "primary": {
+                    "endpointReference": "na_endpoint_a",
+                },
+                "secondary": {
+                    "endpointReference": "na_endpoint_b",
+                },
+            },
+            {
+                "id": "geoproximity_rule",
+                "type": "geoproximity",
+                "geoProximityLocations": [
+                    {
+                        "region": "aws:route53:us-west-1",
+                        "bias": "10",
+                        "evaluateTargetHealth": True,
+                        "ruleReference": "na_rule",
+                    },
+                    {
+                        "region": "aws:route53:eu-west-1",
+                        "bias": "10",
+                        "evaluateTargetHealth": True,
+                        "endpointReference": "eu_endpoint",
+                    },
+                    {
+                        "region": "aws:route53:ap-northeast-2",
+                        "bias": "0",
+                        "evaluateTargetHealth": True,
+                        "endpointReference": "ap_endpoint",
+                    },
                 ],
-            ),
+            },
         ])
     example_traffic_policy = aws.route53.TrafficPolicy("example",
         name="example",
@@ -391,9 +391,9 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
     ```
 
 
-    :param Sequence[pulumi.InputType['GetTrafficPolicyDocumentEndpointArgs']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
+    :param Sequence[Union['GetTrafficPolicyDocumentEndpointArgs', 'GetTrafficPolicyDocumentEndpointArgsDict']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
     :param str record_type: DNS type of all of the resource record sets that Amazon Route 53 will create based on this traffic policy.
-    :param Sequence[pulumi.InputType['GetTrafficPolicyDocumentRuleArgs']] rules: Configuration block for definitions of the rules that you want to use in this traffic policy. See below
+    :param Sequence[Union['GetTrafficPolicyDocumentRuleArgs', 'GetTrafficPolicyDocumentRuleArgsDict']] rules: Configuration block for definitions of the rules that you want to use in this traffic policy. See below
     :param str start_endpoint: An endpoint to be as the starting point for the traffic policy.
     :param str start_rule: A rule to be as the starting point for the traffic policy.
     :param str version: Version of the traffic policy format.

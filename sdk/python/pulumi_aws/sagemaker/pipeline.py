@@ -326,9 +326,9 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parallelism_configuration: Optional[pulumi.Input[pulumi.InputType['PipelineParallelismConfigurationArgs']]] = None,
+                 parallelism_configuration: Optional[pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']]] = None,
                  pipeline_definition: Optional[pulumi.Input[str]] = None,
-                 pipeline_definition_s3_location: Optional[pulumi.Input[pulumi.InputType['PipelinePipelineDefinitionS3LocationArgs']]] = None,
+                 pipeline_definition_s3_location: Optional[pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']]] = None,
                  pipeline_description: Optional[pulumi.Input[str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
@@ -373,9 +373,9 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PipelineParallelismConfigurationArgs']] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
+        :param pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         :param pulumi.Input[str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        :param pulumi.Input[pulumi.InputType['PipelinePipelineDefinitionS3LocationArgs']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        :param pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         :param pulumi.Input[str] pipeline_description: A description of the pipeline.
         :param pulumi.Input[str] pipeline_display_name: The display name of the pipeline.
         :param pulumi.Input[str] pipeline_name: The name of the pipeline.
@@ -439,9 +439,9 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parallelism_configuration: Optional[pulumi.Input[pulumi.InputType['PipelineParallelismConfigurationArgs']]] = None,
+                 parallelism_configuration: Optional[pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']]] = None,
                  pipeline_definition: Optional[pulumi.Input[str]] = None,
-                 pipeline_definition_s3_location: Optional[pulumi.Input[pulumi.InputType['PipelinePipelineDefinitionS3LocationArgs']]] = None,
+                 pipeline_definition_s3_location: Optional[pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']]] = None,
                  pipeline_description: Optional[pulumi.Input[str]] = None,
                  pipeline_display_name: Optional[pulumi.Input[str]] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
@@ -481,9 +481,9 @@ class Pipeline(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            parallelism_configuration: Optional[pulumi.Input[pulumi.InputType['PipelineParallelismConfigurationArgs']]] = None,
+            parallelism_configuration: Optional[pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']]] = None,
             pipeline_definition: Optional[pulumi.Input[str]] = None,
-            pipeline_definition_s3_location: Optional[pulumi.Input[pulumi.InputType['PipelinePipelineDefinitionS3LocationArgs']]] = None,
+            pipeline_definition_s3_location: Optional[pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']]] = None,
             pipeline_description: Optional[pulumi.Input[str]] = None,
             pipeline_display_name: Optional[pulumi.Input[str]] = None,
             pipeline_name: Optional[pulumi.Input[str]] = None,
@@ -498,9 +498,9 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
-        :param pulumi.Input[pulumi.InputType['PipelineParallelismConfigurationArgs']] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
+        :param pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         :param pulumi.Input[str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        :param pulumi.Input[pulumi.InputType['PipelinePipelineDefinitionS3LocationArgs']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
+        :param pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         :param pulumi.Input[str] pipeline_description: A description of the pipeline.
         :param pulumi.Input[str] pipeline_display_name: The display name of the pipeline.
         :param pulumi.Input[str] pipeline_name: The name of the pipeline.

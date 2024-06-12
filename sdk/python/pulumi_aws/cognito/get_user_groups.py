@@ -67,7 +67,7 @@ class AwaitableGetUserGroupsResult(GetUserGroupsResult):
             user_pool_id=self.user_pool_id)
 
 
-def get_user_groups(groups: Optional[Sequence[pulumi.InputType['GetUserGroupsGroupArgs']]] = None,
+def get_user_groups(groups: Optional[Sequence[Union['GetUserGroupsGroupArgs', 'GetUserGroupsGroupArgsDict']]] = None,
                     user_pool_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserGroupsResult:
     """
@@ -85,7 +85,7 @@ def get_user_groups(groups: Optional[Sequence[pulumi.InputType['GetUserGroupsGro
     ```
 
 
-    :param Sequence[pulumi.InputType['GetUserGroupsGroupArgs']] groups: List of groups. See `groups` below.
+    :param Sequence[Union['GetUserGroupsGroupArgs', 'GetUserGroupsGroupArgsDict']] groups: List of groups. See `groups` below.
     :param str user_pool_id: User pool the client belongs to.
     """
     __args__ = dict()
@@ -101,7 +101,7 @@ def get_user_groups(groups: Optional[Sequence[pulumi.InputType['GetUserGroupsGro
 
 
 @_utilities.lift_output_func(get_user_groups)
-def get_user_groups_output(groups: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUserGroupsGroupArgs']]]]] = None,
+def get_user_groups_output(groups: Optional[pulumi.Input[Optional[Sequence[Union['GetUserGroupsGroupArgs', 'GetUserGroupsGroupArgsDict']]]]] = None,
                            user_pool_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserGroupsResult]:
     """
@@ -119,7 +119,7 @@ def get_user_groups_output(groups: Optional[pulumi.Input[Optional[Sequence[pulum
     ```
 
 
-    :param Sequence[pulumi.InputType['GetUserGroupsGroupArgs']] groups: List of groups. See `groups` below.
+    :param Sequence[Union['GetUserGroupsGroupArgs', 'GetUserGroupsGroupArgsDict']] groups: List of groups. See `groups` below.
     :param str user_pool_id: User pool the client belongs to.
     """
     ...

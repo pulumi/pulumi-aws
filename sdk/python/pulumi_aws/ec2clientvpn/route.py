@@ -208,13 +208,13 @@ class Route(pulumi.CustomResource):
             description="Example Client VPN endpoint",
             server_certificate_arn=example_aws_acm_certificate["arn"],
             client_cidr_block="10.0.0.0/16",
-            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
-                type="certificate-authentication",
-                root_certificate_chain_arn=example_aws_acm_certificate["arn"],
-            )],
-            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
-                enabled=False,
-            ))
+            authentication_options=[{
+                "type": "certificate-authentication",
+                "rootCertificateChainArn": example_aws_acm_certificate["arn"],
+            }],
+            connection_log_options={
+                "enabled": False,
+            })
         example_network_association = aws.ec2clientvpn.NetworkAssociation("example",
             client_vpn_endpoint_id=example_endpoint.id,
             subnet_id=example_aws_subnet["id"])
@@ -259,13 +259,13 @@ class Route(pulumi.CustomResource):
             description="Example Client VPN endpoint",
             server_certificate_arn=example_aws_acm_certificate["arn"],
             client_cidr_block="10.0.0.0/16",
-            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
-                type="certificate-authentication",
-                root_certificate_chain_arn=example_aws_acm_certificate["arn"],
-            )],
-            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
-                enabled=False,
-            ))
+            authentication_options=[{
+                "type": "certificate-authentication",
+                "rootCertificateChainArn": example_aws_acm_certificate["arn"],
+            }],
+            connection_log_options={
+                "enabled": False,
+            })
         example_network_association = aws.ec2clientvpn.NetworkAssociation("example",
             client_vpn_endpoint_id=example_endpoint.id,
             subnet_id=example_aws_subnet["id"])

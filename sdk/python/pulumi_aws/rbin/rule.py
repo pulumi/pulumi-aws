@@ -303,10 +303,10 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 lock_configuration: Optional[pulumi.Input[pulumi.InputType['RuleLockConfigurationArgs']]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleResourceTagArgs']]]]] = None,
+                 lock_configuration: Optional[pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
-                 retention_period: Optional[pulumi.Input[pulumi.InputType['RuleRetentionPeriodArgs']]] = None,
+                 retention_period: Optional[pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -323,14 +323,14 @@ class Rule(pulumi.CustomResource):
         example = aws.rbin.Rule("example",
             description="example_rule",
             resource_type="EBS_SNAPSHOT",
-            resource_tags=[aws.rbin.RuleResourceTagArgs(
-                resource_tag_key="tag_key",
-                resource_tag_value="tag_value",
-            )],
-            retention_period=aws.rbin.RuleRetentionPeriodArgs(
-                retention_period_value=10,
-                retention_period_unit="DAYS",
-            ),
+            resource_tags=[{
+                "resourceTagKey": "tag_key",
+                "resourceTagValue": "tag_value",
+            }],
+            retention_period={
+                "retentionPeriodValue": 10,
+                "retentionPeriodUnit": "DAYS",
+            },
             tags={
                 "test_tag_key": "test_tag_value",
             })
@@ -347,10 +347,10 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The retention rule description.
-        :param pulumi.Input[pulumi.InputType['RuleLockConfigurationArgs']] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleResourceTagArgs']]]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        :param pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         :param pulumi.Input[str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        :param pulumi.Input[pulumi.InputType['RuleRetentionPeriodArgs']] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+        :param pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
                
                The following arguments are optional:
         """
@@ -374,14 +374,14 @@ class Rule(pulumi.CustomResource):
         example = aws.rbin.Rule("example",
             description="example_rule",
             resource_type="EBS_SNAPSHOT",
-            resource_tags=[aws.rbin.RuleResourceTagArgs(
-                resource_tag_key="tag_key",
-                resource_tag_value="tag_value",
-            )],
-            retention_period=aws.rbin.RuleRetentionPeriodArgs(
-                retention_period_value=10,
-                retention_period_unit="DAYS",
-            ),
+            resource_tags=[{
+                "resourceTagKey": "tag_key",
+                "resourceTagValue": "tag_value",
+            }],
+            retention_period={
+                "retentionPeriodValue": 10,
+                "retentionPeriodUnit": "DAYS",
+            },
             tags={
                 "test_tag_key": "test_tag_value",
             })
@@ -411,10 +411,10 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 lock_configuration: Optional[pulumi.Input[pulumi.InputType['RuleLockConfigurationArgs']]] = None,
-                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleResourceTagArgs']]]]] = None,
+                 lock_configuration: Optional[pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']]] = None,
+                 resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
-                 retention_period: Optional[pulumi.Input[pulumi.InputType['RuleRetentionPeriodArgs']]] = None,
+                 retention_period: Optional[pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -452,12 +452,12 @@ class Rule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            lock_configuration: Optional[pulumi.Input[pulumi.InputType['RuleLockConfigurationArgs']]] = None,
+            lock_configuration: Optional[pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']]] = None,
             lock_end_time: Optional[pulumi.Input[str]] = None,
             lock_state: Optional[pulumi.Input[str]] = None,
-            resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleResourceTagArgs']]]]] = None,
+            resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
             resource_type: Optional[pulumi.Input[str]] = None,
-            retention_period: Optional[pulumi.Input[pulumi.InputType['RuleRetentionPeriodArgs']]] = None,
+            retention_period: Optional[pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Rule':
@@ -469,12 +469,12 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The retention rule description.
-        :param pulumi.Input[pulumi.InputType['RuleLockConfigurationArgs']] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
+        :param pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
         :param pulumi.Input[str] lock_end_time: (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
         :param pulumi.Input[str] lock_state: (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleResourceTagArgs']]]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         :param pulumi.Input[str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
-        :param pulumi.Input[pulumi.InputType['RuleRetentionPeriodArgs']] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
+        :param pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] status: (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.

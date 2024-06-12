@@ -130,7 +130,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketServerSideEncryptionConfigurationV2RuleArgs', 'BucketServerSideEncryptionConfigurationV2RuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a S3 bucket server-side encryption configuration resource.
@@ -151,12 +151,12 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         mybucket = aws.s3.BucketV2("mybucket", bucket="mybucket")
         example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
             bucket=mybucket.id,
-            rules=[aws.s3.BucketServerSideEncryptionConfigurationV2RuleArgs(
-                apply_server_side_encryption_by_default=aws.s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs(
-                    kms_master_key_id=mykey.arn,
-                    sse_algorithm="aws:kms",
-                ),
-            )])
+            rules=[{
+                "applyServerSideEncryptionByDefault": {
+                    "kmsMasterKeyId": mykey.arn,
+                    "sseAlgorithm": "aws:kms",
+                },
+            }])
         ```
 
         ## Import
@@ -180,7 +180,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: ID (name) of the bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketServerSideEncryptionConfigurationV2RuleArgs', 'BucketServerSideEncryptionConfigurationV2RuleArgsDict']]]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         ...
     @overload
@@ -207,12 +207,12 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         mybucket = aws.s3.BucketV2("mybucket", bucket="mybucket")
         example = aws.s3.BucketServerSideEncryptionConfigurationV2("example",
             bucket=mybucket.id,
-            rules=[aws.s3.BucketServerSideEncryptionConfigurationV2RuleArgs(
-                apply_server_side_encryption_by_default=aws.s3.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs(
-                    kms_master_key_id=mykey.arn,
-                    sse_algorithm="aws:kms",
-                ),
-            )])
+            rules=[{
+                "applyServerSideEncryptionByDefault": {
+                    "kmsMasterKeyId": mykey.arn,
+                    "sseAlgorithm": "aws:kms",
+                },
+            }])
         ```
 
         ## Import
@@ -249,7 +249,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketServerSideEncryptionConfigurationV2RuleArgs', 'BucketServerSideEncryptionConfigurationV2RuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -278,7 +278,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]]] = None) -> 'BucketServerSideEncryptionConfigurationV2':
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketServerSideEncryptionConfigurationV2RuleArgs', 'BucketServerSideEncryptionConfigurationV2RuleArgsDict']]]]] = None) -> 'BucketServerSideEncryptionConfigurationV2':
         """
         Get an existing BucketServerSideEncryptionConfigurationV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -288,7 +288,7 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: ID (name) of the bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketServerSideEncryptionConfigurationV2RuleArgs']]]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketServerSideEncryptionConfigurationV2RuleArgs', 'BucketServerSideEncryptionConfigurationV2RuleArgsDict']]]] rules: Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

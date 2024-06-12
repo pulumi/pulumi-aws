@@ -123,15 +123,15 @@ class PackageAssociation(pulumi.CustomResource):
         my_domain = aws.opensearch.Domain("my_domain",
             domain_name="my-opensearch-domain",
             engine_version="Elasticsearch_7.10",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r4.large.search",
-            ))
+            cluster_config={
+                "instanceType": "r4.large.search",
+            })
         example = aws.opensearch.Package("example",
             package_name="example-txt",
-            package_source=aws.opensearch.PackagePackageSourceArgs(
-                s3_bucket_name=my_opensearch_packages["bucket"],
-                s3_key=example_aws_s3_object["key"],
-            ),
+            package_source={
+                "s3BucketName": my_opensearch_packages["bucket"],
+                "s3Key": example_aws_s3_object["key"],
+            },
             package_type="TXT-DICTIONARY")
         example_package_association = aws.opensearch.PackageAssociation("example",
             package_id=example.id,
@@ -163,15 +163,15 @@ class PackageAssociation(pulumi.CustomResource):
         my_domain = aws.opensearch.Domain("my_domain",
             domain_name="my-opensearch-domain",
             engine_version="Elasticsearch_7.10",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
-                instance_type="r4.large.search",
-            ))
+            cluster_config={
+                "instanceType": "r4.large.search",
+            })
         example = aws.opensearch.Package("example",
             package_name="example-txt",
-            package_source=aws.opensearch.PackagePackageSourceArgs(
-                s3_bucket_name=my_opensearch_packages["bucket"],
-                s3_key=example_aws_s3_object["key"],
-            ),
+            package_source={
+                "s3BucketName": my_opensearch_packages["bucket"],
+                "s3Key": example_aws_s3_object["key"],
+            },
             package_type="TXT-DICTIONARY")
         example_package_association = aws.opensearch.PackageAssociation("example",
             package_id=example.id,

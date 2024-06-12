@@ -192,7 +192,7 @@ class EventConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: Optional[pulumi.Input[pulumi.InputType['EventConnectionAuthParametersArgs']]] = None,
+                 auth_parameters: Optional[pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']]] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -212,12 +212,12 @@ class EventConnection(pulumi.CustomResource):
             name="ngrok-connection",
             description="A connection description",
             authorization_type="API_KEY",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
-                    key="x-signature",
-                    value="1234",
-                ),
-            ))
+            auth_parameters={
+                "apiKey": {
+                    "key": "x-signature",
+                    "value": "1234",
+                },
+            })
         ```
 
         ### Basic Authorization
@@ -230,12 +230,12 @@ class EventConnection(pulumi.CustomResource):
             name="ngrok-connection",
             description="A connection description",
             authorization_type="BASIC",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    username="user",
-                    password="Pass1234!",
-                ),
-            ))
+            auth_parameters={
+                "basic": {
+                    "username": "user",
+                    "password": "Pass1234!",
+                },
+            })
         ```
 
         ### OAuth Authorization
@@ -248,33 +248,33 @@ class EventConnection(pulumi.CustomResource):
             name="ngrok-connection",
             description="A connection description",
             authorization_type="OAUTH_CLIENT_CREDENTIALS",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                oauth=aws.cloudwatch.EventConnectionAuthParametersOauthArgs(
-                    authorization_endpoint="https://auth.url.com/endpoint",
-                    http_method="GET",
-                    client_parameters=aws.cloudwatch.EventConnectionAuthParametersOauthClientParametersArgs(
-                        client_id="1234567890",
-                        client_secret="Pass1234!",
-                    ),
-                    oauth_http_parameters=aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersArgs(
-                        bodies=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs(
-                            key="body-parameter-key",
-                            value="body-parameter-value",
-                            is_value_secret=False,
-                        )],
-                        headers=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs(
-                            key="header-parameter-key",
-                            value="header-parameter-value",
-                            is_value_secret=False,
-                        )],
-                        query_strings=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs(
-                            key="query-string-parameter-key",
-                            value="query-string-parameter-value",
-                            is_value_secret=False,
-                        )],
-                    ),
-                ),
-            ))
+            auth_parameters={
+                "oauth": {
+                    "authorizationEndpoint": "https://auth.url.com/endpoint",
+                    "httpMethod": "GET",
+                    "clientParameters": {
+                        "clientId": "1234567890",
+                        "clientSecret": "Pass1234!",
+                    },
+                    "oauthHttpParameters": {
+                        "bodies": [{
+                            "key": "body-parameter-key",
+                            "value": "body-parameter-value",
+                            "isValueSecret": False,
+                        }],
+                        "headers": [{
+                            "key": "header-parameter-key",
+                            "value": "header-parameter-value",
+                            "isValueSecret": False,
+                        }],
+                        "queryStrings": [{
+                            "key": "query-string-parameter-key",
+                            "value": "query-string-parameter-value",
+                            "isValueSecret": False,
+                        }],
+                    },
+                },
+            })
         ```
 
         ### Invocation Http Parameters
@@ -287,36 +287,36 @@ class EventConnection(pulumi.CustomResource):
             name="ngrok-connection",
             description="A connection description",
             authorization_type="BASIC",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    username="user",
-                    password="Pass1234!",
-                ),
-                invocation_http_parameters=aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersArgs(
-                    bodies=[
-                        aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs(
-                            key="body-parameter-key",
-                            value="body-parameter-value",
-                            is_value_secret=False,
-                        ),
-                        aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs(
-                            key="body-parameter-key2",
-                            value="body-parameter-value2",
-                            is_value_secret=True,
-                        ),
+            auth_parameters={
+                "basic": {
+                    "username": "user",
+                    "password": "Pass1234!",
+                },
+                "invocationHttpParameters": {
+                    "bodies": [
+                        {
+                            "key": "body-parameter-key",
+                            "value": "body-parameter-value",
+                            "isValueSecret": False,
+                        },
+                        {
+                            "key": "body-parameter-key2",
+                            "value": "body-parameter-value2",
+                            "isValueSecret": True,
+                        },
                     ],
-                    headers=[aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs(
-                        key="header-parameter-key",
-                        value="header-parameter-value",
-                        is_value_secret=False,
-                    )],
-                    query_strings=[aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs(
-                        key="query-string-parameter-key",
-                        value="query-string-parameter-value",
-                        is_value_secret=False,
-                    )],
-                ),
-            ))
+                    "headers": [{
+                        "key": "header-parameter-key",
+                        "value": "header-parameter-value",
+                        "isValueSecret": False,
+                    }],
+                    "queryStrings": [{
+                        "key": "query-string-parameter-key",
+                        "value": "query-string-parameter-value",
+                        "isValueSecret": False,
+                    }],
+                },
+            })
         ```
 
         ## Import
@@ -329,7 +329,7 @@ class EventConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventConnectionAuthParametersArgs']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+        :param pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input[str] authorization_type: Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
         :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
@@ -355,12 +355,12 @@ class EventConnection(pulumi.CustomResource):
             name="ngrok-connection",
             description="A connection description",
             authorization_type="API_KEY",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
-                    key="x-signature",
-                    value="1234",
-                ),
-            ))
+            auth_parameters={
+                "apiKey": {
+                    "key": "x-signature",
+                    "value": "1234",
+                },
+            })
         ```
 
         ### Basic Authorization
@@ -373,12 +373,12 @@ class EventConnection(pulumi.CustomResource):
             name="ngrok-connection",
             description="A connection description",
             authorization_type="BASIC",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    username="user",
-                    password="Pass1234!",
-                ),
-            ))
+            auth_parameters={
+                "basic": {
+                    "username": "user",
+                    "password": "Pass1234!",
+                },
+            })
         ```
 
         ### OAuth Authorization
@@ -391,33 +391,33 @@ class EventConnection(pulumi.CustomResource):
             name="ngrok-connection",
             description="A connection description",
             authorization_type="OAUTH_CLIENT_CREDENTIALS",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                oauth=aws.cloudwatch.EventConnectionAuthParametersOauthArgs(
-                    authorization_endpoint="https://auth.url.com/endpoint",
-                    http_method="GET",
-                    client_parameters=aws.cloudwatch.EventConnectionAuthParametersOauthClientParametersArgs(
-                        client_id="1234567890",
-                        client_secret="Pass1234!",
-                    ),
-                    oauth_http_parameters=aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersArgs(
-                        bodies=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs(
-                            key="body-parameter-key",
-                            value="body-parameter-value",
-                            is_value_secret=False,
-                        )],
-                        headers=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs(
-                            key="header-parameter-key",
-                            value="header-parameter-value",
-                            is_value_secret=False,
-                        )],
-                        query_strings=[aws.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs(
-                            key="query-string-parameter-key",
-                            value="query-string-parameter-value",
-                            is_value_secret=False,
-                        )],
-                    ),
-                ),
-            ))
+            auth_parameters={
+                "oauth": {
+                    "authorizationEndpoint": "https://auth.url.com/endpoint",
+                    "httpMethod": "GET",
+                    "clientParameters": {
+                        "clientId": "1234567890",
+                        "clientSecret": "Pass1234!",
+                    },
+                    "oauthHttpParameters": {
+                        "bodies": [{
+                            "key": "body-parameter-key",
+                            "value": "body-parameter-value",
+                            "isValueSecret": False,
+                        }],
+                        "headers": [{
+                            "key": "header-parameter-key",
+                            "value": "header-parameter-value",
+                            "isValueSecret": False,
+                        }],
+                        "queryStrings": [{
+                            "key": "query-string-parameter-key",
+                            "value": "query-string-parameter-value",
+                            "isValueSecret": False,
+                        }],
+                    },
+                },
+            })
         ```
 
         ### Invocation Http Parameters
@@ -430,36 +430,36 @@ class EventConnection(pulumi.CustomResource):
             name="ngrok-connection",
             description="A connection description",
             authorization_type="BASIC",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    username="user",
-                    password="Pass1234!",
-                ),
-                invocation_http_parameters=aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersArgs(
-                    bodies=[
-                        aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs(
-                            key="body-parameter-key",
-                            value="body-parameter-value",
-                            is_value_secret=False,
-                        ),
-                        aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBodyArgs(
-                            key="body-parameter-key2",
-                            value="body-parameter-value2",
-                            is_value_secret=True,
-                        ),
+            auth_parameters={
+                "basic": {
+                    "username": "user",
+                    "password": "Pass1234!",
+                },
+                "invocationHttpParameters": {
+                    "bodies": [
+                        {
+                            "key": "body-parameter-key",
+                            "value": "body-parameter-value",
+                            "isValueSecret": False,
+                        },
+                        {
+                            "key": "body-parameter-key2",
+                            "value": "body-parameter-value2",
+                            "isValueSecret": True,
+                        },
                     ],
-                    headers=[aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs(
-                        key="header-parameter-key",
-                        value="header-parameter-value",
-                        is_value_secret=False,
-                    )],
-                    query_strings=[aws.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs(
-                        key="query-string-parameter-key",
-                        value="query-string-parameter-value",
-                        is_value_secret=False,
-                    )],
-                ),
-            ))
+                    "headers": [{
+                        "key": "header-parameter-key",
+                        "value": "header-parameter-value",
+                        "isValueSecret": False,
+                    }],
+                    "queryStrings": [{
+                        "key": "query-string-parameter-key",
+                        "value": "query-string-parameter-value",
+                        "isValueSecret": False,
+                    }],
+                },
+            })
         ```
 
         ## Import
@@ -485,7 +485,7 @@ class EventConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: Optional[pulumi.Input[pulumi.InputType['EventConnectionAuthParametersArgs']]] = None,
+                 auth_parameters: Optional[pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']]] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -519,7 +519,7 @@ class EventConnection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            auth_parameters: Optional[pulumi.Input[pulumi.InputType['EventConnectionAuthParametersArgs']]] = None,
+            auth_parameters: Optional[pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']]] = None,
             authorization_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -532,7 +532,7 @@ class EventConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the connection.
-        :param pulumi.Input[pulumi.InputType['EventConnectionAuthParametersArgs']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
+        :param pulumi.Input[Union['EventConnectionAuthParametersArgs', 'EventConnectionAuthParametersArgsDict']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         :param pulumi.Input[str] authorization_type: Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
         :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.

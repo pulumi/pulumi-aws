@@ -68,7 +68,7 @@ class AwaitableGetTemplatesResult(GetTemplatesResult):
 
 
 def get_templates(region: Optional[str] = None,
-                  templates: Optional[Sequence[pulumi.InputType['GetTemplatesTemplateArgs']]] = None,
+                  templates: Optional[Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplatesResult:
     """
     Data source for managing an AWS Service Quotas Templates.
@@ -86,7 +86,7 @@ def get_templates(region: Optional[str] = None,
 
 
     :param str region: AWS Region to which the quota increases apply.
-    :param Sequence[pulumi.InputType['GetTemplatesTemplateArgs']] templates: A list of quota increase templates for specified region. See `templates`.
+    :param Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']] templates: A list of quota increase templates for specified region. See `templates`.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -102,7 +102,7 @@ def get_templates(region: Optional[str] = None,
 
 @_utilities.lift_output_func(get_templates)
 def get_templates_output(region: Optional[pulumi.Input[str]] = None,
-                         templates: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTemplatesTemplateArgs']]]]] = None,
+                         templates: Optional[pulumi.Input[Optional[Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplatesResult]:
     """
     Data source for managing an AWS Service Quotas Templates.
@@ -120,6 +120,6 @@ def get_templates_output(region: Optional[pulumi.Input[str]] = None,
 
 
     :param str region: AWS Region to which the quota increases apply.
-    :param Sequence[pulumi.InputType['GetTemplatesTemplateArgs']] templates: A list of quota increase templates for specified region. See `templates`.
+    :param Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']] templates: A list of quota increase templates for specified region. See `templates`.
     """
     ...

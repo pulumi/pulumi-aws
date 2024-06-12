@@ -343,12 +343,12 @@ class AgentAgentActionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_group_executor: Optional[pulumi.Input[pulumi.InputType['AgentAgentActionGroupActionGroupExecutorArgs']]] = None,
+                 action_group_executor: Optional[pulumi.Input[Union['AgentAgentActionGroupActionGroupExecutorArgs', 'AgentAgentActionGroupActionGroupExecutorArgsDict']]] = None,
                  action_group_name: Optional[pulumi.Input[str]] = None,
                  action_group_state: Optional[pulumi.Input[str]] = None,
                  agent_id: Optional[pulumi.Input[str]] = None,
                  agent_version: Optional[pulumi.Input[str]] = None,
-                 api_schema: Optional[pulumi.Input[pulumi.InputType['AgentAgentActionGroupApiSchemaArgs']]] = None,
+                 api_schema: Optional[pulumi.Input[Union['AgentAgentActionGroupApiSchemaArgs', 'AgentAgentActionGroupApiSchemaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parent_action_group_signature: Optional[pulumi.Input[str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
@@ -369,15 +369,15 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             agent_id="GGRRAED6JP",
             agent_version="DRAFT",
             skip_resource_in_use_check=True,
-            action_group_executor=aws.bedrock.AgentAgentActionGroupActionGroupExecutorArgs(
-                lambda_="arn:aws:lambda:us-west-2:123456789012:function:example-function",
-            ),
-            api_schema=aws.bedrock.AgentAgentActionGroupApiSchemaArgs(
-                s3=aws.bedrock.AgentAgentActionGroupApiSchemaS3Args(
-                    s3_bucket_name="example-bucket",
-                    s3_object_key="path/to/schema.json",
-                ),
-            ))
+            action_group_executor={
+                "lambda": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
+            },
+            api_schema={
+                "s3": {
+                    "s3BucketName": "example-bucket",
+                    "s3ObjectKey": "path/to/schema.json",
+                },
+            })
         ```
 
         ## Import
@@ -390,12 +390,12 @@ class AgentAgentActionGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AgentAgentActionGroupActionGroupExecutorArgs']] action_group_executor: ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
+        :param pulumi.Input[Union['AgentAgentActionGroupActionGroupExecutorArgs', 'AgentAgentActionGroupActionGroupExecutorArgsDict']] action_group_executor: ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
         :param pulumi.Input[str] action_group_name: Name of the action group.
         :param pulumi.Input[str] action_group_state: Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[str] agent_id: The unique identifier of the agent for which to create the action group.
         :param pulumi.Input[str] agent_version: Version of the agent for which to create the action group. Valid values: `DRAFT`.
-        :param pulumi.Input[pulumi.InputType['AgentAgentActionGroupApiSchemaArgs']] api_schema: Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
+        :param pulumi.Input[Union['AgentAgentActionGroupApiSchemaArgs', 'AgentAgentActionGroupApiSchemaArgsDict']] api_schema: Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the action group.
@@ -424,15 +424,15 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             agent_id="GGRRAED6JP",
             agent_version="DRAFT",
             skip_resource_in_use_check=True,
-            action_group_executor=aws.bedrock.AgentAgentActionGroupActionGroupExecutorArgs(
-                lambda_="arn:aws:lambda:us-west-2:123456789012:function:example-function",
-            ),
-            api_schema=aws.bedrock.AgentAgentActionGroupApiSchemaArgs(
-                s3=aws.bedrock.AgentAgentActionGroupApiSchemaS3Args(
-                    s3_bucket_name="example-bucket",
-                    s3_object_key="path/to/schema.json",
-                ),
-            ))
+            action_group_executor={
+                "lambda": "arn:aws:lambda:us-west-2:123456789012:function:example-function",
+            },
+            api_schema={
+                "s3": {
+                    "s3BucketName": "example-bucket",
+                    "s3ObjectKey": "path/to/schema.json",
+                },
+            })
         ```
 
         ## Import
@@ -458,12 +458,12 @@ class AgentAgentActionGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_group_executor: Optional[pulumi.Input[pulumi.InputType['AgentAgentActionGroupActionGroupExecutorArgs']]] = None,
+                 action_group_executor: Optional[pulumi.Input[Union['AgentAgentActionGroupActionGroupExecutorArgs', 'AgentAgentActionGroupActionGroupExecutorArgsDict']]] = None,
                  action_group_name: Optional[pulumi.Input[str]] = None,
                  action_group_state: Optional[pulumi.Input[str]] = None,
                  agent_id: Optional[pulumi.Input[str]] = None,
                  agent_version: Optional[pulumi.Input[str]] = None,
-                 api_schema: Optional[pulumi.Input[pulumi.InputType['AgentAgentActionGroupApiSchemaArgs']]] = None,
+                 api_schema: Optional[pulumi.Input[Union['AgentAgentActionGroupApiSchemaArgs', 'AgentAgentActionGroupApiSchemaArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parent_action_group_signature: Optional[pulumi.Input[str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None,
@@ -502,13 +502,13 @@ class AgentAgentActionGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_group_executor: Optional[pulumi.Input[pulumi.InputType['AgentAgentActionGroupActionGroupExecutorArgs']]] = None,
+            action_group_executor: Optional[pulumi.Input[Union['AgentAgentActionGroupActionGroupExecutorArgs', 'AgentAgentActionGroupActionGroupExecutorArgsDict']]] = None,
             action_group_id: Optional[pulumi.Input[str]] = None,
             action_group_name: Optional[pulumi.Input[str]] = None,
             action_group_state: Optional[pulumi.Input[str]] = None,
             agent_id: Optional[pulumi.Input[str]] = None,
             agent_version: Optional[pulumi.Input[str]] = None,
-            api_schema: Optional[pulumi.Input[pulumi.InputType['AgentAgentActionGroupApiSchemaArgs']]] = None,
+            api_schema: Optional[pulumi.Input[Union['AgentAgentActionGroupApiSchemaArgs', 'AgentAgentActionGroupApiSchemaArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             parent_action_group_signature: Optional[pulumi.Input[str]] = None,
             skip_resource_in_use_check: Optional[pulumi.Input[bool]] = None) -> 'AgentAgentActionGroup':
@@ -519,13 +519,13 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AgentAgentActionGroupActionGroupExecutorArgs']] action_group_executor: ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
+        :param pulumi.Input[Union['AgentAgentActionGroupActionGroupExecutorArgs', 'AgentAgentActionGroupActionGroupExecutorArgsDict']] action_group_executor: ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` block for details.
         :param pulumi.Input[str] action_group_id: Unique identifier of the action group.
         :param pulumi.Input[str] action_group_name: Name of the action group.
         :param pulumi.Input[str] action_group_state: Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         :param pulumi.Input[str] agent_id: The unique identifier of the agent for which to create the action group.
         :param pulumi.Input[str] agent_version: Version of the agent for which to create the action group. Valid values: `DRAFT`.
-        :param pulumi.Input[pulumi.InputType['AgentAgentActionGroupApiSchemaArgs']] api_schema: Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
+        :param pulumi.Input[Union['AgentAgentActionGroupApiSchemaArgs', 'AgentAgentActionGroupApiSchemaArgsDict']] api_schema: Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` block for details.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the action group.

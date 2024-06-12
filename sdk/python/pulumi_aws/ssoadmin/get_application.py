@@ -140,7 +140,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 
 
 def get_application(application_arn: Optional[str] = None,
-                    portal_options: Optional[Sequence[pulumi.InputType['GetApplicationPortalOptionArgs']]] = None,
+                    portal_options: Optional[Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Data source for managing an AWS SSO Admin Application.
@@ -158,7 +158,7 @@ def get_application(application_arn: Optional[str] = None,
 
 
     :param str application_arn: ARN of the application.
-    :param Sequence[pulumi.InputType['GetApplicationPortalOptionArgs']] portal_options: Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
+    :param Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']] portal_options: Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
@@ -180,7 +180,7 @@ def get_application(application_arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_application)
 def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
-                           portal_options: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetApplicationPortalOptionArgs']]]]] = None,
+                           portal_options: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Data source for managing an AWS SSO Admin Application.
@@ -198,6 +198,6 @@ def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
 
 
     :param str application_arn: ARN of the application.
-    :param Sequence[pulumi.InputType['GetApplicationPortalOptionArgs']] portal_options: Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
+    :param Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']] portal_options: Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
     """
     ...

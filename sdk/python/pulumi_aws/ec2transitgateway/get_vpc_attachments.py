@@ -67,7 +67,7 @@ class AwaitableGetVpcAttachmentsResult(GetVpcAttachmentsResult):
             ids=self.ids)
 
 
-def get_vpc_attachments(filters: Optional[Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']]] = None,
+def get_vpc_attachments(filters: Optional[Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcAttachmentsResult:
     """
     Get information on EC2 Transit Gateway VPC Attachments.
@@ -80,15 +80,15 @@ def get_vpc_attachments(filters: Optional[Sequence[pulumi.InputType['GetVpcAttac
     import pulumi
     import pulumi_aws as aws
 
-    filtered = aws.ec2transitgateway.get_vpc_attachments(filters=[aws.ec2transitgateway.GetVpcAttachmentsFilterArgs(
-        name="state",
-        values=["pendingAcceptance"],
-    )])
+    filtered = aws.ec2transitgateway.get_vpc_attachments(filters=[{
+        "name": "state",
+        "values": ["pendingAcceptance"],
+    }])
     unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -102,7 +102,7 @@ def get_vpc_attachments(filters: Optional[Sequence[pulumi.InputType['GetVpcAttac
 
 
 @_utilities.lift_output_func(get_vpc_attachments)
-def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']]]]] = None,
+def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcAttachmentsResult]:
     """
     Get information on EC2 Transit Gateway VPC Attachments.
@@ -115,14 +115,14 @@ def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[
     import pulumi
     import pulumi_aws as aws
 
-    filtered = aws.ec2transitgateway.get_vpc_attachments(filters=[aws.ec2transitgateway.GetVpcAttachmentsFilterArgs(
-        name="state",
-        values=["pendingAcceptance"],
-    )])
+    filtered = aws.ec2transitgateway.get_vpc_attachments(filters=[{
+        "name": "state",
+        "values": ["pendingAcceptance"],
+    }])
     unit = [aws.ec2transitgateway.get_vpc_attachment(id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     """
     ...

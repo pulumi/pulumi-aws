@@ -380,7 +380,7 @@ class ServiceQuota(pulumi.CustomResource):
             request_status: Optional[pulumi.Input[str]] = None,
             service_code: Optional[pulumi.Input[str]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
-            usage_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQuotaUsageMetricArgs']]]]] = None,
+            usage_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceQuotaUsageMetricArgs', 'ServiceQuotaUsageMetricArgsDict']]]]] = None,
             value: Optional[pulumi.Input[float]] = None) -> 'ServiceQuota':
         """
         Get an existing ServiceQuota resource's state with the given name, id, and optional extra
@@ -396,7 +396,7 @@ class ServiceQuota(pulumi.CustomResource):
         :param pulumi.Input[str] quota_name: Name of the quota.
         :param pulumi.Input[str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         :param pulumi.Input[str] service_name: Name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceQuotaUsageMetricArgs']]]] usage_metrics: Information about the measurement.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceQuotaUsageMetricArgs', 'ServiceQuotaUsageMetricArgsDict']]]] usage_metrics: Information about the measurement.
         :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

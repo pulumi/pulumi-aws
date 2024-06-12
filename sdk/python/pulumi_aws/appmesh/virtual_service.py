@@ -281,7 +281,7 @@ class VirtualService(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualServiceSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['VirtualServiceSpecArgs', 'VirtualServiceSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -298,13 +298,13 @@ class VirtualService(pulumi.CustomResource):
         servicea = aws.appmesh.VirtualService("servicea",
             name="servicea.simpleapp.local",
             mesh_name=simple["id"],
-            spec=aws.appmesh.VirtualServiceSpecArgs(
-                provider=aws.appmesh.VirtualServiceSpecProviderArgs(
-                    virtual_node=aws.appmesh.VirtualServiceSpecProviderVirtualNodeArgs(
-                        virtual_node_name=serviceb1["name"],
-                    ),
-                ),
-            ))
+            spec={
+                "provider": {
+                    "virtualNode": {
+                        "virtualNodeName": serviceb1["name"],
+                    },
+                },
+            })
         ```
 
         ### Virtual Router Provider
@@ -316,13 +316,13 @@ class VirtualService(pulumi.CustomResource):
         servicea = aws.appmesh.VirtualService("servicea",
             name="servicea.simpleapp.local",
             mesh_name=simple["id"],
-            spec=aws.appmesh.VirtualServiceSpecArgs(
-                provider=aws.appmesh.VirtualServiceSpecProviderArgs(
-                    virtual_router=aws.appmesh.VirtualServiceSpecProviderVirtualRouterArgs(
-                        virtual_router_name=serviceb["name"],
-                    ),
-                ),
-            ))
+            spec={
+                "provider": {
+                    "virtualRouter": {
+                        "virtualRouterName": serviceb["name"],
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -338,7 +338,7 @@ class VirtualService(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the virtual service. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[pulumi.InputType['VirtualServiceSpecArgs']] spec: Virtual service specification to apply.
+        :param pulumi.Input[Union['VirtualServiceSpecArgs', 'VirtualServiceSpecArgsDict']] spec: Virtual service specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -361,13 +361,13 @@ class VirtualService(pulumi.CustomResource):
         servicea = aws.appmesh.VirtualService("servicea",
             name="servicea.simpleapp.local",
             mesh_name=simple["id"],
-            spec=aws.appmesh.VirtualServiceSpecArgs(
-                provider=aws.appmesh.VirtualServiceSpecProviderArgs(
-                    virtual_node=aws.appmesh.VirtualServiceSpecProviderVirtualNodeArgs(
-                        virtual_node_name=serviceb1["name"],
-                    ),
-                ),
-            ))
+            spec={
+                "provider": {
+                    "virtualNode": {
+                        "virtualNodeName": serviceb1["name"],
+                    },
+                },
+            })
         ```
 
         ### Virtual Router Provider
@@ -379,13 +379,13 @@ class VirtualService(pulumi.CustomResource):
         servicea = aws.appmesh.VirtualService("servicea",
             name="servicea.simpleapp.local",
             mesh_name=simple["id"],
-            spec=aws.appmesh.VirtualServiceSpecArgs(
-                provider=aws.appmesh.VirtualServiceSpecProviderArgs(
-                    virtual_router=aws.appmesh.VirtualServiceSpecProviderVirtualRouterArgs(
-                        virtual_router_name=serviceb["name"],
-                    ),
-                ),
-            ))
+            spec={
+                "provider": {
+                    "virtualRouter": {
+                        "virtualRouterName": serviceb["name"],
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -414,7 +414,7 @@ class VirtualService(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualServiceSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['VirtualServiceSpecArgs', 'VirtualServiceSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -456,7 +456,7 @@ class VirtualService(pulumi.CustomResource):
             mesh_owner: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_owner: Optional[pulumi.Input[str]] = None,
-            spec: Optional[pulumi.Input[pulumi.InputType['VirtualServiceSpecArgs']]] = None,
+            spec: Optional[pulumi.Input[Union['VirtualServiceSpecArgs', 'VirtualServiceSpecArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VirtualService':
         """
@@ -473,7 +473,7 @@ class VirtualService(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the virtual service. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[pulumi.InputType['VirtualServiceSpecArgs']] spec: Virtual service specification to apply.
+        :param pulumi.Input[Union['VirtualServiceSpecArgs', 'VirtualServiceSpecArgsDict']] spec: Virtual service specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

@@ -200,7 +200,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  config_id: Optional[pulumi.Input[str]] = None,
-                 storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensConfigurationStorageLensConfigurationArgs']]] = None,
+                 storage_lens_configuration: Optional[pulumi.Input[Union['StorageLensConfigurationStorageLensConfigurationArgs', 'StorageLensConfigurationStorageLensConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -215,40 +215,40 @@ class StorageLensConfiguration(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.s3control.StorageLensConfiguration("example",
             config_id="example-1",
-            storage_lens_configuration=aws.s3control.StorageLensConfigurationStorageLensConfigurationArgs(
-                enabled=True,
-                account_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs(
-                    activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs(
-                        enabled=True,
-                    ),
-                    bucket_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs(
-                        activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs(
-                            enabled=True,
-                        ),
-                    ),
-                ),
-                data_export=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportArgs(
-                    cloud_watch_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs(
-                        enabled=True,
-                    ),
-                    s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
-                        account_id=current.account_id,
-                        arn=target["arn"],
-                        format="CSV",
-                        output_schema_version="V_1",
-                        encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
-                            sse_s3s=[aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args()],
-                        ),
-                    ),
-                ),
-                exclude=aws.s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs(
-                    buckets=[
+            storage_lens_configuration={
+                "enabled": True,
+                "accountLevel": {
+                    "activityMetrics": {
+                        "enabled": True,
+                    },
+                    "bucketLevel": {
+                        "activityMetrics": {
+                            "enabled": True,
+                        },
+                    },
+                },
+                "dataExport": {
+                    "cloudWatchMetrics": {
+                        "enabled": True,
+                    },
+                    "s3BucketDestination": {
+                        "accountId": current.account_id,
+                        "arn": target["arn"],
+                        "format": "CSV",
+                        "outputSchemaVersion": "V_1",
+                        "encryption": {
+                            "sseS3s": [{}],
+                        },
+                    },
+                },
+                "exclude": {
+                    "buckets": [
                         b1["arn"],
                         b2["arn"],
                     ],
-                    regions=["us-east-2"],
-                ),
-            ))
+                    "regions": ["us-east-2"],
+                },
+            })
         ```
 
         ## Import
@@ -263,7 +263,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[str] config_id: The ID of the S3 Storage Lens configuration.
-        :param pulumi.Input[pulumi.InputType['StorageLensConfigurationStorageLensConfigurationArgs']] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+        :param pulumi.Input[Union['StorageLensConfigurationStorageLensConfigurationArgs', 'StorageLensConfigurationStorageLensConfigurationArgsDict']] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -284,40 +284,40 @@ class StorageLensConfiguration(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.s3control.StorageLensConfiguration("example",
             config_id="example-1",
-            storage_lens_configuration=aws.s3control.StorageLensConfigurationStorageLensConfigurationArgs(
-                enabled=True,
-                account_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs(
-                    activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs(
-                        enabled=True,
-                    ),
-                    bucket_level=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs(
-                        activity_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs(
-                            enabled=True,
-                        ),
-                    ),
-                ),
-                data_export=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportArgs(
-                    cloud_watch_metrics=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs(
-                        enabled=True,
-                    ),
-                    s3_bucket_destination=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs(
-                        account_id=current.account_id,
-                        arn=target["arn"],
-                        format="CSV",
-                        output_schema_version="V_1",
-                        encryption=aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(
-                            sse_s3s=[aws.s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args()],
-                        ),
-                    ),
-                ),
-                exclude=aws.s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs(
-                    buckets=[
+            storage_lens_configuration={
+                "enabled": True,
+                "accountLevel": {
+                    "activityMetrics": {
+                        "enabled": True,
+                    },
+                    "bucketLevel": {
+                        "activityMetrics": {
+                            "enabled": True,
+                        },
+                    },
+                },
+                "dataExport": {
+                    "cloudWatchMetrics": {
+                        "enabled": True,
+                    },
+                    "s3BucketDestination": {
+                        "accountId": current.account_id,
+                        "arn": target["arn"],
+                        "format": "CSV",
+                        "outputSchemaVersion": "V_1",
+                        "encryption": {
+                            "sseS3s": [{}],
+                        },
+                    },
+                },
+                "exclude": {
+                    "buckets": [
                         b1["arn"],
                         b2["arn"],
                     ],
-                    regions=["us-east-2"],
-                ),
-            ))
+                    "regions": ["us-east-2"],
+                },
+            })
         ```
 
         ## Import
@@ -345,7 +345,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  config_id: Optional[pulumi.Input[str]] = None,
-                 storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensConfigurationStorageLensConfigurationArgs']]] = None,
+                 storage_lens_configuration: Optional[pulumi.Input[Union['StorageLensConfigurationStorageLensConfigurationArgs', 'StorageLensConfigurationStorageLensConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -379,7 +379,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             config_id: Optional[pulumi.Input[str]] = None,
-            storage_lens_configuration: Optional[pulumi.Input[pulumi.InputType['StorageLensConfigurationStorageLensConfigurationArgs']]] = None,
+            storage_lens_configuration: Optional[pulumi.Input[Union['StorageLensConfigurationStorageLensConfigurationArgs', 'StorageLensConfigurationStorageLensConfigurationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'StorageLensConfiguration':
         """
@@ -392,7 +392,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
         :param pulumi.Input[str] config_id: The ID of the S3 Storage Lens configuration.
-        :param pulumi.Input[pulumi.InputType['StorageLensConfigurationStorageLensConfigurationArgs']] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
+        :param pulumi.Input[Union['StorageLensConfigurationStorageLensConfigurationArgs', 'StorageLensConfigurationStorageLensConfigurationArgsDict']] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

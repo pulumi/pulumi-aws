@@ -440,7 +440,7 @@ class InstanceGroup(pulumi.CustomResource):
                  bid_price: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  configurations_json: Optional[pulumi.Input[str]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]]] = None,
+                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -502,7 +502,7 @@ class InstanceGroup(pulumi.CustomResource):
                ]
                \"\"\")
                ```
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
@@ -562,7 +562,7 @@ class InstanceGroup(pulumi.CustomResource):
                  bid_price: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  configurations_json: Optional[pulumi.Input[str]] = None,
-                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]]] = None,
+                 ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -605,7 +605,7 @@ class InstanceGroup(pulumi.CustomResource):
             bid_price: Optional[pulumi.Input[str]] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
             configurations_json: Optional[pulumi.Input[str]] = None,
-            ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]]] = None,
+            ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]]] = None,
             ebs_optimized: Optional[pulumi.Input[bool]] = None,
             instance_count: Optional[pulumi.Input[int]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
@@ -644,7 +644,7 @@ class InstanceGroup(pulumi.CustomResource):
                ]
                \"\"\")
                ```
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceGroupEbsConfigArgs', 'InstanceGroupEbsConfigArgsDict']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.

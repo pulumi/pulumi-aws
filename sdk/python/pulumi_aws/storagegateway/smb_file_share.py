@@ -914,7 +914,7 @@ class SmbFileShare(pulumi.CustomResource):
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
+                 cache_attributes: Optional[pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
@@ -985,7 +985,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
-        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
+        :param pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
                
                **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
@@ -1077,7 +1077,7 @@ class SmbFileShare(pulumi.CustomResource):
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
+                 cache_attributes: Optional[pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
@@ -1157,7 +1157,7 @@ class SmbFileShare(pulumi.CustomResource):
             audit_destination_arn: Optional[pulumi.Input[str]] = None,
             authentication: Optional[pulumi.Input[str]] = None,
             bucket_region: Optional[pulumi.Input[str]] = None,
-            cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
+            cache_attributes: Optional[pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']]] = None,
             case_sensitivity: Optional[pulumi.Input[str]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
             file_share_name: Optional[pulumi.Input[str]] = None,
@@ -1193,7 +1193,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
-        :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
+        :param pulumi.Input[Union['SmbFileShareCacheAttributesArgs', 'SmbFileShareCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see `cache_attributes` Block for more details.
                
                **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.

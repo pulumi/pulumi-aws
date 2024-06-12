@@ -335,8 +335,8 @@ class InternetMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_events_config: Optional[pulumi.Input[pulumi.InputType['InternetMonitorHealthEventsConfigArgs']]] = None,
-                 internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']]] = None,
+                 health_events_config: Optional[pulumi.Input[Union['InternetMonitorHealthEventsConfigArgs', 'InternetMonitorHealthEventsConfigArgsDict']]] = None,
+                 internet_measurements_log_delivery: Optional[pulumi.Input[Union['InternetMonitorInternetMeasurementsLogDeliveryArgs', 'InternetMonitorInternetMeasurementsLogDeliveryArgsDict']]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -366,8 +366,8 @@ class InternetMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InternetMonitorHealthEventsConfigArgs']] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
-        :param pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
+        :param pulumi.Input[Union['InternetMonitorHealthEventsConfigArgs', 'InternetMonitorHealthEventsConfigArgsDict']] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+        :param pulumi.Input[Union['InternetMonitorInternetMeasurementsLogDeliveryArgs', 'InternetMonitorInternetMeasurementsLogDeliveryArgsDict']] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         :param pulumi.Input[str] monitor_name: The name of the monitor.
                
@@ -418,8 +418,8 @@ class InternetMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_events_config: Optional[pulumi.Input[pulumi.InputType['InternetMonitorHealthEventsConfigArgs']]] = None,
-                 internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']]] = None,
+                 health_events_config: Optional[pulumi.Input[Union['InternetMonitorHealthEventsConfigArgs', 'InternetMonitorHealthEventsConfigArgsDict']]] = None,
+                 internet_measurements_log_delivery: Optional[pulumi.Input[Union['InternetMonitorInternetMeasurementsLogDeliveryArgs', 'InternetMonitorInternetMeasurementsLogDeliveryArgsDict']]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -458,8 +458,8 @@ class InternetMonitor(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            health_events_config: Optional[pulumi.Input[pulumi.InputType['InternetMonitorHealthEventsConfigArgs']]] = None,
-            internet_measurements_log_delivery: Optional[pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']]] = None,
+            health_events_config: Optional[pulumi.Input[Union['InternetMonitorHealthEventsConfigArgs', 'InternetMonitorHealthEventsConfigArgsDict']]] = None,
+            internet_measurements_log_delivery: Optional[pulumi.Input[Union['InternetMonitorInternetMeasurementsLogDeliveryArgs', 'InternetMonitorInternetMeasurementsLogDeliveryArgsDict']]] = None,
             max_city_networks_to_monitor: Optional[pulumi.Input[int]] = None,
             monitor_name: Optional[pulumi.Input[str]] = None,
             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -475,8 +475,8 @@ class InternetMonitor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Monitor.
-        :param pulumi.Input[pulumi.InputType['InternetMonitorHealthEventsConfigArgs']] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
-        :param pulumi.Input[pulumi.InputType['InternetMonitorInternetMeasurementsLogDeliveryArgs']] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
+        :param pulumi.Input[Union['InternetMonitorHealthEventsConfigArgs', 'InternetMonitorHealthEventsConfigArgsDict']] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
+        :param pulumi.Input[Union['InternetMonitorInternetMeasurementsLogDeliveryArgs', 'InternetMonitorInternetMeasurementsLogDeliveryArgsDict']] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         :param pulumi.Input[str] monitor_name: The name of the monitor.
                

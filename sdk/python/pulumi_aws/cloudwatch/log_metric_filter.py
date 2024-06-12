@@ -164,7 +164,7 @@ class LogMetricFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
-                 metric_transformation: Optional[pulumi.Input[pulumi.InputType['LogMetricFilterMetricTransformationArgs']]] = None,
+                 metric_transformation: Optional[pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -182,11 +182,11 @@ class LogMetricFilter(pulumi.CustomResource):
             name="MyAppAccessCount",
             pattern="",
             log_group_name=dada.name,
-            metric_transformation=aws.cloudwatch.LogMetricFilterMetricTransformationArgs(
-                name="EventCount",
-                namespace="YourNamespace",
-                value="1",
-            ))
+            metric_transformation={
+                "name": "EventCount",
+                "namespace": "YourNamespace",
+                "value": "1",
+            })
         ```
 
         ## Import
@@ -200,7 +200,7 @@ class LogMetricFilter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_group_name: The name of the log group to associate the metric filter with.
-        :param pulumi.Input[pulumi.InputType['LogMetricFilterMetricTransformationArgs']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
+        :param pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
         :param pulumi.Input[str] name: A name for the metric filter.
         :param pulumi.Input[str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
@@ -225,11 +225,11 @@ class LogMetricFilter(pulumi.CustomResource):
             name="MyAppAccessCount",
             pattern="",
             log_group_name=dada.name,
-            metric_transformation=aws.cloudwatch.LogMetricFilterMetricTransformationArgs(
-                name="EventCount",
-                namespace="YourNamespace",
-                value="1",
-            ))
+            metric_transformation={
+                "name": "EventCount",
+                "namespace": "YourNamespace",
+                "value": "1",
+            })
         ```
 
         ## Import
@@ -256,7 +256,7 @@ class LogMetricFilter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
-                 metric_transformation: Optional[pulumi.Input[pulumi.InputType['LogMetricFilterMetricTransformationArgs']]] = None,
+                 metric_transformation: Optional[pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pattern: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -289,7 +289,7 @@ class LogMetricFilter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             log_group_name: Optional[pulumi.Input[str]] = None,
-            metric_transformation: Optional[pulumi.Input[pulumi.InputType['LogMetricFilterMetricTransformationArgs']]] = None,
+            metric_transformation: Optional[pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             pattern: Optional[pulumi.Input[str]] = None) -> 'LogMetricFilter':
         """
@@ -300,7 +300,7 @@ class LogMetricFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_group_name: The name of the log group to associate the metric filter with.
-        :param pulumi.Input[pulumi.InputType['LogMetricFilterMetricTransformationArgs']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
+        :param pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']] metric_transformation: A block defining collection of information needed to define how metric data gets emitted. See below.
         :param pulumi.Input[str] name: A name for the metric filter.
         :param pulumi.Input[str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.

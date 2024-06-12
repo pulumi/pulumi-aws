@@ -243,10 +243,10 @@ class Disk(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         test = aws.lightsail.Disk("test",
             name="test",
             size_in_gb=8,
@@ -284,10 +284,10 @@ class Disk(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         test = aws.lightsail.Disk("test",
             name="test",
             size_in_gb=8,

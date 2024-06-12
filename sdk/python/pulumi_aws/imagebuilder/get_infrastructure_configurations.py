@@ -79,7 +79,7 @@ class AwaitableGetInfrastructureConfigurationsResult(GetInfrastructureConfigurat
             names=self.names)
 
 
-def get_infrastructure_configurations(filters: Optional[Sequence[pulumi.InputType['GetInfrastructureConfigurationsFilterArgs']]] = None,
+def get_infrastructure_configurations(filters: Optional[Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInfrastructureConfigurationsResult:
     """
     Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
@@ -90,14 +90,14 @@ def get_infrastructure_configurations(filters: Optional[Sequence[pulumi.InputTyp
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_infrastructure_configurations(filters=[aws.imagebuilder.GetInfrastructureConfigurationsFilterArgs(
-        name="name",
-        values=["example"],
-    )])
+    example = aws.imagebuilder.get_infrastructure_configurations(filters=[{
+        "name": "name",
+        "values": ["example"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInfrastructureConfigurationsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -112,7 +112,7 @@ def get_infrastructure_configurations(filters: Optional[Sequence[pulumi.InputTyp
 
 
 @_utilities.lift_output_func(get_infrastructure_configurations)
-def get_infrastructure_configurations_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInfrastructureConfigurationsFilterArgs']]]]] = None,
+def get_infrastructure_configurations_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']]]]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInfrastructureConfigurationsResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
@@ -123,13 +123,13 @@ def get_infrastructure_configurations_output(filters: Optional[pulumi.Input[Opti
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_infrastructure_configurations(filters=[aws.imagebuilder.GetInfrastructureConfigurationsFilterArgs(
-        name="name",
-        values=["example"],
-    )])
+    example = aws.imagebuilder.get_infrastructure_configurations(filters=[{
+        "name": "name",
+        "values": ["example"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInfrastructureConfigurationsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetInfrastructureConfigurationsFilterArgs', 'GetInfrastructureConfigurationsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     """
     ...

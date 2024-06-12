@@ -109,37 +109,37 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="1",
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=[current["accountId"]],
-                )],
-                actions=[
+            {
+                "sid": "1",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": [current["accountId"]],
+                }],
+                "actions": [
                     "acm-pca:DescribeCertificateAuthority",
                     "acm-pca:GetCertificate",
                     "acm-pca:GetCertificateAuthorityCertificate",
                     "acm-pca:ListPermissions",
                     "acm-pca:ListTags",
                 ],
-                resources=[example_aws_acmpca_certificate_authority["arn"]],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="2",
-                effect=allow,
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=[current["accountId"]],
-                )],
-                actions=["acm-pca:IssueCertificate"],
-                resources=[example_aws_acmpca_certificate_authority["arn"]],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="acm-pca:TemplateArn",
-                    values=["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
-                )],
-            ),
+                "resources": [example_aws_acmpca_certificate_authority["arn"]],
+            },
+            {
+                "sid": "2",
+                "effect": allow,
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": [current["accountId"]],
+                }],
+                "actions": ["acm-pca:IssueCertificate"],
+                "resources": [example_aws_acmpca_certificate_authority["arn"]],
+                "conditions": [{
+                    "test": "StringEquals",
+                    "variable": "acm-pca:TemplateArn",
+                    "values": ["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
+                }],
+            },
         ])
         example_policy = aws.acmpca.Policy("example",
             resource_arn=example_aws_acmpca_certificate_authority["arn"],
@@ -177,37 +177,37 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="1",
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=[current["accountId"]],
-                )],
-                actions=[
+            {
+                "sid": "1",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": [current["accountId"]],
+                }],
+                "actions": [
                     "acm-pca:DescribeCertificateAuthority",
                     "acm-pca:GetCertificate",
                     "acm-pca:GetCertificateAuthorityCertificate",
                     "acm-pca:ListPermissions",
                     "acm-pca:ListTags",
                 ],
-                resources=[example_aws_acmpca_certificate_authority["arn"]],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="2",
-                effect=allow,
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=[current["accountId"]],
-                )],
-                actions=["acm-pca:IssueCertificate"],
-                resources=[example_aws_acmpca_certificate_authority["arn"]],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="acm-pca:TemplateArn",
-                    values=["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
-                )],
-            ),
+                "resources": [example_aws_acmpca_certificate_authority["arn"]],
+            },
+            {
+                "sid": "2",
+                "effect": allow,
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": [current["accountId"]],
+                }],
+                "actions": ["acm-pca:IssueCertificate"],
+                "resources": [example_aws_acmpca_certificate_authority["arn"]],
+                "conditions": [{
+                    "test": "StringEquals",
+                    "variable": "acm-pca:TemplateArn",
+                    "values": ["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
+                }],
+            },
         ])
         example_policy = aws.acmpca.Policy("example",
             resource_arn=example_aws_acmpca_certificate_authority["arn"],

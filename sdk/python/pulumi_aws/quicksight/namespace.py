@@ -267,7 +267,7 @@ class Namespace(pulumi.CustomResource):
                  identity_store: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['NamespaceTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS QuickSight Namespace.
@@ -347,7 +347,7 @@ class Namespace(pulumi.CustomResource):
                  identity_store: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['NamespaceTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -386,7 +386,7 @@ class Namespace(pulumi.CustomResource):
             namespace: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['NamespaceTimeoutsArgs']]] = None) -> 'Namespace':
+            timeouts: Optional[pulumi.Input[Union['NamespaceTimeoutsArgs', 'NamespaceTimeoutsArgsDict']]] = None) -> 'Namespace':
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -306,13 +306,13 @@ class AgentDataSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_deletion_policy: Optional[pulumi.Input[str]] = None,
-                 data_source_configuration: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceDataSourceConfigurationArgs']]] = None,
+                 data_source_configuration: Optional[pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  knowledge_base_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceServerSideEncryptionConfigurationArgs']]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceTimeoutsArgs']]] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceVectorIngestionConfigurationArgs']]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
+                 vector_ingestion_configuration: Optional[pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Data Source.
@@ -328,12 +328,12 @@ class AgentDataSource(pulumi.CustomResource):
         example = aws.bedrock.AgentDataSource("example",
             knowledge_base_id="EMDPPAYPZI",
             name="example",
-            data_source_configuration=aws.bedrock.AgentDataSourceDataSourceConfigurationArgs(
-                type="S3",
-                s3_configuration=aws.bedrock.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs(
-                    bucket_arn="arn:aws:s3:::example-bucket",
-                ),
-            ))
+            data_source_configuration={
+                "type": "S3",
+                "s3Configuration": {
+                    "bucketArn": "arn:aws:s3:::example-bucket",
+                },
+            })
         ```
 
         ## Import
@@ -347,14 +347,14 @@ class AgentDataSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input[pulumi.InputType['AgentDataSourceDataSourceConfigurationArgs']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
         :param pulumi.Input[str] description: Description of the data source.
         :param pulumi.Input[str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
         :param pulumi.Input[str] name: Name of the data source.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['AgentDataSourceServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input[pulumi.InputType['AgentDataSourceVectorIngestionConfigurationArgs']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
         ...
     @overload
@@ -376,12 +376,12 @@ class AgentDataSource(pulumi.CustomResource):
         example = aws.bedrock.AgentDataSource("example",
             knowledge_base_id="EMDPPAYPZI",
             name="example",
-            data_source_configuration=aws.bedrock.AgentDataSourceDataSourceConfigurationArgs(
-                type="S3",
-                s3_configuration=aws.bedrock.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs(
-                    bucket_arn="arn:aws:s3:::example-bucket",
-                ),
-            ))
+            data_source_configuration={
+                "type": "S3",
+                "s3Configuration": {
+                    "bucketArn": "arn:aws:s3:::example-bucket",
+                },
+            })
         ```
 
         ## Import
@@ -408,13 +408,13 @@ class AgentDataSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_deletion_policy: Optional[pulumi.Input[str]] = None,
-                 data_source_configuration: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceDataSourceConfigurationArgs']]] = None,
+                 data_source_configuration: Optional[pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  knowledge_base_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceServerSideEncryptionConfigurationArgs']]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceTimeoutsArgs']]] = None,
-                 vector_ingestion_configuration: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceVectorIngestionConfigurationArgs']]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
+                 vector_ingestion_configuration: Optional[pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -446,14 +446,14 @@ class AgentDataSource(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             data_deletion_policy: Optional[pulumi.Input[str]] = None,
-            data_source_configuration: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceDataSourceConfigurationArgs']]] = None,
+            data_source_configuration: Optional[pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']]] = None,
             data_source_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             knowledge_base_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceServerSideEncryptionConfigurationArgs']]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceTimeoutsArgs']]] = None,
-            vector_ingestion_configuration: Optional[pulumi.Input[pulumi.InputType['AgentDataSourceVectorIngestionConfigurationArgs']]] = None) -> 'AgentDataSource':
+            server_side_encryption_configuration: Optional[pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
+            timeouts: Optional[pulumi.Input[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
+            vector_ingestion_configuration: Optional[pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None) -> 'AgentDataSource':
         """
         Get an existing AgentDataSource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -462,15 +462,15 @@ class AgentDataSource(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_deletion_policy: Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
-        :param pulumi.Input[pulumi.InputType['AgentDataSourceDataSourceConfigurationArgs']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceDataSourceConfigurationArgs', 'AgentDataSourceDataSourceConfigurationArgsDict']] data_source_configuration: Details about how the data source is stored. See `data_source_configuration` block for details.
         :param pulumi.Input[str] data_source_id: Unique identifier of the data source.
         :param pulumi.Input[str] description: Description of the data source.
         :param pulumi.Input[str] knowledge_base_id: Unique identifier of the knowledge base to which the data source belongs.
         :param pulumi.Input[str] name: Name of the data source.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['AgentDataSourceServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
-        :param pulumi.Input[pulumi.InputType['AgentDataSourceVectorIngestionConfigurationArgs']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
+        :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

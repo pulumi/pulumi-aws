@@ -677,16 +677,16 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 broker_node_group_info: Optional[pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']]] = None,
-                 client_authentication: Optional[pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']]] = None,
+                 broker_node_group_info: Optional[pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict']]] = None,
+                 client_authentication: Optional[pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 configuration_info: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']]] = None,
-                 encryption_info: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']]] = None,
+                 configuration_info: Optional[pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']]] = None,
+                 encryption_info: Optional[pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']]] = None,
                  enhanced_monitoring: Optional[pulumi.Input[str]] = None,
                  kafka_version: Optional[pulumi.Input[str]] = None,
-                 logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
+                 logging_info: Optional[pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']]] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
-                 open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
+                 open_monitoring: Optional[pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
                  storage_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -724,24 +724,24 @@ class Cluster(pulumi.CustomResource):
         bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["firehose.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         firehose_role = aws.iam.Role("firehose_role",
             name="firehose_test_role",
             assume_role_policy=assume_role.json)
         test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
             name="kinesis-firehose-msk-broker-logs-stream",
             destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=firehose_role.arn,
-                bucket_arn=bucket.arn,
-            ),
+            extended_s3_configuration={
+                "roleArn": firehose_role.arn,
+                "bucketArn": bucket.arn,
+            },
             tags={
                 "LogDeliveryEnabled": "placeholder",
             })
@@ -749,50 +749,50 @@ class Cluster(pulumi.CustomResource):
             cluster_name="example",
             kafka_version="3.2.0",
             number_of_broker_nodes=3,
-            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
-                instance_type="kafka.m5.large",
-                client_subnets=[
+            broker_node_group_info={
+                "instanceType": "kafka.m5.large",
+                "clientSubnets": [
                     subnet_az1.id,
                     subnet_az2.id,
                     subnet_az3.id,
                 ],
-                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
-                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
-                        volume_size=1000,
-                    ),
-                ),
-                security_groups=[sg.id],
-            ),
-            encryption_info=aws.msk.ClusterEncryptionInfoArgs(
-                encryption_at_rest_kms_key_arn=kms.arn,
-            ),
-            open_monitoring=aws.msk.ClusterOpenMonitoringArgs(
-                prometheus=aws.msk.ClusterOpenMonitoringPrometheusArgs(
-                    jmx_exporter=aws.msk.ClusterOpenMonitoringPrometheusJmxExporterArgs(
-                        enabled_in_broker=True,
-                    ),
-                    node_exporter=aws.msk.ClusterOpenMonitoringPrometheusNodeExporterArgs(
-                        enabled_in_broker=True,
-                    ),
-                ),
-            ),
-            logging_info=aws.msk.ClusterLoggingInfoArgs(
-                broker_logs=aws.msk.ClusterLoggingInfoBrokerLogsArgs(
-                    cloudwatch_logs=aws.msk.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs(
-                        enabled=True,
-                        log_group=test.name,
-                    ),
-                    firehose=aws.msk.ClusterLoggingInfoBrokerLogsFirehoseArgs(
-                        enabled=True,
-                        delivery_stream=test_stream.name,
-                    ),
-                    s3=aws.msk.ClusterLoggingInfoBrokerLogsS3Args(
-                        enabled=True,
-                        bucket=bucket.id,
-                        prefix="logs/msk-",
-                    ),
-                ),
-            ),
+                "storageInfo": {
+                    "ebsStorageInfo": {
+                        "volumeSize": 1000,
+                    },
+                },
+                "securityGroups": [sg.id],
+            },
+            encryption_info={
+                "encryptionAtRestKmsKeyArn": kms.arn,
+            },
+            open_monitoring={
+                "prometheus": {
+                    "jmxExporter": {
+                        "enabledInBroker": True,
+                    },
+                    "nodeExporter": {
+                        "enabledInBroker": True,
+                    },
+                },
+            },
+            logging_info={
+                "brokerLogs": {
+                    "cloudwatchLogs": {
+                        "enabled": True,
+                        "logGroup": test.name,
+                    },
+                    "firehose": {
+                        "enabled": True,
+                        "deliveryStream": test_stream.name,
+                    },
+                    "s3": {
+                        "enabled": True,
+                        "bucket": bucket.id,
+                        "prefix": "logs/msk-",
+                    },
+                },
+            },
             tags={
                 "foo": "bar",
             })
@@ -810,24 +810,24 @@ class Cluster(pulumi.CustomResource):
             cluster_name="example",
             kafka_version="2.7.1",
             number_of_broker_nodes=3,
-            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
-                instance_type="kafka.m5.4xlarge",
-                client_subnets=[
+            broker_node_group_info={
+                "instanceType": "kafka.m5.4xlarge",
+                "clientSubnets": [
                     subnet_az1["id"],
                     subnet_az2["id"],
                     subnet_az3["id"],
                 ],
-                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
-                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
-                        provisioned_throughput=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs(
-                            enabled=True,
-                            volume_throughput=250,
-                        ),
-                        volume_size=1000,
-                    ),
-                ),
-                security_groups=[sg["id"]],
-            ))
+                "storageInfo": {
+                    "ebsStorageInfo": {
+                        "provisionedThroughput": {
+                            "enabled": True,
+                            "volumeThroughput": 250,
+                        },
+                        "volumeSize": 1000,
+                    },
+                },
+                "securityGroups": [sg["id"]],
+            })
         ```
 
         ## Import
@@ -840,16 +840,16 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: Configuration block for specifying a client authentication. See below.
+        :param pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
+        :param pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
-        :param pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']] encryption_info: Configuration block for specifying encryption. See below.
+        :param pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+        :param pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
-        :param pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+        :param pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[int] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-        :param pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        :param pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         :param pulumi.Input[str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -893,24 +893,24 @@ class Cluster(pulumi.CustomResource):
         bucket_acl = aws.s3.BucketAclV2("bucket_acl",
             bucket=bucket.id,
             acl="private")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["firehose.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         firehose_role = aws.iam.Role("firehose_role",
             name="firehose_test_role",
             assume_role_policy=assume_role.json)
         test_stream = aws.kinesis.FirehoseDeliveryStream("test_stream",
             name="kinesis-firehose-msk-broker-logs-stream",
             destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=firehose_role.arn,
-                bucket_arn=bucket.arn,
-            ),
+            extended_s3_configuration={
+                "roleArn": firehose_role.arn,
+                "bucketArn": bucket.arn,
+            },
             tags={
                 "LogDeliveryEnabled": "placeholder",
             })
@@ -918,50 +918,50 @@ class Cluster(pulumi.CustomResource):
             cluster_name="example",
             kafka_version="3.2.0",
             number_of_broker_nodes=3,
-            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
-                instance_type="kafka.m5.large",
-                client_subnets=[
+            broker_node_group_info={
+                "instanceType": "kafka.m5.large",
+                "clientSubnets": [
                     subnet_az1.id,
                     subnet_az2.id,
                     subnet_az3.id,
                 ],
-                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
-                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
-                        volume_size=1000,
-                    ),
-                ),
-                security_groups=[sg.id],
-            ),
-            encryption_info=aws.msk.ClusterEncryptionInfoArgs(
-                encryption_at_rest_kms_key_arn=kms.arn,
-            ),
-            open_monitoring=aws.msk.ClusterOpenMonitoringArgs(
-                prometheus=aws.msk.ClusterOpenMonitoringPrometheusArgs(
-                    jmx_exporter=aws.msk.ClusterOpenMonitoringPrometheusJmxExporterArgs(
-                        enabled_in_broker=True,
-                    ),
-                    node_exporter=aws.msk.ClusterOpenMonitoringPrometheusNodeExporterArgs(
-                        enabled_in_broker=True,
-                    ),
-                ),
-            ),
-            logging_info=aws.msk.ClusterLoggingInfoArgs(
-                broker_logs=aws.msk.ClusterLoggingInfoBrokerLogsArgs(
-                    cloudwatch_logs=aws.msk.ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs(
-                        enabled=True,
-                        log_group=test.name,
-                    ),
-                    firehose=aws.msk.ClusterLoggingInfoBrokerLogsFirehoseArgs(
-                        enabled=True,
-                        delivery_stream=test_stream.name,
-                    ),
-                    s3=aws.msk.ClusterLoggingInfoBrokerLogsS3Args(
-                        enabled=True,
-                        bucket=bucket.id,
-                        prefix="logs/msk-",
-                    ),
-                ),
-            ),
+                "storageInfo": {
+                    "ebsStorageInfo": {
+                        "volumeSize": 1000,
+                    },
+                },
+                "securityGroups": [sg.id],
+            },
+            encryption_info={
+                "encryptionAtRestKmsKeyArn": kms.arn,
+            },
+            open_monitoring={
+                "prometheus": {
+                    "jmxExporter": {
+                        "enabledInBroker": True,
+                    },
+                    "nodeExporter": {
+                        "enabledInBroker": True,
+                    },
+                },
+            },
+            logging_info={
+                "brokerLogs": {
+                    "cloudwatchLogs": {
+                        "enabled": True,
+                        "logGroup": test.name,
+                    },
+                    "firehose": {
+                        "enabled": True,
+                        "deliveryStream": test_stream.name,
+                    },
+                    "s3": {
+                        "enabled": True,
+                        "bucket": bucket.id,
+                        "prefix": "logs/msk-",
+                    },
+                },
+            },
             tags={
                 "foo": "bar",
             })
@@ -979,24 +979,24 @@ class Cluster(pulumi.CustomResource):
             cluster_name="example",
             kafka_version="2.7.1",
             number_of_broker_nodes=3,
-            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
-                instance_type="kafka.m5.4xlarge",
-                client_subnets=[
+            broker_node_group_info={
+                "instanceType": "kafka.m5.4xlarge",
+                "clientSubnets": [
                     subnet_az1["id"],
                     subnet_az2["id"],
                     subnet_az3["id"],
                 ],
-                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
-                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
-                        provisioned_throughput=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs(
-                            enabled=True,
-                            volume_throughput=250,
-                        ),
-                        volume_size=1000,
-                    ),
-                ),
-                security_groups=[sg["id"]],
-            ))
+                "storageInfo": {
+                    "ebsStorageInfo": {
+                        "provisionedThroughput": {
+                            "enabled": True,
+                            "volumeThroughput": 250,
+                        },
+                        "volumeSize": 1000,
+                    },
+                },
+                "securityGroups": [sg["id"]],
+            })
         ```
 
         ## Import
@@ -1022,16 +1022,16 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 broker_node_group_info: Optional[pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']]] = None,
-                 client_authentication: Optional[pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']]] = None,
+                 broker_node_group_info: Optional[pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict']]] = None,
+                 client_authentication: Optional[pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 configuration_info: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']]] = None,
-                 encryption_info: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']]] = None,
+                 configuration_info: Optional[pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']]] = None,
+                 encryption_info: Optional[pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']]] = None,
                  enhanced_monitoring: Optional[pulumi.Input[str]] = None,
                  kafka_version: Optional[pulumi.Input[str]] = None,
-                 logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
+                 logging_info: Optional[pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']]] = None,
                  number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
-                 open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
+                 open_monitoring: Optional[pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
                  storage_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1098,18 +1098,18 @@ class Cluster(pulumi.CustomResource):
             bootstrap_brokers_vpc_connectivity_sasl_iam: Optional[pulumi.Input[str]] = None,
             bootstrap_brokers_vpc_connectivity_sasl_scram: Optional[pulumi.Input[str]] = None,
             bootstrap_brokers_vpc_connectivity_tls: Optional[pulumi.Input[str]] = None,
-            broker_node_group_info: Optional[pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']]] = None,
-            client_authentication: Optional[pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']]] = None,
+            broker_node_group_info: Optional[pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict']]] = None,
+            client_authentication: Optional[pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             cluster_uuid: Optional[pulumi.Input[str]] = None,
-            configuration_info: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']]] = None,
+            configuration_info: Optional[pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']]] = None,
             current_version: Optional[pulumi.Input[str]] = None,
-            encryption_info: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']]] = None,
+            encryption_info: Optional[pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']]] = None,
             enhanced_monitoring: Optional[pulumi.Input[str]] = None,
             kafka_version: Optional[pulumi.Input[str]] = None,
-            logging_info: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']]] = None,
+            logging_info: Optional[pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']]] = None,
             number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
-            open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
+            open_monitoring: Optional[pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
             storage_mode: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1133,18 +1133,18 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] bootstrap_brokers_vpc_connectivity_sasl_iam: A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[str] bootstrap_brokers_vpc_connectivity_sasl_scram: A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[str] bootstrap_brokers_vpc_connectivity_tls: A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
-        :param pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: Configuration block for specifying a client authentication. See below.
+        :param pulumi.Input[Union['ClusterBrokerNodeGroupInfoArgs', 'ClusterBrokerNodeGroupInfoArgsDict']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
+        :param pulumi.Input[Union['ClusterClientAuthenticationArgs', 'ClusterClientAuthenticationArgsDict']] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
         :param pulumi.Input[str] cluster_uuid: UUID of the MSK cluster, for use in IAM policies.
-        :param pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
+        :param pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         :param pulumi.Input[str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
-        :param pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']] encryption_info: Configuration block for specifying encryption. See below.
+        :param pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[str] kafka_version: Specify the desired Kafka software version.
-        :param pulumi.Input[pulumi.InputType['ClusterLoggingInfoArgs']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
+        :param pulumi.Input[Union['ClusterLoggingInfoArgs', 'ClusterLoggingInfoArgsDict']] logging_info: Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         :param pulumi.Input[int] number_of_broker_nodes: The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
-        :param pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
+        :param pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         :param pulumi.Input[str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

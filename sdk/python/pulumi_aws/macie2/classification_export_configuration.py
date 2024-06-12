@@ -66,7 +66,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 s3_destination: Optional[pulumi.Input[pulumi.InputType['ClassificationExportConfigurationS3DestinationArgs']]] = None,
+                 s3_destination: Optional[pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
@@ -78,11 +78,11 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.macie2.Account("example")
-        example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("example", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
-            bucket_name=example_aws_s3_bucket["bucket"],
-            key_prefix="exampleprefix/",
-            kms_key_arn=example_aws_kms_key["arn"],
-        ),
+        example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("example", s3_destination={
+            "bucketName": example_aws_s3_bucket["bucket"],
+            "keyPrefix": "exampleprefix/",
+            "kmsKeyArn": example_aws_kms_key["arn"],
+        },
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -96,7 +96,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClassificationExportConfigurationS3DestinationArgs']] s3_destination: Configuration block for a S3 Destination. Defined below
+        :param pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']] s3_destination: Configuration block for a S3 Destination. Defined below
         """
         ...
     @overload
@@ -114,11 +114,11 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.macie2.Account("example")
-        example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("example", s3_destination=aws.macie2.ClassificationExportConfigurationS3DestinationArgs(
-            bucket_name=example_aws_s3_bucket["bucket"],
-            key_prefix="exampleprefix/",
-            kms_key_arn=example_aws_kms_key["arn"],
-        ),
+        example_classification_export_configuration = aws.macie2.ClassificationExportConfiguration("example", s3_destination={
+            "bucketName": example_aws_s3_bucket["bucket"],
+            "keyPrefix": "exampleprefix/",
+            "kmsKeyArn": example_aws_kms_key["arn"],
+        },
         opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -145,7 +145,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 s3_destination: Optional[pulumi.Input[pulumi.InputType['ClassificationExportConfigurationS3DestinationArgs']]] = None,
+                 s3_destination: Optional[pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,7 +166,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            s3_destination: Optional[pulumi.Input[pulumi.InputType['ClassificationExportConfigurationS3DestinationArgs']]] = None) -> 'ClassificationExportConfiguration':
+            s3_destination: Optional[pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']]] = None) -> 'ClassificationExportConfiguration':
         """
         Get an existing ClassificationExportConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -174,7 +174,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClassificationExportConfigurationS3DestinationArgs']] s3_destination: Configuration block for a S3 Destination. Defined below
+        :param pulumi.Input[Union['ClassificationExportConfigurationS3DestinationArgs', 'ClassificationExportConfigurationS3DestinationArgsDict']] s3_destination: Configuration block for a S3 Destination. Defined below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

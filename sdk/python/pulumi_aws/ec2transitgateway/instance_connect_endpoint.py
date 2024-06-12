@@ -323,7 +323,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['InstanceConnectEndpointTimeoutsArgs', 'InstanceConnectEndpointTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an EC2 Instance Connect Endpoint.
@@ -397,7 +397,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['InstanceConnectEndpointTimeoutsArgs', 'InstanceConnectEndpointTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -443,7 +443,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[Union['InstanceConnectEndpointTimeoutsArgs', 'InstanceConnectEndpointTimeoutsArgsDict']]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'InstanceConnectEndpoint':
         """
         Get an existing InstanceConnectEndpoint resource's state with the given name, id, and optional extra

@@ -275,17 +275,17 @@ class PodIdentityAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pods.eks.amazonaws.com"],
-            )],
-            actions=[
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["pods.eks.amazonaws.com"],
+            }],
+            "actions": [
                 "sts:AssumeRole",
                 "sts:TagSession",
             ],
-        )])
+        }])
         example = aws.iam.Role("example",
             name="eks-pod-identity-example",
             assume_role_policy=assume_role.json)
@@ -342,17 +342,17 @@ class PodIdentityAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pods.eks.amazonaws.com"],
-            )],
-            actions=[
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["pods.eks.amazonaws.com"],
+            }],
+            "actions": [
                 "sts:AssumeRole",
                 "sts:TagSession",
             ],
-        )])
+        }])
         example = aws.iam.Role("example",
             name="eks-pod-identity-example",
             assume_role_policy=assume_role.json)

@@ -526,14 +526,14 @@ class Distribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
-                 cache_behavior_settings: Optional[pulumi.Input[pulumi.InputType['DistributionCacheBehaviorSettingsArgs']]] = None,
-                 cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCacheBehaviorArgs']]]]] = None,
+                 cache_behavior_settings: Optional[pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']]] = None,
+                 cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
+                 default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 origin: Optional[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]] = None,
+                 origin: Optional[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -555,29 +555,29 @@ class Distribution(pulumi.CustomResource):
         test_distribution = aws.lightsail.Distribution("test",
             name="test-distribution",
             bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test.name,
-                region_name=test.region,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
-            cache_behavior_settings=aws.lightsail.DistributionCacheBehaviorSettingsArgs(
-                allowed_http_methods="GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-                cached_http_methods="GET,HEAD",
-                default_ttl=86400,
-                maximum_ttl=31536000,
-                minimum_ttl=0,
-                forwarded_cookies=aws.lightsail.DistributionCacheBehaviorSettingsForwardedCookiesArgs(
-                    option="none",
-                ),
-                forwarded_headers=aws.lightsail.DistributionCacheBehaviorSettingsForwardedHeadersArgs(
-                    option="default",
-                ),
-                forwarded_query_strings=aws.lightsail.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs(
-                    option=False,
-                ),
-            ))
+            origin={
+                "name": test.name,
+                "regionName": test.region,
+            },
+            default_cache_behavior={
+                "behavior": "cache",
+            },
+            cache_behavior_settings={
+                "allowedHttpMethods": "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+                "cachedHttpMethods": "GET,HEAD",
+                "defaultTtl": 86400,
+                "maximumTtl": 31536000,
+                "minimumTtl": 0,
+                "forwardedCookies": {
+                    "option": "none",
+                },
+                "forwardedHeaders": {
+                    "option": "default",
+                },
+                "forwardedQueryStrings": {
+                    "option": False,
+                },
+            })
         ```
 
         ### instance origin example
@@ -589,10 +589,10 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         test_static_ip = aws.lightsail.StaticIp("test", name="test-static-ip")
         test_instance = aws.lightsail.Instance("test",
             name="test-instance",
@@ -605,13 +605,13 @@ class Distribution(pulumi.CustomResource):
         test_distribution = aws.lightsail.Distribution("test",
             name="test-distribution",
             bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test_instance.name,
-                region_name=available.id,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
+            origin={
+                "name": test_instance.name,
+                "regionName": available.id,
+            },
+            default_cache_behavior={
+                "behavior": "cache",
+            },
             opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
 
@@ -624,10 +624,10 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         test = aws.lightsail.Lb("test",
             name="test-load-balancer",
             health_check_path="/",
@@ -646,13 +646,13 @@ class Distribution(pulumi.CustomResource):
         test_distribution = aws.lightsail.Distribution("test",
             name="test-distribution",
             bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test.name,
-                region_name=available.id,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
+            origin={
+                "name": test.name,
+                "regionName": available.id,
+            },
+            default_cache_behavior={
+                "behavior": "cache",
+            },
             opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
         ```
 
@@ -667,16 +667,16 @@ class Distribution(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bundle_id: Bundle ID to use for the distribution.
-        :param pulumi.Input[pulumi.InputType['DistributionCacheBehaviorSettingsArgs']] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
+        :param pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCacheBehaviorArgs']]]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         :param pulumi.Input[str] certificate_name: The name of the SSL/TLS certificate attached to the distribution, if any.
-        :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Object that describes the default cache behavior of the distribution. Detailed below
+        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Object that describes the default cache behavior of the distribution. Detailed below
         :param pulumi.Input[str] ip_address_type: The IP address type of the distribution. Default: `dualstack`.
         :param pulumi.Input[bool] is_enabled: Indicates whether the distribution is enabled. Default: `true`.
         :param pulumi.Input[str] name: Name of the distribution.
-        :param pulumi.Input[pulumi.InputType['DistributionOriginArgs']] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+        :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -704,29 +704,29 @@ class Distribution(pulumi.CustomResource):
         test_distribution = aws.lightsail.Distribution("test",
             name="test-distribution",
             bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test.name,
-                region_name=test.region,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
-            cache_behavior_settings=aws.lightsail.DistributionCacheBehaviorSettingsArgs(
-                allowed_http_methods="GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-                cached_http_methods="GET,HEAD",
-                default_ttl=86400,
-                maximum_ttl=31536000,
-                minimum_ttl=0,
-                forwarded_cookies=aws.lightsail.DistributionCacheBehaviorSettingsForwardedCookiesArgs(
-                    option="none",
-                ),
-                forwarded_headers=aws.lightsail.DistributionCacheBehaviorSettingsForwardedHeadersArgs(
-                    option="default",
-                ),
-                forwarded_query_strings=aws.lightsail.DistributionCacheBehaviorSettingsForwardedQueryStringsArgs(
-                    option=False,
-                ),
-            ))
+            origin={
+                "name": test.name,
+                "regionName": test.region,
+            },
+            default_cache_behavior={
+                "behavior": "cache",
+            },
+            cache_behavior_settings={
+                "allowedHttpMethods": "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+                "cachedHttpMethods": "GET,HEAD",
+                "defaultTtl": 86400,
+                "maximumTtl": 31536000,
+                "minimumTtl": 0,
+                "forwardedCookies": {
+                    "option": "none",
+                },
+                "forwardedHeaders": {
+                    "option": "default",
+                },
+                "forwardedQueryStrings": {
+                    "option": False,
+                },
+            })
         ```
 
         ### instance origin example
@@ -738,10 +738,10 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         test_static_ip = aws.lightsail.StaticIp("test", name="test-static-ip")
         test_instance = aws.lightsail.Instance("test",
             name="test-instance",
@@ -754,13 +754,13 @@ class Distribution(pulumi.CustomResource):
         test_distribution = aws.lightsail.Distribution("test",
             name="test-distribution",
             bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test_instance.name,
-                region_name=available.id,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
+            origin={
+                "name": test_instance.name,
+                "regionName": available.id,
+            },
+            default_cache_behavior={
+                "behavior": "cache",
+            },
             opts=pulumi.ResourceOptions(depends_on=[test]))
         ```
 
@@ -773,10 +773,10 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         test = aws.lightsail.Lb("test",
             name="test-load-balancer",
             health_check_path="/",
@@ -795,13 +795,13 @@ class Distribution(pulumi.CustomResource):
         test_distribution = aws.lightsail.Distribution("test",
             name="test-distribution",
             bundle_id="small_1_0",
-            origin=aws.lightsail.DistributionOriginArgs(
-                name=test.name,
-                region_name=available.id,
-            ),
-            default_cache_behavior=aws.lightsail.DistributionDefaultCacheBehaviorArgs(
-                behavior="cache",
-            ),
+            origin={
+                "name": test.name,
+                "regionName": available.id,
+            },
+            default_cache_behavior={
+                "behavior": "cache",
+            },
             opts=pulumi.ResourceOptions(depends_on=[test_lb_attachment]))
         ```
 
@@ -829,14 +829,14 @@ class Distribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
-                 cache_behavior_settings: Optional[pulumi.Input[pulumi.InputType['DistributionCacheBehaviorSettingsArgs']]] = None,
-                 cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCacheBehaviorArgs']]]]] = None,
+                 cache_behavior_settings: Optional[pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']]] = None,
+                 cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]]] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
+                 default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 origin: Optional[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]] = None,
+                 origin: Optional[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -886,17 +886,17 @@ class Distribution(pulumi.CustomResource):
             alternative_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             bundle_id: Optional[pulumi.Input[str]] = None,
-            cache_behavior_settings: Optional[pulumi.Input[pulumi.InputType['DistributionCacheBehaviorSettingsArgs']]] = None,
-            cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCacheBehaviorArgs']]]]] = None,
+            cache_behavior_settings: Optional[pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']]] = None,
+            cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]]] = None,
             certificate_name: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
-            default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
+            default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
             is_enabled: Optional[pulumi.Input[bool]] = None,
-            locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionLocationArgs']]]]] = None,
+            locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionLocationArgs', 'DistributionLocationArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            origin: Optional[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]] = None,
+            origin: Optional[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]] = None,
             origin_public_dns: Optional[pulumi.Input[str]] = None,
             resource_type: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -913,19 +913,19 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alternative_domain_names: The alternate domain names of the distribution.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the distribution.
         :param pulumi.Input[str] bundle_id: Bundle ID to use for the distribution.
-        :param pulumi.Input[pulumi.InputType['DistributionCacheBehaviorSettingsArgs']] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
+        :param pulumi.Input[Union['DistributionCacheBehaviorSettingsArgs', 'DistributionCacheBehaviorSettingsArgsDict']] cache_behavior_settings: An object that describes the cache behavior settings of the distribution. Detailed below
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCacheBehaviorArgs']]]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionCacheBehaviorArgs', 'DistributionCacheBehaviorArgsDict']]]] cache_behaviors: A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         :param pulumi.Input[str] certificate_name: The name of the SSL/TLS certificate attached to the distribution, if any.
         :param pulumi.Input[str] created_at: The timestamp when the distribution was created.
-        :param pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']] default_cache_behavior: Object that describes the default cache behavior of the distribution. Detailed below
+        :param pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']] default_cache_behavior: Object that describes the default cache behavior of the distribution. Detailed below
         :param pulumi.Input[str] domain_name: The domain name of the distribution.
         :param pulumi.Input[str] ip_address_type: The IP address type of the distribution. Default: `dualstack`.
         :param pulumi.Input[bool] is_enabled: Indicates whether the distribution is enabled. Default: `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionLocationArgs']]]] locations: An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionLocationArgs', 'DistributionLocationArgsDict']]]] locations: An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
         :param pulumi.Input[str] name: Name of the distribution.
-        :param pulumi.Input[pulumi.InputType['DistributionOriginArgs']] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
+        :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         :param pulumi.Input[str] origin_public_dns: The public DNS of the origin.
         :param pulumi.Input[str] resource_type: The Lightsail resource type (e.g., Distribution).
         :param pulumi.Input[str] status: The status of the distribution.

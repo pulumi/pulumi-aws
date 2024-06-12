@@ -131,7 +131,7 @@ class PolicyStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 validation_settings: Optional[pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']]] = None,
+                 validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -142,9 +142,9 @@ class PolicyStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedpermissions.PolicyStore("example", validation_settings=aws.verifiedpermissions.PolicyStoreValidationSettingsArgs(
-            mode="STRICT",
-        ))
+        example = aws.verifiedpermissions.PolicyStore("example", validation_settings={
+            "mode": "STRICT",
+        })
         ```
 
         ## Import
@@ -158,7 +158,7 @@ class PolicyStore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the Policy Store.
-        :param pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']] validation_settings: Validation settings for the policy store.
+        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']] validation_settings: Validation settings for the policy store.
         """
         ...
     @overload
@@ -175,9 +175,9 @@ class PolicyStore(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.verifiedpermissions.PolicyStore("example", validation_settings=aws.verifiedpermissions.PolicyStoreValidationSettingsArgs(
-            mode="STRICT",
-        ))
+        example = aws.verifiedpermissions.PolicyStore("example", validation_settings={
+            "mode": "STRICT",
+        })
         ```
 
         ## Import
@@ -204,7 +204,7 @@ class PolicyStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 validation_settings: Optional[pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']]] = None,
+                 validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -231,7 +231,7 @@ class PolicyStore(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             policy_store_id: Optional[pulumi.Input[str]] = None,
-            validation_settings: Optional[pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']]] = None) -> 'PolicyStore':
+            validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None) -> 'PolicyStore':
         """
         Get an existing PolicyStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -242,7 +242,7 @@ class PolicyStore(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Policy Store.
         :param pulumi.Input[str] description: A description of the Policy Store.
         :param pulumi.Input[str] policy_store_id: The ID of the Policy Store.
-        :param pulumi.Input[pulumi.InputType['PolicyStoreValidationSettingsArgs']] validation_settings: Validation settings for the policy store.
+        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']] validation_settings: Validation settings for the policy store.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

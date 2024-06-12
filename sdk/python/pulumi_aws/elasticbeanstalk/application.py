@@ -192,7 +192,7 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArgs']]] = None,
+                 appversion_lifecycle: Optional[pulumi.Input[Union['ApplicationAppversionLifecycleArgs', 'ApplicationAppversionLifecycleArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -214,11 +214,11 @@ class Application(pulumi.CustomResource):
         tftest = aws.elasticbeanstalk.Application("tftest",
             name="tf-test-name",
             description="tf-test-desc",
-            appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
-                service_role=beanstalk_service["arn"],
-                max_count=128,
-                delete_source_from_s3=True,
-            ))
+            appversion_lifecycle={
+                "serviceRole": beanstalk_service["arn"],
+                "maxCount": 128,
+                "deleteSourceFromS3": True,
+            })
         ```
 
         ## Import
@@ -258,11 +258,11 @@ class Application(pulumi.CustomResource):
         tftest = aws.elasticbeanstalk.Application("tftest",
             name="tf-test-name",
             description="tf-test-desc",
-            appversion_lifecycle=aws.elasticbeanstalk.ApplicationAppversionLifecycleArgs(
-                service_role=beanstalk_service["arn"],
-                max_count=128,
-                delete_source_from_s3=True,
-            ))
+            appversion_lifecycle={
+                "serviceRole": beanstalk_service["arn"],
+                "maxCount": 128,
+                "deleteSourceFromS3": True,
+            })
         ```
 
         ## Import
@@ -288,7 +288,7 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArgs']]] = None,
+                 appversion_lifecycle: Optional[pulumi.Input[Union['ApplicationAppversionLifecycleArgs', 'ApplicationAppversionLifecycleArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -317,7 +317,7 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            appversion_lifecycle: Optional[pulumi.Input[pulumi.InputType['ApplicationAppversionLifecycleArgs']]] = None,
+            appversion_lifecycle: Optional[pulumi.Input[Union['ApplicationAppversionLifecycleArgs', 'ApplicationAppversionLifecycleArgsDict']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,

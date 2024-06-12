@@ -167,7 +167,7 @@ class MonitoringSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringScheduleConfigArgs']]] = None,
+                 monitoring_schedule_config: Optional[pulumi.Input[Union['MonitoringScheduleMonitoringScheduleConfigArgs', 'MonitoringScheduleMonitoringScheduleConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -184,10 +184,10 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         test = aws.sagemaker.MonitoringSchedule("test",
             name="my-monitoring-schedule",
-            monitoring_schedule_config=aws.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs(
-                monitoring_job_definition_name=test_aws_sagemaker_data_quality_job_definition["name"],
-                monitoring_type="DataQuality",
-            ))
+            monitoring_schedule_config={
+                "monitoringJobDefinitionName": test_aws_sagemaker_data_quality_job_definition["name"],
+                "monitoringType": "DataQuality",
+            })
         ```
 
         ## Import
@@ -200,7 +200,7 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringScheduleConfigArgs']] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
+        :param pulumi.Input[Union['MonitoringScheduleMonitoringScheduleConfigArgs', 'MonitoringScheduleMonitoringScheduleConfigArgsDict']] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
         :param pulumi.Input[str] name: The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -223,10 +223,10 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         test = aws.sagemaker.MonitoringSchedule("test",
             name="my-monitoring-schedule",
-            monitoring_schedule_config=aws.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs(
-                monitoring_job_definition_name=test_aws_sagemaker_data_quality_job_definition["name"],
-                monitoring_type="DataQuality",
-            ))
+            monitoring_schedule_config={
+                "monitoringJobDefinitionName": test_aws_sagemaker_data_quality_job_definition["name"],
+                "monitoringType": "DataQuality",
+            })
         ```
 
         ## Import
@@ -252,7 +252,7 @@ class MonitoringSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringScheduleConfigArgs']]] = None,
+                 monitoring_schedule_config: Optional[pulumi.Input[Union['MonitoringScheduleMonitoringScheduleConfigArgs', 'MonitoringScheduleMonitoringScheduleConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -282,7 +282,7 @@ class MonitoringSchedule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringScheduleConfigArgs']]] = None,
+            monitoring_schedule_config: Optional[pulumi.Input[Union['MonitoringScheduleMonitoringScheduleConfigArgs', 'MonitoringScheduleMonitoringScheduleConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'MonitoringSchedule':
@@ -294,7 +294,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
-        :param pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringScheduleConfigArgs']] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
+        :param pulumi.Input[Union['MonitoringScheduleMonitoringScheduleConfigArgs', 'MonitoringScheduleMonitoringScheduleConfigArgsDict']] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
         :param pulumi.Input[str] name: The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

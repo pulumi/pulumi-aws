@@ -742,7 +742,7 @@ class NfsFileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
+                 cache_attributes: Optional[pulumi.Input[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
                  client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
@@ -751,7 +751,7 @@ class NfsFileShare(pulumi.CustomResource):
                  kms_encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  location_arn: Optional[pulumi.Input[str]] = None,
-                 nfs_file_share_defaults: Optional[pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']]] = None,
+                 nfs_file_share_defaults: Optional[pulumi.Input[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
                  notification_policy: Optional[pulumi.Input[str]] = None,
                  object_acl: Optional[pulumi.Input[str]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
@@ -789,7 +789,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
         :param pulumi.Input[str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
-        :param pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -798,7 +798,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
-        :param pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
+        :param pulumi.Input[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
@@ -855,7 +855,7 @@ class NfsFileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  bucket_region: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
+                 cache_attributes: Optional[pulumi.Input[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
                  client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
@@ -864,7 +864,7 @@ class NfsFileShare(pulumi.CustomResource):
                  kms_encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  location_arn: Optional[pulumi.Input[str]] = None,
-                 nfs_file_share_defaults: Optional[pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']]] = None,
+                 nfs_file_share_defaults: Optional[pulumi.Input[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
                  notification_policy: Optional[pulumi.Input[str]] = None,
                  object_acl: Optional[pulumi.Input[str]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
@@ -927,7 +927,7 @@ class NfsFileShare(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             audit_destination_arn: Optional[pulumi.Input[str]] = None,
             bucket_region: Optional[pulumi.Input[str]] = None,
-            cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
+            cache_attributes: Optional[pulumi.Input[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']]] = None,
             client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
             file_share_name: Optional[pulumi.Input[str]] = None,
@@ -937,7 +937,7 @@ class NfsFileShare(pulumi.CustomResource):
             kms_encrypted: Optional[pulumi.Input[bool]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             location_arn: Optional[pulumi.Input[str]] = None,
-            nfs_file_share_defaults: Optional[pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']]] = None,
+            nfs_file_share_defaults: Optional[pulumi.Input[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']]] = None,
             notification_policy: Optional[pulumi.Input[str]] = None,
             object_acl: Optional[pulumi.Input[str]] = None,
             path: Optional[pulumi.Input[str]] = None,
@@ -958,7 +958,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the NFS File Share.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
         :param pulumi.Input[str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
-        :param pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -968,7 +968,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
-        :param pulumi.Input[pulumi.InputType['NfsFileShareNfsFileShareDefaultsArgs']] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
+        :param pulumi.Input[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[str] path: File share path used by the NFS client to identify the mount point.

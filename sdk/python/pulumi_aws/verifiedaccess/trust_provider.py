@@ -315,9 +315,9 @@ class TrustProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 device_options: Optional[pulumi.Input[pulumi.InputType['TrustProviderDeviceOptionsArgs']]] = None,
+                 device_options: Optional[pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
                  device_trust_provider_type: Optional[pulumi.Input[str]] = None,
-                 oidc_options: Optional[pulumi.Input[pulumi.InputType['TrustProviderOidcOptionsArgs']]] = None,
+                 oidc_options: Optional[pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
                  policy_reference_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trust_provider_type: Optional[pulumi.Input[str]] = None,
@@ -349,9 +349,9 @@ class TrustProvider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the AWS Verified Access trust provider.
-        :param pulumi.Input[pulumi.InputType['TrustProviderDeviceOptionsArgs']] device_options: A block of options for device identity based trust providers.
+        :param pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']] device_options: A block of options for device identity based trust providers.
         :param pulumi.Input[str] device_trust_provider_type: The type of device-based trust provider.
-        :param pulumi.Input[pulumi.InputType['TrustProviderOidcOptionsArgs']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
         :param pulumi.Input[str] policy_reference_name: The identifier to be used when working with policy rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] trust_provider_type: The type of trust provider can be either user or device-based.
@@ -404,9 +404,9 @@ class TrustProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 device_options: Optional[pulumi.Input[pulumi.InputType['TrustProviderDeviceOptionsArgs']]] = None,
+                 device_options: Optional[pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
                  device_trust_provider_type: Optional[pulumi.Input[str]] = None,
-                 oidc_options: Optional[pulumi.Input[pulumi.InputType['TrustProviderOidcOptionsArgs']]] = None,
+                 oidc_options: Optional[pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
                  policy_reference_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trust_provider_type: Optional[pulumi.Input[str]] = None,
@@ -444,9 +444,9 @@ class TrustProvider(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            device_options: Optional[pulumi.Input[pulumi.InputType['TrustProviderDeviceOptionsArgs']]] = None,
+            device_options: Optional[pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']]] = None,
             device_trust_provider_type: Optional[pulumi.Input[str]] = None,
-            oidc_options: Optional[pulumi.Input[pulumi.InputType['TrustProviderOidcOptionsArgs']]] = None,
+            oidc_options: Optional[pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']]] = None,
             policy_reference_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -460,9 +460,9 @@ class TrustProvider(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the AWS Verified Access trust provider.
-        :param pulumi.Input[pulumi.InputType['TrustProviderDeviceOptionsArgs']] device_options: A block of options for device identity based trust providers.
+        :param pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict']] device_options: A block of options for device identity based trust providers.
         :param pulumi.Input[str] device_trust_provider_type: The type of device-based trust provider.
-        :param pulumi.Input[pulumi.InputType['TrustProviderOidcOptionsArgs']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
         :param pulumi.Input[str] policy_reference_name: The identifier to be used when working with policy rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] trust_provider_type: The type of trust provider can be either user or device-based.

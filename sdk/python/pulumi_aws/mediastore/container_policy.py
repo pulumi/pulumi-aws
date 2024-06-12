@@ -107,21 +107,21 @@ class ContainerPolicy(pulumi.CustomResource):
         current = aws.get_region()
         current_get_caller_identity = aws.get_caller_identity()
         example_container = aws.mediastore.Container("example", name="example")
-        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="MediaStoreFullAccess",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
-            )],
-            actions=["mediastore:*"],
-            resources=[example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.name}:{current_get_caller_identity.account_id}:container/{name}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="Bool",
-                variable="aws:SecureTransport",
-                values=["true"],
-            )],
-        )])
+        example = aws.iam.get_policy_document_output(statements=[{
+            "sid": "MediaStoreFullAccess",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
+            }],
+            "actions": ["mediastore:*"],
+            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.name}:{current_get_caller_identity.account_id}:container/{name}/*")],
+            "conditions": [{
+                "test": "Bool",
+                "variable": "aws:SecureTransport",
+                "values": ["true"],
+            }],
+        }])
         example_container_policy = aws.mediastore.ContainerPolicy("example",
             container_name=example_container.name,
             policy=example.json)
@@ -156,21 +156,21 @@ class ContainerPolicy(pulumi.CustomResource):
         current = aws.get_region()
         current_get_caller_identity = aws.get_caller_identity()
         example_container = aws.mediastore.Container("example", name="example")
-        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="MediaStoreFullAccess",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
-            )],
-            actions=["mediastore:*"],
-            resources=[example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.name}:{current_get_caller_identity.account_id}:container/{name}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="Bool",
-                variable="aws:SecureTransport",
-                values=["true"],
-            )],
-        )])
+        example = aws.iam.get_policy_document_output(statements=[{
+            "sid": "MediaStoreFullAccess",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
+            }],
+            "actions": ["mediastore:*"],
+            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.name}:{current_get_caller_identity.account_id}:container/{name}/*")],
+            "conditions": [{
+                "test": "Bool",
+                "variable": "aws:SecureTransport",
+                "values": ["true"],
+            }],
+        }])
         example_container_policy = aws.mediastore.ContainerPolicy("example",
             container_name=example_container.name,
             policy=example.json)

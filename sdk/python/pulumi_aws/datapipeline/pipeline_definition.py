@@ -168,10 +168,10 @@ class PipelineDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterObjectArgs']]]]] = None,
-                 parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterValueArgs']]]]] = None,
+                 parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterObjectArgs', 'PipelineDefinitionParameterObjectArgsDict']]]]] = None,
+                 parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict']]]]] = None,
                  pipeline_id: Optional[pulumi.Input[str]] = None,
-                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionPipelineObjectArgs']]]]] = None,
+                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a DataPipeline Pipeline Definition resource.
@@ -186,58 +186,58 @@ class PipelineDefinition(pulumi.CustomResource):
         example = aws.datapipeline.PipelineDefinition("example",
             pipeline_id=default.id,
             pipeline_objects=[
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="Default",
-                    name="Default",
-                    fields=[aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                        key="workerGroup",
-                        string_value="workerGroup",
-                    )],
-                ),
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="Schedule",
-                    name="Schedule",
-                    fields=[
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="startDateTime",
-                            string_value="2012-12-12T00:00:00",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="type",
-                            string_value="Schedule",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="period",
-                            string_value="1 hour",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="endDateTime",
-                            string_value="2012-12-21T18:00:00",
-                        ),
+                {
+                    "id": "Default",
+                    "name": "Default",
+                    "fields": [{
+                        "key": "workerGroup",
+                        "stringValue": "workerGroup",
+                    }],
+                },
+                {
+                    "id": "Schedule",
+                    "name": "Schedule",
+                    "fields": [
+                        {
+                            "key": "startDateTime",
+                            "stringValue": "2012-12-12T00:00:00",
+                        },
+                        {
+                            "key": "type",
+                            "stringValue": "Schedule",
+                        },
+                        {
+                            "key": "period",
+                            "stringValue": "1 hour",
+                        },
+                        {
+                            "key": "endDateTime",
+                            "stringValue": "2012-12-21T18:00:00",
+                        },
                     ],
-                ),
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="SayHello",
-                    name="SayHello",
-                    fields=[
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="type",
-                            string_value="ShellCommandActivity",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="command",
-                            string_value="echo hello",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="parent",
-                            string_value="Default",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="schedule",
-                            string_value="Schedule",
-                        ),
+                },
+                {
+                    "id": "SayHello",
+                    "name": "SayHello",
+                    "fields": [
+                        {
+                            "key": "type",
+                            "stringValue": "ShellCommandActivity",
+                        },
+                        {
+                            "key": "command",
+                            "stringValue": "echo hello",
+                        },
+                        {
+                            "key": "parent",
+                            "stringValue": "Default",
+                        },
+                        {
+                            "key": "schedule",
+                            "stringValue": "Schedule",
+                        },
                     ],
-                ),
+                },
             ])
         ```
 
@@ -251,10 +251,10 @@ class PipelineDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterObjectArgs']]]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterValueArgs']]]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterObjectArgs', 'PipelineDefinitionParameterObjectArgsDict']]]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict']]]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
         :param pulumi.Input[str] pipeline_id: ID of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionPipelineObjectArgs']]]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
                
                The following arguments are optional:
         """
@@ -277,58 +277,58 @@ class PipelineDefinition(pulumi.CustomResource):
         example = aws.datapipeline.PipelineDefinition("example",
             pipeline_id=default.id,
             pipeline_objects=[
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="Default",
-                    name="Default",
-                    fields=[aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                        key="workerGroup",
-                        string_value="workerGroup",
-                    )],
-                ),
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="Schedule",
-                    name="Schedule",
-                    fields=[
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="startDateTime",
-                            string_value="2012-12-12T00:00:00",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="type",
-                            string_value="Schedule",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="period",
-                            string_value="1 hour",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="endDateTime",
-                            string_value="2012-12-21T18:00:00",
-                        ),
+                {
+                    "id": "Default",
+                    "name": "Default",
+                    "fields": [{
+                        "key": "workerGroup",
+                        "stringValue": "workerGroup",
+                    }],
+                },
+                {
+                    "id": "Schedule",
+                    "name": "Schedule",
+                    "fields": [
+                        {
+                            "key": "startDateTime",
+                            "stringValue": "2012-12-12T00:00:00",
+                        },
+                        {
+                            "key": "type",
+                            "stringValue": "Schedule",
+                        },
+                        {
+                            "key": "period",
+                            "stringValue": "1 hour",
+                        },
+                        {
+                            "key": "endDateTime",
+                            "stringValue": "2012-12-21T18:00:00",
+                        },
                     ],
-                ),
-                aws.datapipeline.PipelineDefinitionPipelineObjectArgs(
-                    id="SayHello",
-                    name="SayHello",
-                    fields=[
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="type",
-                            string_value="ShellCommandActivity",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="command",
-                            string_value="echo hello",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="parent",
-                            string_value="Default",
-                        ),
-                        aws.datapipeline.PipelineDefinitionPipelineObjectFieldArgs(
-                            key="schedule",
-                            string_value="Schedule",
-                        ),
+                },
+                {
+                    "id": "SayHello",
+                    "name": "SayHello",
+                    "fields": [
+                        {
+                            "key": "type",
+                            "stringValue": "ShellCommandActivity",
+                        },
+                        {
+                            "key": "command",
+                            "stringValue": "echo hello",
+                        },
+                        {
+                            "key": "parent",
+                            "stringValue": "Default",
+                        },
+                        {
+                            "key": "schedule",
+                            "stringValue": "Schedule",
+                        },
                     ],
-                ),
+                },
             ])
         ```
 
@@ -355,10 +355,10 @@ class PipelineDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterObjectArgs']]]]] = None,
-                 parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterValueArgs']]]]] = None,
+                 parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterObjectArgs', 'PipelineDefinitionParameterObjectArgsDict']]]]] = None,
+                 parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict']]]]] = None,
                  pipeline_id: Optional[pulumi.Input[str]] = None,
-                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionPipelineObjectArgs']]]]] = None,
+                 pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -386,10 +386,10 @@ class PipelineDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterObjectArgs']]]]] = None,
-            parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterValueArgs']]]]] = None,
+            parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterObjectArgs', 'PipelineDefinitionParameterObjectArgsDict']]]]] = None,
+            parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict']]]]] = None,
             pipeline_id: Optional[pulumi.Input[str]] = None,
-            pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionPipelineObjectArgs']]]]] = None) -> 'PipelineDefinition':
+            pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]]] = None) -> 'PipelineDefinition':
         """
         Get an existing PipelineDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -397,10 +397,10 @@ class PipelineDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterObjectArgs']]]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionParameterValueArgs']]]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterObjectArgs', 'PipelineDefinitionParameterObjectArgsDict']]]] parameter_objects: Configuration block for the parameter objects used in the pipeline definition. See below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionParameterValueArgs', 'PipelineDefinitionParameterValueArgsDict']]]] parameter_values: Configuration block for the parameter values used in the pipeline definition. See below
         :param pulumi.Input[str] pipeline_id: ID of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineDefinitionPipelineObjectArgs']]]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineDefinitionPipelineObjectArgs', 'PipelineDefinitionPipelineObjectArgsDict']]]] pipeline_objects: Configuration block for the objects that define the pipeline. See below
                
                The following arguments are optional:
         """

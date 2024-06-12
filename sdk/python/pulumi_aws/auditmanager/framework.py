@@ -255,7 +255,7 @@ class Framework(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compliance_type: Optional[pulumi.Input[str]] = None,
-                 control_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlSetArgs']]]]] = None,
+                 control_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -273,17 +273,17 @@ class Framework(pulumi.CustomResource):
 
         test = aws.auditmanager.Framework("test",
             name="example",
-            control_sets=[aws.auditmanager.FrameworkControlSetArgs(
-                name="example",
-                controls=[
-                    aws.auditmanager.FrameworkControlSetControlArgs(
-                        id=test1["id"],
-                    ),
-                    aws.auditmanager.FrameworkControlSetControlArgs(
-                        id=test2["id"],
-                    ),
+            control_sets=[{
+                "name": "example",
+                "controls": [
+                    {
+                        "id": test1["id"],
+                    },
+                    {
+                        "id": test2["id"],
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -297,7 +297,7 @@ class Framework(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlSetArgs']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the framework.
@@ -323,17 +323,17 @@ class Framework(pulumi.CustomResource):
 
         test = aws.auditmanager.Framework("test",
             name="example",
-            control_sets=[aws.auditmanager.FrameworkControlSetArgs(
-                name="example",
-                controls=[
-                    aws.auditmanager.FrameworkControlSetControlArgs(
-                        id=test1["id"],
-                    ),
-                    aws.auditmanager.FrameworkControlSetControlArgs(
-                        id=test2["id"],
-                    ),
+            control_sets=[{
+                "name": "example",
+                "controls": [
+                    {
+                        "id": test1["id"],
+                    },
+                    {
+                        "id": test2["id"],
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -360,7 +360,7 @@ class Framework(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compliance_type: Optional[pulumi.Input[str]] = None,
-                 control_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlSetArgs']]]]] = None,
+                 control_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -393,7 +393,7 @@ class Framework(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             compliance_type: Optional[pulumi.Input[str]] = None,
-            control_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlSetArgs']]]]] = None,
+            control_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             framework_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -409,7 +409,7 @@ class Framework(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the framework.
                * `control_sets[*].id` - Unique identifier for the framework control set.
         :param pulumi.Input[str] compliance_type: Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlSetArgs']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlSetArgs', 'FrameworkControlSetArgsDict']]]] control_sets: Configuration block(s) for the control sets that are associated with the framework. See `control_sets` Block below for details.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the framework.

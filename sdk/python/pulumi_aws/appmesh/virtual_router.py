@@ -281,7 +281,7 @@ class VirtualRouter(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualRouterSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['VirtualRouterSpecArgs', 'VirtualRouterSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -306,14 +306,14 @@ class VirtualRouter(pulumi.CustomResource):
         serviceb = aws.appmesh.VirtualRouter("serviceb",
             name="serviceB",
             mesh_name=simple["id"],
-            spec=aws.appmesh.VirtualRouterSpecArgs(
-                listeners=[aws.appmesh.VirtualRouterSpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualRouterSpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                )],
-            ))
+            spec={
+                "listeners": [{
+                    "portMapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                }],
+            })
         ```
 
         ## Import
@@ -329,7 +329,7 @@ class VirtualRouter(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the virtual router. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[pulumi.InputType['VirtualRouterSpecArgs']] spec: Virtual router specification to apply.
+        :param pulumi.Input[Union['VirtualRouterSpecArgs', 'VirtualRouterSpecArgsDict']] spec: Virtual router specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -360,14 +360,14 @@ class VirtualRouter(pulumi.CustomResource):
         serviceb = aws.appmesh.VirtualRouter("serviceb",
             name="serviceB",
             mesh_name=simple["id"],
-            spec=aws.appmesh.VirtualRouterSpecArgs(
-                listeners=[aws.appmesh.VirtualRouterSpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualRouterSpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                )],
-            ))
+            spec={
+                "listeners": [{
+                    "portMapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                }],
+            })
         ```
 
         ## Import
@@ -396,7 +396,7 @@ class VirtualRouter(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualRouterSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['VirtualRouterSpecArgs', 'VirtualRouterSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -438,7 +438,7 @@ class VirtualRouter(pulumi.CustomResource):
             mesh_owner: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_owner: Optional[pulumi.Input[str]] = None,
-            spec: Optional[pulumi.Input[pulumi.InputType['VirtualRouterSpecArgs']]] = None,
+            spec: Optional[pulumi.Input[Union['VirtualRouterSpecArgs', 'VirtualRouterSpecArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VirtualRouter':
         """
@@ -455,7 +455,7 @@ class VirtualRouter(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the virtual router. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[pulumi.InputType['VirtualRouterSpecArgs']] spec: Virtual router specification to apply.
+        :param pulumi.Input[Union['VirtualRouterSpecArgs', 'VirtualRouterSpecArgsDict']] spec: Virtual router specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

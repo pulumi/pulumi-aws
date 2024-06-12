@@ -177,7 +177,7 @@ class ConnectionAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ConnectionAliasTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ConnectionAliasTimeoutsArgs', 'ConnectionAliasTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS WorkSpaces Connection Alias.
@@ -251,7 +251,7 @@ class ConnectionAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ConnectionAliasTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ConnectionAliasTimeoutsArgs', 'ConnectionAliasTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -284,7 +284,7 @@ class ConnectionAlias(pulumi.CustomResource):
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ConnectionAliasTimeoutsArgs']]] = None) -> 'ConnectionAlias':
+            timeouts: Optional[pulumi.Input[Union['ConnectionAliasTimeoutsArgs', 'ConnectionAliasTimeoutsArgsDict']]] = None) -> 'ConnectionAlias':
         """
         Get an existing ConnectionAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

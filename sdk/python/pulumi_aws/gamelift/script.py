@@ -233,7 +233,7 @@ class Script(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['ScriptStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  zip_file: Optional[pulumi.Input[str]] = None,
@@ -249,11 +249,11 @@ class Script(pulumi.CustomResource):
 
         example = aws.gamelift.Script("example",
             name="example-script",
-            storage_location=aws.gamelift.ScriptStorageLocationArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key=example_aws_s3_object["key"],
-                role_arn=example_aws_iam_role["arn"],
-            ))
+            storage_location={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": example_aws_s3_object["key"],
+                "roleArn": example_aws_iam_role["arn"],
+            })
         ```
 
         ## Import
@@ -267,7 +267,7 @@ class Script(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the script
-        :param pulumi.Input[pulumi.InputType['ScriptStorageLocationArgs']] storage_location: Information indicating where your game script files are stored. See below.
+        :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version: Version that is associated with this script.
         :param pulumi.Input[str] zip_file: A data object containing your Realtime scripts and dependencies as a zip  file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
@@ -289,11 +289,11 @@ class Script(pulumi.CustomResource):
 
         example = aws.gamelift.Script("example",
             name="example-script",
-            storage_location=aws.gamelift.ScriptStorageLocationArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key=example_aws_s3_object["key"],
-                role_arn=example_aws_iam_role["arn"],
-            ))
+            storage_location={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": example_aws_s3_object["key"],
+                "roleArn": example_aws_iam_role["arn"],
+            })
         ```
 
         ## Import
@@ -320,7 +320,7 @@ class Script(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['ScriptStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  zip_file: Optional[pulumi.Input[str]] = None,
@@ -352,7 +352,7 @@ class Script(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            storage_location: Optional[pulumi.Input[pulumi.InputType['ScriptStorageLocationArgs']]] = None,
+            storage_location: Optional[pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None,
@@ -366,7 +366,7 @@ class Script(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: GameLift Script ARN.
         :param pulumi.Input[str] name: Name of the script
-        :param pulumi.Input[pulumi.InputType['ScriptStorageLocationArgs']] storage_location: Information indicating where your game script files are stored. See below.
+        :param pulumi.Input[Union['ScriptStorageLocationArgs', 'ScriptStorageLocationArgsDict']] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: Version that is associated with this script.

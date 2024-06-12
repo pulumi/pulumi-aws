@@ -211,14 +211,14 @@ class NamedQuery(pulumi.CustomResource):
             description="Athena KMS Key")
         test_workgroup = aws.athena.Workgroup("test",
             name="example",
-            configuration=aws.athena.WorkgroupConfigurationArgs(
-                result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                    encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                        encryption_option="SSE_KMS",
-                        kms_key_arn=test.arn,
-                    ),
-                ),
-            ))
+            configuration={
+                "resultConfiguration": {
+                    "encryptionConfiguration": {
+                        "encryptionOption": "SSE_KMS",
+                        "kmsKeyArn": test.arn,
+                    },
+                },
+            })
         hoge_database = aws.athena.Database("hoge",
             name="users",
             bucket=hoge.id)
@@ -266,14 +266,14 @@ class NamedQuery(pulumi.CustomResource):
             description="Athena KMS Key")
         test_workgroup = aws.athena.Workgroup("test",
             name="example",
-            configuration=aws.athena.WorkgroupConfigurationArgs(
-                result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                    encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                        encryption_option="SSE_KMS",
-                        kms_key_arn=test.arn,
-                    ),
-                ),
-            ))
+            configuration={
+                "resultConfiguration": {
+                    "encryptionConfiguration": {
+                        "encryptionOption": "SSE_KMS",
+                        "kmsKeyArn": test.arn,
+                    },
+                },
+            })
         hoge_database = aws.athena.Database("hoge",
             name="users",
             bucket=hoge.id)

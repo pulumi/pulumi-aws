@@ -572,21 +572,21 @@ class Record(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]]] = None,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]]] = None,
                  allow_overwrite: Optional[pulumi.Input[bool]] = None,
-                 cidr_routing_policy: Optional[pulumi.Input[pulumi.InputType['RecordCidrRoutingPolicyArgs']]] = None,
-                 failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]]] = None,
-                 geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordGeolocationRoutingPolicyArgs']]]]] = None,
-                 geoproximity_routing_policy: Optional[pulumi.Input[pulumi.InputType['RecordGeoproximityRoutingPolicyArgs']]] = None,
+                 cidr_routing_policy: Optional[pulumi.Input[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']]] = None,
+                 failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]]] = None,
+                 geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]]] = None,
+                 geoproximity_routing_policy: Optional[pulumi.Input[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']]] = None,
                  health_check_id: Optional[pulumi.Input[str]] = None,
-                 latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordLatencyRoutingPolicyArgs']]]]] = None,
+                 latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]]] = None,
                  multivalue_answer_routing_policy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  set_identifier: Optional[pulumi.Input[str]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[Union[str, 'RecordType']]] = None,
-                 weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordWeightedRoutingPolicyArgs']]]]] = None,
+                 weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]]] = None,
                  zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -621,9 +621,9 @@ class Record(pulumi.CustomResource):
             name="www",
             type=aws.route53.RecordType.CNAME,
             ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=10,
-            )],
+            weighted_routing_policies=[{
+                "weight": 10,
+            }],
             set_identifier="dev",
             records=["dev.example.com"])
         www_live = aws.route53.Record("www-live",
@@ -631,9 +631,9 @@ class Record(pulumi.CustomResource):
             name="www",
             type=aws.route53.RecordType.CNAME,
             ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=90,
-            )],
+            weighted_routing_policies=[{
+                "weight": 90,
+            }],
             set_identifier="live",
             records=["live.example.com"])
         ```
@@ -649,12 +649,12 @@ class Record(pulumi.CustomResource):
             name="www.example.com",
             type=aws.route53.RecordType.CNAME,
             ttl=300,
-            geoproximity_routing_policy=aws.route53.RecordGeoproximityRoutingPolicyArgs(
-                coordinates=[aws.route53.RecordGeoproximityRoutingPolicyCoordinateArgs(
-                    latitude="49.22",
-                    longitude="-74.01",
-                )],
-            ),
+            geoproximity_routing_policy={
+                "coordinates": [{
+                    "latitude": "49.22",
+                    "longitude": "-74.01",
+                }],
+            },
             set_identifier="dev",
             records=["dev.example.com"])
         ```
@@ -674,21 +674,21 @@ class Record(pulumi.CustomResource):
         main = aws.elb.LoadBalancer("main",
             name="foobar-elb",
             availability_zones=["us-east-1c"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=80,
-                instance_protocol="http",
-                lb_port=80,
-                lb_protocol="http",
-            )])
+            listeners=[{
+                "instancePort": 80,
+                "instanceProtocol": "http",
+                "lbPort": 80,
+                "lbProtocol": "http",
+            }])
         www = aws.route53.Record("www",
             zone_id=primary["zoneId"],
             name="example.com",
             type=aws.route53.RecordType.A,
-            aliases=[aws.route53.RecordAliasArgs(
-                name=main.dns_name,
-                zone_id=main.zone_id,
-                evaluate_target_health=True,
-            )])
+            aliases=[{
+                "name": main.dns_name,
+                "zoneId": main.zone_id,
+                "evaluateTargetHealth": True,
+            }])
         ```
 
         ### NS and SOA Record Management
@@ -735,24 +735,24 @@ class Record(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
                Documented below.
         :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
                
                Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
-        :param pulumi.Input[pulumi.InputType['RecordCidrRoutingPolicyArgs']] cidr_routing_policy: A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordGeolocationRoutingPolicyArgs']]]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[pulumi.InputType['RecordGeoproximityRoutingPolicyArgs']] geoproximity_routing_policy: A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']] cidr_routing_policy: A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']] geoproximity_routing_policy: A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[str] health_check_id: The health check the record should be associated with.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordLatencyRoutingPolicyArgs']]]] latency_routing_policies: A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]] latency_routing_policies: A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[bool] multivalue_answer_routing_policy: Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
         :param pulumi.Input[str] name: The name of the record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
         :param pulumi.Input[str] set_identifier: Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         :param pulumi.Input[int] ttl: The TTL of the record.
         :param pulumi.Input[Union[str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordWeightedRoutingPolicyArgs']]]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[str] zone_id: The ID of the hosted zone to contain this record.
         """
         ...
@@ -793,9 +793,9 @@ class Record(pulumi.CustomResource):
             name="www",
             type=aws.route53.RecordType.CNAME,
             ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=10,
-            )],
+            weighted_routing_policies=[{
+                "weight": 10,
+            }],
             set_identifier="dev",
             records=["dev.example.com"])
         www_live = aws.route53.Record("www-live",
@@ -803,9 +803,9 @@ class Record(pulumi.CustomResource):
             name="www",
             type=aws.route53.RecordType.CNAME,
             ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=90,
-            )],
+            weighted_routing_policies=[{
+                "weight": 90,
+            }],
             set_identifier="live",
             records=["live.example.com"])
         ```
@@ -821,12 +821,12 @@ class Record(pulumi.CustomResource):
             name="www.example.com",
             type=aws.route53.RecordType.CNAME,
             ttl=300,
-            geoproximity_routing_policy=aws.route53.RecordGeoproximityRoutingPolicyArgs(
-                coordinates=[aws.route53.RecordGeoproximityRoutingPolicyCoordinateArgs(
-                    latitude="49.22",
-                    longitude="-74.01",
-                )],
-            ),
+            geoproximity_routing_policy={
+                "coordinates": [{
+                    "latitude": "49.22",
+                    "longitude": "-74.01",
+                }],
+            },
             set_identifier="dev",
             records=["dev.example.com"])
         ```
@@ -846,21 +846,21 @@ class Record(pulumi.CustomResource):
         main = aws.elb.LoadBalancer("main",
             name="foobar-elb",
             availability_zones=["us-east-1c"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=80,
-                instance_protocol="http",
-                lb_port=80,
-                lb_protocol="http",
-            )])
+            listeners=[{
+                "instancePort": 80,
+                "instanceProtocol": "http",
+                "lbPort": 80,
+                "lbProtocol": "http",
+            }])
         www = aws.route53.Record("www",
             zone_id=primary["zoneId"],
             name="example.com",
             type=aws.route53.RecordType.A,
-            aliases=[aws.route53.RecordAliasArgs(
-                name=main.dns_name,
-                zone_id=main.zone_id,
-                evaluate_target_health=True,
-            )])
+            aliases=[{
+                "name": main.dns_name,
+                "zoneId": main.zone_id,
+                "evaluateTargetHealth": True,
+            }])
         ```
 
         ### NS and SOA Record Management
@@ -920,21 +920,21 @@ class Record(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]]] = None,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]]] = None,
                  allow_overwrite: Optional[pulumi.Input[bool]] = None,
-                 cidr_routing_policy: Optional[pulumi.Input[pulumi.InputType['RecordCidrRoutingPolicyArgs']]] = None,
-                 failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]]] = None,
-                 geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordGeolocationRoutingPolicyArgs']]]]] = None,
-                 geoproximity_routing_policy: Optional[pulumi.Input[pulumi.InputType['RecordGeoproximityRoutingPolicyArgs']]] = None,
+                 cidr_routing_policy: Optional[pulumi.Input[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']]] = None,
+                 failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]]] = None,
+                 geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]]] = None,
+                 geoproximity_routing_policy: Optional[pulumi.Input[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']]] = None,
                  health_check_id: Optional[pulumi.Input[str]] = None,
-                 latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordLatencyRoutingPolicyArgs']]]]] = None,
+                 latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]]] = None,
                  multivalue_answer_routing_policy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  set_identifier: Optional[pulumi.Input[str]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
                  type: Optional[pulumi.Input[Union[str, 'RecordType']]] = None,
-                 weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordWeightedRoutingPolicyArgs']]]]] = None,
+                 weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]]] = None,
                  zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -978,22 +978,22 @@ class Record(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]]] = None,
+            aliases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]]] = None,
             allow_overwrite: Optional[pulumi.Input[bool]] = None,
-            cidr_routing_policy: Optional[pulumi.Input[pulumi.InputType['RecordCidrRoutingPolicyArgs']]] = None,
-            failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]]] = None,
+            cidr_routing_policy: Optional[pulumi.Input[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']]] = None,
+            failover_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
-            geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordGeolocationRoutingPolicyArgs']]]]] = None,
-            geoproximity_routing_policy: Optional[pulumi.Input[pulumi.InputType['RecordGeoproximityRoutingPolicyArgs']]] = None,
+            geolocation_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]]] = None,
+            geoproximity_routing_policy: Optional[pulumi.Input[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']]] = None,
             health_check_id: Optional[pulumi.Input[str]] = None,
-            latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordLatencyRoutingPolicyArgs']]]]] = None,
+            latency_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]]] = None,
             multivalue_answer_routing_policy: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             set_identifier: Optional[pulumi.Input[str]] = None,
             ttl: Optional[pulumi.Input[int]] = None,
             type: Optional[pulumi.Input[Union[str, 'RecordType']]] = None,
-            weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordWeightedRoutingPolicyArgs']]]]] = None,
+            weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]]] = None,
             zone_id: Optional[pulumi.Input[str]] = None) -> 'Record':
         """
         Get an existing Record resource's state with the given name, id, and optional extra
@@ -1002,25 +1002,25 @@ class Record(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordAliasArgs', 'RecordAliasArgsDict']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
                Documented below.
         :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
                
                Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
-        :param pulumi.Input[pulumi.InputType['RecordCidrRoutingPolicyArgs']] cidr_routing_policy: A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']] cidr_routing_policy: A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordGeolocationRoutingPolicyArgs']]]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[pulumi.InputType['RecordGeoproximityRoutingPolicyArgs']] geoproximity_routing_policy: A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']] geoproximity_routing_policy: A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[str] health_check_id: The health check the record should be associated with.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordLatencyRoutingPolicyArgs']]]] latency_routing_policies: A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordLatencyRoutingPolicyArgs', 'RecordLatencyRoutingPolicyArgsDict']]]] latency_routing_policies: A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[bool] multivalue_answer_routing_policy: Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
         :param pulumi.Input[str] name: The name of the record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
         :param pulumi.Input[str] set_identifier: Unique identifier to differentiate records with routing policies from one another. Required if using `cidr_routing_policy`, `failover_routing_policy`, `geolocation_routing_policy`,`geoproximity_routing_policy`, `latency_routing_policy`, `multivalue_answer_routing_policy`, or `weighted_routing_policy`.
         :param pulumi.Input[int] ttl: The TTL of the record.
         :param pulumi.Input[Union[str, 'RecordType']] type: The record type. Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV` and `TXT`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordWeightedRoutingPolicyArgs']]]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RecordWeightedRoutingPolicyArgs', 'RecordWeightedRoutingPolicyArgsDict']]]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[str] zone_id: The ID of the hosted zone to contain this record.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

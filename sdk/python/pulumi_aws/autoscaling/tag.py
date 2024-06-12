@@ -97,7 +97,7 @@ class Tag(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-                 tag: Optional[pulumi.Input[pulumi.InputType['TagTagArgs']]] = None,
+                 tag: Optional[pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict']]] = None,
                  __props__=None):
         """
         Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
@@ -117,7 +117,7 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
-        :param pulumi.Input[pulumi.InputType['TagTagArgs']] tag: Tag to create. The `tag` block is documented below.
+        :param pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict']] tag: Tag to create. The `tag` block is documented below.
         """
         ...
     @overload
@@ -156,7 +156,7 @@ class Tag(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-                 tag: Optional[pulumi.Input[pulumi.InputType['TagTagArgs']]] = None,
+                 tag: Optional[pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -183,7 +183,7 @@ class Tag(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-            tag: Optional[pulumi.Input[pulumi.InputType['TagTagArgs']]] = None) -> 'Tag':
+            tag: Optional[pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict']]] = None) -> 'Tag':
         """
         Get an existing Tag resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -192,7 +192,7 @@ class Tag(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
-        :param pulumi.Input[pulumi.InputType['TagTagArgs']] tag: Tag to create. The `tag` block is documented below.
+        :param pulumi.Input[Union['TagTagArgs', 'TagTagArgsDict']] tag: Tag to create. The `tag` block is documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

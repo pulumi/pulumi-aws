@@ -585,7 +585,7 @@ class Api(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_selection_expression: Optional[pulumi.Input[str]] = None,
                  body: Optional[pulumi.Input[str]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']]] = None,
+                 cors_configuration: Optional[pulumi.Input[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']]] = None,
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -642,7 +642,7 @@ class Api(pulumi.CustomResource):
                Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
                Applicable for WebSocket APIs.
         :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
-        :param pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        :param pulumi.Input[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: Description of the API. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke the API by using the default `execute-api` endpoint.
@@ -721,7 +721,7 @@ class Api(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_selection_expression: Optional[pulumi.Input[str]] = None,
                  body: Optional[pulumi.Input[str]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']]] = None,
+                 cors_configuration: Optional[pulumi.Input[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']]] = None,
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -776,7 +776,7 @@ class Api(pulumi.CustomResource):
             api_key_selection_expression: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             body: Optional[pulumi.Input[str]] = None,
-            cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']]] = None,
+            cors_configuration: Optional[pulumi.Input[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']]] = None,
             credentials_arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -803,7 +803,7 @@ class Api(pulumi.CustomResource):
                Applicable for WebSocket APIs.
         :param pulumi.Input[str] arn: ARN of the API.
         :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
-        :param pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        :param pulumi.Input[Union['ApiCorsConfigurationArgs', 'ApiCorsConfigurationArgsDict']] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: Description of the API. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke the API by using the default `execute-api` endpoint.

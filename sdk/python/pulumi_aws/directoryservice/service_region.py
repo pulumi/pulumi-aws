@@ -217,7 +217,7 @@ class ServiceRegion(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[str]] = None,
                  region_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['ServiceRegionVpcSettingsArgs']]] = None,
+                 vpc_settings: Optional[pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Manages a replicated Region and directory for Multi-Region replication.
@@ -232,10 +232,10 @@ class ServiceRegion(pulumi.CustomResource):
 
         example = aws.get_region()
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         example_vpc = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             tags={
@@ -256,15 +256,15 @@ class ServiceRegion(pulumi.CustomResource):
             name="example.com",
             password="SuperSecretPassw0rd",
             type="MicrosoftAD",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=example_vpc.id,
-                subnet_ids=[__item.id for __item in example_subnet],
-            ))
+            vpc_settings={
+                "vpcId": example_vpc.id,
+                "subnetIds": [__item.id for __item in example_subnet],
+            })
         available_secondary = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         example_secondary = aws.ec2.Vpc("example-secondary",
             cidr_block="10.1.0.0/16",
             tags={
@@ -284,10 +284,10 @@ class ServiceRegion(pulumi.CustomResource):
         example_service_region = aws.directoryservice.ServiceRegion("example",
             directory_id=example_directory.id,
             region_name=example.name,
-            vpc_settings=aws.directoryservice.ServiceRegionVpcSettingsArgs(
-                vpc_id=example_secondary.id,
-                subnet_ids=[__item.id for __item in example_secondary_subnet],
-            ),
+            vpc_settings={
+                "vpcId": example_secondary.id,
+                "subnetIds": [__item.id for __item in example_secondary_subnet],
+            },
             tags={
                 "Name": "Secondary",
             })
@@ -307,7 +307,7 @@ class ServiceRegion(pulumi.CustomResource):
         :param pulumi.Input[str] directory_id: The identifier of the directory to which you want to add Region replication.
         :param pulumi.Input[str] region_name: The name of the Region where you want to add domain controllers for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ServiceRegionVpcSettingsArgs']] vpc_settings: VPC information in the replicated Region. Detailed below.
+        :param pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']] vpc_settings: VPC information in the replicated Region. Detailed below.
         """
         ...
     @overload
@@ -328,10 +328,10 @@ class ServiceRegion(pulumi.CustomResource):
 
         example = aws.get_region()
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         example_vpc = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             tags={
@@ -352,15 +352,15 @@ class ServiceRegion(pulumi.CustomResource):
             name="example.com",
             password="SuperSecretPassw0rd",
             type="MicrosoftAD",
-            vpc_settings=aws.directoryservice.DirectoryVpcSettingsArgs(
-                vpc_id=example_vpc.id,
-                subnet_ids=[__item.id for __item in example_subnet],
-            ))
+            vpc_settings={
+                "vpcId": example_vpc.id,
+                "subnetIds": [__item.id for __item in example_subnet],
+            })
         available_secondary = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         example_secondary = aws.ec2.Vpc("example-secondary",
             cidr_block="10.1.0.0/16",
             tags={
@@ -380,10 +380,10 @@ class ServiceRegion(pulumi.CustomResource):
         example_service_region = aws.directoryservice.ServiceRegion("example",
             directory_id=example_directory.id,
             region_name=example.name,
-            vpc_settings=aws.directoryservice.ServiceRegionVpcSettingsArgs(
-                vpc_id=example_secondary.id,
-                subnet_ids=[__item.id for __item in example_secondary_subnet],
-            ),
+            vpc_settings={
+                "vpcId": example_secondary.id,
+                "subnetIds": [__item.id for __item in example_secondary_subnet],
+            },
             tags={
                 "Name": "Secondary",
             })
@@ -416,7 +416,7 @@ class ServiceRegion(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[str]] = None,
                  region_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_settings: Optional[pulumi.Input[pulumi.InputType['ServiceRegionVpcSettingsArgs']]] = None,
+                 vpc_settings: Optional[pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -453,7 +453,7 @@ class ServiceRegion(pulumi.CustomResource):
             region_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vpc_settings: Optional[pulumi.Input[pulumi.InputType['ServiceRegionVpcSettingsArgs']]] = None) -> 'ServiceRegion':
+            vpc_settings: Optional[pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']]] = None) -> 'ServiceRegion':
         """
         Get an existing ServiceRegion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -466,7 +466,7 @@ class ServiceRegion(pulumi.CustomResource):
         :param pulumi.Input[str] region_name: The name of the Region where you want to add domain controllers for replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['ServiceRegionVpcSettingsArgs']] vpc_settings: VPC information in the replicated Region. Detailed below.
+        :param pulumi.Input[Union['ServiceRegionVpcSettingsArgs', 'ServiceRegionVpcSettingsArgsDict']] vpc_settings: VPC information in the replicated Region. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

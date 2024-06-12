@@ -161,7 +161,7 @@ class PartitionIndex(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 partition_index: Optional[pulumi.Input[pulumi.InputType['PartitionIndexPartitionIndexArgs']]] = None,
+                 partition_index: Optional[pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -180,59 +180,59 @@ class PartitionIndex(pulumi.CustomResource):
             table_type="VIRTUAL_VIEW",
             view_expanded_text="view_expanded_text_1",
             view_original_text="view_original_text_1",
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                bucket_columns=["bucket_column_1"],
-                compressed=False,
-                input_format="SequenceFileInputFormat",
-                location="my_location",
-                number_of_buckets=1,
-                output_format="SequenceFileInputFormat",
-                stored_as_sub_directories=False,
-                parameters={
+            storage_descriptor={
+                "bucketColumns": ["bucket_column_1"],
+                "compressed": False,
+                "inputFormat": "SequenceFileInputFormat",
+                "location": "my_location",
+                "numberOfBuckets": 1,
+                "outputFormat": "SequenceFileInputFormat",
+                "storedAsSubDirectories": False,
+                "parameters": {
                     "param1": "param1_val",
                 },
-                columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_1",
-                        type="int",
-                        comment="my_column1_comment",
-                    ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_2",
-                        type="string",
-                        comment="my_column2_comment",
-                    ),
+                "columns": [
+                    {
+                        "name": "my_column_1",
+                        "type": "int",
+                        "comment": "my_column1_comment",
+                    },
+                    {
+                        "name": "my_column_2",
+                        "type": "string",
+                        "comment": "my_column2_comment",
+                    },
                 ],
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="ser_de_name",
-                    parameters={
+                "serDeInfo": {
+                    "name": "ser_de_name",
+                    "parameters": {
                         "param1": "param_val_1",
                     },
-                    serialization_library="org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                ),
-                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArgs(
-                    column="my_column_1",
-                    sort_order=1,
-                )],
-                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArgs(
-                    skewed_column_names=["my_column_1"],
-                    skewed_column_value_location_maps={
+                    "serializationLibrary": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+                },
+                "sortColumns": [{
+                    "column": "my_column_1",
+                    "sortOrder": 1,
+                }],
+                "skewedInfo": {
+                    "skewedColumnNames": ["my_column_1"],
+                    "skewedColumnValueLocationMaps": {
                         "my_column_1": "my_column_1_val_loc_map",
                     },
-                    skewed_column_values=["skewed_val_1"],
-                ),
-            ),
+                    "skewedColumnValues": ["skewed_val_1"],
+                },
+            },
             partition_keys=[
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_1",
-                    type="int",
-                    comment="my_column_1_comment",
-                ),
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_2",
-                    type="string",
-                    comment="my_column_2_comment",
-                ),
+                {
+                    "name": "my_column_1",
+                    "type": "int",
+                    "comment": "my_column_1_comment",
+                },
+                {
+                    "name": "my_column_2",
+                    "type": "string",
+                    "comment": "my_column_2_comment",
+                },
             ],
             parameters={
                 "param1": "param1_val",
@@ -240,13 +240,13 @@ class PartitionIndex(pulumi.CustomResource):
         example_partition_index = aws.glue.PartitionIndex("example",
             database_name=example.name,
             table_name=example_catalog_table.name,
-            partition_index=aws.glue.PartitionIndexPartitionIndexArgs(
-                index_name="example",
-                keys=[
+            partition_index={
+                "indexName": "example",
+                "keys": [
                     "my_column_1",
                     "my_column_2",
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -261,7 +261,7 @@ class PartitionIndex(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: The catalog ID where the table resides.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input[pulumi.InputType['PartitionIndexPartitionIndexArgs']] partition_index: Configuration block for a partition index. See `partition_index` below.
+        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']] partition_index: Configuration block for a partition index. See `partition_index` below.
         :param pulumi.Input[str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         ...
@@ -286,59 +286,59 @@ class PartitionIndex(pulumi.CustomResource):
             table_type="VIRTUAL_VIEW",
             view_expanded_text="view_expanded_text_1",
             view_original_text="view_original_text_1",
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
-                bucket_columns=["bucket_column_1"],
-                compressed=False,
-                input_format="SequenceFileInputFormat",
-                location="my_location",
-                number_of_buckets=1,
-                output_format="SequenceFileInputFormat",
-                stored_as_sub_directories=False,
-                parameters={
+            storage_descriptor={
+                "bucketColumns": ["bucket_column_1"],
+                "compressed": False,
+                "inputFormat": "SequenceFileInputFormat",
+                "location": "my_location",
+                "numberOfBuckets": 1,
+                "outputFormat": "SequenceFileInputFormat",
+                "storedAsSubDirectories": False,
+                "parameters": {
                     "param1": "param1_val",
                 },
-                columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_1",
-                        type="int",
-                        comment="my_column1_comment",
-                    ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
-                        name="my_column_2",
-                        type="string",
-                        comment="my_column2_comment",
-                    ),
+                "columns": [
+                    {
+                        "name": "my_column_1",
+                        "type": "int",
+                        "comment": "my_column1_comment",
+                    },
+                    {
+                        "name": "my_column_2",
+                        "type": "string",
+                        "comment": "my_column2_comment",
+                    },
                 ],
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
-                    name="ser_de_name",
-                    parameters={
+                "serDeInfo": {
+                    "name": "ser_de_name",
+                    "parameters": {
                         "param1": "param_val_1",
                     },
-                    serialization_library="org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                ),
-                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArgs(
-                    column="my_column_1",
-                    sort_order=1,
-                )],
-                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArgs(
-                    skewed_column_names=["my_column_1"],
-                    skewed_column_value_location_maps={
+                    "serializationLibrary": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+                },
+                "sortColumns": [{
+                    "column": "my_column_1",
+                    "sortOrder": 1,
+                }],
+                "skewedInfo": {
+                    "skewedColumnNames": ["my_column_1"],
+                    "skewedColumnValueLocationMaps": {
                         "my_column_1": "my_column_1_val_loc_map",
                     },
-                    skewed_column_values=["skewed_val_1"],
-                ),
-            ),
+                    "skewedColumnValues": ["skewed_val_1"],
+                },
+            },
             partition_keys=[
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_1",
-                    type="int",
-                    comment="my_column_1_comment",
-                ),
-                aws.glue.CatalogTablePartitionKeyArgs(
-                    name="my_column_2",
-                    type="string",
-                    comment="my_column_2_comment",
-                ),
+                {
+                    "name": "my_column_1",
+                    "type": "int",
+                    "comment": "my_column_1_comment",
+                },
+                {
+                    "name": "my_column_2",
+                    "type": "string",
+                    "comment": "my_column_2_comment",
+                },
             ],
             parameters={
                 "param1": "param1_val",
@@ -346,13 +346,13 @@ class PartitionIndex(pulumi.CustomResource):
         example_partition_index = aws.glue.PartitionIndex("example",
             database_name=example.name,
             table_name=example_catalog_table.name,
-            partition_index=aws.glue.PartitionIndexPartitionIndexArgs(
-                index_name="example",
-                keys=[
+            partition_index={
+                "indexName": "example",
+                "keys": [
                     "my_column_1",
                     "my_column_2",
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -380,7 +380,7 @@ class PartitionIndex(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 partition_index: Optional[pulumi.Input[pulumi.InputType['PartitionIndexPartitionIndexArgs']]] = None,
+                 partition_index: Optional[pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -413,7 +413,7 @@ class PartitionIndex(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_id: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
-            partition_index: Optional[pulumi.Input[pulumi.InputType['PartitionIndexPartitionIndexArgs']]] = None,
+            partition_index: Optional[pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
             table_name: Optional[pulumi.Input[str]] = None) -> 'PartitionIndex':
         """
         Get an existing PartitionIndex resource's state with the given name, id, and optional extra
@@ -424,7 +424,7 @@ class PartitionIndex(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: The catalog ID where the table resides.
         :param pulumi.Input[str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        :param pulumi.Input[pulumi.InputType['PartitionIndexPartitionIndexArgs']] partition_index: Configuration block for a partition index. See `partition_index` below.
+        :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']] partition_index: Configuration block for a partition index. See `partition_index` below.
         :param pulumi.Input[str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

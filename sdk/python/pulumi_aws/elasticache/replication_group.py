@@ -1466,7 +1466,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
                  ip_discovery: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationArgs']]]]] = None,
+                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationArgs', 'ReplicationGroupLogDeliveryConfigurationArgsDict']]]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  multi_az_enabled: Optional[pulumi.Input[bool]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
@@ -1600,18 +1600,18 @@ class ReplicationGroup(pulumi.CustomResource):
             maintenance_window="tue:06:30-tue:07:30",
             snapshot_window="01:00-02:00",
             log_delivery_configurations=[
-                aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=example["name"],
-                    destination_type="cloudwatch-logs",
-                    log_format="text",
-                    log_type="slow-log",
-                ),
-                aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=example_aws_kinesis_firehose_delivery_stream["name"],
-                    destination_type="kinesis-firehose",
-                    log_format="json",
-                    log_type="engine-log",
-                ),
+                {
+                    "destination": example["name"],
+                    "destinationType": "cloudwatch-logs",
+                    "logFormat": "text",
+                    "logType": "slow-log",
+                },
+                {
+                    "destination": example_aws_kinesis_firehose_delivery_stream["name"],
+                    "destinationType": "kinesis-firehose",
+                    "logFormat": "json",
+                    "logType": "engine-log",
+                },
             ])
         ```
 
@@ -1700,7 +1700,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationArgs', 'ReplicationGroupLogDeliveryConfigurationArgsDict']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
         :param pulumi.Input[str] network_type: The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
@@ -1850,18 +1850,18 @@ class ReplicationGroup(pulumi.CustomResource):
             maintenance_window="tue:06:30-tue:07:30",
             snapshot_window="01:00-02:00",
             log_delivery_configurations=[
-                aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=example["name"],
-                    destination_type="cloudwatch-logs",
-                    log_format="text",
-                    log_type="slow-log",
-                ),
-                aws.elasticache.ReplicationGroupLogDeliveryConfigurationArgs(
-                    destination=example_aws_kinesis_firehose_delivery_stream["name"],
-                    destination_type="kinesis-firehose",
-                    log_format="json",
-                    log_type="engine-log",
-                ),
+                {
+                    "destination": example["name"],
+                    "destinationType": "cloudwatch-logs",
+                    "logFormat": "text",
+                    "logType": "slow-log",
+                },
+                {
+                    "destination": example_aws_kinesis_firehose_delivery_stream["name"],
+                    "destinationType": "kinesis-firehose",
+                    "logFormat": "json",
+                    "logType": "engine-log",
+                },
             ])
         ```
 
@@ -1956,7 +1956,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
                  ip_discovery: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationArgs']]]]] = None,
+                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationArgs', 'ReplicationGroupLogDeliveryConfigurationArgsDict']]]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  multi_az_enabled: Optional[pulumi.Input[bool]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
@@ -2065,7 +2065,7 @@ class ReplicationGroup(pulumi.CustomResource):
             global_replication_group_id: Optional[pulumi.Input[str]] = None,
             ip_discovery: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
-            log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationArgs']]]]] = None,
+            log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationArgs', 'ReplicationGroupLogDeliveryConfigurationArgsDict']]]]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             member_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             multi_az_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2125,7 +2125,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] global_replication_group_id: The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         :param pulumi.Input[str] kms_key_id: The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationGroupLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationArgs', 'ReplicationGroupLogDeliveryConfigurationArgsDict']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] member_clusters: Identifiers of all the nodes that are part of this replication group.
         :param pulumi.Input[bool] multi_az_enabled: Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.

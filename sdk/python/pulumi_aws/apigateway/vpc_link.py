@@ -214,9 +214,9 @@ class VpcLink(pulumi.CustomResource):
             name="example",
             internal=True,
             load_balancer_type="network",
-            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
-                subnet_id="12345",
-            )])
+            subnet_mappings=[{
+                "subnetId": "12345",
+            }])
         example_vpc_link = aws.apigateway.VpcLink("example",
             name="example",
             description="example description",
@@ -260,9 +260,9 @@ class VpcLink(pulumi.CustomResource):
             name="example",
             internal=True,
             load_balancer_type="network",
-            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
-                subnet_id="12345",
-            )])
+            subnet_mappings=[{
+                "subnetId": "12345",
+            }])
         example_vpc_link = aws.apigateway.VpcLink("example",
             name="example",
             description="example description",

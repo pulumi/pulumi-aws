@@ -821,7 +821,7 @@ class MetricAlarm(pulumi.CustomResource):
                  extended_statistic: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
-                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArgs']]]]] = None,
+                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -897,38 +897,38 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_description="Request error rate has exceeded 10%",
             insufficient_data_actions=[],
             metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="e1",
-                    expression="m2/m1*100",
-                    label="Error Rate",
-                    return_data=True,
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m1",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        metric_name="RequestCount",
-                        namespace="AWS/ApplicationELB",
-                        period=120,
-                        stat="Sum",
-                        unit="Count",
-                        dimensions={
+                {
+                    "id": "e1",
+                    "expression": "m2/m1*100",
+                    "label": "Error Rate",
+                    "returnData": True,
+                },
+                {
+                    "id": "m1",
+                    "metric": {
+                        "metricName": "RequestCount",
+                        "namespace": "AWS/ApplicationELB",
+                        "period": 120,
+                        "stat": "Sum",
+                        "unit": "Count",
+                        "dimensions": {
                             "LoadBalancer": "app/web",
                         },
-                    ),
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m2",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        metric_name="HTTPCode_ELB_5XX_Count",
-                        namespace="AWS/ApplicationELB",
-                        period=120,
-                        stat="Sum",
-                        unit="Count",
-                        dimensions={
+                    },
+                },
+                {
+                    "id": "m2",
+                    "metric": {
+                        "metricName": "HTTPCode_ELB_5XX_Count",
+                        "namespace": "AWS/ApplicationELB",
+                        "period": 120,
+                        "stat": "Sum",
+                        "unit": "Count",
+                        "dimensions": {
                             "LoadBalancer": "app/web",
                         },
-                    ),
-                ),
+                    },
+                },
             ])
         ```
 
@@ -944,26 +944,26 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_description="This metric monitors ec2 cpu utilization",
             insufficient_data_actions=[],
             metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="e1",
-                    expression="ANOMALY_DETECTION_BAND(m1)",
-                    label="CPUUtilization (Expected)",
-                    return_data=True,
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m1",
-                    return_data=True,
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        metric_name="CPUUtilization",
-                        namespace="AWS/EC2",
-                        period=120,
-                        stat="Average",
-                        unit="Count",
-                        dimensions={
+                {
+                    "id": "e1",
+                    "expression": "ANOMALY_DETECTION_BAND(m1)",
+                    "label": "CPUUtilization (Expected)",
+                    "returnData": True,
+                },
+                {
+                    "id": "m1",
+                    "returnData": True,
+                    "metric": {
+                        "metricName": "CPUUtilization",
+                        "namespace": "AWS/EC2",
+                        "period": 120,
+                        "stat": "Average",
+                        "unit": "Count",
+                        "dimensions": {
                             "InstanceId": "i-abc123",
                         },
-                    ),
-                ),
+                    },
+                },
             ])
         ```
 
@@ -1020,7 +1020,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArgs']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -1107,38 +1107,38 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_description="Request error rate has exceeded 10%",
             insufficient_data_actions=[],
             metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="e1",
-                    expression="m2/m1*100",
-                    label="Error Rate",
-                    return_data=True,
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m1",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        metric_name="RequestCount",
-                        namespace="AWS/ApplicationELB",
-                        period=120,
-                        stat="Sum",
-                        unit="Count",
-                        dimensions={
+                {
+                    "id": "e1",
+                    "expression": "m2/m1*100",
+                    "label": "Error Rate",
+                    "returnData": True,
+                },
+                {
+                    "id": "m1",
+                    "metric": {
+                        "metricName": "RequestCount",
+                        "namespace": "AWS/ApplicationELB",
+                        "period": 120,
+                        "stat": "Sum",
+                        "unit": "Count",
+                        "dimensions": {
                             "LoadBalancer": "app/web",
                         },
-                    ),
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m2",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        metric_name="HTTPCode_ELB_5XX_Count",
-                        namespace="AWS/ApplicationELB",
-                        period=120,
-                        stat="Sum",
-                        unit="Count",
-                        dimensions={
+                    },
+                },
+                {
+                    "id": "m2",
+                    "metric": {
+                        "metricName": "HTTPCode_ELB_5XX_Count",
+                        "namespace": "AWS/ApplicationELB",
+                        "period": 120,
+                        "stat": "Sum",
+                        "unit": "Count",
+                        "dimensions": {
                             "LoadBalancer": "app/web",
                         },
-                    ),
-                ),
+                    },
+                },
             ])
         ```
 
@@ -1154,26 +1154,26 @@ class MetricAlarm(pulumi.CustomResource):
             alarm_description="This metric monitors ec2 cpu utilization",
             insufficient_data_actions=[],
             metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="e1",
-                    expression="ANOMALY_DETECTION_BAND(m1)",
-                    label="CPUUtilization (Expected)",
-                    return_data=True,
-                ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
-                    id="m1",
-                    return_data=True,
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
-                        metric_name="CPUUtilization",
-                        namespace="AWS/EC2",
-                        period=120,
-                        stat="Average",
-                        unit="Count",
-                        dimensions={
+                {
+                    "id": "e1",
+                    "expression": "ANOMALY_DETECTION_BAND(m1)",
+                    "label": "CPUUtilization (Expected)",
+                    "returnData": True,
+                },
+                {
+                    "id": "m1",
+                    "returnData": True,
+                    "metric": {
+                        "metricName": "CPUUtilization",
+                        "namespace": "AWS/EC2",
+                        "period": 120,
+                        "stat": "Average",
+                        "unit": "Count",
+                        "dimensions": {
                             "InstanceId": "i-abc123",
                         },
-                    ),
-                ),
+                    },
+                },
             ])
         ```
 
@@ -1239,7 +1239,7 @@ class MetricAlarm(pulumi.CustomResource):
                  extended_statistic: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
-                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArgs']]]]] = None,
+                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1309,7 +1309,7 @@ class MetricAlarm(pulumi.CustomResource):
             extended_statistic: Optional[pulumi.Input[str]] = None,
             insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             metric_name: Optional[pulumi.Input[str]] = None,
-            metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArgs']]]]] = None,
+            metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace: Optional[pulumi.Input[str]] = None,
             ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1344,7 +1344,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArgs']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlarmMetricQueryArgs', 'MetricAlarmMetricQueryArgsDict']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).

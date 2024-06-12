@@ -108,21 +108,21 @@ class QueuePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         q = aws.sqs.Queue("q", name="examplequeue")
-        test = q.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="First",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["sqs:SendMessage"],
-            resources=[arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="ArnEquals",
-                variable="aws:SourceArn",
-                values=[example["arn"]],
-            )],
-        )]))
+        test = q.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+            "sid": "First",
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["sqs:SendMessage"],
+            "resources": [arn],
+            "conditions": [{
+                "test": "ArnEquals",
+                "variable": "aws:SourceArn",
+                "values": [example["arn"]],
+            }],
+        }]))
         test_queue_policy = aws.sqs.QueuePolicy("test",
             queue_url=q.id,
             policy=test.json)
@@ -158,21 +158,21 @@ class QueuePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         q = aws.sqs.Queue("q", name="examplequeue")
-        test = q.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="First",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["sqs:SendMessage"],
-            resources=[arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="ArnEquals",
-                variable="aws:SourceArn",
-                values=[example["arn"]],
-            )],
-        )]))
+        test = q.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+            "sid": "First",
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["sqs:SendMessage"],
+            "resources": [arn],
+            "conditions": [{
+                "test": "ArnEquals",
+                "variable": "aws:SourceArn",
+                "values": [example["arn"]],
+            }],
+        }]))
         test_queue_policy = aws.sqs.QueuePolicy("test",
             queue_url=q.id,
             policy=test.json)

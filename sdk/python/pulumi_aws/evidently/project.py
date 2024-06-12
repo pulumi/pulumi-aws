@@ -328,7 +328,7 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']]] = None,
+                 data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -361,11 +361,11 @@ class Project(pulumi.CustomResource):
         example = aws.evidently.Project("example",
             name="Example",
             description="Example Description",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
-                    log_group="example-log-group-name",
-                ),
-            ),
+            data_delivery={
+                "cloudwatchLogs": {
+                    "logGroup": "example-log-group-name",
+                },
+            },
             tags={
                 "Key1": "example Project",
             })
@@ -380,12 +380,12 @@ class Project(pulumi.CustomResource):
         example = aws.evidently.Project("example",
             name="Example",
             description="Example Description",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
-                    bucket="example-bucket-name",
-                    prefix="example",
-                ),
-            ),
+            data_delivery={
+                "s3Destination": {
+                    "bucket": "example-bucket-name",
+                    "prefix": "example",
+                },
+            },
             tags={
                 "Key1": "example Project",
             })
@@ -401,7 +401,7 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[str] description: Specifies the description of the project.
         :param pulumi.Input[str] name: A name for the project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -440,11 +440,11 @@ class Project(pulumi.CustomResource):
         example = aws.evidently.Project("example",
             name="Example",
             description="Example Description",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
-                    log_group="example-log-group-name",
-                ),
-            ),
+            data_delivery={
+                "cloudwatchLogs": {
+                    "logGroup": "example-log-group-name",
+                },
+            },
             tags={
                 "Key1": "example Project",
             })
@@ -459,12 +459,12 @@ class Project(pulumi.CustomResource):
         example = aws.evidently.Project("example",
             name="Example",
             description="Example Description",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
-                    bucket="example-bucket-name",
-                    prefix="example",
-                ),
-            ),
+            data_delivery={
+                "s3Destination": {
+                    "bucket": "example-bucket-name",
+                    "prefix": "example",
+                },
+            },
             tags={
                 "Key1": "example Project",
             })
@@ -493,7 +493,7 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']]] = None,
+                 data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -534,7 +534,7 @@ class Project(pulumi.CustomResource):
             active_launch_count: Optional[pulumi.Input[int]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             created_time: Optional[pulumi.Input[str]] = None,
-            data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']]] = None,
+            data_delivery: Optional[pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             experiment_count: Optional[pulumi.Input[int]] = None,
             feature_count: Optional[pulumi.Input[int]] = None,
@@ -555,7 +555,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[int] active_launch_count: The number of ongoing launches currently in the project.
         :param pulumi.Input[str] arn: The ARN of the project.
         :param pulumi.Input[str] created_time: The date and time that the project is created.
-        :param pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input[Union['ProjectDataDeliveryArgs', 'ProjectDataDeliveryArgsDict']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[str] description: Specifies the description of the project.
         :param pulumi.Input[int] experiment_count: The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
         :param pulumi.Input[int] feature_count: The number of features currently in the project.

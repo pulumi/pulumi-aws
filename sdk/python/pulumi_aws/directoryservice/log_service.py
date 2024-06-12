@@ -109,18 +109,18 @@ class LogService(pulumi.CustomResource):
         example = aws.cloudwatch.LogGroup("example",
             name=f"/aws/directoryservice/{example_aws_directory_service_directory['id']}",
             retention_in_days=14)
-        ad_log_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
+        ad_log_policy = aws.iam.get_policy_document_output(statements=[{
+            "actions": [
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["ds.amazonaws.com"],
-                type="Service",
-            )],
-            resources=[example.arn.apply(lambda arn: f"{arn}:*")],
-            effect="Allow",
-        )])
+            "principals": [{
+                "identifiers": ["ds.amazonaws.com"],
+                "type": "Service",
+            }],
+            "resources": [example.arn.apply(lambda arn: f"{arn}:*")],
+            "effect": "Allow",
+        }])
         ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policy",
             policy_document=ad_log_policy.json,
             policy_name="ad-log-policy")
@@ -160,18 +160,18 @@ class LogService(pulumi.CustomResource):
         example = aws.cloudwatch.LogGroup("example",
             name=f"/aws/directoryservice/{example_aws_directory_service_directory['id']}",
             retention_in_days=14)
-        ad_log_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
+        ad_log_policy = aws.iam.get_policy_document_output(statements=[{
+            "actions": [
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["ds.amazonaws.com"],
-                type="Service",
-            )],
-            resources=[example.arn.apply(lambda arn: f"{arn}:*")],
-            effect="Allow",
-        )])
+            "principals": [{
+                "identifiers": ["ds.amazonaws.com"],
+                "type": "Service",
+            }],
+            "resources": [example.arn.apply(lambda arn: f"{arn}:*")],
+            "effect": "Allow",
+        }])
         ad_log_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("ad-log-policy",
             policy_document=ad_log_policy.json,
             policy_name="ad-log-policy")

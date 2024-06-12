@@ -109,20 +109,20 @@ class DomainPolicy(pulumi.CustomResource):
         example = aws.opensearch.Domain("example",
             domain_name="tf-test",
             engine_version="OpenSearch_1.1")
-        main = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["es:*"],
-            resources=[example.arn.apply(lambda arn: f"{arn}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["127.0.0.1/32"],
-            )],
-        )])
+        main = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["es:*"],
+            "resources": [example.arn.apply(lambda arn: f"{arn}/*")],
+            "conditions": [{
+                "test": "IpAddress",
+                "variable": "aws:SourceIp",
+                "values": ["127.0.0.1/32"],
+            }],
+        }])
         main_domain_policy = aws.opensearch.DomainPolicy("main",
             domain_name=example.domain_name,
             access_policies=main.json)
@@ -151,20 +151,20 @@ class DomainPolicy(pulumi.CustomResource):
         example = aws.opensearch.Domain("example",
             domain_name="tf-test",
             engine_version="OpenSearch_1.1")
-        main = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["es:*"],
-            resources=[example.arn.apply(lambda arn: f"{arn}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="IpAddress",
-                variable="aws:SourceIp",
-                values=["127.0.0.1/32"],
-            )],
-        )])
+        main = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["es:*"],
+            "resources": [example.arn.apply(lambda arn: f"{arn}/*")],
+            "conditions": [{
+                "test": "IpAddress",
+                "variable": "aws:SourceIp",
+                "values": ["127.0.0.1/32"],
+            }],
+        }])
         main_domain_policy = aws.opensearch.DomainPolicy("main",
             domain_name=example.domain_name,
             access_policies=main.json)

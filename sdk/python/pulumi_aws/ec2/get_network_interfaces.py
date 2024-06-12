@@ -76,7 +76,7 @@ class AwaitableGetNetworkInterfacesResult(GetNetworkInterfacesResult):
             tags=self.tags)
 
 
-def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']]] = None,
+def get_network_interfaces(filters: Optional[Sequence[Union['GetNetworkInterfacesFilterArgs', 'GetNetworkInterfacesFilterArgsDict']]] = None,
                            tags: Optional[Mapping[str, str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfacesResult:
     """
@@ -111,15 +111,15 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_interfaces(filters=[aws.ec2.GetNetworkInterfacesFilterArgs(
-        name="subnet-id",
-        values=[test["id"]],
-    )])
+    example = aws.ec2.get_network_interfaces(filters=[{
+        "name": "subnet-id",
+        "values": [test["id"]],
+    }])
     pulumi.export("example", example.ids)
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNetworkInterfacesFilterArgs', 'GetNetworkInterfacesFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -140,7 +140,7 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
 
 
 @_utilities.lift_output_func(get_network_interfaces)
-def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']]]]] = None,
+def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInterfacesFilterArgs', 'GetNetworkInterfacesFilterArgsDict']]]]] = None,
                                   tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfacesResult]:
     """
@@ -175,15 +175,15 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_interfaces(filters=[aws.ec2.GetNetworkInterfacesFilterArgs(
-        name="subnet-id",
-        values=[test["id"]],
-    )])
+    example = aws.ec2.get_network_interfaces(filters=[{
+        "name": "subnet-id",
+        "values": [test["id"]],
+    }])
     pulumi.export("example", example.ids)
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNetworkInterfacesFilterArgs', 'GetNetworkInterfacesFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

@@ -507,17 +507,17 @@ class Index(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: Optional[pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']]] = None,
+                 capacity_units: Optional[pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 document_metadata_configuration_updates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationUpdateArgs']]]]] = None,
+                 document_metadata_configuration_updates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_context_policy: Optional[pulumi.Input[str]] = None,
-                 user_group_resolution_configuration: Optional[pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']]] = None,
-                 user_token_configurations: Optional[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']]] = None,
+                 user_group_resolution_configuration: Optional[pulumi.Input[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict']]] = None,
+                 user_token_configurations: Optional[pulumi.Input[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict']]] = None,
                  __props__=None):
         """
         Provides an Amazon Kendra Index resource.
@@ -550,10 +550,10 @@ class Index(pulumi.CustomResource):
             name="example",
             edition="DEVELOPER_EDITION",
             role_arn=this["arn"],
-            capacity_units=aws.kendra.IndexCapacityUnitsArgs(
-                query_capacity_units=2,
-                storage_capacity_units=2,
-            ))
+            capacity_units={
+                "queryCapacityUnits": 2,
+                "storageCapacityUnits": 2,
+            })
         ```
 
         ### With server side encryption configuration
@@ -565,9 +565,9 @@ class Index(pulumi.CustomResource):
         example = aws.kendra.Index("example",
             name="example",
             role_arn=this_aws_iam_role["arn"],
-            server_side_encryption_configuration=aws.kendra.IndexServerSideEncryptionConfigurationArgs(
-                kms_key_id=this["arn"],
-            ))
+            server_side_encryption_configuration={
+                "kmsKeyId": this["arn"],
+            })
         ```
 
         ### With user group resolution configuration
@@ -579,9 +579,9 @@ class Index(pulumi.CustomResource):
         example = aws.kendra.Index("example",
             name="example",
             role_arn=this["arn"],
-            user_group_resolution_configuration=aws.kendra.IndexUserGroupResolutionConfigurationArgs(
-                user_group_resolution_mode="AWS_SSO",
-            ))
+            user_group_resolution_configuration={
+                "userGroupResolutionMode": "AWS_SSO",
+            })
         ```
 
         ### With Document Metadata Configuration Updates
@@ -598,205 +598,205 @@ class Index(pulumi.CustomResource):
             name="example",
             role_arn=this["arn"],
             document_metadata_configuration_updates=[
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_authors",
-                    type="STRING_LIST_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_category",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_created_at",
-                    type="DATE_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        freshness=False,
-                        importance=1,
-                        duration="25920000s",
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_data_source_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_document_title",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=False,
-                        searchable=True,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=2,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_excerpt_page_number",
-                    type="LONG_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=2,
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_faq_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_file_type",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_language_code",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_last_updated_at",
-                    type="DATE_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        freshness=False,
-                        importance=1,
-                        duration="25920000s",
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_source_uri",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_tenant_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_version",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_view_count",
-                    type="LONG_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        rank_order="ASCENDING",
-                    ),
-                ),
+                {
+                    "name": "_authors",
+                    "type": "STRING_LIST_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                    },
+                },
+                {
+                    "name": "_category",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_created_at",
+                    "type": "DATE_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "freshness": False,
+                        "importance": 1,
+                        "duration": "25920000s",
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_data_source_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_document_title",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": True,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 2,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_excerpt_page_number",
+                    "type": "LONG_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 2,
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_faq_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_file_type",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_language_code",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_last_updated_at",
+                    "type": "DATE_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "freshness": False,
+                        "importance": 1,
+                        "duration": "25920000s",
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_source_uri",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_tenant_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_version",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "rankOrder": "ASCENDING",
+                    },
+                },
             ])
         ```
 
@@ -812,262 +812,262 @@ class Index(pulumi.CustomResource):
             name="example",
             role_arn=this["arn"],
             document_metadata_configuration_updates=[
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_authors",
-                    type="STRING_LIST_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_category",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_created_at",
-                    type="DATE_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        freshness=False,
-                        importance=1,
-                        duration="25920000s",
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_data_source_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_document_title",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=False,
-                        searchable=True,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=2,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_excerpt_page_number",
-                    type="LONG_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=2,
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_faq_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_file_type",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_language_code",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_last_updated_at",
-                    type="DATE_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        freshness=False,
-                        importance=1,
-                        duration="25920000s",
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_source_uri",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_tenant_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_version",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_view_count",
-                    type="LONG_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="example-string-value",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=True,
-                        searchable=True,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="example-long-value",
-                    type="LONG_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=True,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="example-string-list-value",
-                    type="STRING_LIST_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=True,
-                        searchable=True,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="example-date-value",
-                    type="DATE_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=True,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        freshness=False,
-                        importance=1,
-                        duration="25920000s",
-                        rank_order="ASCENDING",
-                    ),
-                ),
+                {
+                    "name": "_authors",
+                    "type": "STRING_LIST_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                    },
+                },
+                {
+                    "name": "_category",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_created_at",
+                    "type": "DATE_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "freshness": False,
+                        "importance": 1,
+                        "duration": "25920000s",
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_data_source_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_document_title",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": True,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 2,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_excerpt_page_number",
+                    "type": "LONG_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 2,
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_faq_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_file_type",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_language_code",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_last_updated_at",
+                    "type": "DATE_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "freshness": False,
+                        "importance": 1,
+                        "duration": "25920000s",
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_source_uri",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_tenant_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_version",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "example-string-value",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": True,
+                        "searchable": True,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "example-long-value",
+                    "type": "LONG_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": True,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "example-string-list-value",
+                    "type": "STRING_LIST_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": True,
+                        "searchable": True,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                    },
+                },
+                {
+                    "name": "example-date-value",
+                    "type": "DATE_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": True,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "freshness": False,
+                        "importance": 1,
+                        "duration": "25920000s",
+                        "rankOrder": "ASCENDING",
+                    },
+                },
             ])
         ```
 
@@ -1080,12 +1080,12 @@ class Index(pulumi.CustomResource):
         example = aws.kendra.Index("example",
             name="example",
             role_arn=this["arn"],
-            user_token_configurations=aws.kendra.IndexUserTokenConfigurationsArgs(
-                json_token_type_configuration=aws.kendra.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs(
-                    group_attribute_field="groups",
-                    user_name_attribute_field="username",
-                ),
-            ))
+            user_token_configurations={
+                "jsonTokenTypeConfiguration": {
+                    "groupAttributeField": "groups",
+                    "userNameAttributeField": "username",
+                },
+            })
         ```
 
         ## Import
@@ -1098,18 +1098,18 @@ class Index(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+        :param pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[str] description: The description of the Index.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationUpdateArgs']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
         :param pulumi.Input[str] name: Specifies the name of the Index.
         :param pulumi.Input[str] role_arn: An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-        :param pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+        :param pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Index. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-        :param pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-        :param pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
+        :param pulumi.Input[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        :param pulumi.Input[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
         ...
     @overload
@@ -1148,10 +1148,10 @@ class Index(pulumi.CustomResource):
             name="example",
             edition="DEVELOPER_EDITION",
             role_arn=this["arn"],
-            capacity_units=aws.kendra.IndexCapacityUnitsArgs(
-                query_capacity_units=2,
-                storage_capacity_units=2,
-            ))
+            capacity_units={
+                "queryCapacityUnits": 2,
+                "storageCapacityUnits": 2,
+            })
         ```
 
         ### With server side encryption configuration
@@ -1163,9 +1163,9 @@ class Index(pulumi.CustomResource):
         example = aws.kendra.Index("example",
             name="example",
             role_arn=this_aws_iam_role["arn"],
-            server_side_encryption_configuration=aws.kendra.IndexServerSideEncryptionConfigurationArgs(
-                kms_key_id=this["arn"],
-            ))
+            server_side_encryption_configuration={
+                "kmsKeyId": this["arn"],
+            })
         ```
 
         ### With user group resolution configuration
@@ -1177,9 +1177,9 @@ class Index(pulumi.CustomResource):
         example = aws.kendra.Index("example",
             name="example",
             role_arn=this["arn"],
-            user_group_resolution_configuration=aws.kendra.IndexUserGroupResolutionConfigurationArgs(
-                user_group_resolution_mode="AWS_SSO",
-            ))
+            user_group_resolution_configuration={
+                "userGroupResolutionMode": "AWS_SSO",
+            })
         ```
 
         ### With Document Metadata Configuration Updates
@@ -1196,205 +1196,205 @@ class Index(pulumi.CustomResource):
             name="example",
             role_arn=this["arn"],
             document_metadata_configuration_updates=[
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_authors",
-                    type="STRING_LIST_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_category",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_created_at",
-                    type="DATE_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        freshness=False,
-                        importance=1,
-                        duration="25920000s",
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_data_source_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_document_title",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=False,
-                        searchable=True,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=2,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_excerpt_page_number",
-                    type="LONG_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=2,
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_faq_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_file_type",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_language_code",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_last_updated_at",
-                    type="DATE_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        freshness=False,
-                        importance=1,
-                        duration="25920000s",
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_source_uri",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_tenant_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_version",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_view_count",
-                    type="LONG_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        rank_order="ASCENDING",
-                    ),
-                ),
+                {
+                    "name": "_authors",
+                    "type": "STRING_LIST_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                    },
+                },
+                {
+                    "name": "_category",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_created_at",
+                    "type": "DATE_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "freshness": False,
+                        "importance": 1,
+                        "duration": "25920000s",
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_data_source_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_document_title",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": True,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 2,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_excerpt_page_number",
+                    "type": "LONG_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 2,
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_faq_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_file_type",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_language_code",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_last_updated_at",
+                    "type": "DATE_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "freshness": False,
+                        "importance": 1,
+                        "duration": "25920000s",
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_source_uri",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_tenant_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_version",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "rankOrder": "ASCENDING",
+                    },
+                },
             ])
         ```
 
@@ -1410,262 +1410,262 @@ class Index(pulumi.CustomResource):
             name="example",
             role_arn=this["arn"],
             document_metadata_configuration_updates=[
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_authors",
-                    type="STRING_LIST_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_category",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_created_at",
-                    type="DATE_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        freshness=False,
-                        importance=1,
-                        duration="25920000s",
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_data_source_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_document_title",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=False,
-                        searchable=True,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=2,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_excerpt_page_number",
-                    type="LONG_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=2,
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_faq_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_file_type",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_language_code",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_last_updated_at",
-                    type="DATE_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        freshness=False,
-                        importance=1,
-                        duration="25920000s",
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_source_uri",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=False,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_tenant_id",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_version",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="_view_count",
-                    type="LONG_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=False,
-                        facetable=False,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="example-string-value",
-                    type="STRING_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=True,
-                        searchable=True,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        values_importance_map={},
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="example-long-value",
-                    type="LONG_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=True,
-                        searchable=False,
-                        sortable=True,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                        rank_order="ASCENDING",
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="example-string-list-value",
-                    type="STRING_LIST_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=True,
-                        searchable=True,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        importance=1,
-                    ),
-                ),
-                aws.kendra.IndexDocumentMetadataConfigurationUpdateArgs(
-                    name="example-date-value",
-                    type="DATE_VALUE",
-                    search=aws.kendra.IndexDocumentMetadataConfigurationUpdateSearchArgs(
-                        displayable=True,
-                        facetable=True,
-                        searchable=False,
-                        sortable=False,
-                    ),
-                    relevance=aws.kendra.IndexDocumentMetadataConfigurationUpdateRelevanceArgs(
-                        freshness=False,
-                        importance=1,
-                        duration="25920000s",
-                        rank_order="ASCENDING",
-                    ),
-                ),
+                {
+                    "name": "_authors",
+                    "type": "STRING_LIST_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                    },
+                },
+                {
+                    "name": "_category",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_created_at",
+                    "type": "DATE_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "freshness": False,
+                        "importance": 1,
+                        "duration": "25920000s",
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_data_source_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_document_title",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": True,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 2,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_excerpt_page_number",
+                    "type": "LONG_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 2,
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_faq_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_file_type",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_language_code",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_last_updated_at",
+                    "type": "DATE_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "freshness": False,
+                        "importance": 1,
+                        "duration": "25920000s",
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "_source_uri",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_tenant_id",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_version",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "example-string-value",
+                    "type": "STRING_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": True,
+                        "searchable": True,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "valuesImportanceMap": {},
+                    },
+                },
+                {
+                    "name": "example-long-value",
+                    "type": "LONG_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": True,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "rankOrder": "ASCENDING",
+                    },
+                },
+                {
+                    "name": "example-string-list-value",
+                    "type": "STRING_LIST_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": True,
+                        "searchable": True,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                    },
+                },
+                {
+                    "name": "example-date-value",
+                    "type": "DATE_VALUE",
+                    "search": {
+                        "displayable": True,
+                        "facetable": True,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "freshness": False,
+                        "importance": 1,
+                        "duration": "25920000s",
+                        "rankOrder": "ASCENDING",
+                    },
+                },
             ])
         ```
 
@@ -1678,12 +1678,12 @@ class Index(pulumi.CustomResource):
         example = aws.kendra.Index("example",
             name="example",
             role_arn=this["arn"],
-            user_token_configurations=aws.kendra.IndexUserTokenConfigurationsArgs(
-                json_token_type_configuration=aws.kendra.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs(
-                    group_attribute_field="groups",
-                    user_name_attribute_field="username",
-                ),
-            ))
+            user_token_configurations={
+                "jsonTokenTypeConfiguration": {
+                    "groupAttributeField": "groups",
+                    "userNameAttributeField": "username",
+                },
+            })
         ```
 
         ## Import
@@ -1709,17 +1709,17 @@ class Index(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: Optional[pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']]] = None,
+                 capacity_units: Optional[pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 document_metadata_configuration_updates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationUpdateArgs']]]]] = None,
+                 document_metadata_configuration_updates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_context_policy: Optional[pulumi.Input[str]] = None,
-                 user_group_resolution_configuration: Optional[pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']]] = None,
-                 user_token_configurations: Optional[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']]] = None,
+                 user_group_resolution_configuration: Optional[pulumi.Input[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict']]] = None,
+                 user_token_configurations: Optional[pulumi.Input[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1760,23 +1760,23 @@ class Index(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            capacity_units: Optional[pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']]] = None,
+            capacity_units: Optional[pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            document_metadata_configuration_updates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationUpdateArgs']]]]] = None,
+            document_metadata_configuration_updates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]]] = None,
             edition: Optional[pulumi.Input[str]] = None,
             error_message: Optional[pulumi.Input[str]] = None,
-            index_statistics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexIndexStatisticArgs']]]]] = None,
+            index_statistics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IndexIndexStatisticArgs', 'IndexIndexStatisticArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']]] = None,
+            server_side_encryption_configuration: Optional[pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             updated_at: Optional[pulumi.Input[str]] = None,
             user_context_policy: Optional[pulumi.Input[str]] = None,
-            user_group_resolution_configuration: Optional[pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']]] = None,
-            user_token_configurations: Optional[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']]] = None) -> 'Index':
+            user_group_resolution_configuration: Optional[pulumi.Input[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict']]] = None,
+            user_token_configurations: Optional[pulumi.Input[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict']]] = None) -> 'Index':
         """
         Get an existing Index resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1785,24 +1785,24 @@ class Index(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Index.
-        :param pulumi.Input[pulumi.InputType['IndexCapacityUnitsArgs']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+        :param pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[str] created_at: The Unix datetime that the index was created.
         :param pulumi.Input[str] description: The description of the Index.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationUpdateArgs']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationUpdateArgs', 'IndexDocumentMetadataConfigurationUpdateArgsDict']]]] document_metadata_configuration_updates: One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
         :param pulumi.Input[str] edition: The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`
         :param pulumi.Input[str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexIndexStatisticArgs']]]] index_statistics: A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IndexIndexStatisticArgs', 'IndexIndexStatisticArgsDict']]]] index_statistics: A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         :param pulumi.Input[str] name: Specifies the name of the Index.
         :param pulumi.Input[str] role_arn: An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-        :param pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+        :param pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         :param pulumi.Input[str] status: The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Index. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] updated_at: The Unix datetime that the index was last updated.
         :param pulumi.Input[str] user_context_policy: The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-        :param pulumi.Input[pulumi.InputType['IndexUserGroupResolutionConfigurationArgs']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-        :param pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationsArgs']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
+        :param pulumi.Input[Union['IndexUserGroupResolutionConfigurationArgs', 'IndexUserGroupResolutionConfigurationArgsDict']] user_group_resolution_configuration: A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        :param pulumi.Input[Union['IndexUserTokenConfigurationsArgs', 'IndexUserTokenConfigurationsArgsDict']] user_token_configurations: A block that specifies the user token configuration. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

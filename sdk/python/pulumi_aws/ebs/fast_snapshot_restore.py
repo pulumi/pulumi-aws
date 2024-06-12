@@ -138,7 +138,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['FastSnapshotRestoreTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['FastSnapshotRestoreTimeoutsArgs', 'FastSnapshotRestoreTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
@@ -216,7 +216,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['FastSnapshotRestoreTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['FastSnapshotRestoreTimeoutsArgs', 'FastSnapshotRestoreTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -247,7 +247,7 @@ class FastSnapshotRestore(pulumi.CustomResource):
             availability_zone: Optional[pulumi.Input[str]] = None,
             snapshot_id: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['FastSnapshotRestoreTimeoutsArgs']]] = None) -> 'FastSnapshotRestore':
+            timeouts: Optional[pulumi.Input[Union['FastSnapshotRestoreTimeoutsArgs', 'FastSnapshotRestoreTimeoutsArgsDict']]] = None) -> 'FastSnapshotRestore':
         """
         Get an existing FastSnapshotRestore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

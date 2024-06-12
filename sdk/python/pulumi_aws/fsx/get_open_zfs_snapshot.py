@@ -145,7 +145,7 @@ class AwaitableGetOpenZfsSnapshotResult(GetOpenZfsSnapshotResult):
             volume_id=self.volume_id)
 
 
-def get_open_zfs_snapshot(filters: Optional[Sequence[pulumi.InputType['GetOpenZfsSnapshotFilterArgs']]] = None,
+def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']]] = None,
                           most_recent: Optional[bool] = None,
                           name: Optional[str] = None,
                           snapshot_ids: Optional[Sequence[str]] = None,
@@ -163,14 +163,14 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[pulumi.InputType['GetOpenZf
     import pulumi_aws as aws
 
     example = aws.fsx.get_open_zfs_snapshot(most_recent=True,
-        filters=[aws.fsx.GetOpenZfsSnapshotFilterArgs(
-            name="volume-id",
-            values=["fsvol-073a32b6098a73feb"],
-        )])
+        filters=[{
+            "name": "volume-id",
+            "values": ["fsvol-073a32b6098a73feb"],
+        }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetOpenZfsSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. The
+    :param Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. The
            supported names are file-system-id or volume-id.
     :param bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param str name: Name of the snapshot.
@@ -200,7 +200,7 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[pulumi.InputType['GetOpenZf
 
 
 @_utilities.lift_output_func(get_open_zfs_snapshot)
-def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetOpenZfsSnapshotFilterArgs']]]]] = None,
+def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']]]]] = None,
                                  most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                                  name: Optional[pulumi.Input[Optional[str]]] = None,
                                  snapshot_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -218,14 +218,14 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
     import pulumi_aws as aws
 
     example = aws.fsx.get_open_zfs_snapshot(most_recent=True,
-        filters=[aws.fsx.GetOpenZfsSnapshotFilterArgs(
-            name="volume-id",
-            values=["fsvol-073a32b6098a73feb"],
-        )])
+        filters=[{
+            "name": "volume-id",
+            "values": ["fsvol-073a32b6098a73feb"],
+        }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetOpenZfsSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. The
+    :param Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. The
            supported names are file-system-id or volume-id.
     :param bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param str name: Name of the snapshot.

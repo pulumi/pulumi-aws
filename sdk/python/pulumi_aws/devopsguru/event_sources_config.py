@@ -66,7 +66,7 @@ class EventSourcesConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourcesConfigEventSourceArgs']]]]] = None,
+                 event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -77,11 +77,11 @@ class EventSourcesConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.devopsguru.EventSourcesConfig("example", event_sources=[aws.devopsguru.EventSourcesConfigEventSourceArgs(
-            amazon_code_guru_profilers=[aws.devopsguru.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs(
-                status="ENABLED",
-            )],
-        )])
+        example = aws.devopsguru.EventSourcesConfig("example", event_sources=[{
+            "amazonCodeGuruProfilers": [{
+                "status": "ENABLED",
+            }],
+        }])
         ```
 
         ## Import
@@ -94,7 +94,7 @@ class EventSourcesConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourcesConfigEventSourceArgs']]]] event_sources: Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]] event_sources: Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
         """
         ...
     @overload
@@ -111,11 +111,11 @@ class EventSourcesConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.devopsguru.EventSourcesConfig("example", event_sources=[aws.devopsguru.EventSourcesConfigEventSourceArgs(
-            amazon_code_guru_profilers=[aws.devopsguru.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs(
-                status="ENABLED",
-            )],
-        )])
+        example = aws.devopsguru.EventSourcesConfig("example", event_sources=[{
+            "amazonCodeGuruProfilers": [{
+                "status": "ENABLED",
+            }],
+        }])
         ```
 
         ## Import
@@ -141,7 +141,7 @@ class EventSourcesConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourcesConfigEventSourceArgs']]]]] = None,
+                 event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -162,7 +162,7 @@ class EventSourcesConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourcesConfigEventSourceArgs']]]]] = None) -> 'EventSourcesConfig':
+            event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]]] = None) -> 'EventSourcesConfig':
         """
         Get an existing EventSourcesConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -170,7 +170,7 @@ class EventSourcesConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventSourcesConfigEventSourceArgs']]]] event_sources: Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]] event_sources: Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

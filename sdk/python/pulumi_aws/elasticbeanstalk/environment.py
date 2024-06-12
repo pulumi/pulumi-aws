@@ -701,7 +701,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  platform_arn: Optional[pulumi.Input[str]] = None,
                  poll_interval: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
@@ -758,16 +758,16 @@ class Environment(pulumi.CustomResource):
             application=tftest.name,
             solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
             settings=[
-                aws.elasticbeanstalk.EnvironmentSettingArgs(
-                    namespace="aws:ec2:vpc",
-                    name="VPCId",
-                    value="vpc-xxxxxxxx",
-                ),
-                aws.elasticbeanstalk.EnvironmentSettingArgs(
-                    namespace="aws:ec2:vpc",
-                    name="Subnets",
-                    value="subnet-xxxxxxxx",
-                ),
+                {
+                    "namespace": "aws:ec2:vpc",
+                    "name": "VPCId",
+                    "value": "vpc-xxxxxxxx",
+                },
+                {
+                    "namespace": "aws:ec2:vpc",
+                    "name": "Subnets",
+                    "value": "subnet-xxxxxxxx",
+                },
             ])
         ```
 
@@ -794,7 +794,7 @@ class Environment(pulumi.CustomResource):
                check if changes have been applied. Use this to adjust the rate of API calls
                for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
                use the default behavior, which is an exponential backoff
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
@@ -866,16 +866,16 @@ class Environment(pulumi.CustomResource):
             application=tftest.name,
             solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
             settings=[
-                aws.elasticbeanstalk.EnvironmentSettingArgs(
-                    namespace="aws:ec2:vpc",
-                    name="VPCId",
-                    value="vpc-xxxxxxxx",
-                ),
-                aws.elasticbeanstalk.EnvironmentSettingArgs(
-                    namespace="aws:ec2:vpc",
-                    name="Subnets",
-                    value="subnet-xxxxxxxx",
-                ),
+                {
+                    "namespace": "aws:ec2:vpc",
+                    "name": "VPCId",
+                    "value": "vpc-xxxxxxxx",
+                },
+                {
+                    "namespace": "aws:ec2:vpc",
+                    "name": "Subnets",
+                    "value": "subnet-xxxxxxxx",
+                },
             ])
         ```
 
@@ -908,7 +908,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  platform_arn: Optional[pulumi.Input[str]] = None,
                  poll_interval: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
@@ -960,7 +960,7 @@ class Environment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            all_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentAllSettingArgs']]]]] = None,
+            all_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentAllSettingArgs', 'EnvironmentAllSettingArgsDict']]]]] = None,
             application: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -975,7 +975,7 @@ class Environment(pulumi.CustomResource):
             platform_arn: Optional[pulumi.Input[str]] = None,
             poll_interval: Optional[pulumi.Input[str]] = None,
             queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]]] = None,
+            settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]]] = None,
             solution_stack_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -991,7 +991,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentAllSettingArgs']]]] all_settings: List of all option settings configured in this Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentAllSettingArgs', 'EnvironmentAllSettingArgsDict']]]] all_settings: List of all option settings configured in this Environment. These
                are a combination of default settings and their overrides from `setting` in
                the configuration.
         :param pulumi.Input[str] application: Name of the application that contains the version
@@ -1014,7 +1014,7 @@ class Environment(pulumi.CustomResource):
                for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
                use the default behavior, which is an exponential backoff
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: SQS queues in use by this Environment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentSettingArgs']]]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment

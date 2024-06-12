@@ -246,7 +246,7 @@ class ParameterGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -262,18 +262,18 @@ class ParameterGroup(pulumi.CustomResource):
             name="parameter-group-test",
             family="redshift-1.0",
             parameters=[
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="require_ssl",
-                    value="true",
-                ),
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="query_group",
-                    value="example",
-                ),
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="enable_user_activity_logging",
-                    value="true",
-                ),
+                {
+                    "name": "require_ssl",
+                    "value": "true",
+                },
+                {
+                    "name": "query_group",
+                    "value": "example",
+                },
+                {
+                    "name": "enable_user_activity_logging",
+                    "value": "true",
+                },
             ])
         ```
 
@@ -290,7 +290,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the Redshift parameter group.
         :param pulumi.Input[str] name: The name of the Redshift parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of Redshift parameters to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: A list of Redshift parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)
@@ -314,18 +314,18 @@ class ParameterGroup(pulumi.CustomResource):
             name="parameter-group-test",
             family="redshift-1.0",
             parameters=[
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="require_ssl",
-                    value="true",
-                ),
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="query_group",
-                    value="example",
-                ),
-                aws.redshift.ParameterGroupParameterArgs(
-                    name="enable_user_activity_logging",
-                    value="true",
-                ),
+                {
+                    "name": "require_ssl",
+                    "value": "true",
+                },
+                {
+                    "name": "query_group",
+                    "value": "example",
+                },
+                {
+                    "name": "enable_user_activity_logging",
+                    "value": "true",
+                },
             ])
         ```
 
@@ -355,7 +355,7 @@ class ParameterGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -391,7 +391,7 @@ class ParameterGroup(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             family: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ParameterGroup':
         """
@@ -405,7 +405,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Redshift parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the Redshift parameter group.
         :param pulumi.Input[str] name: The name of the Redshift parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of Redshift parameters to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: A list of Redshift parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                You can read more about the parameters that Redshift supports in the [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html)

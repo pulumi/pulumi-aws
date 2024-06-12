@@ -67,7 +67,7 @@ class AwaitableGetLifecyclePolicyDocumentResult(GetLifecyclePolicyDocumentResult
             rules=self.rules)
 
 
-def get_lifecycle_policy_document(rules: Optional[Sequence[pulumi.InputType['GetLifecyclePolicyDocumentRuleArgs']]] = None,
+def get_lifecycle_policy_document(rules: Optional[Sequence[Union['GetLifecyclePolicyDocumentRuleArgs', 'GetLifecyclePolicyDocumentRuleArgsDict']]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLifecyclePolicyDocumentResult:
     """
     Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `ecr.LifecyclePolicy` resource.
@@ -80,16 +80,16 @@ def get_lifecycle_policy_document(rules: Optional[Sequence[pulumi.InputType['Get
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ecr.get_lifecycle_policy_document(rules=[aws.ecr.GetLifecyclePolicyDocumentRuleArgs(
-        priority=1,
-        description="This is a test.",
-        selection=aws.ecr.GetLifecyclePolicyDocumentRuleSelectionArgs(
-            tag_status="tagged",
-            tag_prefix_lists=["prod"],
-            count_type="imageCountMoreThan",
-            count_number=100,
-        ),
-    )])
+    example = aws.ecr.get_lifecycle_policy_document(rules=[{
+        "priority": 1,
+        "description": "This is a test.",
+        "selection": {
+            "tagStatus": "tagged",
+            "tagPrefixLists": ["prod"],
+            "countType": "imageCountMoreThan",
+            "countNumber": 100,
+        },
+    }])
     example_lifecycle_policy = aws.ecr.LifecyclePolicy("example",
         repository=example_aws_ecr_repository["name"],
         policy=example.json)
@@ -107,7 +107,7 @@ def get_lifecycle_policy_document(rules: Optional[Sequence[pulumi.InputType['Get
 
 
 @_utilities.lift_output_func(get_lifecycle_policy_document)
-def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLifecyclePolicyDocumentRuleArgs']]]]] = None,
+def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[Sequence[Union['GetLifecyclePolicyDocumentRuleArgs', 'GetLifecyclePolicyDocumentRuleArgsDict']]]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLifecyclePolicyDocumentResult]:
     """
     Generates an ECR lifecycle policy document in JSON format. Can be used with resources such as the `ecr.LifecyclePolicy` resource.
@@ -120,16 +120,16 @@ def get_lifecycle_policy_document_output(rules: Optional[pulumi.Input[Optional[S
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ecr.get_lifecycle_policy_document(rules=[aws.ecr.GetLifecyclePolicyDocumentRuleArgs(
-        priority=1,
-        description="This is a test.",
-        selection=aws.ecr.GetLifecyclePolicyDocumentRuleSelectionArgs(
-            tag_status="tagged",
-            tag_prefix_lists=["prod"],
-            count_type="imageCountMoreThan",
-            count_number=100,
-        ),
-    )])
+    example = aws.ecr.get_lifecycle_policy_document(rules=[{
+        "priority": 1,
+        "description": "This is a test.",
+        "selection": {
+            "tagStatus": "tagged",
+            "tagPrefixLists": ["prod"],
+            "countType": "imageCountMoreThan",
+            "countNumber": 100,
+        },
+    }])
     example_lifecycle_policy = aws.ecr.LifecyclePolicy("example",
         repository=example_aws_ecr_repository["name"],
         policy=example.json)

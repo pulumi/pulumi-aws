@@ -121,8 +121,8 @@ class AwaitableGetGroupResult(GetGroupResult):
             identity_store_id=self.identity_store_id)
 
 
-def get_group(alternate_identifier: Optional[pulumi.InputType['GetGroupAlternateIdentifierArgs']] = None,
-              filter: Optional[pulumi.InputType['GetGroupFilterArgs']] = None,
+def get_group(alternate_identifier: Optional[Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict']] = None,
+              filter: Optional[Union['GetGroupFilterArgs', 'GetGroupFilterArgsDict']] = None,
               group_id: Optional[str] = None,
               identity_store_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
@@ -137,18 +137,18 @@ def get_group(alternate_identifier: Optional[pulumi.InputType['GetGroupAlternate
 
     example = aws.ssoadmin.get_instances()
     example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier=aws.identitystore.GetGroupAlternateIdentifierArgs(
-            unique_attribute=aws.identitystore.GetGroupAlternateIdentifierUniqueAttributeArgs(
-                attribute_path="DisplayName",
-                attribute_value="ExampleGroup",
-            ),
-        ))
+        alternate_identifier={
+            "uniqueAttribute": {
+                "attributePath": "DisplayName",
+                "attributeValue": "ExampleGroup",
+            },
+        })
     pulumi.export("groupId", example_get_group.group_id)
     ```
 
 
-    :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
-    :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
+    :param Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+    :param Union['GetGroupFilterArgs', 'GetGroupFilterArgsDict'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
     :param str group_id: The identifier for a group in the Identity Store.
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
@@ -176,8 +176,8 @@ def get_group(alternate_identifier: Optional[pulumi.InputType['GetGroupAlternate
 
 
 @_utilities.lift_output_func(get_group)
-def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi.InputType['GetGroupAlternateIdentifierArgs']]]] = None,
-                     filter: Optional[pulumi.Input[Optional[pulumi.InputType['GetGroupFilterArgs']]]] = None,
+def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict']]]] = None,
+                     filter: Optional[pulumi.Input[Optional[Union['GetGroupFilterArgs', 'GetGroupFilterArgsDict']]]] = None,
                      group_id: Optional[pulumi.Input[Optional[str]]] = None,
                      identity_store_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
@@ -192,18 +192,18 @@ def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi
 
     example = aws.ssoadmin.get_instances()
     example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier=aws.identitystore.GetGroupAlternateIdentifierArgs(
-            unique_attribute=aws.identitystore.GetGroupAlternateIdentifierUniqueAttributeArgs(
-                attribute_path="DisplayName",
-                attribute_value="ExampleGroup",
-            ),
-        ))
+        alternate_identifier={
+            "uniqueAttribute": {
+                "attributePath": "DisplayName",
+                "attributeValue": "ExampleGroup",
+            },
+        })
     pulumi.export("groupId", example_get_group.group_id)
     ```
 
 
-    :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
-    :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
+    :param Union['GetGroupAlternateIdentifierArgs', 'GetGroupAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
+    :param Union['GetGroupFilterArgs', 'GetGroupFilterArgsDict'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
     :param str group_id: The identifier for a group in the Identity Store.
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.

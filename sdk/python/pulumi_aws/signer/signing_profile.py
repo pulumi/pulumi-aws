@@ -330,8 +330,8 @@ class SigningProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  platform_id: Optional[pulumi.Input[str]] = None,
-                 signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
-                 signing_material: Optional[pulumi.Input[pulumi.InputType['SigningProfileSigningMaterialArgs']]] = None,
+                 signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
+                 signing_material: Optional[pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -347,10 +347,10 @@ class SigningProfile(pulumi.CustomResource):
         prod_sp = aws.signer.SigningProfile("prod_sp",
             platform_id="AWSLambda-SHA384-ECDSA",
             name_prefix="prod_sp_",
-            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                value=5,
-                type="YEARS",
-            ),
+            signature_validity_period={
+                "value": 5,
+                "type": "YEARS",
+            },
             tags={
                 "tag1": "value1",
                 "tag2": "value2",
@@ -368,8 +368,8 @@ class SigningProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] platform_id: The ID of the platform that is used by the target signing profile.
-        :param pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
-        :param pulumi.Input[pulumi.InputType['SigningProfileSigningMaterialArgs']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+        :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
+        :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -391,10 +391,10 @@ class SigningProfile(pulumi.CustomResource):
         prod_sp = aws.signer.SigningProfile("prod_sp",
             platform_id="AWSLambda-SHA384-ECDSA",
             name_prefix="prod_sp_",
-            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                value=5,
-                type="YEARS",
-            ),
+            signature_validity_period={
+                "value": 5,
+                "type": "YEARS",
+            },
             tags={
                 "tag1": "value1",
                 "tag2": "value2",
@@ -427,8 +427,8 @@ class SigningProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  platform_id: Optional[pulumi.Input[str]] = None,
-                 signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
-                 signing_material: Optional[pulumi.Input[pulumi.InputType['SigningProfileSigningMaterialArgs']]] = None,
+                 signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
+                 signing_material: Optional[pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -469,9 +469,9 @@ class SigningProfile(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[str]] = None,
             platform_display_name: Optional[pulumi.Input[str]] = None,
             platform_id: Optional[pulumi.Input[str]] = None,
-            revocation_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileRevocationRecordArgs']]]]] = None,
-            signature_validity_period: Optional[pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']]] = None,
-            signing_material: Optional[pulumi.Input[pulumi.InputType['SigningProfileSigningMaterialArgs']]] = None,
+            revocation_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SigningProfileRevocationRecordArgs', 'SigningProfileRevocationRecordArgsDict']]]]] = None,
+            signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
+            signing_material: Optional[pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -487,9 +487,9 @@ class SigningProfile(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for the signing profile.
         :param pulumi.Input[str] platform_display_name: A human-readable name for the signing platform associated with the signing profile.
         :param pulumi.Input[str] platform_id: The ID of the platform that is used by the target signing profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SigningProfileRevocationRecordArgs']]]] revocation_records: Revocation information for a signing profile. See `revocation_record` Block below for details.
-        :param pulumi.Input[pulumi.InputType['SigningProfileSignatureValidityPeriodArgs']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
-        :param pulumi.Input[pulumi.InputType['SigningProfileSigningMaterialArgs']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SigningProfileRevocationRecordArgs', 'SigningProfileRevocationRecordArgsDict']]]] revocation_records: Revocation information for a signing profile. See `revocation_record` Block below for details.
+        :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
+        :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         :param pulumi.Input[str] status: The status of the target signing profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

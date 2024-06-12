@@ -359,14 +359,14 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['ApplicationDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ApplicationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an [AWS Mainframe Modernization Application](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2.html).
@@ -382,8 +382,8 @@ class Application(pulumi.CustomResource):
         example = aws.m2.Application("example",
             name="Example",
             engine_type="bluage",
-            definition=aws.m2.ApplicationDefinitionArgs(
-                content=f\"\"\"{{
+            definition={
+                "content": f\"\"\"{{
           "definition": {{
             "listeners": [
               {{
@@ -409,7 +409,7 @@ class Application(pulumi.CustomResource):
         }}
 
         \"\"\",
-            ))
+            })
         ```
 
         ## Import
@@ -422,7 +422,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ApplicationDefinitionArgs']] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        :param pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict']] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
         :param pulumi.Input[str] description: Description of the application.
         :param pulumi.Input[str] engine_type: Engine type must be `microfocus | bluage`.
         :param pulumi.Input[str] kms_key_id: KMS Key to use for the Application.
@@ -452,8 +452,8 @@ class Application(pulumi.CustomResource):
         example = aws.m2.Application("example",
             name="Example",
             engine_type="bluage",
-            definition=aws.m2.ApplicationDefinitionArgs(
-                content=f\"\"\"{{
+            definition={
+                "content": f\"\"\"{{
           "definition": {{
             "listeners": [
               {{
@@ -479,7 +479,7 @@ class Application(pulumi.CustomResource):
         }}
 
         \"\"\",
-            ))
+            })
         ```
 
         ## Import
@@ -505,14 +505,14 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['ApplicationDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ApplicationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -549,7 +549,7 @@ class Application(pulumi.CustomResource):
             application_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             current_version: Optional[pulumi.Input[int]] = None,
-            definition: Optional[pulumi.Input[pulumi.InputType['ApplicationDefinitionArgs']]] = None,
+            definition: Optional[pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             engine_type: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -557,7 +557,7 @@ class Application(pulumi.CustomResource):
             role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ApplicationTimeoutsArgs']]] = None) -> 'Application':
+            timeouts: Optional[pulumi.Input[Union['ApplicationTimeoutsArgs', 'ApplicationTimeoutsArgsDict']]] = None) -> 'Application':
         """
         Get an existing Application resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -568,7 +568,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] application_id: Id of the Application.
         :param pulumi.Input[str] arn: ARN of the Application.
         :param pulumi.Input[int] current_version: Current version of the application deployed.
-        :param pulumi.Input[pulumi.InputType['ApplicationDefinitionArgs']] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        :param pulumi.Input[Union['ApplicationDefinitionArgs', 'ApplicationDefinitionArgsDict']] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
         :param pulumi.Input[str] description: Description of the application.
         :param pulumi.Input[str] engine_type: Engine type must be `microfocus | bluage`.
         :param pulumi.Input[str] kms_key_id: KMS Key to use for the Application.

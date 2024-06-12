@@ -206,7 +206,7 @@ class Cluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterEndpointArgs']]]]] = None,
+            cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'Cluster':
         """
@@ -217,7 +217,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterEndpointArgs']]]] cluster_endpoints: List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict']]]] cluster_endpoints: List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
         :param pulumi.Input[str] name: Unique name describing the cluster.
         :param pulumi.Input[str] status: Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
         """

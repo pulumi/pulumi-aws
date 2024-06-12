@@ -303,7 +303,7 @@ class OptionGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  option_group_description: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -326,23 +326,23 @@ class OptionGroup(pulumi.CustomResource):
             engine_name="sqlserver-ee",
             major_engine_version="11.00",
             options=[
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="Timezone",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
-                        name="TIME_ZONE",
-                        value="UTC",
-                    )],
-                ),
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="SQLSERVER_BACKUP_RESTORE",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
-                        name="IAM_ROLE_ARN",
-                        value=example_aws_iam_role["arn"],
-                    )],
-                ),
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="TDE",
-                ),
+                {
+                    "optionName": "Timezone",
+                    "optionSettings": [{
+                        "name": "TIME_ZONE",
+                        "value": "UTC",
+                    }],
+                },
+                {
+                    "optionName": "SQLSERVER_BACKUP_RESTORE",
+                    "optionSettings": [{
+                        "name": "IAM_ROLE_ARN",
+                        "value": example_aws_iam_role["arn"],
+                    }],
+                },
+                {
+                    "optionName": "TDE",
+                },
             ])
         ```
 
@@ -371,7 +371,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: Description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: The options to apply. See `option` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -400,23 +400,23 @@ class OptionGroup(pulumi.CustomResource):
             engine_name="sqlserver-ee",
             major_engine_version="11.00",
             options=[
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="Timezone",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
-                        name="TIME_ZONE",
-                        value="UTC",
-                    )],
-                ),
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="SQLSERVER_BACKUP_RESTORE",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
-                        name="IAM_ROLE_ARN",
-                        value=example_aws_iam_role["arn"],
-                    )],
-                ),
-                aws.rds.OptionGroupOptionArgs(
-                    option_name="TDE",
-                ),
+                {
+                    "optionName": "Timezone",
+                    "optionSettings": [{
+                        "name": "TIME_ZONE",
+                        "value": "UTC",
+                    }],
+                },
+                {
+                    "optionName": "SQLSERVER_BACKUP_RESTORE",
+                    "optionSettings": [{
+                        "name": "IAM_ROLE_ARN",
+                        "value": example_aws_iam_role["arn"],
+                    }],
+                },
+                {
+                    "optionName": "TDE",
+                },
             ])
         ```
 
@@ -458,7 +458,7 @@ class OptionGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  option_group_description: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -500,7 +500,7 @@ class OptionGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             option_group_description: Optional[pulumi.Input[str]] = None,
-            options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
+            options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'OptionGroup':
         """
@@ -516,7 +516,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: Description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: The options to apply. See `option` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptionGroupOptionArgs', 'OptionGroupOptionArgsDict']]]] options: The options to apply. See `option` Block below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

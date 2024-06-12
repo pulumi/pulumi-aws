@@ -396,7 +396,7 @@ class Service(pulumi.CustomResource):
             auth_type: Optional[pulumi.Input[str]] = None,
             certificate_arn: Optional[pulumi.Input[str]] = None,
             custom_domain_name: Optional[pulumi.Input[str]] = None,
-            dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDnsEntryArgs']]]]] = None,
+            dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -412,7 +412,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[str] custom_domain_name: Custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDnsEntryArgs']]]] dns_entries: DNS name of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]]] dns_entries: DNS name of the service.
         :param pulumi.Input[str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
                
                The following arguments are optional:

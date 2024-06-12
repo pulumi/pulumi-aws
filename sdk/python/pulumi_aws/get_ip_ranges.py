@@ -138,13 +138,13 @@ def get_ip_ranges(id: Optional[str] = None,
         services=["ec2"])
     from_europe = aws.ec2.SecurityGroup("from_europe",
         name="from_europe",
-        ingress=[aws.ec2.SecurityGroupIngressArgs(
-            from_port=443,
-            to_port=443,
-            protocol="tcp",
-            cidr_blocks=european_ec2.cidr_blocks,
-            ipv6_cidr_blocks=european_ec2.ipv6_cidr_blocks,
-        )],
+        ingress=[{
+            "fromPort": 443,
+            "toPort": 443,
+            "protocol": "tcp",
+            "cidrBlocks": european_ec2.cidr_blocks,
+            "ipv6CidrBlocks": european_ec2.ipv6_cidr_blocks,
+        }],
         tags={
             "CreateDate": european_ec2.create_date,
             "SyncToken": european_ec2.sync_token,
@@ -206,13 +206,13 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
         services=["ec2"])
     from_europe = aws.ec2.SecurityGroup("from_europe",
         name="from_europe",
-        ingress=[aws.ec2.SecurityGroupIngressArgs(
-            from_port=443,
-            to_port=443,
-            protocol="tcp",
-            cidr_blocks=european_ec2.cidr_blocks,
-            ipv6_cidr_blocks=european_ec2.ipv6_cidr_blocks,
-        )],
+        ingress=[{
+            "fromPort": 443,
+            "toPort": 443,
+            "protocol": "tcp",
+            "cidrBlocks": european_ec2.cidr_blocks,
+            "ipv6CidrBlocks": european_ec2.ipv6_cidr_blocks,
+        }],
         tags={
             "CreateDate": european_ec2.create_date,
             "SyncToken": european_ec2.sync_token,

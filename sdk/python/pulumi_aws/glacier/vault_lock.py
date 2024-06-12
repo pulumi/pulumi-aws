@@ -172,16 +172,16 @@ class VaultLock(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vault = aws.glacier.Vault("example", name="example")
-        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["glacier:DeleteArchive"],
-            effect="Deny",
-            resources=[example_vault.arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="NumericLessThanEquals",
-                variable="glacier:ArchiveAgeinDays",
-                values=["365"],
-            )],
-        )])
+        example = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["glacier:DeleteArchive"],
+            "effect": "Deny",
+            "resources": [example_vault.arn],
+            "conditions": [{
+                "test": "NumericLessThanEquals",
+                "variable": "glacier:ArchiveAgeinDays",
+                "values": ["365"],
+            }],
+        }])
         example_vault_lock = aws.glacier.VaultLock("example",
             complete_lock=False,
             policy=example.json,
@@ -231,16 +231,16 @@ class VaultLock(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vault = aws.glacier.Vault("example", name="example")
-        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["glacier:DeleteArchive"],
-            effect="Deny",
-            resources=[example_vault.arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="NumericLessThanEquals",
-                variable="glacier:ArchiveAgeinDays",
-                values=["365"],
-            )],
-        )])
+        example = aws.iam.get_policy_document_output(statements=[{
+            "actions": ["glacier:DeleteArchive"],
+            "effect": "Deny",
+            "resources": [example_vault.arn],
+            "conditions": [{
+                "test": "NumericLessThanEquals",
+                "variable": "glacier:ArchiveAgeinDays",
+                "values": ["365"],
+            }],
+        }])
         example_vault_lock = aws.glacier.VaultLock("example",
             complete_lock=False,
             policy=example.json,

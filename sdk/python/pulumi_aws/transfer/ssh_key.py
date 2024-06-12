@@ -160,14 +160,14 @@ class SshKey(pulumi.CustomResource):
             tags={
                 "NAME": "tf-acc-test-transfer-server",
             })
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["transfer.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["transfer.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         example_role = aws.iam.Role("example",
             name="tf-test-transfer-user-iam-role",
             assume_role_policy=assume_role.json)
@@ -182,12 +182,12 @@ class SshKey(pulumi.CustomResource):
             server_id=example_server.id,
             user_name=example_user.user_name,
             body=std.trimspace_output(input=example_private_key.public_key_openssh).apply(lambda invoke: invoke.result))
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AllowFullAccesstoS3",
-            effect="Allow",
-            actions=["s3:*"],
-            resources=["*"],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "sid": "AllowFullAccesstoS3",
+            "effect": "Allow",
+            "actions": ["s3:*"],
+            "resources": ["*"],
+        }])
         example_role_policy = aws.iam.RolePolicy("example",
             name="tf-test-transfer-user-iam-policy",
             role=example_role.id,
@@ -233,14 +233,14 @@ class SshKey(pulumi.CustomResource):
             tags={
                 "NAME": "tf-acc-test-transfer-server",
             })
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["transfer.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["transfer.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         example_role = aws.iam.Role("example",
             name="tf-test-transfer-user-iam-role",
             assume_role_policy=assume_role.json)
@@ -255,12 +255,12 @@ class SshKey(pulumi.CustomResource):
             server_id=example_server.id,
             user_name=example_user.user_name,
             body=std.trimspace_output(input=example_private_key.public_key_openssh).apply(lambda invoke: invoke.result))
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AllowFullAccesstoS3",
-            effect="Allow",
-            actions=["s3:*"],
-            resources=["*"],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "sid": "AllowFullAccesstoS3",
+            "effect": "Allow",
+            "actions": ["s3:*"],
+            "resources": ["*"],
+        }])
         example_role_policy = aws.iam.RolePolicy("example",
             name="tf-test-transfer-user-iam-policy",
             role=example_role.id,

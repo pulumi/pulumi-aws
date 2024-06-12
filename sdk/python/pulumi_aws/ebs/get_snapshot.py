@@ -259,7 +259,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             volume_size=self.volume_size)
 
 
-def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterArgs']]] = None,
+def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']]] = None,
                  most_recent: Optional[bool] = None,
                  owners: Optional[Sequence[str]] = None,
                  restorable_by_user_ids: Optional[Sequence[str]] = None,
@@ -278,19 +278,19 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
     ebs_volume = aws.ebs.get_snapshot(most_recent=True,
         owners=["self"],
         filters=[
-            aws.ebs.GetSnapshotFilterArgs(
-                name="volume-size",
-                values=["40"],
-            ),
-            aws.ebs.GetSnapshotFilterArgs(
-                name="tag:Name",
-                values=["Example"],
-            ),
+            {
+                "name": "volume-size",
+                "values": ["40"],
+            },
+            {
+                "name": "tag:Name",
+                "values": ["Example"],
+            },
         ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-snapshots in the AWS CLI reference][1].
     :param bool most_recent: If more than one result is returned, use the most recent snapshot.
@@ -333,7 +333,7 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
 
 
 @_utilities.lift_output_func(get_snapshot)
-def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSnapshotFilterArgs']]]]] = None,
+def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']]]]] = None,
                         most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                         owners: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                         restorable_by_user_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -352,19 +352,19 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     ebs_volume = aws.ebs.get_snapshot(most_recent=True,
         owners=["self"],
         filters=[
-            aws.ebs.GetSnapshotFilterArgs(
-                name="volume-size",
-                values=["40"],
-            ),
-            aws.ebs.GetSnapshotFilterArgs(
-                name="tag:Name",
-                values=["Example"],
-            ),
+            {
+                "name": "volume-size",
+                "values": ["40"],
+            },
+            {
+                "name": "tag:Name",
+                "values": ["Example"],
+            },
         ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-snapshots in the AWS CLI reference][1].
     :param bool most_recent: If more than one result is returned, use the most recent snapshot.

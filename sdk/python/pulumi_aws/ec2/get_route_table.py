@@ -157,7 +157,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
             vpc_id=self.vpc_id)
 
 
-def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFilterArgs']]] = None,
+def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]] = None,
                     gateway_id: Optional[str] = None,
                     route_table_id: Optional[str] = None,
                     subnet_id: Optional[str] = None,
@@ -187,7 +187,7 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']] filters: Configuration block. Detailed below.
     :param str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
     :param str route_table_id: ID of the specific Route Table to retrieve.
     :param str subnet_id: ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
@@ -219,7 +219,7 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
 
 
 @_utilities.lift_output_func(get_route_table)
-def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRouteTableFilterArgs']]]]] = None,
+def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]]]] = None,
                            gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                            route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
                            subnet_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -249,7 +249,7 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']] filters: Configuration block. Detailed below.
     :param str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
     :param str route_table_id: ID of the specific Route Table to retrieve.
     :param str subnet_id: ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).

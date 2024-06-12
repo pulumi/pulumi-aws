@@ -106,7 +106,7 @@ class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
             tags=self.tags)
 
 
-def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']]] = None,
+def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']]] = None,
                          internet_gateway_id: Optional[str] = None,
                          tags: Optional[Mapping[str, str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternetGatewayResult:
@@ -121,14 +121,14 @@ def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInterne
 
     config = pulumi.Config()
     vpc_id = config.require_object("vpcId")
-    default = aws.ec2.get_internet_gateway(filters=[aws.ec2.GetInternetGatewayFilterArgs(
-        name="attachment.vpc-id",
-        values=[vpc_id],
-    )])
+    default = aws.ec2.get_internet_gateway(filters=[{
+        "name": "attachment.vpc-id",
+        "values": [vpc_id],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -154,7 +154,7 @@ def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInterne
 
 
 @_utilities.lift_output_func(get_internet_gateway)
-def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']]]]] = None,
+def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']]]]] = None,
                                 internet_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
@@ -169,14 +169,14 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
 
     config = pulumi.Config()
     vpc_id = config.require_object("vpcId")
-    default = aws.ec2.get_internet_gateway(filters=[aws.ec2.GetInternetGatewayFilterArgs(
-        name="attachment.vpc-id",
-        values=[vpc_id],
-    )])
+    default = aws.ec2.get_internet_gateway(filters=[{
+        "name": "attachment.vpc-id",
+        "values": [vpc_id],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

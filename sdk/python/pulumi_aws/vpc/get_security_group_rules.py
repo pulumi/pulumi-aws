@@ -73,7 +73,7 @@ class AwaitableGetSecurityGroupRulesResult(GetSecurityGroupRulesResult):
             tags=self.tags)
 
 
-def get_security_group_rules(filters: Optional[Sequence[pulumi.InputType['GetSecurityGroupRulesFilterArgs']]] = None,
+def get_security_group_rules(filters: Optional[Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']]] = None,
                              tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupRulesResult:
     """
@@ -85,14 +85,14 @@ def get_security_group_rules(filters: Optional[Sequence[pulumi.InputType['GetSec
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpc.get_security_group_rules(filters=[aws.vpc.GetSecurityGroupRulesFilterArgs(
-        name="group-id",
-        values=[security_group_id],
-    )])
+    example = aws.vpc.get_security_group_rules(filters=[{
+        "name": "group-id",
+        "values": [security_group_id],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupRulesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group rule.
            
@@ -113,7 +113,7 @@ def get_security_group_rules(filters: Optional[Sequence[pulumi.InputType['GetSec
 
 
 @_utilities.lift_output_func(get_security_group_rules)
-def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSecurityGroupRulesFilterArgs']]]]] = None,
+def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']]]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupRulesResult]:
     """
@@ -125,14 +125,14 @@ def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequ
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.vpc.get_security_group_rules(filters=[aws.vpc.GetSecurityGroupRulesFilterArgs(
-        name="group-id",
-        values=[security_group_id],
-    )])
+    example = aws.vpc.get_security_group_rules(filters=[{
+        "name": "group-id",
+        "values": [security_group_id],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupRulesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSecurityGroupRulesFilterArgs', 'GetSecurityGroupRulesFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired security group rule.
            

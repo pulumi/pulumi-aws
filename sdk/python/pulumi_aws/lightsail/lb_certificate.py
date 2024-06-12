@@ -346,7 +346,7 @@ class LbCertificate(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
-            domain_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LbCertificateDomainValidationRecordArgs']]]]] = None,
+            domain_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LbCertificateDomainValidationRecordArgs', 'LbCertificateDomainValidationRecordArgsDict']]]]] = None,
             lb_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

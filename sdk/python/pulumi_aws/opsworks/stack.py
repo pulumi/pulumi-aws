@@ -802,7 +802,7 @@ class Stack(pulumi.CustomResource):
                  color: Optional[pulumi.Input[str]] = None,
                  configuration_manager_name: Optional[pulumi.Input[str]] = None,
                  configuration_manager_version: Optional[pulumi.Input[str]] = None,
-                 custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]]] = None,
+                 custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackCustomCookbooksSourceArgs', 'StackCustomCookbooksSourceArgsDict']]]]] = None,
                  custom_json: Optional[pulumi.Input[str]] = None,
                  default_availability_zone: Optional[pulumi.Input[str]] = None,
                  default_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -860,7 +860,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
         :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
         :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackCustomCookbooksSourceArgs', 'StackCustomCookbooksSourceArgsDict']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
         :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
                Cannot be set when `vpc_id` is set.
@@ -941,7 +941,7 @@ class Stack(pulumi.CustomResource):
                  color: Optional[pulumi.Input[str]] = None,
                  configuration_manager_name: Optional[pulumi.Input[str]] = None,
                  configuration_manager_version: Optional[pulumi.Input[str]] = None,
-                 custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]]] = None,
+                 custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackCustomCookbooksSourceArgs', 'StackCustomCookbooksSourceArgsDict']]]]] = None,
                  custom_json: Optional[pulumi.Input[str]] = None,
                  default_availability_zone: Optional[pulumi.Input[str]] = None,
                  default_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -1014,7 +1014,7 @@ class Stack(pulumi.CustomResource):
             color: Optional[pulumi.Input[str]] = None,
             configuration_manager_name: Optional[pulumi.Input[str]] = None,
             configuration_manager_version: Optional[pulumi.Input[str]] = None,
-            custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]]] = None,
+            custom_cookbooks_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackCustomCookbooksSourceArgs', 'StackCustomCookbooksSourceArgsDict']]]]] = None,
             custom_json: Optional[pulumi.Input[str]] = None,
             default_availability_zone: Optional[pulumi.Input[str]] = None,
             default_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -1045,7 +1045,7 @@ class Stack(pulumi.CustomResource):
         :param pulumi.Input[str] color: Color to paint next to the stack's resources in the OpsWorks console.
         :param pulumi.Input[str] configuration_manager_name: Name of the configuration manager to use. Defaults to "Chef".
         :param pulumi.Input[str] configuration_manager_version: Version of the configuration manager to use. Defaults to "11.4".
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackCustomCookbooksSourceArgs']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackCustomCookbooksSourceArgs', 'StackCustomCookbooksSourceArgsDict']]]] custom_cookbooks_sources: When `use_custom_cookbooks` is set, provide this sub-object as described below.
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the entire stack.
         :param pulumi.Input[str] default_availability_zone: Name of the availability zone where instances will be created by default.
                Cannot be set when `vpc_id` is set.

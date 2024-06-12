@@ -160,7 +160,7 @@ class Index(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['IndexTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['IndexTimeoutsArgs', 'IndexTimeoutsArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -230,7 +230,7 @@ class Index(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['IndexTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['IndexTimeoutsArgs', 'IndexTimeoutsArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -261,7 +261,7 @@ class Index(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['IndexTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[Union['IndexTimeoutsArgs', 'IndexTimeoutsArgsDict']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Index':
         """
         Get an existing Index resource's state with the given name, id, and optional extra

@@ -164,7 +164,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['ReplicationConfigurationDestinationArgs', 'ReplicationConfigurationDestinationArgsDict']]] = None,
                  source_file_system_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -183,9 +183,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
             source_file_system_id=example.id,
-            destination=aws.efs.ReplicationConfigurationDestinationArgs(
-                region="us-west-2",
-            ))
+            destination={
+                "region": "us-west-2",
+            })
         ```
 
         Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
@@ -197,10 +197,10 @@ class ReplicationConfiguration(pulumi.CustomResource):
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
             source_file_system_id=example.id,
-            destination=aws.efs.ReplicationConfigurationDestinationArgs(
-                availability_zone_name="us-west-2b",
-                kms_key_id="1234abcd-12ab-34cd-56ef-1234567890ab",
-            ))
+            destination={
+                "availabilityZoneName": "us-west-2b",
+                "kmsKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+            })
         ```
 
         Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
@@ -212,10 +212,10 @@ class ReplicationConfiguration(pulumi.CustomResource):
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
             source_file_system_id=example.id,
-            destination=aws.efs.ReplicationConfigurationDestinationArgs(
-                file_system_id="fs-1234567890",
-                region="us-west-2",
-            ))
+            destination={
+                "fileSystemId": "fs-1234567890",
+                "region": "us-west-2",
+            })
         ```
 
         ## Import
@@ -228,7 +228,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationDestinationArgs']] destination: A destination configuration block (documented below).
+        :param pulumi.Input[Union['ReplicationConfigurationDestinationArgs', 'ReplicationConfigurationDestinationArgsDict']] destination: A destination configuration block (documented below).
         :param pulumi.Input[str] source_file_system_id: The ID of the file system that is to be replicated.
         """
         ...
@@ -253,9 +253,9 @@ class ReplicationConfiguration(pulumi.CustomResource):
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
             source_file_system_id=example.id,
-            destination=aws.efs.ReplicationConfigurationDestinationArgs(
-                region="us-west-2",
-            ))
+            destination={
+                "region": "us-west-2",
+            })
         ```
 
         Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
@@ -267,10 +267,10 @@ class ReplicationConfiguration(pulumi.CustomResource):
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
             source_file_system_id=example.id,
-            destination=aws.efs.ReplicationConfigurationDestinationArgs(
-                availability_zone_name="us-west-2b",
-                kms_key_id="1234abcd-12ab-34cd-56ef-1234567890ab",
-            ))
+            destination={
+                "availabilityZoneName": "us-west-2b",
+                "kmsKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
+            })
         ```
 
         Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
@@ -282,10 +282,10 @@ class ReplicationConfiguration(pulumi.CustomResource):
         example = aws.efs.FileSystem("example")
         example_replication_configuration = aws.efs.ReplicationConfiguration("example",
             source_file_system_id=example.id,
-            destination=aws.efs.ReplicationConfigurationDestinationArgs(
-                file_system_id="fs-1234567890",
-                region="us-west-2",
-            ))
+            destination={
+                "fileSystemId": "fs-1234567890",
+                "region": "us-west-2",
+            })
         ```
 
         ## Import
@@ -311,7 +311,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['ReplicationConfigurationDestinationArgs', 'ReplicationConfigurationDestinationArgsDict']]] = None,
                  source_file_system_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -343,7 +343,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
-            destination: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationDestinationArgs']]] = None,
+            destination: Optional[pulumi.Input[Union['ReplicationConfigurationDestinationArgs', 'ReplicationConfigurationDestinationArgsDict']]] = None,
             original_source_file_system_arn: Optional[pulumi.Input[str]] = None,
             source_file_system_arn: Optional[pulumi.Input[str]] = None,
             source_file_system_id: Optional[pulumi.Input[str]] = None,
@@ -358,7 +358,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] creation_time: When the replication configuration was created.
                * `destination[0].file_system_id` - The fs ID of the replica.
                * `destination[0].status` - The status of the replication.
-        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationDestinationArgs']] destination: A destination configuration block (documented below).
+        :param pulumi.Input[Union['ReplicationConfigurationDestinationArgs', 'ReplicationConfigurationDestinationArgsDict']] destination: A destination configuration block (documented below).
         :param pulumi.Input[str] original_source_file_system_arn: The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
         :param pulumi.Input[str] source_file_system_arn: The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
         :param pulumi.Input[str] source_file_system_id: The ID of the file system that is to be replicated.

@@ -341,9 +341,9 @@ class Fleet(pulumi.CustomResource):
                  audit_stream_arn: Optional[pulumi.Input[str]] = None,
                  device_ca_certificate: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity_provider: Optional[pulumi.Input[pulumi.InputType['FleetIdentityProviderArgs']]] = None,
+                 identity_provider: Optional[pulumi.Input[Union['FleetIdentityProviderArgs', 'FleetIdentityProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['FleetNetworkArgs']]] = None,
+                 network: Optional[pulumi.Input[Union['FleetNetworkArgs', 'FleetNetworkArgsDict']]] = None,
                  optimize_for_end_user_location: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -366,11 +366,11 @@ class Fleet(pulumi.CustomResource):
 
         example = aws.worklink.Fleet("example",
             name="example",
-            network=aws.worklink.FleetNetworkArgs(
-                vpc_id=test_aws_vpc["id"],
-                subnet_ids=[[__item["id"] for __item in test_aws_subnet]],
-                security_group_ids=[test["id"]],
-            ))
+            network={
+                "vpcId": test_aws_vpc["id"],
+                "subnetIds": [[__item["id"] for __item in test_aws_subnet]],
+                "securityGroupIds": [test["id"]],
+            })
         ```
 
         Identity Provider Configuration Usage:
@@ -382,10 +382,10 @@ class Fleet(pulumi.CustomResource):
 
         test = aws.worklink.Fleet("test",
             name="tf-worklink-fleet",
-            identity_provider=aws.worklink.FleetIdentityProviderArgs(
-                type="SAML",
-                saml_metadata=std.file(input="saml-metadata.xml").result,
-            ))
+            identity_provider={
+                "type": "SAML",
+                "samlMetadata": std.file(input="saml-metadata.xml").result,
+            })
         ```
 
         ## Import
@@ -401,9 +401,9 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] audit_stream_arn: The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
         :param pulumi.Input[str] device_ca_certificate: The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
         :param pulumi.Input[str] display_name: The name of the fleet.
-        :param pulumi.Input[pulumi.InputType['FleetIdentityProviderArgs']] identity_provider: Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
+        :param pulumi.Input[Union['FleetIdentityProviderArgs', 'FleetIdentityProviderArgsDict']] identity_provider: Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
         :param pulumi.Input[str] name: A region-unique name for the AMI.
-        :param pulumi.Input[pulumi.InputType['FleetNetworkArgs']] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
+        :param pulumi.Input[Union['FleetNetworkArgs', 'FleetNetworkArgsDict']] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         :param pulumi.Input[bool] optimize_for_end_user_location: The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
                
                **network** requires the following:
@@ -436,11 +436,11 @@ class Fleet(pulumi.CustomResource):
 
         example = aws.worklink.Fleet("example",
             name="example",
-            network=aws.worklink.FleetNetworkArgs(
-                vpc_id=test_aws_vpc["id"],
-                subnet_ids=[[__item["id"] for __item in test_aws_subnet]],
-                security_group_ids=[test["id"]],
-            ))
+            network={
+                "vpcId": test_aws_vpc["id"],
+                "subnetIds": [[__item["id"] for __item in test_aws_subnet]],
+                "securityGroupIds": [test["id"]],
+            })
         ```
 
         Identity Provider Configuration Usage:
@@ -452,10 +452,10 @@ class Fleet(pulumi.CustomResource):
 
         test = aws.worklink.Fleet("test",
             name="tf-worklink-fleet",
-            identity_provider=aws.worklink.FleetIdentityProviderArgs(
-                type="SAML",
-                saml_metadata=std.file(input="saml-metadata.xml").result,
-            ))
+            identity_provider={
+                "type": "SAML",
+                "samlMetadata": std.file(input="saml-metadata.xml").result,
+            })
         ```
 
         ## Import
@@ -484,9 +484,9 @@ class Fleet(pulumi.CustomResource):
                  audit_stream_arn: Optional[pulumi.Input[str]] = None,
                  device_ca_certificate: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity_provider: Optional[pulumi.Input[pulumi.InputType['FleetIdentityProviderArgs']]] = None,
+                 identity_provider: Optional[pulumi.Input[Union['FleetIdentityProviderArgs', 'FleetIdentityProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['FleetNetworkArgs']]] = None,
+                 network: Optional[pulumi.Input[Union['FleetNetworkArgs', 'FleetNetworkArgsDict']]] = None,
                  optimize_for_end_user_location: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -524,10 +524,10 @@ class Fleet(pulumi.CustomResource):
             created_time: Optional[pulumi.Input[str]] = None,
             device_ca_certificate: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            identity_provider: Optional[pulumi.Input[pulumi.InputType['FleetIdentityProviderArgs']]] = None,
+            identity_provider: Optional[pulumi.Input[Union['FleetIdentityProviderArgs', 'FleetIdentityProviderArgsDict']]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['FleetNetworkArgs']]] = None,
+            network: Optional[pulumi.Input[Union['FleetNetworkArgs', 'FleetNetworkArgsDict']]] = None,
             optimize_for_end_user_location: Optional[pulumi.Input[bool]] = None) -> 'Fleet':
         """
         Get an existing Fleet resource's state with the given name, id, and optional extra
@@ -542,10 +542,10 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] created_time: The time that the fleet was created.
         :param pulumi.Input[str] device_ca_certificate: The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
         :param pulumi.Input[str] display_name: The name of the fleet.
-        :param pulumi.Input[pulumi.InputType['FleetIdentityProviderArgs']] identity_provider: Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
+        :param pulumi.Input[Union['FleetIdentityProviderArgs', 'FleetIdentityProviderArgsDict']] identity_provider: Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
         :param pulumi.Input[str] last_updated_time: The time that the fleet was last updated.
         :param pulumi.Input[str] name: A region-unique name for the AMI.
-        :param pulumi.Input[pulumi.InputType['FleetNetworkArgs']] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
+        :param pulumi.Input[Union['FleetNetworkArgs', 'FleetNetworkArgsDict']] network: Provide this to allow manage the company network configuration for the fleet. Fields documented below.
         :param pulumi.Input[bool] optimize_for_end_user_location: The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
                
                **network** requires the following:

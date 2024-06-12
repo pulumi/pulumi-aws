@@ -1001,14 +1001,14 @@ class SpotFleetRequest(pulumi.CustomResource):
                  iam_fleet_role: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
                  instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
-                 launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]]] = None,
-                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]]] = None,
+                 launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchSpecificationArgs', 'SpotFleetRequestLaunchSpecificationArgsDict']]]]] = None,
+                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchTemplateConfigArgs', 'SpotFleetRequestLaunchTemplateConfigArgsDict']]]]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
                  on_demand_max_total_price: Optional[pulumi.Input[str]] = None,
                  on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
-                 spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
+                 spot_maintenance_strategies: Optional[pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
@@ -1043,30 +1043,30 @@ class SpotFleetRequest(pulumi.CustomResource):
             target_capacity=6,
             valid_until="2019-11-04T20:44:20Z",
             launch_specifications=[
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m4.10xlarge",
-                    ami="ami-1234",
-                    spot_price="2.793",
-                    placement_tenancy="dedicated",
-                    iam_instance_profile_arn=example["arn"],
-                ),
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m4.4xlarge",
-                    ami="ami-5678",
-                    key_name="my-key",
-                    spot_price="1.117",
-                    iam_instance_profile_arn=example["arn"],
-                    availability_zone="us-west-1a",
-                    subnet_id="subnet-1234",
-                    weighted_capacity="35",
-                    root_block_devices=[aws.ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs(
-                        volume_size=300,
-                        volume_type="gp2",
-                    )],
-                    tags={
+                {
+                    "instanceType": "m4.10xlarge",
+                    "ami": "ami-1234",
+                    "spotPrice": "2.793",
+                    "placementTenancy": "dedicated",
+                    "iamInstanceProfileArn": example["arn"],
+                },
+                {
+                    "instanceType": "m4.4xlarge",
+                    "ami": "ami-5678",
+                    "keyName": "my-key",
+                    "spotPrice": "1.117",
+                    "iamInstanceProfileArn": example["arn"],
+                    "availabilityZone": "us-west-1a",
+                    "subnetId": "subnet-1234",
+                    "weightedCapacity": "35",
+                    "rootBlockDevices": [{
+                        "volumeSize": 300,
+                        "volumeType": "gp2",
+                    }],
+                    "tags": {
                         "Name": "spot-fleet-example",
                     },
-                ),
+                },
             ])
         ```
 
@@ -1086,12 +1086,12 @@ class SpotFleetRequest(pulumi.CustomResource):
             spot_price="0.005",
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[aws.ec2.SpotFleetRequestLaunchTemplateConfigArgs(
-                launch_template_specification=aws.ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    id=foo.id,
-                    version=foo.latest_version,
-                ),
-            )],
+            launch_template_configs=[{
+                "launchTemplateSpecification": {
+                    "id": foo.id,
+                    "version": foo.latest_version,
+                },
+            }],
             opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
 
@@ -1110,18 +1110,18 @@ class SpotFleetRequest(pulumi.CustomResource):
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z",
             launch_specifications=[
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m1.small",
-                    ami="ami-d06a90b0",
-                    key_name="my-key",
-                    availability_zone="us-west-2a",
-                ),
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m5.large",
-                    ami="ami-d06a90b0",
-                    key_name="my-key",
-                    availability_zone="us-west-2a",
-                ),
+                {
+                    "instanceType": "m1.small",
+                    "ami": "ami-d06a90b0",
+                    "keyName": "my-key",
+                    "availabilityZone": "us-west-2a",
+                },
+                {
+                    "instanceType": "m5.large",
+                    "ami": "ami-d06a90b0",
+                    "keyName": "my-key",
+                    "availabilityZone": "us-west-2a",
+                },
             ])
         ```
 
@@ -1134,21 +1134,21 @@ class SpotFleetRequest(pulumi.CustomResource):
         config = pulumi.Config()
         subnets = config.require_object("subnets")
         example = aws.ec2.SpotFleetRequest("example",
-            launch_specifications=[aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                ami="ami-1234",
-                instance_type="m4.4xlarge",
-                subnet_id=entry["value"]["subnetId"],
-                vpc_security_group_ids="sg-123456",
-                root_block_devices=[aws.ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs(
-                    volume_size=8,
-                    volume_type="gp2",
-                    delete_on_termination=True,
-                )],
-                tags={
+            launch_specifications=[{
+                "ami": "ami-1234",
+                "instanceType": "m4.4xlarge",
+                "subnetId": entry["value"]["subnetId"],
+                "vpcSecurityGroupIds": "sg-123456",
+                "rootBlockDevices": [{
+                    "volumeSize": 8,
+                    "volumeType": "gp2",
+                    "deleteOnTermination": True,
+                }],
+                "tags": {
                     "Name": "Spot Node",
                     "tag_builder": "builder",
                 },
-            ) for entry in [{"key": k, "value": v} for k, v in [{
+            } for entry in [{"key": k, "value": v} for k, v in [{
                 "subnetId": s[1],
             } for s in subnets]]],
             iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
@@ -1166,10 +1166,10 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-            name="vpc-id",
-            values=[vpc_id],
-        )])
+        example = aws.ec2.get_subnets(filters=[{
+            "name": "vpc-id",
+            "values": [vpc_id],
+        }])
         foo = aws.ec2.LaunchTemplate("foo",
             name="launch-template",
             image_id="ami-516b9131",
@@ -1180,23 +1180,23 @@ class SpotFleetRequest(pulumi.CustomResource):
             spot_price="0.005",
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[aws.ec2.SpotFleetRequestLaunchTemplateConfigArgs(
-                launch_template_specification=aws.ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    id=foo.id,
-                    version=foo.latest_version,
-                ),
-                overrides=[
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[0],
-                    ),
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[1],
-                    ),
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[2],
-                    ),
+            launch_template_configs=[{
+                "launchTemplateSpecification": {
+                    "id": foo.id,
+                    "version": foo.latest_version,
+                },
+                "overrides": [
+                    {
+                        "subnetId": example.ids[0],
+                    },
+                    {
+                        "subnetId": example.ids[1],
+                    },
+                    {
+                        "subnetId": example.ids[2],
+                    },
                 ],
-            )],
+            }],
             opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
 
@@ -1230,7 +1230,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
                the cheapest Spot pools and evenly allocates your target Spot capacity across
                the number of Spot pools that you specify.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]] launch_specifications: Used to define the launch configuration of the
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchSpecificationArgs', 'SpotFleetRequestLaunchSpecificationArgsDict']]]] launch_specifications: Used to define the launch configuration of the
                spot-fleet request. Can be specified multiple times to define different bids
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
                
@@ -1239,13 +1239,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                what you can specify. See the list of officially supported inputs in the
                [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
                a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchTemplateConfigArgs', 'SpotFleetRequestLaunchTemplateConfigArgsDict']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
         :param pulumi.Input[str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
         :param pulumi.Input[int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        :param pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        :param pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] target_capacity: The number of units to request. You can choose to set the
@@ -1293,30 +1293,30 @@ class SpotFleetRequest(pulumi.CustomResource):
             target_capacity=6,
             valid_until="2019-11-04T20:44:20Z",
             launch_specifications=[
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m4.10xlarge",
-                    ami="ami-1234",
-                    spot_price="2.793",
-                    placement_tenancy="dedicated",
-                    iam_instance_profile_arn=example["arn"],
-                ),
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m4.4xlarge",
-                    ami="ami-5678",
-                    key_name="my-key",
-                    spot_price="1.117",
-                    iam_instance_profile_arn=example["arn"],
-                    availability_zone="us-west-1a",
-                    subnet_id="subnet-1234",
-                    weighted_capacity="35",
-                    root_block_devices=[aws.ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs(
-                        volume_size=300,
-                        volume_type="gp2",
-                    )],
-                    tags={
+                {
+                    "instanceType": "m4.10xlarge",
+                    "ami": "ami-1234",
+                    "spotPrice": "2.793",
+                    "placementTenancy": "dedicated",
+                    "iamInstanceProfileArn": example["arn"],
+                },
+                {
+                    "instanceType": "m4.4xlarge",
+                    "ami": "ami-5678",
+                    "keyName": "my-key",
+                    "spotPrice": "1.117",
+                    "iamInstanceProfileArn": example["arn"],
+                    "availabilityZone": "us-west-1a",
+                    "subnetId": "subnet-1234",
+                    "weightedCapacity": "35",
+                    "rootBlockDevices": [{
+                        "volumeSize": 300,
+                        "volumeType": "gp2",
+                    }],
+                    "tags": {
                         "Name": "spot-fleet-example",
                     },
-                ),
+                },
             ])
         ```
 
@@ -1336,12 +1336,12 @@ class SpotFleetRequest(pulumi.CustomResource):
             spot_price="0.005",
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[aws.ec2.SpotFleetRequestLaunchTemplateConfigArgs(
-                launch_template_specification=aws.ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    id=foo.id,
-                    version=foo.latest_version,
-                ),
-            )],
+            launch_template_configs=[{
+                "launchTemplateSpecification": {
+                    "id": foo.id,
+                    "version": foo.latest_version,
+                },
+            }],
             opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
 
@@ -1360,18 +1360,18 @@ class SpotFleetRequest(pulumi.CustomResource):
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z",
             launch_specifications=[
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m1.small",
-                    ami="ami-d06a90b0",
-                    key_name="my-key",
-                    availability_zone="us-west-2a",
-                ),
-                aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                    instance_type="m5.large",
-                    ami="ami-d06a90b0",
-                    key_name="my-key",
-                    availability_zone="us-west-2a",
-                ),
+                {
+                    "instanceType": "m1.small",
+                    "ami": "ami-d06a90b0",
+                    "keyName": "my-key",
+                    "availabilityZone": "us-west-2a",
+                },
+                {
+                    "instanceType": "m5.large",
+                    "ami": "ami-d06a90b0",
+                    "keyName": "my-key",
+                    "availabilityZone": "us-west-2a",
+                },
             ])
         ```
 
@@ -1384,21 +1384,21 @@ class SpotFleetRequest(pulumi.CustomResource):
         config = pulumi.Config()
         subnets = config.require_object("subnets")
         example = aws.ec2.SpotFleetRequest("example",
-            launch_specifications=[aws.ec2.SpotFleetRequestLaunchSpecificationArgs(
-                ami="ami-1234",
-                instance_type="m4.4xlarge",
-                subnet_id=entry["value"]["subnetId"],
-                vpc_security_group_ids="sg-123456",
-                root_block_devices=[aws.ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs(
-                    volume_size=8,
-                    volume_type="gp2",
-                    delete_on_termination=True,
-                )],
-                tags={
+            launch_specifications=[{
+                "ami": "ami-1234",
+                "instanceType": "m4.4xlarge",
+                "subnetId": entry["value"]["subnetId"],
+                "vpcSecurityGroupIds": "sg-123456",
+                "rootBlockDevices": [{
+                    "volumeSize": 8,
+                    "volumeType": "gp2",
+                    "deleteOnTermination": True,
+                }],
+                "tags": {
                     "Name": "Spot Node",
                     "tag_builder": "builder",
                 },
-            ) for entry in [{"key": k, "value": v} for k, v in [{
+            } for entry in [{"key": k, "value": v} for k, v in [{
                 "subnetId": s[1],
             } for s in subnets]]],
             iam_fleet_role="arn:aws:iam::12345678:role/spot-fleet",
@@ -1416,10 +1416,10 @@ class SpotFleetRequest(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-            name="vpc-id",
-            values=[vpc_id],
-        )])
+        example = aws.ec2.get_subnets(filters=[{
+            "name": "vpc-id",
+            "values": [vpc_id],
+        }])
         foo = aws.ec2.LaunchTemplate("foo",
             name="launch-template",
             image_id="ami-516b9131",
@@ -1430,23 +1430,23 @@ class SpotFleetRequest(pulumi.CustomResource):
             spot_price="0.005",
             target_capacity=2,
             valid_until="2019-11-04T20:44:20Z",
-            launch_template_configs=[aws.ec2.SpotFleetRequestLaunchTemplateConfigArgs(
-                launch_template_specification=aws.ec2.SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs(
-                    id=foo.id,
-                    version=foo.latest_version,
-                ),
-                overrides=[
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[0],
-                    ),
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[1],
-                    ),
-                    aws.ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs(
-                        subnet_id=example.ids[2],
-                    ),
+            launch_template_configs=[{
+                "launchTemplateSpecification": {
+                    "id": foo.id,
+                    "version": foo.latest_version,
+                },
+                "overrides": [
+                    {
+                        "subnetId": example.ids[0],
+                    },
+                    {
+                        "subnetId": example.ids[1],
+                    },
+                    {
+                        "subnetId": example.ids[2],
+                    },
                 ],
-            )],
+            }],
             opts=pulumi.ResourceOptions(depends_on=[test_attach]))
         ```
 
@@ -1480,14 +1480,14 @@ class SpotFleetRequest(pulumi.CustomResource):
                  iam_fleet_role: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
                  instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
-                 launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]]] = None,
-                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]]] = None,
+                 launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchSpecificationArgs', 'SpotFleetRequestLaunchSpecificationArgsDict']]]]] = None,
+                 launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchTemplateConfigArgs', 'SpotFleetRequestLaunchTemplateConfigArgsDict']]]]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
                  on_demand_max_total_price: Optional[pulumi.Input[str]] = None,
                  on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
-                 spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
+                 spot_maintenance_strategies: Optional[pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
@@ -1557,14 +1557,14 @@ class SpotFleetRequest(pulumi.CustomResource):
             iam_fleet_role: Optional[pulumi.Input[str]] = None,
             instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
             instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
-            launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]]] = None,
-            launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]]] = None,
+            launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchSpecificationArgs', 'SpotFleetRequestLaunchSpecificationArgsDict']]]]] = None,
+            launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchTemplateConfigArgs', 'SpotFleetRequestLaunchTemplateConfigArgsDict']]]]] = None,
             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
             on_demand_max_total_price: Optional[pulumi.Input[str]] = None,
             on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
             replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
-            spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
+            spot_maintenance_strategies: Optional[pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']]] = None,
             spot_price: Optional[pulumi.Input[str]] = None,
             spot_request_state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1604,7 +1604,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
                the cheapest Spot pools and evenly allocates your target Spot capacity across
                the number of Spot pools that you specify.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]] launch_specifications: Used to define the launch configuration of the
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchSpecificationArgs', 'SpotFleetRequestLaunchSpecificationArgsDict']]]] launch_specifications: Used to define the launch configuration of the
                spot-fleet request. Can be specified multiple times to define different bids
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
                
@@ -1613,13 +1613,13 @@ class SpotFleetRequest(pulumi.CustomResource):
                what you can specify. See the list of officially supported inputs in the
                [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `ec2.Instance` parameter that corresponds to those inputs may be used and it have
                a additional parameter `iam_instance_profile_arn` takes `iam.InstanceProfile` attribute `arn` as input.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotFleetRequestLaunchTemplateConfigArgs', 'SpotFleetRequestLaunchTemplateConfigArgsDict']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
         :param pulumi.Input[str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
         :param pulumi.Input[int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        :param pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        :param pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum bid price per unit hour.
         :param pulumi.Input[str] spot_request_state: The state of the Spot fleet request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

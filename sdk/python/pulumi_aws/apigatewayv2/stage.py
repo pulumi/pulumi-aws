@@ -477,15 +477,15 @@ class Stage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_settings: Optional[pulumi.Input[pulumi.InputType['StageAccessLogSettingsArgs']]] = None,
+                 access_log_settings: Optional[pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']]] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  client_certificate_id: Optional[pulumi.Input[str]] = None,
-                 default_route_settings: Optional[pulumi.Input[pulumi.InputType['StageDefaultRouteSettingsArgs']]] = None,
+                 default_route_settings: Optional[pulumi.Input[Union['StageDefaultRouteSettingsArgs', 'StageDefaultRouteSettingsArgsDict']]] = None,
                  deployment_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]]] = None,
+                 route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict']]]]] = None,
                  stage_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -517,19 +517,19 @@ class Stage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['StageAccessLogSettingsArgs']] access_log_settings: Settings for logging access in this stage.
+        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Settings for logging access in this stage.
                Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[bool] auto_deploy: Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
         :param pulumi.Input[str] client_certificate_id: Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
                Supported only for WebSocket APIs.
-        :param pulumi.Input[pulumi.InputType['StageDefaultRouteSettingsArgs']] default_route_settings: Default route settings for the stage.
+        :param pulumi.Input[Union['StageDefaultRouteSettingsArgs', 'StageDefaultRouteSettingsArgsDict']] default_route_settings: Default route settings for the stage.
         :param pulumi.Input[str] deployment_id: Deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         :param pulumi.Input[str] description: Description for the stage. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[str] name: Name of the stage. Must be between 1 and 128 characters in length.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: Map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -580,15 +580,15 @@ class Stage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_settings: Optional[pulumi.Input[pulumi.InputType['StageAccessLogSettingsArgs']]] = None,
+                 access_log_settings: Optional[pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']]] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
                  auto_deploy: Optional[pulumi.Input[bool]] = None,
                  client_certificate_id: Optional[pulumi.Input[str]] = None,
-                 default_route_settings: Optional[pulumi.Input[pulumi.InputType['StageDefaultRouteSettingsArgs']]] = None,
+                 default_route_settings: Optional[pulumi.Input[Union['StageDefaultRouteSettingsArgs', 'StageDefaultRouteSettingsArgsDict']]] = None,
                  deployment_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]]] = None,
+                 route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict']]]]] = None,
                  stage_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -627,18 +627,18 @@ class Stage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_log_settings: Optional[pulumi.Input[pulumi.InputType['StageAccessLogSettingsArgs']]] = None,
+            access_log_settings: Optional[pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']]] = None,
             api_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             auto_deploy: Optional[pulumi.Input[bool]] = None,
             client_certificate_id: Optional[pulumi.Input[str]] = None,
-            default_route_settings: Optional[pulumi.Input[pulumi.InputType['StageDefaultRouteSettingsArgs']]] = None,
+            default_route_settings: Optional[pulumi.Input[Union['StageDefaultRouteSettingsArgs', 'StageDefaultRouteSettingsArgsDict']]] = None,
             deployment_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             execution_arn: Optional[pulumi.Input[str]] = None,
             invoke_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]]] = None,
+            route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict']]]]] = None,
             stage_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Stage':
@@ -649,14 +649,14 @@ class Stage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['StageAccessLogSettingsArgs']] access_log_settings: Settings for logging access in this stage.
+        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Settings for logging access in this stage.
                Use the `apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         :param pulumi.Input[str] api_id: API identifier.
         :param pulumi.Input[str] arn: ARN of the stage.
         :param pulumi.Input[bool] auto_deploy: Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
         :param pulumi.Input[str] client_certificate_id: Identifier of a client certificate for the stage. Use the `apigateway.ClientCertificate` resource to configure a client certificate.
                Supported only for WebSocket APIs.
-        :param pulumi.Input[pulumi.InputType['StageDefaultRouteSettingsArgs']] default_route_settings: Default route settings for the stage.
+        :param pulumi.Input[Union['StageDefaultRouteSettingsArgs', 'StageDefaultRouteSettingsArgsDict']] default_route_settings: Default route settings for the stage.
         :param pulumi.Input[str] deployment_id: Deployment identifier of the stage. Use the `apigatewayv2.Deployment` resource to configure a deployment.
         :param pulumi.Input[str] description: Description for the stage. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[str] execution_arn: ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute.
@@ -667,7 +667,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the stage. Must be between 1 and 128 characters in length.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: Map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

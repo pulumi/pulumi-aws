@@ -98,7 +98,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-                 traffic_source: Optional[pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArgs']]] = None,
+                 traffic_source: Optional[pulumi.Input[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict']]] = None,
                  __props__=None):
         """
         Attaches a traffic source to an Auto Scaling group.
@@ -115,16 +115,16 @@ class TrafficSourceAttachment(pulumi.CustomResource):
 
         example = aws.autoscaling.TrafficSourceAttachment("example",
             autoscaling_group_name=example_aws_autoscaling_group["id"],
-            traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
-                identifier=example_aws_lb_target_group["arn"],
-                type="elbv2",
-            ))
+            traffic_source={
+                "identifier": example_aws_lb_target_group["arn"],
+                "type": "elbv2",
+            })
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArgs']] traffic_source: The unique identifiers of a traffic sources.
+        :param pulumi.Input[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict']] traffic_source: The unique identifiers of a traffic sources.
         """
         ...
     @overload
@@ -147,10 +147,10 @@ class TrafficSourceAttachment(pulumi.CustomResource):
 
         example = aws.autoscaling.TrafficSourceAttachment("example",
             autoscaling_group_name=example_aws_autoscaling_group["id"],
-            traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
-                identifier=example_aws_lb_target_group["arn"],
-                type="elbv2",
-            ))
+            traffic_source={
+                "identifier": example_aws_lb_target_group["arn"],
+                "type": "elbv2",
+            })
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,7 +169,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-                 traffic_source: Optional[pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArgs']]] = None,
+                 traffic_source: Optional[pulumi.Input[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -194,7 +194,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-            traffic_source: Optional[pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArgs']]] = None) -> 'TrafficSourceAttachment':
+            traffic_source: Optional[pulumi.Input[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict']]] = None) -> 'TrafficSourceAttachment':
         """
         Get an existing TrafficSourceAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -203,7 +203,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArgs']] traffic_source: The unique identifiers of a traffic sources.
+        :param pulumi.Input[Union['TrafficSourceAttachmentTrafficSourceArgs', 'TrafficSourceAttachmentTrafficSourceArgsDict']] traffic_source: The unique identifiers of a traffic sources.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -156,7 +156,7 @@ class InputSecurityGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSecurityGroupWhitelistRuleArgs']]]]] = None,
+                 whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS MediaLive InputSecurityGroup.
@@ -170,9 +170,9 @@ class InputSecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.medialive.InputSecurityGroup("example",
-            whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
-                cidr="10.0.0.8/32",
-            )],
+            whitelist_rules=[{
+                "cidr": "10.0.0.8/32",
+            }],
             tags={
                 "ENVIRONMENT": "prod",
             })
@@ -189,7 +189,7 @@ class InputSecurityGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSecurityGroupWhitelistRuleArgs']]]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
                
                The following arguments are optional:
         """
@@ -211,9 +211,9 @@ class InputSecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.medialive.InputSecurityGroup("example",
-            whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
-                cidr="10.0.0.8/32",
-            )],
+            whitelist_rules=[{
+                "cidr": "10.0.0.8/32",
+            }],
             tags={
                 "ENVIRONMENT": "prod",
             })
@@ -243,7 +243,7 @@ class InputSecurityGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSecurityGroupWhitelistRuleArgs']]]]] = None,
+                 whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -274,7 +274,7 @@ class InputSecurityGroup(pulumi.CustomResource):
             inputs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSecurityGroupWhitelistRuleArgs']]]]] = None) -> 'InputSecurityGroup':
+            whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]]] = None) -> 'InputSecurityGroup':
         """
         Get an existing InputSecurityGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -285,7 +285,7 @@ class InputSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the InputSecurityGroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: The list of inputs currently using this InputSecurityGroup.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the InputSecurityGroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSecurityGroupWhitelistRuleArgs']]]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InputSecurityGroupWhitelistRuleArgs', 'InputSecurityGroupWhitelistRuleArgsDict']]]] whitelist_rules: Whitelist rules. See Whitelist Rules for more details.
                
                The following arguments are optional:
         """

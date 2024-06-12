@@ -382,15 +382,15 @@ class V2modelsBot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsBotDataPrivacyArgs']]]]] = None,
+                 data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsBotMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsBotTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['V2modelsBotTimeoutsArgs', 'V2modelsBotTimeoutsArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -406,9 +406,9 @@ class V2modelsBot(pulumi.CustomResource):
 
         example = aws.lex.V2modelsBot("example",
             name="example",
-            data_privacies=[aws.lex.V2modelsBotDataPrivacyArgs(
-                child_directed="boolean",
-            )],
+            data_privacies=[{
+                "childDirected": "boolean",
+            }],
             idle_session_ttl_in_seconds=10,
             role_arn="bot_example_arn",
             tags={
@@ -426,10 +426,10 @@ class V2modelsBot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsBotDataPrivacyArgs']]]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
         :param pulumi.Input[str] description: Description of the bot. It appears in lists to help you identify a particular bot.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsBotMemberArgs']]]] members: List of bot members in a network to be created. See `bot_members`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]] members: List of bot members in a network to be created. See `bot_members`.
         :param pulumi.Input[str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that has permission to access the bot.
                
@@ -457,9 +457,9 @@ class V2modelsBot(pulumi.CustomResource):
 
         example = aws.lex.V2modelsBot("example",
             name="example",
-            data_privacies=[aws.lex.V2modelsBotDataPrivacyArgs(
-                child_directed="boolean",
-            )],
+            data_privacies=[{
+                "childDirected": "boolean",
+            }],
             idle_session_ttl_in_seconds=10,
             role_arn="bot_example_arn",
             tags={
@@ -490,15 +490,15 @@ class V2modelsBot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsBotDataPrivacyArgs']]]]] = None,
+                 data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsBotMemberArgs']]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsBotTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['V2modelsBotTimeoutsArgs', 'V2modelsBotTimeoutsArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -536,16 +536,16 @@ class V2modelsBot(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsBotDataPrivacyArgs']]]]] = None,
+            data_privacies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
-            members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsBotMemberArgs']]]]] = None,
+            members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsBotTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[Union['V2modelsBotTimeoutsArgs', 'V2modelsBotTimeoutsArgsDict']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'V2modelsBot':
         """
         Get an existing V2modelsBot resource's state with the given name, id, and optional extra
@@ -554,10 +554,10 @@ class V2modelsBot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsBotDataPrivacyArgs']]]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotDataPrivacyArgs', 'V2modelsBotDataPrivacyArgsDict']]]] data_privacies: Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
         :param pulumi.Input[str] description: Description of the bot. It appears in lists to help you identify a particular bot.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsBotMemberArgs']]]] members: List of bot members in a network to be created. See `bot_members`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]] members: List of bot members in a network to be created. See `bot_members`.
         :param pulumi.Input[str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         :param pulumi.Input[str] role_arn: ARN of an IAM role that has permission to access the bot.
                

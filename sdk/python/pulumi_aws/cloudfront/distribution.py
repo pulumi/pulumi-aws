@@ -726,22 +726,22 @@ class Distribution(pulumi.CustomResource):
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
-                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]]] = None,
-                 default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
+                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
+                 default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
                  default_root_object: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  http_version: Optional[pulumi.Input[str]] = None,
                  is_ipv6_enabled: Optional[pulumi.Input[bool]] = None,
-                 logging_config: Optional[pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']]] = None,
-                 ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]]] = None,
-                 origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]]] = None,
+                 logging_config: Optional[pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
+                 ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
+                 origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
                  price_class: Optional[pulumi.Input[str]] = None,
-                 restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
+                 restrictions: Optional[pulumi.Input[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
                  staging: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
+                 viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -772,26 +772,26 @@ class Distribution(pulumi.CustomResource):
             acl="private")
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=b.bucket_regional_domain_name,
-                origin_access_control_id=default["id"],
-                origin_id=s3_origin_id,
-            )],
+            origins=[{
+                "domainName": b.bucket_regional_domain_name,
+                "originAccessControlId": default["id"],
+                "originId": s3_origin_id,
+            }],
             enabled=True,
             is_ipv6_enabled=True,
             comment="Some comment",
             default_root_object="index.html",
-            logging_config=aws.cloudfront.DistributionLoggingConfigArgs(
-                include_cookies=False,
-                bucket="mylogs.s3.amazonaws.com",
-                prefix="myprefix",
-            ),
+            logging_config={
+                "includeCookies": False,
+                "bucket": "mylogs.s3.amazonaws.com",
+                "prefix": "myprefix",
+            },
             aliases=[
                 "mysite.example.com",
                 "yoursite.example.com",
             ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                allowed_methods=[
+            default_cache_behavior={
+                "allowedMethods": [
                     "DELETE",
                     "GET",
                     "HEAD",
@@ -800,92 +800,92 @@ class Distribution(pulumi.CustomResource):
                     "POST",
                     "PUT",
                 ],
-                cached_methods=[
+                "cachedMethods": [
                     "GET",
                     "HEAD",
                 ],
-                target_origin_id=s3_origin_id,
-                forwarded_values=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs(
-                    query_string=False,
-                    cookies=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs(
-                        forward="none",
-                    ),
-                ),
-                viewer_protocol_policy="allow-all",
-                min_ttl=0,
-                default_ttl=3600,
-                max_ttl=86400,
-            ),
+                "targetOriginId": s3_origin_id,
+                "forwardedValues": {
+                    "queryString": False,
+                    "cookies": {
+                        "forward": "none",
+                    },
+                },
+                "viewerProtocolPolicy": "allow-all",
+                "minTtl": 0,
+                "defaultTtl": 3600,
+                "maxTtl": 86400,
+            },
             ordered_cache_behaviors=[
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/immutable/*",
-                    allowed_methods=[
+                {
+                    "pathPattern": "/content/immutable/*",
+                    "allowedMethods": [
                         "GET",
                         "HEAD",
                         "OPTIONS",
                     ],
-                    cached_methods=[
+                    "cachedMethods": [
                         "GET",
                         "HEAD",
                         "OPTIONS",
                     ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        headers=["Origin"],
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=86400,
-                    max_ttl=31536000,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/*",
-                    allowed_methods=[
+                    "targetOriginId": s3_origin_id,
+                    "forwardedValues": {
+                        "queryString": False,
+                        "headers": ["Origin"],
+                        "cookies": {
+                            "forward": "none",
+                        },
+                    },
+                    "minTtl": 0,
+                    "defaultTtl": 86400,
+                    "maxTtl": 31536000,
+                    "compress": True,
+                    "viewerProtocolPolicy": "redirect-to-https",
+                },
+                {
+                    "pathPattern": "/content/*",
+                    "allowedMethods": [
                         "GET",
                         "HEAD",
                         "OPTIONS",
                     ],
-                    cached_methods=[
+                    "cachedMethods": [
                         "GET",
                         "HEAD",
                     ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=3600,
-                    max_ttl=86400,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
+                    "targetOriginId": s3_origin_id,
+                    "forwardedValues": {
+                        "queryString": False,
+                        "cookies": {
+                            "forward": "none",
+                        },
+                    },
+                    "minTtl": 0,
+                    "defaultTtl": 3600,
+                    "maxTtl": 86400,
+                    "compress": True,
+                    "viewerProtocolPolicy": "redirect-to-https",
+                },
             ],
             price_class="PriceClass_200",
-            restrictions=aws.cloudfront.DistributionRestrictionsArgs(
-                geo_restriction=aws.cloudfront.DistributionRestrictionsGeoRestrictionArgs(
-                    restriction_type="whitelist",
-                    locations=[
+            restrictions={
+                "geoRestriction": {
+                    "restrictionType": "whitelist",
+                    "locations": [
                         "US",
                         "CA",
                         "GB",
                         "DE",
                     ],
-                ),
-            ),
+                },
+            },
             tags={
                 "Environment": "production",
             },
-            viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
-                cloudfront_default_certificate=True,
-            ))
+            viewer_certificate={
+                "cloudfrontDefaultCertificate": True,
+            })
         ```
 
         ### With Failover Routing
@@ -897,44 +897,44 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            origin_groups=[aws.cloudfront.DistributionOriginGroupArgs(
-                origin_id="groupS3",
-                failover_criteria=aws.cloudfront.DistributionOriginGroupFailoverCriteriaArgs(
-                    status_codes=[
+            origin_groups=[{
+                "originId": "groupS3",
+                "failoverCriteria": {
+                    "statusCodes": [
                         403,
                         404,
                         500,
                         502,
                     ],
-                ),
-                members=[
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="primaryS3",
-                    ),
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="failoverS3",
-                    ),
+                },
+                "members": [
+                    {
+                        "originId": "primaryS3",
+                    },
+                    {
+                        "originId": "failoverS3",
+                    },
                 ],
-            )],
+            }],
             origins=[
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=primary["bucketRegionalDomainName"],
-                    origin_id="primaryS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=default["cloudfrontAccessIdentityPath"],
-                    ),
-                ),
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=failover["bucketRegionalDomainName"],
-                    origin_id="failoverS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=default["cloudfrontAccessIdentityPath"],
-                    ),
-                ),
+                {
+                    "domainName": primary["bucketRegionalDomainName"],
+                    "originId": "primaryS3",
+                    "s3OriginConfig": {
+                        "originAccessIdentity": default["cloudfrontAccessIdentityPath"],
+                    },
+                },
+                {
+                    "domainName": failover["bucketRegionalDomainName"],
+                    "originId": "failoverS3",
+                    "s3OriginConfig": {
+                        "originAccessIdentity": default["cloudfrontAccessIdentityPath"],
+                    },
+                },
             ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                target_origin_id="groupS3",
-            ))
+            default_cache_behavior={
+                "targetOriginId": "groupS3",
+            })
         ```
 
         ### With Managed Caching Policy
@@ -947,40 +947,40 @@ class Distribution(pulumi.CustomResource):
 
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=primary["bucketRegionalDomainName"],
-                origin_id="myS3Origin",
-                s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                    origin_access_identity=default["cloudfrontAccessIdentityPath"],
-                ),
-            )],
+            origins=[{
+                "domainName": primary["bucketRegionalDomainName"],
+                "originId": "myS3Origin",
+                "s3OriginConfig": {
+                    "originAccessIdentity": default["cloudfrontAccessIdentityPath"],
+                },
+            }],
             enabled=True,
             is_ipv6_enabled=True,
             comment="Some comment",
             default_root_object="index.html",
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                cache_policy_id="4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
-                allowed_methods=[
+            default_cache_behavior={
+                "cachePolicyId": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
+                "allowedMethods": [
                     "GET",
                     "HEAD",
                     "OPTIONS",
                 ],
-                target_origin_id=s3_origin_id,
-            ),
-            restrictions=aws.cloudfront.DistributionRestrictionsArgs(
-                geo_restriction=aws.cloudfront.DistributionRestrictionsGeoRestrictionArgs(
-                    restriction_type="whitelist",
-                    locations=[
+                "targetOriginId": s3_origin_id,
+            },
+            restrictions={
+                "geoRestriction": {
+                    "restrictionType": "whitelist",
+                    "locations": [
                         "US",
                         "CA",
                         "GB",
                         "DE",
                     ],
-                ),
-            ),
-            viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
-                cloudfront_default_certificate=True,
-            ))
+                },
+            },
+            viewer_certificate={
+                "cloudfrontDefaultCertificate": True,
+            })
         ```
 
         ## Import
@@ -1028,26 +1028,26 @@ class Distribution(pulumi.CustomResource):
             acl="private")
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=b.bucket_regional_domain_name,
-                origin_access_control_id=default["id"],
-                origin_id=s3_origin_id,
-            )],
+            origins=[{
+                "domainName": b.bucket_regional_domain_name,
+                "originAccessControlId": default["id"],
+                "originId": s3_origin_id,
+            }],
             enabled=True,
             is_ipv6_enabled=True,
             comment="Some comment",
             default_root_object="index.html",
-            logging_config=aws.cloudfront.DistributionLoggingConfigArgs(
-                include_cookies=False,
-                bucket="mylogs.s3.amazonaws.com",
-                prefix="myprefix",
-            ),
+            logging_config={
+                "includeCookies": False,
+                "bucket": "mylogs.s3.amazonaws.com",
+                "prefix": "myprefix",
+            },
             aliases=[
                 "mysite.example.com",
                 "yoursite.example.com",
             ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                allowed_methods=[
+            default_cache_behavior={
+                "allowedMethods": [
                     "DELETE",
                     "GET",
                     "HEAD",
@@ -1056,92 +1056,92 @@ class Distribution(pulumi.CustomResource):
                     "POST",
                     "PUT",
                 ],
-                cached_methods=[
+                "cachedMethods": [
                     "GET",
                     "HEAD",
                 ],
-                target_origin_id=s3_origin_id,
-                forwarded_values=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs(
-                    query_string=False,
-                    cookies=aws.cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs(
-                        forward="none",
-                    ),
-                ),
-                viewer_protocol_policy="allow-all",
-                min_ttl=0,
-                default_ttl=3600,
-                max_ttl=86400,
-            ),
+                "targetOriginId": s3_origin_id,
+                "forwardedValues": {
+                    "queryString": False,
+                    "cookies": {
+                        "forward": "none",
+                    },
+                },
+                "viewerProtocolPolicy": "allow-all",
+                "minTtl": 0,
+                "defaultTtl": 3600,
+                "maxTtl": 86400,
+            },
             ordered_cache_behaviors=[
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/immutable/*",
-                    allowed_methods=[
+                {
+                    "pathPattern": "/content/immutable/*",
+                    "allowedMethods": [
                         "GET",
                         "HEAD",
                         "OPTIONS",
                     ],
-                    cached_methods=[
+                    "cachedMethods": [
                         "GET",
                         "HEAD",
                         "OPTIONS",
                     ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        headers=["Origin"],
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=86400,
-                    max_ttl=31536000,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
-                aws.cloudfront.DistributionOrderedCacheBehaviorArgs(
-                    path_pattern="/content/*",
-                    allowed_methods=[
+                    "targetOriginId": s3_origin_id,
+                    "forwardedValues": {
+                        "queryString": False,
+                        "headers": ["Origin"],
+                        "cookies": {
+                            "forward": "none",
+                        },
+                    },
+                    "minTtl": 0,
+                    "defaultTtl": 86400,
+                    "maxTtl": 31536000,
+                    "compress": True,
+                    "viewerProtocolPolicy": "redirect-to-https",
+                },
+                {
+                    "pathPattern": "/content/*",
+                    "allowedMethods": [
                         "GET",
                         "HEAD",
                         "OPTIONS",
                     ],
-                    cached_methods=[
+                    "cachedMethods": [
                         "GET",
                         "HEAD",
                     ],
-                    target_origin_id=s3_origin_id,
-                    forwarded_values=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs(
-                        query_string=False,
-                        cookies=aws.cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs(
-                            forward="none",
-                        ),
-                    ),
-                    min_ttl=0,
-                    default_ttl=3600,
-                    max_ttl=86400,
-                    compress=True,
-                    viewer_protocol_policy="redirect-to-https",
-                ),
+                    "targetOriginId": s3_origin_id,
+                    "forwardedValues": {
+                        "queryString": False,
+                        "cookies": {
+                            "forward": "none",
+                        },
+                    },
+                    "minTtl": 0,
+                    "defaultTtl": 3600,
+                    "maxTtl": 86400,
+                    "compress": True,
+                    "viewerProtocolPolicy": "redirect-to-https",
+                },
             ],
             price_class="PriceClass_200",
-            restrictions=aws.cloudfront.DistributionRestrictionsArgs(
-                geo_restriction=aws.cloudfront.DistributionRestrictionsGeoRestrictionArgs(
-                    restriction_type="whitelist",
-                    locations=[
+            restrictions={
+                "geoRestriction": {
+                    "restrictionType": "whitelist",
+                    "locations": [
                         "US",
                         "CA",
                         "GB",
                         "DE",
                     ],
-                ),
-            ),
+                },
+            },
             tags={
                 "Environment": "production",
             },
-            viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
-                cloudfront_default_certificate=True,
-            ))
+            viewer_certificate={
+                "cloudfrontDefaultCertificate": True,
+            })
         ```
 
         ### With Failover Routing
@@ -1153,44 +1153,44 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            origin_groups=[aws.cloudfront.DistributionOriginGroupArgs(
-                origin_id="groupS3",
-                failover_criteria=aws.cloudfront.DistributionOriginGroupFailoverCriteriaArgs(
-                    status_codes=[
+            origin_groups=[{
+                "originId": "groupS3",
+                "failoverCriteria": {
+                    "statusCodes": [
                         403,
                         404,
                         500,
                         502,
                     ],
-                ),
-                members=[
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="primaryS3",
-                    ),
-                    aws.cloudfront.DistributionOriginGroupMemberArgs(
-                        origin_id="failoverS3",
-                    ),
+                },
+                "members": [
+                    {
+                        "originId": "primaryS3",
+                    },
+                    {
+                        "originId": "failoverS3",
+                    },
                 ],
-            )],
+            }],
             origins=[
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=primary["bucketRegionalDomainName"],
-                    origin_id="primaryS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=default["cloudfrontAccessIdentityPath"],
-                    ),
-                ),
-                aws.cloudfront.DistributionOriginArgs(
-                    domain_name=failover["bucketRegionalDomainName"],
-                    origin_id="failoverS3",
-                    s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                        origin_access_identity=default["cloudfrontAccessIdentityPath"],
-                    ),
-                ),
+                {
+                    "domainName": primary["bucketRegionalDomainName"],
+                    "originId": "primaryS3",
+                    "s3OriginConfig": {
+                        "originAccessIdentity": default["cloudfrontAccessIdentityPath"],
+                    },
+                },
+                {
+                    "domainName": failover["bucketRegionalDomainName"],
+                    "originId": "failoverS3",
+                    "s3OriginConfig": {
+                        "originAccessIdentity": default["cloudfrontAccessIdentityPath"],
+                    },
+                },
             ],
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                target_origin_id="groupS3",
-            ))
+            default_cache_behavior={
+                "targetOriginId": "groupS3",
+            })
         ```
 
         ### With Managed Caching Policy
@@ -1203,40 +1203,40 @@ class Distribution(pulumi.CustomResource):
 
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            origins=[aws.cloudfront.DistributionOriginArgs(
-                domain_name=primary["bucketRegionalDomainName"],
-                origin_id="myS3Origin",
-                s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                    origin_access_identity=default["cloudfrontAccessIdentityPath"],
-                ),
-            )],
+            origins=[{
+                "domainName": primary["bucketRegionalDomainName"],
+                "originId": "myS3Origin",
+                "s3OriginConfig": {
+                    "originAccessIdentity": default["cloudfrontAccessIdentityPath"],
+                },
+            }],
             enabled=True,
             is_ipv6_enabled=True,
             comment="Some comment",
             default_root_object="index.html",
-            default_cache_behavior=aws.cloudfront.DistributionDefaultCacheBehaviorArgs(
-                cache_policy_id="4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
-                allowed_methods=[
+            default_cache_behavior={
+                "cachePolicyId": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
+                "allowedMethods": [
                     "GET",
                     "HEAD",
                     "OPTIONS",
                 ],
-                target_origin_id=s3_origin_id,
-            ),
-            restrictions=aws.cloudfront.DistributionRestrictionsArgs(
-                geo_restriction=aws.cloudfront.DistributionRestrictionsGeoRestrictionArgs(
-                    restriction_type="whitelist",
-                    locations=[
+                "targetOriginId": s3_origin_id,
+            },
+            restrictions={
+                "geoRestriction": {
+                    "restrictionType": "whitelist",
+                    "locations": [
                         "US",
                         "CA",
                         "GB",
                         "DE",
                     ],
-                ),
-            ),
-            viewer_certificate=aws.cloudfront.DistributionViewerCertificateArgs(
-                cloudfront_default_certificate=True,
-            ))
+                },
+            },
+            viewer_certificate={
+                "cloudfrontDefaultCertificate": True,
+            })
         ```
 
         ## Import
@@ -1265,22 +1265,22 @@ class Distribution(pulumi.CustomResource):
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
-                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]]] = None,
-                 default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
+                 custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
+                 default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
                  default_root_object: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  http_version: Optional[pulumi.Input[str]] = None,
                  is_ipv6_enabled: Optional[pulumi.Input[bool]] = None,
-                 logging_config: Optional[pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']]] = None,
-                 ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]]] = None,
-                 origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]]] = None,
-                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]]] = None,
+                 logging_config: Optional[pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
+                 ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
+                 origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
                  price_class: Optional[pulumi.Input[str]] = None,
-                 restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
+                 restrictions: Optional[pulumi.Input[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
                  staging: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
+                 viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1349,8 +1349,8 @@ class Distribution(pulumi.CustomResource):
             caller_reference: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             continuous_deployment_policy_id: Optional[pulumi.Input[str]] = None,
-            custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionCustomErrorResponseArgs']]]]] = None,
-            default_cache_behavior: Optional[pulumi.Input[pulumi.InputType['DistributionDefaultCacheBehaviorArgs']]] = None,
+            custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionCustomErrorResponseArgs', 'DistributionCustomErrorResponseArgsDict']]]]] = None,
+            default_cache_behavior: Optional[pulumi.Input[Union['DistributionDefaultCacheBehaviorArgs', 'DistributionDefaultCacheBehaviorArgsDict']]] = None,
             default_root_object: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -1360,20 +1360,20 @@ class Distribution(pulumi.CustomResource):
             in_progress_validation_batches: Optional[pulumi.Input[int]] = None,
             is_ipv6_enabled: Optional[pulumi.Input[bool]] = None,
             last_modified_time: Optional[pulumi.Input[str]] = None,
-            logging_config: Optional[pulumi.Input[pulumi.InputType['DistributionLoggingConfigArgs']]] = None,
-            ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOrderedCacheBehaviorArgs']]]]] = None,
-            origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginGroupArgs']]]]] = None,
-            origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionOriginArgs']]]]] = None,
+            logging_config: Optional[pulumi.Input[Union['DistributionLoggingConfigArgs', 'DistributionLoggingConfigArgsDict']]] = None,
+            ordered_cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOrderedCacheBehaviorArgs', 'DistributionOrderedCacheBehaviorArgsDict']]]]] = None,
+            origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginGroupArgs', 'DistributionOriginGroupArgsDict']]]]] = None,
+            origins: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]]]] = None,
             price_class: Optional[pulumi.Input[str]] = None,
-            restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
+            restrictions: Optional[pulumi.Input[Union['DistributionRestrictionsArgs', 'DistributionRestrictionsArgsDict']]] = None,
             retain_on_delete: Optional[pulumi.Input[bool]] = None,
             staging: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedKeyGroupArgs']]]]] = None,
-            trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]]] = None,
-            viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
+            trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict']]]]] = None,
+            trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict']]]]] = None,
+            viewer_certificate: Optional[pulumi.Input[Union['DistributionViewerCertificateArgs', 'DistributionViewerCertificateArgsDict']]] = None,
             wait_for_deployment: Optional[pulumi.Input[bool]] = None,
             web_acl_id: Optional[pulumi.Input[str]] = None) -> 'Distribution':
         """
@@ -1393,8 +1393,8 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_time: Date and time the distribution was last modified.
         :param pulumi.Input[str] status: Current status of the distribution. `Deployed` if the distribution's information is fully propagated throughout the Amazon CloudFront system.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedKeyGroupArgs']]]] trusted_key_groups: List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTrustedSignerArgs']]]] trusted_signers: List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedKeyGroupArgs', 'DistributionTrustedKeyGroupArgsDict']]]] trusted_key_groups: List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DistributionTrustedSignerArgs', 'DistributionTrustedSignerArgsDict']]]] trusted_signers: List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

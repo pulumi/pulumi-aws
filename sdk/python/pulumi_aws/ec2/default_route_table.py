@@ -241,7 +241,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_route_table_id: Optional[pulumi.Input[str]] = None,
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -262,14 +262,14 @@ class DefaultRouteTable(pulumi.CustomResource):
         example = aws.ec2.DefaultRouteTable("example",
             default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[
-                aws.ec2.DefaultRouteTableRouteArgs(
-                    cidr_block="10.0.1.0/24",
-                    gateway_id=example_aws_internet_gateway["id"],
-                ),
-                aws.ec2.DefaultRouteTableRouteArgs(
-                    ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=example_aws_egress_only_internet_gateway["id"],
-                ),
+                {
+                    "cidrBlock": "10.0.1.0/24",
+                    "gatewayId": example_aws_internet_gateway["id"],
+                },
+                {
+                    "ipv6CidrBlock": "::/0",
+                    "egressOnlyGatewayId": example_aws_egress_only_internet_gateway["id"],
+                },
             ],
             tags={
                 "Name": "example",
@@ -304,7 +304,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]] routes: Set of objects. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]] routes: Set of objects. Detailed below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -331,14 +331,14 @@ class DefaultRouteTable(pulumi.CustomResource):
         example = aws.ec2.DefaultRouteTable("example",
             default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[
-                aws.ec2.DefaultRouteTableRouteArgs(
-                    cidr_block="10.0.1.0/24",
-                    gateway_id=example_aws_internet_gateway["id"],
-                ),
-                aws.ec2.DefaultRouteTableRouteArgs(
-                    ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=example_aws_egress_only_internet_gateway["id"],
-                ),
+                {
+                    "cidrBlock": "10.0.1.0/24",
+                    "gatewayId": example_aws_internet_gateway["id"],
+                },
+                {
+                    "ipv6CidrBlock": "::/0",
+                    "egressOnlyGatewayId": example_aws_egress_only_internet_gateway["id"],
+                },
             ],
             tags={
                 "Name": "example",
@@ -384,7 +384,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_route_table_id: Optional[pulumi.Input[str]] = None,
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -419,7 +419,7 @@ class DefaultRouteTable(pulumi.CustomResource):
             default_route_table_id: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]]] = None,
+            routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'DefaultRouteTable':
@@ -436,7 +436,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[str] owner_id: ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: List of virtual gateways for propagation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultRouteTableRouteArgs']]]] routes: Set of objects. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultRouteTableRouteArgs', 'DefaultRouteTableRouteArgsDict']]]] routes: Set of objects. Detailed below
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: ID of the VPC.

@@ -436,7 +436,7 @@ class Route(pulumi.CustomResource):
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteRequestParameterArgs']]]]] = None,
+                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
                  route_key: Optional[pulumi.Input[str]] = None,
                  route_response_selection_expression: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
@@ -504,7 +504,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] operation_name: Operation name for the route. Must be between 1 and 64 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: Request models for the route. Supported only for WebSocket APIs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteRequestParameterArgs']]]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] route_key: Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         :param pulumi.Input[str] route_response_selection_expression: The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] target: Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.
@@ -588,7 +588,7 @@ class Route(pulumi.CustomResource):
                  model_selection_expression: Optional[pulumi.Input[str]] = None,
                  operation_name: Optional[pulumi.Input[str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteRequestParameterArgs']]]]] = None,
+                 request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
                  route_key: Optional[pulumi.Input[str]] = None,
                  route_response_selection_expression: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None,
@@ -635,7 +635,7 @@ class Route(pulumi.CustomResource):
             model_selection_expression: Optional[pulumi.Input[str]] = None,
             operation_name: Optional[pulumi.Input[str]] = None,
             request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteRequestParameterArgs']]]]] = None,
+            request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
             route_key: Optional[pulumi.Input[str]] = None,
             route_response_selection_expression: Optional[pulumi.Input[str]] = None,
             target: Optional[pulumi.Input[str]] = None) -> 'Route':
@@ -657,7 +657,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] operation_name: Operation name for the route. Must be between 1 and 64 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: Request models for the route. Supported only for WebSocket APIs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteRequestParameterArgs']]]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] route_key: Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         :param pulumi.Input[str] route_response_selection_expression: The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[str] target: Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `apigatewayv2.Integration` resource.

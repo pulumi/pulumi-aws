@@ -78,7 +78,7 @@ class AwaitableGetVpcIamPoolCidrsResult(GetVpcIamPoolCidrsResult):
             ipam_pool_id=self.ipam_pool_id)
 
 
-def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']]] = None,
+def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIamPoolCidrsFilterArgs', 'GetVpcIamPoolCidrsFilterArgsDict']]] = None,
                            ipam_pool_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIamPoolCidrsResult:
     """
@@ -95,14 +95,14 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
     import pulumi_aws as aws
 
     p = aws.ec2.get_vpc_ipam_pool(filters=[
-        aws.ec2.GetVpcIpamPoolFilterArgs(
-            name="description",
-            values=["*mypool*"],
-        ),
-        aws.ec2.GetVpcIpamPoolFilterArgs(
-            name="address-family",
-            values=["ipv4"],
-        ),
+        {
+            "name": "description",
+            "values": ["*mypool*"],
+        },
+        {
+            "name": "address-family",
+            "values": ["ipv4"],
+        },
     ])
     c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id=p.id)
     ```
@@ -114,23 +114,23 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
     import pulumi_aws as aws
 
     c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id="ipam-pool-123",
-        filters=[aws.ec2.GetVpcIpamPoolCidrsFilterArgs(
-            name="cidr",
-            values=["10.*"],
-        )])
+        filters=[{
+            "name": "cidr",
+            "values": ["10.*"],
+        }])
     mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
     pls = aws.ec2.ManagedPrefixList("pls",
-        entries=[aws.ec2.ManagedPrefixListEntryArgs(
-            cidr=entry["value"],
-            description=entry["value"],
-        ) for entry in [{"key": k, "value": v} for k, v in mycidrs]],
+        entries=[{
+            "cidr": entry["value"],
+            "description": entry["value"],
+        } for entry in [{"key": k, "value": v} for k, v in mycidrs]],
         name=f"IPAM Pool ({test['id']}) Cidrs",
         address_family="IPv4",
         max_entries=len(mycidrs))
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcIamPoolCidrsFilterArgs', 'GetVpcIamPoolCidrsFilterArgsDict']] filters: Custom filter block as described below.
     :param str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     """
     pulumi.log.warn("""get_vpc_iam_pool_cidrs is deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs""")
@@ -148,7 +148,7 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
 
 
 @_utilities.lift_output_func(get_vpc_iam_pool_cidrs)
-def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']]]]] = None,
+def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIamPoolCidrsFilterArgs', 'GetVpcIamPoolCidrsFilterArgsDict']]]]] = None,
                                   ipam_pool_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolCidrsResult]:
     """
@@ -165,14 +165,14 @@ def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequen
     import pulumi_aws as aws
 
     p = aws.ec2.get_vpc_ipam_pool(filters=[
-        aws.ec2.GetVpcIpamPoolFilterArgs(
-            name="description",
-            values=["*mypool*"],
-        ),
-        aws.ec2.GetVpcIpamPoolFilterArgs(
-            name="address-family",
-            values=["ipv4"],
-        ),
+        {
+            "name": "description",
+            "values": ["*mypool*"],
+        },
+        {
+            "name": "address-family",
+            "values": ["ipv4"],
+        },
     ])
     c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id=p.id)
     ```
@@ -184,23 +184,23 @@ def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequen
     import pulumi_aws as aws
 
     c = aws.ec2.get_vpc_ipam_pool_cidrs(ipam_pool_id="ipam-pool-123",
-        filters=[aws.ec2.GetVpcIpamPoolCidrsFilterArgs(
-            name="cidr",
-            values=["10.*"],
-        )])
+        filters=[{
+            "name": "cidr",
+            "values": ["10.*"],
+        }])
     mycidrs = [cidr.cidr for cidr in c.ipam_pool_cidrs if cidr.state == "provisioned"]
     pls = aws.ec2.ManagedPrefixList("pls",
-        entries=[aws.ec2.ManagedPrefixListEntryArgs(
-            cidr=entry["value"],
-            description=entry["value"],
-        ) for entry in [{"key": k, "value": v} for k, v in mycidrs]],
+        entries=[{
+            "cidr": entry["value"],
+            "description": entry["value"],
+        } for entry in [{"key": k, "value": v} for k, v in mycidrs]],
         name=f"IPAM Pool ({test['id']}) Cidrs",
         address_family="IPv4",
         max_entries=len(mycidrs))
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcIamPoolCidrsFilterArgs', 'GetVpcIamPoolCidrsFilterArgsDict']] filters: Custom filter block as described below.
     :param str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     """
     pulumi.log.warn("""get_vpc_iam_pool_cidrs is deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs""")

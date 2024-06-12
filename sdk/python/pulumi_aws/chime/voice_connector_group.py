@@ -98,7 +98,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorGroupConnectorArgs']]]]] = None,
+                 connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -123,14 +123,14 @@ class VoiceConnectorGroup(pulumi.CustomResource):
         group = aws.chime.VoiceConnectorGroup("group",
             name="test-group",
             connectors=[
-                aws.chime.VoiceConnectorGroupConnectorArgs(
-                    voice_connector_id=vc1.id,
-                    priority=1,
-                ),
-                aws.chime.VoiceConnectorGroupConnectorArgs(
-                    voice_connector_id=vc2.id,
-                    priority=3,
-                ),
+                {
+                    "voiceConnectorId": vc1.id,
+                    "priority": 1,
+                },
+                {
+                    "voiceConnectorId": vc2.id,
+                    "priority": 3,
+                },
             ])
         ```
 
@@ -144,7 +144,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorGroupConnectorArgs']]]] connectors: The Amazon Chime Voice Connectors to route inbound calls to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]] connectors: The Amazon Chime Voice Connectors to route inbound calls to.
         :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector group.
         """
         ...
@@ -175,14 +175,14 @@ class VoiceConnectorGroup(pulumi.CustomResource):
         group = aws.chime.VoiceConnectorGroup("group",
             name="test-group",
             connectors=[
-                aws.chime.VoiceConnectorGroupConnectorArgs(
-                    voice_connector_id=vc1.id,
-                    priority=1,
-                ),
-                aws.chime.VoiceConnectorGroupConnectorArgs(
-                    voice_connector_id=vc2.id,
-                    priority=3,
-                ),
+                {
+                    "voiceConnectorId": vc1.id,
+                    "priority": 1,
+                },
+                {
+                    "voiceConnectorId": vc2.id,
+                    "priority": 3,
+                },
             ])
         ```
 
@@ -209,7 +209,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorGroupConnectorArgs']]]]] = None,
+                 connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -232,7 +232,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorGroupConnectorArgs']]]]] = None,
+            connectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'VoiceConnectorGroup':
         """
         Get an existing VoiceConnectorGroup resource's state with the given name, id, and optional extra
@@ -241,7 +241,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VoiceConnectorGroupConnectorArgs']]]] connectors: The Amazon Chime Voice Connectors to route inbound calls to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorGroupConnectorArgs', 'VoiceConnectorGroupConnectorArgsDict']]]] connectors: The Amazon Chime Voice Connectors to route inbound calls to.
         :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

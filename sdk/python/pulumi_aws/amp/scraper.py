@@ -268,11 +268,11 @@ class Scraper(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['ScraperDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
                  scrape_configuration: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ScraperSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ScraperTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         ## Import
@@ -287,9 +287,9 @@ class Scraper(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-        :param pulumi.Input[pulumi.InputType['ScraperDestinationArgs']] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
+        :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
         :param pulumi.Input[str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-        :param pulumi.Input[pulumi.InputType['ScraperSourceArgs']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+        :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
                
                The following arguments are optional:
         """
@@ -325,11 +325,11 @@ class Scraper(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
-                 destination: Optional[pulumi.Input[pulumi.InputType['ScraperDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
                  scrape_configuration: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ScraperSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ScraperTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -362,13 +362,13 @@ class Scraper(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            destination: Optional[pulumi.Input[pulumi.InputType['ScraperDestinationArgs']]] = None,
+            destination: Optional[pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             scrape_configuration: Optional[pulumi.Input[str]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['ScraperSourceArgs']]] = None,
+            source: Optional[pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ScraperTimeoutsArgs']]] = None) -> 'Scraper':
+            timeouts: Optional[pulumi.Input[Union['ScraperTimeoutsArgs', 'ScraperTimeoutsArgsDict']]] = None) -> 'Scraper':
         """
         Get an existing Scraper resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -378,10 +378,10 @@ class Scraper(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the new scraper.
-        :param pulumi.Input[pulumi.InputType['ScraperDestinationArgs']] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
+        :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: Configuration block for the managed scraper to send metrics to. See `destination`.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
         :param pulumi.Input[str] scrape_configuration: The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-        :param pulumi.Input[pulumi.InputType['ScraperSourceArgs']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
+        :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: Configuration block to specify where the managed scraper will collect metrics from. See `source`.
                
                The following arguments are optional:
         """

@@ -438,10 +438,10 @@ class EnvironmentEC2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
-            name="tag:aws:cloud9:environment",
-            values=[example.id],
-        )])
+        cloud9_instance = aws.ec2.get_instance_output(filters=[{
+            "name": "tag:aws:cloud9:environment",
+            "values": [example.id],
+        }])
         pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{region}.console.aws.amazon.com/cloud9/ide/{id}"))
         ```
 
@@ -452,10 +452,10 @@ class EnvironmentEC2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
-            name="tag:aws:cloud9:environment",
-            values=[example.id],
-        )])
+        cloud9_instance = aws.ec2.get_instance_output(filters=[{
+            "name": "tag:aws:cloud9:environment",
+            "values": [example.id],
+        }])
         cloud9_eip = aws.ec2.Eip("cloud9_eip",
             instance=cloud9_instance.id,
             domain="vpc")
@@ -512,10 +512,10 @@ class EnvironmentEC2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
-            name="tag:aws:cloud9:environment",
-            values=[example.id],
-        )])
+        cloud9_instance = aws.ec2.get_instance_output(filters=[{
+            "name": "tag:aws:cloud9:environment",
+            "values": [example.id],
+        }])
         pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{region}.console.aws.amazon.com/cloud9/ide/{id}"))
         ```
 
@@ -526,10 +526,10 @@ class EnvironmentEC2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
-            name="tag:aws:cloud9:environment",
-            values=[example.id],
-        )])
+        cloud9_instance = aws.ec2.get_instance_output(filters=[{
+            "name": "tag:aws:cloud9:environment",
+            "values": [example.id],
+        }])
         cloud9_eip = aws.ec2.Eip("cloud9_eip",
             instance=cloud9_instance.id,
             domain="vpc")

@@ -379,7 +379,7 @@ class Queue(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[str]] = None,
                  max_contacts: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outbound_caller_config: Optional[pulumi.Input[pulumi.InputType['QueueOutboundCallerConfigArgs']]] = None,
+                 outbound_caller_config: Optional[pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
                  quick_connect_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -434,11 +434,11 @@ class Queue(pulumi.CustomResource):
             name="Example Name",
             description="Example Description",
             hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            outbound_caller_config=aws.connect.QueueOutboundCallerConfigArgs(
-                outbound_caller_id_name="example",
-                outbound_caller_id_number_id="12345678-abcd-1234-abcd-123456789012",
-                outbound_flow_id="87654321-defg-1234-defg-987654321234",
-            ),
+            outbound_caller_config={
+                "outboundCallerIdName": "example",
+                "outboundCallerIdNumberId": "12345678-abcd-1234-abcd-123456789012",
+                "outboundFlowId": "87654321-defg-1234-defg-987654321234",
+            },
             tags={
                 "Name": "Example Queue with Outbound Caller Config",
             })
@@ -459,7 +459,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[int] max_contacts: Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         :param pulumi.Input[str] name: Specifies the name of the Queue.
-        :param pulumi.Input[pulumi.InputType['QueueOutboundCallerConfigArgs']] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+        :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] quick_connect_ids: Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
         :param pulumi.Input[str] status: Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -520,11 +520,11 @@ class Queue(pulumi.CustomResource):
             name="Example Name",
             description="Example Description",
             hours_of_operation_id="12345678-1234-1234-1234-123456789012",
-            outbound_caller_config=aws.connect.QueueOutboundCallerConfigArgs(
-                outbound_caller_id_name="example",
-                outbound_caller_id_number_id="12345678-abcd-1234-abcd-123456789012",
-                outbound_flow_id="87654321-defg-1234-defg-987654321234",
-            ),
+            outbound_caller_config={
+                "outboundCallerIdName": "example",
+                "outboundCallerIdNumberId": "12345678-abcd-1234-abcd-123456789012",
+                "outboundFlowId": "87654321-defg-1234-defg-987654321234",
+            },
             tags={
                 "Name": "Example Queue with Outbound Caller Config",
             })
@@ -558,7 +558,7 @@ class Queue(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[str]] = None,
                  max_contacts: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outbound_caller_config: Optional[pulumi.Input[pulumi.InputType['QueueOutboundCallerConfigArgs']]] = None,
+                 outbound_caller_config: Optional[pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
                  quick_connect_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -603,7 +603,7 @@ class Queue(pulumi.CustomResource):
             instance_id: Optional[pulumi.Input[str]] = None,
             max_contacts: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            outbound_caller_config: Optional[pulumi.Input[pulumi.InputType['QueueOutboundCallerConfigArgs']]] = None,
+            outbound_caller_config: Optional[pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
             queue_id: Optional[pulumi.Input[str]] = None,
             quick_connect_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -622,7 +622,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[int] max_contacts: Specifies the maximum number of contacts that can be in the queue before it is considered full. Minimum value of 0.
         :param pulumi.Input[str] name: Specifies the name of the Queue.
-        :param pulumi.Input[pulumi.InputType['QueueOutboundCallerConfigArgs']] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
+        :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']] outbound_caller_config: A block that defines the outbound caller ID name, number, and outbound whisper flow. The Outbound Caller Config block is documented below.
         :param pulumi.Input[str] queue_id: The identifier for the Queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] quick_connect_ids: Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
         :param pulumi.Input[str] status: Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.

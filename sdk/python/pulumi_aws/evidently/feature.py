@@ -413,7 +413,7 @@ class Feature(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 variations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureVariationArgs']]]]] = None,
+                 variations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Evidently Feature resource.
@@ -430,12 +430,12 @@ class Feature(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             description="example description",
-            variations=[aws.evidently.FeatureVariationArgs(
-                name="Variation1",
-                value=aws.evidently.FeatureVariationValueArgs(
-                    string_value="example",
-                ),
-            )],
+            variations=[{
+                "name": "Variation1",
+                "value": {
+                    "stringValue": "example",
+                },
+            }],
             tags={
                 "Key1": "example Feature",
             })
@@ -452,18 +452,18 @@ class Feature(pulumi.CustomResource):
             project=example_aws_evidently_project["name"],
             default_variation="Variation2",
             variations=[
-                aws.evidently.FeatureVariationArgs(
-                    name="Variation1",
-                    value=aws.evidently.FeatureVariationValueArgs(
-                        string_value="exampleval1",
-                    ),
-                ),
-                aws.evidently.FeatureVariationArgs(
-                    name="Variation2",
-                    value=aws.evidently.FeatureVariationValueArgs(
-                        string_value="exampleval2",
-                    ),
-                ),
+                {
+                    "name": "Variation1",
+                    "value": {
+                        "stringValue": "exampleval1",
+                    },
+                },
+                {
+                    "name": "Variation2",
+                    "value": {
+                        "stringValue": "exampleval2",
+                    },
+                },
             ])
         ```
 
@@ -480,18 +480,18 @@ class Feature(pulumi.CustomResource):
                 "test1": "Variation1",
             },
             variations=[
-                aws.evidently.FeatureVariationArgs(
-                    name="Variation1",
-                    value=aws.evidently.FeatureVariationValueArgs(
-                        string_value="exampleval1",
-                    ),
-                ),
-                aws.evidently.FeatureVariationArgs(
-                    name="Variation2",
-                    value=aws.evidently.FeatureVariationValueArgs(
-                        string_value="exampleval2",
-                    ),
-                ),
+                {
+                    "name": "Variation1",
+                    "value": {
+                        "stringValue": "exampleval1",
+                    },
+                },
+                {
+                    "name": "Variation2",
+                    "value": {
+                        "stringValue": "exampleval2",
+                    },
+                },
             ])
         ```
 
@@ -508,12 +508,12 @@ class Feature(pulumi.CustomResource):
             entity_overrides={
                 "test1": "Variation1",
             },
-            variations=[aws.evidently.FeatureVariationArgs(
-                name="Variation1",
-                value=aws.evidently.FeatureVariationValueArgs(
-                    string_value="exampleval1",
-                ),
-            )])
+            variations=[{
+                "name": "Variation1",
+                "value": {
+                    "stringValue": "exampleval1",
+                },
+            }])
         ```
 
         ## Import
@@ -533,7 +533,7 @@ class Feature(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         :param pulumi.Input[str] project: The name or ARN of the project that is to contain the new feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureVariationArgs']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         """
         ...
     @overload
@@ -556,12 +556,12 @@ class Feature(pulumi.CustomResource):
             name="example",
             project=example_aws_evidently_project["name"],
             description="example description",
-            variations=[aws.evidently.FeatureVariationArgs(
-                name="Variation1",
-                value=aws.evidently.FeatureVariationValueArgs(
-                    string_value="example",
-                ),
-            )],
+            variations=[{
+                "name": "Variation1",
+                "value": {
+                    "stringValue": "example",
+                },
+            }],
             tags={
                 "Key1": "example Feature",
             })
@@ -578,18 +578,18 @@ class Feature(pulumi.CustomResource):
             project=example_aws_evidently_project["name"],
             default_variation="Variation2",
             variations=[
-                aws.evidently.FeatureVariationArgs(
-                    name="Variation1",
-                    value=aws.evidently.FeatureVariationValueArgs(
-                        string_value="exampleval1",
-                    ),
-                ),
-                aws.evidently.FeatureVariationArgs(
-                    name="Variation2",
-                    value=aws.evidently.FeatureVariationValueArgs(
-                        string_value="exampleval2",
-                    ),
-                ),
+                {
+                    "name": "Variation1",
+                    "value": {
+                        "stringValue": "exampleval1",
+                    },
+                },
+                {
+                    "name": "Variation2",
+                    "value": {
+                        "stringValue": "exampleval2",
+                    },
+                },
             ])
         ```
 
@@ -606,18 +606,18 @@ class Feature(pulumi.CustomResource):
                 "test1": "Variation1",
             },
             variations=[
-                aws.evidently.FeatureVariationArgs(
-                    name="Variation1",
-                    value=aws.evidently.FeatureVariationValueArgs(
-                        string_value="exampleval1",
-                    ),
-                ),
-                aws.evidently.FeatureVariationArgs(
-                    name="Variation2",
-                    value=aws.evidently.FeatureVariationValueArgs(
-                        string_value="exampleval2",
-                    ),
-                ),
+                {
+                    "name": "Variation1",
+                    "value": {
+                        "stringValue": "exampleval1",
+                    },
+                },
+                {
+                    "name": "Variation2",
+                    "value": {
+                        "stringValue": "exampleval2",
+                    },
+                },
             ])
         ```
 
@@ -634,12 +634,12 @@ class Feature(pulumi.CustomResource):
             entity_overrides={
                 "test1": "Variation1",
             },
-            variations=[aws.evidently.FeatureVariationArgs(
-                name="Variation1",
-                value=aws.evidently.FeatureVariationValueArgs(
-                    string_value="exampleval1",
-                ),
-            )])
+            variations=[{
+                "name": "Variation1",
+                "value": {
+                    "stringValue": "exampleval1",
+                },
+            }])
         ```
 
         ## Import
@@ -672,7 +672,7 @@ class Feature(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 variations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureVariationArgs']]]]] = None,
+                 variations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -716,7 +716,7 @@ class Feature(pulumi.CustomResource):
             default_variation: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             entity_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            evaluation_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureEvaluationRuleArgs']]]]] = None,
+            evaluation_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureEvaluationRuleArgs', 'FeatureEvaluationRuleArgsDict']]]]] = None,
             evaluation_strategy: Optional[pulumi.Input[str]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -725,7 +725,7 @@ class Feature(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             value_type: Optional[pulumi.Input[str]] = None,
-            variations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureVariationArgs']]]]] = None) -> 'Feature':
+            variations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]]] = None) -> 'Feature':
         """
         Get an existing Feature resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -738,7 +738,7 @@ class Feature(pulumi.CustomResource):
         :param pulumi.Input[str] default_variation: The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
         :param pulumi.Input[str] description: Specifies the description of the feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] entity_overrides: Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureEvaluationRuleArgs']]]] evaluation_rules: One or more blocks that define the evaluation rules for the feature. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureEvaluationRuleArgs', 'FeatureEvaluationRuleArgsDict']]]] evaluation_rules: One or more blocks that define the evaluation rules for the feature. Detailed below
         :param pulumi.Input[str] evaluation_strategy: Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         :param pulumi.Input[str] last_updated_time: The date and time that the feature was most recently updated.
         :param pulumi.Input[str] name: The name for the new feature. Minimum length of `1`. Maximum length of `127`.
@@ -747,7 +747,7 @@ class Feature(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] value_type: Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FeatureVariationArgs']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureVariationArgs', 'FeatureVariationArgsDict']]]] variations: One or more blocks that contain the configuration of the feature's different variations. Detailed below
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

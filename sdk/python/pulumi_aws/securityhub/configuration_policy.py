@@ -141,7 +141,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_policy: Optional[pulumi.Input[pulumi.InputType['ConfigurationPolicyConfigurationPolicyArgs']]] = None,
+                 configuration_policy: Optional[pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -162,23 +162,23 @@ class ConfigurationPolicy(pulumi.CustomResource):
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
             auto_enable=False,
             auto_enable_standards="NONE",
-            organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
-                configuration_type="CENTRAL",
-            ),
+            organization_configuration={
+                "configurationType": "CENTRAL",
+            },
             opts=pulumi.ResourceOptions(depends_on=[example]))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
-            configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
-                service_enabled=True,
-                enabled_standard_arns=[
+            configuration_policy={
+                "serviceEnabled": True,
+                "enabledStandardArns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                security_controls_configuration=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(
-                    disabled_control_identifiers=[],
-                ),
-            ),
+                "securityControlsConfiguration": {
+                    "disabledControlIdentifiers": [],
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
         ```
 
@@ -191,9 +191,9 @@ class ConfigurationPolicy(pulumi.CustomResource):
         disabled = aws.securityhub.ConfigurationPolicy("disabled",
             name="Disabled",
             description="This is an example of disabled configuration policy",
-            configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
-                service_enabled=False,
-            ),
+            configuration_policy={
+                "serviceEnabled": False,
+            },
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -206,50 +206,50 @@ class ConfigurationPolicy(pulumi.CustomResource):
         disabled = aws.securityhub.ConfigurationPolicy("disabled",
             name="Custom Controls",
             description="This is an example of configuration policy with custom control settings",
-            configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
-                service_enabled=True,
-                enabled_standard_arns=[
+            configuration_policy={
+                "serviceEnabled": True,
+                "enabledStandardArns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                security_controls_configuration=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(
-                    enabled_control_identifiers=[
+                "securityControlsConfiguration": {
+                    "enabledControlIdentifiers": [
                         "APIGateway.1",
                         "IAM.7",
                     ],
-                    security_control_custom_parameters=[
-                        aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs(
-                            security_control_id="APIGateway.1",
-                            parameters=[aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs(
-                                name="loggingLevel",
-                                value_type="CUSTOM",
-                                enum=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs(
-                                    value="INFO",
-                                ),
-                            )],
-                        ),
-                        aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs(
-                            security_control_id="IAM.7",
-                            parameters=[
-                                aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs(
-                                    name="RequireLowercaseCharacters",
-                                    value_type="CUSTOM",
-                                    bool=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs(
-                                        value=False,
-                                    ),
-                                ),
-                                aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs(
-                                    name="MaxPasswordAge",
-                                    value_type="CUSTOM",
-                                    int=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs(
-                                        value=60,
-                                    ),
-                                ),
+                    "securityControlCustomParameters": [
+                        {
+                            "securityControlId": "APIGateway.1",
+                            "parameters": [{
+                                "name": "loggingLevel",
+                                "valueType": "CUSTOM",
+                                "enum": {
+                                    "value": "INFO",
+                                },
+                            }],
+                        },
+                        {
+                            "securityControlId": "IAM.7",
+                            "parameters": [
+                                {
+                                    "name": "RequireLowercaseCharacters",
+                                    "valueType": "CUSTOM",
+                                    "bool": {
+                                        "value": False,
+                                    },
+                                },
+                                {
+                                    "name": "MaxPasswordAge",
+                                    "valueType": "CUSTOM",
+                                    "int": {
+                                        "value": 60,
+                                    },
+                                },
                             ],
-                        ),
+                        },
                     ],
-                ),
-            ),
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -263,7 +263,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationPolicyConfigurationPolicyArgs']] configuration_policy: Defines how Security Hub is configured. See below.
+        :param pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[str] description: The description of the configuration policy.
         :param pulumi.Input[str] name: The name of the configuration policy.
         """
@@ -290,23 +290,23 @@ class ConfigurationPolicy(pulumi.CustomResource):
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
             auto_enable=False,
             auto_enable_standards="NONE",
-            organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
-                configuration_type="CENTRAL",
-            ),
+            organization_configuration={
+                "configurationType": "CENTRAL",
+            },
             opts=pulumi.ResourceOptions(depends_on=[example]))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
-            configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
-                service_enabled=True,
-                enabled_standard_arns=[
+            configuration_policy={
+                "serviceEnabled": True,
+                "enabledStandardArns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                security_controls_configuration=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(
-                    disabled_control_identifiers=[],
-                ),
-            ),
+                "securityControlsConfiguration": {
+                    "disabledControlIdentifiers": [],
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
         ```
 
@@ -319,9 +319,9 @@ class ConfigurationPolicy(pulumi.CustomResource):
         disabled = aws.securityhub.ConfigurationPolicy("disabled",
             name="Disabled",
             description="This is an example of disabled configuration policy",
-            configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
-                service_enabled=False,
-            ),
+            configuration_policy={
+                "serviceEnabled": False,
+            },
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -334,50 +334,50 @@ class ConfigurationPolicy(pulumi.CustomResource):
         disabled = aws.securityhub.ConfigurationPolicy("disabled",
             name="Custom Controls",
             description="This is an example of configuration policy with custom control settings",
-            configuration_policy=aws.securityhub.ConfigurationPolicyConfigurationPolicyArgs(
-                service_enabled=True,
-                enabled_standard_arns=[
+            configuration_policy={
+                "serviceEnabled": True,
+                "enabledStandardArns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                security_controls_configuration=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs(
-                    enabled_control_identifiers=[
+                "securityControlsConfiguration": {
+                    "enabledControlIdentifiers": [
                         "APIGateway.1",
                         "IAM.7",
                     ],
-                    security_control_custom_parameters=[
-                        aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs(
-                            security_control_id="APIGateway.1",
-                            parameters=[aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs(
-                                name="loggingLevel",
-                                value_type="CUSTOM",
-                                enum=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs(
-                                    value="INFO",
-                                ),
-                            )],
-                        ),
-                        aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs(
-                            security_control_id="IAM.7",
-                            parameters=[
-                                aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs(
-                                    name="RequireLowercaseCharacters",
-                                    value_type="CUSTOM",
-                                    bool=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs(
-                                        value=False,
-                                    ),
-                                ),
-                                aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs(
-                                    name="MaxPasswordAge",
-                                    value_type="CUSTOM",
-                                    int=aws.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs(
-                                        value=60,
-                                    ),
-                                ),
+                    "securityControlCustomParameters": [
+                        {
+                            "securityControlId": "APIGateway.1",
+                            "parameters": [{
+                                "name": "loggingLevel",
+                                "valueType": "CUSTOM",
+                                "enum": {
+                                    "value": "INFO",
+                                },
+                            }],
+                        },
+                        {
+                            "securityControlId": "IAM.7",
+                            "parameters": [
+                                {
+                                    "name": "RequireLowercaseCharacters",
+                                    "valueType": "CUSTOM",
+                                    "bool": {
+                                        "value": False,
+                                    },
+                                },
+                                {
+                                    "name": "MaxPasswordAge",
+                                    "valueType": "CUSTOM",
+                                    "int": {
+                                        "value": 60,
+                                    },
+                                },
                             ],
-                        ),
+                        },
                     ],
-                ),
-            ),
+                },
+            },
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -404,7 +404,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_policy: Optional[pulumi.Input[pulumi.InputType['ConfigurationPolicyConfigurationPolicyArgs']]] = None,
+                 configuration_policy: Optional[pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -433,7 +433,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            configuration_policy: Optional[pulumi.Input[pulumi.InputType['ConfigurationPolicyConfigurationPolicyArgs']]] = None,
+            configuration_policy: Optional[pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ConfigurationPolicy':
         """
@@ -443,7 +443,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigurationPolicyConfigurationPolicyArgs']] configuration_policy: Defines how Security Hub is configured. See below.
+        :param pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[str] description: The description of the configuration policy.
         :param pulumi.Input[str] name: The name of the configuration policy.
         """

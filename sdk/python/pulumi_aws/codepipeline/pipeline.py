@@ -365,15 +365,15 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
+                 artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]]] = None,
                  execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_type: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerArgs']]]]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a CodePipeline.
@@ -388,14 +388,14 @@ class Pipeline(pulumi.CustomResource):
             name="example-connection",
             provider_type="GitHub")
         codepipeline_bucket = aws.s3.BucketV2("codepipeline_bucket", bucket="test-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["codepipeline.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["codepipeline.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         codepipeline_role = aws.iam.Role("codepipeline_role",
             name="test-role",
             assume_role_policy=assume_role.json)
@@ -403,64 +403,64 @@ class Pipeline(pulumi.CustomResource):
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
             name="tf-test-pipeline",
             role_arn=codepipeline_role.arn,
-            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
-                location=codepipeline_bucket.bucket,
-                type="S3",
-                encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
-                    id=s3kmskey.arn,
-                    type="KMS",
-                ),
-            )],
+            artifact_stores=[{
+                "location": codepipeline_bucket.bucket,
+                "type": "S3",
+                "encryptionKey": {
+                    "id": s3kmskey.arn,
+                    "type": "KMS",
+                },
+            }],
             stages=[
-                aws.codepipeline.PipelineStageArgs(
-                    name="Source",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Source",
-                        category="Source",
-                        owner="AWS",
-                        provider="CodeStarSourceConnection",
-                        version="1",
-                        output_artifacts=["source_output"],
-                        configuration={
+                {
+                    "name": "Source",
+                    "actions": [{
+                        "name": "Source",
+                        "category": "Source",
+                        "owner": "AWS",
+                        "provider": "CodeStarSourceConnection",
+                        "version": "1",
+                        "outputArtifacts": ["source_output"],
+                        "configuration": {
                             "ConnectionArn": example.arn,
                             "FullRepositoryId": "my-organization/example",
                             "BranchName": "main",
                         },
-                    )],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Build",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Build",
-                        category="Build",
-                        owner="AWS",
-                        provider="CodeBuild",
-                        input_artifacts=["source_output"],
-                        output_artifacts=["build_output"],
-                        version="1",
-                        configuration={
+                    }],
+                },
+                {
+                    "name": "Build",
+                    "actions": [{
+                        "name": "Build",
+                        "category": "Build",
+                        "owner": "AWS",
+                        "provider": "CodeBuild",
+                        "inputArtifacts": ["source_output"],
+                        "outputArtifacts": ["build_output"],
+                        "version": "1",
+                        "configuration": {
                             "ProjectName": "test",
                         },
-                    )],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Deploy",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Deploy",
-                        category="Deploy",
-                        owner="AWS",
-                        provider="CloudFormation",
-                        input_artifacts=["build_output"],
-                        version="1",
-                        configuration={
+                    }],
+                },
+                {
+                    "name": "Deploy",
+                    "actions": [{
+                        "name": "Deploy",
+                        "category": "Deploy",
+                        "owner": "AWS",
+                        "provider": "CloudFormation",
+                        "inputArtifacts": ["build_output"],
+                        "version": "1",
+                        "configuration": {
                             "ActionMode": "REPLACE_ON_FAILURE",
                             "Capabilities": "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
                             "OutputFileName": "CreateStackOutput.json",
                             "StackName": "MyStack",
                             "TemplatePath": "build_output::sam-templated.yaml",
                         },
-                    )],
-                ),
+                    }],
+                },
             ])
         codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab",
             bucket=codepipeline_bucket.id,
@@ -469,33 +469,33 @@ class Pipeline(pulumi.CustomResource):
             ignore_public_acls=True,
             restrict_public_buckets=True)
         codepipeline_policy = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
+            {
+                "effect": "Allow",
+                "actions": [
                     "s3:GetObject",
                     "s3:GetObjectVersion",
                     "s3:GetBucketVersioning",
                     "s3:PutObjectAcl",
                     "s3:PutObject",
                 ],
-                resources=[
+                "resources": [
                     codepipeline_bucket.arn,
                     codepipeline_bucket.arn.apply(lambda arn: f"{arn}/*"),
                 ],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["codestar-connections:UseConnection"],
-                resources=[example.arn],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
+            },
+            {
+                "effect": "Allow",
+                "actions": ["codestar-connections:UseConnection"],
+                "resources": [example.arn],
+            },
+            {
+                "effect": "Allow",
+                "actions": [
                     "codebuild:BatchGetBuilds",
                     "codebuild:StartBuild",
                 ],
-                resources=["*"],
-            ),
+                "resources": ["*"],
+            },
         ])
         codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipeline_policy",
             name="codepipeline_policy",
@@ -513,17 +513,17 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
                
                **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerArgs']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableArgs']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         """
         ...
     @overload
@@ -544,14 +544,14 @@ class Pipeline(pulumi.CustomResource):
             name="example-connection",
             provider_type="GitHub")
         codepipeline_bucket = aws.s3.BucketV2("codepipeline_bucket", bucket="test-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["codepipeline.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["codepipeline.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         codepipeline_role = aws.iam.Role("codepipeline_role",
             name="test-role",
             assume_role_policy=assume_role.json)
@@ -559,64 +559,64 @@ class Pipeline(pulumi.CustomResource):
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
             name="tf-test-pipeline",
             role_arn=codepipeline_role.arn,
-            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs(
-                location=codepipeline_bucket.bucket,
-                type="S3",
-                encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
-                    id=s3kmskey.arn,
-                    type="KMS",
-                ),
-            )],
+            artifact_stores=[{
+                "location": codepipeline_bucket.bucket,
+                "type": "S3",
+                "encryptionKey": {
+                    "id": s3kmskey.arn,
+                    "type": "KMS",
+                },
+            }],
             stages=[
-                aws.codepipeline.PipelineStageArgs(
-                    name="Source",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Source",
-                        category="Source",
-                        owner="AWS",
-                        provider="CodeStarSourceConnection",
-                        version="1",
-                        output_artifacts=["source_output"],
-                        configuration={
+                {
+                    "name": "Source",
+                    "actions": [{
+                        "name": "Source",
+                        "category": "Source",
+                        "owner": "AWS",
+                        "provider": "CodeStarSourceConnection",
+                        "version": "1",
+                        "outputArtifacts": ["source_output"],
+                        "configuration": {
                             "ConnectionArn": example.arn,
                             "FullRepositoryId": "my-organization/example",
                             "BranchName": "main",
                         },
-                    )],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Build",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Build",
-                        category="Build",
-                        owner="AWS",
-                        provider="CodeBuild",
-                        input_artifacts=["source_output"],
-                        output_artifacts=["build_output"],
-                        version="1",
-                        configuration={
+                    }],
+                },
+                {
+                    "name": "Build",
+                    "actions": [{
+                        "name": "Build",
+                        "category": "Build",
+                        "owner": "AWS",
+                        "provider": "CodeBuild",
+                        "inputArtifacts": ["source_output"],
+                        "outputArtifacts": ["build_output"],
+                        "version": "1",
+                        "configuration": {
                             "ProjectName": "test",
                         },
-                    )],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Deploy",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Deploy",
-                        category="Deploy",
-                        owner="AWS",
-                        provider="CloudFormation",
-                        input_artifacts=["build_output"],
-                        version="1",
-                        configuration={
+                    }],
+                },
+                {
+                    "name": "Deploy",
+                    "actions": [{
+                        "name": "Deploy",
+                        "category": "Deploy",
+                        "owner": "AWS",
+                        "provider": "CloudFormation",
+                        "inputArtifacts": ["build_output"],
+                        "version": "1",
+                        "configuration": {
                             "ActionMode": "REPLACE_ON_FAILURE",
                             "Capabilities": "CAPABILITY_AUTO_EXPAND,CAPABILITY_IAM",
                             "OutputFileName": "CreateStackOutput.json",
                             "StackName": "MyStack",
                             "TemplatePath": "build_output::sam-templated.yaml",
                         },
-                    )],
-                ),
+                    }],
+                },
             ])
         codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab",
             bucket=codepipeline_bucket.id,
@@ -625,33 +625,33 @@ class Pipeline(pulumi.CustomResource):
             ignore_public_acls=True,
             restrict_public_buckets=True)
         codepipeline_policy = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
+            {
+                "effect": "Allow",
+                "actions": [
                     "s3:GetObject",
                     "s3:GetObjectVersion",
                     "s3:GetBucketVersioning",
                     "s3:PutObjectAcl",
                     "s3:PutObject",
                 ],
-                resources=[
+                "resources": [
                     codepipeline_bucket.arn,
                     codepipeline_bucket.arn.apply(lambda arn: f"{arn}/*"),
                 ],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["codestar-connections:UseConnection"],
-                resources=[example.arn],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
+            },
+            {
+                "effect": "Allow",
+                "actions": ["codestar-connections:UseConnection"],
+                "resources": [example.arn],
+            },
+            {
+                "effect": "Allow",
+                "actions": [
                     "codebuild:BatchGetBuilds",
                     "codebuild:StartBuild",
                 ],
-                resources=["*"],
-            ),
+                "resources": ["*"],
+            },
         ])
         codepipeline_policy_role_policy = aws.iam.RolePolicy("codepipeline_policy",
             name="codepipeline_policy",
@@ -682,15 +682,15 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
+                 artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]]] = None,
                  execution_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_type: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerArgs']]]]] = None,
-                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -728,16 +728,16 @@ class Pipeline(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]]] = None,
+            artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]]] = None,
             execution_mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             pipeline_type: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]]] = None,
+            stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerArgs']]]]] = None,
-            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableArgs']]]]] = None) -> 'Pipeline':
+            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]]] = None,
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]]] = None) -> 'Pipeline':
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -746,18 +746,18 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The codepipeline ARN.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreArgs']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
         :param pulumi.Input[str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
                
                **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerArgs']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableArgs']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -130,7 +130,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationV2RuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides an independent configuration resource for S3 bucket [lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html).
@@ -166,10 +166,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying an empty filter
@@ -182,11 +182,11 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(),
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "filter": {},
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying a filter using key prefixes
@@ -199,13 +199,13 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    prefix="logs/",
-                ),
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "prefix": "logs/",
+                },
+                "status": "Enabled",
+            }])
         ```
 
         If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
@@ -217,20 +217,20 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
             rules=[
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="rule-1",
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        prefix="logs/",
-                    ),
-                    status="Enabled",
-                ),
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="rule-2",
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        prefix="tmp/",
-                    ),
-                    status="Enabled",
-                ),
+                {
+                    "id": "rule-1",
+                    "filter": {
+                        "prefix": "logs/",
+                    },
+                    "status": "Enabled",
+                },
+                {
+                    "id": "rule-2",
+                    "filter": {
+                        "prefix": "tmp/",
+                    },
+                    "status": "Enabled",
+                },
             ])
         ```
 
@@ -244,16 +244,16 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    tag=aws.s3.BucketLifecycleConfigurationV2RuleFilterTagArgs(
-                        key="Name",
-                        value="Staging",
-                    ),
-                ),
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "tag": {
+                        "key": "Name",
+                        "value": "Staging",
+                    },
+                },
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying a filter based on multiple tags
@@ -266,18 +266,18 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    and_=aws.s3.BucketLifecycleConfigurationV2RuleFilterAndArgs(
-                        tags={
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and": {
+                        "tags": {
                             "Key1": "Value1",
                             "Key2": "Value2",
                         },
-                    ),
-                ),
-                status="Enabled",
-            )])
+                    },
+                },
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying a filter based on both prefix and one or more tags
@@ -290,19 +290,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    and_=aws.s3.BucketLifecycleConfigurationV2RuleFilterAndArgs(
-                        prefix="logs/",
-                        tags={
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and": {
+                        "prefix": "logs/",
+                        "tags": {
                             "Key1": "Value1",
                             "Key2": "Value2",
                         },
-                    ),
-                ),
-                status="Enabled",
-            )])
+                    },
+                },
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying a filter based on object size
@@ -315,13 +315,13 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    object_size_greater_than="500",
-                ),
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "objectSizeGreaterThan": "500",
+                },
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying a filter based on object size range and prefix
@@ -334,17 +334,17 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    and_=aws.s3.BucketLifecycleConfigurationV2RuleFilterAndArgs(
-                        prefix="logs/",
-                        object_size_greater_than=500,
-                        object_size_less_than=64000,
-                    ),
-                ),
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and": {
+                        "prefix": "logs/",
+                        "objectSizeGreaterThan": 500,
+                        "objectSizeLessThan": 64000,
+                    },
+                },
+                "status": "Enabled",
+            }])
         ```
 
         ### Creating a Lifecycle Configuration for a bucket with versioning
@@ -360,42 +360,42 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         bucket_config = aws.s3.BucketLifecycleConfigurationV2("bucket-config",
             bucket=bucket.id,
             rules=[
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="log",
-                    expiration=aws.s3.BucketLifecycleConfigurationV2RuleExpirationArgs(
-                        days=90,
-                    ),
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        and_=aws.s3.BucketLifecycleConfigurationV2RuleFilterAndArgs(
-                            prefix="log/",
-                            tags={
+                {
+                    "id": "log",
+                    "expiration": {
+                        "days": 90,
+                    },
+                    "filter": {
+                        "and": {
+                            "prefix": "log/",
+                            "tags": {
                                 "rule": "log",
                                 "autoclean": "true",
                             },
-                        ),
-                    ),
-                    status="Enabled",
-                    transitions=[
-                        aws.s3.BucketLifecycleConfigurationV2RuleTransitionArgs(
-                            days=30,
-                            storage_class="STANDARD_IA",
-                        ),
-                        aws.s3.BucketLifecycleConfigurationV2RuleTransitionArgs(
-                            days=60,
-                            storage_class="GLACIER",
-                        ),
+                        },
+                    },
+                    "status": "Enabled",
+                    "transitions": [
+                        {
+                            "days": 30,
+                            "storageClass": "STANDARD_IA",
+                        },
+                        {
+                            "days": 60,
+                            "storageClass": "GLACIER",
+                        },
                     ],
-                ),
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="tmp",
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        prefix="tmp/",
-                    ),
-                    expiration=aws.s3.BucketLifecycleConfigurationV2RuleExpirationArgs(
-                        date="2023-01-13T00:00:00Z",
-                    ),
-                    status="Enabled",
-                ),
+                },
+                {
+                    "id": "tmp",
+                    "filter": {
+                        "prefix": "tmp/",
+                    },
+                    "expiration": {
+                        "date": "2023-01-13T00:00:00Z",
+                    },
+                    "status": "Enabled",
+                },
             ])
         versioning_bucket = aws.s3.BucketV2("versioning_bucket", bucket="my-versioning-bucket")
         versioning_bucket_acl = aws.s3.BucketAclV2("versioning_bucket_acl",
@@ -403,31 +403,31 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             acl="private")
         versioning = aws.s3.BucketVersioningV2("versioning",
             bucket=versioning_bucket.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
+            versioning_configuration={
+                "status": "Enabled",
+            })
         versioning_bucket_config = aws.s3.BucketLifecycleConfigurationV2("versioning-bucket-config",
             bucket=versioning_bucket.id,
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="config",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    prefix="config/",
-                ),
-                noncurrent_version_expiration=aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs(
-                    noncurrent_days=90,
-                ),
-                noncurrent_version_transitions=[
-                    aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs(
-                        noncurrent_days=30,
-                        storage_class="STANDARD_IA",
-                    ),
-                    aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs(
-                        noncurrent_days=60,
-                        storage_class="GLACIER",
-                    ),
+            rules=[{
+                "id": "config",
+                "filter": {
+                    "prefix": "config/",
+                },
+                "noncurrentVersionExpiration": {
+                    "noncurrentDays": 90,
+                },
+                "noncurrentVersionTransitions": [
+                    {
+                        "noncurrentDays": 30,
+                        "storageClass": "STANDARD_IA",
+                    },
+                    {
+                        "noncurrentDays": 60,
+                        "storageClass": "GLACIER",
+                    },
                 ],
-                status="Enabled",
-            )],
+                "status": "Enabled",
+            }],
             opts=pulumi.ResourceOptions(depends_on=[versioning]))
         ```
 
@@ -452,7 +452,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationV2RuleArgs']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
         """
         ...
     @overload
@@ -494,10 +494,10 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying an empty filter
@@ -510,11 +510,11 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(),
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "filter": {},
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying a filter using key prefixes
@@ -527,13 +527,13 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    prefix="logs/",
-                ),
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "prefix": "logs/",
+                },
+                "status": "Enabled",
+            }])
         ```
 
         If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
@@ -545,20 +545,20 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
             rules=[
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="rule-1",
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        prefix="logs/",
-                    ),
-                    status="Enabled",
-                ),
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="rule-2",
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        prefix="tmp/",
-                    ),
-                    status="Enabled",
-                ),
+                {
+                    "id": "rule-1",
+                    "filter": {
+                        "prefix": "logs/",
+                    },
+                    "status": "Enabled",
+                },
+                {
+                    "id": "rule-2",
+                    "filter": {
+                        "prefix": "tmp/",
+                    },
+                    "status": "Enabled",
+                },
             ])
         ```
 
@@ -572,16 +572,16 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    tag=aws.s3.BucketLifecycleConfigurationV2RuleFilterTagArgs(
-                        key="Name",
-                        value="Staging",
-                    ),
-                ),
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "tag": {
+                        "key": "Name",
+                        "value": "Staging",
+                    },
+                },
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying a filter based on multiple tags
@@ -594,18 +594,18 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    and_=aws.s3.BucketLifecycleConfigurationV2RuleFilterAndArgs(
-                        tags={
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and": {
+                        "tags": {
                             "Key1": "Value1",
                             "Key2": "Value2",
                         },
-                    ),
-                ),
-                status="Enabled",
-            )])
+                    },
+                },
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying a filter based on both prefix and one or more tags
@@ -618,19 +618,19 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    and_=aws.s3.BucketLifecycleConfigurationV2RuleFilterAndArgs(
-                        prefix="logs/",
-                        tags={
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and": {
+                        "prefix": "logs/",
+                        "tags": {
                             "Key1": "Value1",
                             "Key2": "Value2",
                         },
-                    ),
-                ),
-                status="Enabled",
-            )])
+                    },
+                },
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying a filter based on object size
@@ -643,13 +643,13 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    object_size_greater_than="500",
-                ),
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "objectSizeGreaterThan": "500",
+                },
+                "status": "Enabled",
+            }])
         ```
 
         ### Specifying a filter based on object size range and prefix
@@ -662,17 +662,17 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketLifecycleConfigurationV2("example",
             bucket=bucket["id"],
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="rule-1",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    and_=aws.s3.BucketLifecycleConfigurationV2RuleFilterAndArgs(
-                        prefix="logs/",
-                        object_size_greater_than=500,
-                        object_size_less_than=64000,
-                    ),
-                ),
-                status="Enabled",
-            )])
+            rules=[{
+                "id": "rule-1",
+                "filter": {
+                    "and": {
+                        "prefix": "logs/",
+                        "objectSizeGreaterThan": 500,
+                        "objectSizeLessThan": 64000,
+                    },
+                },
+                "status": "Enabled",
+            }])
         ```
 
         ### Creating a Lifecycle Configuration for a bucket with versioning
@@ -688,42 +688,42 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         bucket_config = aws.s3.BucketLifecycleConfigurationV2("bucket-config",
             bucket=bucket.id,
             rules=[
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="log",
-                    expiration=aws.s3.BucketLifecycleConfigurationV2RuleExpirationArgs(
-                        days=90,
-                    ),
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        and_=aws.s3.BucketLifecycleConfigurationV2RuleFilterAndArgs(
-                            prefix="log/",
-                            tags={
+                {
+                    "id": "log",
+                    "expiration": {
+                        "days": 90,
+                    },
+                    "filter": {
+                        "and": {
+                            "prefix": "log/",
+                            "tags": {
                                 "rule": "log",
                                 "autoclean": "true",
                             },
-                        ),
-                    ),
-                    status="Enabled",
-                    transitions=[
-                        aws.s3.BucketLifecycleConfigurationV2RuleTransitionArgs(
-                            days=30,
-                            storage_class="STANDARD_IA",
-                        ),
-                        aws.s3.BucketLifecycleConfigurationV2RuleTransitionArgs(
-                            days=60,
-                            storage_class="GLACIER",
-                        ),
+                        },
+                    },
+                    "status": "Enabled",
+                    "transitions": [
+                        {
+                            "days": 30,
+                            "storageClass": "STANDARD_IA",
+                        },
+                        {
+                            "days": 60,
+                            "storageClass": "GLACIER",
+                        },
                     ],
-                ),
-                aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                    id="tmp",
-                    filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                        prefix="tmp/",
-                    ),
-                    expiration=aws.s3.BucketLifecycleConfigurationV2RuleExpirationArgs(
-                        date="2023-01-13T00:00:00Z",
-                    ),
-                    status="Enabled",
-                ),
+                },
+                {
+                    "id": "tmp",
+                    "filter": {
+                        "prefix": "tmp/",
+                    },
+                    "expiration": {
+                        "date": "2023-01-13T00:00:00Z",
+                    },
+                    "status": "Enabled",
+                },
             ])
         versioning_bucket = aws.s3.BucketV2("versioning_bucket", bucket="my-versioning-bucket")
         versioning_bucket_acl = aws.s3.BucketAclV2("versioning_bucket_acl",
@@ -731,31 +731,31 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             acl="private")
         versioning = aws.s3.BucketVersioningV2("versioning",
             bucket=versioning_bucket.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
+            versioning_configuration={
+                "status": "Enabled",
+            })
         versioning_bucket_config = aws.s3.BucketLifecycleConfigurationV2("versioning-bucket-config",
             bucket=versioning_bucket.id,
-            rules=[aws.s3.BucketLifecycleConfigurationV2RuleArgs(
-                id="config",
-                filter=aws.s3.BucketLifecycleConfigurationV2RuleFilterArgs(
-                    prefix="config/",
-                ),
-                noncurrent_version_expiration=aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs(
-                    noncurrent_days=90,
-                ),
-                noncurrent_version_transitions=[
-                    aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs(
-                        noncurrent_days=30,
-                        storage_class="STANDARD_IA",
-                    ),
-                    aws.s3.BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs(
-                        noncurrent_days=60,
-                        storage_class="GLACIER",
-                    ),
+            rules=[{
+                "id": "config",
+                "filter": {
+                    "prefix": "config/",
+                },
+                "noncurrentVersionExpiration": {
+                    "noncurrentDays": 90,
+                },
+                "noncurrentVersionTransitions": [
+                    {
+                        "noncurrentDays": 30,
+                        "storageClass": "STANDARD_IA",
+                    },
+                    {
+                        "noncurrentDays": 60,
+                        "storageClass": "GLACIER",
+                    },
                 ],
-                status="Enabled",
-            )],
+                "status": "Enabled",
+            }],
             opts=pulumi.ResourceOptions(depends_on=[versioning]))
         ```
 
@@ -793,7 +793,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationV2RuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -822,7 +822,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationV2RuleArgs']]]]] = None) -> 'BucketLifecycleConfigurationV2':
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None) -> 'BucketLifecycleConfigurationV2':
         """
         Get an existing BucketLifecycleConfigurationV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -832,7 +832,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationV2RuleArgs']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

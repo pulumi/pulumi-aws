@@ -275,7 +275,7 @@ class S3Location(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
-                 s3_config: Optional[pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']]] = None,
+                 s3_config: Optional[pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']]] = None,
                  s3_storage_class: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -292,9 +292,9 @@ class S3Location(pulumi.CustomResource):
         example = aws.datasync.S3Location("example",
             s3_bucket_arn=example_aws_s3_bucket["arn"],
             subdirectory="/example/prefix",
-            s3_config=aws.datasync.S3LocationS3ConfigArgs(
-                bucket_access_role_arn=example_aws_iam_role["arn"],
-            ))
+            s3_config={
+                "bucketAccessRoleArn": example_aws_iam_role["arn"],
+            })
         ```
 
         ## Import
@@ -309,7 +309,7 @@ class S3Location(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
-        :param pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']] s3_config: Configuration block containing information for connecting to S3.
+        :param pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -332,9 +332,9 @@ class S3Location(pulumi.CustomResource):
         example = aws.datasync.S3Location("example",
             s3_bucket_arn=example_aws_s3_bucket["arn"],
             subdirectory="/example/prefix",
-            s3_config=aws.datasync.S3LocationS3ConfigArgs(
-                bucket_access_role_arn=example_aws_iam_role["arn"],
-            ))
+            s3_config={
+                "bucketAccessRoleArn": example_aws_iam_role["arn"],
+            })
         ```
 
         ## Import
@@ -362,7 +362,7 @@ class S3Location(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  s3_bucket_arn: Optional[pulumi.Input[str]] = None,
-                 s3_config: Optional[pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']]] = None,
+                 s3_config: Optional[pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']]] = None,
                  s3_storage_class: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -403,7 +403,7 @@ class S3Location(pulumi.CustomResource):
             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             s3_bucket_arn: Optional[pulumi.Input[str]] = None,
-            s3_config: Optional[pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']]] = None,
+            s3_config: Optional[pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']]] = None,
             s3_storage_class: Optional[pulumi.Input[str]] = None,
             subdirectory: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -419,7 +419,7 @@ class S3Location(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 Bucket.
-        :param pulumi.Input[pulumi.InputType['S3LocationS3ConfigArgs']] s3_config: Configuration block containing information for connecting to S3.
+        :param pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

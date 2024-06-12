@@ -263,7 +263,7 @@ class RateBasedRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArgs']]]]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
                  rate_key: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -279,20 +279,20 @@ class RateBasedRule(pulumi.CustomResource):
 
         ipset = aws.waf.IpSet("ipset",
             name="tfIPSet",
-            ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-                type="IPV4",
-                value="192.0.7.0/24",
-            )])
+            ip_set_descriptors=[{
+                "type": "IPV4",
+                "value": "192.0.7.0/24",
+            }])
         wafrule = aws.waf.RateBasedRule("wafrule",
             name="tfWAFRule",
             metric_name="tfWAFRule",
             rate_key="IP",
             rate_limit=100,
-            predicates=[aws.waf.RateBasedRulePredicateArgs(
-                data_id=ipset.id,
-                negated=False,
-                type="IPMatch",
-            )],
+            predicates=[{
+                "dataId": ipset.id,
+                "negated": False,
+                "type": "IPMatch",
+            }],
             opts=pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 
@@ -308,7 +308,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[str] rate_key: Valid value is IP.
         :param pulumi.Input[int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -330,20 +330,20 @@ class RateBasedRule(pulumi.CustomResource):
 
         ipset = aws.waf.IpSet("ipset",
             name="tfIPSet",
-            ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-                type="IPV4",
-                value="192.0.7.0/24",
-            )])
+            ip_set_descriptors=[{
+                "type": "IPV4",
+                "value": "192.0.7.0/24",
+            }])
         wafrule = aws.waf.RateBasedRule("wafrule",
             name="tfWAFRule",
             metric_name="tfWAFRule",
             rate_key="IP",
             rate_limit=100,
-            predicates=[aws.waf.RateBasedRulePredicateArgs(
-                data_id=ipset.id,
-                negated=False,
-                type="IPMatch",
-            )],
+            predicates=[{
+                "dataId": ipset.id,
+                "negated": False,
+                "type": "IPMatch",
+            }],
             opts=pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 
@@ -372,7 +372,7 @@ class RateBasedRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArgs']]]]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
                  rate_key: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -412,7 +412,7 @@ class RateBasedRule(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             metric_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArgs']]]]] = None,
+            predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]]] = None,
             rate_key: Optional[pulumi.Input[str]] = None,
             rate_limit: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -427,7 +427,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN)
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[str] rate_key: Valid value is IP.
         :param pulumi.Input[int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

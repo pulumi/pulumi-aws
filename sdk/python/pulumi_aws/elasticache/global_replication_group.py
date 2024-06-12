@@ -750,7 +750,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
-            global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalNodeGroupArgs']]]]] = None,
+            global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupGlobalNodeGroupArgs', 'GlobalReplicationGroupGlobalNodeGroupArgsDict']]]]] = None,
             global_replication_group_description: Optional[pulumi.Input[str]] = None,
             global_replication_group_id: Optional[pulumi.Input[str]] = None,
             global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
@@ -785,7 +785,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalNodeGroupArgs']]]] global_node_groups: Set of node groups (shards) on the global replication group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalReplicationGroupGlobalNodeGroupArgs', 'GlobalReplicationGroupGlobalNodeGroupArgsDict']]]] global_node_groups: Set of node groups (shards) on the global replication group.
                Has the values:
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id: The full ID of the global replication group.

@@ -114,7 +114,7 @@ class IpSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]]] = None,
+                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -129,14 +129,14 @@ class IpSet(pulumi.CustomResource):
         ipset = aws.wafregional.IpSet("ipset",
             name="tfIPSet",
             ip_set_descriptors=[
-                aws.wafregional.IpSetIpSetDescriptorArgs(
-                    type="IPV4",
-                    value="192.0.7.0/24",
-                ),
-                aws.wafregional.IpSetIpSetDescriptorArgs(
-                    type="IPV4",
-                    value="10.16.16.0/16",
-                ),
+                {
+                    "type": "IPV4",
+                    "value": "192.0.7.0/24",
+                },
+                {
+                    "type": "IPV4",
+                    "value": "10.16.16.0/16",
+                },
             ])
         ```
 
@@ -150,7 +150,7 @@ class IpSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
         :param pulumi.Input[str] name: The name or description of the IPSet.
         """
         ...
@@ -171,14 +171,14 @@ class IpSet(pulumi.CustomResource):
         ipset = aws.wafregional.IpSet("ipset",
             name="tfIPSet",
             ip_set_descriptors=[
-                aws.wafregional.IpSetIpSetDescriptorArgs(
-                    type="IPV4",
-                    value="192.0.7.0/24",
-                ),
-                aws.wafregional.IpSetIpSetDescriptorArgs(
-                    type="IPV4",
-                    value="10.16.16.0/16",
-                ),
+                {
+                    "type": "IPV4",
+                    "value": "192.0.7.0/24",
+                },
+                {
+                    "type": "IPV4",
+                    "value": "10.16.16.0/16",
+                },
             ])
         ```
 
@@ -205,7 +205,7 @@ class IpSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]]] = None,
+                 ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -230,7 +230,7 @@ class IpSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]]] = None,
+            ip_set_descriptors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'IpSet':
         """
         Get an existing IpSet resource's state with the given name, id, and optional extra
@@ -240,7 +240,7 @@ class IpSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the WAF IPSet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpSetIpSetDescriptorArgs']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpSetIpSetDescriptorArgs', 'IpSetIpSetDescriptorArgsDict']]]] ip_set_descriptors: One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR notation) from which web requests originate.
         :param pulumi.Input[str] name: The name or description of the IPSet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

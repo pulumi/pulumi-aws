@@ -1624,7 +1624,7 @@ class Cluster(pulumi.CustomResource):
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
+                 logging: Optional[pulumi.Input[Union['ClusterLoggingArgs', 'ClusterLoggingArgsDict']]] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
                  manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
@@ -1641,7 +1641,7 @@ class Cluster(pulumi.CustomResource):
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_arn: Optional[pulumi.Input[str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 snapshot_copy: Optional[pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']]] = None,
+                 snapshot_copy: Optional[pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1719,7 +1719,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input[pulumi.InputType['ClusterLoggingArgs']] logging: Logging, documented below.
+        :param pulumi.Input[Union['ClusterLoggingArgs', 'ClusterLoggingArgsDict']] logging: Logging, documented below.
         :param pulumi.Input[str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         :param pulumi.Input[bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
                Conflicts with `master_password`.
@@ -1746,7 +1746,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
-        :param pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
+        :param pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
@@ -1839,7 +1839,7 @@ class Cluster(pulumi.CustomResource):
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
+                 logging: Optional[pulumi.Input[Union['ClusterLoggingArgs', 'ClusterLoggingArgsDict']]] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
                  manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
@@ -1856,7 +1856,7 @@ class Cluster(pulumi.CustomResource):
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_arn: Optional[pulumi.Input[str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 snapshot_copy: Optional[pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']]] = None,
+                 snapshot_copy: Optional[pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1943,7 +1943,7 @@ class Cluster(pulumi.CustomResource):
             availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
             cluster_identifier: Optional[pulumi.Input[str]] = None,
             cluster_namespace_arn: Optional[pulumi.Input[str]] = None,
-            cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterNodeArgs']]]]] = None,
+            cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterNodeArgs', 'ClusterClusterNodeArgsDict']]]]] = None,
             cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
             cluster_public_key: Optional[pulumi.Input[str]] = None,
             cluster_revision_number: Optional[pulumi.Input[str]] = None,
@@ -1960,7 +1960,7 @@ class Cluster(pulumi.CustomResource):
             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
-            logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
+            logging: Optional[pulumi.Input[Union['ClusterLoggingArgs', 'ClusterLoggingArgsDict']]] = None,
             maintenance_track_name: Optional[pulumi.Input[str]] = None,
             manage_master_password: Optional[pulumi.Input[bool]] = None,
             manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
@@ -1978,7 +1978,7 @@ class Cluster(pulumi.CustomResource):
             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
             snapshot_arn: Optional[pulumi.Input[str]] = None,
             snapshot_cluster_identifier: Optional[pulumi.Input[str]] = None,
-            snapshot_copy: Optional[pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']]] = None,
+            snapshot_copy: Optional[pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']]] = None,
             snapshot_identifier: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -2001,7 +2001,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
         :param pulumi.Input[str] cluster_namespace_arn: The namespace Amazon Resource Name (ARN) of the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterNodeArgs']]]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterNodeArgs', 'ClusterClusterNodeArgsDict']]]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[str] cluster_revision_number: The specific revision number of the database in the cluster
@@ -2020,7 +2020,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input[pulumi.InputType['ClusterLoggingArgs']] logging: Logging, documented below.
+        :param pulumi.Input[Union['ClusterLoggingArgs', 'ClusterLoggingArgsDict']] logging: Logging, documented below.
         :param pulumi.Input[str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         :param pulumi.Input[bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
                Conflicts with `master_password`.
@@ -2048,7 +2048,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
-        :param pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
+        :param pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

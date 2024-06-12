@@ -299,7 +299,7 @@ class SafetyRule(pulumi.CustomResource):
                  control_panel_arn: Optional[pulumi.Input[str]] = None,
                  gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_config: Optional[pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']]] = None,
+                 rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
                  target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_period_ms: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -317,11 +317,11 @@ class SafetyRule(pulumi.CustomResource):
             control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
             name="daisyguttridge",
             wait_period_ms=5000,
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
+            rule_config={
+                "inverted": False,
+                "threshold": 1,
+                "type": "ATLEAST",
+            })
         ```
 
         ```python
@@ -334,11 +334,11 @@ class SafetyRule(pulumi.CustomResource):
             wait_period_ms=5000,
             gating_controls=[example_aws_route53recoverycontrolconfig_routing_control["arn"]],
             target_controls=[example_aws_route53recoverycontrolconfig_routing_control["arn"]],
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
+            rule_config={
+                "inverted": False,
+                "threshold": 1,
+                "type": "ATLEAST",
+            })
         ```
 
         ## Import
@@ -355,7 +355,7 @@ class SafetyRule(pulumi.CustomResource):
         :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this safety rule will reside.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gating_controls: Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         :param pulumi.Input[str] name: Name describing the safety rule.
-        :param pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']] rule_config: Configuration block for safety rule criteria. See below.
+        :param pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']] rule_config: Configuration block for safety rule criteria. See below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         :param pulumi.Input[int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
                
@@ -381,11 +381,11 @@ class SafetyRule(pulumi.CustomResource):
             control_panel_arn="arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
             name="daisyguttridge",
             wait_period_ms=5000,
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
+            rule_config={
+                "inverted": False,
+                "threshold": 1,
+                "type": "ATLEAST",
+            })
         ```
 
         ```python
@@ -398,11 +398,11 @@ class SafetyRule(pulumi.CustomResource):
             wait_period_ms=5000,
             gating_controls=[example_aws_route53recoverycontrolconfig_routing_control["arn"]],
             target_controls=[example_aws_route53recoverycontrolconfig_routing_control["arn"]],
-            rule_config=aws.route53recoverycontrol.SafetyRuleRuleConfigArgs(
-                inverted=False,
-                threshold=1,
-                type="ATLEAST",
-            ))
+            rule_config={
+                "inverted": False,
+                "threshold": 1,
+                "type": "ATLEAST",
+            })
         ```
 
         ## Import
@@ -432,7 +432,7 @@ class SafetyRule(pulumi.CustomResource):
                  control_panel_arn: Optional[pulumi.Input[str]] = None,
                  gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_config: Optional[pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']]] = None,
+                 rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
                  target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_period_ms: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -474,7 +474,7 @@ class SafetyRule(pulumi.CustomResource):
             control_panel_arn: Optional[pulumi.Input[str]] = None,
             gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            rule_config: Optional[pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']]] = None,
+            rule_config: Optional[pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             wait_period_ms: Optional[pulumi.Input[int]] = None) -> 'SafetyRule':
@@ -490,7 +490,7 @@ class SafetyRule(pulumi.CustomResource):
         :param pulumi.Input[str] control_panel_arn: ARN of the control panel in which this safety rule will reside.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gating_controls: Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
         :param pulumi.Input[str] name: Name describing the safety rule.
-        :param pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']] rule_config: Configuration block for safety rule criteria. See below.
+        :param pulumi.Input[Union['SafetyRuleRuleConfigArgs', 'SafetyRuleRuleConfigArgsDict']] rule_config: Configuration block for safety rule criteria. See below.
         :param pulumi.Input[str] status: Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_controls: Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
         :param pulumi.Input[int] wait_period_ms: Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.

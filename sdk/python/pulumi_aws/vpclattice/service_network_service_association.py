@@ -352,7 +352,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             created_by: Optional[pulumi.Input[str]] = None,
             custom_domain_name: Optional[pulumi.Input[str]] = None,
-            dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArgs']]]]] = None,
+            dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]]]] = None,
             service_identifier: Optional[pulumi.Input[str]] = None,
             service_network_identifier: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -368,7 +368,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Association.
         :param pulumi.Input[str] created_by: The account that created the association.
         :param pulumi.Input[str] custom_domain_name: The custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArgs']]]] dns_entries: The DNS name of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']]]] dns_entries: The DNS name of the service.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
         :param pulumi.Input[str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
                The following arguments are optional:

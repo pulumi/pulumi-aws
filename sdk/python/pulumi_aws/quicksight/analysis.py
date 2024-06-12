@@ -430,10 +430,10 @@ class Analysis(pulumi.CustomResource):
                  analysis_id: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisPermissionArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]]] = None,
                  recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
+                 source_entity: Optional[pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -451,15 +451,15 @@ class Analysis(pulumi.CustomResource):
         example = aws.quicksight.Analysis("example",
             analysis_id="example-id",
             name="example-name",
-            source_entity=aws.quicksight.AnalysisSourceEntityArgs(
-                source_template=aws.quicksight.AnalysisSourceEntitySourceTemplateArgs(
-                    arn=source["arn"],
-                    data_set_references=[aws.quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=dataset["arn"],
-                        data_set_placeholder="1",
-                    )],
-                ),
-            ))
+            source_entity={
+                "sourceTemplate": {
+                    "arn": source["arn"],
+                    "dataSetReferences": [{
+                        "dataSetArn": dataset["arn"],
+                        "dataSetPlaceholder": "1",
+                    }],
+                },
+            })
         ```
 
         ## Import
@@ -477,10 +477,10 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.Input[str] name: Display name for the analysis.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['AnalysisParametersArgs']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisPermissionArgs']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         :param pulumi.Input[int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        :param pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
@@ -504,15 +504,15 @@ class Analysis(pulumi.CustomResource):
         example = aws.quicksight.Analysis("example",
             analysis_id="example-id",
             name="example-name",
-            source_entity=aws.quicksight.AnalysisSourceEntityArgs(
-                source_template=aws.quicksight.AnalysisSourceEntitySourceTemplateArgs(
-                    arn=source["arn"],
-                    data_set_references=[aws.quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs(
-                        data_set_arn=dataset["arn"],
-                        data_set_placeholder="1",
-                    )],
-                ),
-            ))
+            source_entity={
+                "sourceTemplate": {
+                    "arn": source["arn"],
+                    "dataSetReferences": [{
+                        "dataSetArn": dataset["arn"],
+                        "dataSetPlaceholder": "1",
+                    }],
+                },
+            })
         ```
 
         ## Import
@@ -541,10 +541,10 @@ class Analysis(pulumi.CustomResource):
                  analysis_id: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisPermissionArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]]] = None,
                  recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
+                 source_entity: Optional[pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -590,10 +590,10 @@ class Analysis(pulumi.CustomResource):
             last_published_time: Optional[pulumi.Input[str]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisPermissionArgs']]]]] = None,
+            parameters: Optional[pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
+            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]]] = None,
             recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-            source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']]] = None,
+            source_entity: Optional[pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -613,10 +613,10 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.Input[str] name: Display name for the analysis.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['AnalysisParametersArgs']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisPermissionArgs']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']] parameters: The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalysisPermissionArgs', 'AnalysisPermissionArgsDict']]]] permissions: A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
         :param pulumi.Input[int] recovery_window_in_days: A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
-        :param pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[str] status: The analysis creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

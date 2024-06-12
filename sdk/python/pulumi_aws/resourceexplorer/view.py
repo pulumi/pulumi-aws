@@ -233,8 +233,8 @@ class View(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_view: Optional[pulumi.Input[bool]] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['ViewFiltersArgs']]] = None,
-                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']]] = None,
+                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -250,12 +250,12 @@ class View(pulumi.CustomResource):
         example = aws.resourceexplorer.Index("example", type="LOCAL")
         example_view = aws.resourceexplorer.View("example",
             name="exampleview",
-            filters=aws.resourceexplorer.ViewFiltersArgs(
-                filter_string="resourcetype:ec2:instance",
-            ),
-            included_properties=[aws.resourceexplorer.ViewIncludedPropertyArgs(
-                name="tags",
-            )],
+            filters={
+                "filterString": "resourcetype:ec2:instance",
+            },
+            included_properties=[{
+                "name": "tags",
+            }],
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -270,8 +270,8 @@ class View(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        :param pulumi.Input[pulumi.InputType['ViewFiltersArgs']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
+        :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -293,12 +293,12 @@ class View(pulumi.CustomResource):
         example = aws.resourceexplorer.Index("example", type="LOCAL")
         example_view = aws.resourceexplorer.View("example",
             name="exampleview",
-            filters=aws.resourceexplorer.ViewFiltersArgs(
-                filter_string="resourcetype:ec2:instance",
-            ),
-            included_properties=[aws.resourceexplorer.ViewIncludedPropertyArgs(
-                name="tags",
-            )],
+            filters={
+                "filterString": "resourcetype:ec2:instance",
+            },
+            included_properties=[{
+                "name": "tags",
+            }],
             opts=pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -326,8 +326,8 @@ class View(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_view: Optional[pulumi.Input[bool]] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['ViewFiltersArgs']]] = None,
-                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']]] = None,
+                 included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -358,8 +358,8 @@ class View(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             default_view: Optional[pulumi.Input[bool]] = None,
-            filters: Optional[pulumi.Input[pulumi.InputType['ViewFiltersArgs']]] = None,
-            included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']]] = None,
+            included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'View':
@@ -372,8 +372,8 @@ class View(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Resource Explorer view.
         :param pulumi.Input[bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
-        :param pulumi.Input[pulumi.InputType['ViewFiltersArgs']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
+        :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
         :param pulumi.Input[str] name: The name of the view. The name must be no more than 64 characters long, and can include letters, digits, and the dash (-) character. The name must be unique within its AWS Region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

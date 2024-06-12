@@ -113,7 +113,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryScanningConfigurationRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryScanningConfigurationRuleArgs', 'RegistryScanningConfigurationRuleArgsDict']]]]] = None,
                  scan_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -129,13 +129,13 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         configuration = aws.ecr.RegistryScanningConfiguration("configuration",
             scan_type="ENHANCED",
-            rules=[aws.ecr.RegistryScanningConfigurationRuleArgs(
-                scan_frequency="CONTINUOUS_SCAN",
-                repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                    filter="example",
-                    filter_type="WILDCARD",
-                )],
-            )])
+            rules=[{
+                "scanFrequency": "CONTINUOUS_SCAN",
+                "repositoryFilters": [{
+                    "filter": "example",
+                    "filterType": "WILDCARD",
+                }],
+            }])
         ```
 
         ### Multiple rules
@@ -147,20 +147,20 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         test = aws.ecr.RegistryScanningConfiguration("test",
             scan_type="ENHANCED",
             rules=[
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    scan_frequency="SCAN_ON_PUSH",
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="*",
-                        filter_type="WILDCARD",
-                    )],
-                ),
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    scan_frequency="CONTINUOUS_SCAN",
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="example",
-                        filter_type="WILDCARD",
-                    )],
-                ),
+                {
+                    "scanFrequency": "SCAN_ON_PUSH",
+                    "repositoryFilters": [{
+                        "filter": "*",
+                        "filterType": "WILDCARD",
+                    }],
+                },
+                {
+                    "scanFrequency": "CONTINUOUS_SCAN",
+                    "repositoryFilters": [{
+                        "filter": "example",
+                        "filterType": "WILDCARD",
+                    }],
+                },
             ])
         ```
 
@@ -174,7 +174,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryScanningConfigurationRuleArgs']]]] rules: One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryScanningConfigurationRuleArgs', 'RegistryScanningConfigurationRuleArgsDict']]]] rules: One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
         :param pulumi.Input[str] scan_type: the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
         """
         ...
@@ -196,13 +196,13 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         configuration = aws.ecr.RegistryScanningConfiguration("configuration",
             scan_type="ENHANCED",
-            rules=[aws.ecr.RegistryScanningConfigurationRuleArgs(
-                scan_frequency="CONTINUOUS_SCAN",
-                repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                    filter="example",
-                    filter_type="WILDCARD",
-                )],
-            )])
+            rules=[{
+                "scanFrequency": "CONTINUOUS_SCAN",
+                "repositoryFilters": [{
+                    "filter": "example",
+                    "filterType": "WILDCARD",
+                }],
+            }])
         ```
 
         ### Multiple rules
@@ -214,20 +214,20 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         test = aws.ecr.RegistryScanningConfiguration("test",
             scan_type="ENHANCED",
             rules=[
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    scan_frequency="SCAN_ON_PUSH",
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="*",
-                        filter_type="WILDCARD",
-                    )],
-                ),
-                aws.ecr.RegistryScanningConfigurationRuleArgs(
-                    scan_frequency="CONTINUOUS_SCAN",
-                    repository_filters=[aws.ecr.RegistryScanningConfigurationRuleRepositoryFilterArgs(
-                        filter="example",
-                        filter_type="WILDCARD",
-                    )],
-                ),
+                {
+                    "scanFrequency": "SCAN_ON_PUSH",
+                    "repositoryFilters": [{
+                        "filter": "*",
+                        "filterType": "WILDCARD",
+                    }],
+                },
+                {
+                    "scanFrequency": "CONTINUOUS_SCAN",
+                    "repositoryFilters": [{
+                        "filter": "example",
+                        "filterType": "WILDCARD",
+                    }],
+                },
             ])
         ```
 
@@ -254,7 +254,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryScanningConfigurationRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryScanningConfigurationRuleArgs', 'RegistryScanningConfigurationRuleArgsDict']]]]] = None,
                  scan_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -281,7 +281,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             registry_id: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryScanningConfigurationRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryScanningConfigurationRuleArgs', 'RegistryScanningConfigurationRuleArgsDict']]]]] = None,
             scan_type: Optional[pulumi.Input[str]] = None) -> 'RegistryScanningConfiguration':
         """
         Get an existing RegistryScanningConfiguration resource's state with the given name, id, and optional extra
@@ -291,7 +291,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] registry_id: The registry ID the scanning configuration applies to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryScanningConfigurationRuleArgs']]]] rules: One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryScanningConfigurationRuleArgs', 'RegistryScanningConfigurationRuleArgsDict']]]] rules: One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
         :param pulumi.Input[str] scan_type: the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

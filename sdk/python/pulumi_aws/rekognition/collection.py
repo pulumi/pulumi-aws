@@ -185,7 +185,7 @@ class Collection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collection_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['CollectionTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['CollectionTimeoutsArgs', 'CollectionTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Rekognition Collection.
@@ -265,7 +265,7 @@ class Collection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collection_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['CollectionTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['CollectionTimeoutsArgs', 'CollectionTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -298,7 +298,7 @@ class Collection(pulumi.CustomResource):
             face_model_version: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['CollectionTimeoutsArgs']]] = None) -> 'Collection':
+            timeouts: Optional[pulumi.Input[Union['CollectionTimeoutsArgs', 'CollectionTimeoutsArgsDict']]] = None) -> 'Collection':
         """
         Get an existing Collection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

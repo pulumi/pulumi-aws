@@ -150,16 +150,16 @@ class SecretPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_secret = aws.secretsmanager.Secret("example", name="example")
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="EnableAnotherAWSAccountToReadTheSecret",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["arn:aws:iam::123456789012:root"],
-            )],
-            actions=["secretsmanager:GetSecretValue"],
-            resources=["*"],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "sid": "EnableAnotherAWSAccountToReadTheSecret",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["arn:aws:iam::123456789012:root"],
+            }],
+            "actions": ["secretsmanager:GetSecretValue"],
+            "resources": ["*"],
+        }])
         example_secret_policy = aws.secretsmanager.SecretPolicy("example",
             secret_arn=example_secret.arn,
             policy=example.json)
@@ -199,16 +199,16 @@ class SecretPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_secret = aws.secretsmanager.Secret("example", name="example")
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="EnableAnotherAWSAccountToReadTheSecret",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["arn:aws:iam::123456789012:root"],
-            )],
-            actions=["secretsmanager:GetSecretValue"],
-            resources=["*"],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "sid": "EnableAnotherAWSAccountToReadTheSecret",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["arn:aws:iam::123456789012:root"],
+            }],
+            "actions": ["secretsmanager:GetSecretValue"],
+            "resources": ["*"],
+        }])
         example_secret_policy = aws.secretsmanager.SecretPolicy("example",
             secret_arn=example_secret.arn,
             policy=example.json)

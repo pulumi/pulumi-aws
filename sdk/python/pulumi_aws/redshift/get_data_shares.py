@@ -58,7 +58,7 @@ class AwaitableGetDataSharesResult(GetDataSharesResult):
             id=self.id)
 
 
-def get_data_shares(data_shares: Optional[Sequence[pulumi.InputType['GetDataSharesDataShareArgs']]] = None,
+def get_data_shares(data_shares: Optional[Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSharesResult:
     """
     Data source for managing AWS Redshift Data Shares.
@@ -75,7 +75,7 @@ def get_data_shares(data_shares: Optional[Sequence[pulumi.InputType['GetDataShar
     ```
 
 
-    :param Sequence[pulumi.InputType['GetDataSharesDataShareArgs']] data_shares: An array of all data shares in the current region. See `data_shares` below.
+    :param Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']] data_shares: An array of all data shares in the current region. See `data_shares` below.
     """
     __args__ = dict()
     __args__['dataShares'] = data_shares
@@ -88,7 +88,7 @@ def get_data_shares(data_shares: Optional[Sequence[pulumi.InputType['GetDataShar
 
 
 @_utilities.lift_output_func(get_data_shares)
-def get_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDataSharesDataShareArgs']]]]] = None,
+def get_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSharesResult]:
     """
     Data source for managing AWS Redshift Data Shares.
@@ -105,6 +105,6 @@ def get_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[
     ```
 
 
-    :param Sequence[pulumi.InputType['GetDataSharesDataShareArgs']] data_shares: An array of all data shares in the current region. See `data_shares` below.
+    :param Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']] data_shares: An array of all data shares in the current region. See `data_shares` below.
     """
     ...

@@ -277,7 +277,7 @@ class Thesaurus(pulumi.CustomResource):
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 source_s3_path: Optional[pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']]] = None,
+                 source_s3_path: Optional[pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -293,10 +293,10 @@ class Thesaurus(pulumi.CustomResource):
             index_id=example_aws_kendra_index["id"],
             name="Example",
             role_arn=example_aws_iam_role["arn"],
-            source_s3_path=aws.kendra.ThesaurusSourceS3PathArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key=example_aws_s3_object["key"],
-            ),
+            source_s3_path={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": example_aws_s3_object["key"],
+            },
             tags={
                 "Name": "Example Kendra Thesaurus",
             })
@@ -315,7 +315,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[str] name: The name for the thesaurus.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+        :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         """
         ...
     @overload
@@ -336,10 +336,10 @@ class Thesaurus(pulumi.CustomResource):
             index_id=example_aws_kendra_index["id"],
             name="Example",
             role_arn=example_aws_iam_role["arn"],
-            source_s3_path=aws.kendra.ThesaurusSourceS3PathArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key=example_aws_s3_object["key"],
-            ),
+            source_s3_path={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": example_aws_s3_object["key"],
+            },
             tags={
                 "Name": "Example Kendra Thesaurus",
             })
@@ -372,7 +372,7 @@ class Thesaurus(pulumi.CustomResource):
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 source_s3_path: Optional[pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']]] = None,
+                 source_s3_path: Optional[pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -414,7 +414,7 @@ class Thesaurus(pulumi.CustomResource):
             index_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            source_s3_path: Optional[pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']]] = None,
+            source_s3_path: Optional[pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -430,7 +430,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[str] name: The name for the thesaurus.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+        :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
         :param pulumi.Input[str] status: The current status of the thesaurus.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

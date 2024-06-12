@@ -242,11 +242,11 @@ class AccessKey(pulumi.CustomResource):
         lb = aws.iam.AccessKey("lb",
             user=lb_user.name,
             pgp_key="keybase:some_person_that_exists")
-        lb_ro = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
+        lb_ro = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["ec2:Describe*"],
+            "resources": ["*"],
+        }])
         lb_ro_user_policy = aws.iam.UserPolicy("lb_ro",
             name="test",
             user=lb_user.name,
@@ -301,11 +301,11 @@ class AccessKey(pulumi.CustomResource):
         lb = aws.iam.AccessKey("lb",
             user=lb_user.name,
             pgp_key="keybase:some_person_that_exists")
-        lb_ro = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
+        lb_ro = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["ec2:Describe*"],
+            "resources": ["*"],
+        }])
         lb_ro_user_policy = aws.iam.UserPolicy("lb_ro",
             name="test",
             user=lb_user.name,

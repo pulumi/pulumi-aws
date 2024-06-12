@@ -607,14 +607,14 @@ class Trail(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailAdvancedEventSelectorArgs']]]]] = None,
+                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]]] = None,
                  cloud_watch_logs_group_arn: Optional[pulumi.Input[str]] = None,
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
                  enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
                  enable_logging: Optional[pulumi.Input[bool]] = None,
-                 event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]]] = None,
+                 event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]]] = None,
                  include_global_service_events: Optional[pulumi.Input[bool]] = None,
-                 insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailInsightSelectorArgs']]]]] = None,
+                 insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]]] = None,
                  is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
                  is_organization_trail: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -649,43 +649,43 @@ class Trail(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
         example = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="AWSCloudTrailAclCheck",
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["cloudtrail.amazonaws.com"],
-                )],
-                actions=["s3:GetBucketAcl"],
-                resources=[example_bucket_v2.arn],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="aws:SourceArn",
-                    values=[f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
-                )],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="AWSCloudTrailWrite",
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["cloudtrail.amazonaws.com"],
-                )],
-                actions=["s3:PutObject"],
-                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
-                conditions=[
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        variable="s3:x-amz-acl",
-                        values=["bucket-owner-full-control"],
-                    ),
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        variable="aws:SourceArn",
-                        values=[f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
-                    ),
+            {
+                "sid": "AWSCloudTrailAclCheck",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["cloudtrail.amazonaws.com"],
+                }],
+                "actions": ["s3:GetBucketAcl"],
+                "resources": [example_bucket_v2.arn],
+                "conditions": [{
+                    "test": "StringEquals",
+                    "variable": "aws:SourceArn",
+                    "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                }],
+            },
+            {
+                "sid": "AWSCloudTrailWrite",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["cloudtrail.amazonaws.com"],
+                }],
+                "actions": ["s3:PutObject"],
+                "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
+                "conditions": [
+                    {
+                        "test": "StringEquals",
+                        "variable": "s3:x-amz-acl",
+                        "values": ["bucket-owner-full-control"],
+                    },
+                    {
+                        "test": "StringEquals",
+                        "variable": "aws:SourceArn",
+                        "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                    },
                 ],
-            ),
+            },
         ])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket_v2.id,
@@ -711,14 +711,14 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-            read_write_type="All",
-            include_management_events=True,
-            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                type="AWS::Lambda::Function",
-                values=["arn:aws:lambda"],
-            )],
-        )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[{
+            "readWriteType": "All",
+            "includeManagementEvents": True,
+            "dataResources": [{
+                "type": "AWS::Lambda::Function",
+                "values": ["arn:aws:lambda"],
+            }],
+        }])
         ```
 
         ### Logging All S3 Object Events By Using Basic Event Selectors
@@ -727,14 +727,14 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-            read_write_type="All",
-            include_management_events=True,
-            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                type="AWS::S3::Object",
-                values=["arn:aws:s3"],
-            )],
-        )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[{
+            "readWriteType": "All",
+            "includeManagementEvents": True,
+            "dataResources": [{
+                "type": "AWS::S3::Object",
+                "values": ["arn:aws:s3"],
+            }],
+        }])
         ```
 
         ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
@@ -744,14 +744,14 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         important_bucket = aws.s3.get_bucket(bucket="important-bucket")
-        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-            read_write_type="All",
-            include_management_events=True,
-            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                type="AWS::S3::Object",
-                values=[f"{important_bucket.arn}/"],
-            )],
-        )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[{
+            "readWriteType": "All",
+            "includeManagementEvents": True,
+            "dataResources": [{
+                "type": "AWS::S3::Object",
+                "values": [f"{important_bucket.arn}/"],
+            }],
+        }])
         ```
 
         ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
@@ -763,33 +763,33 @@ class Trail(pulumi.CustomResource):
         not_important_bucket_1 = aws.s3.get_bucket(bucket="not-important-bucket-1")
         not_important_bucket_2 = aws.s3.get_bucket(bucket="not-important-bucket-2")
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                name="Log all S3 objects events except for two S3 buckets",
-                field_selectors=[
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="eventCategory",
-                        equals=["Data"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.ARN",
-                        not_starts_withs=[
+            {
+                "name": "Log all S3 objects events except for two S3 buckets",
+                "fieldSelectors": [
+                    {
+                        "field": "eventCategory",
+                        "equals": ["Data"],
+                    },
+                    {
+                        "field": "resources.ARN",
+                        "notStartsWiths": [
                             f"{not_important_bucket_1.arn}/",
                             f"{not_important_bucket_2.arn}/",
                         ],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.type",
-                        equals=["AWS::S3::Object"],
-                    ),
+                    },
+                    {
+                        "field": "resources.type",
+                        "equals": ["AWS::S3::Object"],
+                    },
                 ],
-            ),
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                name="Log readOnly and writeOnly management events",
-                field_selectors=[aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                    field="eventCategory",
-                    equals=["Management"],
-                )],
-            ),
+            },
+            {
+                "name": "Log readOnly and writeOnly management events",
+                "fieldSelectors": [{
+                    "field": "eventCategory",
+                    "equals": ["Management"],
+                }],
+            },
         ])
         ```
 
@@ -803,62 +803,62 @@ class Trail(pulumi.CustomResource):
         important_bucket_2 = aws.s3.get_bucket(bucket="important-bucket-2")
         important_bucket_3 = aws.s3.get_bucket(bucket="important-bucket-3")
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                name="Log PutObject and DeleteObject events for two S3 buckets",
-                field_selectors=[
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="eventCategory",
-                        equals=["Data"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="eventName",
-                        equals=[
+            {
+                "name": "Log PutObject and DeleteObject events for two S3 buckets",
+                "fieldSelectors": [
+                    {
+                        "field": "eventCategory",
+                        "equals": ["Data"],
+                    },
+                    {
+                        "field": "eventName",
+                        "equals": [
                             "PutObject",
                             "DeleteObject",
                         ],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.ARN",
-                        starts_withs=[
+                    },
+                    {
+                        "field": "resources.ARN",
+                        "startsWiths": [
                             f"{important_bucket_1.arn}/",
                             f"{important_bucket_2.arn}/",
                         ],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="readOnly",
-                        equals=["false"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.type",
-                        equals=["AWS::S3::Object"],
-                    ),
+                    },
+                    {
+                        "field": "readOnly",
+                        "equals": ["false"],
+                    },
+                    {
+                        "field": "resources.type",
+                        "equals": ["AWS::S3::Object"],
+                    },
                 ],
-            ),
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                name="Log Delete* events for one S3 bucket",
-                field_selectors=[
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="eventCategory",
-                        equals=["Data"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="eventName",
-                        starts_withs=["Delete"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.ARN",
-                        equals=[f"{important_bucket_3.arn}/important-prefix"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="readOnly",
-                        equals=["false"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.type",
-                        equals=["AWS::S3::Object"],
-                    ),
+            },
+            {
+                "name": "Log Delete* events for one S3 bucket",
+                "fieldSelectors": [
+                    {
+                        "field": "eventCategory",
+                        "equals": ["Data"],
+                    },
+                    {
+                        "field": "eventName",
+                        "startsWiths": ["Delete"],
+                    },
+                    {
+                        "field": "resources.ARN",
+                        "equals": [f"{important_bucket_3.arn}/important-prefix"],
+                    },
+                    {
+                        "field": "readOnly",
+                        "equals": ["false"],
+                    },
+                    {
+                        "field": "resources.type",
+                        "equals": ["AWS::S3::Object"],
+                    },
                 ],
-            ),
+            },
         ])
         ```
 
@@ -882,14 +882,14 @@ class Trail(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailAdvancedEventSelectorArgs']]]] advanced_event_selectors: Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]] advanced_event_selectors: Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
         :param pulumi.Input[str] cloud_watch_logs_group_arn: Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[str] cloud_watch_logs_role_arn: Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         :param pulumi.Input[bool] enable_log_file_validation: Whether log file integrity validation is enabled. Defaults to `false`.
         :param pulumi.Input[bool] enable_logging: Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
         :param pulumi.Input[bool] include_global_service_events: Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailInsightSelectorArgs']]]] insight_selectors: Configuration block for identifying unusual operational activity. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]] insight_selectors: Configuration block for identifying unusual operational activity. See details below.
         :param pulumi.Input[bool] is_multi_region_trail: Whether the trail is created in the current region or in all regions. Defaults to `false`.
         :param pulumi.Input[bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
@@ -932,43 +932,43 @@ class Trail(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
         example = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="AWSCloudTrailAclCheck",
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["cloudtrail.amazonaws.com"],
-                )],
-                actions=["s3:GetBucketAcl"],
-                resources=[example_bucket_v2.arn],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="aws:SourceArn",
-                    values=[f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
-                )],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="AWSCloudTrailWrite",
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["cloudtrail.amazonaws.com"],
-                )],
-                actions=["s3:PutObject"],
-                resources=[example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
-                conditions=[
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        variable="s3:x-amz-acl",
-                        values=["bucket-owner-full-control"],
-                    ),
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        variable="aws:SourceArn",
-                        values=[f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
-                    ),
+            {
+                "sid": "AWSCloudTrailAclCheck",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["cloudtrail.amazonaws.com"],
+                }],
+                "actions": ["s3:GetBucketAcl"],
+                "resources": [example_bucket_v2.arn],
+                "conditions": [{
+                    "test": "StringEquals",
+                    "variable": "aws:SourceArn",
+                    "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                }],
+            },
+            {
+                "sid": "AWSCloudTrailWrite",
+                "effect": "Allow",
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["cloudtrail.amazonaws.com"],
+                }],
+                "actions": ["s3:PutObject"],
+                "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
+                "conditions": [
+                    {
+                        "test": "StringEquals",
+                        "variable": "s3:x-amz-acl",
+                        "values": ["bucket-owner-full-control"],
+                    },
+                    {
+                        "test": "StringEquals",
+                        "variable": "aws:SourceArn",
+                        "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                    },
                 ],
-            ),
+            },
         ])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket_v2.id,
@@ -994,14 +994,14 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-            read_write_type="All",
-            include_management_events=True,
-            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                type="AWS::Lambda::Function",
-                values=["arn:aws:lambda"],
-            )],
-        )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[{
+            "readWriteType": "All",
+            "includeManagementEvents": True,
+            "dataResources": [{
+                "type": "AWS::Lambda::Function",
+                "values": ["arn:aws:lambda"],
+            }],
+        }])
         ```
 
         ### Logging All S3 Object Events By Using Basic Event Selectors
@@ -1010,14 +1010,14 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-            read_write_type="All",
-            include_management_events=True,
-            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                type="AWS::S3::Object",
-                values=["arn:aws:s3"],
-            )],
-        )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[{
+            "readWriteType": "All",
+            "includeManagementEvents": True,
+            "dataResources": [{
+                "type": "AWS::S3::Object",
+                "values": ["arn:aws:s3"],
+            }],
+        }])
         ```
 
         ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
@@ -1027,14 +1027,14 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         important_bucket = aws.s3.get_bucket(bucket="important-bucket")
-        example = aws.cloudtrail.Trail("example", event_selectors=[aws.cloudtrail.TrailEventSelectorArgs(
-            read_write_type="All",
-            include_management_events=True,
-            data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
-                type="AWS::S3::Object",
-                values=[f"{important_bucket.arn}/"],
-            )],
-        )])
+        example = aws.cloudtrail.Trail("example", event_selectors=[{
+            "readWriteType": "All",
+            "includeManagementEvents": True,
+            "dataResources": [{
+                "type": "AWS::S3::Object",
+                "values": [f"{important_bucket.arn}/"],
+            }],
+        }])
         ```
 
         ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
@@ -1046,33 +1046,33 @@ class Trail(pulumi.CustomResource):
         not_important_bucket_1 = aws.s3.get_bucket(bucket="not-important-bucket-1")
         not_important_bucket_2 = aws.s3.get_bucket(bucket="not-important-bucket-2")
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                name="Log all S3 objects events except for two S3 buckets",
-                field_selectors=[
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="eventCategory",
-                        equals=["Data"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.ARN",
-                        not_starts_withs=[
+            {
+                "name": "Log all S3 objects events except for two S3 buckets",
+                "fieldSelectors": [
+                    {
+                        "field": "eventCategory",
+                        "equals": ["Data"],
+                    },
+                    {
+                        "field": "resources.ARN",
+                        "notStartsWiths": [
                             f"{not_important_bucket_1.arn}/",
                             f"{not_important_bucket_2.arn}/",
                         ],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.type",
-                        equals=["AWS::S3::Object"],
-                    ),
+                    },
+                    {
+                        "field": "resources.type",
+                        "equals": ["AWS::S3::Object"],
+                    },
                 ],
-            ),
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                name="Log readOnly and writeOnly management events",
-                field_selectors=[aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                    field="eventCategory",
-                    equals=["Management"],
-                )],
-            ),
+            },
+            {
+                "name": "Log readOnly and writeOnly management events",
+                "fieldSelectors": [{
+                    "field": "eventCategory",
+                    "equals": ["Management"],
+                }],
+            },
         ])
         ```
 
@@ -1086,62 +1086,62 @@ class Trail(pulumi.CustomResource):
         important_bucket_2 = aws.s3.get_bucket(bucket="important-bucket-2")
         important_bucket_3 = aws.s3.get_bucket(bucket="important-bucket-3")
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                name="Log PutObject and DeleteObject events for two S3 buckets",
-                field_selectors=[
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="eventCategory",
-                        equals=["Data"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="eventName",
-                        equals=[
+            {
+                "name": "Log PutObject and DeleteObject events for two S3 buckets",
+                "fieldSelectors": [
+                    {
+                        "field": "eventCategory",
+                        "equals": ["Data"],
+                    },
+                    {
+                        "field": "eventName",
+                        "equals": [
                             "PutObject",
                             "DeleteObject",
                         ],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.ARN",
-                        starts_withs=[
+                    },
+                    {
+                        "field": "resources.ARN",
+                        "startsWiths": [
                             f"{important_bucket_1.arn}/",
                             f"{important_bucket_2.arn}/",
                         ],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="readOnly",
-                        equals=["false"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.type",
-                        equals=["AWS::S3::Object"],
-                    ),
+                    },
+                    {
+                        "field": "readOnly",
+                        "equals": ["false"],
+                    },
+                    {
+                        "field": "resources.type",
+                        "equals": ["AWS::S3::Object"],
+                    },
                 ],
-            ),
-            aws.cloudtrail.TrailAdvancedEventSelectorArgs(
-                name="Log Delete* events for one S3 bucket",
-                field_selectors=[
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="eventCategory",
-                        equals=["Data"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="eventName",
-                        starts_withs=["Delete"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.ARN",
-                        equals=[f"{important_bucket_3.arn}/important-prefix"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="readOnly",
-                        equals=["false"],
-                    ),
-                    aws.cloudtrail.TrailAdvancedEventSelectorFieldSelectorArgs(
-                        field="resources.type",
-                        equals=["AWS::S3::Object"],
-                    ),
+            },
+            {
+                "name": "Log Delete* events for one S3 bucket",
+                "fieldSelectors": [
+                    {
+                        "field": "eventCategory",
+                        "equals": ["Data"],
+                    },
+                    {
+                        "field": "eventName",
+                        "startsWiths": ["Delete"],
+                    },
+                    {
+                        "field": "resources.ARN",
+                        "equals": [f"{important_bucket_3.arn}/important-prefix"],
+                    },
+                    {
+                        "field": "readOnly",
+                        "equals": ["false"],
+                    },
+                    {
+                        "field": "resources.type",
+                        "equals": ["AWS::S3::Object"],
+                    },
                 ],
-            ),
+            },
         ])
         ```
 
@@ -1178,14 +1178,14 @@ class Trail(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailAdvancedEventSelectorArgs']]]]] = None,
+                 advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]]] = None,
                  cloud_watch_logs_group_arn: Optional[pulumi.Input[str]] = None,
                  cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
                  enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
                  enable_logging: Optional[pulumi.Input[bool]] = None,
-                 event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]]] = None,
+                 event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]]] = None,
                  include_global_service_events: Optional[pulumi.Input[bool]] = None,
-                 insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailInsightSelectorArgs']]]]] = None,
+                 insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]]] = None,
                  is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
                  is_organization_trail: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -1234,16 +1234,16 @@ class Trail(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailAdvancedEventSelectorArgs']]]]] = None,
+            advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             cloud_watch_logs_group_arn: Optional[pulumi.Input[str]] = None,
             cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
             enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
             enable_logging: Optional[pulumi.Input[bool]] = None,
-            event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]]] = None,
+            event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]]] = None,
             home_region: Optional[pulumi.Input[str]] = None,
             include_global_service_events: Optional[pulumi.Input[bool]] = None,
-            insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailInsightSelectorArgs']]]]] = None,
+            insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]]] = None,
             is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
             is_organization_trail: Optional[pulumi.Input[bool]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -1260,16 +1260,16 @@ class Trail(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailAdvancedEventSelectorArgs']]]] advanced_event_selectors: Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailAdvancedEventSelectorArgs', 'TrailAdvancedEventSelectorArgsDict']]]] advanced_event_selectors: Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
         :param pulumi.Input[str] arn: ARN of the trail.
         :param pulumi.Input[str] cloud_watch_logs_group_arn: Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         :param pulumi.Input[str] cloud_watch_logs_role_arn: Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         :param pulumi.Input[bool] enable_log_file_validation: Whether log file integrity validation is enabled. Defaults to `false`.
         :param pulumi.Input[bool] enable_logging: Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailEventSelectorArgs']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailEventSelectorArgs', 'TrailEventSelectorArgsDict']]]] event_selectors: Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
         :param pulumi.Input[str] home_region: Region in which the trail was created.
         :param pulumi.Input[bool] include_global_service_events: Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrailInsightSelectorArgs']]]] insight_selectors: Configuration block for identifying unusual operational activity. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrailInsightSelectorArgs', 'TrailInsightSelectorArgsDict']]]] insight_selectors: Configuration block for identifying unusual operational activity. See details below.
         :param pulumi.Input[bool] is_multi_region_trail: Whether the trail is created in the current region or in all regions. Defaults to `false`.
         :param pulumi.Input[bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.

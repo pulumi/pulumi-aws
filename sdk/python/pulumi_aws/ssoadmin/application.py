@@ -355,7 +355,7 @@ class Application(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 portal_options: Optional[pulumi.Input[pulumi.InputType['ApplicationPortalOptionsArgs']]] = None,
+                 portal_options: Optional[pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -392,13 +392,13 @@ class Application(pulumi.CustomResource):
             name="example",
             application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
             instance_arn=example.arns[0],
-            portal_options=aws.ssoadmin.ApplicationPortalOptionsArgs(
-                visibility="ENABLED",
-                sign_in_options=aws.ssoadmin.ApplicationPortalOptionsSignInOptionsArgs(
-                    application_url="http://example.com",
-                    origin="APPLICATION",
-                ),
-            ))
+            portal_options={
+                "visibility": "ENABLED",
+                "signInOptions": {
+                    "applicationUrl": "http://example.com",
+                    "origin": "APPLICATION",
+                },
+            })
         ```
 
         ## Import
@@ -418,7 +418,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the application.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['ApplicationPortalOptionsArgs']] portal_options: Options for the portal associated with an application. See `portal_options` below.
+        :param pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']] portal_options: Options for the portal associated with an application. See `portal_options` below.
         :param pulumi.Input[str] status: Status of the application. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -461,13 +461,13 @@ class Application(pulumi.CustomResource):
             name="example",
             application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
             instance_arn=example.arns[0],
-            portal_options=aws.ssoadmin.ApplicationPortalOptionsArgs(
-                visibility="ENABLED",
-                sign_in_options=aws.ssoadmin.ApplicationPortalOptionsSignInOptionsArgs(
-                    application_url="http://example.com",
-                    origin="APPLICATION",
-                ),
-            ))
+            portal_options={
+                "visibility": "ENABLED",
+                "signInOptions": {
+                    "applicationUrl": "http://example.com",
+                    "origin": "APPLICATION",
+                },
+            })
         ```
 
         ## Import
@@ -498,7 +498,7 @@ class Application(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 portal_options: Optional[pulumi.Input[pulumi.InputType['ApplicationPortalOptionsArgs']]] = None,
+                 portal_options: Optional[pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -542,7 +542,7 @@ class Application(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             instance_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            portal_options: Optional[pulumi.Input[pulumi.InputType['ApplicationPortalOptionsArgs']]] = None,
+            portal_options: Optional[pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Application':
@@ -562,7 +562,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the application.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['ApplicationPortalOptionsArgs']] portal_options: Options for the portal associated with an application. See `portal_options` below.
+        :param pulumi.Input[Union['ApplicationPortalOptionsArgs', 'ApplicationPortalOptionsArgsDict']] portal_options: Options for the portal associated with an application. See `portal_options` below.
         :param pulumi.Input[str] status: Status of the application. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -258,7 +258,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
                  model_units: Optional[pulumi.Input[int]] = None,
                  provisioned_model_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ProvisionedModelThroughputTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html) for an Amazon Bedrock model.
@@ -342,7 +342,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
                  model_units: Optional[pulumi.Input[int]] = None,
                  provisioned_model_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ProvisionedModelThroughputTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -383,7 +383,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
             provisioned_model_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ProvisionedModelThroughputTimeoutsArgs']]] = None) -> 'ProvisionedModelThroughput':
+            timeouts: Optional[pulumi.Input[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None) -> 'ProvisionedModelThroughput':
         """
         Get an existing ProvisionedModelThroughput resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

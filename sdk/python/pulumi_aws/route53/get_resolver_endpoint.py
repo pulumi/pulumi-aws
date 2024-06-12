@@ -136,7 +136,7 @@ class AwaitableGetResolverEndpointResult(GetResolverEndpointResult):
             vpc_id=self.vpc_id)
 
 
-def get_resolver_endpoint(filters: Optional[Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']]] = None,
+def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]] = None,
                           resolver_endpoint_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverEndpointResult:
     """
@@ -157,14 +157,14 @@ def get_resolver_endpoint(filters: Optional[Sequence[pulumi.InputType['GetResolv
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.route53.get_resolver_endpoint(filters=[aws.route53.GetResolverEndpointFilterArgs(
-        name="NAME",
-        values=["MyResolverExampleName"],
-    )])
+    example = aws.route53.get_resolver_endpoint(filters=[{
+        "name": "NAME",
+        "values": ["MyResolverExampleName"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
            
@@ -192,7 +192,7 @@ def get_resolver_endpoint(filters: Optional[Sequence[pulumi.InputType['GetResolv
 
 
 @_utilities.lift_output_func(get_resolver_endpoint)
-def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']]]]] = None,
+def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']]]]] = None,
                                  resolver_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverEndpointResult]:
     """
@@ -213,14 +213,14 @@ def get_resolver_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequenc
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.route53.get_resolver_endpoint(filters=[aws.route53.GetResolverEndpointFilterArgs(
-        name="NAME",
-        values=["MyResolverExampleName"],
-    )])
+    example = aws.route53.get_resolver_endpoint(filters=[{
+        "name": "NAME",
+        "values": ["MyResolverExampleName"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetResolverEndpointFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
            

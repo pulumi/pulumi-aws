@@ -110,14 +110,14 @@ class ResourcePolicy(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
-        glue_example_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["glue:CreateTable"],
-            resources=[f"arn:{current_get_partition.partition}:glue:{current_get_region.name}:{current.account_id}:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
+        glue_example_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["glue:CreateTable"],
+            "resources": [f"arn:{current_get_partition.partition}:glue:{current_get_region.name}:{current.account_id}:*"],
+            "principals": [{
+                "identifiers": ["*"],
+                "type": "AWS",
+            }],
+        }])
         example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
         ```
 
@@ -152,14 +152,14 @@ class ResourcePolicy(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
-        glue_example_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["glue:CreateTable"],
-            resources=[f"arn:{current_get_partition.partition}:glue:{current_get_region.name}:{current.account_id}:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
+        glue_example_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["glue:CreateTable"],
+            "resources": [f"arn:{current_get_partition.partition}:glue:{current_get_region.name}:{current.account_id}:*"],
+            "principals": [{
+                "identifiers": ["*"],
+                "type": "AWS",
+            }],
+        }])
         example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
         ```
 

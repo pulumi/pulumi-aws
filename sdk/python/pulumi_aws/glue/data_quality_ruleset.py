@@ -283,7 +283,7 @@ class DataQualityRuleset(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  ruleset: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_table: Optional[pulumi.Input[pulumi.InputType['DataQualityRulesetTargetTableArgs']]] = None,
+                 target_table: Optional[pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
@@ -336,10 +336,10 @@ class DataQualityRuleset(pulumi.CustomResource):
         example = aws.glue.DataQualityRuleset("example",
             name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
-            target_table=aws.glue.DataQualityRulesetTargetTableArgs(
-                database_name=example_aws_glue_catalog_database["name"],
-                table_name=example_aws_glue_catalog_table["name"],
-            ))
+            target_table={
+                "databaseName": example_aws_glue_catalog_database["name"],
+                "tableName": example_aws_glue_catalog_table["name"],
+            })
         ```
 
         ## Import
@@ -356,7 +356,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the data quality ruleset.
         :param pulumi.Input[str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['DataQualityRulesetTargetTableArgs']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         """
         ...
     @overload
@@ -415,10 +415,10 @@ class DataQualityRuleset(pulumi.CustomResource):
         example = aws.glue.DataQualityRuleset("example",
             name="example",
             ruleset="Rules = [Completeness \\"colA\\" between 0.4 and 0.8]",
-            target_table=aws.glue.DataQualityRulesetTargetTableArgs(
-                database_name=example_aws_glue_catalog_database["name"],
-                table_name=example_aws_glue_catalog_table["name"],
-            ))
+            target_table={
+                "databaseName": example_aws_glue_catalog_database["name"],
+                "tableName": example_aws_glue_catalog_table["name"],
+            })
         ```
 
         ## Import
@@ -448,7 +448,7 @@ class DataQualityRuleset(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  ruleset: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_table: Optional[pulumi.Input[pulumi.InputType['DataQualityRulesetTargetTableArgs']]] = None,
+                 target_table: Optional[pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -489,7 +489,7 @@ class DataQualityRuleset(pulumi.CustomResource):
             ruleset: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            target_table: Optional[pulumi.Input[pulumi.InputType['DataQualityRulesetTargetTableArgs']]] = None) -> 'DataQualityRuleset':
+            target_table: Optional[pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']]] = None) -> 'DataQualityRuleset':
         """
         Get an existing DataQualityRuleset resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -506,7 +506,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         :param pulumi.Input[str] ruleset: A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['DataQualityRulesetTargetTableArgs']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
+        :param pulumi.Input[Union['DataQualityRulesetTargetTableArgs', 'DataQualityRulesetTargetTableArgsDict']] target_table: A Configuration block specifying a target table associated with the data quality ruleset. See `target_table` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

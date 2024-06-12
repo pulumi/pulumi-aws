@@ -108,18 +108,18 @@ class LogResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        elasticsearch_log_publishing_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
+        elasticsearch_log_publishing_policy = aws.iam.get_policy_document(statements=[{
+            "actions": [
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
             ],
-            resources=["arn:aws:logs:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["es.amazonaws.com"],
-                type="Service",
-            )],
-        )])
+            "resources": ["arn:aws:logs:*"],
+            "principals": [{
+                "identifiers": ["es.amazonaws.com"],
+                "type": "Service",
+            }],
+        }])
         elasticsearch_log_publishing_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policy",
             policy_document=elasticsearch_log_publishing_policy.json,
             policy_name="elasticsearch-log-publishing-policy")
@@ -131,17 +131,17 @@ class LogResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        route53_query_logging_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
+        route53_query_logging_policy = aws.iam.get_policy_document(statements=[{
+            "actions": [
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
-            resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["route53.amazonaws.com"],
-                type="Service",
-            )],
-        )])
+            "resources": ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
+            "principals": [{
+                "identifiers": ["route53.amazonaws.com"],
+                "type": "Service",
+            }],
+        }])
         route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy",
             policy_document=route53_query_logging_policy.json,
             policy_name="route53-query-logging-policy")
@@ -177,18 +177,18 @@ class LogResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        elasticsearch_log_publishing_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
+        elasticsearch_log_publishing_policy = aws.iam.get_policy_document(statements=[{
+            "actions": [
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
                 "logs:PutLogEventsBatch",
             ],
-            resources=["arn:aws:logs:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["es.amazonaws.com"],
-                type="Service",
-            )],
-        )])
+            "resources": ["arn:aws:logs:*"],
+            "principals": [{
+                "identifiers": ["es.amazonaws.com"],
+                "type": "Service",
+            }],
+        }])
         elasticsearch_log_publishing_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policy",
             policy_document=elasticsearch_log_publishing_policy.json,
             policy_name="elasticsearch-log-publishing-policy")
@@ -200,17 +200,17 @@ class LogResourcePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        route53_query_logging_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
+        route53_query_logging_policy = aws.iam.get_policy_document(statements=[{
+            "actions": [
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
-            resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["route53.amazonaws.com"],
-                type="Service",
-            )],
-        )])
+            "resources": ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
+            "principals": [{
+                "identifiers": ["route53.amazonaws.com"],
+                "type": "Service",
+            }],
+        }])
         route53_query_logging_policy_log_resource_policy = aws.cloudwatch.LogResourcePolicy("route53-query-logging-policy",
             policy_document=route53_query_logging_policy.json,
             policy_name="route53-query-logging-policy")

@@ -84,26 +84,26 @@ def get_service_account(region: Optional[str] = None,
         bucket="tf-cloudtrail-logging-test-bucket",
         force_destroy=True)
     allow_cloudtrail_logging = pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Put bucket policy needed for trails",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:PutObject"],
-            resources=[f"{bucket_arn}/*"],
-        ),
-        aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Get bucket policy needed for trails",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:GetBucketAcl"],
-            resources=[bucket_arn1],
-        ),
+        {
+            "sid": "Put bucket policy needed for trails",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": ["s3:PutObject"],
+            "resources": [f"{bucket_arn}/*"],
+        },
+        {
+            "sid": "Get bucket policy needed for trails",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": ["s3:GetBucketAcl"],
+            "resources": [bucket_arn1],
+        },
     ]))
     allow_cloudtrail_logging_bucket_policy = aws.s3.BucketPolicy("allow_cloudtrail_logging",
         bucket=bucket.id,
@@ -145,26 +145,26 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
         bucket="tf-cloudtrail-logging-test-bucket",
         force_destroy=True)
     allow_cloudtrail_logging = pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Put bucket policy needed for trails",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:PutObject"],
-            resources=[f"{bucket_arn}/*"],
-        ),
-        aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Get bucket policy needed for trails",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:GetBucketAcl"],
-            resources=[bucket_arn1],
-        ),
+        {
+            "sid": "Put bucket policy needed for trails",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": ["s3:PutObject"],
+            "resources": [f"{bucket_arn}/*"],
+        },
+        {
+            "sid": "Get bucket policy needed for trails",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": ["s3:GetBucketAcl"],
+            "resources": [bucket_arn1],
+        },
     ]))
     allow_cloudtrail_logging_bucket_policy = aws.s3.BucketPolicy("allow_cloudtrail_logging",
         bucket=bucket.id,

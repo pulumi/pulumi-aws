@@ -379,7 +379,7 @@ class Faq(pulumi.CustomResource):
                  language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
+                 s3_path: Optional[pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -397,10 +397,10 @@ class Faq(pulumi.CustomResource):
             index_id=example_aws_kendra_index["id"],
             name="Example",
             role_arn=example_aws_iam_role["arn"],
-            s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key=example_aws_s3_object["key"],
-            ),
+            s3_path={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": example_aws_s3_object["key"],
+            },
             tags={
                 "Name": "Example Kendra Faq",
             })
@@ -417,10 +417,10 @@ class Faq(pulumi.CustomResource):
             name="Example",
             file_format="CSV",
             role_arn=example_aws_iam_role["arn"],
-            s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key=example_aws_s3_object["key"],
-            ))
+            s3_path={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": example_aws_s3_object["key"],
+            })
         ```
 
         ### With Language Code
@@ -434,10 +434,10 @@ class Faq(pulumi.CustomResource):
             name="Example",
             language_code="en",
             role_arn=example_aws_iam_role["arn"],
-            s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key=example_aws_s3_object["key"],
-            ))
+            s3_path={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": example_aws_s3_object["key"],
+            })
         ```
 
         ## Import
@@ -453,7 +453,7 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        :param pulumi.Input[pulumi.InputType['FaqS3PathArgs']] s3_path: The S3 location of the FAQ input data. Detailed below.
+        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: The S3 location of the FAQ input data. Detailed below.
         """
         ...
     @overload
@@ -476,10 +476,10 @@ class Faq(pulumi.CustomResource):
             index_id=example_aws_kendra_index["id"],
             name="Example",
             role_arn=example_aws_iam_role["arn"],
-            s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key=example_aws_s3_object["key"],
-            ),
+            s3_path={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": example_aws_s3_object["key"],
+            },
             tags={
                 "Name": "Example Kendra Faq",
             })
@@ -496,10 +496,10 @@ class Faq(pulumi.CustomResource):
             name="Example",
             file_format="CSV",
             role_arn=example_aws_iam_role["arn"],
-            s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key=example_aws_s3_object["key"],
-            ))
+            s3_path={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": example_aws_s3_object["key"],
+            })
         ```
 
         ### With Language Code
@@ -513,10 +513,10 @@ class Faq(pulumi.CustomResource):
             name="Example",
             language_code="en",
             role_arn=example_aws_iam_role["arn"],
-            s3_path=aws.kendra.FaqS3PathArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key=example_aws_s3_object["key"],
-            ))
+            s3_path={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": example_aws_s3_object["key"],
+            })
         ```
 
         ## Import
@@ -548,7 +548,7 @@ class Faq(pulumi.CustomResource):
                  language_code: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
+                 s3_path: Optional[pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -600,7 +600,7 @@ class Faq(pulumi.CustomResource):
             language_code: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            s3_path: Optional[pulumi.Input[pulumi.InputType['FaqS3PathArgs']]] = None,
+            s3_path: Optional[pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -619,7 +619,7 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        :param pulumi.Input[pulumi.InputType['FaqS3PathArgs']] s3_path: The S3 location of the FAQ input data. Detailed below.
+        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: The S3 location of the FAQ input data. Detailed below.
         :param pulumi.Input[str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] updated_at: The date and time that the FAQ was last updated.
