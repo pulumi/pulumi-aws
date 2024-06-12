@@ -18,6 +18,12 @@ jobs:
     name: prerequisites
     runs-on: ubuntu-latest
     steps:
+    # Run as first step so we don't delete things that have just been installed
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+      with:
+        tool-cache: false
+        swap-storage: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
@@ -37,11 +43,6 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         tools: go, pulumictl, pulumicli, schema-tools
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        swap-storage: false
-        tool-cache: false
     - name: Build schema generator binary
       run: make tfgen_build_only
     - name: Install plugins
