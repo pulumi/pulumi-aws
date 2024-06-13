@@ -213,6 +213,12 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     steps:
+    # Run as first step so we don't delete things that have just been installed
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+      with:
+        tool-cache: false
+        swap-storage: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
@@ -291,16 +297,6 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.5.0
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        swap-storage: false
-        tool-cache: false
-    - if: ${{ matrix.language == 'dotnet' }}
-      name: Setup DotNet
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 6.0.x
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -343,16 +339,12 @@ jobs:
           - uses: pulumi/provider-version-action@v1
             with:
               set-env: PROVIDER_VERSION
-          - name: Install pulumictl
-            uses: jaxxstorm/action-install-gh-release@v1.11.0
+          - name: Setup tools
+            uses: ./.github/actions/setup-tools
             with:
-              repo: pulumi/pulumictl
+              tools: pulumictl, pulumi, go
           - name: Make upstream
             run: make upstream
-          - uses: actions/setup-go@v5
-            with:
-              cache-dependency-path: provider/go.sum
-              go-version-file: provider/go.mod
           - name: go test
             run: |
               cd upstream
@@ -385,47 +377,12 @@ jobs:
           - uses: pulumi/provider-version-action@v1
             with:
               set-env: PROVIDER_VERSION
+          - name: Setup tools
+            uses: ./.github/actions/setup-tools
+            with:
+              tools: pulumictl, pulumi, go, node, dotnet, python, java
           - name: Make upstream
             run: make upstream
-          - name: Install Go
-            uses: actions/setup-go@v5
-            with:
-              cache-dependency-path: |
-                  provider/*.sum
-                  upstream/*.sum
-              go-version: 1.21.x
-          - name: Install pulumictl
-            uses: jaxxstorm/action-install-gh-release@v1.11.0
-            with:
-              repo: pulumi/pulumictl
-              tag: v0.0.46
-          - name: Install Pulumi CLI
-            uses: pulumi/actions@v5
-            with:
-              pulumi-version: ^3
-          - name: Setup Node
-            uses: actions/setup-node@v4
-            with:
-              node-version: 20.x
-              registry-url: https://registry.npmjs.org
-          - name: Setup DotNet
-            uses: actions/setup-dotnet@v4
-            with:
-              dotnet-version: 6.0.x
-          - name: Setup Python
-            uses: actions/setup-python@v5
-            with:
-              python-version: 3.11.8
-          - name: Setup Java
-            uses: actions/setup-java@v4
-            with:
-              cache: gradle
-              distribution: temurin
-              java-version: "11"
-          - name: Setup Gradle
-            uses: gradle/gradle-build-action@v3
-            with:
-              gradle-version: "7.6"
           - name: Download provider + tfgen binaries
             uses: actions/download-artifact@v4
             with:
@@ -506,25 +463,10 @@ jobs:
           - uses: pulumi/provider-version-action@v1
             with:
               set-env: PROVIDER_VERSION
-          - name: Install Go
-            uses: actions/setup-go@v5
+          - name: Setup tools
+            uses: ./.github/actions/setup-tools
             with:
-              cache-dependency-path: |
-                  sdk/go.sum
-              go-version: 1.21.x
-          - name: Install pulumictl
-            uses: jaxxstorm/action-install-gh-release@v1.11.0
-            with:
-              repo: pulumi/pulumictl
-          - name: Install Pulumi CLI
-            uses: pulumi/actions@v5
-            with:
-              pulumi-version: v3.77.1
-          - name: Setup Node
-            uses: actions/setup-node@v4
-            with:
-              node-version: 20.x
-              registry-url: https://registry.npmjs.org
+              tools: pulumictl, pulumi, go, node
           - name: Download provider + tfgen binaries
             uses: actions/download-artifact@v4
             with:

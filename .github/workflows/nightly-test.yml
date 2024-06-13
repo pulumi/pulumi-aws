@@ -44,6 +44,12 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     steps:
+    # Run as first step so we don't delete things that have just been installed
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+      with:
+        tool-cache: false
+        swap-storage: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
@@ -122,16 +128,6 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         version: v2.5.0
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        swap-storage: false
-        tool-cache: false
-    - if: ${{ matrix.language == 'dotnet' }}
-      name: Setup DotNet
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 6.0.x
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
