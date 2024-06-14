@@ -38,7 +38,7 @@ runs:
       if: inputs.tools == 'all' || contains(inputs.tools, 'pulumicli')
       uses: pulumi/actions@v5
       with:
-        pulumi-version: "^3"
+        pulumi-version: "dev"
 
     - name: Install Schema Tools
       if: inputs.tools == 'all' || contains(inputs.tools, 'schema-tools')

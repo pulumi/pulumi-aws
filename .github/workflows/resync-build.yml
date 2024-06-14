@@ -54,7 +54,7 @@ jobs:
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
       with:
-        pulumi-version: "^3"
+        pulumi-version: "dev"
     - name: Setup DotNet
       uses: actions/setup-dotnet@v4
       with:

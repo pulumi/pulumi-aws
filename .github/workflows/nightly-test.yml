@@ -71,7 +71,7 @@ jobs:
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
       with:
-        pulumi-version: "^3"
+        pulumi-version: "dev"
     - name: Setup Node
       uses: actions/setup-node@v4
       with:
