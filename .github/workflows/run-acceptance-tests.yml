@@ -118,7 +118,7 @@ jobs:
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
-        tools: pulumictl, pulumi, go, node, dotnet, python, java
+        tools: pulumictl, pulumicli, go, node, dotnet, python, java
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v4
       with:
