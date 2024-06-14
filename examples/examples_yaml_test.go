@@ -266,10 +266,12 @@ func testTags(t *testing.T, dir string, steps []tagsStep) {
 	integration.ProgramTest(t, &integration.ProgramTestOptions{
 		Dir:                    dir,
 		ExtraRuntimeValidation: editDirs[0].ExtraRuntimeValidation,
-		EditDirs:               editDirs[1:],
-		Config:                 map[string]string{"aws:region": getEnvRegion(t)},
-		Quick:                  true,
-		DestroyOnCleanup:       true,
+		// see https://github.com/pulumi/pulumi-aws/issues/4080
+		ExpectRefreshChanges: true,
+		EditDirs:             editDirs[1:],
+		Config:               map[string]string{"aws:region": getEnvRegion(t)},
+		Quick:                true,
+		DestroyOnCleanup:     true,
 	})
 }
 
