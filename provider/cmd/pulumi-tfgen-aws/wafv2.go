@@ -22,7 +22,7 @@ func replaceWafV2TypesWithRecursive(pulumiPackageSpec *schema.PackageSpec) {
 	rootStatementTypes := []string{"RuleGroupRuleStatement", "WebAclRuleStatement"}
 
 	// We'll collect all referenced types that we replace with the root
-	// type, so that we could remove oll of elided types and their children.
+	// type, so that we could remove all of elided types and their children.
 	var elidedRefs []string
 	for tok, ts := range pulumiPackageSpec.Types {
 		// Skip everything except WafV2 types.
