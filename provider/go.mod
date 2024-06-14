@@ -5,6 +5,7 @@ go 1.22.4
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.27.21
 	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.8
+	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.32.1
 	github.com/aws/aws-sdk-go-v2/service/s3 v1.56.1
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.54
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.34.0
@@ -152,7 +153,6 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/eks v1.44.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticache v1.39.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticbeanstalk v1.24.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.32.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/emr v1.40.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/emrserverless v1.22.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/eventbridge v1.32.1 // indirect

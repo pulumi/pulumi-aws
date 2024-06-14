@@ -7,7 +7,9 @@ package provider
 
 import (
 	"archive/zip"
+	"context"
 	"crypto/rand"
+	"encoding/json"
 	"io"
 	"os"
 	"path/filepath"
@@ -16,6 +18,7 @@ import (
 
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/opttest"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/require"
 )
@@ -132,6 +135,68 @@ func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
 	test := pulumitest.NewPulumiTest(t, dir, options...)
 	result := test.Preview()
 	t.Logf("#%v", result.ChangeSummary)
+}
+
+func TestRegress4079(t *testing.T) {
+	skipIfShort(t)
+	ctx := context.Background()
+	dir := filepath.Join("test-programs", "regress-4079")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	providerName := "aws"
+	options := []opttest.Option{
+		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+
+	test.SetConfig("targetGroupCount", "2")
+	r1 := test.Up()
+	t.Logf("Stdout: %v", r1.StdOut)
+	t.Logf("Stderr: %v", r1.StdErr)
+
+	listenerARN := r1.Outputs["listenerARN"].Value.(string)
+	err = elb.ModifyListenerDefaultActions(ctx, listenerARN, func(as []elb.Action) []elb.Action {
+		r := []elb.Action{}
+		for _, a := range as {
+			b := a
+			t.Logf("BEFORE: len(ForwardConfig.TargetGroups)=%d", len(b.ForwardConfig.TargetGroups))
+			b.ForwardConfig.TargetGroups = []elb.TargetGroupTuple{
+				b.ForwardConfig.TargetGroups[0],
+			}
+			t.Logf("AFTER: len(ForwardConfig.TargetGroups)=%d", len(b.ForwardConfig.TargetGroups))
+			r = append(r, b)
+		}
+		return r
+	})
+	require.NoError(t, err)
+
+	rr := test.Refresh()
+	t.Logf("Stdout: %v", rr.StdOut)
+	t.Logf("Stderr: %v", rr.StdErr)
+
+	refreshedState := test.ExportStack()
+
+	type resource struct {
+		Type    string         `json:"type"`
+		Outputs map[string]any `json:"outputs"`
+	}
+	type deployment struct {
+		Resources []resource `json:"resources"`
+	}
+	var data deployment
+	err = json.Unmarshal(refreshedState.Deployment, &data)
+	require.NoError(t, err)
+
+	for _, r := range data.Resources {
+		if r.Type != "aws:lb/listener:Listener" {
+			continue
+		}
+		defaultAction1 := r.Outputs["defaultActions"].([]any)[0].(map[string]any)
+		t.Logf("defaultActions includes: %#v", defaultAction1)
+		require.NotNil(t, defaultAction1["forward"], "forward should be set in defaultActions")
+		require.Emptyf(t, defaultAction1["targetGroupArn"], "targetGroupArn should be empty in defaultActions")
+	}
 }
 
 func TestParallelLambdaCreation(t *testing.T) {
