@@ -29,7 +29,6 @@ import (
 
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
-	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/batch"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
@@ -847,6 +846,28 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		GenerateRuntimeMetadata: true,
 
 		MetadataInfo: metaInfo,
+		SchemaPostProcessor: func(spec *schema.PackageSpec) {
+			r, ok := spec.Resources["aws:rds/instance:Instance"]
+			contract.Assertf(ok, "could not find rds:Instance")
+			_, ok = r.InputProperties["name"]
+			contract.Assertf(!ok, `expected that RDS does not have a "name" property already.
+
+If it does, then we need to consider if we should keep the current name property for
+backwards compatibility and rename the new property or remove the current backwards
+compatibility shim in favor of the new "name" field.`)
+			r.InputProperties["name"] = schema.PropertySpec{
+				TypeSpec:             schema.TypeSpec{Type: "string"},
+				WillReplaceOnChanges: true,
+				DeprecationMessage:   "This property has been deprecated. Please use 'dbName' instead.",
+			}
+			_, ok = r.Properties["name"]
+			contract.Assertf(!ok, "rds:Instance already has an output called name")
+			r.Properties["name"] = schema.PropertySpec{
+				TypeSpec:           schema.TypeSpec{Type: "string"},
+				DeprecationMessage: "This property has been deprecated. Please use 'dbName' instead.",
+			}
+			r.StateInputs.Properties["name"] = r.InputProperties["name"]
+		},
 
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
@@ -3076,23 +3097,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					"storage_type": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(rdsMod, "StorageType", "StorageType")},
-					},
-					"name": {
-						Name: func() string {
-							// We inject `name` into the underlying provider so it shows
-							// up in the schema. It is never observed non-nil by the
-							// upstream provider and we warn when you set it.
-
-							p.ResourcesMap().Get("aws_db_instance").Schema().
-								Set("name", shimv2.NewSchema(&tfschema.Schema{
-									Type:     tfschema.TypeString,
-									Optional: true,
-									ForceNew: true,
-								}))
-							return "name"
-						}(),
-						DeprecationMessage: "This property has been deprecated. " +
-							"Please use 'dbName' instead.",
 					},
 				},
 				PreCheckCallback: func(
