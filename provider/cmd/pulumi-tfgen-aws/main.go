@@ -29,7 +29,9 @@ import (
 func main() {
 	info := aws.ProviderFromMeta(tfbridge.NewProviderMetadata(locateMetadata()))
 
+	postProcessor := info.SchemaPostProcessor
 	info.SchemaPostProcessor = func(spec *schema.PackageSpec) {
+		postProcessor(spec)
 		replaceWafV2TypesWithRecursive(spec)
 	}
 
