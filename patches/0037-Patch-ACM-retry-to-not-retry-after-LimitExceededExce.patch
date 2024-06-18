@@ -6,7 +6,7 @@ Subject: [PATCH] Patch ACM retry to not retry after LimitExceededException
 
 
 diff --git a/internal/service/acm/service_package_gen.go b/internal/service/acm/service_package_gen.go
-index 7ca15d3ae4..85744c2eee 100644
+index cd3c01f9c9..b993553de2 100644
 --- a/internal/service/acm/service_package_gen.go
 +++ b/internal/service/acm/service_package_gen.go
 @@ -6,8 +6,10 @@ import (
@@ -20,7 +20,7 @@ index 7ca15d3ae4..85744c2eee 100644
  	"github.com/hashicorp/terraform-provider-aws/internal/conns"
  	"github.com/hashicorp/terraform-provider-aws/internal/types"
  	"github.com/hashicorp/terraform-provider-aws/names"
-@@ -69,6 +71,14 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+@@ -73,6 +75,14 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
  				o.EndpointOptions.UseFIPSEndpoint = aws_sdkv2.FIPSEndpointStateDisabled
  			}
  		}

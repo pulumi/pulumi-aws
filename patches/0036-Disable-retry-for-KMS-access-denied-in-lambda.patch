@@ -99,7 +99,7 @@ index 6b8ecf2c57..72d8c48672 100644
  	return &servicePackage{}
  }
 diff --git a/names/data/names_data.csv b/names/data/names_data.csv
-index da7ff7f983..fefa624383 100644
+index e36b7a9a0c..ebe0f7ed17 100644
 --- a/names/data/names_data.csv
 +++ b/names/data/names_data.csv
 @@ -218,7 +218,7 @@ kinesis-video-media,kinesisvideomedia,kinesisvideomedia,kinesisvideomedia,,kines

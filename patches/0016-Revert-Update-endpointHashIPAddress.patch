@@ -9,10 +9,10 @@ This commit causes never-converging diffs due to incorrect use of
 a computed property in hashing.
 
 diff --git a/internal/service/route53resolver/endpoint.go b/internal/service/route53resolver/endpoint.go
-index 2531180774..68f1b30fb1 100644
+index 36d7a6477b..62449e6e0f 100644
 --- a/internal/service/route53resolver/endpoint.go
 +++ b/internal/service/route53resolver/endpoint.go
-@@ -430,7 +430,7 @@ func waitEndpointDeleted(ctx context.Context, conn *route53resolver.Route53Resol
+@@ -435,7 +435,7 @@ func waitEndpointDeleted(ctx context.Context, conn *route53resolver.Route53Resol
  func endpointHashIPAddress(v interface{}) int {
  	var buf bytes.Buffer
  	m := v.(map[string]interface{})
