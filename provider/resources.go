@@ -57,6 +57,7 @@ const (
 	accessAnalyzerMod           = "AccessAnalyzer"           // Access Analyzer
 	ampMod                      = "Amp"                      // Amp
 	amplifyMod                  = "Amplify"                  // Amplify
+	appFabricMod				= "AppFabric"                // AppFabric
 	appFlowMod                  = "AppFlow"                  // AppFlow
 	appConfigMod                = "AppConfig"                // AppConfig
 	appIntegrationsMod          = "AppIntegrations"          // AppIntegrations
@@ -276,6 +277,7 @@ var moduleMap = map[string]string{
 	"apigatewayv2":                    apigatewayv2Mod,
 	"appautoscaling":                  appautoscalingMod,
 	"appconfig":                       appConfigMod,
+	"appfabric":					   appFabricMod,
 	"appflow":                         appFlowMod,
 	"appintegrations":                 appIntegrationsMod,
 	"applicationinsights":             applicationInsightsMod,
@@ -4916,6 +4918,7 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_ec2_network_insights_analysis":    {Tok: awsDataSource(ec2Mod, "getNetworkInsightsAnalysis")},
 			"aws_ec2_network_insights_path":        {Tok: awsDataSource(ec2Mod, "getNetworkInsightsPath")},
 			"aws_ec2_managed_prefix_lists":         {Tok: awsDataSource(ec2Mod, "getManagedPrefixLists")},
+			"aws_ec2_capacity_block_offering":		{Tok: awsDataSource(ec2Mod, "getCapacityBlockOffering")},
 
 			// Ec2 Client
 			"aws_ec2_client_vpn_endpoint": {Tok: awsDataSource(ec2ClientVpnMod, "getEndpoint")},
@@ -5816,6 +5819,9 @@ compatibility shim in favor of the new "name" field.`)
 		},
 		"aws_auditmanager_organization_admin_account_registration": {
 			Tok: awsResource(auditmanagerMod, "OrganizationAdminAccountRegistration"),
+		},
+		"aws_ec2_capacity_block_reservation": {
+			Tok: awsResource(ec2Mod, "CapacityBlockReservation"),
 		},
 		"aws_lambda_runtime_management_config": {
 			Tok: awsResource(lambdaMod, "RuntimeManagementConfig"),
