@@ -687,14 +687,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.taskDefinition);
     }
     /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `&#34;plantimestamp()&#34;`. See example above.
+     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `&#34;plantimestamp()&#34;`. When using the triggers property you also need to set the forceNewDeployment property to True.
      * 
      */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> triggers;
 
     /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `&#34;plantimestamp()&#34;`. See example above.
+     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `&#34;plantimestamp()&#34;`. When using the triggers property you also need to set the forceNewDeployment property to True.
      * 
      */
     public Output<Map<String,String>> triggers() {
