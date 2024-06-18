@@ -17,6 +17,8 @@ __all__ = [
     'PolicySecurityServicePolicyDataPolicyOption',
     'PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy',
     'PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy',
+    'ResourceSetResourceSet',
+    'ResourceSetTimeouts',
 ]
 
 @pulumi.output_type
@@ -266,5 +268,157 @@ class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy(dict):
         Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
         """
         return pulumi.get(self, "firewall_deployment_model")
+
+
+@pulumi.output_type
+class ResourceSetResourceSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastUpdateTime":
+            suggest = "last_update_time"
+        elif key == "resourceSetStatus":
+            suggest = "resource_set_status"
+        elif key == "resourceTypeLists":
+            suggest = "resource_type_lists"
+        elif key == "updateToken":
+            suggest = "update_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceSetResourceSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceSetResourceSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceSetResourceSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 description: Optional[str] = None,
+                 id: Optional[str] = None,
+                 last_update_time: Optional[str] = None,
+                 resource_set_status: Optional[str] = None,
+                 resource_type_lists: Optional[Sequence[str]] = None,
+                 update_token: Optional[str] = None):
+        """
+        :param str name: Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        :param str description: Description of the resource set.
+        :param str id: Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
+        :param str last_update_time: Last time that the reosurce set was changed.
+        :param str resource_set_status: Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+        :param Sequence[str] resource_type_lists: Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        """
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if last_update_time is not None:
+            pulumi.set(__self__, "last_update_time", last_update_time)
+        if resource_set_status is not None:
+            pulumi.set(__self__, "resource_set_status", resource_set_status)
+        if resource_type_lists is not None:
+            pulumi.set(__self__, "resource_type_lists", resource_type_lists)
+        if update_token is not None:
+            pulumi.set(__self__, "update_token", update_token)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the resource set.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastUpdateTime")
+    def last_update_time(self) -> Optional[str]:
+        """
+        Last time that the reosurce set was changed.
+        """
+        return pulumi.get(self, "last_update_time")
+
+    @property
+    @pulumi.getter(name="resourceSetStatus")
+    def resource_set_status(self) -> Optional[str]:
+        """
+        Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+        """
+        return pulumi.get(self, "resource_set_status")
+
+    @property
+    @pulumi.getter(name="resourceTypeLists")
+    def resource_type_lists(self) -> Optional[Sequence[str]]:
+        """
+        Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        """
+        return pulumi.get(self, "resource_type_lists")
+
+    @property
+    @pulumi.getter(name="updateToken")
+    def update_token(self) -> Optional[str]:
+        return pulumi.get(self, "update_token")
+
+
+@pulumi.output_type
+class ResourceSetTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 

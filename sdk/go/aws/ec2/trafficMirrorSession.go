@@ -81,7 +81,7 @@ type TrafficMirrorSession struct {
 	// The AWS account ID of the session owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
-	PacketLength pulumi.IntPtrOutput `pulumi:"packetLength"`
+	PacketLength pulumi.IntOutput `pulumi:"packetLength"`
 	// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntOutput `pulumi:"sessionNumber"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -344,8 +344,8 @@ func (o TrafficMirrorSessionOutput) OwnerId() pulumi.StringOutput {
 }
 
 // The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
-func (o TrafficMirrorSessionOutput) PacketLength() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntPtrOutput { return v.PacketLength }).(pulumi.IntPtrOutput)
+func (o TrafficMirrorSessionOutput) PacketLength() pulumi.IntOutput {
+	return o.ApplyT(func(v *TrafficMirrorSession) pulumi.IntOutput { return v.PacketLength }).(pulumi.IntOutput)
 }
 
 // The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.

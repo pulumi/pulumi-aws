@@ -100,7 +100,7 @@ import (
 //				return err
 //			}
 //			exampleGroup, err := identitystore.NewGroup(ctx, "example", &identitystore.GroupArgs{
-//				IdentityStoreId: pulumi.Any(ssoInstance.IdentityStoreIds[0]),
+//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
 //				DisplayName:     pulumi.String("Admin"),
 //				Description:     pulumi.String("Admin Group"),
 //			})

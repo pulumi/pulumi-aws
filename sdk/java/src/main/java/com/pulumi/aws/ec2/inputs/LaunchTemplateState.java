@@ -274,14 +274,14 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The AMI from which to launch the instance.
+     * The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      * 
      */
     @Import(name="imageId")
     private @Nullable Output<String> imageId;
 
     /**
-     * @return The AMI from which to launch the instance.
+     * @return The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      * 
      */
     public Optional<Output<String>> imageId() {
@@ -1075,7 +1075,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param imageId The AMI from which to launch the instance.
+         * @param imageId The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
          * 
          * @return builder
          * 
@@ -1086,7 +1086,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param imageId The AMI from which to launch the instance.
+         * @param imageId The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
          * 
          * @return builder
          * 

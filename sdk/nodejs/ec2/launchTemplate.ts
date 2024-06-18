@@ -112,7 +112,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly iamInstanceProfile!: pulumi.Output<outputs.ec2.LaunchTemplateIamInstanceProfile | undefined>;
     /**
-     * The AMI from which to launch the instance.
+     * The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      */
     public readonly imageId!: pulumi.Output<string | undefined>;
     /**
@@ -389,7 +389,7 @@ export interface LaunchTemplateState {
      */
     iamInstanceProfile?: pulumi.Input<inputs.ec2.LaunchTemplateIamInstanceProfile>;
     /**
-     * The AMI from which to launch the instance.
+     * The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      */
     imageId?: pulumi.Input<string>;
     /**
@@ -562,7 +562,7 @@ export interface LaunchTemplateArgs {
      */
     iamInstanceProfile?: pulumi.Input<inputs.ec2.LaunchTemplateIamInstanceProfile>;
     /**
-     * The AMI from which to launch the instance.
+     * The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      */
     imageId?: pulumi.Input<string>;
     /**

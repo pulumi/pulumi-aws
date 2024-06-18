@@ -204,6 +204,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
+    /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
@@ -322,6 +337,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         this.ebsOptions = $.ebsOptions;
         this.encryptAtRest = $.encryptAtRest;
         this.engineVersion = $.engineVersion;
+        this.ipAddressType = $.ipAddressType;
         this.logPublishingOptions = $.logPublishingOptions;
         this.nodeToNodeEncryption = $.nodeToNodeEncryption;
         this.offPeakWindowOptions = $.offPeakWindowOptions;
@@ -586,6 +602,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
+        }
+
+        /**
+         * @param ipAddressType The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

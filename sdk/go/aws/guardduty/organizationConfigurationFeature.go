@@ -58,13 +58,13 @@ import (
 type OrganizationConfigurationFeature struct {
 	pulumi.CustomResourceState
 
-	// The additional information that will be configured for the organization See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput `pulumi:"additionalConfigurations"`
 	// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable pulumi.StringOutput `pulumi:"autoEnable"`
 	// The ID of the detector that configures the delegated administrator.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -104,24 +104,24 @@ func GetOrganizationConfigurationFeature(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationConfigurationFeature resources.
 type organizationConfigurationFeatureState struct {
-	// The additional information that will be configured for the organization See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations []OrganizationConfigurationFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable *string `pulumi:"autoEnable"`
 	// The ID of the detector that configures the delegated administrator.
 	DetectorId *string `pulumi:"detectorId"`
-	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 	Name *string `pulumi:"name"`
 }
 
 type OrganizationConfigurationFeatureState struct {
-	// The additional information that will be configured for the organization See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations OrganizationConfigurationFeatureAdditionalConfigurationArrayInput
 	// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable pulumi.StringPtrInput
 	// The ID of the detector that configures the delegated administrator.
 	DetectorId pulumi.StringPtrInput
-	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 	Name pulumi.StringPtrInput
 }
 
@@ -130,25 +130,25 @@ func (OrganizationConfigurationFeatureState) ElementType() reflect.Type {
 }
 
 type organizationConfigurationFeatureArgs struct {
-	// The additional information that will be configured for the organization See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations []OrganizationConfigurationFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable string `pulumi:"autoEnable"`
 	// The ID of the detector that configures the delegated administrator.
 	DetectorId string `pulumi:"detectorId"`
-	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a OrganizationConfigurationFeature resource.
 type OrganizationConfigurationFeatureArgs struct {
-	// The additional information that will be configured for the organization See below.
+	// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations OrganizationConfigurationFeatureAdditionalConfigurationArrayInput
 	// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable pulumi.StringInput
 	// The ID of the detector that configures the delegated administrator.
 	DetectorId pulumi.StringInput
-	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+	// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 	Name pulumi.StringPtrInput
 }
 
@@ -239,7 +239,7 @@ func (o OrganizationConfigurationFeatureOutput) ToOrganizationConfigurationFeatu
 	return o
 }
 
-// The additional information that will be configured for the organization See below.
+// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 func (o OrganizationConfigurationFeatureOutput) AdditionalConfigurations() OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationFeature) OrganizationConfigurationFeatureAdditionalConfigurationArrayOutput {
 		return v.AdditionalConfigurations
@@ -256,7 +256,7 @@ func (o OrganizationConfigurationFeatureOutput) DetectorId() pulumi.StringOutput
 	return o.ApplyT(func(v *OrganizationConfigurationFeature) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 func (o OrganizationConfigurationFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationFeature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

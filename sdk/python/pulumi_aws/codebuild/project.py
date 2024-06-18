@@ -49,7 +49,7 @@ class ProjectArgs:
                The following arguments are optional:
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         :param pulumi.Input['ProjectBuildBatchConfigArgs'] build_batch_config: Defines the batch build options for the project.
-        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         :param pulumi.Input['ProjectCacheArgs'] cache: Configuration block. Detailed below.
         :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
@@ -188,7 +188,7 @@ class ProjectArgs:
     @pulumi.getter(name="buildTimeout")
     def build_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+        Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         """
         return pulumi.get(self, "build_timeout")
 
@@ -426,7 +426,7 @@ class _ProjectState:
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         :param pulumi.Input[str] badge_url: URL of the build badge when `badge_enabled` is enabled.
         :param pulumi.Input['ProjectBuildBatchConfigArgs'] build_batch_config: Defines the batch build options for the project.
-        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         :param pulumi.Input['ProjectCacheArgs'] cache: Configuration block. Detailed below.
         :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
@@ -573,7 +573,7 @@ class _ProjectState:
     @pulumi.getter(name="buildTimeout")
     def build_timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+        Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         """
         return pulumi.get(self, "build_timeout")
 
@@ -1058,7 +1058,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']] artifacts: Configuration block. Detailed below.
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         :param pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']] build_batch_config: Defines the batch build options for the project.
-        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         :param pulumi.Input[pulumi.InputType['ProjectCacheArgs']] cache: Configuration block. Detailed below.
         :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
@@ -1403,7 +1403,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         :param pulumi.Input[str] badge_url: URL of the build badge when `badge_enabled` is enabled.
         :param pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']] build_batch_config: Defines the batch build options for the project.
-        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         :param pulumi.Input[pulumi.InputType['ProjectCacheArgs']] cache: Configuration block. Detailed below.
         :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
@@ -1505,7 +1505,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="buildTimeout")
     def build_timeout(self) -> pulumi.Output[Optional[int]]:
         """
-        Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+        Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         """
         return pulumi.get(self, "build_timeout")
 

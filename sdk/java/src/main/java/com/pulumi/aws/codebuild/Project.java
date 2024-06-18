@@ -335,14 +335,14 @@ public class Project extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.buildBatchConfig);
     }
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     @Export(name="buildTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> buildTimeout;
 
     /**
-     * @return Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+     * @return Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
      * 
      */
     public Output<Optional<Integer>> buildTimeout() {

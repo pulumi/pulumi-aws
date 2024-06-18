@@ -59,7 +59,7 @@ export class OrganizationConfigurationFeature extends pulumi.CustomResource {
     }
 
     /**
-     * The additional information that will be configured for the organization See below.
+     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      */
     public readonly additionalConfigurations!: pulumi.Output<outputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration[] | undefined>;
     /**
@@ -71,7 +71,7 @@ export class OrganizationConfigurationFeature extends pulumi.CustomResource {
      */
     public readonly detectorId!: pulumi.Output<string>;
     /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -115,7 +115,7 @@ export class OrganizationConfigurationFeature extends pulumi.CustomResource {
  */
 export interface OrganizationConfigurationFeatureState {
     /**
-     * The additional information that will be configured for the organization See below.
+     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      */
     additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration>[]>;
     /**
@@ -127,7 +127,7 @@ export interface OrganizationConfigurationFeatureState {
      */
     detectorId?: pulumi.Input<string>;
     /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      */
     name?: pulumi.Input<string>;
 }
@@ -137,7 +137,7 @@ export interface OrganizationConfigurationFeatureState {
  */
 export interface OrganizationConfigurationFeatureArgs {
     /**
-     * The additional information that will be configured for the organization See below.
+     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      */
     additionalConfigurations?: pulumi.Input<pulumi.Input<inputs.guardduty.OrganizationConfigurationFeatureAdditionalConfiguration>[]>;
     /**
@@ -149,7 +149,7 @@ export interface OrganizationConfigurationFeatureArgs {
      */
     detectorId: pulumi.Input<string>;
     /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      */
     name?: pulumi.Input<string>;
 }

@@ -40,6 +40,11 @@ export type IPSet = import("./ipset").IPSet;
 export const IPSet: typeof import("./ipset").IPSet = null as any;
 utilities.lazyLoad(exports, ["IPSet"], () => require("./ipset"));
 
+export { MalwareProtectionPlanArgs, MalwareProtectionPlanState } from "./malwareProtectionPlan";
+export type MalwareProtectionPlan = import("./malwareProtectionPlan").MalwareProtectionPlan;
+export const MalwareProtectionPlan: typeof import("./malwareProtectionPlan").MalwareProtectionPlan = null as any;
+utilities.lazyLoad(exports, ["MalwareProtectionPlan"], () => require("./malwareProtectionPlan"));
+
 export { MemberArgs, MemberState } from "./member";
 export type Member = import("./member").Member;
 export const Member: typeof import("./member").Member = null as any;
@@ -85,6 +90,8 @@ const _module = {
                 return new IPSet(name, <any>undefined, { urn })
             case "aws:guardduty/inviteAccepter:InviteAccepter":
                 return new InviteAccepter(name, <any>undefined, { urn })
+            case "aws:guardduty/malwareProtectionPlan:MalwareProtectionPlan":
+                return new MalwareProtectionPlan(name, <any>undefined, { urn })
             case "aws:guardduty/member:Member":
                 return new Member(name, <any>undefined, { urn })
             case "aws:guardduty/organizationAdminAccount:OrganizationAdminAccount":
@@ -107,6 +114,7 @@ pulumi.runtime.registerResourceModule("aws", "guardduty/detectorFeature", _modul
 pulumi.runtime.registerResourceModule("aws", "guardduty/filter", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/iPSet", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/inviteAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "guardduty/malwareProtectionPlan", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/member", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/organizationAdminAccount", _module)
 pulumi.runtime.registerResourceModule("aws", "guardduty/organizationConfiguration", _module)

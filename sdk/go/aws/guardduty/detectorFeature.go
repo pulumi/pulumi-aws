@@ -58,11 +58,11 @@ import (
 type DetectorFeature struct {
 	pulumi.CustomResourceState
 
-	// Additional feature configuration block. See below.
+	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations DetectorFeatureAdditionalConfigurationArrayOutput `pulumi:"additionalConfigurations"`
 	// Amazon GuardDuty detector ID.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
-	// The name of the detector feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -104,22 +104,22 @@ func GetDetectorFeature(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DetectorFeature resources.
 type detectorFeatureState struct {
-	// Additional feature configuration block. See below.
+	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations []DetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// Amazon GuardDuty detector ID.
 	DetectorId *string `pulumi:"detectorId"`
-	// The name of the detector feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 	Name *string `pulumi:"name"`
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status *string `pulumi:"status"`
 }
 
 type DetectorFeatureState struct {
-	// Additional feature configuration block. See below.
+	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations DetectorFeatureAdditionalConfigurationArrayInput
 	// Amazon GuardDuty detector ID.
 	DetectorId pulumi.StringPtrInput
-	// The name of the detector feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 	Name pulumi.StringPtrInput
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringPtrInput
@@ -130,11 +130,11 @@ func (DetectorFeatureState) ElementType() reflect.Type {
 }
 
 type detectorFeatureArgs struct {
-	// Additional feature configuration block. See below.
+	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations []DetectorFeatureAdditionalConfiguration `pulumi:"additionalConfigurations"`
 	// Amazon GuardDuty detector ID.
 	DetectorId string `pulumi:"detectorId"`
-	// The name of the detector feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 	Name *string `pulumi:"name"`
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status string `pulumi:"status"`
@@ -142,11 +142,11 @@ type detectorFeatureArgs struct {
 
 // The set of arguments for constructing a DetectorFeature resource.
 type DetectorFeatureArgs struct {
-	// Additional feature configuration block. See below.
+	// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 	AdditionalConfigurations DetectorFeatureAdditionalConfigurationArrayInput
 	// Amazon GuardDuty detector ID.
 	DetectorId pulumi.StringInput
-	// The name of the detector feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 	Name pulumi.StringPtrInput
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringInput
@@ -239,7 +239,7 @@ func (o DetectorFeatureOutput) ToDetectorFeatureOutputWithContext(ctx context.Co
 	return o
 }
 
-// Additional feature configuration block. See below.
+// Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
 func (o DetectorFeatureOutput) AdditionalConfigurations() DetectorFeatureAdditionalConfigurationArrayOutput {
 	return o.ApplyT(func(v *DetectorFeature) DetectorFeatureAdditionalConfigurationArrayOutput {
 		return v.AdditionalConfigurations
@@ -251,7 +251,7 @@ func (o DetectorFeatureOutput) DetectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DetectorFeature) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
 }
 
-// The name of the detector feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
 func (o DetectorFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DetectorFeature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

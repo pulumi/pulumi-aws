@@ -19,14 +19,14 @@ public final class OrganizationConfigurationFeatureArgs extends com.pulumi.resou
     public static final OrganizationConfigurationFeatureArgs Empty = new OrganizationConfigurationFeatureArgs();
 
     /**
-     * The additional information that will be configured for the organization See below.
+     * Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      * 
      */
     @Import(name="additionalConfigurations")
     private @Nullable Output<List<OrganizationConfigurationFeatureAdditionalConfigurationArgs>> additionalConfigurations;
 
     /**
-     * @return The additional information that will be configured for the organization See below.
+     * @return Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      * 
      */
     public Optional<Output<List<OrganizationConfigurationFeatureAdditionalConfigurationArgs>>> additionalConfigurations() {
@@ -64,14 +64,14 @@ public final class OrganizationConfigurationFeatureArgs extends com.pulumi.resou
     }
 
     /**
-     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+     * The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+     * @return The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      * 
      */
     public Optional<Output<String>> name() {
@@ -106,7 +106,7 @@ public final class OrganizationConfigurationFeatureArgs extends com.pulumi.resou
         }
 
         /**
-         * @param additionalConfigurations The additional information that will be configured for the organization See below.
+         * @param additionalConfigurations Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class OrganizationConfigurationFeatureArgs extends com.pulumi.resou
         }
 
         /**
-         * @param additionalConfigurations The additional information that will be configured for the organization See below.
+         * @param additionalConfigurations Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class OrganizationConfigurationFeatureArgs extends com.pulumi.resou
         }
 
         /**
-         * @param additionalConfigurations The additional information that will be configured for the organization See below.
+         * @param additionalConfigurations Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class OrganizationConfigurationFeatureArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+         * @param name The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class OrganizationConfigurationFeatureArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`.
+         * @param name The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
          * 
          * @return builder
          * 

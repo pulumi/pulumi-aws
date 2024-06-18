@@ -250,7 +250,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly buildBatchConfig!: pulumi.Output<outputs.codebuild.ProjectBuildBatchConfig | undefined>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
     public readonly buildTimeout!: pulumi.Output<number | undefined>;
     /**
@@ -454,7 +454,7 @@ export interface ProjectState {
      */
     buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
     buildTimeout?: pulumi.Input<number>;
     /**
@@ -564,7 +564,7 @@ export interface ProjectArgs {
      */
     buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
     /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+     * Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
      */
     buildTimeout?: pulumi.Input<number>;
     /**

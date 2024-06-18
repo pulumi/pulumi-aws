@@ -1902,6 +1902,64 @@ export namespace appconfig {
 
 }
 
+export namespace appfabric {
+    export interface AppAuthorizationCredential {
+        /**
+         * Contains API key credential information.
+         */
+        apiKeyCredentials?: outputs.appfabric.AppAuthorizationCredentialApiKeyCredential[];
+        /**
+         * Contains OAuth2 client credential information.
+         */
+        oauth2Credential?: outputs.appfabric.AppAuthorizationCredentialOauth2Credential;
+    }
+
+    export interface AppAuthorizationCredentialApiKeyCredential {
+        /**
+         * Contains API key credential information.
+         */
+        apiKey: string;
+    }
+
+    export interface AppAuthorizationCredentialOauth2Credential {
+        /**
+         * The client ID of the client application.
+         */
+        clientId: string;
+        /**
+         * The client secret of the client application.
+         */
+        clientSecret: string;
+    }
+
+    export interface AppAuthorizationTenant {
+        /**
+         * The display name of the tenant.
+         */
+        tenantDisplayName: string;
+        /**
+         * The ID of the application tenant.
+         */
+        tenantIdentifier: string;
+    }
+
+    export interface AppAuthorizationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+}
+
 export namespace appflow {
     export interface ConnectorProfileConnectorProfileConfig {
         /**
@@ -14547,7 +14605,7 @@ export namespace codepipeline {
          */
         pushes?: outputs.codepipeline.PipelineTriggerGitConfigurationPush[];
         /**
-         * The name of the pipeline source action where the trigger configuration.
+         * The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
          */
         sourceActionName: string;
     }
@@ -22161,6 +22219,13 @@ export namespace ec2 {
         virtualName: string;
     }
 
+    export interface CapacityBlockReservationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
     export interface DefaultNetworkAclEgress {
         /**
          * The action to take.
@@ -22625,6 +22690,10 @@ export namespace ec2 {
          */
         allocationStrategy?: string;
         /**
+         * The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+         */
+        capacityReservationOptions?: outputs.ec2.FleetOnDemandOptionsCapacityReservationOptions;
+        /**
          * The maximum amount per hour for On-Demand Instances that you're willing to pay.
          */
         maxTotalPrice?: string;
@@ -22641,6 +22710,13 @@ export namespace ec2 {
          * Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
          */
         singleInstanceType?: boolean;
+    }
+
+    export interface FleetOnDemandOptionsCapacityReservationOptions {
+        /**
+         * Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
+         */
+        usageStrategy?: string;
     }
 
     export interface FleetSpotOptions {
@@ -25369,7 +25445,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateElasticGpuSpecification {
         /**
-         * The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+         * The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
          */
         type: string;
     }
@@ -27679,6 +27755,18 @@ export namespace ec2 {
          * Value the service provider adds to the private DNS name domain record before verification.
          */
         value: string;
+    }
+
+    export interface VpcEndpointSubnetConfiguration {
+        /**
+         * The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+         */
+        ipv4?: string;
+        /**
+         * The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+         */
+        ipv6?: string;
+        subnetId?: string;
     }
 
     export interface VpcIpamOperatingRegion {
@@ -32549,6 +32637,49 @@ export namespace fms {
         firewallDeploymentModel?: string;
     }
 
+    export interface ResourceSetResourceSet {
+        /**
+         * Description of the resource set.
+         */
+        description?: string;
+        /**
+         * Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
+         */
+        id: string;
+        /**
+         * Last time that the reosurce set was changed.
+         */
+        lastUpdateTime: string;
+        /**
+         * Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+         */
+        name: string;
+        /**
+         * Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+         */
+        resourceSetStatus: string;
+        /**
+         * Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+         */
+        resourceTypeLists?: string[];
+        updateToken: string;
+    }
+
+    export interface ResourceSetTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
 }
 
 export namespace fsx {
@@ -34871,7 +35002,7 @@ export namespace guardduty {
 
     export interface DetectorFeatureAdditionalConfiguration {
         /**
-         * The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+         * The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          */
         name: string;
         /**
@@ -34939,6 +35070,31 @@ export namespace guardduty {
          * Current status of the detector.
          */
         status: string;
+    }
+
+    export interface MalwareProtectionPlanAction {
+        /**
+         * Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+         */
+        taggings: any[];
+    }
+
+    export interface MalwareProtectionPlanProtectedResource {
+        /**
+         * Information about the protected S3 bucket resource. See `s3Bucket` below.
+         */
+        s3Bucket?: outputs.guardduty.MalwareProtectionPlanProtectedResourceS3Bucket;
+    }
+
+    export interface MalwareProtectionPlanProtectedResourceS3Bucket {
+        /**
+         * Name of the S3 bucket.
+         */
+        bucketName: string;
+        /**
+         * The list of object prefixes that specify the S3 objects that will be scanned.
+         */
+        objectPrefixes: string[];
     }
 
     export interface OrganizationConfigurationDatasources {
@@ -35009,7 +35165,7 @@ export namespace guardduty {
          */
         autoEnable: string;
         /**
-         * The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+         * The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
          */
         name: string;
     }

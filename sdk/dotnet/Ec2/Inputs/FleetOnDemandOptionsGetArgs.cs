@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? AllocationStrategy { get; set; }
 
         /// <summary>
+        /// The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+        /// </summary>
+        [Input("capacityReservationOptions")]
+        public Input<Inputs.FleetOnDemandOptionsCapacityReservationOptionsGetArgs>? CapacityReservationOptions { get; set; }
+
+        /// <summary>
         /// The maximum amount per hour for On-Demand Instances that you're willing to pay.
         /// </summary>
         [Input("maxTotalPrice")]

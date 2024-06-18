@@ -269,7 +269,7 @@ class AccountAssignment(pulumi.CustomResource):
             name="Example",
             instance_arn=example.arns[0])
         example_group = aws.identitystore.Group("example",
-            identity_store_id=sso_instance["identityStoreIds"],
+            identity_store_id=example.identity_store_ids[0],
             display_name="Admin",
             description="Admin Group")
         account_assignment = aws.ssoadmin.AccountAssignment("account_assignment",
@@ -352,7 +352,7 @@ class AccountAssignment(pulumi.CustomResource):
             name="Example",
             instance_arn=example.arns[0])
         example_group = aws.identitystore.Group("example",
-            identity_store_id=sso_instance["identityStoreIds"],
+            identity_store_id=example.identity_store_ids[0],
             display_name="Admin",
             description="Admin Group")
         account_assignment = aws.ssoadmin.AccountAssignment("account_assignment",

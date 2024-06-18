@@ -12,6 +12,7 @@ from .get_detector import *
 from .get_finding_ids import *
 from .invite_accepter import *
 from .ip_set import *
+from .malware_protection_plan import *
 from .member import *
 from .organization_admin_account import *
 from .organization_configuration import *

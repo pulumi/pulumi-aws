@@ -952,6 +952,329 @@ func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResourceSetResourceSet struct {
+	// Description of the resource set.
+	Description *string `pulumi:"description"`
+	// Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
+	Id *string `pulumi:"id"`
+	// Last time that the reosurce set was changed.
+	LastUpdateTime *string `pulumi:"lastUpdateTime"`
+	// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+	Name string `pulumi:"name"`
+	// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+	ResourceSetStatus *string `pulumi:"resourceSetStatus"`
+	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+	ResourceTypeLists []string `pulumi:"resourceTypeLists"`
+	UpdateToken       *string  `pulumi:"updateToken"`
+}
+
+// ResourceSetResourceSetInput is an input type that accepts ResourceSetResourceSetArgs and ResourceSetResourceSetOutput values.
+// You can construct a concrete instance of `ResourceSetResourceSetInput` via:
+//
+//	ResourceSetResourceSetArgs{...}
+type ResourceSetResourceSetInput interface {
+	pulumi.Input
+
+	ToResourceSetResourceSetOutput() ResourceSetResourceSetOutput
+	ToResourceSetResourceSetOutputWithContext(context.Context) ResourceSetResourceSetOutput
+}
+
+type ResourceSetResourceSetArgs struct {
+	// Description of the resource set.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Last time that the reosurce set was changed.
+	LastUpdateTime pulumi.StringPtrInput `pulumi:"lastUpdateTime"`
+	// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+	ResourceSetStatus pulumi.StringPtrInput `pulumi:"resourceSetStatus"`
+	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+	ResourceTypeLists pulumi.StringArrayInput `pulumi:"resourceTypeLists"`
+	UpdateToken       pulumi.StringPtrInput   `pulumi:"updateToken"`
+}
+
+func (ResourceSetResourceSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetResourceSet)(nil)).Elem()
+}
+
+func (i ResourceSetResourceSetArgs) ToResourceSetResourceSetOutput() ResourceSetResourceSetOutput {
+	return i.ToResourceSetResourceSetOutputWithContext(context.Background())
+}
+
+func (i ResourceSetResourceSetArgs) ToResourceSetResourceSetOutputWithContext(ctx context.Context) ResourceSetResourceSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceSetOutput)
+}
+
+// ResourceSetResourceSetArrayInput is an input type that accepts ResourceSetResourceSetArray and ResourceSetResourceSetArrayOutput values.
+// You can construct a concrete instance of `ResourceSetResourceSetArrayInput` via:
+//
+//	ResourceSetResourceSetArray{ ResourceSetResourceSetArgs{...} }
+type ResourceSetResourceSetArrayInput interface {
+	pulumi.Input
+
+	ToResourceSetResourceSetArrayOutput() ResourceSetResourceSetArrayOutput
+	ToResourceSetResourceSetArrayOutputWithContext(context.Context) ResourceSetResourceSetArrayOutput
+}
+
+type ResourceSetResourceSetArray []ResourceSetResourceSetInput
+
+func (ResourceSetResourceSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceSetResourceSet)(nil)).Elem()
+}
+
+func (i ResourceSetResourceSetArray) ToResourceSetResourceSetArrayOutput() ResourceSetResourceSetArrayOutput {
+	return i.ToResourceSetResourceSetArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceSetResourceSetArray) ToResourceSetResourceSetArrayOutputWithContext(ctx context.Context) ResourceSetResourceSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceSetArrayOutput)
+}
+
+type ResourceSetResourceSetOutput struct{ *pulumi.OutputState }
+
+func (ResourceSetResourceSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetResourceSet)(nil)).Elem()
+}
+
+func (o ResourceSetResourceSetOutput) ToResourceSetResourceSetOutput() ResourceSetResourceSetOutput {
+	return o
+}
+
+func (o ResourceSetResourceSetOutput) ToResourceSetResourceSetOutputWithContext(ctx context.Context) ResourceSetResourceSetOutput {
+	return o
+}
+
+// Description of the resource set.
+func (o ResourceSetResourceSetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
+func (o ResourceSetResourceSetOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Last time that the reosurce set was changed.
+func (o ResourceSetResourceSetOutput) LastUpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.LastUpdateTime }).(pulumi.StringPtrOutput)
+}
+
+// Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+func (o ResourceSetResourceSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSetResourceSet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+func (o ResourceSetResourceSetOutput) ResourceSetStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.ResourceSetStatus }).(pulumi.StringPtrOutput)
+}
+
+// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+func (o ResourceSetResourceSetOutput) ResourceTypeLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceSetResourceSet) []string { return v.ResourceTypeLists }).(pulumi.StringArrayOutput)
+}
+
+func (o ResourceSetResourceSetOutput) UpdateToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetResourceSet) *string { return v.UpdateToken }).(pulumi.StringPtrOutput)
+}
+
+type ResourceSetResourceSetArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceSetResourceSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceSetResourceSet)(nil)).Elem()
+}
+
+func (o ResourceSetResourceSetArrayOutput) ToResourceSetResourceSetArrayOutput() ResourceSetResourceSetArrayOutput {
+	return o
+}
+
+func (o ResourceSetResourceSetArrayOutput) ToResourceSetResourceSetArrayOutputWithContext(ctx context.Context) ResourceSetResourceSetArrayOutput {
+	return o
+}
+
+func (o ResourceSetResourceSetArrayOutput) Index(i pulumi.IntInput) ResourceSetResourceSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceSetResourceSet {
+		return vs[0].([]ResourceSetResourceSet)[vs[1].(int)]
+	}).(ResourceSetResourceSetOutput)
+}
+
+type ResourceSetTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ResourceSetTimeoutsInput is an input type that accepts ResourceSetTimeoutsArgs and ResourceSetTimeoutsOutput values.
+// You can construct a concrete instance of `ResourceSetTimeoutsInput` via:
+//
+//	ResourceSetTimeoutsArgs{...}
+type ResourceSetTimeoutsInput interface {
+	pulumi.Input
+
+	ToResourceSetTimeoutsOutput() ResourceSetTimeoutsOutput
+	ToResourceSetTimeoutsOutputWithContext(context.Context) ResourceSetTimeoutsOutput
+}
+
+type ResourceSetTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ResourceSetTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetTimeouts)(nil)).Elem()
+}
+
+func (i ResourceSetTimeoutsArgs) ToResourceSetTimeoutsOutput() ResourceSetTimeoutsOutput {
+	return i.ToResourceSetTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ResourceSetTimeoutsArgs) ToResourceSetTimeoutsOutputWithContext(ctx context.Context) ResourceSetTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTimeoutsOutput)
+}
+
+func (i ResourceSetTimeoutsArgs) ToResourceSetTimeoutsPtrOutput() ResourceSetTimeoutsPtrOutput {
+	return i.ToResourceSetTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceSetTimeoutsArgs) ToResourceSetTimeoutsPtrOutputWithContext(ctx context.Context) ResourceSetTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTimeoutsOutput).ToResourceSetTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ResourceSetTimeoutsPtrInput is an input type that accepts ResourceSetTimeoutsArgs, ResourceSetTimeoutsPtr and ResourceSetTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ResourceSetTimeoutsPtrInput` via:
+//
+//	        ResourceSetTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceSetTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToResourceSetTimeoutsPtrOutput() ResourceSetTimeoutsPtrOutput
+	ToResourceSetTimeoutsPtrOutputWithContext(context.Context) ResourceSetTimeoutsPtrOutput
+}
+
+type resourceSetTimeoutsPtrType ResourceSetTimeoutsArgs
+
+func ResourceSetTimeoutsPtr(v *ResourceSetTimeoutsArgs) ResourceSetTimeoutsPtrInput {
+	return (*resourceSetTimeoutsPtrType)(v)
+}
+
+func (*resourceSetTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSetTimeouts)(nil)).Elem()
+}
+
+func (i *resourceSetTimeoutsPtrType) ToResourceSetTimeoutsPtrOutput() ResourceSetTimeoutsPtrOutput {
+	return i.ToResourceSetTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceSetTimeoutsPtrType) ToResourceSetTimeoutsPtrOutputWithContext(ctx context.Context) ResourceSetTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTimeoutsPtrOutput)
+}
+
+type ResourceSetTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ResourceSetTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetTimeouts)(nil)).Elem()
+}
+
+func (o ResourceSetTimeoutsOutput) ToResourceSetTimeoutsOutput() ResourceSetTimeoutsOutput {
+	return o
+}
+
+func (o ResourceSetTimeoutsOutput) ToResourceSetTimeoutsOutputWithContext(ctx context.Context) ResourceSetTimeoutsOutput {
+	return o
+}
+
+func (o ResourceSetTimeoutsOutput) ToResourceSetTimeoutsPtrOutput() ResourceSetTimeoutsPtrOutput {
+	return o.ToResourceSetTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceSetTimeoutsOutput) ToResourceSetTimeoutsPtrOutputWithContext(ctx context.Context) ResourceSetTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetTimeouts) *ResourceSetTimeouts {
+		return &v
+	}).(ResourceSetTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceSetTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ResourceSetTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceSetTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceSetTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ResourceSetTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceSetTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSetTimeouts)(nil)).Elem()
+}
+
+func (o ResourceSetTimeoutsPtrOutput) ToResourceSetTimeoutsPtrOutput() ResourceSetTimeoutsPtrOutput {
+	return o
+}
+
+func (o ResourceSetTimeoutsPtrOutput) ToResourceSetTimeoutsPtrOutputWithContext(ctx context.Context) ResourceSetTimeoutsPtrOutput {
+	return o
+}
+
+func (o ResourceSetTimeoutsPtrOutput) Elem() ResourceSetTimeoutsOutput {
+	return o.ApplyT(func(v *ResourceSetTimeouts) ResourceSetTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSetTimeouts
+		return ret
+	}).(ResourceSetTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceSetTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSetTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ResourceSetTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSetTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ResourceSetTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSetTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyExcludeMapInput)(nil)).Elem(), PolicyExcludeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyExcludeMapPtrInput)(nil)).Elem(), PolicyExcludeMapArgs{})
@@ -965,6 +1288,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceSetInput)(nil)).Elem(), ResourceSetResourceSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceSetArrayInput)(nil)).Elem(), ResourceSetResourceSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTimeoutsInput)(nil)).Elem(), ResourceSetTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetTimeoutsPtrInput)(nil)).Elem(), ResourceSetTimeoutsArgs{})
 	pulumi.RegisterOutputType(PolicyExcludeMapOutput{})
 	pulumi.RegisterOutputType(PolicyExcludeMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicyIncludeMapOutput{})
@@ -977,4 +1304,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSetResourceSetOutput{})
+	pulumi.RegisterOutputType(ResourceSetResourceSetArrayOutput{})
+	pulumi.RegisterOutputType(ResourceSetTimeoutsOutput{})
+	pulumi.RegisterOutputType(ResourceSetTimeoutsPtrOutput{})
 }

@@ -665,7 +665,7 @@ class PipelineTriggerGitConfiguration(dict):
                  pull_requests: Optional[Sequence['outputs.PipelineTriggerGitConfigurationPullRequest']] = None,
                  pushes: Optional[Sequence['outputs.PipelineTriggerGitConfigurationPush']] = None):
         """
-        :param str source_action_name: The name of the pipeline source action where the trigger configuration.
+        :param str source_action_name: The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
         :param Sequence['PipelineTriggerGitConfigurationPullRequestArgs'] pull_requests: The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
         :param Sequence['PipelineTriggerGitConfigurationPushArgs'] pushes: The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
         """
@@ -679,7 +679,7 @@ class PipelineTriggerGitConfiguration(dict):
     @pulumi.getter(name="sourceActionName")
     def source_action_name(self) -> str:
         """
-        The name of the pipeline source action where the trigger configuration.
+        The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
         """
         return pulumi.get(self, "source_action_name")
 

@@ -715,6 +715,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.engineVersion;
     }
     /**
+     * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+     * 
+     */
+    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
+    private Output<String> ipAddressType;
+
+    /**
+     * @return The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+     * 
+     */
+    public Output<String> ipAddressType() {
+        return this.ipAddressType;
+    }
+    /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
      * 
      * @deprecated

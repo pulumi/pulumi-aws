@@ -146,14 +146,14 @@ public class TrafficMirrorSession extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="packetLength", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> packetLength;
+    private Output<Integer> packetLength;
 
     /**
      * @return The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      * 
      */
-    public Output<Optional<Integer>> packetLength() {
-        return Codegen.optional(this.packetLength);
+    public Output<Integer> packetLength() {
+        return this.packetLength;
     }
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.

@@ -551,6 +551,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<string> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
         /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         /// </summary>
         [Output("kibanaEndpoint")]
@@ -726,6 +732,12 @@ namespace Pulumi.Aws.OpenSearch
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
+        /// <summary>
+        /// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
         [Input("logPublishingOptions")]
         private InputList<Inputs.DomainLogPublishingOptionArgs>? _logPublishingOptions;
 
@@ -887,6 +899,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
         /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.

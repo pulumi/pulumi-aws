@@ -25,7 +25,7 @@ public final class PipelineTriggerGitConfiguration {
      */
     private @Nullable List<PipelineTriggerGitConfigurationPush> pushes;
     /**
-     * @return The name of the pipeline source action where the trigger configuration.
+     * @return The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
      * 
      */
     private String sourceActionName;
@@ -46,7 +46,7 @@ public final class PipelineTriggerGitConfiguration {
         return this.pushes == null ? List.of() : this.pushes;
     }
     /**
-     * @return The name of the pipeline source action where the trigger configuration.
+     * @return The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
      * 
      */
     public String sourceActionName() {

@@ -8,6 +8,7 @@ import com.pulumi.aws.ec2.VpcEndpointArgs;
 import com.pulumi.aws.ec2.inputs.VpcEndpointState;
 import com.pulumi.aws.ec2.outputs.VpcEndpointDnsEntry;
 import com.pulumi.aws.ec2.outputs.VpcEndpointDnsOptions;
+import com.pulumi.aws.ec2.outputs.VpcEndpointSubnetConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -136,6 +137,56 @@ import javax.annotation.Nullable;
  *             .vpcEndpointType("Interface")
  *             .securityGroupIds(sg1.id())
  *             .privateDnsEnabled(true)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Interface Endpoint Type with User-Defined IP Address
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcEndpoint;
+ * import com.pulumi.aws.ec2.VpcEndpointArgs;
+ * import com.pulumi.aws.ec2.inputs.VpcEndpointSubnetConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var ec2 = new VpcEndpoint("ec2", VpcEndpointArgs.builder()
+ *             .vpcId(example.id())
+ *             .serviceName("com.amazonaws.us-west-2.ec2")
+ *             .vpcEndpointType("Interface")
+ *             .subnetConfigurations(            
+ *                 VpcEndpointSubnetConfigurationArgs.builder()
+ *                     .ipv4("10.0.1.10")
+ *                     .subnetId(example1.id())
+ *                     .build(),
+ *                 VpcEndpointSubnetConfigurationArgs.builder()
+ *                     .ipv4("10.0.2.10")
+ *                     .subnetId(example2.id())
+ *                     .build())
+ *             .subnetIds(            
+ *                 example1.id(),
+ *                 example2.id())
  *             .build());
  * 
  *     }
@@ -432,6 +483,20 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<String> state() {
         return this.state;
+    }
+    /**
+     * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+     * 
+     */
+    @Export(name="subnetConfigurations", refs={List.class,VpcEndpointSubnetConfiguration.class}, tree="[0,1]")
+    private Output<List<VpcEndpointSubnetConfiguration>> subnetConfigurations;
+
+    /**
+     * @return Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+     * 
+     */
+    public Output<List<VpcEndpointSubnetConfiguration>> subnetConfigurations() {
+        return this.subnetConfigurations;
     }
     /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.

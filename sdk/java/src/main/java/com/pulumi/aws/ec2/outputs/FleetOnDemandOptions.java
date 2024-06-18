@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ec2.outputs;
 
+import com.pulumi.aws.ec2.outputs.FleetOnDemandOptionsCapacityReservationOptions;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
@@ -18,6 +19,11 @@ public final class FleetOnDemandOptions {
      * 
      */
     private @Nullable String allocationStrategy;
+    /**
+     * @return The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+     * 
+     */
+    private @Nullable FleetOnDemandOptionsCapacityReservationOptions capacityReservationOptions;
     /**
      * @return The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay.
      * 
@@ -47,6 +53,13 @@ public final class FleetOnDemandOptions {
      */
     public Optional<String> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
+    }
+    /**
+     * @return The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+     * 
+     */
+    public Optional<FleetOnDemandOptionsCapacityReservationOptions> capacityReservationOptions() {
+        return Optional.ofNullable(this.capacityReservationOptions);
     }
     /**
      * @return The maximum amount per hour for On-Demand Instances that you&#39;re willing to pay.
@@ -88,6 +101,7 @@ public final class FleetOnDemandOptions {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String allocationStrategy;
+        private @Nullable FleetOnDemandOptionsCapacityReservationOptions capacityReservationOptions;
         private @Nullable String maxTotalPrice;
         private @Nullable Integer minTargetCapacity;
         private @Nullable Boolean singleAvailabilityZone;
@@ -96,6 +110,7 @@ public final class FleetOnDemandOptions {
         public Builder(FleetOnDemandOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationStrategy = defaults.allocationStrategy;
+    	      this.capacityReservationOptions = defaults.capacityReservationOptions;
     	      this.maxTotalPrice = defaults.maxTotalPrice;
     	      this.minTargetCapacity = defaults.minTargetCapacity;
     	      this.singleAvailabilityZone = defaults.singleAvailabilityZone;
@@ -106,6 +121,12 @@ public final class FleetOnDemandOptions {
         public Builder allocationStrategy(@Nullable String allocationStrategy) {
 
             this.allocationStrategy = allocationStrategy;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder capacityReservationOptions(@Nullable FleetOnDemandOptionsCapacityReservationOptions capacityReservationOptions) {
+
+            this.capacityReservationOptions = capacityReservationOptions;
             return this;
         }
         @CustomType.Setter
@@ -135,6 +156,7 @@ public final class FleetOnDemandOptions {
         public FleetOnDemandOptions build() {
             final var _resultValue = new FleetOnDemandOptions();
             _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.capacityReservationOptions = capacityReservationOptions;
             _resultValue.maxTotalPrice = maxTotalPrice;
             _resultValue.minTargetCapacity = minTargetCapacity;
             _resultValue.singleAvailabilityZone = singleAvailabilityZone;

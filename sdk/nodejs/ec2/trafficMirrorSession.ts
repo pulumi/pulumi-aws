@@ -85,7 +85,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */
-    public readonly packetLength!: pulumi.Output<number | undefined>;
+    public readonly packetLength!: pulumi.Output<number>;
     /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */

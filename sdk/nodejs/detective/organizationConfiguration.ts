@@ -9,10 +9,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_detective_organization_admin_account` using the Detective Graph ID. For example:
+ * Using `pulumi import`, import `aws_detective_organization_admin_account` using the behavior graph ARN. For example:
  *
  * ```sh
- * $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
+ * $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example arn:aws:detective:us-east-1:123456789012:graph:00b00fd5aecc0ab60a708659477e9617
  * ```
  */
 export class OrganizationConfiguration extends pulumi.CustomResource {

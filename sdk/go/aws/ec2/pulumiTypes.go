@@ -919,6 +919,143 @@ func (o AmiFromInstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput)
 	}).(AmiFromInstanceEphemeralBlockDeviceOutput)
 }
 
+type CapacityBlockReservationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// CapacityBlockReservationTimeoutsInput is an input type that accepts CapacityBlockReservationTimeoutsArgs and CapacityBlockReservationTimeoutsOutput values.
+// You can construct a concrete instance of `CapacityBlockReservationTimeoutsInput` via:
+//
+//	CapacityBlockReservationTimeoutsArgs{...}
+type CapacityBlockReservationTimeoutsInput interface {
+	pulumi.Input
+
+	ToCapacityBlockReservationTimeoutsOutput() CapacityBlockReservationTimeoutsOutput
+	ToCapacityBlockReservationTimeoutsOutputWithContext(context.Context) CapacityBlockReservationTimeoutsOutput
+}
+
+type CapacityBlockReservationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (CapacityBlockReservationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityBlockReservationTimeouts)(nil)).Elem()
+}
+
+func (i CapacityBlockReservationTimeoutsArgs) ToCapacityBlockReservationTimeoutsOutput() CapacityBlockReservationTimeoutsOutput {
+	return i.ToCapacityBlockReservationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i CapacityBlockReservationTimeoutsArgs) ToCapacityBlockReservationTimeoutsOutputWithContext(ctx context.Context) CapacityBlockReservationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityBlockReservationTimeoutsOutput)
+}
+
+func (i CapacityBlockReservationTimeoutsArgs) ToCapacityBlockReservationTimeoutsPtrOutput() CapacityBlockReservationTimeoutsPtrOutput {
+	return i.ToCapacityBlockReservationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i CapacityBlockReservationTimeoutsArgs) ToCapacityBlockReservationTimeoutsPtrOutputWithContext(ctx context.Context) CapacityBlockReservationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityBlockReservationTimeoutsOutput).ToCapacityBlockReservationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// CapacityBlockReservationTimeoutsPtrInput is an input type that accepts CapacityBlockReservationTimeoutsArgs, CapacityBlockReservationTimeoutsPtr and CapacityBlockReservationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `CapacityBlockReservationTimeoutsPtrInput` via:
+//
+//	        CapacityBlockReservationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapacityBlockReservationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToCapacityBlockReservationTimeoutsPtrOutput() CapacityBlockReservationTimeoutsPtrOutput
+	ToCapacityBlockReservationTimeoutsPtrOutputWithContext(context.Context) CapacityBlockReservationTimeoutsPtrOutput
+}
+
+type capacityBlockReservationTimeoutsPtrType CapacityBlockReservationTimeoutsArgs
+
+func CapacityBlockReservationTimeoutsPtr(v *CapacityBlockReservationTimeoutsArgs) CapacityBlockReservationTimeoutsPtrInput {
+	return (*capacityBlockReservationTimeoutsPtrType)(v)
+}
+
+func (*capacityBlockReservationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityBlockReservationTimeouts)(nil)).Elem()
+}
+
+func (i *capacityBlockReservationTimeoutsPtrType) ToCapacityBlockReservationTimeoutsPtrOutput() CapacityBlockReservationTimeoutsPtrOutput {
+	return i.ToCapacityBlockReservationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *capacityBlockReservationTimeoutsPtrType) ToCapacityBlockReservationTimeoutsPtrOutputWithContext(ctx context.Context) CapacityBlockReservationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityBlockReservationTimeoutsPtrOutput)
+}
+
+type CapacityBlockReservationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (CapacityBlockReservationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityBlockReservationTimeouts)(nil)).Elem()
+}
+
+func (o CapacityBlockReservationTimeoutsOutput) ToCapacityBlockReservationTimeoutsOutput() CapacityBlockReservationTimeoutsOutput {
+	return o
+}
+
+func (o CapacityBlockReservationTimeoutsOutput) ToCapacityBlockReservationTimeoutsOutputWithContext(ctx context.Context) CapacityBlockReservationTimeoutsOutput {
+	return o
+}
+
+func (o CapacityBlockReservationTimeoutsOutput) ToCapacityBlockReservationTimeoutsPtrOutput() CapacityBlockReservationTimeoutsPtrOutput {
+	return o.ToCapacityBlockReservationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityBlockReservationTimeoutsOutput) ToCapacityBlockReservationTimeoutsPtrOutputWithContext(ctx context.Context) CapacityBlockReservationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityBlockReservationTimeouts) *CapacityBlockReservationTimeouts {
+		return &v
+	}).(CapacityBlockReservationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapacityBlockReservationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityBlockReservationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type CapacityBlockReservationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityBlockReservationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityBlockReservationTimeouts)(nil)).Elem()
+}
+
+func (o CapacityBlockReservationTimeoutsPtrOutput) ToCapacityBlockReservationTimeoutsPtrOutput() CapacityBlockReservationTimeoutsPtrOutput {
+	return o
+}
+
+func (o CapacityBlockReservationTimeoutsPtrOutput) ToCapacityBlockReservationTimeoutsPtrOutputWithContext(ctx context.Context) CapacityBlockReservationTimeoutsPtrOutput {
+	return o
+}
+
+func (o CapacityBlockReservationTimeoutsPtrOutput) Elem() CapacityBlockReservationTimeoutsOutput {
+	return o.ApplyT(func(v *CapacityBlockReservationTimeouts) CapacityBlockReservationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityBlockReservationTimeouts
+		return ret
+	}).(CapacityBlockReservationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CapacityBlockReservationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CapacityBlockReservationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type DefaultNetworkAclEgress struct {
 	// The action to take.
 	Action string `pulumi:"action"`
@@ -4537,6 +4674,8 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
 type FleetOnDemandOptions struct {
 	// The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
+	// The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+	CapacityReservationOptions *FleetOnDemandOptionsCapacityReservationOptions `pulumi:"capacityReservationOptions"`
 	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
 	MaxTotalPrice *string `pulumi:"maxTotalPrice"`
 	// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
@@ -4562,6 +4701,8 @@ type FleetOnDemandOptionsInput interface {
 type FleetOnDemandOptionsArgs struct {
 	// The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
+	// The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+	CapacityReservationOptions FleetOnDemandOptionsCapacityReservationOptionsPtrInput `pulumi:"capacityReservationOptions"`
 	// The maximum amount per hour for On-Demand Instances that you're willing to pay.
 	MaxTotalPrice pulumi.StringPtrInput `pulumi:"maxTotalPrice"`
 	// The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
@@ -4655,6 +4796,13 @@ func (o FleetOnDemandOptionsOutput) AllocationStrategy() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v FleetOnDemandOptions) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
+// The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+func (o FleetOnDemandOptionsOutput) CapacityReservationOptions() FleetOnDemandOptionsCapacityReservationOptionsPtrOutput {
+	return o.ApplyT(func(v FleetOnDemandOptions) *FleetOnDemandOptionsCapacityReservationOptions {
+		return v.CapacityReservationOptions
+	}).(FleetOnDemandOptionsCapacityReservationOptionsPtrOutput)
+}
+
 // The maximum amount per hour for On-Demand Instances that you're willing to pay.
 func (o FleetOnDemandOptionsOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetOnDemandOptions) *string { return v.MaxTotalPrice }).(pulumi.StringPtrOutput)
@@ -4710,6 +4858,16 @@ func (o FleetOnDemandOptionsPtrOutput) AllocationStrategy() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+func (o FleetOnDemandOptionsPtrOutput) CapacityReservationOptions() FleetOnDemandOptionsCapacityReservationOptionsPtrOutput {
+	return o.ApplyT(func(v *FleetOnDemandOptions) *FleetOnDemandOptionsCapacityReservationOptions {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationOptions
+	}).(FleetOnDemandOptionsCapacityReservationOptionsPtrOutput)
+}
+
 // The maximum amount per hour for On-Demand Instances that you're willing to pay.
 func (o FleetOnDemandOptionsPtrOutput) MaxTotalPrice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetOnDemandOptions) *string {
@@ -4749,6 +4907,143 @@ func (o FleetOnDemandOptionsPtrOutput) SingleInstanceType() pulumi.BoolPtrOutput
 		}
 		return v.SingleInstanceType
 	}).(pulumi.BoolPtrOutput)
+}
+
+type FleetOnDemandOptionsCapacityReservationOptions struct {
+	// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
+	UsageStrategy *string `pulumi:"usageStrategy"`
+}
+
+// FleetOnDemandOptionsCapacityReservationOptionsInput is an input type that accepts FleetOnDemandOptionsCapacityReservationOptionsArgs and FleetOnDemandOptionsCapacityReservationOptionsOutput values.
+// You can construct a concrete instance of `FleetOnDemandOptionsCapacityReservationOptionsInput` via:
+//
+//	FleetOnDemandOptionsCapacityReservationOptionsArgs{...}
+type FleetOnDemandOptionsCapacityReservationOptionsInput interface {
+	pulumi.Input
+
+	ToFleetOnDemandOptionsCapacityReservationOptionsOutput() FleetOnDemandOptionsCapacityReservationOptionsOutput
+	ToFleetOnDemandOptionsCapacityReservationOptionsOutputWithContext(context.Context) FleetOnDemandOptionsCapacityReservationOptionsOutput
+}
+
+type FleetOnDemandOptionsCapacityReservationOptionsArgs struct {
+	// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
+	UsageStrategy pulumi.StringPtrInput `pulumi:"usageStrategy"`
+}
+
+func (FleetOnDemandOptionsCapacityReservationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetOnDemandOptionsCapacityReservationOptions)(nil)).Elem()
+}
+
+func (i FleetOnDemandOptionsCapacityReservationOptionsArgs) ToFleetOnDemandOptionsCapacityReservationOptionsOutput() FleetOnDemandOptionsCapacityReservationOptionsOutput {
+	return i.ToFleetOnDemandOptionsCapacityReservationOptionsOutputWithContext(context.Background())
+}
+
+func (i FleetOnDemandOptionsCapacityReservationOptionsArgs) ToFleetOnDemandOptionsCapacityReservationOptionsOutputWithContext(ctx context.Context) FleetOnDemandOptionsCapacityReservationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetOnDemandOptionsCapacityReservationOptionsOutput)
+}
+
+func (i FleetOnDemandOptionsCapacityReservationOptionsArgs) ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutput() FleetOnDemandOptionsCapacityReservationOptionsPtrOutput {
+	return i.ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FleetOnDemandOptionsCapacityReservationOptionsArgs) ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) FleetOnDemandOptionsCapacityReservationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetOnDemandOptionsCapacityReservationOptionsOutput).ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutputWithContext(ctx)
+}
+
+// FleetOnDemandOptionsCapacityReservationOptionsPtrInput is an input type that accepts FleetOnDemandOptionsCapacityReservationOptionsArgs, FleetOnDemandOptionsCapacityReservationOptionsPtr and FleetOnDemandOptionsCapacityReservationOptionsPtrOutput values.
+// You can construct a concrete instance of `FleetOnDemandOptionsCapacityReservationOptionsPtrInput` via:
+//
+//	        FleetOnDemandOptionsCapacityReservationOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetOnDemandOptionsCapacityReservationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutput() FleetOnDemandOptionsCapacityReservationOptionsPtrOutput
+	ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutputWithContext(context.Context) FleetOnDemandOptionsCapacityReservationOptionsPtrOutput
+}
+
+type fleetOnDemandOptionsCapacityReservationOptionsPtrType FleetOnDemandOptionsCapacityReservationOptionsArgs
+
+func FleetOnDemandOptionsCapacityReservationOptionsPtr(v *FleetOnDemandOptionsCapacityReservationOptionsArgs) FleetOnDemandOptionsCapacityReservationOptionsPtrInput {
+	return (*fleetOnDemandOptionsCapacityReservationOptionsPtrType)(v)
+}
+
+func (*fleetOnDemandOptionsCapacityReservationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetOnDemandOptionsCapacityReservationOptions)(nil)).Elem()
+}
+
+func (i *fleetOnDemandOptionsCapacityReservationOptionsPtrType) ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutput() FleetOnDemandOptionsCapacityReservationOptionsPtrOutput {
+	return i.ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetOnDemandOptionsCapacityReservationOptionsPtrType) ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) FleetOnDemandOptionsCapacityReservationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetOnDemandOptionsCapacityReservationOptionsPtrOutput)
+}
+
+type FleetOnDemandOptionsCapacityReservationOptionsOutput struct{ *pulumi.OutputState }
+
+func (FleetOnDemandOptionsCapacityReservationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetOnDemandOptionsCapacityReservationOptions)(nil)).Elem()
+}
+
+func (o FleetOnDemandOptionsCapacityReservationOptionsOutput) ToFleetOnDemandOptionsCapacityReservationOptionsOutput() FleetOnDemandOptionsCapacityReservationOptionsOutput {
+	return o
+}
+
+func (o FleetOnDemandOptionsCapacityReservationOptionsOutput) ToFleetOnDemandOptionsCapacityReservationOptionsOutputWithContext(ctx context.Context) FleetOnDemandOptionsCapacityReservationOptionsOutput {
+	return o
+}
+
+func (o FleetOnDemandOptionsCapacityReservationOptionsOutput) ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutput() FleetOnDemandOptionsCapacityReservationOptionsPtrOutput {
+	return o.ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FleetOnDemandOptionsCapacityReservationOptionsOutput) ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) FleetOnDemandOptionsCapacityReservationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetOnDemandOptionsCapacityReservationOptions) *FleetOnDemandOptionsCapacityReservationOptions {
+		return &v
+	}).(FleetOnDemandOptionsCapacityReservationOptionsPtrOutput)
+}
+
+// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
+func (o FleetOnDemandOptionsCapacityReservationOptionsOutput) UsageStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetOnDemandOptionsCapacityReservationOptions) *string { return v.UsageStrategy }).(pulumi.StringPtrOutput)
+}
+
+type FleetOnDemandOptionsCapacityReservationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetOnDemandOptionsCapacityReservationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetOnDemandOptionsCapacityReservationOptions)(nil)).Elem()
+}
+
+func (o FleetOnDemandOptionsCapacityReservationOptionsPtrOutput) ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutput() FleetOnDemandOptionsCapacityReservationOptionsPtrOutput {
+	return o
+}
+
+func (o FleetOnDemandOptionsCapacityReservationOptionsPtrOutput) ToFleetOnDemandOptionsCapacityReservationOptionsPtrOutputWithContext(ctx context.Context) FleetOnDemandOptionsCapacityReservationOptionsPtrOutput {
+	return o
+}
+
+func (o FleetOnDemandOptionsCapacityReservationOptionsPtrOutput) Elem() FleetOnDemandOptionsCapacityReservationOptionsOutput {
+	return o.ApplyT(func(v *FleetOnDemandOptionsCapacityReservationOptions) FleetOnDemandOptionsCapacityReservationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FleetOnDemandOptionsCapacityReservationOptions
+		return ret
+	}).(FleetOnDemandOptionsCapacityReservationOptionsOutput)
+}
+
+// Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
+func (o FleetOnDemandOptionsCapacityReservationOptionsPtrOutput) UsageStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetOnDemandOptionsCapacityReservationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsageStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 type FleetSpotOptions struct {
@@ -9969,7 +10264,7 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) CpuCredits() pulumi.StringPt
 }
 
 type LaunchTemplateElasticGpuSpecification struct {
-	// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+	// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
 	Type string `pulumi:"type"`
 }
 
@@ -9985,7 +10280,7 @@ type LaunchTemplateElasticGpuSpecificationInput interface {
 }
 
 type LaunchTemplateElasticGpuSpecificationArgs struct {
-	// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+	// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10040,7 +10335,7 @@ func (o LaunchTemplateElasticGpuSpecificationOutput) ToLaunchTemplateElasticGpuS
 	return o
 }
 
-// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+// The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
 func (o LaunchTemplateElasticGpuSpecificationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchTemplateElasticGpuSpecification) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -31734,6 +32029,118 @@ func (o VpcEndpointServicePrivateDnsNameConfigurationArrayOutput) Index(i pulumi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointServicePrivateDnsNameConfiguration {
 		return vs[0].([]VpcEndpointServicePrivateDnsNameConfiguration)[vs[1].(int)]
 	}).(VpcEndpointServicePrivateDnsNameConfigurationOutput)
+}
+
+type VpcEndpointSubnetConfiguration struct {
+	// The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+	Ipv4 *string `pulumi:"ipv4"`
+	// The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+	Ipv6     *string `pulumi:"ipv6"`
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// VpcEndpointSubnetConfigurationInput is an input type that accepts VpcEndpointSubnetConfigurationArgs and VpcEndpointSubnetConfigurationOutput values.
+// You can construct a concrete instance of `VpcEndpointSubnetConfigurationInput` via:
+//
+//	VpcEndpointSubnetConfigurationArgs{...}
+type VpcEndpointSubnetConfigurationInput interface {
+	pulumi.Input
+
+	ToVpcEndpointSubnetConfigurationOutput() VpcEndpointSubnetConfigurationOutput
+	ToVpcEndpointSubnetConfigurationOutputWithContext(context.Context) VpcEndpointSubnetConfigurationOutput
+}
+
+type VpcEndpointSubnetConfigurationArgs struct {
+	// The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+	Ipv4 pulumi.StringPtrInput `pulumi:"ipv4"`
+	// The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+	Ipv6     pulumi.StringPtrInput `pulumi:"ipv6"`
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (VpcEndpointSubnetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointSubnetConfiguration)(nil)).Elem()
+}
+
+func (i VpcEndpointSubnetConfigurationArgs) ToVpcEndpointSubnetConfigurationOutput() VpcEndpointSubnetConfigurationOutput {
+	return i.ToVpcEndpointSubnetConfigurationOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointSubnetConfigurationArgs) ToVpcEndpointSubnetConfigurationOutputWithContext(ctx context.Context) VpcEndpointSubnetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetConfigurationOutput)
+}
+
+// VpcEndpointSubnetConfigurationArrayInput is an input type that accepts VpcEndpointSubnetConfigurationArray and VpcEndpointSubnetConfigurationArrayOutput values.
+// You can construct a concrete instance of `VpcEndpointSubnetConfigurationArrayInput` via:
+//
+//	VpcEndpointSubnetConfigurationArray{ VpcEndpointSubnetConfigurationArgs{...} }
+type VpcEndpointSubnetConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToVpcEndpointSubnetConfigurationArrayOutput() VpcEndpointSubnetConfigurationArrayOutput
+	ToVpcEndpointSubnetConfigurationArrayOutputWithContext(context.Context) VpcEndpointSubnetConfigurationArrayOutput
+}
+
+type VpcEndpointSubnetConfigurationArray []VpcEndpointSubnetConfigurationInput
+
+func (VpcEndpointSubnetConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointSubnetConfiguration)(nil)).Elem()
+}
+
+func (i VpcEndpointSubnetConfigurationArray) ToVpcEndpointSubnetConfigurationArrayOutput() VpcEndpointSubnetConfigurationArrayOutput {
+	return i.ToVpcEndpointSubnetConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointSubnetConfigurationArray) ToVpcEndpointSubnetConfigurationArrayOutputWithContext(ctx context.Context) VpcEndpointSubnetConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointSubnetConfigurationArrayOutput)
+}
+
+type VpcEndpointSubnetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointSubnetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointSubnetConfiguration)(nil)).Elem()
+}
+
+func (o VpcEndpointSubnetConfigurationOutput) ToVpcEndpointSubnetConfigurationOutput() VpcEndpointSubnetConfigurationOutput {
+	return o
+}
+
+func (o VpcEndpointSubnetConfigurationOutput) ToVpcEndpointSubnetConfigurationOutputWithContext(ctx context.Context) VpcEndpointSubnetConfigurationOutput {
+	return o
+}
+
+// The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+func (o VpcEndpointSubnetConfigurationOutput) Ipv4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointSubnetConfiguration) *string { return v.Ipv4 }).(pulumi.StringPtrOutput)
+}
+
+// The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+func (o VpcEndpointSubnetConfigurationOutput) Ipv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointSubnetConfiguration) *string { return v.Ipv6 }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointSubnetConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointSubnetConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointSubnetConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointSubnetConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcEndpointSubnetConfiguration)(nil)).Elem()
+}
+
+func (o VpcEndpointSubnetConfigurationArrayOutput) ToVpcEndpointSubnetConfigurationArrayOutput() VpcEndpointSubnetConfigurationArrayOutput {
+	return o
+}
+
+func (o VpcEndpointSubnetConfigurationArrayOutput) ToVpcEndpointSubnetConfigurationArrayOutputWithContext(ctx context.Context) VpcEndpointSubnetConfigurationArrayOutput {
+	return o
+}
+
+func (o VpcEndpointSubnetConfigurationArrayOutput) Index(i pulumi.IntInput) VpcEndpointSubnetConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointSubnetConfiguration {
+		return vs[0].([]VpcEndpointSubnetConfiguration)[vs[1].(int)]
+	}).(VpcEndpointSubnetConfigurationOutput)
 }
 
 type VpcIpamOperatingRegion struct {
@@ -57137,6 +57544,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiFromInstanceEbsBlockDeviceArrayInput)(nil)).Elem(), AmiFromInstanceEbsBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiFromInstanceEphemeralBlockDeviceInput)(nil)).Elem(), AmiFromInstanceEphemeralBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiFromInstanceEphemeralBlockDeviceArrayInput)(nil)).Elem(), AmiFromInstanceEphemeralBlockDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityBlockReservationTimeoutsInput)(nil)).Elem(), CapacityBlockReservationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityBlockReservationTimeoutsPtrInput)(nil)).Elem(), CapacityBlockReservationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclEgressInput)(nil)).Elem(), DefaultNetworkAclEgressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclEgressArrayInput)(nil)).Elem(), DefaultNetworkAclEgressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclIngressInput)(nil)).Elem(), DefaultNetworkAclIngressArgs{})
@@ -57179,6 +57588,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetOnDemandOptionsInput)(nil)).Elem(), FleetOnDemandOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetOnDemandOptionsPtrInput)(nil)).Elem(), FleetOnDemandOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetOnDemandOptionsCapacityReservationOptionsInput)(nil)).Elem(), FleetOnDemandOptionsCapacityReservationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetOnDemandOptionsCapacityReservationOptionsPtrInput)(nil)).Elem(), FleetOnDemandOptionsCapacityReservationOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetSpotOptionsInput)(nil)).Elem(), FleetSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetSpotOptionsPtrInput)(nil)).Elem(), FleetSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetSpotOptionsMaintenanceStrategiesInput)(nil)).Elem(), FleetSpotOptionsMaintenanceStrategiesArgs{})
@@ -57540,6 +57951,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsPtrInput)(nil)).Elem(), VpcEndpointDnsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfigurationInput)(nil)).Elem(), VpcEndpointServicePrivateDnsNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfigurationArrayInput)(nil)).Elem(), VpcEndpointServicePrivateDnsNameConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointSubnetConfigurationInput)(nil)).Elem(), VpcEndpointSubnetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointSubnetConfigurationArrayInput)(nil)).Elem(), VpcEndpointSubnetConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamOperatingRegionInput)(nil)).Elem(), VpcIpamOperatingRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamOperatingRegionArrayInput)(nil)).Elem(), VpcIpamOperatingRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrCidrAuthorizationContextInput)(nil)).Elem(), VpcIpamPoolCidrCidrAuthorizationContextArgs{})
@@ -57984,6 +58397,8 @@ func init() {
 	pulumi.RegisterOutputType(AmiFromInstanceEbsBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(AmiFromInstanceEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(AmiFromInstanceEphemeralBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(CapacityBlockReservationTimeoutsOutput{})
+	pulumi.RegisterOutputType(CapacityBlockReservationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclEgressOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclEgressArrayOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclIngressOutput{})
@@ -58026,6 +58441,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput{})
 	pulumi.RegisterOutputType(FleetOnDemandOptionsOutput{})
 	pulumi.RegisterOutputType(FleetOnDemandOptionsPtrOutput{})
+	pulumi.RegisterOutputType(FleetOnDemandOptionsCapacityReservationOptionsOutput{})
+	pulumi.RegisterOutputType(FleetOnDemandOptionsCapacityReservationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FleetSpotOptionsOutput{})
 	pulumi.RegisterOutputType(FleetSpotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FleetSpotOptionsMaintenanceStrategiesOutput{})
@@ -58387,6 +58804,8 @@ func init() {
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(VpcEndpointSubnetConfigurationOutput{})
+	pulumi.RegisterOutputType(VpcEndpointSubnetConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpamOperatingRegionOutput{})
 	pulumi.RegisterOutputType(VpcIpamOperatingRegionArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrCidrAuthorizationContextOutput{})

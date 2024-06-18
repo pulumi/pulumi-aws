@@ -11,6 +11,7 @@ from .ami_copy import *
 from .ami_from_instance import *
 from .ami_launch_permission import *
 from .availability_zone_group import *
+from .capacity_block_reservation import *
 from .capacity_reservation import *
 from .carrier_gateway import *
 from .customer_gateway import *
@@ -29,6 +30,7 @@ from .fleet import *
 from .flow_log import *
 from .get_ami import *
 from .get_ami_ids import *
+from .get_capacity_block_offering import *
 from .get_coip_pool import *
 from .get_coip_pools import *
 from .get_customer_gateway import *

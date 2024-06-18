@@ -570,7 +570,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="packetLength")
-    def packet_length(self) -> pulumi.Output[Optional[int]]:
+    def packet_length(self) -> pulumi.Output[int]:
         """
         The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
         """
