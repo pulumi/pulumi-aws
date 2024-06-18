@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ec2.inputs;
 
+import com.pulumi.aws.ec2.inputs.FleetOnDemandOptionsCapacityReservationOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -30,6 +31,21 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
      */
     public Optional<Output<String>> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
+    }
+
+    /**
+     * The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+     * 
+     */
+    @Import(name="capacityReservationOptions")
+    private @Nullable Output<FleetOnDemandOptionsCapacityReservationOptionsArgs> capacityReservationOptions;
+
+    /**
+     * @return The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+     * 
+     */
+    public Optional<Output<FleetOnDemandOptionsCapacityReservationOptionsArgs>> capacityReservationOptions() {
+        return Optional.ofNullable(this.capacityReservationOptions);
     }
 
     /**
@@ -98,6 +114,7 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
 
     private FleetOnDemandOptionsArgs(FleetOnDemandOptionsArgs $) {
         this.allocationStrategy = $.allocationStrategy;
+        this.capacityReservationOptions = $.capacityReservationOptions;
         this.maxTotalPrice = $.maxTotalPrice;
         this.minTargetCapacity = $.minTargetCapacity;
         this.singleAvailabilityZone = $.singleAvailabilityZone;
@@ -141,6 +158,27 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
          */
         public Builder allocationStrategy(String allocationStrategy) {
             return allocationStrategy(Output.of(allocationStrategy));
+        }
+
+        /**
+         * @param capacityReservationOptions The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationOptions(@Nullable Output<FleetOnDemandOptionsCapacityReservationOptionsArgs> capacityReservationOptions) {
+            $.capacityReservationOptions = capacityReservationOptions;
+            return this;
+        }
+
+        /**
+         * @param capacityReservationOptions The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationOptions(FleetOnDemandOptionsCapacityReservationOptionsArgs capacityReservationOptions) {
+            return capacityReservationOptions(Output.of(capacityReservationOptions));
         }
 
         /**

@@ -8,6 +8,8 @@ import com.pulumi.aws.ec2.inputs.GetAmiArgs;
 import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
 import com.pulumi.aws.ec2.inputs.GetAmiIdsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetAmiPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
+import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
 import com.pulumi.aws.ec2.inputs.GetCoipPoolPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
@@ -128,6 +130,7 @@ import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
 import com.pulumi.aws.ec2.inputs.GetVpnGatewayPlainArgs;
 import com.pulumi.aws.ec2.outputs.GetAmiIdsResult;
 import com.pulumi.aws.ec2.outputs.GetAmiResult;
+import com.pulumi.aws.ec2.outputs.GetCapacityBlockOfferingResult;
 import com.pulumi.aws.ec2.outputs.GetCoipPoolResult;
 import com.pulumi.aws.ec2.outputs.GetCoipPoolsResult;
 import com.pulumi.aws.ec2.outputs.GetCustomerGatewayResult;
@@ -733,6 +736,194 @@ public final class Ec2Functions {
      */
     public static CompletableFuture<GetAmiIdsResult> getAmiIdsPlain(GetAmiIdsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getAmiIds:getAmiIds", TypeShape.of(GetAmiIdsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about a single EC2 Capacity Block Offering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockOffering(GetCapacityBlockOfferingArgs.builder()
+     *             .capacityDurationHours(24)
+     *             .endDateRange("2024-05-30T15:04:05Z")
+     *             .instanceCount(1)
+     *             .instancePlatform("Linux/UNIX")
+     *             .instanceType("p4d.24xlarge")
+     *             .startDateRange("2024-04-28T15:04:05Z")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCapacityBlockOfferingResult> getCapacityBlockOffering(GetCapacityBlockOfferingArgs args) {
+        return getCapacityBlockOffering(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a single EC2 Capacity Block Offering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockOffering(GetCapacityBlockOfferingArgs.builder()
+     *             .capacityDurationHours(24)
+     *             .endDateRange("2024-05-30T15:04:05Z")
+     *             .instanceCount(1)
+     *             .instancePlatform("Linux/UNIX")
+     *             .instanceType("p4d.24xlarge")
+     *             .startDateRange("2024-04-28T15:04:05Z")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetCapacityBlockOfferingResult> getCapacityBlockOfferingPlain(GetCapacityBlockOfferingPlainArgs args) {
+        return getCapacityBlockOfferingPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a single EC2 Capacity Block Offering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockOffering(GetCapacityBlockOfferingArgs.builder()
+     *             .capacityDurationHours(24)
+     *             .endDateRange("2024-05-30T15:04:05Z")
+     *             .instanceCount(1)
+     *             .instancePlatform("Linux/UNIX")
+     *             .instanceType("p4d.24xlarge")
+     *             .startDateRange("2024-04-28T15:04:05Z")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetCapacityBlockOfferingResult> getCapacityBlockOffering(GetCapacityBlockOfferingArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", TypeShape.of(GetCapacityBlockOfferingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about a single EC2 Capacity Block Offering.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockOffering(GetCapacityBlockOfferingArgs.builder()
+     *             .capacityDurationHours(24)
+     *             .endDateRange("2024-05-30T15:04:05Z")
+     *             .instanceCount(1)
+     *             .instancePlatform("Linux/UNIX")
+     *             .instanceType("p4d.24xlarge")
+     *             .startDateRange("2024-04-28T15:04:05Z")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetCapacityBlockOfferingResult> getCapacityBlockOfferingPlain(GetCapacityBlockOfferingPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", TypeShape.of(GetCapacityBlockOfferingResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a specific EC2 Customer-Owned IP Pool.

@@ -30,6 +30,11 @@ export type AvailabilityZoneGroup = import("./availabilityZoneGroup").Availabili
 export const AvailabilityZoneGroup: typeof import("./availabilityZoneGroup").AvailabilityZoneGroup = null as any;
 utilities.lazyLoad(exports, ["AvailabilityZoneGroup"], () => require("./availabilityZoneGroup"));
 
+export { CapacityBlockReservationArgs, CapacityBlockReservationState } from "./capacityBlockReservation";
+export type CapacityBlockReservation = import("./capacityBlockReservation").CapacityBlockReservation;
+export const CapacityBlockReservation: typeof import("./capacityBlockReservation").CapacityBlockReservation = null as any;
+utilities.lazyLoad(exports, ["CapacityBlockReservation"], () => require("./capacityBlockReservation"));
+
 export { CapacityReservationArgs, CapacityReservationState } from "./capacityReservation";
 export type CapacityReservation = import("./capacityReservation").CapacityReservation;
 export const CapacityReservation: typeof import("./capacityReservation").CapacityReservation = null as any;
@@ -119,6 +124,11 @@ export { GetAmiIdsArgs, GetAmiIdsResult, GetAmiIdsOutputArgs } from "./getAmiIds
 export const getAmiIds: typeof import("./getAmiIds").getAmiIds = null as any;
 export const getAmiIdsOutput: typeof import("./getAmiIds").getAmiIdsOutput = null as any;
 utilities.lazyLoad(exports, ["getAmiIds","getAmiIdsOutput"], () => require("./getAmiIds"));
+
+export { GetCapacityBlockOfferingArgs, GetCapacityBlockOfferingResult, GetCapacityBlockOfferingOutputArgs } from "./getCapacityBlockOffering";
+export const getCapacityBlockOffering: typeof import("./getCapacityBlockOffering").getCapacityBlockOffering = null as any;
+export const getCapacityBlockOfferingOutput: typeof import("./getCapacityBlockOffering").getCapacityBlockOfferingOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityBlockOffering","getCapacityBlockOfferingOutput"], () => require("./getCapacityBlockOffering"));
 
 export { GetCoipPoolArgs, GetCoipPoolResult, GetCoipPoolOutputArgs } from "./getCoipPool";
 export const getCoipPool: typeof import("./getCoipPool").getCoipPool = null as any;
@@ -813,6 +823,8 @@ const _module = {
                 return new AmiLaunchPermission(name, <any>undefined, { urn })
             case "aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup":
                 return new AvailabilityZoneGroup(name, <any>undefined, { urn })
+            case "aws:ec2/capacityBlockReservation:CapacityBlockReservation":
+                return new CapacityBlockReservation(name, <any>undefined, { urn })
             case "aws:ec2/capacityReservation:CapacityReservation":
                 return new CapacityReservation(name, <any>undefined, { urn })
             case "aws:ec2/carrierGateway:CarrierGateway":
@@ -1003,6 +1015,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/amiCopy", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/amiFromInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/amiLaunchPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/availabilityZoneGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/capacityBlockReservation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/capacityReservation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/carrierGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/customerGateway", _module)

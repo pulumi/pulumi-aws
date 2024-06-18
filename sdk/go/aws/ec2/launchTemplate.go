@@ -58,7 +58,7 @@ type LaunchTemplate struct {
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrOutput `pulumi:"iamInstanceProfile"`
-	// The AMI from which to launch the instance.
+	// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
 	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
 	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
 	// (Default: `stop`).
@@ -181,7 +181,7 @@ type launchTemplateState struct {
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile *LaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfile"`
-	// The AMI from which to launch the instance.
+	// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
 	ImageId *string `pulumi:"imageId"`
 	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
 	// (Default: `stop`).
@@ -275,7 +275,7 @@ type LaunchTemplateState struct {
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrInput
-	// The AMI from which to launch the instance.
+	// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
 	ImageId pulumi.StringPtrInput
 	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
 	// (Default: `stop`).
@@ -371,7 +371,7 @@ type launchTemplateArgs struct {
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile *LaunchTemplateIamInstanceProfile `pulumi:"iamInstanceProfile"`
-	// The AMI from which to launch the instance.
+	// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
 	ImageId *string `pulumi:"imageId"`
 	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
 	// (Default: `stop`).
@@ -458,7 +458,7 @@ type LaunchTemplateArgs struct {
 	// The IAM Instance Profile to launch the instance with. See Instance Profile
 	// below for more details.
 	IamInstanceProfile LaunchTemplateIamInstanceProfilePtrInput
-	// The AMI from which to launch the instance.
+	// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
 	ImageId pulumi.StringPtrInput
 	// Shutdown behavior for the instance. Can be `stop` or `terminate`.
 	// (Default: `stop`).
@@ -683,7 +683,7 @@ func (o LaunchTemplateOutput) IamInstanceProfile() LaunchTemplateIamInstanceProf
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateIamInstanceProfilePtrOutput { return v.IamInstanceProfile }).(LaunchTemplateIamInstanceProfilePtrOutput)
 }
 
-// The AMI from which to launch the instance.
+// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
 func (o LaunchTemplateOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
 }

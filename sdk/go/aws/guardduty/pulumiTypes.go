@@ -1053,7 +1053,7 @@ func (o DetectorDatasourcesS3LogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 }
 
 type DetectorFeatureAdditionalConfiguration struct {
-	// The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+	// The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 	Name string `pulumi:"name"`
 	// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
 	Status string `pulumi:"status"`
@@ -1071,7 +1071,7 @@ type DetectorFeatureAdditionalConfigurationInput interface {
 }
 
 type DetectorFeatureAdditionalConfigurationArgs struct {
-	// The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+	// The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -1128,7 +1128,7 @@ func (o DetectorFeatureAdditionalConfigurationOutput) ToDetectorFeatureAdditiona
 	return o
 }
 
-// The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+// The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 func (o DetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1440,6 +1440,398 @@ func (o FilterFindingCriteriaCriterionArrayOutput) Index(i pulumi.IntInput) Filt
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FilterFindingCriteriaCriterion {
 		return vs[0].([]FilterFindingCriteriaCriterion)[vs[1].(int)]
 	}).(FilterFindingCriteriaCriterionOutput)
+}
+
+type MalwareProtectionPlanAction struct {
+	// Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+	Taggings []interface{} `pulumi:"taggings"`
+}
+
+// MalwareProtectionPlanActionInput is an input type that accepts MalwareProtectionPlanActionArgs and MalwareProtectionPlanActionOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanActionInput` via:
+//
+//	MalwareProtectionPlanActionArgs{...}
+type MalwareProtectionPlanActionInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanActionOutput() MalwareProtectionPlanActionOutput
+	ToMalwareProtectionPlanActionOutputWithContext(context.Context) MalwareProtectionPlanActionOutput
+}
+
+type MalwareProtectionPlanActionArgs struct {
+	// Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+	Taggings pulumi.ArrayInput `pulumi:"taggings"`
+}
+
+func (MalwareProtectionPlanActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanAction)(nil)).Elem()
+}
+
+func (i MalwareProtectionPlanActionArgs) ToMalwareProtectionPlanActionOutput() MalwareProtectionPlanActionOutput {
+	return i.ToMalwareProtectionPlanActionOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanActionArgs) ToMalwareProtectionPlanActionOutputWithContext(ctx context.Context) MalwareProtectionPlanActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanActionOutput)
+}
+
+// MalwareProtectionPlanActionArrayInput is an input type that accepts MalwareProtectionPlanActionArray and MalwareProtectionPlanActionArrayOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanActionArrayInput` via:
+//
+//	MalwareProtectionPlanActionArray{ MalwareProtectionPlanActionArgs{...} }
+type MalwareProtectionPlanActionArrayInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanActionArrayOutput() MalwareProtectionPlanActionArrayOutput
+	ToMalwareProtectionPlanActionArrayOutputWithContext(context.Context) MalwareProtectionPlanActionArrayOutput
+}
+
+type MalwareProtectionPlanActionArray []MalwareProtectionPlanActionInput
+
+func (MalwareProtectionPlanActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MalwareProtectionPlanAction)(nil)).Elem()
+}
+
+func (i MalwareProtectionPlanActionArray) ToMalwareProtectionPlanActionArrayOutput() MalwareProtectionPlanActionArrayOutput {
+	return i.ToMalwareProtectionPlanActionArrayOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanActionArray) ToMalwareProtectionPlanActionArrayOutputWithContext(ctx context.Context) MalwareProtectionPlanActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanActionArrayOutput)
+}
+
+type MalwareProtectionPlanActionOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanAction)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanActionOutput) ToMalwareProtectionPlanActionOutput() MalwareProtectionPlanActionOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanActionOutput) ToMalwareProtectionPlanActionOutputWithContext(ctx context.Context) MalwareProtectionPlanActionOutput {
+	return o
+}
+
+// Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+func (o MalwareProtectionPlanActionOutput) Taggings() pulumi.ArrayOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanAction) []interface{} { return v.Taggings }).(pulumi.ArrayOutput)
+}
+
+type MalwareProtectionPlanActionArrayOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MalwareProtectionPlanAction)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanActionArrayOutput) ToMalwareProtectionPlanActionArrayOutput() MalwareProtectionPlanActionArrayOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanActionArrayOutput) ToMalwareProtectionPlanActionArrayOutputWithContext(ctx context.Context) MalwareProtectionPlanActionArrayOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanActionArrayOutput) Index(i pulumi.IntInput) MalwareProtectionPlanActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MalwareProtectionPlanAction {
+		return vs[0].([]MalwareProtectionPlanAction)[vs[1].(int)]
+	}).(MalwareProtectionPlanActionOutput)
+}
+
+type MalwareProtectionPlanProtectedResource struct {
+	// Information about the protected S3 bucket resource. See `s3Bucket` below.
+	S3Bucket *MalwareProtectionPlanProtectedResourceS3Bucket `pulumi:"s3Bucket"`
+}
+
+// MalwareProtectionPlanProtectedResourceInput is an input type that accepts MalwareProtectionPlanProtectedResourceArgs and MalwareProtectionPlanProtectedResourceOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanProtectedResourceInput` via:
+//
+//	MalwareProtectionPlanProtectedResourceArgs{...}
+type MalwareProtectionPlanProtectedResourceInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanProtectedResourceOutput() MalwareProtectionPlanProtectedResourceOutput
+	ToMalwareProtectionPlanProtectedResourceOutputWithContext(context.Context) MalwareProtectionPlanProtectedResourceOutput
+}
+
+type MalwareProtectionPlanProtectedResourceArgs struct {
+	// Information about the protected S3 bucket resource. See `s3Bucket` below.
+	S3Bucket MalwareProtectionPlanProtectedResourceS3BucketPtrInput `pulumi:"s3Bucket"`
+}
+
+func (MalwareProtectionPlanProtectedResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanProtectedResource)(nil)).Elem()
+}
+
+func (i MalwareProtectionPlanProtectedResourceArgs) ToMalwareProtectionPlanProtectedResourceOutput() MalwareProtectionPlanProtectedResourceOutput {
+	return i.ToMalwareProtectionPlanProtectedResourceOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanProtectedResourceArgs) ToMalwareProtectionPlanProtectedResourceOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanProtectedResourceOutput)
+}
+
+func (i MalwareProtectionPlanProtectedResourceArgs) ToMalwareProtectionPlanProtectedResourcePtrOutput() MalwareProtectionPlanProtectedResourcePtrOutput {
+	return i.ToMalwareProtectionPlanProtectedResourcePtrOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanProtectedResourceArgs) ToMalwareProtectionPlanProtectedResourcePtrOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanProtectedResourceOutput).ToMalwareProtectionPlanProtectedResourcePtrOutputWithContext(ctx)
+}
+
+// MalwareProtectionPlanProtectedResourcePtrInput is an input type that accepts MalwareProtectionPlanProtectedResourceArgs, MalwareProtectionPlanProtectedResourcePtr and MalwareProtectionPlanProtectedResourcePtrOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanProtectedResourcePtrInput` via:
+//
+//	        MalwareProtectionPlanProtectedResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type MalwareProtectionPlanProtectedResourcePtrInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanProtectedResourcePtrOutput() MalwareProtectionPlanProtectedResourcePtrOutput
+	ToMalwareProtectionPlanProtectedResourcePtrOutputWithContext(context.Context) MalwareProtectionPlanProtectedResourcePtrOutput
+}
+
+type malwareProtectionPlanProtectedResourcePtrType MalwareProtectionPlanProtectedResourceArgs
+
+func MalwareProtectionPlanProtectedResourcePtr(v *MalwareProtectionPlanProtectedResourceArgs) MalwareProtectionPlanProtectedResourcePtrInput {
+	return (*malwareProtectionPlanProtectedResourcePtrType)(v)
+}
+
+func (*malwareProtectionPlanProtectedResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MalwareProtectionPlanProtectedResource)(nil)).Elem()
+}
+
+func (i *malwareProtectionPlanProtectedResourcePtrType) ToMalwareProtectionPlanProtectedResourcePtrOutput() MalwareProtectionPlanProtectedResourcePtrOutput {
+	return i.ToMalwareProtectionPlanProtectedResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *malwareProtectionPlanProtectedResourcePtrType) ToMalwareProtectionPlanProtectedResourcePtrOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanProtectedResourcePtrOutput)
+}
+
+type MalwareProtectionPlanProtectedResourceOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanProtectedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanProtectedResource)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanProtectedResourceOutput) ToMalwareProtectionPlanProtectedResourceOutput() MalwareProtectionPlanProtectedResourceOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanProtectedResourceOutput) ToMalwareProtectionPlanProtectedResourceOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourceOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanProtectedResourceOutput) ToMalwareProtectionPlanProtectedResourcePtrOutput() MalwareProtectionPlanProtectedResourcePtrOutput {
+	return o.ToMalwareProtectionPlanProtectedResourcePtrOutputWithContext(context.Background())
+}
+
+func (o MalwareProtectionPlanProtectedResourceOutput) ToMalwareProtectionPlanProtectedResourcePtrOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MalwareProtectionPlanProtectedResource) *MalwareProtectionPlanProtectedResource {
+		return &v
+	}).(MalwareProtectionPlanProtectedResourcePtrOutput)
+}
+
+// Information about the protected S3 bucket resource. See `s3Bucket` below.
+func (o MalwareProtectionPlanProtectedResourceOutput) S3Bucket() MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanProtectedResource) *MalwareProtectionPlanProtectedResourceS3Bucket {
+		return v.S3Bucket
+	}).(MalwareProtectionPlanProtectedResourceS3BucketPtrOutput)
+}
+
+type MalwareProtectionPlanProtectedResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanProtectedResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MalwareProtectionPlanProtectedResource)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanProtectedResourcePtrOutput) ToMalwareProtectionPlanProtectedResourcePtrOutput() MalwareProtectionPlanProtectedResourcePtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanProtectedResourcePtrOutput) ToMalwareProtectionPlanProtectedResourcePtrOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourcePtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanProtectedResourcePtrOutput) Elem() MalwareProtectionPlanProtectedResourceOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanProtectedResource) MalwareProtectionPlanProtectedResource {
+		if v != nil {
+			return *v
+		}
+		var ret MalwareProtectionPlanProtectedResource
+		return ret
+	}).(MalwareProtectionPlanProtectedResourceOutput)
+}
+
+// Information about the protected S3 bucket resource. See `s3Bucket` below.
+func (o MalwareProtectionPlanProtectedResourcePtrOutput) S3Bucket() MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanProtectedResource) *MalwareProtectionPlanProtectedResourceS3Bucket {
+		if v == nil {
+			return nil
+		}
+		return v.S3Bucket
+	}).(MalwareProtectionPlanProtectedResourceS3BucketPtrOutput)
+}
+
+type MalwareProtectionPlanProtectedResourceS3Bucket struct {
+	// Name of the S3 bucket.
+	BucketName string `pulumi:"bucketName"`
+	// The list of object prefixes that specify the S3 objects that will be scanned.
+	ObjectPrefixes []string `pulumi:"objectPrefixes"`
+}
+
+// MalwareProtectionPlanProtectedResourceS3BucketInput is an input type that accepts MalwareProtectionPlanProtectedResourceS3BucketArgs and MalwareProtectionPlanProtectedResourceS3BucketOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanProtectedResourceS3BucketInput` via:
+//
+//	MalwareProtectionPlanProtectedResourceS3BucketArgs{...}
+type MalwareProtectionPlanProtectedResourceS3BucketInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanProtectedResourceS3BucketOutput() MalwareProtectionPlanProtectedResourceS3BucketOutput
+	ToMalwareProtectionPlanProtectedResourceS3BucketOutputWithContext(context.Context) MalwareProtectionPlanProtectedResourceS3BucketOutput
+}
+
+type MalwareProtectionPlanProtectedResourceS3BucketArgs struct {
+	// Name of the S3 bucket.
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// The list of object prefixes that specify the S3 objects that will be scanned.
+	ObjectPrefixes pulumi.StringArrayInput `pulumi:"objectPrefixes"`
+}
+
+func (MalwareProtectionPlanProtectedResourceS3BucketArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanProtectedResourceS3Bucket)(nil)).Elem()
+}
+
+func (i MalwareProtectionPlanProtectedResourceS3BucketArgs) ToMalwareProtectionPlanProtectedResourceS3BucketOutput() MalwareProtectionPlanProtectedResourceS3BucketOutput {
+	return i.ToMalwareProtectionPlanProtectedResourceS3BucketOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanProtectedResourceS3BucketArgs) ToMalwareProtectionPlanProtectedResourceS3BucketOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourceS3BucketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanProtectedResourceS3BucketOutput)
+}
+
+func (i MalwareProtectionPlanProtectedResourceS3BucketArgs) ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutput() MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
+	return i.ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanProtectedResourceS3BucketArgs) ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanProtectedResourceS3BucketOutput).ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutputWithContext(ctx)
+}
+
+// MalwareProtectionPlanProtectedResourceS3BucketPtrInput is an input type that accepts MalwareProtectionPlanProtectedResourceS3BucketArgs, MalwareProtectionPlanProtectedResourceS3BucketPtr and MalwareProtectionPlanProtectedResourceS3BucketPtrOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanProtectedResourceS3BucketPtrInput` via:
+//
+//	        MalwareProtectionPlanProtectedResourceS3BucketArgs{...}
+//
+//	or:
+//
+//	        nil
+type MalwareProtectionPlanProtectedResourceS3BucketPtrInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutput() MalwareProtectionPlanProtectedResourceS3BucketPtrOutput
+	ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutputWithContext(context.Context) MalwareProtectionPlanProtectedResourceS3BucketPtrOutput
+}
+
+type malwareProtectionPlanProtectedResourceS3BucketPtrType MalwareProtectionPlanProtectedResourceS3BucketArgs
+
+func MalwareProtectionPlanProtectedResourceS3BucketPtr(v *MalwareProtectionPlanProtectedResourceS3BucketArgs) MalwareProtectionPlanProtectedResourceS3BucketPtrInput {
+	return (*malwareProtectionPlanProtectedResourceS3BucketPtrType)(v)
+}
+
+func (*malwareProtectionPlanProtectedResourceS3BucketPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MalwareProtectionPlanProtectedResourceS3Bucket)(nil)).Elem()
+}
+
+func (i *malwareProtectionPlanProtectedResourceS3BucketPtrType) ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutput() MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
+	return i.ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutputWithContext(context.Background())
+}
+
+func (i *malwareProtectionPlanProtectedResourceS3BucketPtrType) ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanProtectedResourceS3BucketPtrOutput)
+}
+
+type MalwareProtectionPlanProtectedResourceS3BucketOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanProtectedResourceS3BucketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanProtectedResourceS3Bucket)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanProtectedResourceS3BucketOutput) ToMalwareProtectionPlanProtectedResourceS3BucketOutput() MalwareProtectionPlanProtectedResourceS3BucketOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanProtectedResourceS3BucketOutput) ToMalwareProtectionPlanProtectedResourceS3BucketOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourceS3BucketOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanProtectedResourceS3BucketOutput) ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutput() MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
+	return o.ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutputWithContext(context.Background())
+}
+
+func (o MalwareProtectionPlanProtectedResourceS3BucketOutput) ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MalwareProtectionPlanProtectedResourceS3Bucket) *MalwareProtectionPlanProtectedResourceS3Bucket {
+		return &v
+	}).(MalwareProtectionPlanProtectedResourceS3BucketPtrOutput)
+}
+
+// Name of the S3 bucket.
+func (o MalwareProtectionPlanProtectedResourceS3BucketOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanProtectedResourceS3Bucket) string { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// The list of object prefixes that specify the S3 objects that will be scanned.
+func (o MalwareProtectionPlanProtectedResourceS3BucketOutput) ObjectPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanProtectedResourceS3Bucket) []string { return v.ObjectPrefixes }).(pulumi.StringArrayOutput)
+}
+
+type MalwareProtectionPlanProtectedResourceS3BucketPtrOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanProtectedResourceS3BucketPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MalwareProtectionPlanProtectedResourceS3Bucket)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanProtectedResourceS3BucketPtrOutput) ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutput() MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanProtectedResourceS3BucketPtrOutput) ToMalwareProtectionPlanProtectedResourceS3BucketPtrOutputWithContext(ctx context.Context) MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanProtectedResourceS3BucketPtrOutput) Elem() MalwareProtectionPlanProtectedResourceS3BucketOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanProtectedResourceS3Bucket) MalwareProtectionPlanProtectedResourceS3Bucket {
+		if v != nil {
+			return *v
+		}
+		var ret MalwareProtectionPlanProtectedResourceS3Bucket
+		return ret
+	}).(MalwareProtectionPlanProtectedResourceS3BucketOutput)
+}
+
+// Name of the S3 bucket.
+func (o MalwareProtectionPlanProtectedResourceS3BucketPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanProtectedResourceS3Bucket) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of object prefixes that specify the S3 objects that will be scanned.
+func (o MalwareProtectionPlanProtectedResourceS3BucketPtrOutput) ObjectPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MalwareProtectionPlanProtectedResourceS3Bucket) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectPrefixes
+	}).(pulumi.StringArrayOutput)
 }
 
 type OrganizationConfigurationDatasources struct {
@@ -2476,7 +2868,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi
 type OrganizationConfigurationFeatureAdditionalConfiguration struct {
 	// The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable string `pulumi:"autoEnable"`
-	// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+	// The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 	Name string `pulumi:"name"`
 }
 
@@ -2494,7 +2886,7 @@ type OrganizationConfigurationFeatureAdditionalConfigurationInput interface {
 type OrganizationConfigurationFeatureAdditionalConfigurationArgs struct {
 	// The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
 	AutoEnable pulumi.StringInput `pulumi:"autoEnable"`
-	// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+	// The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2554,7 +2946,7 @@ func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) AutoEnabl
 	return o.ApplyT(func(v OrganizationConfigurationFeatureAdditionalConfiguration) string { return v.AutoEnable }).(pulumi.StringOutput)
 }
 
-// The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+// The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
 func (o OrganizationConfigurationFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationConfigurationFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2823,6 +3215,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaPtrInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaCriterionInput)(nil)).Elem(), FilterFindingCriteriaCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaCriterionArrayInput)(nil)).Elem(), FilterFindingCriteriaCriterionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanActionInput)(nil)).Elem(), MalwareProtectionPlanActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanActionArrayInput)(nil)).Elem(), MalwareProtectionPlanActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanProtectedResourceInput)(nil)).Elem(), MalwareProtectionPlanProtectedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanProtectedResourcePtrInput)(nil)).Elem(), MalwareProtectionPlanProtectedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanProtectedResourceS3BucketInput)(nil)).Elem(), MalwareProtectionPlanProtectedResourceS3BucketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanProtectedResourceS3BucketPtrInput)(nil)).Elem(), MalwareProtectionPlanProtectedResourceS3BucketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesInput)(nil)).Elem(), OrganizationConfigurationDatasourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesKubernetesInput)(nil)).Elem(), OrganizationConfigurationDatasourcesKubernetesArgs{})
@@ -2863,6 +3261,12 @@ func init() {
 	pulumi.RegisterOutputType(FilterFindingCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaCriterionOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaCriterionArrayOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanActionOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanActionArrayOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanProtectedResourceOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanProtectedResourcePtrOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanProtectedResourceS3BucketOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanProtectedResourceS3BucketPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesKubernetesOutput{})

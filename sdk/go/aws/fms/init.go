@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AdminAccount{}
 	case "aws:fms/policy:Policy":
 		r = &Policy{}
+	case "aws:fms/resourceSet:ResourceSet":
+		r = &ResourceSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"fms/policy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"fms/resourceSet",
 		&module{version},
 	)
 }

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CodePipeline.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineTriggerGitConfigurationPush> Pushes;
         /// <summary>
-        /// The name of the pipeline source action where the trigger configuration.
+        /// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
         /// </summary>
         public readonly string SourceActionName;
 

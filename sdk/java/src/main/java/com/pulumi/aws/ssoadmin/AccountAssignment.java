@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .identityStoreId(ssoInstance.identityStoreIds()[0])
+ *             .identityStoreId(example.applyValue(getInstancesResult -> getInstancesResult.identityStoreIds()[0]))
  *             .displayName("Admin")
  *             .description("Admin Group")
  *             .build());

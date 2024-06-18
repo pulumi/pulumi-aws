@@ -284,7 +284,7 @@ type Project struct {
 	BadgeUrl pulumi.StringOutput `pulumi:"badgeUrl"`
 	// Defines the batch build options for the project.
 	BuildBatchConfig ProjectBuildBatchConfigPtrOutput `pulumi:"buildBatchConfig"`
-	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+	// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 	BuildTimeout pulumi.IntPtrOutput `pulumi:"buildTimeout"`
 	// Configuration block. Detailed below.
 	Cache ProjectCachePtrOutput `pulumi:"cache"`
@@ -386,7 +386,7 @@ type projectState struct {
 	BadgeUrl *string `pulumi:"badgeUrl"`
 	// Defines the batch build options for the project.
 	BuildBatchConfig *ProjectBuildBatchConfig `pulumi:"buildBatchConfig"`
-	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+	// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 	BuildTimeout *int `pulumi:"buildTimeout"`
 	// Configuration block. Detailed below.
 	Cache *ProjectCache `pulumi:"cache"`
@@ -447,7 +447,7 @@ type ProjectState struct {
 	BadgeUrl pulumi.StringPtrInput
 	// Defines the batch build options for the project.
 	BuildBatchConfig ProjectBuildBatchConfigPtrInput
-	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+	// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 	BuildTimeout pulumi.IntPtrInput
 	// Configuration block. Detailed below.
 	Cache ProjectCachePtrInput
@@ -508,7 +508,7 @@ type projectArgs struct {
 	BadgeEnabled *bool `pulumi:"badgeEnabled"`
 	// Defines the batch build options for the project.
 	BuildBatchConfig *ProjectBuildBatchConfig `pulumi:"buildBatchConfig"`
-	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+	// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 	BuildTimeout *int `pulumi:"buildTimeout"`
 	// Configuration block. Detailed below.
 	Cache *ProjectCache `pulumi:"cache"`
@@ -560,7 +560,7 @@ type ProjectArgs struct {
 	BadgeEnabled pulumi.BoolPtrInput
 	// Defines the batch build options for the project.
 	BuildBatchConfig ProjectBuildBatchConfigPtrInput
-	// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+	// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 	BuildTimeout pulumi.IntPtrInput
 	// Configuration block. Detailed below.
 	Cache ProjectCachePtrInput
@@ -716,7 +716,7 @@ func (o ProjectOutput) BuildBatchConfig() ProjectBuildBatchConfigPtrOutput {
 	return o.ApplyT(func(v *Project) ProjectBuildBatchConfigPtrOutput { return v.BuildBatchConfig }).(ProjectBuildBatchConfigPtrOutput)
 }
 
-// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
+// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `buildTimeout` property is not available on the `Lambda` compute type.
 func (o ProjectOutput) BuildTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.IntPtrOutput { return v.BuildTimeout }).(pulumi.IntPtrOutput)
 }

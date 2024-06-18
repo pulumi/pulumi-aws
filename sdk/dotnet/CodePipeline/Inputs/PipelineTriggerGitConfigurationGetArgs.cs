@@ -37,7 +37,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         }
 
         /// <summary>
-        /// The name of the pipeline source action where the trigger configuration.
+        /// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
         /// </summary>
         [Input("sourceActionName", required: true)]
         public Input<string> SourceActionName { get; set; } = null!;

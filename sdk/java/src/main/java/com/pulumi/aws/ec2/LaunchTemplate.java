@@ -272,14 +272,14 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.iamInstanceProfile);
     }
     /**
-     * The AMI from which to launch the instance.
+     * The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      * 
      */
     @Export(name="imageId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageId;
 
     /**
-     * @return The AMI from which to launch the instance.
+     * @return The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
      * 
      */
     public Output<Optional<String>> imageId() {

@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? AllocationStrategy;
         /// <summary>
+        /// The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+        /// </summary>
+        public readonly Outputs.FleetOnDemandOptionsCapacityReservationOptions? CapacityReservationOptions;
+        /// <summary>
         /// The maximum amount per hour for On-Demand Instances that you're willing to pay.
         /// </summary>
         public readonly string? MaxTotalPrice;
@@ -39,6 +43,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         private FleetOnDemandOptions(
             string? allocationStrategy,
 
+            Outputs.FleetOnDemandOptionsCapacityReservationOptions? capacityReservationOptions,
+
             string? maxTotalPrice,
 
             int? minTargetCapacity,
@@ -48,6 +54,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             bool? singleInstanceType)
         {
             AllocationStrategy = allocationStrategy;
+            CapacityReservationOptions = capacityReservationOptions;
             MaxTotalPrice = maxTotalPrice;
             MinTargetCapacity = minTargetCapacity;
             SingleAvailabilityZone = singleAvailabilityZone;

@@ -45,6 +45,8 @@ if typing.TYPE_CHECKING:
     appautoscaling = __appautoscaling
     import pulumi_aws.appconfig as __appconfig
     appconfig = __appconfig
+    import pulumi_aws.appfabric as __appfabric
+    appfabric = __appfabric
     import pulumi_aws.appflow as __appflow
     appflow = __appflow
     import pulumi_aws.appintegrations as __appintegrations
@@ -451,6 +453,7 @@ else:
     apigatewayv2 = _utilities.lazy_import('pulumi_aws.apigatewayv2')
     appautoscaling = _utilities.lazy_import('pulumi_aws.appautoscaling')
     appconfig = _utilities.lazy_import('pulumi_aws.appconfig')
+    appfabric = _utilities.lazy_import('pulumi_aws.appfabric')
     appflow = _utilities.lazy_import('pulumi_aws.appflow')
     appintegrations = _utilities.lazy_import('pulumi_aws.appintegrations')
     applicationinsights = _utilities.lazy_import('pulumi_aws.applicationinsights')
@@ -1250,6 +1253,22 @@ _utilities.register(
   "fqn": "pulumi_aws.appconfig",
   "classes": {
    "aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion": "HostedConfigurationVersion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appfabric/appAuthorization",
+  "fqn": "pulumi_aws.appfabric",
+  "classes": {
+   "aws:appfabric/appAuthorization:AppAuthorization": "AppAuthorization"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appfabric/appBundle",
+  "fqn": "pulumi_aws.appfabric",
+  "classes": {
+   "aws:appfabric/appBundle:AppBundle": "AppBundle"
   }
  },
  {
@@ -3918,6 +3937,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/capacityBlockReservation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/capacityBlockReservation:CapacityBlockReservation": "CapacityBlockReservation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/capacityReservation",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -5494,6 +5521,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "fms/resourceSet",
+  "fqn": "pulumi_aws.fms",
+  "classes": {
+   "aws:fms/resourceSet:ResourceSet": "ResourceSet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "fsx/backup",
   "fqn": "pulumi_aws.fsx",
   "classes": {
@@ -5946,6 +5981,14 @@ _utilities.register(
   "fqn": "pulumi_aws.guardduty",
   "classes": {
    "aws:guardduty/inviteAccepter:InviteAccepter": "InviteAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "guardduty/malwareProtectionPlan",
+  "fqn": "pulumi_aws.guardduty",
+  "classes": {
+   "aws:guardduty/malwareProtectionPlan:MalwareProtectionPlan": "MalwareProtectionPlan"
   }
  },
  {

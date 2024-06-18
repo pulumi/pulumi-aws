@@ -1363,7 +1363,7 @@ type PipelineTriggerGitConfiguration struct {
 	PullRequests []PipelineTriggerGitConfigurationPullRequest `pulumi:"pullRequests"`
 	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
 	Pushes []PipelineTriggerGitConfigurationPush `pulumi:"pushes"`
-	// The name of the pipeline source action where the trigger configuration.
+	// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
 	SourceActionName string `pulumi:"sourceActionName"`
 }
 
@@ -1383,7 +1383,7 @@ type PipelineTriggerGitConfigurationArgs struct {
 	PullRequests PipelineTriggerGitConfigurationPullRequestArrayInput `pulumi:"pullRequests"`
 	// The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
 	Pushes PipelineTriggerGitConfigurationPushArrayInput `pulumi:"pushes"`
-	// The name of the pipeline source action where the trigger configuration.
+	// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
 	SourceActionName pulumi.StringInput `pulumi:"sourceActionName"`
 }
 
@@ -1425,7 +1425,7 @@ func (o PipelineTriggerGitConfigurationOutput) Pushes() PipelineTriggerGitConfig
 	return o.ApplyT(func(v PipelineTriggerGitConfiguration) []PipelineTriggerGitConfigurationPush { return v.Pushes }).(PipelineTriggerGitConfigurationPushArrayOutput)
 }
 
-// The name of the pipeline source action where the trigger configuration.
+// The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
 func (o PipelineTriggerGitConfigurationOutput) SourceActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v PipelineTriggerGitConfiguration) string { return v.SourceActionName }).(pulumi.StringOutput)
 }

@@ -85,6 +85,7 @@ import * as apigateway from "./apigateway";
 import * as apigatewayv2 from "./apigatewayv2";
 import * as appautoscaling from "./appautoscaling";
 import * as appconfig from "./appconfig";
+import * as appfabric from "./appfabric";
 import * as appflow from "./appflow";
 import * as appintegrations from "./appintegrations";
 import * as applicationinsights from "./applicationinsights";
@@ -296,6 +297,7 @@ export {
     apigatewayv2,
     appautoscaling,
     appconfig,
+    appfabric,
     appflow,
     appintegrations,
     applicationinsights,

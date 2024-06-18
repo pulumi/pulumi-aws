@@ -329,7 +329,7 @@ namespace Pulumi.Aws.CodeBuild
         public Output<Outputs.ProjectBuildBatchConfig?> BuildBatchConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+        /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Output("buildTimeout")]
         public Output<int?> BuildTimeout { get; private set; } = null!;
@@ -527,7 +527,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectBuildBatchConfigArgs>? BuildBatchConfig { get; set; }
 
         /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+        /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Input("buildTimeout")]
         public Input<int>? BuildTimeout { get; set; }
@@ -717,7 +717,7 @@ namespace Pulumi.Aws.CodeBuild
         public Input<Inputs.ProjectBuildBatchConfigGetArgs>? BuildBatchConfig { get; set; }
 
         /// <summary>
-        /// Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
+        /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         /// </summary>
         [Input("buildTimeout")]
         public Input<int>? BuildTimeout { get; set; }

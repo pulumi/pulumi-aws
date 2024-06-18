@@ -89,6 +89,44 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
+    /// ### Interface Endpoint Type with User-Defined IP Address
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ec2 = new Aws.Ec2.VpcEndpoint("ec2", new()
+    ///     {
+    ///         VpcId = example.Id,
+    ///         ServiceName = "com.amazonaws.us-west-2.ec2",
+    ///         VpcEndpointType = "Interface",
+    ///         SubnetConfigurations = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.VpcEndpointSubnetConfigurationArgs
+    ///             {
+    ///                 Ipv4 = "10.0.1.10",
+    ///                 SubnetId = example1.Id,
+    ///             },
+    ///             new Aws.Ec2.Inputs.VpcEndpointSubnetConfigurationArgs
+    ///             {
+    ///                 Ipv4 = "10.0.2.10",
+    ///                 SubnetId = example2.Id,
+    ///             },
+    ///         },
+    ///         SubnetIds = new[]
+    ///         {
+    ///             example1.Id,
+    ///             example2.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Gateway Load Balancer Endpoint Type
     /// 
     /// ```csharp
@@ -238,6 +276,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
+        /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+        /// </summary>
+        [Output("subnetConfigurations")]
+        public Output<ImmutableArray<Outputs.VpcEndpointSubnetConfiguration>> SubnetConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         /// </summary>
         [Output("subnetIds")]
@@ -374,6 +418,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        [Input("subnetConfigurations")]
+        private InputList<Inputs.VpcEndpointSubnetConfigurationArgs>? _subnetConfigurations;
+
+        /// <summary>
+        /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+        /// </summary>
+        public InputList<Inputs.VpcEndpointSubnetConfigurationArgs> SubnetConfigurations
+        {
+            get => _subnetConfigurations ?? (_subnetConfigurations = new InputList<Inputs.VpcEndpointSubnetConfigurationArgs>());
+            set => _subnetConfigurations = value;
+        }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
@@ -546,6 +602,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        [Input("subnetConfigurations")]
+        private InputList<Inputs.VpcEndpointSubnetConfigurationGetArgs>? _subnetConfigurations;
+
+        /// <summary>
+        /// Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
+        /// </summary>
+        public InputList<Inputs.VpcEndpointSubnetConfigurationGetArgs> SubnetConfigurations
+        {
+            get => _subnetConfigurations ?? (_subnetConfigurations = new InputList<Inputs.VpcEndpointSubnetConfigurationGetArgs>());
+            set => _subnetConfigurations = value;
+        }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;

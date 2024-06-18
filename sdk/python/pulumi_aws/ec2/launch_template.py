@@ -74,7 +74,7 @@ class LaunchTemplateArgs:
         :param pulumi.Input['LaunchTemplateHibernationOptionsArgs'] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input['LaunchTemplateIamInstanceProfileArgs'] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
-        :param pulumi.Input[str] image_id: The AMI from which to launch the instance.
+        :param pulumi.Input[str] image_id: The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Can be `stop` or `terminate`.
                (Default: `stop`).
         :param pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs'] instance_market_options: The market (purchasing) option for the instance. See Market Options
@@ -354,7 +354,7 @@ class LaunchTemplateArgs:
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AMI from which to launch the instance.
+        The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         """
         return pulumi.get(self, "image_id")
 
@@ -696,7 +696,7 @@ class _LaunchTemplateState:
         :param pulumi.Input['LaunchTemplateHibernationOptionsArgs'] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input['LaunchTemplateIamInstanceProfileArgs'] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
-        :param pulumi.Input[str] image_id: The AMI from which to launch the instance.
+        :param pulumi.Input[str] image_id: The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Can be `stop` or `terminate`.
                (Default: `stop`).
         :param pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs'] instance_market_options: The market (purchasing) option for the instance. See Market Options
@@ -999,7 +999,7 @@ class _LaunchTemplateState:
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The AMI from which to launch the instance.
+        The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         """
         return pulumi.get(self, "image_id")
 
@@ -1378,7 +1378,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LaunchTemplateHibernationOptionsArgs']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateIamInstanceProfileArgs']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
-        :param pulumi.Input[str] image_id: The AMI from which to launch the instance.
+        :param pulumi.Input[str] image_id: The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Can be `stop` or `terminate`.
                (Default: `stop`).
         :param pulumi.Input[pulumi.InputType['LaunchTemplateInstanceMarketOptionsArgs']] instance_market_options: The market (purchasing) option for the instance. See Market Options
@@ -1601,7 +1601,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LaunchTemplateHibernationOptionsArgs']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateIamInstanceProfileArgs']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
                below for more details.
-        :param pulumi.Input[str] image_id: The AMI from which to launch the instance.
+        :param pulumi.Input[str] image_id: The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Can be `stop` or `terminate`.
                (Default: `stop`).
         :param pulumi.Input[pulumi.InputType['LaunchTemplateInstanceMarketOptionsArgs']] instance_market_options: The market (purchasing) option for the instance. See Market Options
@@ -1806,7 +1806,7 @@ class LaunchTemplate(pulumi.CustomResource):
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The AMI from which to launch the instance.
+        The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         """
         return pulumi.get(self, "image_id")
 

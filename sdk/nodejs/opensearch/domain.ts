@@ -370,6 +370,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
+     * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+     */
+    public readonly ipAddressType!: pulumi.Output<string>;
+    /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
      *
      * @deprecated use 'dashboard_endpoint' attribute instead
@@ -438,6 +442,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["encryptAtRest"] = state ? state.encryptAtRest : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
             resourceInputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
@@ -460,6 +465,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["ebsOptions"] = args ? args.ebsOptions : undefined;
             resourceInputs["encryptAtRest"] = args ? args.encryptAtRest : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
             resourceInputs["offPeakWindowOptions"] = args ? args.offPeakWindowOptions : undefined;
@@ -547,6 +553,10 @@ export interface DomainState {
      * Defaults to the lastest version of OpenSearch.
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
      *
@@ -641,6 +651,10 @@ export interface DomainArgs {
      * Defaults to the lastest version of OpenSearch.
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */

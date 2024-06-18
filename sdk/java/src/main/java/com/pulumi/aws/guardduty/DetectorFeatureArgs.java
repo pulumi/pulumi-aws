@@ -19,14 +19,14 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
     public static final DetectorFeatureArgs Empty = new DetectorFeatureArgs();
 
     /**
-     * Additional feature configuration block. See below.
+     * Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      * 
      */
     @Import(name="additionalConfigurations")
     private @Nullable Output<List<DetectorFeatureAdditionalConfigurationArgs>> additionalConfigurations;
 
     /**
-     * @return Additional feature configuration block. See below.
+     * @return Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
      * 
      */
     public Optional<Output<List<DetectorFeatureAdditionalConfigurationArgs>>> additionalConfigurations() {
@@ -49,14 +49,14 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the detector feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+     * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the detector feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+     * @return The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      * 
      */
     public Optional<Output<String>> name() {
@@ -106,7 +106,7 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param additionalConfigurations Additional feature configuration block. See below.
+         * @param additionalConfigurations Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param additionalConfigurations Additional feature configuration block. See below.
+         * @param additionalConfigurations Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param additionalConfigurations Additional feature configuration block. See below.
+         * @param additionalConfigurations Additional feature configuration block for features`EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the detector feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+         * @param name The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class DetectorFeatureArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name of the detector feature. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+         * @param name The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
          * 
          * @return builder
          * 

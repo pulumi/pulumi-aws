@@ -15,6 +15,11 @@ export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
 utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
+export { ResourceSetArgs, ResourceSetState } from "./resourceSet";
+export type ResourceSet = import("./resourceSet").ResourceSet;
+export const ResourceSet: typeof import("./resourceSet").ResourceSet = null as any;
+utilities.lazyLoad(exports, ["ResourceSet"], () => require("./resourceSet"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +29,8 @@ const _module = {
                 return new AdminAccount(name, <any>undefined, { urn })
             case "aws:fms/policy:Policy":
                 return new Policy(name, <any>undefined, { urn })
+            case "aws:fms/resourceSet:ResourceSet":
+                return new ResourceSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -31,3 +38,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "fms/adminAccount", _module)
 pulumi.runtime.registerResourceModule("aws", "fms/policy", _module)
+pulumi.runtime.registerResourceModule("aws", "fms/resourceSet", _module)

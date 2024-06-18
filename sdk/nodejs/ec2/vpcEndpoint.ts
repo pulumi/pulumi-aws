@@ -62,6 +62,33 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Interface Endpoint Type with User-Defined IP Address
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ec2 = new aws.ec2.VpcEndpoint("ec2", {
+ *     vpcId: example.id,
+ *     serviceName: "com.amazonaws.us-west-2.ec2",
+ *     vpcEndpointType: "Interface",
+ *     subnetConfigurations: [
+ *         {
+ *             ipv4: "10.0.1.10",
+ *             subnetId: example1.id,
+ *         },
+ *         {
+ *             ipv4: "10.0.2.10",
+ *             subnetId: example2.id,
+ *         },
+ *     ],
+ *     subnetIds: [
+ *         example1.id,
+ *         example2.id,
+ *     ],
+ * });
+ * ```
+ *
  * ### Gateway Load Balancer Endpoint Type
  *
  * ```typescript
@@ -185,6 +212,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
+     * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
+     */
+    public readonly subnetConfigurations!: pulumi.Output<outputs.ec2.VpcEndpointSubnetConfiguration[]>;
+    /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
@@ -236,6 +267,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["subnetConfigurations"] = state ? state.subnetConfigurations : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -257,6 +289,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["subnetConfigurations"] = args ? args.subnetConfigurations : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
@@ -347,6 +380,10 @@ export interface VpcEndpointState {
      */
     state?: pulumi.Input<string>;
     /**
+     * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
+     */
+    subnetConfigurations?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointSubnetConfiguration>[]>;
+    /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -408,6 +445,10 @@ export interface VpcEndpointArgs {
      * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
     serviceName: pulumi.Input<string>;
+    /**
+     * Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnetConfiguration below.
+     */
+    subnetConfigurations?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointSubnetConfiguration>[]>;
     /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      */

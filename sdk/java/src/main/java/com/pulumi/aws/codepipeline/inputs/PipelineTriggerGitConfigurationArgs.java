@@ -50,14 +50,14 @@ public final class PipelineTriggerGitConfigurationArgs extends com.pulumi.resour
     }
 
     /**
-     * The name of the pipeline source action where the trigger configuration.
+     * The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
      * 
      */
     @Import(name="sourceActionName", required=true)
     private Output<String> sourceActionName;
 
     /**
-     * @return The name of the pipeline source action where the trigger configuration.
+     * @return The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
      * 
      */
     public Output<String> sourceActionName() {
@@ -153,7 +153,7 @@ public final class PipelineTriggerGitConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param sourceActionName The name of the pipeline source action where the trigger configuration.
+         * @param sourceActionName The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class PipelineTriggerGitConfigurationArgs extends com.pulumi.resour
         }
 
         /**
-         * @param sourceActionName The name of the pipeline source action where the trigger configuration.
+         * @param sourceActionName The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class LaunchTemplateElasticGpuSpecificationArgs extends com.pulumi.
     public static final LaunchTemplateElasticGpuSpecificationArgs Empty = new LaunchTemplateElasticGpuSpecificationArgs();
 
     /**
-     * The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+     * The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+     * @return The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
      * 
      */
     public Output<String> type() {
@@ -54,7 +54,7 @@ public final class LaunchTemplateElasticGpuSpecificationArgs extends com.pulumi.
         }
 
         /**
-         * @param type The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+         * @param type The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class LaunchTemplateElasticGpuSpecificationArgs extends com.pulumi.
         }
 
         /**
-         * @param type The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+         * @param type The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
          * 
          * @return builder
          * 

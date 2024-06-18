@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IPSet{}
 	case "aws:guardduty/inviteAccepter:InviteAccepter":
 		r = &InviteAccepter{}
+	case "aws:guardduty/malwareProtectionPlan:MalwareProtectionPlan":
+		r = &MalwareProtectionPlan{}
 	case "aws:guardduty/member:Member":
 		r = &Member{}
 	case "aws:guardduty/organizationAdminAccount:OrganizationAdminAccount":
@@ -79,6 +81,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"guardduty/inviteAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"guardduty/malwareProtectionPlan",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

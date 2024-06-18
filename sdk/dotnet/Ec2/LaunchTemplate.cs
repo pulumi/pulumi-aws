@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchTemplateIamInstanceProfile?> IamInstanceProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The AMI from which to launch the instance.
+        /// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         /// </summary>
         [Output("imageId")]
         public Output<string?> ImageId { get; private set; } = null!;
@@ -420,7 +420,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateIamInstanceProfileArgs>? IamInstanceProfile { get; set; }
 
         /// <summary>
-        /// The AMI from which to launch the instance.
+        /// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
@@ -713,7 +713,7 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateIamInstanceProfileGetArgs>? IamInstanceProfile { get; set; }
 
         /// <summary>
-        /// The AMI from which to launch the instance.
+        /// The AMI from which to launch the instance or use a Systems Manager parameter convention e.g. `resolve:ssm:parameter-name`. See [docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id) for more details.
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }

@@ -187,10 +187,10 @@ index ec53bee87d..5dec03955e 100644
 -	}
 -}
 diff --git a/internal/service/elbv2/listener_data_source.go b/internal/service/elbv2/listener_data_source.go
-index 20d1c424e1..2531ae0355 100644
+index dc7221f163..c64e80e7e3 100644
 --- a/internal/service/elbv2/listener_data_source.go
 +++ b/internal/service/elbv2/listener_data_source.go
-@@ -339,7 +339,7 @@ func dataSourceListenerRead(ctx context.Context, d *schema.ResourceData, meta in
+@@ -340,7 +340,7 @@ func dataSourceListenerRead(ctx context.Context, d *schema.ResourceData, meta in
  	sort.Slice(listener.DefaultActions, func(i, j int) bool {
  		return aws.ToInt32(listener.DefaultActions[i].Order) < aws.ToInt32(listener.DefaultActions[j].Order)
  	})

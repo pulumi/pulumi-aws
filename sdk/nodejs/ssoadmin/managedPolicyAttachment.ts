@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     instanceArn: example.then(example => example.arns?.[0]),
  * });
  * const exampleGroup = new aws.identitystore.Group("example", {
- *     identityStoreId: ssoInstance.identityStoreIds[0],
+ *     identityStoreId: example.then(example => example.identityStoreIds?.[0]),
  *     displayName: "Admin",
  *     description: "Admin Group",
  * });

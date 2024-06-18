@@ -21,6 +21,9 @@ __all__ = [
     'DetectorFeatureAdditionalConfiguration',
     'FilterFindingCriteria',
     'FilterFindingCriteriaCriterion',
+    'MalwareProtectionPlanAction',
+    'MalwareProtectionPlanProtectedResource',
+    'MalwareProtectionPlanProtectedResourceS3Bucket',
     'OrganizationConfigurationDatasources',
     'OrganizationConfigurationDatasourcesKubernetes',
     'OrganizationConfigurationDatasourcesKubernetesAuditLogs',
@@ -278,7 +281,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
                  name: str,
                  status: str):
         """
-        :param str name: The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+        :param str name: The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         :param str status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
         pulumi.set(__self__, "name", name)
@@ -288,7 +291,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the additional configuration. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+        The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         """
         return pulumi.get(self, "name")
 
@@ -426,6 +429,109 @@ class FilterFindingCriteriaCriterion(dict):
         List of string values to be evaluated.
         """
         return pulumi.get(self, "not_equals")
+
+
+@pulumi.output_type
+class MalwareProtectionPlanAction(dict):
+    def __init__(__self__, *,
+                 taggings: Sequence[Any]):
+        """
+        :param Sequence[Any] taggings: Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+        """
+        pulumi.set(__self__, "taggings", taggings)
+
+    @property
+    @pulumi.getter
+    def taggings(self) -> Sequence[Any]:
+        """
+        Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+        """
+        return pulumi.get(self, "taggings")
+
+
+@pulumi.output_type
+class MalwareProtectionPlanProtectedResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Bucket":
+            suggest = "s3_bucket"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MalwareProtectionPlanProtectedResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MalwareProtectionPlanProtectedResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MalwareProtectionPlanProtectedResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_bucket: Optional['outputs.MalwareProtectionPlanProtectedResourceS3Bucket'] = None):
+        """
+        :param 'MalwareProtectionPlanProtectedResourceS3BucketArgs' s3_bucket: Information about the protected S3 bucket resource. See `s3_bucket` below.
+        """
+        if s3_bucket is not None:
+            pulumi.set(__self__, "s3_bucket", s3_bucket)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> Optional['outputs.MalwareProtectionPlanProtectedResourceS3Bucket']:
+        """
+        Information about the protected S3 bucket resource. See `s3_bucket` below.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+
+@pulumi.output_type
+class MalwareProtectionPlanProtectedResourceS3Bucket(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "objectPrefixes":
+            suggest = "object_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MalwareProtectionPlanProtectedResourceS3Bucket. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MalwareProtectionPlanProtectedResourceS3Bucket.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MalwareProtectionPlanProtectedResourceS3Bucket.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 object_prefixes: Optional[Sequence[str]] = None):
+        """
+        :param str bucket_name: Name of the S3 bucket.
+        :param Sequence[str] object_prefixes: The list of object prefixes that specify the S3 objects that will be scanned.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        if object_prefixes is not None:
+            pulumi.set(__self__, "object_prefixes", object_prefixes)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        """
+        Name of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="objectPrefixes")
+    def object_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        The list of object prefixes that specify the S3 objects that will be scanned.
+        """
+        return pulumi.get(self, "object_prefixes")
 
 
 @pulumi.output_type
@@ -717,7 +823,7 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
                  name: str):
         """
         :param str auto_enable: The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
-        :param str name: The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+        :param str name: The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
         pulumi.set(__self__, "name", name)
@@ -734,7 +840,7 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the additional configuration that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`.
+        The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
         """
         return pulumi.get(self, "name")
 

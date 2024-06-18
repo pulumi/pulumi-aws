@@ -512,6 +512,8 @@ type Domain struct {
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
 	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
 	//
 	// Deprecated: use 'dashboard_endpoint' attribute instead
@@ -600,6 +602,8 @@ type domainState struct {
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
 	//
 	// Deprecated: use 'dashboard_endpoint' attribute instead
@@ -659,6 +663,8 @@ type DomainState struct {
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
 	EngineVersion pulumi.StringPtrInput
+	// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+	IpAddressType pulumi.StringPtrInput
 	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
 	//
 	// Deprecated: use 'dashboard_endpoint' attribute instead
@@ -714,6 +720,8 @@ type domainArgs struct {
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Configuration block for node-to-node encryption options. Detailed below.
@@ -758,6 +766,8 @@ type DomainArgs struct {
 	// See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
 	// Defaults to the lastest version of OpenSearch.
 	EngineVersion pulumi.StringPtrInput
+	// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+	IpAddressType pulumi.StringPtrInput
 	// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Configuration block for node-to-node encryption options. Detailed below.
@@ -938,6 +948,11 @@ func (o DomainOutput) Endpoint() pulumi.StringOutput {
 // Defaults to the lastest version of OpenSearch.
 func (o DomainOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+// The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
+func (o DomainOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
 // (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.

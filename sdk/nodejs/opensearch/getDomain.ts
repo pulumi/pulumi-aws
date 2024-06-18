@@ -119,6 +119,10 @@ export interface GetDomainResult {
      */
     readonly id: string;
     /**
+     * Type of IP addresses supported by the endpoint for the domain.
+     */
+    readonly ipAddressType: string;
+    /**
      * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
      *
      * @deprecated use 'dashboard_endpoint' attribute instead

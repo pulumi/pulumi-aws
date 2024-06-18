@@ -18,6 +18,7 @@ __all__ = [
     'AmiEphemeralBlockDevice',
     'AmiFromInstanceEbsBlockDevice',
     'AmiFromInstanceEphemeralBlockDevice',
+    'CapacityBlockReservationTimeouts',
     'DefaultNetworkAclEgress',
     'DefaultNetworkAclIngress',
     'DefaultRouteTableRoute',
@@ -39,6 +40,7 @@ __all__ = [
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount',
     'FleetOnDemandOptions',
+    'FleetOnDemandOptionsCapacityReservationOptions',
     'FleetSpotOptions',
     'FleetSpotOptionsMaintenanceStrategies',
     'FleetSpotOptionsMaintenanceStrategiesCapacityRebalance',
@@ -220,6 +222,7 @@ __all__ = [
     'VpcEndpointDnsEntry',
     'VpcEndpointDnsOptions',
     'VpcEndpointServicePrivateDnsNameConfiguration',
+    'VpcEndpointSubnetConfiguration',
     'VpcIpamOperatingRegion',
     'VpcIpamPoolCidrCidrAuthorizationContext',
     'VpcIpamResourceDiscoveryOperatingRegion',
@@ -1063,6 +1066,25 @@ class AmiFromInstanceEphemeralBlockDevice(dict):
         *N* is a volume number starting from zero.
         """
         return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class CapacityBlockReservationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
 
 
 @pulumi.output_type
@@ -2745,6 +2767,8 @@ class FleetOnDemandOptions(dict):
         suggest = None
         if key == "allocationStrategy":
             suggest = "allocation_strategy"
+        elif key == "capacityReservationOptions":
+            suggest = "capacity_reservation_options"
         elif key == "maxTotalPrice":
             suggest = "max_total_price"
         elif key == "minTargetCapacity":
@@ -2767,12 +2791,14 @@ class FleetOnDemandOptions(dict):
 
     def __init__(__self__, *,
                  allocation_strategy: Optional[str] = None,
+                 capacity_reservation_options: Optional['outputs.FleetOnDemandOptionsCapacityReservationOptions'] = None,
                  max_total_price: Optional[str] = None,
                  min_target_capacity: Optional[int] = None,
                  single_availability_zone: Optional[bool] = None,
                  single_instance_type: Optional[bool] = None):
         """
         :param str allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
+        :param 'FleetOnDemandOptionsCapacityReservationOptionsArgs' capacity_reservation_options: The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
         :param str max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay.
         :param int min_target_capacity: The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
                If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
@@ -2781,6 +2807,8 @@ class FleetOnDemandOptions(dict):
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if capacity_reservation_options is not None:
+            pulumi.set(__self__, "capacity_reservation_options", capacity_reservation_options)
         if max_total_price is not None:
             pulumi.set(__self__, "max_total_price", max_total_price)
         if min_target_capacity is not None:
@@ -2797,6 +2825,14 @@ class FleetOnDemandOptions(dict):
         The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
         """
         return pulumi.get(self, "allocation_strategy")
+
+    @property
+    @pulumi.getter(name="capacityReservationOptions")
+    def capacity_reservation_options(self) -> Optional['outputs.FleetOnDemandOptionsCapacityReservationOptions']:
+        """
+        The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+        """
+        return pulumi.get(self, "capacity_reservation_options")
 
     @property
     @pulumi.getter(name="maxTotalPrice")
@@ -2830,6 +2866,42 @@ class FleetOnDemandOptions(dict):
         Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
         """
         return pulumi.get(self, "single_instance_type")
+
+
+@pulumi.output_type
+class FleetOnDemandOptionsCapacityReservationOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usageStrategy":
+            suggest = "usage_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetOnDemandOptionsCapacityReservationOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetOnDemandOptionsCapacityReservationOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetOnDemandOptionsCapacityReservationOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 usage_strategy: Optional[str] = None):
+        """
+        :param str usage_strategy: Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
+        """
+        if usage_strategy is not None:
+            pulumi.set(__self__, "usage_strategy", usage_strategy)
+
+    @property
+    @pulumi.getter(name="usageStrategy")
+    def usage_strategy(self) -> Optional[str]:
+        """
+        Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
+        """
+        return pulumi.get(self, "usage_strategy")
 
 
 @pulumi.output_type
@@ -4973,7 +5045,7 @@ class LaunchTemplateElasticGpuSpecification(dict):
     def __init__(__self__, *,
                  type: str):
         """
-        :param str type: The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+        :param str type: The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
         """
         pulumi.set(__self__, "type", type)
 
@@ -4981,7 +5053,7 @@ class LaunchTemplateElasticGpuSpecification(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+        The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
         """
         return pulumi.get(self, "type")
 
@@ -14806,6 +14878,62 @@ class VpcEndpointServicePrivateDnsNameConfiguration(dict):
         Value the service provider adds to the private DNS name domain record before verification.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VpcEndpointSubnetConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcEndpointSubnetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcEndpointSubnetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcEndpointSubnetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ipv4: Optional[str] = None,
+                 ipv6: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        :param str ipv4: The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+        :param str ipv6: The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+        """
+        if ipv4 is not None:
+            pulumi.set(__self__, "ipv4", ipv4)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def ipv4(self) -> Optional[str]:
+        """
+        The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+        """
+        return pulumi.get(self, "ipv4")
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[str]:
+        """
+        The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+        """
+        return pulumi.get(self, "ipv6")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

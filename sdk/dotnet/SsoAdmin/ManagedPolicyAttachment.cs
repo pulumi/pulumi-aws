@@ -66,7 +66,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var exampleGroup = new Aws.IdentityStore.Group("example", new()
     ///     {
-    ///         IdentityStoreId = ssoInstance.IdentityStoreIds[0],
+    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
     ///         DisplayName = "Admin",
     ///         Description = "Admin Group",
     ///     });

@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .admin_account import *
 from .policy import *
+from .resource_set import *
 from ._inputs import *
 from . import outputs

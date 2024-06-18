@@ -17,6 +17,7 @@ __all__ = [
     'AmiEphemeralBlockDeviceArgs',
     'AmiFromInstanceEbsBlockDeviceArgs',
     'AmiFromInstanceEphemeralBlockDeviceArgs',
+    'CapacityBlockReservationTimeoutsArgs',
     'DefaultNetworkAclEgressArgs',
     'DefaultNetworkAclIngressArgs',
     'DefaultRouteTableRouteArgs',
@@ -38,6 +39,7 @@ __all__ = [
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs',
     'FleetOnDemandOptionsArgs',
+    'FleetOnDemandOptionsCapacityReservationOptionsArgs',
     'FleetSpotOptionsArgs',
     'FleetSpotOptionsMaintenanceStrategiesArgs',
     'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs',
@@ -219,6 +221,7 @@ __all__ = [
     'VpcEndpointDnsEntryArgs',
     'VpcEndpointDnsOptionsArgs',
     'VpcEndpointServicePrivateDnsNameConfigurationArgs',
+    'VpcEndpointSubnetConfigurationArgs',
     'VpcIpamOperatingRegionArgs',
     'VpcIpamPoolCidrCidrAuthorizationContextArgs',
     'VpcIpamResourceDiscoveryOperatingRegionArgs',
@@ -909,6 +912,29 @@ class AmiFromInstanceEphemeralBlockDeviceArgs:
     @virtual_name.setter
     def virtual_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_name", value)
+
+
+@pulumi.input_type
+class CapacityBlockReservationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
 
 
 @pulumi.input_type
@@ -2726,12 +2752,14 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
 class FleetOnDemandOptionsArgs:
     def __init__(__self__, *,
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_options: Optional[pulumi.Input['FleetOnDemandOptionsCapacityReservationOptionsArgs']] = None,
                  max_total_price: Optional[pulumi.Input[str]] = None,
                  min_target_capacity: Optional[pulumi.Input[int]] = None,
                  single_availability_zone: Optional[pulumi.Input[bool]] = None,
                  single_instance_type: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
+        :param pulumi.Input['FleetOnDemandOptionsCapacityReservationOptionsArgs'] capacity_reservation_options: The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
         :param pulumi.Input[str] max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay.
         :param pulumi.Input[int] min_target_capacity: The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
                If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
@@ -2740,6 +2768,8 @@ class FleetOnDemandOptionsArgs:
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if capacity_reservation_options is not None:
+            pulumi.set(__self__, "capacity_reservation_options", capacity_reservation_options)
         if max_total_price is not None:
             pulumi.set(__self__, "max_total_price", max_total_price)
         if min_target_capacity is not None:
@@ -2760,6 +2790,18 @@ class FleetOnDemandOptionsArgs:
     @allocation_strategy.setter
     def allocation_strategy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "allocation_strategy", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationOptions")
+    def capacity_reservation_options(self) -> Optional[pulumi.Input['FleetOnDemandOptionsCapacityReservationOptionsArgs']]:
+        """
+        The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+        """
+        return pulumi.get(self, "capacity_reservation_options")
+
+    @capacity_reservation_options.setter
+    def capacity_reservation_options(self, value: Optional[pulumi.Input['FleetOnDemandOptionsCapacityReservationOptionsArgs']]):
+        pulumi.set(self, "capacity_reservation_options", value)
 
     @property
     @pulumi.getter(name="maxTotalPrice")
@@ -2809,6 +2851,29 @@ class FleetOnDemandOptionsArgs:
     @single_instance_type.setter
     def single_instance_type(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "single_instance_type", value)
+
+
+@pulumi.input_type
+class FleetOnDemandOptionsCapacityReservationOptionsArgs:
+    def __init__(__self__, *,
+                 usage_strategy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] usage_strategy: Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
+        """
+        if usage_strategy is not None:
+            pulumi.set(__self__, "usage_strategy", usage_strategy)
+
+    @property
+    @pulumi.getter(name="usageStrategy")
+    def usage_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
+        """
+        return pulumi.get(self, "usage_strategy")
+
+    @usage_strategy.setter
+    def usage_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "usage_strategy", value)
 
 
 @pulumi.input_type
@@ -4802,7 +4867,7 @@ class LaunchTemplateElasticGpuSpecificationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] type: The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+        :param pulumi.Input[str] type: The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
         """
         pulumi.set(__self__, "type", type)
 
@@ -4810,7 +4875,7 @@ class LaunchTemplateElasticGpuSpecificationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html#elastic-gpus-basics)
+        The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
         """
         return pulumi.get(self, "type")
 
@@ -15303,6 +15368,57 @@ class VpcEndpointServicePrivateDnsNameConfigurationArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VpcEndpointSubnetConfigurationArgs:
+    def __init__(__self__, *,
+                 ipv4: Optional[pulumi.Input[str]] = None,
+                 ipv6: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] ipv4: The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+        :param pulumi.Input[str] ipv6: The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+        """
+        if ipv4 is not None:
+            pulumi.set(__self__, "ipv4", ipv4)
+        if ipv6 is not None:
+            pulumi.set(__self__, "ipv6", ipv6)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter
+    def ipv4(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+        """
+        return pulumi.get(self, "ipv4")
+
+    @ipv4.setter
+    def ipv4(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4", value)
+
+    @property
+    @pulumi.getter
+    def ipv6(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+        """
+        return pulumi.get(self, "ipv6")
+
+    @ipv6.setter
+    def ipv6(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 @pulumi.input_type

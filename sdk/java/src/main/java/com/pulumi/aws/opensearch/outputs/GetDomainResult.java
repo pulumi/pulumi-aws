@@ -109,6 +109,11 @@ public final class GetDomainResult {
      */
     private String id;
     /**
+     * @return Type of IP addresses supported by the endpoint for the domain.
+     * 
+     */
+    private String ipAddressType;
+    /**
      * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
      * 
      * @deprecated
@@ -275,6 +280,13 @@ public final class GetDomainResult {
         return this.id;
     }
     /**
+     * @return Type of IP addresses supported by the endpoint for the domain.
+     * 
+     */
+    public String ipAddressType() {
+        return this.ipAddressType;
+    }
+    /**
      * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
      * 
      * @deprecated
@@ -368,6 +380,7 @@ public final class GetDomainResult {
         private String endpoint;
         private String engineVersion;
         private String id;
+        private String ipAddressType;
         private String kibanaEndpoint;
         private List<GetDomainLogPublishingOption> logPublishingOptions;
         private List<GetDomainNodeToNodeEncryption> nodeToNodeEncryptions;
@@ -397,6 +410,7 @@ public final class GetDomainResult {
     	      this.endpoint = defaults.endpoint;
     	      this.engineVersion = defaults.engineVersion;
     	      this.id = defaults.id;
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.kibanaEndpoint = defaults.kibanaEndpoint;
     	      this.logPublishingOptions = defaults.logPublishingOptions;
     	      this.nodeToNodeEncryptions = defaults.nodeToNodeEncryptions;
@@ -563,6 +577,14 @@ public final class GetDomainResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipAddressType(String ipAddressType) {
+            if (ipAddressType == null) {
+              throw new MissingRequiredPropertyException("GetDomainResult", "ipAddressType");
+            }
+            this.ipAddressType = ipAddressType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder kibanaEndpoint(String kibanaEndpoint) {
             if (kibanaEndpoint == null) {
               throw new MissingRequiredPropertyException("GetDomainResult", "kibanaEndpoint");
@@ -666,6 +688,7 @@ public final class GetDomainResult {
             _resultValue.endpoint = endpoint;
             _resultValue.engineVersion = engineVersion;
             _resultValue.id = id;
+            _resultValue.ipAddressType = ipAddressType;
             _resultValue.kibanaEndpoint = kibanaEndpoint;
             _resultValue.logPublishingOptions = logPublishingOptions;
             _resultValue.nodeToNodeEncryptions = nodeToNodeEncryptions;
