@@ -361,7 +361,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> TaskDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>> Triggers { get; private set; } = null!;
@@ -616,7 +616,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _triggers;
 
         /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         /// </summary>
         public InputMap<string> Triggers
         {
@@ -849,7 +849,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _triggers;
 
         /// <summary>
-        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. See example above.
+        /// Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `"plantimestamp()"`. When using the triggers property you also need to set the forceNewDeployment property to True.
         /// </summary>
         public InputMap<string> Triggers
         {
