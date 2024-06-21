@@ -28,7 +28,10 @@ namespace Pulumi.Aws.Fsx
     ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("example", new()
     ///     {
     ///         StorageCapacity = 64,
-    ///         SubnetIds = exampleAwsSubnet.Id,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
     ///         DeploymentType = "SINGLE_AZ_1",
     ///         ThroughputCapacity = 64,
     ///     });
@@ -55,7 +58,10 @@ namespace Pulumi.Aws.Fsx
     ///     var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("example", new()
     ///     {
     ///         StorageCapacity = 64,
-    ///         SubnetIds = exampleAwsSubnet.Id,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
     ///         DeploymentType = "SINGLE_AZ_1",
     ///         ThroughputCapacity = 64,
     ///     });

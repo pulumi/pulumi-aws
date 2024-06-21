@@ -32,8 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "example", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity:    pulumi.Int(64),
-//				SubnetIds:          pulumi.Any(exampleAwsSubnet.Id),
+//				StorageCapacity: pulumi.Int(64),
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
 //				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
 //				ThroughputCapacity: pulumi.Int(64),
 //			})
@@ -68,8 +70,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleOpenZfsFileSystem, err := fsx.NewOpenZfsFileSystem(ctx, "example", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity:    pulumi.Int(64),
-//				SubnetIds:          pulumi.Any(exampleAwsSubnet.Id),
+//				StorageCapacity: pulumi.Int(64),
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
 //				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
 //				ThroughputCapacity: pulumi.Int(64),
 //			})

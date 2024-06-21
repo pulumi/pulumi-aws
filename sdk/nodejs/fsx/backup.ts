@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *
  * const exampleOpenZfsFileSystem = new aws.fsx.OpenZfsFileSystem("example", {
  *     storageCapacity: 64,
- *     subnetIds: exampleAwsSubnet.id,
+ *     subnetIds: [exampleAwsSubnet.id],
  *     deploymentType: "SINGLE_AZ_1",
  *     throughputCapacity: 64,
  * });

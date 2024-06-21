@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.fsx.OpenZfsFileSystem("test", {
  *     storageCapacity: 64,
- *     subnetIds: test1.id,
+ *     subnetIds: [test1.id],
  *     deploymentType: "SINGLE_AZ_1",
  *     throughputCapacity: 64,
  * });
@@ -153,7 +153,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     /**
      * A list of IDs for the subnets that the file system will be accessible from.
      */
-    public readonly subnetIds!: pulumi.Output<string>;
+    public readonly subnetIds!: pulumi.Output<string[]>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -358,7 +358,7 @@ export interface OpenZfsFileSystemState {
     /**
      * A list of IDs for the subnets that the file system will be accessible from.
      */
-    subnetIds?: pulumi.Input<string>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -454,7 +454,7 @@ export interface OpenZfsFileSystemArgs {
     /**
      * A list of IDs for the subnets that the file system will be accessible from.
      */
-    subnetIds: pulumi.Input<string>;
+    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

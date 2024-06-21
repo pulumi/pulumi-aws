@@ -36,6 +36,7 @@ import (
 
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
 	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
@@ -2277,10 +2278,25 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_fsx_ontap_file_system":             {Tok: awsResource(fsxMod, "OntapFileSystem")},
 			"aws_fsx_ontap_storage_virtual_machine": {Tok: awsResource(fsxMod, "OntapStorageVirtualMachine")},
 			"aws_fsx_ontap_volume":                  {Tok: awsResource(fsxMod, "OntapVolume")},
-			"aws_fsx_openzfs_file_system":           {Tok: awsResource(fsxMod, "OpenZfsFileSystem")},
-			"aws_fsx_openzfs_snapshot":              {Tok: awsResource(fsxMod, "OpenZfsSnapshot")},
-			"aws_fsx_openzfs_volume":                {Tok: awsResource(fsxMod, "OpenZfsVolume")},
-			"aws_fsx_windows_file_system":           {Tok: awsResource(fsxMod, "WindowsFileSystem")},
+			"aws_fsx_openzfs_file_system": {
+				Tok: awsResource(fsxMod, "OpenZfsFileSystem"),
+				TransformFromState: func(ctx context.Context, state resource.PropertyMap) (resource.PropertyMap, error) {
+					if val, ok := state["subnetIds"]; ok {
+						if val.IsString() {
+							state["subnetIds"] = resource.NewArrayProperty([]resource.PropertyValue{val})
+						}
+					}
+					return state, nil
+				},
+				Fields: map[string]*info.Schema{
+					"subnet_ids": {
+						MaxItemsOne: tfbridge.False(),
+					},
+				},
+			},
+			"aws_fsx_openzfs_snapshot":    {Tok: awsResource(fsxMod, "OpenZfsSnapshot")},
+			"aws_fsx_openzfs_volume":      {Tok: awsResource(fsxMod, "OpenZfsVolume")},
+			"aws_fsx_windows_file_system": {Tok: awsResource(fsxMod, "WindowsFileSystem")},
 
 			// GameLift
 

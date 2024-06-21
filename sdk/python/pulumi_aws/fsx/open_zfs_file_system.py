@@ -17,7 +17,7 @@ __all__ = ['OpenZfsFileSystemArgs', 'OpenZfsFileSystem']
 class OpenZfsFileSystemArgs:
     def __init__(__self__, *,
                  deployment_type: pulumi.Input[str],
-                 subnet_ids: pulumi.Input[str],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  throughput_capacity: pulumi.Input[int],
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  backup_id: Optional[pulumi.Input[str]] = None,
@@ -39,7 +39,7 @@ class OpenZfsFileSystemArgs:
         """
         The set of arguments for constructing a OpenZfsFileSystem resource.
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
-        :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
         :param pulumi.Input[int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
@@ -111,14 +111,14 @@ class OpenZfsFileSystemArgs:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Input[str]:
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of IDs for the subnets that the file system will be accessible from.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: pulumi.Input[str]):
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @property
@@ -363,7 +363,7 @@ class _OpenZfsFileSystemState:
                  skip_final_backup: Optional[pulumi.Input[bool]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 subnet_ids: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[int]] = None,
@@ -393,7 +393,7 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. Only `SSD` is supported.
-        :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
@@ -726,14 +726,14 @@ class _OpenZfsFileSystemState:
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[pulumi.Input[str]]:
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of IDs for the subnets that the file system will be accessible from.
         """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
-    def subnet_ids(self, value: Optional[pulumi.Input[str]]):
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
     @property
@@ -821,7 +821,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  skip_final_backup: Optional[pulumi.Input[bool]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 subnet_ids: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
@@ -838,7 +838,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
         test = aws.fsx.OpenZfsFileSystem("test",
             storage_capacity=64,
-            subnet_ids=test1["id"],
+            subnet_ids=[test1["id"]],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
         ```
@@ -870,7 +870,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. Only `SSD` is supported.
-        :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
@@ -893,7 +893,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
         test = aws.fsx.OpenZfsFileSystem("test",
             storage_capacity=64,
-            subnet_ids=test1["id"],
+            subnet_ids=[test1["id"]],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
         ```
@@ -938,7 +938,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  skip_final_backup: Optional[pulumi.Input[bool]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
-                 subnet_ids: Optional[pulumi.Input[str]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
@@ -1017,7 +1017,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             skip_final_backup: Optional[pulumi.Input[bool]] = None,
             storage_capacity: Optional[pulumi.Input[int]] = None,
             storage_type: Optional[pulumi.Input[str]] = None,
-            subnet_ids: Optional[pulumi.Input[str]] = None,
+            subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             throughput_capacity: Optional[pulumi.Input[int]] = None,
@@ -1052,7 +1052,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
         :param pulumi.Input[str] storage_type: The filesystem storage type. Only `SSD` is supported.
-        :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
@@ -1271,7 +1271,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> pulumi.Output[str]:
+    def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of IDs for the subnets that the file system will be accessible from.
         """
