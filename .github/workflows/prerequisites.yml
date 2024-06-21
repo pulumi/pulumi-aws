@@ -12,6 +12,10 @@ on:
       default_branch:
         type: string
         required: true
+    outputs:
+      version:
+        description: "Provider version being built"
+        value: ${{ jobs.prerequisites.outputs.version }}
 
 env:
   AWS_REGION: us-west-2
@@ -39,6 +43,8 @@ jobs:
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.provider-version.outputs.version }}
     steps:
     # Run as first step so we don't delete things that have just been installed
     - name: Free Disk Space (Ubuntu)
@@ -51,6 +57,7 @@ jobs:
       with:
         submodules: true
     - uses: pulumi/provider-version-action@v1
+      id: provider-version
       with:
         set-env: 'PROVIDER_VERSION'
     - name: Cache examples generation
