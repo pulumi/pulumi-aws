@@ -125,13 +125,11 @@ class GetServiceResult:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""this attribute has been deprecated""")
     def tags_all(self) -> Mapping[str, str]:
         """
         (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: this attribute has been deprecated""")
-
         return pulumi.get(self, "tags_all")
 
 

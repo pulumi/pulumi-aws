@@ -79,7 +79,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
             feature_set="ALL")
         example_detector = aws.guardduty.Detector("example")
         example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("example", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
@@ -114,7 +114,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
             feature_set="ALL")
         example_detector = aws.guardduty.Detector("example")
         example_organization_admin_account = aws.guardduty.OrganizationAdminAccount("example", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import

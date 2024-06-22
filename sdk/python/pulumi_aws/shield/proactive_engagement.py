@@ -148,7 +148,7 @@ class ProactiveEngagement(pulumi.CustomResource):
                     phone_number="+12358132134",
                 ),
             ],
-            opts=pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
+            opts = pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
         ```
 
         ## Import
@@ -218,7 +218,7 @@ class ProactiveEngagement(pulumi.CustomResource):
                     phone_number="+12358132134",
                 ),
             ],
-            opts=pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
+            opts = pulumi.ResourceOptions(depends_on=[test_aws_shield_drt_access_role_arn_association]))
         ```
 
         ## Import

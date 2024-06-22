@@ -116,7 +116,7 @@ class InviteAccepter(pulumi.CustomResource):
         member = aws.guardduty.InviteAccepter("member",
             detector_id=member_detector.id,
             master_account_id=primary.account_id,
-            opts=pulumi.ResourceOptions(depends_on=[member_member]))
+            opts = pulumi.ResourceOptions(depends_on=[member_member]))
         ```
 
         ## Import
@@ -157,7 +157,7 @@ class InviteAccepter(pulumi.CustomResource):
         member = aws.guardduty.InviteAccepter("member",
             detector_id=member_detector.id,
             master_account_id=primary.account_id,
-            opts=pulumi.ResourceOptions(depends_on=[member_member]))
+            opts = pulumi.ResourceOptions(depends_on=[member_member]))
         ```
 
         ## Import

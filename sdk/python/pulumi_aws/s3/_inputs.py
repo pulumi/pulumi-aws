@@ -1064,13 +1064,11 @@ class BucketLifecycleConfigurationV2RuleArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use filter instead""")
     def prefix(self) -> Optional[pulumi.Input[str]]:
         """
         **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if `filter` is not specified.
         """
-        warnings.warn("""Use filter instead""", DeprecationWarning)
-        pulumi.log.warn("""prefix is deprecated: Use filter instead""")
-
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -2763,13 +2761,11 @@ class BucketReplicationConfigRuleArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use filter instead""")
     def prefix(self) -> Optional[pulumi.Input[str]]:
         """
         Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length. Defaults to an empty string (`""`) if `filter` is not specified.
         """
-        warnings.warn("""Use filter instead""", DeprecationWarning)
-        pulumi.log.warn("""prefix is deprecated: Use filter instead""")
-
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -4521,13 +4517,11 @@ class BucketV2ObjectLockConfigurationArgs:
 
     @property
     @pulumi.getter(name="objectLockEnabled")
+    @_utilities.deprecated("""Use the top-level parameter object_lock_enabled instead""")
     def object_lock_enabled(self) -> Optional[pulumi.Input[str]]:
         """
         Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         """
-        warnings.warn("""Use the top-level parameter object_lock_enabled instead""", DeprecationWarning)
-        pulumi.log.warn("""object_lock_enabled is deprecated: Use the top-level parameter object_lock_enabled instead""")
-
         return pulumi.get(self, "object_lock_enabled")
 
     @object_lock_enabled.setter
@@ -4536,13 +4530,11 @@ class BucketV2ObjectLockConfigurationArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketObjectLockConfigurationV2 resource instead""")
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ObjectLockConfigurationRuleArgs']]]]:
         """
         Object Lock rule in place for this bucket (documented below).
         """
-        warnings.warn("""Use the s3.BucketObjectLockConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""rules is deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead""")
-
         return pulumi.get(self, "rules")
 
     @rules.setter

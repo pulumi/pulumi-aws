@@ -160,7 +160,7 @@ class ActionTarget(pulumi.CustomResource):
             name="Send notification to chat",
             identifier="SendToChat",
             description="This is custom action sends selected findings to chat",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
@@ -197,7 +197,7 @@ class ActionTarget(pulumi.CustomResource):
             name="Send notification to chat",
             identifier="SendToChat",
             description="This is custom action sends selected findings to chat",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import

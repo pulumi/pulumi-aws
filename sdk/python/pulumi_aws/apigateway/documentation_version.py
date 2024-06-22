@@ -150,7 +150,7 @@ class DocumentationVersion(pulumi.CustomResource):
             version="example_version",
             rest_api_id=example_rest_api.id,
             description="Example description",
-            opts=pulumi.ResourceOptions(depends_on=[example_documentation_part]))
+            opts = pulumi.ResourceOptions(depends_on=[example_documentation_part]))
         ```
 
         ## Import
@@ -193,7 +193,7 @@ class DocumentationVersion(pulumi.CustomResource):
             version="example_version",
             rest_api_id=example_rest_api.id,
             description="Example description",
-            opts=pulumi.ResourceOptions(depends_on=[example_documentation_part]))
+            opts = pulumi.ResourceOptions(depends_on=[example_documentation_part]))
         ```
 
         ## Import

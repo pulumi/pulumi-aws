@@ -338,13 +338,11 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter(name="sourceCodeHash")
+    @_utilities.deprecated("""This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.""")
     def source_code_hash(self) -> str:
         """
         (**Deprecated** use `code_sha256` instead) Base64-encoded representation of raw SHA-256 sum of the zip file.
         """
-        warnings.warn("""This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.""", DeprecationWarning)
-        pulumi.log.warn("""source_code_hash is deprecated: This attribute is deprecated and will be removed in a future major version. Use `code_sha256` instead.""")
-
         return pulumi.get(self, "source_code_hash")
 
     @property

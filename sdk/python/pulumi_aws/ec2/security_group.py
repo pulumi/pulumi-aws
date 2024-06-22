@@ -317,13 +317,11 @@ class _SecurityGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -508,14 +506,14 @@ class SecurityGroup(pulumi.CustomResource):
             delete=f            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values={tags.workaround1}" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
                     aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.workaround2} --remove-security-group-ids {id}
         ,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         example_resource = null.Resource("example", triggers={
             "rerun_upon_change_of": std.join(separator=",",
                 input=example_aws_vpc_endpoint["securityGroupIds"]).result,
         })
         example_resource_provisioner0 = command.local.Command("exampleResourceProvisioner0", create=f            aws ec2 modify-vpc-endpoint --vpc-endpoint-id {example_aws_vpc_endpoint.id} --remove-security-group-ids {default.id}
         ,
-        opts=pulumi.ResourceOptions(depends_on=[example_resource]))
+        opts = pulumi.ResourceOptions(depends_on=[example_resource]))
         ```
 
         ## Import
@@ -694,14 +692,14 @@ class SecurityGroup(pulumi.CustomResource):
             delete=f            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters "Name=tag:Name,Values={tags.workaround1}" --query "VpcEndpoints[0].VpcEndpointId" --output text` &&
                     aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.workaround2} --remove-security-group-ids {id}
         ,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         example_resource = null.Resource("example", triggers={
             "rerun_upon_change_of": std.join(separator=",",
                 input=example_aws_vpc_endpoint["securityGroupIds"]).result,
         })
         example_resource_provisioner0 = command.local.Command("exampleResourceProvisioner0", create=f            aws ec2 modify-vpc-endpoint --vpc-endpoint-id {example_aws_vpc_endpoint.id} --remove-security-group-ids {default.id}
         ,
-        opts=pulumi.ResourceOptions(depends_on=[example_resource]))
+        opts = pulumi.ResourceOptions(depends_on=[example_resource]))
         ```
 
         ## Import
@@ -888,13 +886,11 @@ class SecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

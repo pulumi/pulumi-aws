@@ -177,7 +177,7 @@ class Member(pulumi.CustomResource):
             account_id="123456789012",
             email="example@example.com",
             invite=True,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
@@ -214,7 +214,7 @@ class Member(pulumi.CustomResource):
             account_id="123456789012",
             email="example@example.com",
             invite=True,
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import

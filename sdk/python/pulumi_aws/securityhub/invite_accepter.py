@@ -99,7 +99,7 @@ class InviteAccepter(pulumi.CustomResource):
             invite=True)
         invitee = aws.securityhub.Account("invitee")
         invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id,
-        opts=pulumi.ResourceOptions(depends_on=[invitee]))
+        opts = pulumi.ResourceOptions(depends_on=[invitee]))
         ```
 
         ## Import
@@ -138,7 +138,7 @@ class InviteAccepter(pulumi.CustomResource):
             invite=True)
         invitee = aws.securityhub.Account("invitee")
         invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id,
-        opts=pulumi.ResourceOptions(depends_on=[invitee]))
+        opts = pulumi.ResourceOptions(depends_on=[invitee]))
         ```
 
         ## Import

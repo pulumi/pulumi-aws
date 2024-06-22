@@ -92,13 +92,11 @@ class _SubscriberNotificationState:
 
     @property
     @pulumi.getter(name="endpointId")
+    @_utilities.deprecated("""Use subscriber_endpoint instead""")
     def endpoint_id(self) -> Optional[pulumi.Input[str]]:
         """
         (**Deprecated**) The subscriber endpoint to which exception messages are posted.
         """
-        warnings.warn("""Use subscriber_endpoint instead""", DeprecationWarning)
-        pulumi.log.warn("""endpoint_id is deprecated: Use subscriber_endpoint instead""")
-
         return pulumi.get(self, "endpoint_id")
 
     @endpoint_id.setter
@@ -295,13 +293,11 @@ class SubscriberNotification(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="endpointId")
+    @_utilities.deprecated("""Use subscriber_endpoint instead""")
     def endpoint_id(self) -> pulumi.Output[str]:
         """
         (**Deprecated**) The subscriber endpoint to which exception messages are posted.
         """
-        warnings.warn("""Use subscriber_endpoint instead""", DeprecationWarning)
-        pulumi.log.warn("""endpoint_id is deprecated: Use subscriber_endpoint instead""")
-
         return pulumi.get(self, "endpoint_id")
 
     @property

@@ -846,14 +846,14 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                 ebs_enabled=True,
                 volume_size=10,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_aws_cognito_user_pool_domain,
                     example_role_policy_attachment,
                 ]))
         example_managed_user_pool_client = aws.cognito.ManagedUserPoolClient("example",
             name_prefix="AmazonOpenSearchService-example",
             user_pool_id=example_user_pool.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_domain]))
+            opts = pulumi.ResourceOptions(depends_on=[example_domain]))
         ```
 
         ## Import
@@ -943,14 +943,14 @@ class ManagedUserPoolClient(pulumi.CustomResource):
                 ebs_enabled=True,
                 volume_size=10,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_aws_cognito_user_pool_domain,
                     example_role_policy_attachment,
                 ]))
         example_managed_user_pool_client = aws.cognito.ManagedUserPoolClient("example",
             name_prefix="AmazonOpenSearchService-example",
             user_pool_id=example_user_pool.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_domain]))
+            opts = pulumi.ResourceOptions(depends_on=[example_domain]))
         ```
 
         ## Import

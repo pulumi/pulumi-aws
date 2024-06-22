@@ -232,7 +232,7 @@ class CustomLogSource(pulumi.CustomResource):
                     principal="123456789012",
                 ),
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
         ## Import
@@ -284,7 +284,7 @@ class CustomLogSource(pulumi.CustomResource):
                     principal="123456789012",
                 ),
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
         ## Import

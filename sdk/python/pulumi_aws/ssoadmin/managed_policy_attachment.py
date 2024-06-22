@@ -195,7 +195,7 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
             instance_arn=example.arns[0],
             managed_policy_arn="arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
             permission_set_arn=example_permission_set.arn,
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssoadmin_account_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_ssoadmin_account_assignment]))
         ```
 
         ## Import
@@ -268,7 +268,7 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
             instance_arn=example.arns[0],
             managed_policy_arn="arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
             permission_set_arn=example_permission_set.arn,
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_ssoadmin_account_assignment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_ssoadmin_account_assignment]))
         ```
 
         ## Import

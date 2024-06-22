@@ -126,15 +126,13 @@ class EventRuleArgs:
 
     @property
     @pulumi.getter(name="isEnabled")
+    @_utilities.deprecated("""Use \"state\" instead""")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the rule should be enabled.
         Defaults to `true`.
         Conflicts with `state`.
         """
-        warnings.warn("""Use \"state\" instead""", DeprecationWarning)
-        pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
-
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -359,15 +357,13 @@ class _EventRuleState:
 
     @property
     @pulumi.getter(name="isEnabled")
+    @_utilities.deprecated("""Use \"state\" instead""")
     def is_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether the rule should be enabled.
         Defaults to `true`.
         Conflicts with `state`.
         """
-        warnings.warn("""Use \"state\" instead""", DeprecationWarning)
-        pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
-
         return pulumi.get(self, "is_enabled")
 
     @is_enabled.setter
@@ -455,13 +451,11 @@ class _EventRuleState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -770,15 +764,13 @@ class EventRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="isEnabled")
+    @_utilities.deprecated("""Use \"state\" instead""")
     def is_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether the rule should be enabled.
         Defaults to `true`.
         Conflicts with `state`.
         """
-        warnings.warn("""Use \"state\" instead""", DeprecationWarning)
-        pulumi.log.warn("""is_enabled is deprecated: Use \"state\" instead""")
-
         return pulumi.get(self, "is_enabled")
 
     @property
@@ -838,12 +830,10 @@ class EventRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 

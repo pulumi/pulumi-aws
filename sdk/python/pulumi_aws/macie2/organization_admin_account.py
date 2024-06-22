@@ -76,7 +76,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         example = aws.macie2.Account("example")
         example_organization_admin_account = aws.macie2.OrganizationAdminAccount("example", admin_account_id="ID OF THE ADMIN ACCOUNT",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
@@ -108,7 +108,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         example = aws.macie2.Account("example")
         example_organization_admin_account = aws.macie2.OrganizationAdminAccount("example", admin_account_id="ID OF THE ADMIN ACCOUNT",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import

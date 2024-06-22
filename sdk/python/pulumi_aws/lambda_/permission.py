@@ -560,7 +560,7 @@ class Permission(pulumi.CustomResource):
             filter_pattern="",
             log_group=default.name,
             name="logging_default",
-            opts=pulumi.ResourceOptions(depends_on=[logging]))
+            opts = pulumi.ResourceOptions(depends_on=[logging]))
         ```
 
         ### With Cross-Account Invocation Policy
@@ -754,7 +754,7 @@ class Permission(pulumi.CustomResource):
             filter_pattern="",
             log_group=default.name,
             name="logging_default",
-            opts=pulumi.ResourceOptions(depends_on=[logging]))
+            opts = pulumi.ResourceOptions(depends_on=[logging]))
         ```
 
         ### With Cross-Account Invocation Policy

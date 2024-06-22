@@ -285,7 +285,7 @@ class ConformancePack(pulumi.CustomResource):
                 SourceIdentifier: IAM_PASSWORD_POLICY
             Type: AWS::Config::ConfigRule
         \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
         ```
 
         ### Template S3 URI
@@ -310,7 +310,7 @@ class ConformancePack(pulumi.CustomResource):
         example = aws.cfg.ConformancePack("example",
             name="example",
             template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"),
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
         ```
 
         ## Import
@@ -372,7 +372,7 @@ class ConformancePack(pulumi.CustomResource):
                 SourceIdentifier: IAM_PASSWORD_POLICY
             Type: AWS::Config::ConfigRule
         \"\"\",
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
         ```
 
         ### Template S3 URI
@@ -397,7 +397,7 @@ class ConformancePack(pulumi.CustomResource):
         example = aws.cfg.ConformancePack("example",
             name="example",
             template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"),
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_config_configuration_recorder]))
         ```
 
         ## Import
