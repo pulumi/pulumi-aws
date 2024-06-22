@@ -91,7 +91,7 @@ start_rebase() {
 
   for patch in ../patches/*.patch; do
     echo "Applying $patch"
-    if ! git am --3way "$patch"; then
+    if ! git am --3way "$patch" --allow-empty; then
       echo
       echo "Failed to apply ${patch}. Please run 'make upstream.rebase FROM=$TAG' where '$TAG' allows the patch set to apply cleanly"
       echo

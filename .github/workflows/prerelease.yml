@@ -487,6 +487,20 @@ jobs:
               language:
                   - nodejs
 
+  verify-release:
+    name: verify-release
+    needs:
+      - prerequisites
+      - publish
+      - publish_sdk
+      - publish_go_sdk
+    uses: ./.github/workflows/verify-release.yml
+    secrets: inherit
+    with:
+      providerVersion: ${{ needs.prerequisites.outputs.version }}
+      # Prelease is run often but we only have 5 concurrent macos runners, so we only test after the stable release.
+      enableMacosRunner: false
+
 name: prerelease
 on:
   push:

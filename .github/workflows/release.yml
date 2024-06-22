@@ -40,7 +40,7 @@ jobs:
 
   create_docs_build:
     name: create_docs_build
-    needs: tag_sdk
+    needs: publish_go_sdk
     runs-on: ubuntu-latest
     steps:
       - name: Dispatch Metadata build
@@ -149,8 +149,8 @@ jobs:
       if: failure()
       name: Send Publish Failure To Slack
       uses: rtCamp/action-slack-notify@v2
-  tag_sdk:
-    name: tag_sdk
+  publish_go_sdk:
+    name: publish_go_sdk
     needs:
       - prerequisites
       - publish_sdk
@@ -519,6 +519,19 @@ jobs:
           matrix:
               language:
                   - nodejs
+
+  verify-release:
+    name: verify-release
+    needs:
+      - prerequisites
+      - publish
+      - publish_sdk
+      - publish_go_sdk
+    uses: ./.github/workflows/verify-release.yml
+    secrets: inherit
+    with:
+      providerVersion: ${{ needs.prerequisites.outputs.version }}
+      enableMacosRunner: true
 
 name: release
 on:
