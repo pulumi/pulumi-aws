@@ -1221,13 +1221,11 @@ class _FunctionState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1452,7 +1450,7 @@ class Function(pulumi.CustomResource):
                 subnet_ids=[subnet_for_lambda["id"]],
                 security_group_ids=[sg_for_lambda["id"]],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[alpha]))
+            opts = pulumi.ResourceOptions(depends_on=[alpha]))
         ```
 
         ### Lambda retries
@@ -1499,7 +1497,7 @@ class Function(pulumi.CustomResource):
             logging_config=aws.lambda_.FunctionLoggingConfigArgs(
                 log_format="Text",
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     lambda_logs,
                     example,
                 ]))
@@ -1698,7 +1696,7 @@ class Function(pulumi.CustomResource):
                 subnet_ids=[subnet_for_lambda["id"]],
                 security_group_ids=[sg_for_lambda["id"]],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[alpha]))
+            opts = pulumi.ResourceOptions(depends_on=[alpha]))
         ```
 
         ### Lambda retries
@@ -1745,7 +1743,7 @@ class Function(pulumi.CustomResource):
             logging_config=aws.lambda_.FunctionLoggingConfigArgs(
                 log_format="Text",
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     lambda_logs,
                     example,
                 ]))
@@ -2348,13 +2346,11 @@ class Function(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

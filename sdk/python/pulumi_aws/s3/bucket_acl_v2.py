@@ -190,7 +190,7 @@ class BucketAclV2(pulumi.CustomResource):
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="private",
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
+            opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
 
         ### With `public-read` ACL
@@ -217,7 +217,7 @@ class BucketAclV2(pulumi.CustomResource):
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="public-read",
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_bucket_ownership_controls,
                     example_bucket_public_access_block,
                 ]))
@@ -259,7 +259,7 @@ class BucketAclV2(pulumi.CustomResource):
                     id=current.id,
                 ),
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
+            opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
 
         ## Import
@@ -333,7 +333,7 @@ class BucketAclV2(pulumi.CustomResource):
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="private",
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
+            opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
 
         ### With `public-read` ACL
@@ -360,7 +360,7 @@ class BucketAclV2(pulumi.CustomResource):
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="public-read",
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example_bucket_ownership_controls,
                     example_bucket_public_access_block,
                 ]))
@@ -402,7 +402,7 @@ class BucketAclV2(pulumi.CustomResource):
                     id=current.id,
                 ),
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
+            opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
 
         ## Import

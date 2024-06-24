@@ -1603,13 +1603,11 @@ class _S3EndpointState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1729,7 +1727,7 @@ class S3Endpoint(pulumi.CustomResource):
             endpoint_type="target",
             bucket_name="beckut_name",
             service_access_role_arn=example_aws_iam_role["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
 
         ### Complete Configuration
@@ -1788,7 +1786,7 @@ class S3Endpoint(pulumi.CustomResource):
             use_csv_no_sup_value=False,
             use_task_start_time_for_full_load_timestamp=True,
             glue_catalog_generation=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
 
         ## Import
@@ -1880,7 +1878,7 @@ class S3Endpoint(pulumi.CustomResource):
             endpoint_type="target",
             bucket_name="beckut_name",
             service_access_role_arn=example_aws_iam_role["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
 
         ### Complete Configuration
@@ -1939,7 +1937,7 @@ class S3Endpoint(pulumi.CustomResource):
             use_csv_no_sup_value=False,
             use_task_start_time_for_full_load_timestamp=True,
             glue_catalog_generation=True,
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         ```
 
         ## Import
@@ -2664,13 +2662,11 @@ class S3Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

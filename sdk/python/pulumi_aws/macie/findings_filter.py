@@ -274,10 +274,8 @@ class _FindingsFilterState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -319,7 +317,7 @@ class FindingsFilter(pulumi.CustomResource):
                     eqs=[current["name"]],
                 )],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[test_aws_macie2_account]))
+            opts = pulumi.ResourceOptions(depends_on=[test_aws_macie2_account]))
         ```
 
         ## Import
@@ -367,7 +365,7 @@ class FindingsFilter(pulumi.CustomResource):
                     eqs=[current["name"]],
                 )],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[test_aws_macie2_account]))
+            opts = pulumi.ResourceOptions(depends_on=[test_aws_macie2_account]))
         ```
 
         ## Import
@@ -538,9 +536,7 @@ class FindingsFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 

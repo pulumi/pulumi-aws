@@ -324,13 +324,11 @@ class _RuleState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -387,7 +385,7 @@ class Rule(pulumi.CustomResource):
                 owner="AWS",
                 source_identifier="S3_BUCKET_VERSIONING_ENABLED",
             ),
-            opts=pulumi.ResourceOptions(depends_on=[foo]))
+            opts = pulumi.ResourceOptions(depends_on=[foo]))
         p = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["config:Put*"],
@@ -418,7 +416,7 @@ class Rule(pulumi.CustomResource):
             owner="CUSTOM_LAMBDA",
             source_identifier=example_function.arn,
         ),
-        opts=pulumi.ResourceOptions(depends_on=[
+        opts = pulumi.ResourceOptions(depends_on=[
                 example,
                 example_permission,
             ]))
@@ -514,7 +512,7 @@ class Rule(pulumi.CustomResource):
                 owner="AWS",
                 source_identifier="S3_BUCKET_VERSIONING_ENABLED",
             ),
-            opts=pulumi.ResourceOptions(depends_on=[foo]))
+            opts = pulumi.ResourceOptions(depends_on=[foo]))
         p = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["config:Put*"],
@@ -545,7 +543,7 @@ class Rule(pulumi.CustomResource):
             owner="CUSTOM_LAMBDA",
             source_identifier=example_function.arn,
         ),
-        opts=pulumi.ResourceOptions(depends_on=[
+        opts = pulumi.ResourceOptions(depends_on=[
                 example,
                 example_permission,
             ]))
@@ -773,12 +771,10 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 

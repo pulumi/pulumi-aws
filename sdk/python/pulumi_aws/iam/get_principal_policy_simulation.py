@@ -203,7 +203,7 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[str]] = None
     import pulumi_aws as aws
 
     example = aws.s3.BucketObject("example", bucket="my-test-bucket",
-    opts=pulumi.ResourceOptions(depends_on=[s3_object_access]))
+    opts = pulumi.ResourceOptions(depends_on=[s3_object_access]))
     ```
 
     ### Testing the Effect of a Declared Policy
@@ -356,7 +356,7 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
     import pulumi_aws as aws
 
     example = aws.s3.BucketObject("example", bucket="my-test-bucket",
-    opts=pulumi.ResourceOptions(depends_on=[s3_object_access]))
+    opts = pulumi.ResourceOptions(depends_on=[s3_object_access]))
     ```
 
     ### Testing the Effect of a Declared Policy

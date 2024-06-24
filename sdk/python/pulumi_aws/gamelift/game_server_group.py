@@ -417,10 +417,8 @@ class _GameServerGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -483,7 +481,7 @@ class GameServerGroup(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             role_arn=example_aws_iam_role["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
         ```
 
         Full usage:
@@ -526,7 +524,7 @@ class GameServerGroup(pulumi.CustomResource):
                 "subnet-12345678",
                 "subnet-23456789",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
         ```
 
         ### Example IAM Role for GameLift Game Server Group
@@ -615,7 +613,7 @@ class GameServerGroup(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             role_arn=example_aws_iam_role["arn"],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
         ```
 
         Full usage:
@@ -658,7 +656,7 @@ class GameServerGroup(pulumi.CustomResource):
                 "subnet-12345678",
                 "subnet-23456789",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
+            opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy_attachment]))
         ```
 
         ### Example IAM Role for GameLift Game Server Group
@@ -926,10 +924,8 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

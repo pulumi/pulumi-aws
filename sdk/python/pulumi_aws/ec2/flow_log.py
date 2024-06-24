@@ -172,13 +172,11 @@ class FlowLogArgs:
 
     @property
     @pulumi.getter(name="logGroupName")
+    @_utilities.deprecated("""use 'log_destination' argument instead""")
     def log_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         """
-        warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
-        pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
-
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -455,13 +453,11 @@ class _FlowLogState:
 
     @property
     @pulumi.getter(name="logGroupName")
+    @_utilities.deprecated("""use 'log_destination' argument instead""")
     def log_group_name(self) -> Optional[pulumi.Input[str]]:
         """
         **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         """
-        warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
-        pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
-
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
@@ -509,13 +505,11 @@ class _FlowLogState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -991,13 +985,11 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logGroupName")
+    @_utilities.deprecated("""use 'log_destination' argument instead""")
     def log_group_name(self) -> pulumi.Output[str]:
         """
         **Deprecated:** Use `log_destination` instead. The name of the CloudWatch log group. Either `log_group_name` or `log_destination` must be set.
         """
-        warnings.warn("""use 'log_destination' argument instead""", DeprecationWarning)
-        pulumi.log.warn("""log_group_name is deprecated: use 'log_destination' argument instead""")
-
         return pulumi.get(self, "log_group_name")
 
     @property
@@ -1029,13 +1021,11 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

@@ -79,7 +79,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
             feature_set="ALL")
         example_account = aws.securityhub.Account("example")
         example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("example", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         # Auto enable security hub in organization member accounts
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
         ```
@@ -116,7 +116,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
             feature_set="ALL")
         example_account = aws.securityhub.Account("example")
         example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("example", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         # Auto enable security hub in organization member accounts
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
         ```

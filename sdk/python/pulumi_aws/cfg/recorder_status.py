@@ -130,7 +130,7 @@ class RecorderStatus(pulumi.CustomResource):
         foo = aws.cfg.RecorderStatus("foo",
             name=foo_recorder.name,
             is_enabled=True,
-            opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
+            opts = pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
         a = aws.iam.RolePolicyAttachment("a",
             role=r.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
@@ -199,7 +199,7 @@ class RecorderStatus(pulumi.CustomResource):
         foo = aws.cfg.RecorderStatus("foo",
             name=foo_recorder.name,
             is_enabled=True,
-            opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
+            opts = pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
         a = aws.iam.RolePolicyAttachment("a",
             role=r.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")

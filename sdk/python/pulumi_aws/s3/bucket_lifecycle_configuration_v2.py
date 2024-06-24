@@ -428,7 +428,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 ],
                 status="Enabled",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[versioning]))
+            opts = pulumi.ResourceOptions(depends_on=[versioning]))
         ```
 
         ## Import
@@ -756,7 +756,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 ],
                 status="Enabled",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[versioning]))
+            opts = pulumi.ResourceOptions(depends_on=[versioning]))
         ```
 
         ## Import

@@ -179,6 +179,7 @@ class EipArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""use domain attribute instead""")
     def vpc(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -189,9 +190,6 @@ class EipArgs:
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         case both options are defined as the api only requires one or the other.
         """
-        warnings.warn("""use domain attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
-
         return pulumi.get(self, "vpc")
 
     @vpc.setter
@@ -530,13 +528,11 @@ class _EipState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -545,6 +541,7 @@ class _EipState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""use domain attribute instead""")
     def vpc(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -555,9 +552,6 @@ class _EipState:
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         case both options are defined as the api only requires one or the other.
         """
-        warnings.warn("""use domain attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
-
         return pulumi.get(self, "vpc")
 
     @vpc.setter
@@ -637,7 +631,7 @@ class Eip(pulumi.CustomResource):
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
             map_public_ip_on_launch=True,
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            opts = pulumi.ResourceOptions(depends_on=[gw]))
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
             instance_type=aws.ec2.InstanceType.T2_MICRO,
@@ -647,7 +641,7 @@ class Eip(pulumi.CustomResource):
             domain="vpc",
             instance=foo.id,
             associate_with_private_ip="10.0.0.12",
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            opts = pulumi.ResourceOptions(depends_on=[gw]))
         ```
 
         ### Allocating EIP from the BYOIP pool
@@ -751,7 +745,7 @@ class Eip(pulumi.CustomResource):
             vpc_id=default.id,
             cidr_block="10.0.0.0/24",
             map_public_ip_on_launch=True,
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            opts = pulumi.ResourceOptions(depends_on=[gw]))
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
             instance_type=aws.ec2.InstanceType.T2_MICRO,
@@ -761,7 +755,7 @@ class Eip(pulumi.CustomResource):
             domain="vpc",
             instance=foo.id,
             associate_with_private_ip="10.0.0.12",
-            opts=pulumi.ResourceOptions(depends_on=[gw]))
+            opts = pulumi.ResourceOptions(depends_on=[gw]))
         ```
 
         ### Allocating EIP from the BYOIP pool
@@ -1083,17 +1077,16 @@ class Eip(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""use domain attribute instead""")
     def vpc(self) -> pulumi.Output[bool]:
         """
         Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -1104,8 +1097,5 @@ class Eip(pulumi.CustomResource):
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         case both options are defined as the api only requires one or the other.
         """
-        warnings.warn("""use domain attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""vpc is deprecated: use domain attribute instead""")
-
         return pulumi.get(self, "vpc")
 

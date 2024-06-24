@@ -161,7 +161,7 @@ class GlobalTable(pulumi.CustomResource):
                     region_name="us-west-2",
                 ),
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     us_east_1,
                     us_west_2,
                 ]))
@@ -231,7 +231,7 @@ class GlobalTable(pulumi.CustomResource):
                     region_name="us-west-2",
                 ),
             ],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     us_east_1,
                     us_west_2,
                 ]))

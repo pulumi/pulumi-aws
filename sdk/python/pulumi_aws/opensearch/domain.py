@@ -648,13 +648,11 @@ class _DomainState:
 
     @property
     @pulumi.getter(name="kibanaEndpoint")
+    @_utilities.deprecated("""use 'dashboard_endpoint' attribute instead""")
     def kibana_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
         (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         """
-        warnings.warn("""use 'dashboard_endpoint' attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""kibana_endpoint is deprecated: use 'dashboard_endpoint' attribute instead""")
-
         return pulumi.get(self, "kibana_endpoint")
 
     @kibana_endpoint.setter
@@ -735,13 +733,11 @@ class _DomainState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -951,7 +947,7 @@ class Domain(pulumi.CustomResource):
             tags={
                 "Domain": "TestDomain",
             },
-            opts=pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
+            opts = pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
         ```
 
         ### Enabling fine-grained access control on an existing domain
@@ -1239,7 +1235,7 @@ class Domain(pulumi.CustomResource):
             tags={
                 "Domain": "TestDomain",
             },
-            opts=pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
+            opts = pulumi.ResourceOptions(depends_on=[example_service_linked_role]))
         ```
 
         ### Enabling fine-grained access control on an existing domain
@@ -1635,13 +1631,11 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kibanaEndpoint")
+    @_utilities.deprecated("""use 'dashboard_endpoint' attribute instead""")
     def kibana_endpoint(self) -> pulumi.Output[str]:
         """
         (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         """
-        warnings.warn("""use 'dashboard_endpoint' attribute instead""", DeprecationWarning)
-        pulumi.log.warn("""kibana_endpoint is deprecated: use 'dashboard_endpoint' attribute instead""")
-
         return pulumi.get(self, "kibana_endpoint")
 
     @property
@@ -1694,13 +1688,11 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property
