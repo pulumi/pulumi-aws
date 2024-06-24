@@ -435,7 +435,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
             lambda_function_arn=example_aws_lambda_function["arn"],
             name="example",
             trigger_types=["ConfigurationItemChangeNotification"],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example,
                     example_organization,
                 ]))
@@ -494,7 +494,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
             lambda_function_arn=example_aws_lambda_function["arn"],
             name="example",
             trigger_types=["ConfigurationItemChangeNotification"],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example,
                     example_organization,
                 ]))

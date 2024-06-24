@@ -101,13 +101,11 @@ class CoreNetworkArgs:
 
     @property
     @pulumi.getter(name="basePolicyRegion")
+    @_utilities.deprecated("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
     def base_policy_region(self) -> Optional[pulumi.Input[str]]:
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         """
-        warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
-
         return pulumi.get(self, "base_policy_region")
 
     @base_policy_region.setter
@@ -304,13 +302,11 @@ class _CoreNetworkState:
 
     @property
     @pulumi.getter(name="basePolicyRegion")
+    @_utilities.deprecated("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
     def base_policy_region(self) -> Optional[pulumi.Input[str]]:
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         """
-        warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
-
         return pulumi.get(self, "base_policy_region")
 
     @base_policy_region.setter
@@ -452,13 +448,11 @@ class _CoreNetworkState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -1226,13 +1220,11 @@ class CoreNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="basePolicyRegion")
+    @_utilities.deprecated("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
     def base_policy_region(self) -> pulumi.Output[Optional[str]]:
         """
         The base policy created by setting the `create_base_policy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `base_policy_region` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
         """
-        warnings.warn("""Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""base_policy_region is deprecated: Use the base_policy_regions argument instead. This argument will be removed in the next major version of the provider.""")
-
         return pulumi.get(self, "base_policy_region")
 
     @property
@@ -1334,12 +1326,10 @@ class CoreNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 

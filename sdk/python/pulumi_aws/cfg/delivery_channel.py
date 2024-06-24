@@ -263,7 +263,7 @@ class DeliveryChannel(pulumi.CustomResource):
         foo = aws.cfg.DeliveryChannel("foo",
             name="example",
             s3_bucket_name=b.bucket,
-            opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
+            opts = pulumi.ResourceOptions(depends_on=[foo_recorder]))
         p = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["s3:*"],
@@ -332,7 +332,7 @@ class DeliveryChannel(pulumi.CustomResource):
         foo = aws.cfg.DeliveryChannel("foo",
             name="example",
             s3_bucket_name=b.bucket,
-            opts=pulumi.ResourceOptions(depends_on=[foo_recorder]))
+            opts = pulumi.ResourceOptions(depends_on=[foo_recorder]))
         p = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             effect="Allow",
             actions=["s3:*"],

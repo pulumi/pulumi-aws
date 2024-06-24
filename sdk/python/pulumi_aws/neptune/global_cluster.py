@@ -339,7 +339,7 @@ class GlobalCluster(pulumi.CustomResource):
             cluster_identifier=secondary.id,
             instance_class="db.r5.large",
             neptune_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
+            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         ```
 
         ### New Global Cluster From Existing DB Cluster
@@ -422,7 +422,7 @@ class GlobalCluster(pulumi.CustomResource):
             cluster_identifier=secondary.id,
             instance_class="db.r5.large",
             neptune_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
+            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         ```
 
         ### New Global Cluster From Existing DB Cluster

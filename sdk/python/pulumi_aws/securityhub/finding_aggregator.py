@@ -113,7 +113,7 @@ class FindingAggregator(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### All Regions Except Specified Regions Usage
@@ -131,7 +131,7 @@ class FindingAggregator(pulumi.CustomResource):
                 "eu-west-1",
                 "eu-west-2",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### Specified Regions Usage
@@ -149,7 +149,7 @@ class FindingAggregator(pulumi.CustomResource):
                 "eu-west-1",
                 "eu-west-2",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
@@ -186,7 +186,7 @@ class FindingAggregator(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### All Regions Except Specified Regions Usage
@@ -204,7 +204,7 @@ class FindingAggregator(pulumi.CustomResource):
                 "eu-west-1",
                 "eu-west-2",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### Specified Regions Usage
@@ -222,7 +222,7 @@ class FindingAggregator(pulumi.CustomResource):
                 "eu-west-1",
                 "eu-west-2",
             ],
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import

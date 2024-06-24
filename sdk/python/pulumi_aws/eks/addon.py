@@ -139,13 +139,11 @@ class AddonArgs:
 
     @property
     @pulumi.getter(name="resolveConflicts")
+    @_utilities.deprecated("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
     def resolve_conflicts(self) -> Optional[pulumi.Input[str]]:
         """
         Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         """
-        warnings.warn("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""", DeprecationWarning)
-        pulumi.log.warn("""resolve_conflicts is deprecated: The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
-
         return pulumi.get(self, "resolve_conflicts")
 
     @resolve_conflicts.setter
@@ -396,13 +394,11 @@ class _AddonState:
 
     @property
     @pulumi.getter(name="resolveConflicts")
+    @_utilities.deprecated("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
     def resolve_conflicts(self) -> Optional[pulumi.Input[str]]:
         """
         Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         """
-        warnings.warn("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""", DeprecationWarning)
-        pulumi.log.warn("""resolve_conflicts is deprecated: The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
-
         return pulumi.get(self, "resolve_conflicts")
 
     @resolve_conflicts.setter
@@ -469,13 +465,11 @@ class _AddonState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -954,13 +948,11 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resolveConflicts")
+    @_utilities.deprecated("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
     def resolve_conflicts(self) -> pulumi.Output[Optional[str]]:
         """
         Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         """
-        warnings.warn("""The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""", DeprecationWarning)
-        pulumi.log.warn("""resolve_conflicts is deprecated: The \"resolve_conflicts\" attribute can't be set to \"PRESERVE\" on initial resource creation. Use \"resolve_conflicts_on_create\" and/or \"resolve_conflicts_on_update\" instead""")
-
         return pulumi.get(self, "resolve_conflicts")
 
     @property
@@ -1007,12 +999,10 @@ class Addon(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 

@@ -173,7 +173,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
             ipam_pool_id=example_vpc_ipam_pool.id,
             netmask_length=28,
             disallowed_cidrs=["172.2.0.0/32"],
-            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
+            opts = pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -214,7 +214,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
             ipam_pool_id=example_vpc_ipam_pool.id,
             netmask_length=28,
             disallowed_cidrs=["172.2.0.0/32"],
-            opts=pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
+            opts = pulumi.ResourceOptions(depends_on=[example_vpc_ipam_pool_cidr]))
         ```
 
         :param str resource_name: The name of the resource.

@@ -257,7 +257,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     storage_class="STANDARD",
                 ),
             )],
-            opts=pulumi.ResourceOptions(depends_on=[source_bucket_versioning_v2]))
+            opts = pulumi.ResourceOptions(depends_on=[source_bucket_versioning_v2]))
         ```
 
         ### Bi-Directional Replication
@@ -293,7 +293,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     storage_class="STANDARD",
                 ),
             )],
-            opts=pulumi.ResourceOptions(depends_on=[east_bucket_versioning_v2]))
+            opts = pulumi.ResourceOptions(depends_on=[east_bucket_versioning_v2]))
         west_to_east = aws.s3.BucketReplicationConfig("west_to_east",
             role=west_replication["arn"],
             bucket=west.id,
@@ -308,7 +308,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     storage_class="STANDARD",
                 ),
             )],
-            opts=pulumi.ResourceOptions(depends_on=[west_bucket_versioning_v2]))
+            opts = pulumi.ResourceOptions(depends_on=[west_bucket_versioning_v2]))
         ```
 
         ## Import
@@ -422,7 +422,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     storage_class="STANDARD",
                 ),
             )],
-            opts=pulumi.ResourceOptions(depends_on=[source_bucket_versioning_v2]))
+            opts = pulumi.ResourceOptions(depends_on=[source_bucket_versioning_v2]))
         ```
 
         ### Bi-Directional Replication
@@ -458,7 +458,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     storage_class="STANDARD",
                 ),
             )],
-            opts=pulumi.ResourceOptions(depends_on=[east_bucket_versioning_v2]))
+            opts = pulumi.ResourceOptions(depends_on=[east_bucket_versioning_v2]))
         west_to_east = aws.s3.BucketReplicationConfig("west_to_east",
             role=west_replication["arn"],
             bucket=west.id,
@@ -473,7 +473,7 @@ class BucketReplicationConfig(pulumi.CustomResource):
                     storage_class="STANDARD",
                 ),
             )],
-            opts=pulumi.ResourceOptions(depends_on=[west_bucket_versioning_v2]))
+            opts = pulumi.ResourceOptions(depends_on=[west_bucket_versioning_v2]))
         ```
 
         ## Import

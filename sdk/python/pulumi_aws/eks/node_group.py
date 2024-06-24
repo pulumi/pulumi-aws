@@ -661,13 +661,11 @@ class _NodeGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -758,7 +756,7 @@ class NodeGroup(pulumi.CustomResource):
             update_config=aws.eks.NodeGroupUpdateConfigArgs(
                 max_unavailable=1,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example__amazon_eks_worker_node_policy,
                     example__amazon_ekscni_policy,
                     example__amazon_ec2_container_registry_read_only,
@@ -886,7 +884,7 @@ class NodeGroup(pulumi.CustomResource):
             update_config=aws.eks.NodeGroupUpdateConfigArgs(
                 max_unavailable=1,
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example__amazon_eks_worker_node_policy,
                     example__amazon_ekscni_policy,
                     example__amazon_ec2_container_registry_read_only,
@@ -1287,13 +1285,11 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

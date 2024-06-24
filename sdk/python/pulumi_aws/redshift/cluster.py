@@ -263,15 +263,13 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="aquaConfigurationStatus")
+    @_utilities.deprecated("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
     def aqua_configuration_status(self) -> Optional[pulumi.Input[str]]:
         """
         The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
         No longer supported by the AWS API.
         Always returns `auto`.
         """
-        warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
-
         return pulumi.get(self, "aqua_configuration_status")
 
     @aqua_configuration_status.setter
@@ -498,13 +496,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
     def logging(self) -> Optional[pulumi.Input['ClusterLoggingArgs']]:
         """
         Logging, documented below.
         """
-        warnings.warn("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
-        pulumi.log.warn("""logging is deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
-
         return pulumi.get(self, "logging")
 
     @logging.setter
@@ -703,13 +699,11 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="snapshotCopy")
+    @_utilities.deprecated("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
     def snapshot_copy(self) -> Optional[pulumi.Input['ClusterSnapshotCopyArgs']]:
         """
         Configuration of automatic copy of snapshots from one region to another. Documented below.
         """
-        warnings.warn("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
-        pulumi.log.warn("""snapshot_copy is deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
-
         return pulumi.get(self, "snapshot_copy")
 
     @snapshot_copy.setter
@@ -1008,15 +1002,13 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="aquaConfigurationStatus")
+    @_utilities.deprecated("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
     def aqua_configuration_status(self) -> Optional[pulumi.Input[str]]:
         """
         The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
         No longer supported by the AWS API.
         Always returns `auto`.
         """
-        warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
-
         return pulumi.get(self, "aqua_configuration_status")
 
     @aqua_configuration_status.setter
@@ -1303,13 +1295,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
     def logging(self) -> Optional[pulumi.Input['ClusterLoggingArgs']]:
         """
         Logging, documented below.
         """
-        warnings.warn("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
-        pulumi.log.warn("""logging is deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
-
         return pulumi.get(self, "logging")
 
     @logging.setter
@@ -1532,13 +1522,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="snapshotCopy")
+    @_utilities.deprecated("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
     def snapshot_copy(self) -> Optional[pulumi.Input['ClusterSnapshotCopyArgs']]:
         """
         Configuration of automatic copy of snapshots from one region to another. Documented below.
         """
-        warnings.warn("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
-        pulumi.log.warn("""snapshot_copy is deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
-
         return pulumi.get(self, "snapshot_copy")
 
     @snapshot_copy.setter
@@ -1571,13 +1559,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -2127,15 +2113,13 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="aquaConfigurationStatus")
+    @_utilities.deprecated("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
     def aqua_configuration_status(self) -> pulumi.Output[str]:
         """
         The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored.
         No longer supported by the AWS API.
         Always returns `auto`.
         """
-        warnings.warn("""This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""", DeprecationWarning)
-        pulumi.log.warn("""aqua_configuration_status is deprecated: This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.""")
-
         return pulumi.get(self, "aqua_configuration_status")
 
     @property
@@ -2326,13 +2310,11 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
     def logging(self) -> pulumi.Output['outputs.ClusterLogging']:
         """
         Logging, documented below.
         """
-        warnings.warn("""Use the redshift.Logging resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
-        pulumi.log.warn("""logging is deprecated: Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
-
         return pulumi.get(self, "logging")
 
     @property
@@ -2483,13 +2465,11 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="snapshotCopy")
+    @_utilities.deprecated("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
     def snapshot_copy(self) -> pulumi.Output['outputs.ClusterSnapshotCopy']:
         """
         Configuration of automatic copy of snapshots from one region to another. Documented below.
         """
-        warnings.warn("""Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
-        pulumi.log.warn("""snapshot_copy is deprecated: Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
-
         return pulumi.get(self, "snapshot_copy")
 
     @property
@@ -2510,13 +2490,11 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

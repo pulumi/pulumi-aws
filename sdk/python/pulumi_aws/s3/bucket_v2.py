@@ -150,14 +150,12 @@ class BucketV2Args:
 
     @property
     @pulumi.getter(name="accelerationStatus")
+    @_utilities.deprecated("""Use the s3.BucketAccelerateConfigurationV2 resource instead""")
     def acceleration_status(self) -> Optional[pulumi.Input[str]]:
         """
         Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketAccelerateConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketAccelerateConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""acceleration_status is deprecated: Use the s3.BucketAccelerateConfigurationV2 resource instead""")
-
         return pulumi.get(self, "acceleration_status")
 
     @acceleration_status.setter
@@ -166,13 +164,11 @@ class BucketV2Args:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketAclV2 resource instead""")
     def acl(self) -> Optional[pulumi.Input[str]]:
         """
         The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
         """
-        warnings.warn("""Use the s3.BucketAclV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""acl is deprecated: Use the s3.BucketAclV2 resource instead""")
-
         return pulumi.get(self, "acl")
 
     @acl.setter
@@ -205,13 +201,11 @@ class BucketV2Args:
 
     @property
     @pulumi.getter(name="corsRules")
+    @_utilities.deprecated("""Use the s3.BucketCorsConfigurationV2 resource instead""")
     def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2CorsRuleArgs']]]]:
         """
         Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketCorsConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""cors_rules is deprecated: Use the s3.BucketCorsConfigurationV2 resource instead""")
-
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
@@ -232,13 +226,11 @@ class BucketV2Args:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketAclV2 resource instead""")
     def grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2GrantArgs']]]]:
         """
         An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
         """
-        warnings.warn("""Use the s3.BucketAclV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""grants is deprecated: Use the s3.BucketAclV2 resource instead""")
-
         return pulumi.get(self, "grants")
 
     @grants.setter
@@ -247,14 +239,12 @@ class BucketV2Args:
 
     @property
     @pulumi.getter(name="lifecycleRules")
+    @_utilities.deprecated("""Use the s3.BucketLifecycleConfigurationV2 resource instead""")
     def lifecycle_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LifecycleRuleArgs']]]]:
         """
         Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketLifecycleConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketLifecycleConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""lifecycle_rules is deprecated: Use the s3.BucketLifecycleConfigurationV2 resource instead""")
-
         return pulumi.get(self, "lifecycle_rules")
 
     @lifecycle_rules.setter
@@ -263,14 +253,12 @@ class BucketV2Args:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketLoggingV2 resource instead""")
     def loggings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]]]:
         """
         Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketLoggingV2` instead.
         """
-        warnings.warn("""Use the s3.BucketLoggingV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""loggings is deprecated: Use the s3.BucketLoggingV2 resource instead""")
-
         return pulumi.get(self, "loggings")
 
     @loggings.setter
@@ -279,15 +267,13 @@ class BucketV2Args:
 
     @property
     @pulumi.getter(name="objectLockConfiguration")
+    @_utilities.deprecated("""Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfigurationV2 resource instead""")
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']]:
         """
         Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
         The provider wil only perform drift detection if a configuration value is provided.
         Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         """
-        warnings.warn("""Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""object_lock_configuration is deprecated: Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfigurationV2 resource instead""")
-
         return pulumi.get(self, "object_lock_configuration")
 
     @object_lock_configuration.setter
@@ -308,15 +294,13 @@ class BucketV2Args:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketPolicy resource instead""")
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
         Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketPolicy` instead.
         """
-        warnings.warn("""Use the s3.BucketPolicy resource instead""", DeprecationWarning)
-        pulumi.log.warn("""policy is deprecated: Use the s3.BucketPolicy resource instead""")
-
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -325,14 +309,12 @@ class BucketV2Args:
 
     @property
     @pulumi.getter(name="replicationConfigurations")
+    @_utilities.deprecated("""Use the s3.BucketReplicationConfig resource instead""")
     def replication_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]]]:
         """
         Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketReplicationConfig` instead.
         """
-        warnings.warn("""Use the s3.BucketReplicationConfig resource instead""", DeprecationWarning)
-        pulumi.log.warn("""replication_configurations is deprecated: Use the s3.BucketReplicationConfig resource instead""")
-
         return pulumi.get(self, "replication_configurations")
 
     @replication_configurations.setter
@@ -341,6 +323,7 @@ class BucketV2Args:
 
     @property
     @pulumi.getter(name="requestPayer")
+    @_utilities.deprecated("""Use the s3.BucketRequestPaymentConfigurationV2 resource instead""")
     def request_payer(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies who should bear the cost of Amazon S3 data transfer.
@@ -349,9 +332,6 @@ class BucketV2Args:
         The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketRequestPaymentConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""request_payer is deprecated: Use the s3.BucketRequestPaymentConfigurationV2 resource instead""")
-
         return pulumi.get(self, "request_payer")
 
     @request_payer.setter
@@ -360,15 +340,13 @@ class BucketV2Args:
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfigurations")
+    @_utilities.deprecated("""Use the s3.BucketServerSideEncryptionConfigurationV2 resource instead""")
     def server_side_encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]]]:
         """
         Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
         The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketServerSideEncryptionConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""server_side_encryption_configurations is deprecated: Use the s3.BucketServerSideEncryptionConfigurationV2 resource instead""")
-
         return pulumi.get(self, "server_side_encryption_configurations")
 
     @server_side_encryption_configurations.setter
@@ -391,13 +369,11 @@ class BucketV2Args:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketVersioningV2 resource instead""")
     def versionings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]]]:
         """
         Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         """
-        warnings.warn("""Use the s3.BucketVersioningV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""versionings is deprecated: Use the s3.BucketVersioningV2 resource instead""")
-
         return pulumi.get(self, "versionings")
 
     @versionings.setter
@@ -406,14 +382,12 @@ class BucketV2Args:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketWebsiteConfigurationV2 resource instead""")
     def websites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]]:
         """
         Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketWebsiteConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""websites is deprecated: Use the s3.BucketWebsiteConfigurationV2 resource instead""")
-
         return pulumi.get(self, "websites")
 
     @websites.setter
@@ -599,14 +573,12 @@ class _BucketV2State:
 
     @property
     @pulumi.getter(name="accelerationStatus")
+    @_utilities.deprecated("""Use the s3.BucketAccelerateConfigurationV2 resource instead""")
     def acceleration_status(self) -> Optional[pulumi.Input[str]]:
         """
         Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketAccelerateConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketAccelerateConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""acceleration_status is deprecated: Use the s3.BucketAccelerateConfigurationV2 resource instead""")
-
         return pulumi.get(self, "acceleration_status")
 
     @acceleration_status.setter
@@ -615,13 +587,11 @@ class _BucketV2State:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketAclV2 resource instead""")
     def acl(self) -> Optional[pulumi.Input[str]]:
         """
         The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
         """
-        warnings.warn("""Use the s3.BucketAclV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""acl is deprecated: Use the s3.BucketAclV2 resource instead""")
-
         return pulumi.get(self, "acl")
 
     @acl.setter
@@ -690,13 +660,11 @@ class _BucketV2State:
 
     @property
     @pulumi.getter(name="corsRules")
+    @_utilities.deprecated("""Use the s3.BucketCorsConfigurationV2 resource instead""")
     def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2CorsRuleArgs']]]]:
         """
         Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketCorsConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""cors_rules is deprecated: Use the s3.BucketCorsConfigurationV2 resource instead""")
-
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
@@ -717,13 +685,11 @@ class _BucketV2State:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketAclV2 resource instead""")
     def grants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2GrantArgs']]]]:
         """
         An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
         """
-        warnings.warn("""Use the s3.BucketAclV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""grants is deprecated: Use the s3.BucketAclV2 resource instead""")
-
         return pulumi.get(self, "grants")
 
     @grants.setter
@@ -744,14 +710,12 @@ class _BucketV2State:
 
     @property
     @pulumi.getter(name="lifecycleRules")
+    @_utilities.deprecated("""Use the s3.BucketLifecycleConfigurationV2 resource instead""")
     def lifecycle_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LifecycleRuleArgs']]]]:
         """
         Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketLifecycleConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketLifecycleConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""lifecycle_rules is deprecated: Use the s3.BucketLifecycleConfigurationV2 resource instead""")
-
         return pulumi.get(self, "lifecycle_rules")
 
     @lifecycle_rules.setter
@@ -760,14 +724,12 @@ class _BucketV2State:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketLoggingV2 resource instead""")
     def loggings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2LoggingArgs']]]]:
         """
         Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketLoggingV2` instead.
         """
-        warnings.warn("""Use the s3.BucketLoggingV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""loggings is deprecated: Use the s3.BucketLoggingV2 resource instead""")
-
         return pulumi.get(self, "loggings")
 
     @loggings.setter
@@ -776,15 +738,13 @@ class _BucketV2State:
 
     @property
     @pulumi.getter(name="objectLockConfiguration")
+    @_utilities.deprecated("""Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfigurationV2 resource instead""")
     def object_lock_configuration(self) -> Optional[pulumi.Input['BucketV2ObjectLockConfigurationArgs']]:
         """
         Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
         The provider wil only perform drift detection if a configuration value is provided.
         Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         """
-        warnings.warn("""Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""object_lock_configuration is deprecated: Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfigurationV2 resource instead""")
-
         return pulumi.get(self, "object_lock_configuration")
 
     @object_lock_configuration.setter
@@ -805,15 +765,13 @@ class _BucketV2State:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketPolicy resource instead""")
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
         Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketPolicy` instead.
         """
-        warnings.warn("""Use the s3.BucketPolicy resource instead""", DeprecationWarning)
-        pulumi.log.warn("""policy is deprecated: Use the s3.BucketPolicy resource instead""")
-
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -834,14 +792,12 @@ class _BucketV2State:
 
     @property
     @pulumi.getter(name="replicationConfigurations")
+    @_utilities.deprecated("""Use the s3.BucketReplicationConfig resource instead""")
     def replication_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ReplicationConfigurationArgs']]]]:
         """
         Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketReplicationConfig` instead.
         """
-        warnings.warn("""Use the s3.BucketReplicationConfig resource instead""", DeprecationWarning)
-        pulumi.log.warn("""replication_configurations is deprecated: Use the s3.BucketReplicationConfig resource instead""")
-
         return pulumi.get(self, "replication_configurations")
 
     @replication_configurations.setter
@@ -850,6 +806,7 @@ class _BucketV2State:
 
     @property
     @pulumi.getter(name="requestPayer")
+    @_utilities.deprecated("""Use the s3.BucketRequestPaymentConfigurationV2 resource instead""")
     def request_payer(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies who should bear the cost of Amazon S3 data transfer.
@@ -858,9 +815,6 @@ class _BucketV2State:
         The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketRequestPaymentConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""request_payer is deprecated: Use the s3.BucketRequestPaymentConfigurationV2 resource instead""")
-
         return pulumi.get(self, "request_payer")
 
     @request_payer.setter
@@ -869,15 +823,13 @@ class _BucketV2State:
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfigurations")
+    @_utilities.deprecated("""Use the s3.BucketServerSideEncryptionConfigurationV2 resource instead""")
     def server_side_encryption_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2ServerSideEncryptionConfigurationArgs']]]]:
         """
         Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
         The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketServerSideEncryptionConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""server_side_encryption_configurations is deprecated: Use the s3.BucketServerSideEncryptionConfigurationV2 resource instead""")
-
         return pulumi.get(self, "server_side_encryption_configurations")
 
     @server_side_encryption_configurations.setter
@@ -900,13 +852,11 @@ class _BucketV2State:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -915,13 +865,11 @@ class _BucketV2State:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketVersioningV2 resource instead""")
     def versionings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2VersioningArgs']]]]:
         """
         Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         """
-        warnings.warn("""Use the s3.BucketVersioningV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""versionings is deprecated: Use the s3.BucketVersioningV2 resource instead""")
-
         return pulumi.get(self, "versionings")
 
     @versionings.setter
@@ -930,13 +878,11 @@ class _BucketV2State:
 
     @property
     @pulumi.getter(name="websiteDomain")
+    @_utilities.deprecated("""Use the s3.BucketWebsiteConfigurationV2 resource""")
     def website_domain(self) -> Optional[pulumi.Input[str]]:
         """
         (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketWebsiteConfigurationV2 resource""", DeprecationWarning)
-        pulumi.log.warn("""website_domain is deprecated: Use the s3.BucketWebsiteConfigurationV2 resource""")
-
         return pulumi.get(self, "website_domain")
 
     @website_domain.setter
@@ -945,13 +891,11 @@ class _BucketV2State:
 
     @property
     @pulumi.getter(name="websiteEndpoint")
+    @_utilities.deprecated("""Use the s3.BucketWebsiteConfigurationV2 resource""")
     def website_endpoint(self) -> Optional[pulumi.Input[str]]:
         """
         (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketWebsiteConfigurationV2 resource""", DeprecationWarning)
-        pulumi.log.warn("""website_endpoint is deprecated: Use the s3.BucketWebsiteConfigurationV2 resource""")
-
         return pulumi.get(self, "website_endpoint")
 
     @website_endpoint.setter
@@ -960,14 +904,12 @@ class _BucketV2State:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketWebsiteConfigurationV2 resource instead""")
     def websites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketV2WebsiteArgs']]]]:
         """
         Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketWebsiteConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""websites is deprecated: Use the s3.BucketWebsiteConfigurationV2 resource instead""")
-
         return pulumi.get(self, "websites")
 
     @websites.setter
@@ -1296,25 +1238,21 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="accelerationStatus")
+    @_utilities.deprecated("""Use the s3.BucketAccelerateConfigurationV2 resource instead""")
     def acceleration_status(self) -> pulumi.Output[str]:
         """
         Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketAccelerateConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketAccelerateConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""acceleration_status is deprecated: Use the s3.BucketAccelerateConfigurationV2 resource instead""")
-
         return pulumi.get(self, "acceleration_status")
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketAclV2 resource instead""")
     def acl(self) -> pulumi.Output[str]:
         """
         The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
         """
-        warnings.warn("""Use the s3.BucketAclV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""acl is deprecated: Use the s3.BucketAclV2 resource instead""")
-
         return pulumi.get(self, "acl")
 
     @property
@@ -1359,13 +1297,11 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="corsRules")
+    @_utilities.deprecated("""Use the s3.BucketCorsConfigurationV2 resource instead""")
     def cors_rules(self) -> pulumi.Output[Sequence['outputs.BucketV2CorsRule']]:
         """
         Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketCorsConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketCorsConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""cors_rules is deprecated: Use the s3.BucketCorsConfigurationV2 resource instead""")
-
         return pulumi.get(self, "cors_rules")
 
     @property
@@ -1378,13 +1314,11 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketAclV2 resource instead""")
     def grants(self) -> pulumi.Output[Sequence['outputs.BucketV2Grant']]:
         """
         An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketAclV2` instead.
         """
-        warnings.warn("""Use the s3.BucketAclV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""grants is deprecated: Use the s3.BucketAclV2 resource instead""")
-
         return pulumi.get(self, "grants")
 
     @property
@@ -1397,39 +1331,33 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lifecycleRules")
+    @_utilities.deprecated("""Use the s3.BucketLifecycleConfigurationV2 resource instead""")
     def lifecycle_rules(self) -> pulumi.Output[Sequence['outputs.BucketV2LifecycleRule']]:
         """
         Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketLifecycleConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketLifecycleConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""lifecycle_rules is deprecated: Use the s3.BucketLifecycleConfigurationV2 resource instead""")
-
         return pulumi.get(self, "lifecycle_rules")
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketLoggingV2 resource instead""")
     def loggings(self) -> pulumi.Output[Sequence['outputs.BucketV2Logging']]:
         """
         Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketLoggingV2` instead.
         """
-        warnings.warn("""Use the s3.BucketLoggingV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""loggings is deprecated: Use the s3.BucketLoggingV2 resource instead""")
-
         return pulumi.get(self, "loggings")
 
     @property
     @pulumi.getter(name="objectLockConfiguration")
+    @_utilities.deprecated("""Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfigurationV2 resource instead""")
     def object_lock_configuration(self) -> pulumi.Output['outputs.BucketV2ObjectLockConfiguration']:
         """
         Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
         The provider wil only perform drift detection if a configuration value is provided.
         Use the `object_lock_enabled` parameter and the resource `s3.BucketObjectLockConfigurationV2` instead.
         """
-        warnings.warn("""Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""object_lock_configuration is deprecated: Use the top-level parameter object_lock_enabled and the s3.BucketObjectLockConfigurationV2 resource instead""")
-
         return pulumi.get(self, "object_lock_configuration")
 
     @property
@@ -1442,15 +1370,13 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketPolicy resource instead""")
     def policy(self) -> pulumi.Output[str]:
         """
         Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketPolicy` instead.
         """
-        warnings.warn("""Use the s3.BucketPolicy resource instead""", DeprecationWarning)
-        pulumi.log.warn("""policy is deprecated: Use the s3.BucketPolicy resource instead""")
-
         return pulumi.get(self, "policy")
 
     @property
@@ -1463,18 +1389,17 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="replicationConfigurations")
+    @_utilities.deprecated("""Use the s3.BucketReplicationConfig resource instead""")
     def replication_configurations(self) -> pulumi.Output[Sequence['outputs.BucketV2ReplicationConfiguration']]:
         """
         Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketReplicationConfig` instead.
         """
-        warnings.warn("""Use the s3.BucketReplicationConfig resource instead""", DeprecationWarning)
-        pulumi.log.warn("""replication_configurations is deprecated: Use the s3.BucketReplicationConfig resource instead""")
-
         return pulumi.get(self, "replication_configurations")
 
     @property
     @pulumi.getter(name="requestPayer")
+    @_utilities.deprecated("""Use the s3.BucketRequestPaymentConfigurationV2 resource instead""")
     def request_payer(self) -> pulumi.Output[str]:
         """
         Specifies who should bear the cost of Amazon S3 data transfer.
@@ -1483,22 +1408,17 @@ class BucketV2(pulumi.CustomResource):
         The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketRequestPaymentConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketRequestPaymentConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""request_payer is deprecated: Use the s3.BucketRequestPaymentConfigurationV2 resource instead""")
-
         return pulumi.get(self, "request_payer")
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfigurations")
+    @_utilities.deprecated("""Use the s3.BucketServerSideEncryptionConfigurationV2 resource instead""")
     def server_side_encryption_configurations(self) -> pulumi.Output[Sequence['outputs.BucketV2ServerSideEncryptionConfiguration']]:
         """
         Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
         The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketServerSideEncryptionConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketServerSideEncryptionConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""server_side_encryption_configurations is deprecated: Use the s3.BucketServerSideEncryptionConfigurationV2 resource instead""")
-
         return pulumi.get(self, "server_side_encryption_configurations")
 
     @property
@@ -1513,57 +1433,47 @@ class BucketV2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketVersioningV2 resource instead""")
     def versionings(self) -> pulumi.Output[Sequence['outputs.BucketV2Versioning']]:
         """
         Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `s3.BucketVersioningV2` instead.
         """
-        warnings.warn("""Use the s3.BucketVersioningV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""versionings is deprecated: Use the s3.BucketVersioningV2 resource instead""")
-
         return pulumi.get(self, "versionings")
 
     @property
     @pulumi.getter(name="websiteDomain")
+    @_utilities.deprecated("""Use the s3.BucketWebsiteConfigurationV2 resource""")
     def website_domain(self) -> pulumi.Output[str]:
         """
         (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketWebsiteConfigurationV2 resource""", DeprecationWarning)
-        pulumi.log.warn("""website_domain is deprecated: Use the s3.BucketWebsiteConfigurationV2 resource""")
-
         return pulumi.get(self, "website_domain")
 
     @property
     @pulumi.getter(name="websiteEndpoint")
+    @_utilities.deprecated("""Use the s3.BucketWebsiteConfigurationV2 resource""")
     def website_endpoint(self) -> pulumi.Output[str]:
         """
         (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketWebsiteConfigurationV2 resource""", DeprecationWarning)
-        pulumi.log.warn("""website_endpoint is deprecated: Use the s3.BucketWebsiteConfigurationV2 resource""")
-
         return pulumi.get(self, "website_endpoint")
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Use the s3.BucketWebsiteConfigurationV2 resource instead""")
     def websites(self) -> pulumi.Output[Sequence['outputs.BucketV2Website']]:
         """
         Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
         Use the resource `s3.BucketWebsiteConfigurationV2` instead.
         """
-        warnings.warn("""Use the s3.BucketWebsiteConfigurationV2 resource instead""", DeprecationWarning)
-        pulumi.log.warn("""websites is deprecated: Use the s3.BucketWebsiteConfigurationV2 resource instead""")
-
         return pulumi.get(self, "websites")
 

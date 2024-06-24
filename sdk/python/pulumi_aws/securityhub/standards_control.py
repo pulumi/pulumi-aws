@@ -257,12 +257,12 @@ class StandardsControl(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         cis_aws_foundations_benchmark = aws.securityhub.StandardsSubscription("cis_aws_foundations_benchmark", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         ensure_iam_password_policy_prevents_password_reuse = aws.securityhub.StandardsControl("ensure_iam_password_policy_prevents_password_reuse",
             standards_control_arn="arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
             control_status="DISABLED",
             disabled_reason="We handle password policies within Okta",
-            opts=pulumi.ResourceOptions(depends_on=[cis_aws_foundations_benchmark]))
+            opts = pulumi.ResourceOptions(depends_on=[cis_aws_foundations_benchmark]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -292,12 +292,12 @@ class StandardsControl(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         cis_aws_foundations_benchmark = aws.securityhub.StandardsSubscription("cis_aws_foundations_benchmark", standards_arn="arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         ensure_iam_password_policy_prevents_password_reuse = aws.securityhub.StandardsControl("ensure_iam_password_policy_prevents_password_reuse",
             standards_control_arn="arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
             control_status="DISABLED",
             disabled_reason="We handle password policies within Okta",
-            opts=pulumi.ResourceOptions(depends_on=[cis_aws_foundations_benchmark]))
+            opts = pulumi.ResourceOptions(depends_on=[cis_aws_foundations_benchmark]))
         ```
 
         :param str resource_name: The name of the resource.

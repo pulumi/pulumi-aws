@@ -83,7 +83,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
             key_prefix="exampleprefix/",
             kms_key_arn=example_aws_kms_key["arn"],
         ),
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
@@ -119,7 +119,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
             key_prefix="exampleprefix/",
             kms_key_arn=example_aws_kms_key["arn"],
         ),
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
