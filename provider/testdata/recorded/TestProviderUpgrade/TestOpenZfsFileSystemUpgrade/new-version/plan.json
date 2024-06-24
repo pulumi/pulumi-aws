@@ -1,4 +1,7 @@
 {
+    "config": {
+        "aws:region": "us-east-2"
+    },
     "manifest": {
         "time": "2024-06-21T11:53:56.242051-04:00",
         "magic": "26455f4e783faab27da6c6ee2e252716b1c84e7f67777a274faa7d2452f68cf7",

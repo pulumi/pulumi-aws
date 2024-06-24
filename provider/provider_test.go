@@ -90,6 +90,7 @@ func testProviderUpgrade(t *testing.T, dir string, opts *testProviderUpgradeOpti
 }
 
 type testProviderCodeChangesOptions struct {
+	region               string
 	firstProgram         []byte
 	secondProgram        []byte
 	firstProgramOptions  []opttest.Option
@@ -121,6 +122,11 @@ func testProviderCodeChanges(t *testing.T, opts *testProviderCodeChangesOptions)
 	}
 
 	pt := pulumitest.NewPulumiTest(t, workdir, options...)
+	if opts != nil && opts.region != "" {
+		pt.SetConfig("aws:region", opts.region)
+	} else {
+		pt.SetConfig("aws:region", "us-east-2")
+	}
 
 	var export *apitype.UntypedDeployment
 	export, err = tryReadStackExport(stackExportFile)
