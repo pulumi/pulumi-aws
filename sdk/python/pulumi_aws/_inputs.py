@@ -326,6 +326,7 @@ class ProviderEndpointArgs:
                  appintegrationsservice: Optional[pulumi.Input[str]] = None,
                  applicationautoscaling: Optional[pulumi.Input[str]] = None,
                  applicationinsights: Optional[pulumi.Input[str]] = None,
+                 applicationsignals: Optional[pulumi.Input[str]] = None,
                  appmesh: Optional[pulumi.Input[str]] = None,
                  appregistry: Optional[pulumi.Input[str]] = None,
                  apprunner: Optional[pulumi.Input[str]] = None,
@@ -610,6 +611,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] appintegrationsservice: Use this to override the default service endpoint URL
         :param pulumi.Input[str] applicationautoscaling: Use this to override the default service endpoint URL
         :param pulumi.Input[str] applicationinsights: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] applicationsignals: Use this to override the default service endpoint URL
         :param pulumi.Input[str] appmesh: Use this to override the default service endpoint URL
         :param pulumi.Input[str] appregistry: Use this to override the default service endpoint URL
         :param pulumi.Input[str] apprunner: Use this to override the default service endpoint URL
@@ -911,6 +913,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "applicationautoscaling", applicationautoscaling)
         if applicationinsights is not None:
             pulumi.set(__self__, "applicationinsights", applicationinsights)
+        if applicationsignals is not None:
+            pulumi.set(__self__, "applicationsignals", applicationsignals)
         if appmesh is not None:
             pulumi.set(__self__, "appmesh", appmesh)
         if appregistry is not None:
@@ -1647,6 +1651,18 @@ class ProviderEndpointArgs:
     @applicationinsights.setter
     def applicationinsights(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "applicationinsights", value)
+
+    @property
+    @pulumi.getter
+    def applicationsignals(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "applicationsignals")
+
+    @applicationsignals.setter
+    def applicationsignals(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "applicationsignals", value)
 
     @property
     @pulumi.getter

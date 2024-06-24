@@ -443,6 +443,18 @@ namespace Pulumi.Aws.NetworkManager
             set => _coreNetworkConfigurations = value;
         }
 
+        [Input("networkFunctionGroups")]
+        private List<Inputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>? _networkFunctionGroups;
+
+        /// <summary>
+        /// Block argument that defines the service insertion actions you want to include. Detailed below.
+        /// </summary>
+        public List<Inputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs> NetworkFunctionGroups
+        {
+            get => _networkFunctionGroups ?? (_networkFunctionGroups = new List<Inputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>());
+            set => _networkFunctionGroups = value;
+        }
+
         [Input("segmentActions")]
         private List<Inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs>? _segmentActions;
 
@@ -502,6 +514,18 @@ namespace Pulumi.Aws.NetworkManager
             set => _coreNetworkConfigurations = value;
         }
 
+        [Input("networkFunctionGroups")]
+        private InputList<Inputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupInputArgs>? _networkFunctionGroups;
+
+        /// <summary>
+        /// Block argument that defines the service insertion actions you want to include. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupInputArgs> NetworkFunctionGroups
+        {
+            get => _networkFunctionGroups ?? (_networkFunctionGroups = new InputList<Inputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupInputArgs>());
+            set => _networkFunctionGroups = value;
+        }
+
         [Input("segmentActions")]
         private InputList<Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs>? _segmentActions;
 
@@ -549,6 +573,7 @@ namespace Pulumi.Aws.NetworkManager
         /// Standard JSON policy document rendered based on the arguments above.
         /// </summary>
         public readonly string Json;
+        public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult> NetworkFunctionGroups;
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentActionResult> SegmentActions;
         public readonly ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentResult> Segments;
         public readonly string? Version;
@@ -563,6 +588,8 @@ namespace Pulumi.Aws.NetworkManager
 
             string json,
 
+            ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult> networkFunctionGroups,
+
             ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentActionResult> segmentActions,
 
             ImmutableArray<Outputs.GetCoreNetworkPolicyDocumentSegmentResult> segments,
@@ -573,6 +600,7 @@ namespace Pulumi.Aws.NetworkManager
             CoreNetworkConfigurations = coreNetworkConfigurations;
             Id = id;
             Json = json;
+            NetworkFunctionGroups = networkFunctionGroups;
             SegmentActions = segmentActions;
             Segments = segments;
             Version = version;

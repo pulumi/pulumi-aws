@@ -274,6 +274,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="applicationsignals")
+    private @Nullable Output<String> applicationsignals;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> applicationsignals() {
+        return Optional.ofNullable(this.applicationsignals);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="appmesh")
     private @Nullable Output<String> appmesh;
 
@@ -4280,6 +4295,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.appintegrationsservice = $.appintegrationsservice;
         this.applicationautoscaling = $.applicationautoscaling;
         this.applicationinsights = $.applicationinsights;
+        this.applicationsignals = $.applicationsignals;
         this.appmesh = $.appmesh;
         this.appregistry = $.appregistry;
         this.apprunner = $.apprunner;
@@ -4921,6 +4937,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder applicationinsights(String applicationinsights) {
             return applicationinsights(Output.of(applicationinsights));
+        }
+
+        /**
+         * @param applicationsignals Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationsignals(@Nullable Output<String> applicationsignals) {
+            $.applicationsignals = applicationsignals;
+            return this;
+        }
+
+        /**
+         * @param applicationsignals Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationsignals(String applicationsignals) {
+            return applicationsignals(Output.of(applicationsignals));
         }
 
         /**

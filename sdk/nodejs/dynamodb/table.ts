@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *     ],
  *     ttl: {
  *         attributeName: "TimeToExist",
- *         enabled: false,
+ *         enabled: true,
  *     },
  *     globalSecondaryIndexes: [{
  *         name: "GameTitleIndex",

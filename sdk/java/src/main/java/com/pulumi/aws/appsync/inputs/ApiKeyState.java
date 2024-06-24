@@ -31,6 +31,13 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.apiId);
     }
 
+    @Import(name="apiKeyId")
+    private @Nullable Output<String> apiKeyId;
+
+    public Optional<Output<String>> apiKeyId() {
+        return Optional.ofNullable(this.apiKeyId);
+    }
+
     /**
      * API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
@@ -80,6 +87,7 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
 
     private ApiKeyState(ApiKeyState $) {
         this.apiId = $.apiId;
+        this.apiKeyId = $.apiKeyId;
         this.description = $.description;
         this.expires = $.expires;
         this.key = $.key;
@@ -122,6 +130,15 @@ public final class ApiKeyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder apiId(String apiId) {
             return apiId(Output.of(apiId));
+        }
+
+        public Builder apiKeyId(@Nullable Output<String> apiKeyId) {
+            $.apiKeyId = apiKeyId;
+            return this;
+        }
+
+        public Builder apiKeyId(String apiKeyId) {
+            return apiKeyId(Output.of(apiKeyId));
         }
 
         /**

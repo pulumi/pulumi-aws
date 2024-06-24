@@ -271,7 +271,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly restApi!: pulumi.Output<string>;
     /**
-     * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+     * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
      */
     public readonly timeoutMilliseconds!: pulumi.Output<number | undefined>;
     /**
@@ -419,7 +419,7 @@ export interface IntegrationState {
      */
     restApi?: pulumi.Input<string | RestApi>;
     /**
-     * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+     * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
      */
     timeoutMilliseconds?: pulumi.Input<number>;
     /**
@@ -501,7 +501,7 @@ export interface IntegrationArgs {
      */
     restApi: pulumi.Input<string | RestApi>;
     /**
-     * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+     * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
      */
     timeoutMilliseconds?: pulumi.Input<number>;
     /**

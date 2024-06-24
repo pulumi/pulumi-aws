@@ -100,6 +100,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String applicationsignals;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String appmesh;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1546,6 +1551,13 @@ public final class Endpoints {
      */
     public Optional<String> applicationinsights() {
         return Optional.ofNullable(this.applicationinsights);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> applicationsignals() {
+        return Optional.ofNullable(this.applicationsignals);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3436,6 +3448,7 @@ public final class Endpoints {
         private @Nullable String appintegrationsservice;
         private @Nullable String applicationautoscaling;
         private @Nullable String applicationinsights;
+        private @Nullable String applicationsignals;
         private @Nullable String appmesh;
         private @Nullable String appregistry;
         private @Nullable String apprunner;
@@ -3722,6 +3735,7 @@ public final class Endpoints {
     	      this.appintegrationsservice = defaults.appintegrationsservice;
     	      this.applicationautoscaling = defaults.applicationautoscaling;
     	      this.applicationinsights = defaults.applicationinsights;
+    	      this.applicationsignals = defaults.applicationsignals;
     	      this.appmesh = defaults.appmesh;
     	      this.appregistry = defaults.appregistry;
     	      this.apprunner = defaults.apprunner;
@@ -4090,6 +4104,12 @@ public final class Endpoints {
         public Builder applicationinsights(@Nullable String applicationinsights) {
 
             this.applicationinsights = applicationinsights;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder applicationsignals(@Nullable String applicationsignals) {
+
+            this.applicationsignals = applicationsignals;
             return this;
         }
         @CustomType.Setter
@@ -5707,6 +5727,7 @@ public final class Endpoints {
             _resultValue.appintegrationsservice = appintegrationsservice;
             _resultValue.applicationautoscaling = applicationautoscaling;
             _resultValue.applicationinsights = applicationinsights;
+            _resultValue.applicationsignals = applicationsignals;
             _resultValue.appmesh = appmesh;
             _resultValue.appregistry = appregistry;
             _resultValue.apprunner = apprunner;

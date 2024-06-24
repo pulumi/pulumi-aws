@@ -616,6 +616,8 @@
         "docdb/globalCluster.ts",
         "docdb/index.ts",
         "docdb/subnetGroup.ts",
+        "drs/index.ts",
+        "drs/replicationConfigurationTemplate.ts",
         "dynamodb/contributorInsights.ts",
         "dynamodb/dynamodbMixins.ts",
         "dynamodb/getTable.ts",

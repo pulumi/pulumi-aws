@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.networkmanager.inputs;
 
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionVia;
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -17,14 +19,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
     public static final GetCoreNetworkPolicyDocumentSegmentAction Empty = new GetCoreNetworkPolicyDocumentSegmentAction();
 
     /**
-     * Action to take for the chosen segment. Valid values `create-route` or `share`.
+     * Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
      * 
      */
     @Import(name="action", required=true)
     private String action;
 
     /**
-     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
      * 
      */
     public String action() {
@@ -77,14 +79,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
     }
 
     /**
-     * String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
      * 
      */
     @Import(name="mode")
     private @Nullable String mode;
 
     /**
-     * @return String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
      * 
      */
     public Optional<String> mode() {
@@ -136,6 +138,36 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         return Optional.ofNullable(this.shareWiths);
     }
 
+    /**
+     * The network function groups and any edge overrides associated with the action.
+     * 
+     */
+    @Import(name="via")
+    private @Nullable GetCoreNetworkPolicyDocumentSegmentActionVia via;
+
+    /**
+     * @return The network function groups and any edge overrides associated with the action.
+     * 
+     */
+    public Optional<GetCoreNetworkPolicyDocumentSegmentActionVia> via() {
+        return Optional.ofNullable(this.via);
+    }
+
+    /**
+     * The destination segments for the `send-via` or `send-to` `action`.
+     * 
+     */
+    @Import(name="whenSentTo")
+    private @Nullable GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo whenSentTo;
+
+    /**
+     * @return The destination segments for the `send-via` or `send-to` `action`.
+     * 
+     */
+    public Optional<GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo> whenSentTo() {
+        return Optional.ofNullable(this.whenSentTo);
+    }
+
     private GetCoreNetworkPolicyDocumentSegmentAction() {}
 
     private GetCoreNetworkPolicyDocumentSegmentAction(GetCoreNetworkPolicyDocumentSegmentAction $) {
@@ -147,6 +179,8 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         this.segment = $.segment;
         this.shareWithExcepts = $.shareWithExcepts;
         this.shareWiths = $.shareWiths;
+        this.via = $.via;
+        this.whenSentTo = $.whenSentTo;
     }
 
     public static Builder builder() {
@@ -168,7 +202,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         }
 
         /**
-         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
          * 
          * @return builder
          * 
@@ -232,7 +266,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
         }
 
         /**
-         * @param mode String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+         * @param mode String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
          * 
          * @return builder
          * 
@@ -293,6 +327,28 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction extends com.pulumi.
          */
         public Builder shareWiths(String... shareWiths) {
             return shareWiths(List.of(shareWiths));
+        }
+
+        /**
+         * @param via The network function groups and any edge overrides associated with the action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder via(@Nullable GetCoreNetworkPolicyDocumentSegmentActionVia via) {
+            $.via = via;
+            return this;
+        }
+
+        /**
+         * @param whenSentTo The destination segments for the `send-via` or `send-to` `action`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder whenSentTo(@Nullable GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo whenSentTo) {
+            $.whenSentTo = whenSentTo;
+            return this;
         }
 
         public GetCoreNetworkPolicyDocumentSegmentAction build() {

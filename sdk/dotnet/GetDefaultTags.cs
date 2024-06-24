@@ -131,7 +131,7 @@ namespace Pulumi.Aws
     {
         public readonly string Id;
         /// <summary>
-        /// Blocks of default tags set on the provider. See details below.
+        /// Key-value mapping of provider default tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

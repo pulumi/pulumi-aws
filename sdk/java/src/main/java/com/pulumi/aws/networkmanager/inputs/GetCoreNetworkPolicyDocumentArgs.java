@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs;
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
 import com.pulumi.core.Output;
@@ -52,6 +53,21 @@ public final class GetCoreNetworkPolicyDocumentArgs extends com.pulumi.resources
     }
 
     /**
+     * Block argument that defines the service insertion actions you want to include. Detailed below.
+     * 
+     */
+    @Import(name="networkFunctionGroups")
+    private @Nullable Output<List<GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>> networkFunctionGroups;
+
+    /**
+     * @return Block argument that defines the service insertion actions you want to include. Detailed below.
+     * 
+     */
+    public Optional<Output<List<GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>>> networkFunctionGroups() {
+        return Optional.ofNullable(this.networkFunctionGroups);
+    }
+
+    /**
      * A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      * 
      */
@@ -93,6 +109,7 @@ public final class GetCoreNetworkPolicyDocumentArgs extends com.pulumi.resources
     private GetCoreNetworkPolicyDocumentArgs(GetCoreNetworkPolicyDocumentArgs $) {
         this.attachmentPolicies = $.attachmentPolicies;
         this.coreNetworkConfigurations = $.coreNetworkConfigurations;
+        this.networkFunctionGroups = $.networkFunctionGroups;
         this.segmentActions = $.segmentActions;
         this.segments = $.segments;
         this.version = $.version;
@@ -176,6 +193,37 @@ public final class GetCoreNetworkPolicyDocumentArgs extends com.pulumi.resources
          */
         public Builder coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs... coreNetworkConfigurations) {
             return coreNetworkConfigurations(List.of(coreNetworkConfigurations));
+        }
+
+        /**
+         * @param networkFunctionGroups Block argument that defines the service insertion actions you want to include. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkFunctionGroups(@Nullable Output<List<GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>> networkFunctionGroups) {
+            $.networkFunctionGroups = networkFunctionGroups;
+            return this;
+        }
+
+        /**
+         * @param networkFunctionGroups Block argument that defines the service insertion actions you want to include. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkFunctionGroups(List<GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs> networkFunctionGroups) {
+            return networkFunctionGroups(Output.of(networkFunctionGroups));
+        }
+
+        /**
+         * @param networkFunctionGroups Block argument that defines the service insertion actions you want to include. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkFunctionGroups(GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs... networkFunctionGroups) {
+            return networkFunctionGroups(List.of(networkFunctionGroups));
         }
 
         /**

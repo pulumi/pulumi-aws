@@ -101,6 +101,11 @@ public final class LaunchTemplateInstanceRequirements {
      */
     private @Nullable List<String> localStorageTypes;
     /**
+     * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+     * 
+     */
+    private @Nullable Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+    /**
      * @return Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
      * 
      */
@@ -133,7 +138,7 @@ public final class LaunchTemplateInstanceRequirements {
      */
     private @Nullable Boolean requireHibernateSupport;
     /**
-     * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+     * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
      * 
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
@@ -256,6 +261,13 @@ public final class LaunchTemplateInstanceRequirements {
         return this.localStorageTypes == null ? List.of() : this.localStorageTypes;
     }
     /**
+     * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+     * 
+     */
+    public Optional<Integer> maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
+        return Optional.ofNullable(this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice);
+    }
+    /**
      * @return Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
      * 
      */
@@ -300,7 +312,7 @@ public final class LaunchTemplateInstanceRequirements {
         return Optional.ofNullable(this.requireHibernateSupport);
     }
     /**
-     * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+     * @return The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
      * 
      * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
      * 
@@ -346,6 +358,7 @@ public final class LaunchTemplateInstanceRequirements {
         private @Nullable List<String> instanceGenerations;
         private @Nullable String localStorage;
         private @Nullable List<String> localStorageTypes;
+        private @Nullable Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         private @Nullable LaunchTemplateInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu;
         private LaunchTemplateInstanceRequirementsMemoryMib memoryMib;
         private @Nullable LaunchTemplateInstanceRequirementsNetworkBandwidthGbps networkBandwidthGbps;
@@ -372,6 +385,7 @@ public final class LaunchTemplateInstanceRequirements {
     	      this.instanceGenerations = defaults.instanceGenerations;
     	      this.localStorage = defaults.localStorage;
     	      this.localStorageTypes = defaults.localStorageTypes;
+    	      this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = defaults.maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
     	      this.memoryGibPerVcpu = defaults.memoryGibPerVcpu;
     	      this.memoryMib = defaults.memoryMib;
     	      this.networkBandwidthGbps = defaults.networkBandwidthGbps;
@@ -492,6 +506,12 @@ public final class LaunchTemplateInstanceRequirements {
             return localStorageTypes(List.of(localStorageTypes));
         }
         @CustomType.Setter
+        public Builder maxSpotPriceAsPercentageOfOptimalOnDemandPrice(@Nullable Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice) {
+
+            this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+            return this;
+        }
+        @CustomType.Setter
         public Builder memoryGibPerVcpu(@Nullable LaunchTemplateInstanceRequirementsMemoryGibPerVcpu memoryGibPerVcpu) {
 
             this.memoryGibPerVcpu = memoryGibPerVcpu;
@@ -565,6 +585,7 @@ public final class LaunchTemplateInstanceRequirements {
             _resultValue.instanceGenerations = instanceGenerations;
             _resultValue.localStorage = localStorage;
             _resultValue.localStorageTypes = localStorageTypes;
+            _resultValue.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             _resultValue.memoryGibPerVcpu = memoryGibPerVcpu;
             _resultValue.memoryMib = memoryMib;
             _resultValue.networkBandwidthGbps = networkBandwidthGbps;

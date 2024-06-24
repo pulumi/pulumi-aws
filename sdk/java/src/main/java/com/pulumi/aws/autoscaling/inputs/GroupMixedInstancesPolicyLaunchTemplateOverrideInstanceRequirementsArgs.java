@@ -125,6 +125,13 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         return Optional.ofNullable(this.localStorageTypes);
     }
 
+    @Import(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    private @Nullable Output<Integer> maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+
+    public Optional<Output<Integer>> maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
+        return Optional.ofNullable(this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice);
+    }
+
     @Import(name="memoryGibPerVcpu")
     private @Nullable Output<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs> memoryGibPerVcpu;
 
@@ -205,6 +212,7 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
         this.instanceGenerations = $.instanceGenerations;
         this.localStorage = $.localStorage;
         this.localStorageTypes = $.localStorageTypes;
+        this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = $.maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         this.memoryGibPerVcpu = $.memoryGibPerVcpu;
         this.memoryMib = $.memoryMib;
         this.networkBandwidthGbps = $.networkBandwidthGbps;
@@ -390,6 +398,15 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
 
         public Builder localStorageTypes(String... localStorageTypes) {
             return localStorageTypes(List.of(localStorageTypes));
+        }
+
+        public Builder maxSpotPriceAsPercentageOfOptimalOnDemandPrice(@Nullable Output<Integer> maxSpotPriceAsPercentageOfOptimalOnDemandPrice) {
+            $.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+            return this;
+        }
+
+        public Builder maxSpotPriceAsPercentageOfOptimalOnDemandPrice(Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice) {
+            return maxSpotPriceAsPercentageOfOptimalOnDemandPrice(Output.of(maxSpotPriceAsPercentageOfOptimalOnDemandPrice));
         }
 
         public Builder memoryGibPerVcpu(@Nullable Output<GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs> memoryGibPerVcpu) {

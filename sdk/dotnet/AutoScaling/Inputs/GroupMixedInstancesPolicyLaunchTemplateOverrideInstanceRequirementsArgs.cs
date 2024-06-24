@@ -94,6 +94,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
             set => _localStorageTypes = value;
         }
 
+        [Input("maxSpotPriceAsPercentageOfOptimalOnDemandPrice")]
+        public Input<int>? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice { get; set; }
+
         [Input("memoryGibPerVcpu")]
         public Input<Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs>? MemoryGibPerVcpu { get; set; }
 

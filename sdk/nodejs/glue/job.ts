@@ -170,6 +170,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly glueVersion!: pulumi.Output<string>;
     /**
+     * Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     */
+    public readonly maintenanceWindow!: pulumi.Output<string | undefined>;
+    /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
     public readonly maxCapacity!: pulumi.Output<number>;
@@ -248,6 +252,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["executionClass"] = state ? state.executionClass : undefined;
             resourceInputs["executionProperty"] = state ? state.executionProperty : undefined;
             resourceInputs["glueVersion"] = state ? state.glueVersion : undefined;
+            resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
             resourceInputs["maxRetries"] = state ? state.maxRetries : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -275,6 +280,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["executionClass"] = args ? args.executionClass : undefined;
             resourceInputs["executionProperty"] = args ? args.executionProperty : undefined;
             resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
+            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -330,6 +336,10 @@ export interface JobState {
      * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
     glueVersion?: pulumi.Input<string>;
+    /**
+     * Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     */
+    maintenanceWindow?: pulumi.Input<string>;
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
@@ -421,6 +431,10 @@ export interface JobArgs {
      * The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
     glueVersion?: pulumi.Input<string>;
+    /**
+     * Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     */
+    maintenanceWindow?: pulumi.Input<string>;
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */

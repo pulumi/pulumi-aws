@@ -85,7 +85,7 @@ import (
 //							},
 //						},
 //						Action: {
-//							AssociationMethod: "constant",
+//							AssociationMethod: pulumi.StringRef("constant"),
 //							Segment:           pulumi.StringRef("shared"),
 //						},
 //					},
@@ -101,7 +101,7 @@ import (
 //							},
 //						},
 //						Action: {
-//							AssociationMethod: "constant",
+//							AssociationMethod: pulumi.StringRef("constant"),
 //							Segment:           pulumi.StringRef("prod"),
 //						},
 //					},
@@ -133,6 +133,8 @@ type GetCoreNetworkPolicyDocumentArgs struct {
 	AttachmentPolicies []GetCoreNetworkPolicyDocumentAttachmentPolicy `pulumi:"attachmentPolicies"`
 	// The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
 	CoreNetworkConfigurations []GetCoreNetworkPolicyDocumentCoreNetworkConfiguration `pulumi:"coreNetworkConfigurations"`
+	// Block argument that defines the service insertion actions you want to include. Detailed below.
+	NetworkFunctionGroups []GetCoreNetworkPolicyDocumentNetworkFunctionGroup `pulumi:"networkFunctionGroups"`
 	// A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
 	SegmentActions []GetCoreNetworkPolicyDocumentSegmentAction `pulumi:"segmentActions"`
 	// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
@@ -147,10 +149,11 @@ type GetCoreNetworkPolicyDocumentResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Standard JSON policy document rendered based on the arguments above.
-	Json           string                                      `pulumi:"json"`
-	SegmentActions []GetCoreNetworkPolicyDocumentSegmentAction `pulumi:"segmentActions"`
-	Segments       []GetCoreNetworkPolicyDocumentSegment       `pulumi:"segments"`
-	Version        *string                                     `pulumi:"version"`
+	Json                  string                                             `pulumi:"json"`
+	NetworkFunctionGroups []GetCoreNetworkPolicyDocumentNetworkFunctionGroup `pulumi:"networkFunctionGroups"`
+	SegmentActions        []GetCoreNetworkPolicyDocumentSegmentAction        `pulumi:"segmentActions"`
+	Segments              []GetCoreNetworkPolicyDocumentSegment              `pulumi:"segments"`
+	Version               *string                                            `pulumi:"version"`
 }
 
 func GetCoreNetworkPolicyDocumentOutput(ctx *pulumi.Context, args GetCoreNetworkPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetCoreNetworkPolicyDocumentResultOutput {
@@ -172,6 +175,8 @@ type GetCoreNetworkPolicyDocumentOutputArgs struct {
 	AttachmentPolicies GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput `pulumi:"attachmentPolicies"`
 	// The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
 	CoreNetworkConfigurations GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput `pulumi:"coreNetworkConfigurations"`
+	// Block argument that defines the service insertion actions you want to include. Detailed below.
+	NetworkFunctionGroups GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayInput `pulumi:"networkFunctionGroups"`
 	// A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
 	SegmentActions GetCoreNetworkPolicyDocumentSegmentActionArrayInput `pulumi:"segmentActions"`
 	// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segmentActions` and `attachmentPolicies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
@@ -218,6 +223,12 @@ func (o GetCoreNetworkPolicyDocumentResultOutput) Id() pulumi.StringOutput {
 // Standard JSON policy document rendered based on the arguments above.
 func (o GetCoreNetworkPolicyDocumentResultOutput) Json() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) string { return v.Json }).(pulumi.StringOutput)
+}
+
+func (o GetCoreNetworkPolicyDocumentResultOutput) NetworkFunctionGroups() GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentResult) []GetCoreNetworkPolicyDocumentNetworkFunctionGroup {
+		return v.NetworkFunctionGroups
+	}).(GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput)
 }
 
 func (o GetCoreNetworkPolicyDocumentResultOutput) SegmentActions() GetCoreNetworkPolicyDocumentSegmentActionArrayOutput {

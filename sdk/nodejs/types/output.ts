@@ -7841,6 +7841,10 @@ export namespace autoscaling {
          */
         localStorageTypes: string[];
         /**
+         * Price protection threshold for Spot Instances.
+         */
+        maxSpotPriceAsPercentageOfOptimalOnDemandPrice: number;
+        /**
          * List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
          */
         memoryGibPerVcpus: outputs.autoscaling.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus[];
@@ -8206,6 +8210,7 @@ export namespace autoscaling {
         instanceGenerations?: string[];
         localStorage?: string;
         localStorageTypes?: string[];
+        maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
         memoryGibPerVcpu?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu;
         memoryMib?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib;
         networkBandwidthGbps?: outputs.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps;
@@ -9042,11 +9047,11 @@ export namespace backup {
         /**
          * The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
          */
-        complianceResourceIds?: string[];
+        complianceResourceIds: string[];
         /**
          * Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
          */
-        complianceResourceTypes?: string[];
+        complianceResourceTypes: string[];
         /**
          * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          */
@@ -15729,6 +15734,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        applicationsignals?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         appmesh?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -21668,6 +21677,25 @@ export namespace docdb {
         value: string;
     }
 
+    export interface ClusterRestoreToPointInTime {
+        /**
+         * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+         */
+        restoreToTime?: string;
+        /**
+         * The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+         */
+        restoreType?: string;
+        /**
+         * The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+         */
+        sourceClusterIdentifier: string;
+        /**
+         * A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
+         */
+        useLatestRestorableTime?: boolean;
+    }
+
     export interface ElasticClusterTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -21692,6 +21720,47 @@ export namespace docdb {
          * Whether the member is the primary DB Cluster.
          */
         isWriter: boolean;
+    }
+
+}
+
+export namespace drs {
+    export interface ReplicationConfigurationTemplatePitPolicy {
+        /**
+         * Whether this rule is enabled or not.
+         */
+        enabled?: boolean;
+        /**
+         * How often, in the chosen units, a snapshot should be taken.
+         */
+        interval: number;
+        /**
+         * Duration to retain a snapshot for, in the chosen `units`.
+         */
+        retentionDuration: number;
+        /**
+         * ID of the rule. Valid values are integers.
+         */
+        ruleId?: number;
+        /**
+         * Units used to measure the `interval` and `retentionDuration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+         */
+        units: string;
+    }
+
+    export interface ReplicationConfigurationTemplateTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
 }
@@ -21924,10 +21993,12 @@ export namespace dynamodb {
     export interface TableTtl {
         /**
          * Name of the table attribute to store the TTL timestamp in.
+         * Required if `enabled` is `true`, must not be set otherwise.
          */
-        attributeName: string;
+        attributeName?: string;
         /**
          * Whether TTL is enabled.
+         * Default value is `false`.
          */
         enabled?: boolean;
     }
@@ -22544,6 +22615,10 @@ export namespace ec2 {
          */
         localStorageTypes?: string[];
         /**
+         * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+         */
+        maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
+        /**
          * Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
          */
         memoryGibPerVcpu?: outputs.ec2.FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu;
@@ -22570,7 +22645,7 @@ export namespace ec2 {
          */
         requireHibernateSupport?: boolean;
         /**
-         * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+         * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
          *
          * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
          */
@@ -23340,6 +23415,7 @@ export namespace ec2 {
         instanceGenerations: string[];
         localStorage: string;
         localStorageTypes: string[];
+        maxSpotPriceAsPercentageOfOptimalOnDemandPrice: number;
         memoryGibPerVcpus: outputs.ec2.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus[];
         memoryMibs: outputs.ec2.GetLaunchTemplateInstanceRequirementMemoryMib[];
         networkBandwidthGbps: outputs.ec2.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp[];
@@ -25628,6 +25704,10 @@ export namespace ec2 {
          */
         localStorageTypes?: string[];
         /**
+         * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+         */
+        maxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
+        /**
          * Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
          */
         memoryGibPerVcpu?: outputs.ec2.LaunchTemplateInstanceRequirementsMemoryGibPerVcpu;
@@ -25654,7 +25734,7 @@ export namespace ec2 {
          */
         requireHibernateSupport?: boolean;
         /**
-         * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+         * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
          *
          * If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
          */
@@ -33794,6 +33874,10 @@ export namespace glue {
 
     export interface CatalogTableStorageDescriptor {
         /**
+         * List of locations that point to the path where a Delta table is located.
+         */
+        additionalLocations?: string[];
+        /**
          * List of reducer grouping columns, clustering columns, and bucketing columns in the table.
          */
         bucketColumns?: string[];
@@ -34316,6 +34400,10 @@ export namespace glue {
     }
 
     export interface GetCatalogTableStorageDescriptor {
+        /**
+         * List of locations that point to the path where a Delta table is located
+         */
+        additionalLocations: string[];
         /**
          * List of reducer grouping columns, clustering columns, and bucketing columns in the table.
          */
@@ -42169,7 +42257,7 @@ export namespace lambda {
 
     export interface EventSourceMappingScalingConfig {
         /**
-         * Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be between `2` and `1000`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+         * Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to `2`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
          */
         maximumConcurrency?: number;
     }
@@ -57240,7 +57328,13 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachmentInputSettings {
+        /**
+         * Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+         */
         audioSelectors?: outputs.medialive.ChannelInputAttachmentInputSettingsAudioSelector[];
+        /**
+         * Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+         */
         captionSelectors?: outputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelector[];
         /**
          * Enable or disable the deblock filter when filtering.
@@ -59675,9 +59769,13 @@ export namespace networkmanager {
 
     export interface GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
         /**
+         * The name of the network function group to attach to the attachment policy.
+         */
+        addToNetworkFunctionGroup?: string;
+        /**
          * Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
          */
-        associationMethod: string;
+        associationMethod?: string;
         /**
          * Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
          */
@@ -59742,6 +59840,21 @@ export namespace networkmanager {
         location: string;
     }
 
+    export interface GetCoreNetworkPolicyDocumentNetworkFunctionGroup {
+        /**
+         * Optional description of the network function group.
+         */
+        description?: string;
+        /**
+         * This identifies the network function group container.
+         */
+        name: string;
+        /**
+         * This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
+         */
+        requireAttachmentAcceptance: boolean;
+    }
+
     export interface GetCoreNetworkPolicyDocumentSegment {
         /**
          * List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
@@ -59775,7 +59888,7 @@ export namespace networkmanager {
 
     export interface GetCoreNetworkPolicyDocumentSegmentAction {
         /**
-         * Action to take for the chosen segment. Valid values `create-route` or `share`.
+         * Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
          */
         action: string;
         /**
@@ -59791,7 +59904,7 @@ export namespace networkmanager {
          */
         destinations?: string[];
         /**
-         * String. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
+         * String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
          */
         mode?: string;
         /**
@@ -59806,6 +59919,43 @@ export namespace networkmanager {
          * A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
          */
         shareWiths?: string[];
+        /**
+         * The network function groups and any edge overrides associated with the action.
+         */
+        via?: outputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionVia;
+        /**
+         * The destination segments for the `send-via` or `send-to` `action`.
+         */
+        whenSentTo?: outputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo;
+    }
+
+    export interface GetCoreNetworkPolicyDocumentSegmentActionVia {
+        /**
+         * A list of strings. The network function group to use for the service insertion action.
+         */
+        networkFunctionGroups?: string[];
+        /**
+         * Any edge overrides and the preferred edge to use.
+         */
+        withEdgeOverrides?: outputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride[];
+    }
+
+    export interface GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride {
+        /**
+         * A list of strings. The list of edges associated with the network function group.
+         */
+        edgeSets?: string[];
+        /**
+         * The preferred edge to use.
+         */
+        useEdge?: string;
+    }
+
+    export interface GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo {
+        /**
+         * A list of strings. The list of segments that the `send-via` `action` uses.
+         */
+        segments?: string[];
     }
 
     export interface GetDeviceAwsLocation {

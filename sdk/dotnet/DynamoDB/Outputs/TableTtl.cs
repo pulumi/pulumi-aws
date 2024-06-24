@@ -15,16 +15,18 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     {
         /// <summary>
         /// Name of the table attribute to store the TTL timestamp in.
+        /// Required if `enabled` is `true`, must not be set otherwise.
         /// </summary>
-        public readonly string AttributeName;
+        public readonly string? AttributeName;
         /// <summary>
         /// Whether TTL is enabled.
+        /// Default value is `false`.
         /// </summary>
         public readonly bool? Enabled;
 
         [OutputConstructor]
         private TableTtl(
-            string attributeName,
+            string? attributeName,
 
             bool? enabled)
         {

@@ -68,7 +68,7 @@ namespace Pulumi.Aws.DynamoDB
     ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
     ///         {
     ///             AttributeName = "TimeToExist",
-    ///             Enabled = false,
+    ///             Enabled = true,
     ///         },
     ///         GlobalSecondaryIndexes = new[]
     ///         {

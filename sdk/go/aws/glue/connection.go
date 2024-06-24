@@ -46,6 +46,43 @@ import (
 //
 // ```
 //
+// ### Non-VPC Connection with secret manager reference
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
+//				Name: pulumi.StringRef("example-secret"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+//				ConnectionProperties: pulumi.StringMap{
+//					"JDBC_CONNECTION_URL": pulumi.String("jdbc:mysql://example.com/exampledatabase"),
+//					"SECRET_ID":           pulumi.String(example.Name),
+//				},
+//				Name: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### VPC Connection
 //
 // For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
@@ -77,6 +114,70 @@ import (
 //						exampleAwsSecurityGroup.Id,
 //					},
 //					SubnetId: pulumi.Any(exampleAwsSubnet.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Connection using a custom connector
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Define the custom connector using the connection_type of `CUSTOM` with the match_criteria of `template_connection`
+//			// Example here being a snowflake jdbc connector with a secret having user and password as keys
+//			example, err := secretsmanager.LookupSecret(ctx, &secretsmanager.LookupSecretArgs{
+//				Name: pulumi.StringRef("example-secret"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleConnector, err := glue.NewConnection(ctx, "example_connector", &glue.ConnectionArgs{
+//				ConnectionType: pulumi.String("CUSTOM"),
+//				ConnectionProperties: pulumi.StringMap{
+//					"CONNECTOR_CLASS_NAME": pulumi.String("net.snowflake.client.jdbc.SnowflakeDriver"),
+//					"CONNECTION_TYPE":      pulumi.String("Jdbc"),
+//					"CONNECTOR_URL":        pulumi.String("s3://example/snowflake-jdbc.jar"),
+//					"JDBC_CONNECTION_URL":  pulumi.String("[[\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\"],\",\"]"),
+//				},
+//				Name: pulumi.String("example_connector"),
+//				MatchCriterias: pulumi.StringArray{
+//					pulumi.String("template-connection"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Reference the connector using match_criteria with the connector created above.
+//			_, err = glue.NewConnection(ctx, "example_connection", &glue.ConnectionArgs{
+//				ConnectionType: pulumi.String("CUSTOM"),
+//				ConnectionProperties: pulumi.StringMap{
+//					"CONNECTOR_CLASS_NAME": pulumi.String("net.snowflake.client.jdbc.SnowflakeDriver"),
+//					"CONNECTION_TYPE":      pulumi.String("Jdbc"),
+//					"CONNECTOR_URL":        pulumi.String("s3://example/snowflake-jdbc.jar"),
+//					"JDBC_CONNECTION_URL":  pulumi.String("jdbc:snowflake://example.com/?user=${user}&password=${password}"),
+//					"SECRET_ID":            pulumi.String(example.Name),
+//				},
+//				Name: pulumi.String("example"),
+//				MatchCriterias: pulumi.StringArray{
+//					pulumi.String("Connection"),
+//					exampleConnector.Name,
 //				},
 //			})
 //			if err != nil {

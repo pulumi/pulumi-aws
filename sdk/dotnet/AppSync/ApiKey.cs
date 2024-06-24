@@ -54,6 +54,9 @@ namespace Pulumi.Aws.AppSync
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        [Output("apiKeyId")]
+        public Output<string> ApiKeyId { get; private set; } = null!;
+
         /// <summary>
         /// API key description. Defaults to "Managed by Pulumi".
         /// </summary>
@@ -154,6 +157,9 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
+
+        [Input("apiKeyId")]
+        public Input<string>? ApiKeyId { get; set; }
 
         /// <summary>
         /// API key description. Defaults to "Managed by Pulumi".

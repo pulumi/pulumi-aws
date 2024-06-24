@@ -14,12 +14,14 @@ namespace Pulumi.Aws.DynamoDB.Inputs
     {
         /// <summary>
         /// Name of the table attribute to store the TTL timestamp in.
+        /// Required if `enabled` is `true`, must not be set otherwise.
         /// </summary>
-        [Input("attributeName", required: true)]
-        public Input<string> AttributeName { get; set; } = null!;
+        [Input("attributeName")]
+        public Input<string>? AttributeName { get; set; }
 
         /// <summary>
         /// Whether TTL is enabled.
+        /// Default value is `false`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

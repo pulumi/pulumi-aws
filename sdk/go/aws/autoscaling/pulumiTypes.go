@@ -1935,29 +1935,30 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) Index(i pulu
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct {
-	AcceleratorCount                          *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount          `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  []string                                                                                      `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          []string                                                                                      `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMib                 *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
-	AcceleratorTypes                          []string                                                                                      `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      []string                                                                                      `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 *string                                                                                       `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps  `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      *string                                                                                       `pulumi:"burstablePerformance"`
-	CpuManufacturers                          []string                                                                                      `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     []string                                                                                      `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       []string                                                                                      `pulumi:"instanceGenerations"`
-	LocalStorage                              *string                                                                                       `pulumi:"localStorage"`
-	LocalStorageTypes                         []string                                                                                      `pulumi:"localStorageTypes"`
-	MemoryGibPerVcpu                          *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu          `pulumi:"memoryGibPerVcpu"`
-	MemoryMib                                 *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib                 `pulumi:"memoryMib"`
-	NetworkBandwidthGbps                      *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps      `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount     `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice *int                                                                                          `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   *bool                                                                                         `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     *int                                                                                          `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb       `pulumi:"totalLocalStorageGb"`
-	VcpuCount                                 *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount                 `pulumi:"vcpuCount"`
+	AcceleratorCount                               *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount          `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       []string                                                                                      `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               []string                                                                                      `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMib                      *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
+	AcceleratorTypes                               []string                                                                                      `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           []string                                                                                      `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      *string                                                                                       `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps  `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           *string                                                                                       `pulumi:"burstablePerformance"`
+	CpuManufacturers                               []string                                                                                      `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          []string                                                                                      `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            []string                                                                                      `pulumi:"instanceGenerations"`
+	LocalStorage                                   *string                                                                                       `pulumi:"localStorage"`
+	LocalStorageTypes                              []string                                                                                      `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int                                                                                          `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGibPerVcpu                               *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu          `pulumi:"memoryGibPerVcpu"`
+	MemoryMib                                      *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib                 `pulumi:"memoryMib"`
+	NetworkBandwidthGbps                           *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps      `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount     `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      *int                                                                                          `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        *bool                                                                                         `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          *int                                                                                          `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb       `pulumi:"totalLocalStorageGb"`
+	VcpuCount                                      *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount                 `pulumi:"vcpuCount"`
 }
 
 // GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput values.
@@ -1972,29 +1973,30 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput in
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs struct {
-	AcceleratorCount                          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput          `pulumi:"acceleratorCount"`
-	AcceleratorManufacturers                  pulumi.StringArrayInput                                                                              `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          pulumi.StringArrayInput                                                                              `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMib                 GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
-	AcceleratorTypes                          pulumi.StringArrayInput                                                                              `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      pulumi.StringArrayInput                                                                              `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 pulumi.StringPtrInput                                                                                `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput  `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      pulumi.StringPtrInput                                                                                `pulumi:"burstablePerformance"`
-	CpuManufacturers                          pulumi.StringArrayInput                                                                              `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     pulumi.StringArrayInput                                                                              `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       pulumi.StringArrayInput                                                                              `pulumi:"instanceGenerations"`
-	LocalStorage                              pulumi.StringPtrInput                                                                                `pulumi:"localStorage"`
-	LocalStorageTypes                         pulumi.StringArrayInput                                                                              `pulumi:"localStorageTypes"`
-	MemoryGibPerVcpu                          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput          `pulumi:"memoryGibPerVcpu"`
-	MemoryMib                                 GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput                 `pulumi:"memoryMib"`
-	NetworkBandwidthGbps                      GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput      `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCount                     GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput     `pulumi:"networkInterfaceCount"`
-	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                                                                   `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   pulumi.BoolPtrInput                                                                                  `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                                                                   `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGb                       GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput       `pulumi:"totalLocalStorageGb"`
-	VcpuCount                                 GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput                 `pulumi:"vcpuCount"`
+	AcceleratorCount                               GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput          `pulumi:"acceleratorCount"`
+	AcceleratorManufacturers                       pulumi.StringArrayInput                                                                              `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               pulumi.StringArrayInput                                                                              `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMib                      GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
+	AcceleratorTypes                               pulumi.StringArrayInput                                                                              `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           pulumi.StringArrayInput                                                                              `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      pulumi.StringPtrInput                                                                                `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput  `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           pulumi.StringPtrInput                                                                                `pulumi:"burstablePerformance"`
+	CpuManufacturers                               pulumi.StringArrayInput                                                                              `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          pulumi.StringArrayInput                                                                              `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            pulumi.StringArrayInput                                                                              `pulumi:"instanceGenerations"`
+	LocalStorage                                   pulumi.StringPtrInput                                                                                `pulumi:"localStorage"`
+	LocalStorageTypes                              pulumi.StringArrayInput                                                                              `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput                                                                                   `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGibPerVcpu                               GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput          `pulumi:"memoryGibPerVcpu"`
+	MemoryMib                                      GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput                 `pulumi:"memoryMib"`
+	NetworkBandwidthGbps                           GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrInput      `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCount                          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput     `pulumi:"networkInterfaceCount"`
+	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntPtrInput                                                                                   `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        pulumi.BoolPtrInput                                                                                  `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          pulumi.IntPtrInput                                                                                   `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGb                            GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput       `pulumi:"totalLocalStorageGb"`
+	VcpuCount                                      GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput                 `pulumi:"vcpuCount"`
 }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs) ElementType() reflect.Type {
@@ -2156,6 +2158,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.LocalStorageTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) MemoryGibPerVcpu() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
@@ -2360,6 +2368,15 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 		}
 		return v.LocalStorageTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) MemoryGibPerVcpu() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
@@ -10553,6 +10570,8 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement struc
 	LocalStorage string `pulumi:"localStorage"`
 	// List of local storage type names.
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
+	// Price protection threshold for Spot Instances.
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
 	MemoryGibPerVcpus []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus `pulumi:"memoryGibPerVcpus"`
 	// List of objects describing the minimum and maximum amount of memory (MiB).
@@ -10612,6 +10631,8 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs s
 	LocalStorage pulumi.StringInput `pulumi:"localStorage"`
 	// List of local storage type names.
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
+	// Price protection threshold for Spot Instances.
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
 	MemoryGibPerVcpus GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayInput `pulumi:"memoryGibPerVcpus"`
 	// List of objects describing the minimum and maximum amount of memory (MiB).
@@ -10778,6 +10799,13 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []string {
 		return v.LocalStorageTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+// Price protection threshold for Spot Instances.
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntOutput)
 }
 
 // List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.

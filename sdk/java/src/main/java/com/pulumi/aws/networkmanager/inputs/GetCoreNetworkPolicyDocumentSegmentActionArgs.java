@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.networkmanager.inputs;
 
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionViaArgs;
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -18,14 +20,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
     public static final GetCoreNetworkPolicyDocumentSegmentActionArgs Empty = new GetCoreNetworkPolicyDocumentSegmentActionArgs();
 
     /**
-     * Action to take for the chosen segment. Valid values `create-route` or `share`.
+     * Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
      * 
      */
     public Output<String> action() {
@@ -78,14 +80,14 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
     }
 
     /**
-     * String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -137,6 +139,36 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         return Optional.ofNullable(this.shareWiths);
     }
 
+    /**
+     * The network function groups and any edge overrides associated with the action.
+     * 
+     */
+    @Import(name="via")
+    private @Nullable Output<GetCoreNetworkPolicyDocumentSegmentActionViaArgs> via;
+
+    /**
+     * @return The network function groups and any edge overrides associated with the action.
+     * 
+     */
+    public Optional<Output<GetCoreNetworkPolicyDocumentSegmentActionViaArgs>> via() {
+        return Optional.ofNullable(this.via);
+    }
+
+    /**
+     * The destination segments for the `send-via` or `send-to` `action`.
+     * 
+     */
+    @Import(name="whenSentTo")
+    private @Nullable Output<GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs> whenSentTo;
+
+    /**
+     * @return The destination segments for the `send-via` or `send-to` `action`.
+     * 
+     */
+    public Optional<Output<GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs>> whenSentTo() {
+        return Optional.ofNullable(this.whenSentTo);
+    }
+
     private GetCoreNetworkPolicyDocumentSegmentActionArgs() {}
 
     private GetCoreNetworkPolicyDocumentSegmentActionArgs(GetCoreNetworkPolicyDocumentSegmentActionArgs $) {
@@ -148,6 +180,8 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         this.segment = $.segment;
         this.shareWithExcepts = $.shareWithExcepts;
         this.shareWiths = $.shareWiths;
+        this.via = $.via;
+        this.whenSentTo = $.whenSentTo;
     }
 
     public static Builder builder() {
@@ -169,7 +203,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
          * 
          * @return builder
          * 
@@ -180,7 +214,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param action Action to take for the chosen segment. Valid values `create-route` or `share`.
+         * @param action Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
          * 
          * @return builder
          * 
@@ -273,7 +307,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param mode String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+         * @param mode String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
          * 
          * @return builder
          * 
@@ -284,7 +318,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         }
 
         /**
-         * @param mode String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+         * @param mode String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
          * 
          * @return builder
          * 
@@ -374,6 +408,48 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
          */
         public Builder shareWiths(String... shareWiths) {
             return shareWiths(List.of(shareWiths));
+        }
+
+        /**
+         * @param via The network function groups and any edge overrides associated with the action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder via(@Nullable Output<GetCoreNetworkPolicyDocumentSegmentActionViaArgs> via) {
+            $.via = via;
+            return this;
+        }
+
+        /**
+         * @param via The network function groups and any edge overrides associated with the action.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder via(GetCoreNetworkPolicyDocumentSegmentActionViaArgs via) {
+            return via(Output.of(via));
+        }
+
+        /**
+         * @param whenSentTo The destination segments for the `send-via` or `send-to` `action`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder whenSentTo(@Nullable Output<GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs> whenSentTo) {
+            $.whenSentTo = whenSentTo;
+            return this;
+        }
+
+        /**
+         * @param whenSentTo The destination segments for the `send-via` or `send-to` `action`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder whenSentTo(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs whenSentTo) {
+            return whenSentTo(Output.of(whenSentTo));
         }
 
         public GetCoreNetworkPolicyDocumentSegmentActionArgs build() {

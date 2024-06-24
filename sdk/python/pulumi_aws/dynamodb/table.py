@@ -896,7 +896,7 @@ class Table(pulumi.CustomResource):
             ],
             ttl=aws.dynamodb.TableTtlArgs(
                 attribute_name="TimeToExist",
-                enabled=False,
+                enabled=True,
             ),
             global_secondary_indexes=[aws.dynamodb.TableGlobalSecondaryIndexArgs(
                 name="GameTitleIndex",
@@ -1078,7 +1078,7 @@ class Table(pulumi.CustomResource):
             ],
             ttl=aws.dynamodb.TableTtlArgs(
                 attribute_name="TimeToExist",
-                enabled=False,
+                enabled=True,
             ),
             global_secondary_indexes=[aws.dynamodb.TableGlobalSecondaryIndexArgs(
                 name="GameTitleIndex",

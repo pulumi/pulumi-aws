@@ -5,7 +5,6 @@ package com.pulumi.aws.dynamodb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -19,21 +18,24 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Name of the table attribute to store the TTL timestamp in.
+     * Required if `enabled` is `true`, must not be set otherwise.
      * 
      */
-    @Import(name="attributeName", required=true)
-    private Output<String> attributeName;
+    @Import(name="attributeName")
+    private @Nullable Output<String> attributeName;
 
     /**
      * @return Name of the table attribute to store the TTL timestamp in.
+     * Required if `enabled` is `true`, must not be set otherwise.
      * 
      */
-    public Output<String> attributeName() {
-        return this.attributeName;
+    public Optional<Output<String>> attributeName() {
+        return Optional.ofNullable(this.attributeName);
     }
 
     /**
      * Whether TTL is enabled.
+     * Default value is `false`.
      * 
      */
     @Import(name="enabled")
@@ -41,6 +43,7 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Whether TTL is enabled.
+     * Default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -74,17 +77,19 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param attributeName Name of the table attribute to store the TTL timestamp in.
+         * Required if `enabled` is `true`, must not be set otherwise.
          * 
          * @return builder
          * 
          */
-        public Builder attributeName(Output<String> attributeName) {
+        public Builder attributeName(@Nullable Output<String> attributeName) {
             $.attributeName = attributeName;
             return this;
         }
 
         /**
          * @param attributeName Name of the table attribute to store the TTL timestamp in.
+         * Required if `enabled` is `true`, must not be set otherwise.
          * 
          * @return builder
          * 
@@ -95,6 +100,7 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param enabled Whether TTL is enabled.
+         * Default value is `false`.
          * 
          * @return builder
          * 
@@ -106,6 +112,7 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param enabled Whether TTL is enabled.
+         * Default value is `false`.
          * 
          * @return builder
          * 
@@ -115,9 +122,6 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TableTtlArgs build() {
-            if ($.attributeName == null) {
-                throw new MissingRequiredPropertyException("TableTtlArgs", "attributeName");
-            }
             return $;
         }
     }

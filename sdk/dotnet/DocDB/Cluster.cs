@@ -221,6 +221,12 @@ namespace Pulumi.Aws.DocDB
         public Output<string> ReaderEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// </summary>
+        [Output("restoreToPointInTime")]
+        public Output<Outputs.ClusterRestoreToPointInTime?> RestoreToPointInTime { get; private set; } = null!;
+
+        /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
         [Output("skipFinalSnapshot")]
@@ -476,6 +482,12 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
+        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// </summary>
+        [Input("restoreToPointInTime")]
+        public Input<Inputs.ClusterRestoreToPointInTimeArgs>? RestoreToPointInTime { get; set; }
+
+        /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
         [Input("skipFinalSnapshot")]
@@ -723,6 +735,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("readerEndpoint")]
         public Input<string>? ReaderEndpoint { get; set; }
+
+        /// <summary>
+        /// A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+        /// </summary>
+        [Input("restoreToPointInTime")]
+        public Input<Inputs.ClusterRestoreToPointInTimeGetArgs>? RestoreToPointInTime { get; set; }
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.

@@ -21,6 +21,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableStorageDescriptor {
     /**
+     * @return List of locations that point to the path where a Delta table is located.
+     * 
+     */
+    private @Nullable List<String> additionalLocations;
+    /**
      * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
@@ -87,6 +92,13 @@ public final class CatalogTableStorageDescriptor {
     private @Nullable Boolean storedAsSubDirectories;
 
     private CatalogTableStorageDescriptor() {}
+    /**
+     * @return List of locations that point to the path where a Delta table is located.
+     * 
+     */
+    public List<String> additionalLocations() {
+        return this.additionalLocations == null ? List.of() : this.additionalLocations;
+    }
     /**
      * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
@@ -188,6 +200,7 @@ public final class CatalogTableStorageDescriptor {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<String> additionalLocations;
         private @Nullable List<String> bucketColumns;
         private @Nullable List<CatalogTableStorageDescriptorColumn> columns;
         private @Nullable Boolean compressed;
@@ -204,6 +217,7 @@ public final class CatalogTableStorageDescriptor {
         public Builder() {}
         public Builder(CatalogTableStorageDescriptor defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalLocations = defaults.additionalLocations;
     	      this.bucketColumns = defaults.bucketColumns;
     	      this.columns = defaults.columns;
     	      this.compressed = defaults.compressed;
@@ -219,6 +233,15 @@ public final class CatalogTableStorageDescriptor {
     	      this.storedAsSubDirectories = defaults.storedAsSubDirectories;
         }
 
+        @CustomType.Setter
+        public Builder additionalLocations(@Nullable List<String> additionalLocations) {
+
+            this.additionalLocations = additionalLocations;
+            return this;
+        }
+        public Builder additionalLocations(String... additionalLocations) {
+            return additionalLocations(List.of(additionalLocations));
+        }
         @CustomType.Setter
         public Builder bucketColumns(@Nullable List<String> bucketColumns) {
 
@@ -308,6 +331,7 @@ public final class CatalogTableStorageDescriptor {
         }
         public CatalogTableStorageDescriptor build() {
             final var _resultValue = new CatalogTableStorageDescriptor();
+            _resultValue.additionalLocations = additionalLocations;
             _resultValue.bucketColumns = bucketColumns;
             _resultValue.columns = columns;
             _resultValue.compressed = compressed;

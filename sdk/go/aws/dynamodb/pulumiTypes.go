@@ -1619,8 +1619,10 @@ func (o TableServerSideEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 
 type TableTtl struct {
 	// Name of the table attribute to store the TTL timestamp in.
-	AttributeName string `pulumi:"attributeName"`
+	// Required if `enabled` is `true`, must not be set otherwise.
+	AttributeName *string `pulumi:"attributeName"`
 	// Whether TTL is enabled.
+	// Default value is `false`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1637,8 +1639,10 @@ type TableTtlInput interface {
 
 type TableTtlArgs struct {
 	// Name of the table attribute to store the TTL timestamp in.
-	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	// Required if `enabled` is `true`, must not be set otherwise.
+	AttributeName pulumi.StringPtrInput `pulumi:"attributeName"`
 	// Whether TTL is enabled.
+	// Default value is `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1720,11 +1724,13 @@ func (o TableTtlOutput) ToTableTtlPtrOutputWithContext(ctx context.Context) Tabl
 }
 
 // Name of the table attribute to store the TTL timestamp in.
-func (o TableTtlOutput) AttributeName() pulumi.StringOutput {
-	return o.ApplyT(func(v TableTtl) string { return v.AttributeName }).(pulumi.StringOutput)
+// Required if `enabled` is `true`, must not be set otherwise.
+func (o TableTtlOutput) AttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableTtl) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
 }
 
 // Whether TTL is enabled.
+// Default value is `false`.
 func (o TableTtlOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableTtl) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1754,16 +1760,18 @@ func (o TableTtlPtrOutput) Elem() TableTtlOutput {
 }
 
 // Name of the table attribute to store the TTL timestamp in.
+// Required if `enabled` is `true`, must not be set otherwise.
 func (o TableTtlPtrOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableTtl) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.AttributeName
+		return v.AttributeName
 	}).(pulumi.StringPtrOutput)
 }
 
 // Whether TTL is enabled.
+// Default value is `false`.
 func (o TableTtlPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableTtl) *bool {
 		if v == nil {

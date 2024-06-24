@@ -208,6 +208,12 @@ namespace Pulumi.Aws.Glue
         public Output<string> GlueVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the day of the week and hour for the maintenance window for streaming jobs.
+        /// </summary>
+        [Output("maintenanceWindow")]
+        public Output<string?> MaintenanceWindow { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
         [Output("maxCapacity")]
@@ -387,6 +393,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
+        /// Specifies the day of the week and hour for the maintenance window for streaming jobs.
+        /// </summary>
+        [Input("maintenanceWindow")]
+        public Input<string>? MaintenanceWindow { get; set; }
+
+        /// <summary>
         /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         /// </summary>
         [Input("maxCapacity")]
@@ -538,6 +550,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("glueVersion")]
         public Input<string>? GlueVersion { get; set; }
+
+        /// <summary>
+        /// Specifies the day of the week and hour for the maintenance window for streaming jobs.
+        /// </summary>
+        [Input("maintenanceWindow")]
+        public Input<string>? MaintenanceWindow { get; set; }
 
         /// <summary>
         /// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
