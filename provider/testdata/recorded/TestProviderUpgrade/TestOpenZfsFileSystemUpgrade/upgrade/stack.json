@@ -1,0 +1,251 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-06-24T10:18:25.193269-04:00",
+      "magic": "26455f4e783faab27da6c6ee2e252716b1c84e7f67777a274faa7d2452f68cf7",
+      "version": "v3.120.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:UKOcZSsEpwg=:v1:w7Y1p9tK5f/yTzHN:qo3wrjLccSPqy8GuEiLj5PChRegKEg=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::openzfs::pulumi:pulumi:Stack::openzfs-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-06-24T14:10:24.343473Z",
+        "modified": "2024-06-24T14:10:24.343473Z"
+      },
+      {
+        "urn": "urn:pulumi:test::openzfs::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "a8e8dda7-680c-48eb-b27f-6e007a0dfff5",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "region": "us-east-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-east-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "created": "2024-06-24T14:10:26.040335Z",
+        "modified": "2024-06-24T14:10:26.040335Z"
+      },
+      {
+        "urn": "urn:pulumi:test::openzfs::aws:ec2/vpc:Vpc::MyVPC",
+        "custom": true,
+        "id": "vpc-0a08e72bbfbbee141",
+        "type": "aws:ec2/vpc:Vpc",
+        "inputs": {
+          "__defaults": [
+            "enableDnsSupport"
+          ],
+          "cidrBlock": "10.0.0.0/16",
+          "enableDnsSupport": true
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"1\"}",
+          "arn": "arn:aws:ec2:us-east-2:616138583583:vpc/vpc-0a08e72bbfbbee141",
+          "assignGeneratedIpv6CidrBlock": false,
+          "cidrBlock": "10.0.0.0/16",
+          "defaultNetworkAclId": "acl-0fc463f8e828310b5",
+          "defaultRouteTableId": "rtb-0eca83f9c97550555",
+          "defaultSecurityGroupId": "sg-0fc29553bc6db37cf",
+          "dhcpOptionsId": "dopt-d961d1b2",
+          "enableDnsHostnames": false,
+          "enableDnsSupport": true,
+          "enableNetworkAddressUsageMetrics": false,
+          "id": "vpc-0a08e72bbfbbee141",
+          "instanceTenancy": "default",
+          "ipv6AssociationId": "",
+          "ipv6CidrBlock": "",
+          "ipv6CidrBlockNetworkBorderGroup": "",
+          "ipv6IpamPoolId": "",
+          "ipv6NetmaskLength": 0,
+          "mainRouteTableId": "rtb-0eca83f9c97550555",
+          "ownerId": "616138583583",
+          "tags": {},
+          "tagsAll": {}
+        },
+        "parent": "urn:pulumi:test::openzfs::pulumi:pulumi:Stack::openzfs-test",
+        "provider": "urn:pulumi:test::openzfs::pulumi:providers:aws::default::a8e8dda7-680c-48eb-b27f-6e007a0dfff5",
+        "propertyDependencies": {
+          "cidrBlock": []
+        },
+        "created": "2024-06-24T14:10:27.693029Z",
+        "modified": "2024-06-24T14:10:27.693029Z"
+      },
+      {
+        "urn": "urn:pulumi:test::openzfs::aws:ec2/subnet:Subnet::MySubnet",
+        "custom": true,
+        "id": "subnet-0cdacf8698bd16326",
+        "type": "aws:ec2/subnet:Subnet",
+        "inputs": {
+          "__defaults": [
+            "assignIpv6AddressOnCreation",
+            "enableDns64",
+            "enableResourceNameDnsARecordOnLaunch",
+            "enableResourceNameDnsAaaaRecordOnLaunch",
+            "ipv6Native",
+            "mapPublicIpOnLaunch"
+          ],
+          "assignIpv6AddressOnCreation": false,
+          "cidrBlock": "10.0.1.0/24",
+          "enableDns64": false,
+          "enableResourceNameDnsARecordOnLaunch": false,
+          "enableResourceNameDnsAaaaRecordOnLaunch": false,
+          "ipv6Native": false,
+          "mapPublicIpOnLaunch": false,
+          "vpcId": "vpc-0a08e72bbfbbee141"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+          "arn": "arn:aws:ec2:us-east-2:616138583583:subnet/subnet-0cdacf8698bd16326",
+          "assignIpv6AddressOnCreation": false,
+          "availabilityZone": "us-east-2a",
+          "availabilityZoneId": "use2-az1",
+          "cidrBlock": "10.0.1.0/24",
+          "customerOwnedIpv4Pool": "",
+          "enableDns64": false,
+          "enableLniAtDeviceIndex": 0,
+          "enableResourceNameDnsARecordOnLaunch": false,
+          "enableResourceNameDnsAaaaRecordOnLaunch": false,
+          "id": "subnet-0cdacf8698bd16326",
+          "ipv6CidrBlock": "",
+          "ipv6CidrBlockAssociationId": "",
+          "ipv6Native": false,
+          "mapCustomerOwnedIpOnLaunch": false,
+          "mapPublicIpOnLaunch": false,
+          "outpostArn": "",
+          "ownerId": "616138583583",
+          "privateDnsHostnameTypeOnLaunch": "ip-name",
+          "tags": {},
+          "tagsAll": {},
+          "vpcId": "vpc-0a08e72bbfbbee141"
+        },
+        "parent": "urn:pulumi:test::openzfs::pulumi:pulumi:Stack::openzfs-test",
+        "dependencies": [
+          "urn:pulumi:test::openzfs::aws:ec2/vpc:Vpc::MyVPC"
+        ],
+        "provider": "urn:pulumi:test::openzfs::pulumi:providers:aws::default::a8e8dda7-680c-48eb-b27f-6e007a0dfff5",
+        "propertyDependencies": {
+          "cidrBlock": [],
+          "vpcId": [
+            "urn:pulumi:test::openzfs::aws:ec2/vpc:Vpc::MyVPC"
+          ]
+        },
+        "created": "2024-06-24T14:10:28.394942Z",
+        "modified": "2024-06-24T14:10:28.394942Z"
+      },
+      {
+        "urn": "urn:pulumi:test::openzfs::aws:fsx/openZfsFileSystem:OpenZfsFileSystem::MyFileSystem",
+        "custom": true,
+        "id": "fs-0dd0dd72cdcdf17e6",
+        "type": "aws:fsx/openZfsFileSystem:OpenZfsFileSystem",
+        "inputs": {
+          "__defaults": [
+            "automaticBackupRetentionDays",
+            "copyTagsToBackups",
+            "copyTagsToVolumes",
+            "skipFinalBackup",
+            "storageType"
+          ],
+          "automaticBackupRetentionDays": 0,
+          "copyTagsToBackups": false,
+          "copyTagsToVolumes": false,
+          "deploymentType": "SINGLE_AZ_1",
+          "skipFinalBackup": false,
+          "storageCapacity": 64,
+          "storageType": "SSD",
+          "subnetIds": "subnet-0cdacf8698bd16326",
+          "throughputCapacity": 64
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":3600000000000,\"delete\":3600000000000,\"update\":3600000000000}}",
+          "arn": "arn:aws:fsx:us-east-2:616138583583:file-system/fs-0dd0dd72cdcdf17e6",
+          "automaticBackupRetentionDays": 0,
+          "copyTagsToBackups": false,
+          "copyTagsToVolumes": false,
+          "dailyAutomaticBackupStartTime": "",
+          "deploymentType": "SINGLE_AZ_1",
+          "diskIopsConfiguration": {
+            "iops": 192,
+            "mode": "AUTOMATIC"
+          },
+          "dnsName": "fs-0dd0dd72cdcdf17e6.fsx.us-east-2.amazonaws.com",
+          "endpointIpAddress": "",
+          "endpointIpAddressRange": "",
+          "id": "fs-0dd0dd72cdcdf17e6",
+          "kmsKeyId": "arn:aws:kms:us-east-2:616138583583:key/843cd4ad-f84c-4046-8388-773d74b06b51",
+          "networkInterfaceIds": [
+            "eni-0cf02c4ac39df17b3"
+          ],
+          "ownerId": "616138583583",
+          "preferredSubnetId": "",
+          "rootVolumeConfiguration": {
+            "copyTagsToSnapshots": false,
+            "dataCompressionType": "NONE",
+            "nfsExports": {
+              "clientConfigurations": [
+                {
+                  "clients": "*",
+                  "options": [
+                    "rw",
+                    "crossmnt"
+                  ]
+                }
+              ]
+            },
+            "readOnly": false,
+            "recordSizeKib": 128,
+            "userAndGroupQuotas": [
+              {
+                "id": 0,
+                "storageCapacityQuotaGib": 0,
+                "type": "GROUP"
+              },
+              {
+                "id": 0,
+                "storageCapacityQuotaGib": 0,
+                "type": "USER"
+              }
+            ]
+          },
+          "rootVolumeId": "fsvol-0f5048e9b037ccb7a",
+          "routeTableIds": [],
+          "skipFinalBackup": false,
+          "storageCapacity": 64,
+          "storageType": "SSD",
+          "subnetIds": "subnet-0cdacf8698bd16326",
+          "tags": {},
+          "tagsAll": {},
+          "throughputCapacity": 64,
+          "vpcId": "vpc-0a08e72bbfbbee141",
+          "weeklyMaintenanceStartTime": "2:06:00"
+        },
+        "parent": "urn:pulumi:test::openzfs::pulumi:pulumi:Stack::openzfs-test",
+        "dependencies": [
+          "urn:pulumi:test::openzfs::aws:ec2/subnet:Subnet::MySubnet"
+        ],
+        "provider": "urn:pulumi:test::openzfs::pulumi:providers:aws::default::a8e8dda7-680c-48eb-b27f-6e007a0dfff5",
+        "propertyDependencies": {
+          "deploymentType": [],
+          "storageCapacity": [],
+          "subnetIds": [
+            "urn:pulumi:test::openzfs::aws:ec2/subnet:Subnet::MySubnet"
+          ],
+          "throughputCapacity": []
+        },
+        "created": "2024-06-24T14:18:25.176464Z",
+        "modified": "2024-06-24T14:18:25.176464Z"
+      }
+    ]
+  }
+}

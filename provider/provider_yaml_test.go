@@ -376,6 +376,8 @@ resources:
 			opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
 		)
 
+		pulumiTest.SetConfig("aws:region", "us-east-2")
+
 		pulumiUpWithSnapshot(t, pulumiTest)
 	})
 }
