@@ -270,6 +270,23 @@ func cleanPlan(t *testing.T, plan map[string]interface{}) map[string]interface{}
 		for _, v := range resourcePlans {
 			resourcePlan := v.(map[string]interface{})
 			delete(resourcePlan, "seed")
+
+			if goal, ok := resourcePlan["goal"]; ok {
+				g := goal.(map[string]interface{})
+				if g["type"] == "pulumi:providers:aws" {
+					if inputDiff, ok := g["inputDiff"]; ok {
+						idiff := inputDiff.(map[string]interface{})
+						if adds, ok := idiff["adds"]; ok {
+							a := adds.(map[string]interface{})
+							delete(a, "region")
+						}
+					}
+					if state, ok := resourcePlan["state"]; ok {
+						s := state.(map[string]interface{})
+						delete(s, "region")
+					}
+				}
+			}
 		}
 	}
 
