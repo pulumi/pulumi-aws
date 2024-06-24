@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2
         /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         /// </summary>
         [Output("destination")]
-        public Output<string> Destination { get; private set; } = null!;
+        public Output<string?> Destination { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the destination.
@@ -160,8 +160,8 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         /// </summary>
-        [Input("destination", required: true)]
-        public Input<string> Destination { get; set; } = null!;
+        [Input("destination")]
+        public Input<string>? Destination { get; set; }
 
         /// <summary>
         /// IP address of the destination resource.

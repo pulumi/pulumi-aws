@@ -38,7 +38,7 @@ class GetDefaultTagsResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Blocks of default tags set on the provider. See details below.
+        Key-value mapping of provider default tags.
         """
         return pulumi.get(self, "tags")
 

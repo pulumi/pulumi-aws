@@ -4,7 +4,6 @@
 package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -17,18 +16,33 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction extends co
     public static final GetCoreNetworkPolicyDocumentAttachmentPolicyAction Empty = new GetCoreNetworkPolicyDocumentAttachmentPolicyAction();
 
     /**
+     * The name of the network function group to attach to the attachment policy.
+     * 
+     */
+    @Import(name="addToNetworkFunctionGroup")
+    private @Nullable String addToNetworkFunctionGroup;
+
+    /**
+     * @return The name of the network function group to attach to the attachment policy.
+     * 
+     */
+    public Optional<String> addToNetworkFunctionGroup() {
+        return Optional.ofNullable(this.addToNetworkFunctionGroup);
+    }
+
+    /**
      * Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
      * 
      */
-    @Import(name="associationMethod", required=true)
-    private String associationMethod;
+    @Import(name="associationMethod")
+    private @Nullable String associationMethod;
 
     /**
      * @return Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
      * 
      */
-    public String associationMethod() {
-        return this.associationMethod;
+    public Optional<String> associationMethod() {
+        return Optional.ofNullable(this.associationMethod);
     }
 
     /**
@@ -79,6 +93,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction extends co
     private GetCoreNetworkPolicyDocumentAttachmentPolicyAction() {}
 
     private GetCoreNetworkPolicyDocumentAttachmentPolicyAction(GetCoreNetworkPolicyDocumentAttachmentPolicyAction $) {
+        this.addToNetworkFunctionGroup = $.addToNetworkFunctionGroup;
         this.associationMethod = $.associationMethod;
         this.requireAcceptance = $.requireAcceptance;
         this.segment = $.segment;
@@ -104,12 +119,23 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction extends co
         }
 
         /**
+         * @param addToNetworkFunctionGroup The name of the network function group to attach to the attachment policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder addToNetworkFunctionGroup(@Nullable String addToNetworkFunctionGroup) {
+            $.addToNetworkFunctionGroup = addToNetworkFunctionGroup;
+            return this;
+        }
+
+        /**
          * @param associationMethod Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
          * 
          * @return builder
          * 
          */
-        public Builder associationMethod(String associationMethod) {
+        public Builder associationMethod(@Nullable String associationMethod) {
             $.associationMethod = associationMethod;
             return this;
         }
@@ -148,9 +174,6 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction extends co
         }
 
         public GetCoreNetworkPolicyDocumentAttachmentPolicyAction build() {
-            if ($.associationMethod == null) {
-                throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicyAction", "associationMethod");
-            }
             return $;
         }
     }

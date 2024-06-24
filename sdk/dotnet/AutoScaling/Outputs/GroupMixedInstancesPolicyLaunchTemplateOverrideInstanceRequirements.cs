@@ -27,6 +27,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         public readonly ImmutableArray<string> InstanceGenerations;
         public readonly string? LocalStorage;
         public readonly ImmutableArray<string> LocalStorageTypes;
+        public readonly int? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         public readonly Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu? MemoryGibPerVcpu;
         public readonly Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib? MemoryMib;
         public readonly Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps? NetworkBandwidthGbps;
@@ -67,6 +68,8 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             ImmutableArray<string> localStorageTypes,
 
+            int? maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
+
             Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu? memoryGibPerVcpu,
 
             Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib? memoryMib,
@@ -99,6 +102,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
             InstanceGenerations = instanceGenerations;
             LocalStorage = localStorage;
             LocalStorageTypes = localStorageTypes;
+            MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             MemoryGibPerVcpu = memoryGibPerVcpu;
             MemoryMib = memoryMib;
             NetworkBandwidthGbps = networkBandwidthGbps;

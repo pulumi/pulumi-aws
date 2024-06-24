@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.docdb.inputs;
 
+import com.pulumi.aws.docdb.inputs.ClusterRestoreToPointInTimeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -426,6 +427,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     * 
+     */
+    @Import(name="restoreToPointInTime")
+    private @Nullable Output<ClusterRestoreToPointInTimeArgs> restoreToPointInTime;
+
+    /**
+     * @return A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     * 
+     */
+    public Optional<Output<ClusterRestoreToPointInTimeArgs>> restoreToPointInTime() {
+        return Optional.ofNullable(this.restoreToPointInTime);
+    }
+
+    /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
      * 
      */
@@ -569,6 +585,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.preferredBackupWindow = $.preferredBackupWindow;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.readerEndpoint = $.readerEndpoint;
+        this.restoreToPointInTime = $.restoreToPointInTime;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.storageEncrypted = $.storageEncrypted;
@@ -1188,6 +1205,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder readerEndpoint(String readerEndpoint) {
             return readerEndpoint(Output.of(readerEndpoint));
+        }
+
+        /**
+         * @param restoreToPointInTime A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restoreToPointInTime(@Nullable Output<ClusterRestoreToPointInTimeArgs> restoreToPointInTime) {
+            $.restoreToPointInTime = restoreToPointInTime;
+            return this;
+        }
+
+        /**
+         * @param restoreToPointInTime A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder restoreToPointInTime(ClusterRestoreToPointInTimeArgs restoreToPointInTime) {
+            return restoreToPointInTime(Output.of(restoreToPointInTime));
         }
 
         /**

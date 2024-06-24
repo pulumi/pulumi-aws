@@ -58,7 +58,7 @@ type GetDefaultTagsArgs struct {
 // A collection of values returned by getDefaultTags.
 type GetDefaultTagsResult struct {
 	Id string `pulumi:"id"`
-	// Blocks of default tags set on the provider. See details below.
+	// Key-value mapping of provider default tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -103,7 +103,7 @@ func (o GetDefaultTagsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultTagsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Blocks of default tags set on the provider. See details below.
+// Key-value mapping of provider default tags.
 func (o GetDefaultTagsResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetDefaultTagsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

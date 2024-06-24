@@ -27,6 +27,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<string> InstanceGenerations;
         public readonly string LocalStorage;
         public readonly ImmutableArray<string> LocalStorageTypes;
+        public readonly int MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult> MemoryGibPerVcpus;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementMemoryMibResult> MemoryMibs;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult> NetworkBandwidthGbps;
@@ -67,6 +68,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<string> localStorageTypes,
 
+            int maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
+
             ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult> memoryGibPerVcpus,
 
             ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementMemoryMibResult> memoryMibs,
@@ -99,6 +102,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             InstanceGenerations = instanceGenerations;
             LocalStorage = localStorage;
             LocalStorageTypes = localStorageTypes;
+            MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             MemoryGibPerVcpus = memoryGibPerVcpus;
             MemoryMibs = memoryMibs;
             NetworkBandwidthGbps = networkBandwidthGbps;

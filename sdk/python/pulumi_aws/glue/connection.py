@@ -357,6 +357,21 @@ class Connection(pulumi.CustomResource):
             name="example")
         ```
 
+        ### Non-VPC Connection with secret manager reference
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.get_secret(name="example-secret")
+        example_connection = aws.glue.Connection("example",
+            connection_properties={
+                "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
+                "SECRET_ID": example.name,
+            },
+            name="example")
+        ```
+
         ### VPC Connection
 
         For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
@@ -377,6 +392,42 @@ class Connection(pulumi.CustomResource):
                 security_group_id_lists=[example_aws_security_group["id"]],
                 subnet_id=example_aws_subnet["id"],
             ))
+        ```
+
+        ### Connection using a custom connector
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Define the custom connector using the connection_type of `CUSTOM` with the match_criteria of `template_connection`
+        # Example here being a snowflake jdbc connector with a secret having user and password as keys
+        example = aws.secretsmanager.get_secret(name="example-secret")
+        example_connector = aws.glue.Connection("example_connector",
+            connection_type="CUSTOM",
+            connection_properties={
+                "CONNECTOR_CLASS_NAME": "net.snowflake.client.jdbc.SnowflakeDriver",
+                "CONNECTION_TYPE": "Jdbc",
+                "CONNECTOR_URL": "s3://example/snowflake-jdbc.jar",
+                "JDBC_CONNECTION_URL": "[[\\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\\"],\\",\\"]",
+            },
+            name="example_connector",
+            match_criterias=["template-connection"])
+        # Reference the connector using match_criteria with the connector created above.
+        example_connection = aws.glue.Connection("example_connection",
+            connection_type="CUSTOM",
+            connection_properties={
+                "CONNECTOR_CLASS_NAME": "net.snowflake.client.jdbc.SnowflakeDriver",
+                "CONNECTION_TYPE": "Jdbc",
+                "CONNECTOR_URL": "s3://example/snowflake-jdbc.jar",
+                "JDBC_CONNECTION_URL": "jdbc:snowflake://example.com/?user=${user}&password=${password}",
+                "SECRET_ID": example.name,
+            },
+            name="example",
+            match_criterias=[
+                "Connection",
+                example_connector.name,
+            ])
         ```
 
         ## Import
@@ -424,6 +475,21 @@ class Connection(pulumi.CustomResource):
             name="example")
         ```
 
+        ### Non-VPC Connection with secret manager reference
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.secretsmanager.get_secret(name="example-secret")
+        example_connection = aws.glue.Connection("example",
+            connection_properties={
+                "JDBC_CONNECTION_URL": "jdbc:mysql://example.com/exampledatabase",
+                "SECRET_ID": example.name,
+            },
+            name="example")
+        ```
+
         ### VPC Connection
 
         For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
@@ -444,6 +510,42 @@ class Connection(pulumi.CustomResource):
                 security_group_id_lists=[example_aws_security_group["id"]],
                 subnet_id=example_aws_subnet["id"],
             ))
+        ```
+
+        ### Connection using a custom connector
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Define the custom connector using the connection_type of `CUSTOM` with the match_criteria of `template_connection`
+        # Example here being a snowflake jdbc connector with a secret having user and password as keys
+        example = aws.secretsmanager.get_secret(name="example-secret")
+        example_connector = aws.glue.Connection("example_connector",
+            connection_type="CUSTOM",
+            connection_properties={
+                "CONNECTOR_CLASS_NAME": "net.snowflake.client.jdbc.SnowflakeDriver",
+                "CONNECTION_TYPE": "Jdbc",
+                "CONNECTOR_URL": "s3://example/snowflake-jdbc.jar",
+                "JDBC_CONNECTION_URL": "[[\\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\\"],\\",\\"]",
+            },
+            name="example_connector",
+            match_criterias=["template-connection"])
+        # Reference the connector using match_criteria with the connector created above.
+        example_connection = aws.glue.Connection("example_connection",
+            connection_type="CUSTOM",
+            connection_properties={
+                "CONNECTOR_CLASS_NAME": "net.snowflake.client.jdbc.SnowflakeDriver",
+                "CONNECTION_TYPE": "Jdbc",
+                "CONNECTOR_URL": "s3://example/snowflake-jdbc.jar",
+                "JDBC_CONNECTION_URL": "jdbc:snowflake://example.com/?user=${user}&password=${password}",
+                "SECRET_ID": example.name,
+            },
+            name="example",
+            match_criterias=[
+                "Connection",
+                example_connector.name,
+            ])
         ```
 
         ## Import

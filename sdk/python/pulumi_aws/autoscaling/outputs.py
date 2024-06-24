@@ -823,6 +823,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
             suggest = "local_storage"
         elif key == "localStorageTypes":
             suggest = "local_storage_types"
+        elif key == "maxSpotPriceAsPercentageOfOptimalOnDemandPrice":
+            suggest = "max_spot_price_as_percentage_of_optimal_on_demand_price"
         elif key == "memoryGibPerVcpu":
             suggest = "memory_gib_per_vcpu"
         elif key == "memoryMib":
@@ -868,6 +870,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
                  instance_generations: Optional[Sequence[str]] = None,
                  local_storage: Optional[str] = None,
                  local_storage_types: Optional[Sequence[str]] = None,
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: Optional[int] = None,
                  memory_gib_per_vcpu: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu'] = None,
                  memory_mib: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib'] = None,
                  network_bandwidth_gbps: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps'] = None,
@@ -905,6 +908,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
             pulumi.set(__self__, "local_storage", local_storage)
         if local_storage_types is not None:
             pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
+            pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
         if memory_gib_per_vcpu is not None:
             pulumi.set(__self__, "memory_gib_per_vcpu", memory_gib_per_vcpu)
         if memory_mib is not None:
@@ -993,6 +998,11 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     @pulumi.getter(name="localStorageTypes")
     def local_storage_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "local_storage_types")
+
+    @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[int]:
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
 
     @property
     @pulumi.getter(name="memoryGibPerVcpu")
@@ -3575,6 +3585,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
                  instance_generations: Sequence[str],
                  local_storage: str,
                  local_storage_types: Sequence[str],
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: int,
                  memory_gib_per_vcpus: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult'],
                  memory_mibs: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult'],
                  network_bandwidth_gbps: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult'],
@@ -3598,6 +3609,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
         :param Sequence[str] instance_generations: List of instance generation names.
         :param str local_storage: Indicates whether instance types with instance store volumes are included, excluded, or required.
         :param Sequence[str] local_storage_types: List of local storage type names.
+        :param int max_spot_price_as_percentage_of_optimal_on_demand_price: Price protection threshold for Spot Instances.
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArgs'] memory_gib_per_vcpus: List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArgs'] memory_mibs: List of objects describing the minimum and maximum amount of memory (MiB).
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArgs'] network_bandwidth_gbps: List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
@@ -3622,6 +3634,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
         pulumi.set(__self__, "instance_generations", instance_generations)
         pulumi.set(__self__, "local_storage", local_storage)
         pulumi.set(__self__, "local_storage_types", local_storage_types)
+        pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
         pulumi.set(__self__, "memory_gib_per_vcpus", memory_gib_per_vcpus)
         pulumi.set(__self__, "memory_mibs", memory_mibs)
         pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
@@ -3740,6 +3753,14 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
         List of local storage type names.
         """
         return pulumi.get(self, "local_storage_types")
+
+    @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> int:
+        """
+        Price protection threshold for Spot Instances.
+        """
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
 
     @property
     @pulumi.getter(name="memoryGibPerVcpus")

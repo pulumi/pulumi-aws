@@ -28,6 +28,24 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Non-VPC Connection with secret manager reference
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.secretsmanager.getSecret({
+ *     name: "example-secret",
+ * });
+ * const exampleConnection = new aws.glue.Connection("example", {
+ *     connectionProperties: {
+ *         JDBC_CONNECTION_URL: "jdbc:mysql://example.com/exampledatabase",
+ *         SECRET_ID: example.then(example => example.name),
+ *     },
+ *     name: "example",
+ * });
+ * ```
+ *
  * ### VPC Connection
  *
  * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
@@ -48,6 +66,46 @@ import * as utilities from "../utilities";
  *         securityGroupIdLists: [exampleAwsSecurityGroup.id],
  *         subnetId: exampleAwsSubnet.id,
  *     },
+ * });
+ * ```
+ *
+ * ### Connection using a custom connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Define the custom connector using the connection_type of `CUSTOM` with the match_criteria of `template_connection`
+ * // Example here being a snowflake jdbc connector with a secret having user and password as keys
+ * const example = aws.secretsmanager.getSecret({
+ *     name: "example-secret",
+ * });
+ * const exampleConnector = new aws.glue.Connection("example_connector", {
+ *     connectionType: "CUSTOM",
+ *     connectionProperties: {
+ *         CONNECTOR_CLASS_NAME: "net.snowflake.client.jdbc.SnowflakeDriver",
+ *         CONNECTION_TYPE: "Jdbc",
+ *         CONNECTOR_URL: "s3://example/snowflake-jdbc.jar",
+ *         JDBC_CONNECTION_URL: "[[\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\"],\",\"]",
+ *     },
+ *     name: "example_connector",
+ *     matchCriterias: ["template-connection"],
+ * });
+ * // Reference the connector using match_criteria with the connector created above.
+ * const exampleConnection = new aws.glue.Connection("example_connection", {
+ *     connectionType: "CUSTOM",
+ *     connectionProperties: {
+ *         CONNECTOR_CLASS_NAME: "net.snowflake.client.jdbc.SnowflakeDriver",
+ *         CONNECTION_TYPE: "Jdbc",
+ *         CONNECTOR_URL: "s3://example/snowflake-jdbc.jar",
+ *         JDBC_CONNECTION_URL: "jdbc:snowflake://example.com/?user=${user}&password=${password}",
+ *         SECRET_ID: example.then(example => example.name),
+ *     },
+ *     name: "example",
+ *     matchCriterias: [
+ *         "Connection",
+ *         exampleConnector.name,
+ *     ],
  * });
  * ```
  *

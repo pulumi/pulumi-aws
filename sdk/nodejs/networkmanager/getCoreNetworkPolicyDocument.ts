@@ -94,6 +94,7 @@ export function getCoreNetworkPolicyDocument(args: GetCoreNetworkPolicyDocumentA
     return pulumi.runtime.invoke("aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument", {
         "attachmentPolicies": args.attachmentPolicies,
         "coreNetworkConfigurations": args.coreNetworkConfigurations,
+        "networkFunctionGroups": args.networkFunctionGroups,
         "segmentActions": args.segmentActions,
         "segments": args.segments,
         "version": args.version,
@@ -112,6 +113,10 @@ export interface GetCoreNetworkPolicyDocumentArgs {
      * The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
      */
     coreNetworkConfigurations: inputs.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration[];
+    /**
+     * Block argument that defines the service insertion actions you want to include. Detailed below.
+     */
+    networkFunctionGroups?: inputs.networkmanager.GetCoreNetworkPolicyDocumentNetworkFunctionGroup[];
     /**
      * A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */
@@ -137,6 +142,7 @@ export interface GetCoreNetworkPolicyDocumentResult {
      * Standard JSON policy document rendered based on the arguments above.
      */
     readonly json: string;
+    readonly networkFunctionGroups?: outputs.networkmanager.GetCoreNetworkPolicyDocumentNetworkFunctionGroup[];
     readonly segmentActions?: outputs.networkmanager.GetCoreNetworkPolicyDocumentSegmentAction[];
     readonly segments: outputs.networkmanager.GetCoreNetworkPolicyDocumentSegment[];
     readonly version?: string;
@@ -238,6 +244,10 @@ export interface GetCoreNetworkPolicyDocumentOutputArgs {
      * The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
      */
     coreNetworkConfigurations: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs>[]>;
+    /**
+     * Block argument that defines the service insertion actions you want to include. Detailed below.
+     */
+    networkFunctionGroups?: pulumi.Input<pulumi.Input<inputs.networkmanager.GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs>[]>;
     /**
      * A block argument, `segmentActions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      */

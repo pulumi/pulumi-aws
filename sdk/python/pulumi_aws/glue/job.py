@@ -24,6 +24,7 @@ class JobArgs:
                  execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
+                 maintenance_window: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class JobArgs:
         :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input['JobExecutionPropertyArgs'] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[str] maintenance_window: Specifies the day of the week and hour for the maintenance window for streaming jobs.
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
@@ -76,6 +78,8 @@ class JobArgs:
             pulumi.set(__self__, "execution_property", execution_property)
         if glue_version is not None:
             pulumi.set(__self__, "glue_version", glue_version)
+        if maintenance_window is not None:
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if max_retries is not None:
@@ -192,6 +196,18 @@ class JobArgs:
     @glue_version.setter
     def glue_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "glue_version", value)
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the day of the week and hour for the maintenance window for streaming jobs.
+        """
+        return pulumi.get(self, "maintenance_window")
+
+    @maintenance_window.setter
+    def maintenance_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_window", value)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -332,6 +348,7 @@ class _JobState:
                  execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
+                 maintenance_window: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -354,6 +371,7 @@ class _JobState:
         :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input['JobExecutionPropertyArgs'] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[str] maintenance_window: Specifies the day of the week and hour for the maintenance window for streaming jobs.
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
@@ -390,6 +408,8 @@ class _JobState:
             pulumi.set(__self__, "execution_property", execution_property)
         if glue_version is not None:
             pulumi.set(__self__, "glue_version", glue_version)
+        if maintenance_window is not None:
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if max_retries is not None:
@@ -513,6 +533,18 @@ class _JobState:
     @glue_version.setter
     def glue_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "glue_version", value)
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the day of the week and hour for the maintenance window for streaming jobs.
+        """
+        return pulumi.get(self, "maintenance_window")
+
+    @maintenance_window.setter
+    def maintenance_window(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_window", value)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -681,6 +713,7 @@ class Job(pulumi.CustomResource):
                  execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
+                 maintenance_window: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -799,6 +832,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[str] maintenance_window: Specifies the day of the week and hour for the maintenance window for streaming jobs.
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
@@ -943,6 +977,7 @@ class Job(pulumi.CustomResource):
                  execution_class: Optional[pulumi.Input[str]] = None,
                  execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
+                 maintenance_window: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -972,6 +1007,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["execution_class"] = execution_class
             __props__.__dict__["execution_property"] = execution_property
             __props__.__dict__["glue_version"] = glue_version
+            __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["max_capacity"] = max_capacity
             __props__.__dict__["max_retries"] = max_retries
             __props__.__dict__["name"] = name
@@ -1005,6 +1041,7 @@ class Job(pulumi.CustomResource):
             execution_class: Optional[pulumi.Input[str]] = None,
             execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
             glue_version: Optional[pulumi.Input[str]] = None,
+            maintenance_window: Optional[pulumi.Input[str]] = None,
             max_capacity: Optional[pulumi.Input[float]] = None,
             max_retries: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1032,6 +1069,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[str] maintenance_window: Specifies the day of the week and hour for the maintenance window for streaming jobs.
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
@@ -1064,6 +1102,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["execution_class"] = execution_class
         __props__.__dict__["execution_property"] = execution_property
         __props__.__dict__["glue_version"] = glue_version
+        __props__.__dict__["maintenance_window"] = maintenance_window
         __props__.__dict__["max_capacity"] = max_capacity
         __props__.__dict__["max_retries"] = max_retries
         __props__.__dict__["name"] = name
@@ -1141,6 +1180,14 @@ class Job(pulumi.CustomResource):
         The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         """
         return pulumi.get(self, "glue_version")
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the day of the week and hour for the maintenance window for streaming jobs.
+        """
+        return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter(name="maxCapacity")

@@ -89,6 +89,11 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
      */
     private List<String> localStorageTypes;
     /**
+     * @return Price protection threshold for Spot Instances.
+     * 
+     */
+    private Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+    /**
      * @return List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
      * 
      */
@@ -230,6 +235,13 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         return this.localStorageTypes;
     }
     /**
+     * @return Price protection threshold for Spot Instances.
+     * 
+     */
+    public Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
+        return this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+    }
+    /**
      * @return List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
      * 
      */
@@ -316,6 +328,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
         private List<String> instanceGenerations;
         private String localStorage;
         private List<String> localStorageTypes;
+        private Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
         private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib> memoryMibs;
         private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps;
@@ -342,6 +355,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
     	      this.instanceGenerations = defaults.instanceGenerations;
     	      this.localStorage = defaults.localStorage;
     	      this.localStorageTypes = defaults.localStorageTypes;
+    	      this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = defaults.maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
     	      this.memoryGibPerVcpus = defaults.memoryGibPerVcpus;
     	      this.memoryMibs = defaults.memoryMibs;
     	      this.networkBandwidthGbps = defaults.networkBandwidthGbps;
@@ -499,6 +513,14 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
             return localStorageTypes(List.of(localStorageTypes));
         }
         @CustomType.Setter
+        public Builder maxSpotPriceAsPercentageOfOptimalOnDemandPrice(Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice) {
+            if (maxSpotPriceAsPercentageOfOptimalOnDemandPrice == null) {
+              throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "maxSpotPriceAsPercentageOfOptimalOnDemandPrice");
+            }
+            this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+            return this;
+        }
+        @CustomType.Setter
         public Builder memoryGibPerVcpus(List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus) {
             if (memoryGibPerVcpus == null) {
               throw new MissingRequiredPropertyException("GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement", "memoryGibPerVcpus");
@@ -604,6 +626,7 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
             _resultValue.instanceGenerations = instanceGenerations;
             _resultValue.localStorage = localStorage;
             _resultValue.localStorageTypes = localStorageTypes;
+            _resultValue.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             _resultValue.memoryGibPerVcpus = memoryGibPerVcpus;
             _resultValue.memoryMibs = memoryMibs;
             _resultValue.networkBandwidthGbps = networkBandwidthGbps;

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionResult
     {
         /// <summary>
-        /// Action to take for the chosen segment. Valid values `create-route` or `share`.
+        /// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
         /// </summary>
         public readonly string Action;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Destinations;
         /// <summary>
-        /// String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+        /// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
         /// </summary>
         public readonly string? Mode;
         /// <summary>
@@ -45,6 +45,14 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["&lt;segment-names&gt;"]`.
         /// </summary>
         public readonly ImmutableArray<string> ShareWiths;
+        /// <summary>
+        /// The network function groups and any edge overrides associated with the action.
+        /// </summary>
+        public readonly Outputs.GetCoreNetworkPolicyDocumentSegmentActionViaResult? Via;
+        /// <summary>
+        /// The destination segments for the `send-via` or `send-to` `action`.
+        /// </summary>
+        public readonly Outputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToResult? WhenSentTo;
 
         [OutputConstructor]
         private GetCoreNetworkPolicyDocumentSegmentActionResult(
@@ -62,7 +70,11 @@ namespace Pulumi.Aws.NetworkManager.Outputs
 
             ImmutableArray<string> shareWithExcepts,
 
-            ImmutableArray<string> shareWiths)
+            ImmutableArray<string> shareWiths,
+
+            Outputs.GetCoreNetworkPolicyDocumentSegmentActionViaResult? via,
+
+            Outputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToResult? whenSentTo)
         {
             Action = action;
             Description = description;
@@ -72,6 +84,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
             Segment = segment;
             ShareWithExcepts = shareWithExcepts;
             ShareWiths = shareWiths;
+            Via = via;
+            WhenSentTo = whenSentTo;
         }
     }
 }

@@ -9658,6 +9658,8 @@ class ChannelInputAttachmentInputSettingsArgs:
                  source_end_behavior: Optional[pulumi.Input[str]] = None,
                  video_selector: Optional[pulumi.Input['ChannelInputAttachmentInputSettingsVideoSelectorArgs']] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgs']]] audio_selectors: Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]] caption_selectors: Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
         :param pulumi.Input[str] deblock_filter: Enable or disable the deblock filter when filtering.
         :param pulumi.Input[str] denoise_filter: Enable or disable the denoise filter when filtering.
         :param pulumi.Input[int] filter_strength: Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
@@ -9693,6 +9695,9 @@ class ChannelInputAttachmentInputSettingsArgs:
     @property
     @pulumi.getter(name="audioSelectors")
     def audio_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgs']]]]:
+        """
+        Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+        """
         return pulumi.get(self, "audio_selectors")
 
     @audio_selectors.setter
@@ -9702,6 +9707,9 @@ class ChannelInputAttachmentInputSettingsArgs:
     @property
     @pulumi.getter(name="captionSelectors")
     def caption_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]]]:
+        """
+        Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+        """
         return pulumi.get(self, "caption_selectors")
 
     @caption_selectors.setter

@@ -450,7 +450,9 @@ class CatalogTableStorageDescriptor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "bucketColumns":
+        if key == "additionalLocations":
+            suggest = "additional_locations"
+        elif key == "bucketColumns":
             suggest = "bucket_columns"
         elif key == "inputFormat":
             suggest = "input_format"
@@ -481,6 +483,7 @@ class CatalogTableStorageDescriptor(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 additional_locations: Optional[Sequence[str]] = None,
                  bucket_columns: Optional[Sequence[str]] = None,
                  columns: Optional[Sequence['outputs.CatalogTableStorageDescriptorColumn']] = None,
                  compressed: Optional[bool] = None,
@@ -495,6 +498,7 @@ class CatalogTableStorageDescriptor(dict):
                  sort_columns: Optional[Sequence['outputs.CatalogTableStorageDescriptorSortColumn']] = None,
                  stored_as_sub_directories: Optional[bool] = None):
         """
+        :param Sequence[str] additional_locations: List of locations that point to the path where a Delta table is located.
         :param Sequence[str] bucket_columns: List of reducer grouping columns, clustering columns, and bucketing columns in the table.
         :param Sequence['CatalogTableStorageDescriptorColumnArgs'] columns: Configuration block for columns in the table. See `columns` below.
         :param bool compressed: Whether the data in the table is compressed.
@@ -509,6 +513,8 @@ class CatalogTableStorageDescriptor(dict):
         :param Sequence['CatalogTableStorageDescriptorSortColumnArgs'] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         :param bool stored_as_sub_directories: Whether the table data is stored in subdirectories.
         """
+        if additional_locations is not None:
+            pulumi.set(__self__, "additional_locations", additional_locations)
         if bucket_columns is not None:
             pulumi.set(__self__, "bucket_columns", bucket_columns)
         if columns is not None:
@@ -535,6 +541,14 @@ class CatalogTableStorageDescriptor(dict):
             pulumi.set(__self__, "sort_columns", sort_columns)
         if stored_as_sub_directories is not None:
             pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+
+    @property
+    @pulumi.getter(name="additionalLocations")
+    def additional_locations(self) -> Optional[Sequence[str]]:
+        """
+        List of locations that point to the path where a Delta table is located.
+        """
+        return pulumi.get(self, "additional_locations")
 
     @property
     @pulumi.getter(name="bucketColumns")
@@ -3878,6 +3892,7 @@ class GetCatalogTablePartitionKeyResult(dict):
 @pulumi.output_type
 class GetCatalogTableStorageDescriptorResult(dict):
     def __init__(__self__, *,
+                 additional_locations: Sequence[str],
                  bucket_columns: Sequence[str],
                  columns: Sequence['outputs.GetCatalogTableStorageDescriptorColumnResult'],
                  compressed: bool,
@@ -3892,6 +3907,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
                  sort_columns: Sequence['outputs.GetCatalogTableStorageDescriptorSortColumnResult'],
                  stored_as_sub_directories: bool):
         """
+        :param Sequence[str] additional_locations: List of locations that point to the path where a Delta table is located
         :param Sequence[str] bucket_columns: List of reducer grouping columns, clustering columns, and bucketing columns in the table.
         :param Sequence['GetCatalogTableStorageDescriptorColumnArgs'] columns: Configuration block for columns in the table. See `columns` below.
         :param bool compressed: Whether the data in the table is compressed.
@@ -3906,6 +3922,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
         :param Sequence['GetCatalogTableStorageDescriptorSortColumnArgs'] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         :param bool stored_as_sub_directories: Whether the table data is stored in subdirectories.
         """
+        pulumi.set(__self__, "additional_locations", additional_locations)
         pulumi.set(__self__, "bucket_columns", bucket_columns)
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "compressed", compressed)
@@ -3919,6 +3936,14 @@ class GetCatalogTableStorageDescriptorResult(dict):
         pulumi.set(__self__, "skewed_infos", skewed_infos)
         pulumi.set(__self__, "sort_columns", sort_columns)
         pulumi.set(__self__, "stored_as_sub_directories", stored_as_sub_directories)
+
+    @property
+    @pulumi.getter(name="additionalLocations")
+    def additional_locations(self) -> Sequence[str]:
+        """
+        List of locations that point to the path where a Delta table is located
+        """
+        return pulumi.get(self, "additional_locations")
 
     @property
     @pulumi.getter(name="bucketColumns")

@@ -17,7 +17,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettings {
+    /**
+     * @return Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+     * 
+     */
     private @Nullable List<ChannelInputAttachmentInputSettingsAudioSelector> audioSelectors;
+    /**
+     * @return Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+     * 
+     */
     private @Nullable List<ChannelInputAttachmentInputSettingsCaptionSelector> captionSelectors;
     /**
      * @return Enable or disable the deblock filter when filtering.
@@ -62,9 +70,17 @@ public final class ChannelInputAttachmentInputSettings {
     private @Nullable ChannelInputAttachmentInputSettingsVideoSelector videoSelector;
 
     private ChannelInputAttachmentInputSettings() {}
+    /**
+     * @return Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+     * 
+     */
     public List<ChannelInputAttachmentInputSettingsAudioSelector> audioSelectors() {
         return this.audioSelectors == null ? List.of() : this.audioSelectors;
     }
+    /**
+     * @return Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+     * 
+     */
     public List<ChannelInputAttachmentInputSettingsCaptionSelector> captionSelectors() {
         return this.captionSelectors == null ? List.of() : this.captionSelectors;
     }

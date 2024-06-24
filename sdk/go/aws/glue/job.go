@@ -220,6 +220,8 @@ type Job struct {
 	ExecutionProperty JobExecutionPropertyOutput `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringOutput `pulumi:"glueVersion"`
+	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
+	MaintenanceWindow pulumi.StringPtrOutput `pulumi:"maintenanceWindow"`
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity pulumi.Float64Output `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
@@ -307,6 +309,8 @@ type jobState struct {
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
+	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
+	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
@@ -359,6 +363,8 @@ type JobState struct {
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
+	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
+	MaintenanceWindow pulumi.StringPtrInput
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity pulumi.Float64PtrInput
 	// The maximum number of times to retry this job if it fails.
@@ -413,6 +419,8 @@ type jobArgs struct {
 	ExecutionProperty *JobExecutionProperty `pulumi:"executionProperty"`
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion *string `pulumi:"glueVersion"`
+	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
+	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity *float64 `pulumi:"maxCapacity"`
 	// The maximum number of times to retry this job if it fails.
@@ -460,6 +468,8 @@ type JobArgs struct {
 	ExecutionProperty JobExecutionPropertyPtrInput
 	// The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 	GlueVersion pulumi.StringPtrInput
+	// Specifies the day of the week and hour for the maintenance window for streaming jobs.
+	MaintenanceWindow pulumi.StringPtrInput
 	// The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
 	MaxCapacity pulumi.Float64PtrInput
 	// The maximum number of times to retry this job if it fails.
@@ -616,6 +626,11 @@ func (o JobOutput) ExecutionProperty() JobExecutionPropertyOutput {
 // The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
 func (o JobOutput) GlueVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.GlueVersion }).(pulumi.StringOutput)
+}
+
+// Specifies the day of the week and hour for the maintenance window for streaming jobs.
+func (o JobOutput) MaintenanceWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.MaintenanceWindow }).(pulumi.StringPtrOutput)
 }
 
 // The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.

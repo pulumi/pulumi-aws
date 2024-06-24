@@ -63,7 +63,7 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
     /**
      * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
-    public readonly destination!: pulumi.Output<string>;
+    public readonly destination!: pulumi.Output<string | undefined>;
     /**
      * ARN of the destination.
      */
@@ -131,9 +131,6 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as NetworkInsightsPathArgs | undefined;
-            if ((!args || args.destination === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'destination'");
-            }
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
@@ -218,7 +215,7 @@ export interface NetworkInsightsPathArgs {
     /**
      * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      */
-    destination: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
     /**
      * IP address of the destination resource.
      */

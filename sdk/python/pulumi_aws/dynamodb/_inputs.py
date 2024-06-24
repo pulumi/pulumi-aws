@@ -644,26 +644,30 @@ class TableServerSideEncryptionArgs:
 @pulumi.input_type
 class TableTtlArgs:
     def __init__(__self__, *,
-                 attribute_name: pulumi.Input[str],
+                 attribute_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] attribute_name: Name of the table attribute to store the TTL timestamp in.
+               Required if `enabled` is `true`, must not be set otherwise.
         :param pulumi.Input[bool] enabled: Whether TTL is enabled.
+               Default value is `false`.
         """
-        pulumi.set(__self__, "attribute_name", attribute_name)
+        if attribute_name is not None:
+            pulumi.set(__self__, "attribute_name", attribute_name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> pulumi.Input[str]:
+    def attribute_name(self) -> Optional[pulumi.Input[str]]:
         """
         Name of the table attribute to store the TTL timestamp in.
+        Required if `enabled` is `true`, must not be set otherwise.
         """
         return pulumi.get(self, "attribute_name")
 
     @attribute_name.setter
-    def attribute_name(self, value: pulumi.Input[str]):
+    def attribute_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "attribute_name", value)
 
     @property
@@ -671,6 +675,7 @@ class TableTtlArgs:
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether TTL is enabled.
+        Default value is `false`.
         """
         return pulumi.get(self, "enabled")
 

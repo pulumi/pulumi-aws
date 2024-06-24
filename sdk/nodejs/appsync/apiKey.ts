@@ -63,6 +63,7 @@ export class ApiKey extends pulumi.CustomResource {
      * ID of the associated AppSync API
      */
     public readonly apiId!: pulumi.Output<string>;
+    public /*out*/ readonly apiKeyId!: pulumi.Output<string>;
     /**
      * API key description. Defaults to "Managed by Pulumi".
      */
@@ -90,6 +91,7 @@ export class ApiKey extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
             resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["apiKeyId"] = state ? state.apiKeyId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["expires"] = state ? state.expires : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
@@ -101,6 +103,7 @@ export class ApiKey extends pulumi.CustomResource {
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             resourceInputs["expires"] = args ? args.expires : undefined;
+            resourceInputs["apiKeyId"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -118,6 +121,7 @@ export interface ApiKeyState {
      * ID of the associated AppSync API
      */
     apiId?: pulumi.Input<string>;
+    apiKeyId?: pulumi.Input<string>;
     /**
      * API key description. Defaults to "Managed by Pulumi".
      */

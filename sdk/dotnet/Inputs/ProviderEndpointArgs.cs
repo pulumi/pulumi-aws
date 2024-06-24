@@ -117,6 +117,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("applicationsignals")]
+        public Input<string>? Applicationsignals { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("appmesh")]
         public Input<string>? Appmesh { get; set; }
 

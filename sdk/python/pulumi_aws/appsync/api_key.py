@@ -72,6 +72,7 @@ class ApiKeyArgs:
 class _ApiKeyState:
     def __init__(__self__, *,
                  api_id: Optional[pulumi.Input[str]] = None,
+                 api_key_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expires: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None):
@@ -84,6 +85,8 @@ class _ApiKeyState:
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
+        if api_key_id is not None:
+            pulumi.set(__self__, "api_key_id", api_key_id)
         if description is None:
             description = 'Managed by Pulumi'
         if description is not None:
@@ -104,6 +107,15 @@ class _ApiKeyState:
     @api_id.setter
     def api_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_id", value)
+
+    @property
+    @pulumi.getter(name="apiKeyId")
+    def api_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "api_key_id")
+
+    @api_key_id.setter
+    def api_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_key_id", value)
 
     @property
     @pulumi.getter
@@ -247,6 +259,7 @@ class ApiKey(pulumi.CustomResource):
                 description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
             __props__.__dict__["expires"] = expires
+            __props__.__dict__["api_key_id"] = None
             __props__.__dict__["key"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["key"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -261,6 +274,7 @@ class ApiKey(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_id: Optional[pulumi.Input[str]] = None,
+            api_key_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             expires: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None) -> 'ApiKey':
@@ -281,6 +295,7 @@ class ApiKey(pulumi.CustomResource):
         __props__ = _ApiKeyState.__new__(_ApiKeyState)
 
         __props__.__dict__["api_id"] = api_id
+        __props__.__dict__["api_key_id"] = api_key_id
         __props__.__dict__["description"] = description
         __props__.__dict__["expires"] = expires
         __props__.__dict__["key"] = key
@@ -293,6 +308,11 @@ class ApiKey(pulumi.CustomResource):
         ID of the associated AppSync API
         """
         return pulumi.get(self, "api_id")
+
+    @property
+    @pulumi.getter(name="apiKeyId")
+    def api_key_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "api_key_id")
 
     @property
     @pulumi.getter

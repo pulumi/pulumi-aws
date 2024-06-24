@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableStorageDescriptor
     {
         /// <summary>
+        /// List of locations that point to the path where a Delta table is located.
+        /// </summary>
+        public readonly ImmutableArray<string> AdditionalLocations;
+        /// <summary>
         /// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
         /// </summary>
         public readonly ImmutableArray<string> BucketColumns;
@@ -68,6 +72,8 @@ namespace Pulumi.Aws.Glue.Outputs
 
         [OutputConstructor]
         private CatalogTableStorageDescriptor(
+            ImmutableArray<string> additionalLocations,
+
             ImmutableArray<string> bucketColumns,
 
             ImmutableArray<Outputs.CatalogTableStorageDescriptorColumn> columns,
@@ -94,6 +100,7 @@ namespace Pulumi.Aws.Glue.Outputs
 
             bool? storedAsSubDirectories)
         {
+            AdditionalLocations = additionalLocations;
             BucketColumns = bucketColumns;
             Columns = columns;
             Compressed = compressed;

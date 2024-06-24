@@ -4,7 +4,6 @@
 package com.pulumi.aws.dynamodb.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -15,11 +14,13 @@ import javax.annotation.Nullable;
 public final class TableTtl {
     /**
      * @return Name of the table attribute to store the TTL timestamp in.
+     * Required if `enabled` is `true`, must not be set otherwise.
      * 
      */
-    private String attributeName;
+    private @Nullable String attributeName;
     /**
      * @return Whether TTL is enabled.
+     * Default value is `false`.
      * 
      */
     private @Nullable Boolean enabled;
@@ -27,13 +28,15 @@ public final class TableTtl {
     private TableTtl() {}
     /**
      * @return Name of the table attribute to store the TTL timestamp in.
+     * Required if `enabled` is `true`, must not be set otherwise.
      * 
      */
-    public String attributeName() {
-        return this.attributeName;
+    public Optional<String> attributeName() {
+        return Optional.ofNullable(this.attributeName);
     }
     /**
      * @return Whether TTL is enabled.
+     * Default value is `false`.
      * 
      */
     public Optional<Boolean> enabled() {
@@ -49,7 +52,7 @@ public final class TableTtl {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String attributeName;
+        private @Nullable String attributeName;
         private @Nullable Boolean enabled;
         public Builder() {}
         public Builder(TableTtl defaults) {
@@ -59,10 +62,8 @@ public final class TableTtl {
         }
 
         @CustomType.Setter
-        public Builder attributeName(String attributeName) {
-            if (attributeName == null) {
-              throw new MissingRequiredPropertyException("TableTtl", "attributeName");
-            }
+        public Builder attributeName(@Nullable String attributeName) {
+
             this.attributeName = attributeName;
             return this;
         }

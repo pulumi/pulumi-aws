@@ -12,6 +12,18 @@ namespace Pulumi.Aws.Glue.Inputs
 
     public sealed class CatalogTableStorageDescriptorArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalLocations")]
+        private InputList<string>? _additionalLocations;
+
+        /// <summary>
+        /// List of locations that point to the path where a Delta table is located.
+        /// </summary>
+        public InputList<string> AdditionalLocations
+        {
+            get => _additionalLocations ?? (_additionalLocations = new InputList<string>());
+            set => _additionalLocations = value;
+        }
+
         [Input("bucketColumns")]
         private InputList<string>? _bucketColumns;
 

@@ -18,17 +18,17 @@ index abc31f0d40..ebf1de5fb3 100644
  			names.AttrEnabled: {
  				Type:     schema.TypeBool,
 diff --git a/internal/service/appsync/api_key.go b/internal/service/appsync/api_key.go
-index fbdf814b82..ae8e490533 100644
+index fbdca7da91..9cdc01f8ec 100644
 --- a/internal/service/appsync/api_key.go
 +++ b/internal/service/appsync/api_key.go
-@@ -36,7 +36,7 @@ func ResourceAPIKey() *schema.Resource {
+@@ -49,7 +49,7 @@ func resourceAPIKey() *schema.Resource {
  			names.AttrDescription: {
  				Type:     schema.TypeString,
  				Optional: true,
 -				Default:  "Managed by Terraform",
 +				Default:  "Managed by Pulumi",
  			},
- 			"api_id": {
+ 			"expires": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/cloudfront/origin_access_control.go b/internal/service/cloudfront/origin_access_control.go
 index 837e79c057..8fc8280900 100644

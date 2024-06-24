@@ -2160,6 +2160,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
             suggest = "local_storage"
         elif key == "localStorageTypes":
             suggest = "local_storage_types"
+        elif key == "maxSpotPriceAsPercentageOfOptimalOnDemandPrice":
+            suggest = "max_spot_price_as_percentage_of_optimal_on_demand_price"
         elif key == "memoryGibPerVcpu":
             suggest = "memory_gib_per_vcpu"
         elif key == "networkBandwidthGbps":
@@ -2203,6 +2205,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
                  instance_generations: Optional[Sequence[str]] = None,
                  local_storage: Optional[str] = None,
                  local_storage_types: Optional[Sequence[str]] = None,
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: Optional[int] = None,
                  memory_gib_per_vcpu: Optional['outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu'] = None,
                  network_bandwidth_gbps: Optional['outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbps'] = None,
                  network_interface_count: Optional['outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount'] = None,
@@ -2232,6 +2235,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
         :param Sequence[str] instance_generations: Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
         :param str local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param Sequence[str] local_storage_types: List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
+        :param int max_spot_price_as_percentage_of_optimal_on_demand_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
         :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
         :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -2239,7 +2243,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
                
                If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
         :param bool require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
-        :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+        :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param 'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
@@ -2274,6 +2278,8 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
             pulumi.set(__self__, "local_storage", local_storage)
         if local_storage_types is not None:
             pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
+            pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
         if memory_gib_per_vcpu is not None:
             pulumi.set(__self__, "memory_gib_per_vcpu", memory_gib_per_vcpu)
         if network_bandwidth_gbps is not None:
@@ -2423,6 +2429,14 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
         return pulumi.get(self, "local_storage_types")
 
     @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[int]:
+        """
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+        """
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
+
+    @property
     @pulumi.getter(name="memoryGibPerVcpu")
     def memory_gib_per_vcpu(self) -> Optional['outputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu']:
         """
@@ -2468,7 +2482,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirements(dict):
     @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
-        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
 
         If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
@@ -5329,6 +5343,8 @@ class LaunchTemplateInstanceRequirements(dict):
             suggest = "local_storage"
         elif key == "localStorageTypes":
             suggest = "local_storage_types"
+        elif key == "maxSpotPriceAsPercentageOfOptimalOnDemandPrice":
+            suggest = "max_spot_price_as_percentage_of_optimal_on_demand_price"
         elif key == "memoryGibPerVcpu":
             suggest = "memory_gib_per_vcpu"
         elif key == "networkBandwidthGbps":
@@ -5372,6 +5388,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  instance_generations: Optional[Sequence[str]] = None,
                  local_storage: Optional[str] = None,
                  local_storage_types: Optional[Sequence[str]] = None,
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: Optional[int] = None,
                  memory_gib_per_vcpu: Optional['outputs.LaunchTemplateInstanceRequirementsMemoryGibPerVcpu'] = None,
                  network_bandwidth_gbps: Optional['outputs.LaunchTemplateInstanceRequirementsNetworkBandwidthGbps'] = None,
                  network_interface_count: Optional['outputs.LaunchTemplateInstanceRequirementsNetworkInterfaceCount'] = None,
@@ -5447,6 +5464,7 @@ class LaunchTemplateInstanceRequirements(dict):
                * hdd - hard disk drive
                * ssd - solid state drive
                ```
+        :param int max_spot_price_as_percentage_of_optimal_on_demand_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
         :param 'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         :param 'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         :param 'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
@@ -5454,7 +5472,7 @@ class LaunchTemplateInstanceRequirements(dict):
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param bool require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
-        :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+        :param int spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         :param 'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
@@ -5489,6 +5507,8 @@ class LaunchTemplateInstanceRequirements(dict):
             pulumi.set(__self__, "local_storage", local_storage)
         if local_storage_types is not None:
             pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
+            pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
         if memory_gib_per_vcpu is not None:
             pulumi.set(__self__, "memory_gib_per_vcpu", memory_gib_per_vcpu)
         if network_bandwidth_gbps is not None:
@@ -5684,6 +5704,14 @@ class LaunchTemplateInstanceRequirements(dict):
         return pulumi.get(self, "local_storage_types")
 
     @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[int]:
+        """
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+        """
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
+
+    @property
     @pulumi.getter(name="memoryGibPerVcpu")
     def memory_gib_per_vcpu(self) -> Optional['outputs.LaunchTemplateInstanceRequirementsMemoryGibPerVcpu']:
         """
@@ -5729,7 +5757,7 @@ class LaunchTemplateInstanceRequirements(dict):
     @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
     def spot_max_price_percentage_over_lowest_price(self) -> Optional[int]:
         """
-        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
 
         If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         """
@@ -17178,6 +17206,7 @@ class GetLaunchTemplateInstanceRequirementResult(dict):
                  instance_generations: Sequence[str],
                  local_storage: str,
                  local_storage_types: Sequence[str],
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: int,
                  memory_gib_per_vcpus: Sequence['outputs.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusResult'],
                  memory_mibs: Sequence['outputs.GetLaunchTemplateInstanceRequirementMemoryMibResult'],
                  network_bandwidth_gbps: Sequence['outputs.GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpResult'],
@@ -17201,6 +17230,7 @@ class GetLaunchTemplateInstanceRequirementResult(dict):
         pulumi.set(__self__, "instance_generations", instance_generations)
         pulumi.set(__self__, "local_storage", local_storage)
         pulumi.set(__self__, "local_storage_types", local_storage_types)
+        pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
         pulumi.set(__self__, "memory_gib_per_vcpus", memory_gib_per_vcpus)
         pulumi.set(__self__, "memory_mibs", memory_mibs)
         pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
@@ -17280,6 +17310,11 @@ class GetLaunchTemplateInstanceRequirementResult(dict):
     @pulumi.getter(name="localStorageTypes")
     def local_storage_types(self) -> Sequence[str]:
         return pulumi.get(self, "local_storage_types")
+
+    @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> int:
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
 
     @property
     @pulumi.getter(name="memoryGibPerVcpus")

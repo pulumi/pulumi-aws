@@ -36,6 +36,7 @@ public final class GetLaunchTemplateInstanceRequirement {
     private List<String> instanceGenerations;
     private String localStorage;
     private List<String> localStorageTypes;
+    private Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
     private List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
     private List<GetLaunchTemplateInstanceRequirementMemoryMib> memoryMibs;
     private List<GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps;
@@ -89,6 +90,9 @@ public final class GetLaunchTemplateInstanceRequirement {
     public List<String> localStorageTypes() {
         return this.localStorageTypes;
     }
+    public Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice() {
+        return this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+    }
     public List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus() {
         return this.memoryGibPerVcpus;
     }
@@ -140,6 +144,7 @@ public final class GetLaunchTemplateInstanceRequirement {
         private List<String> instanceGenerations;
         private String localStorage;
         private List<String> localStorageTypes;
+        private Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         private List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus;
         private List<GetLaunchTemplateInstanceRequirementMemoryMib> memoryMibs;
         private List<GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp> networkBandwidthGbps;
@@ -166,6 +171,7 @@ public final class GetLaunchTemplateInstanceRequirement {
     	      this.instanceGenerations = defaults.instanceGenerations;
     	      this.localStorage = defaults.localStorage;
     	      this.localStorageTypes = defaults.localStorageTypes;
+    	      this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = defaults.maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
     	      this.memoryGibPerVcpus = defaults.memoryGibPerVcpus;
     	      this.memoryMibs = defaults.memoryMibs;
     	      this.networkBandwidthGbps = defaults.networkBandwidthGbps;
@@ -323,6 +329,14 @@ public final class GetLaunchTemplateInstanceRequirement {
             return localStorageTypes(List.of(localStorageTypes));
         }
         @CustomType.Setter
+        public Builder maxSpotPriceAsPercentageOfOptimalOnDemandPrice(Integer maxSpotPriceAsPercentageOfOptimalOnDemandPrice) {
+            if (maxSpotPriceAsPercentageOfOptimalOnDemandPrice == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "maxSpotPriceAsPercentageOfOptimalOnDemandPrice");
+            }
+            this.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+            return this;
+        }
+        @CustomType.Setter
         public Builder memoryGibPerVcpus(List<GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus> memoryGibPerVcpus) {
             if (memoryGibPerVcpus == null) {
               throw new MissingRequiredPropertyException("GetLaunchTemplateInstanceRequirement", "memoryGibPerVcpus");
@@ -428,6 +442,7 @@ public final class GetLaunchTemplateInstanceRequirement {
             _resultValue.instanceGenerations = instanceGenerations;
             _resultValue.localStorage = localStorage;
             _resultValue.localStorageTypes = localStorageTypes;
+            _resultValue.maxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             _resultValue.memoryGibPerVcpus = memoryGibPerVcpus;
             _resultValue.memoryMibs = memoryMibs;
             _resultValue.networkBandwidthGbps = networkBandwidthGbps;

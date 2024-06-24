@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .ttl(TableTtlArgs.builder()
  *                 .attributeName("TimeToExist")
- *                 .enabled(false)
+ *                 .enabled(true)
  *                 .build())
  *             .globalSecondaryIndexes(TableGlobalSecondaryIndexArgs.builder()
  *                 .name("GameTitleIndex")

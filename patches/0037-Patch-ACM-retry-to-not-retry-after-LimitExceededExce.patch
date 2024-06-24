@@ -6,32 +6,32 @@ Subject: [PATCH] Patch ACM retry to not retry after LimitExceededException
 
 
 diff --git a/internal/service/acm/service_package_gen.go b/internal/service/acm/service_package_gen.go
-index cd3c01f9c9..b993553de2 100644
+index d76d553329..7f9a9ca461 100644
 --- a/internal/service/acm/service_package_gen.go
 +++ b/internal/service/acm/service_package_gen.go
-@@ -6,8 +6,10 @@ import (
+@@ -6,7 +6,9 @@ import (
  	"context"
  
  	aws_sdkv2 "github.com/aws/aws-sdk-go-v2/aws"
 +	retry_sdkv2 "github.com/aws/aws-sdk-go-v2/aws/retry"
  	acm_sdkv2 "github.com/aws/aws-sdk-go-v2/service/acm"
- 	"github.com/hashicorp/terraform-plugin-log/tflog"
 +	tfawserr_sdkv2 "github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
  	"github.com/hashicorp/terraform-provider-aws/internal/conns"
  	"github.com/hashicorp/terraform-provider-aws/internal/types"
  	"github.com/hashicorp/terraform-provider-aws/names"
-@@ -73,6 +75,14 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
- 				o.EndpointOptions.UseFIPSEndpoint = aws_sdkv2.FIPSEndpointStateDisabled
- 			}
- 		}
-+
-+		o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry_sdkv2.IsErrorRetryableFunc(func(err error) aws_sdkv2.Ternary {
-+			if tfawserr_sdkv2.ErrMessageContains(err, "LimitExceededException", "the maximum number of") &&
-+				tfawserr_sdkv2.ErrMessageContains(err, "LimitExceededException", "certificates in the last year") {
-+				return aws_sdkv2.FalseTernary
-+			}
-+			return aws_sdkv2.UnknownTernary // Delegate to configured Retryer.
-+		}))
- 	}), nil
+@@ -63,6 +65,15 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+ 	return acm_sdkv2.NewFromConfig(cfg,
+ 		acm_sdkv2.WithEndpointResolverV2(newEndpointResolverSDKv2()),
+ 		withBaseEndpoint(config[names.AttrEndpoint].(string)),
++		func(o *acm_sdkv2.Options) {
++			o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry_sdkv2.IsErrorRetryableFunc(func(err error) aws_sdkv2.Ternary {
++				if tfawserr_sdkv2.ErrMessageContains(err, "LimitExceededException", "the maximum number of") &&
++					tfawserr_sdkv2.ErrMessageContains(err, "LimitExceededException", "certificates in the last year") {
++					return aws_sdkv2.FalseTernary
++				}
++				return aws_sdkv2.UnknownTernary // Delegate to configured Retryer.
++			}))
++		},
+ 	), nil
  }
  

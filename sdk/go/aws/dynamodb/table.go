@@ -67,7 +67,7 @@ import (
 //				},
 //				Ttl: &dynamodb.TableTtlArgs{
 //					AttributeName: pulumi.String("TimeToExist"),
-//					Enabled:       pulumi.Bool(false),
+//					Enabled:       pulumi.Bool(true),
 //				},
 //				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
 //					&dynamodb.TableGlobalSecondaryIndexArgs{

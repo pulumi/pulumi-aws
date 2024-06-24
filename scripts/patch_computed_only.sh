@@ -29,6 +29,6 @@ FILES=$(cd upstream && git grep TagsAttributeComputedOnly |
 
 
 for f in $FILES; do
-    replace="s/names.AttrTagsAll: tftags.TagsAttributeComputedOnly/names.AttrTagsAll: tftags.TagsAttribute/g"
+    replace="s/names.AttrTagsAll:\s+tftags.TagsAttributeComputedOnly/names.AttrTagsAll: tftags.TagsAttribute/g"
     perl -i -p -e "$replace" "upstream/$f"
 done

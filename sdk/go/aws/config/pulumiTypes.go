@@ -325,6 +325,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Applicationinsights *string `pulumi:"applicationinsights"`
 	// Use this to override the default service endpoint URL
+	Applicationsignals *string `pulumi:"applicationsignals"`
+	// Use this to override the default service endpoint URL
 	Appmesh *string `pulumi:"appmesh"`
 	// Use this to override the default service endpoint URL
 	Appregistry *string `pulumi:"appregistry"`
@@ -904,6 +906,8 @@ type EndpointsArgs struct {
 	Applicationautoscaling pulumi.StringPtrInput `pulumi:"applicationautoscaling"`
 	// Use this to override the default service endpoint URL
 	Applicationinsights pulumi.StringPtrInput `pulumi:"applicationinsights"`
+	// Use this to override the default service endpoint URL
+	Applicationsignals pulumi.StringPtrInput `pulumi:"applicationsignals"`
 	// Use this to override the default service endpoint URL
 	Appmesh pulumi.StringPtrInput `pulumi:"appmesh"`
 	// Use this to override the default service endpoint URL
@@ -1572,6 +1576,11 @@ func (o EndpointsOutput) Applicationautoscaling() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Applicationinsights() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Applicationinsights }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Applicationsignals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Applicationsignals }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

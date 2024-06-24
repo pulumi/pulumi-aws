@@ -21,7 +21,7 @@ resources:
           type: N
       ttl:
         attributeName: TimeToExist
-        enabled: false
+        enabled: true
       globalSecondaryIndexes:
         - name: GameTitleIndex
           hashKey: GameTitle

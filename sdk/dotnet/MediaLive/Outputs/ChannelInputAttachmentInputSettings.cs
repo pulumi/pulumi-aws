@@ -13,7 +13,13 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettings
     {
+        /// <summary>
+        /// Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelInputAttachmentInputSettingsAudioSelector> AudioSelectors;
+        /// <summary>
+        /// Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ChannelInputAttachmentInputSettingsCaptionSelector> CaptionSelectors;
         /// <summary>
         /// Enable or disable the deblock filter when filtering.

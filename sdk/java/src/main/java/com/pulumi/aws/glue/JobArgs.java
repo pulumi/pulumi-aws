@@ -129,6 +129,21 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     * 
+     */
+    @Import(name="maintenanceWindow")
+    private @Nullable Output<String> maintenanceWindow;
+
+    /**
+     * @return Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     * 
+     */
+    public Optional<Output<String>> maintenanceWindow() {
+        return Optional.ofNullable(this.maintenanceWindow);
+    }
+
+    /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
      * 
      */
@@ -317,6 +332,7 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         this.executionClass = $.executionClass;
         this.executionProperty = $.executionProperty;
         this.glueVersion = $.glueVersion;
+        this.maintenanceWindow = $.maintenanceWindow;
         this.maxCapacity = $.maxCapacity;
         this.maxRetries = $.maxRetries;
         this.name = $.name;
@@ -503,6 +519,27 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder glueVersion(String glueVersion) {
             return glueVersion(Output.of(glueVersion));
+        }
+
+        /**
+         * @param maintenanceWindow Specifies the day of the week and hour for the maintenance window for streaming jobs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceWindow(@Nullable Output<String> maintenanceWindow) {
+            $.maintenanceWindow = maintenanceWindow;
+            return this;
+        }
+
+        /**
+         * @param maintenanceWindow Specifies the day of the week and hour for the maintenance window for streaming jobs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceWindow(String maintenanceWindow) {
+            return maintenanceWindow(Output.of(maintenanceWindow));
         }
 
         /**

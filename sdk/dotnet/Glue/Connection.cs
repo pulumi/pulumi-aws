@@ -38,6 +38,34 @@ namespace Pulumi.Aws.Glue
     /// });
     /// ```
     /// 
+    /// ### Non-VPC Connection with secret manager reference
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.SecretsManager.GetSecret.Invoke(new()
+    ///     {
+    ///         Name = "example-secret",
+    ///     });
+    /// 
+    ///     var exampleConnection = new Aws.Glue.Connection("example", new()
+    ///     {
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase" },
+    ///             { "SECRET_ID", example.Apply(getSecretResult =&gt; getSecretResult.Name) },
+    ///         },
+    ///         Name = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### VPC Connection
     /// 
     /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
@@ -67,6 +95,63 @@ namespace Pulumi.Aws.Glue
     ///                 exampleAwsSecurityGroup.Id,
     ///             },
     ///             SubnetId = exampleAwsSubnet.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Connection using a custom connector
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Define the custom connector using the connection_type of `CUSTOM` with the match_criteria of `template_connection`
+    ///     // Example here being a snowflake jdbc connector with a secret having user and password as keys
+    ///     var example = Aws.SecretsManager.GetSecret.Invoke(new()
+    ///     {
+    ///         Name = "example-secret",
+    ///     });
+    /// 
+    ///     var exampleConnector = new Aws.Glue.Connection("example_connector", new()
+    ///     {
+    ///         ConnectionType = "CUSTOM",
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver" },
+    ///             { "CONNECTION_TYPE", "Jdbc" },
+    ///             { "CONNECTOR_URL", "s3://example/snowflake-jdbc.jar" },
+    ///             { "JDBC_CONNECTION_URL", "[[\"default=jdbc:snowflake://example.com/?user=${user}&amp;password=${password}\"],\",\"]" },
+    ///         },
+    ///         Name = "example_connector",
+    ///         MatchCriterias = new[]
+    ///         {
+    ///             "template-connection",
+    ///         },
+    ///     });
+    /// 
+    ///     // Reference the connector using match_criteria with the connector created above.
+    ///     var exampleConnection = new Aws.Glue.Connection("example_connection", new()
+    ///     {
+    ///         ConnectionType = "CUSTOM",
+    ///         ConnectionProperties = 
+    ///         {
+    ///             { "CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver" },
+    ///             { "CONNECTION_TYPE", "Jdbc" },
+    ///             { "CONNECTOR_URL", "s3://example/snowflake-jdbc.jar" },
+    ///             { "JDBC_CONNECTION_URL", "jdbc:snowflake://example.com/?user=${user}&amp;password=${password}" },
+    ///             { "SECRET_ID", example.Apply(getSecretResult =&gt; getSecretResult.Name) },
+    ///         },
+    ///         Name = "example",
+    ///         MatchCriterias = new[]
+    ///         {
+    ///             "Connection",
+    ///             exampleConnector.Name,
     ///         },
     ///     });
     /// 
