@@ -153,7 +153,7 @@ func testProviderCodeChanges(t *testing.T, opts *testProviderCodeChangesOptions)
 	err = os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), opts.secondProgram, 0o600)
 	require.NoError(t, err)
 	secondTest := pulumitest.NewPulumiTest(t, workdir, secondOptions...)
-	pt.SetConfig("aws:region", region)
+	secondTest.SetConfig("aws:region", region)
 	secondTest.ImportStack(*export)
 
 	return secondTest
