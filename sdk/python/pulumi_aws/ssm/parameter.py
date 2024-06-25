@@ -173,13 +173,11 @@ class ParameterArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""this attribute has been deprecated""")
     def overwrite(self) -> Optional[pulumi.Input[bool]]:
         """
         Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         """
-        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
-        pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
-
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -384,13 +382,11 @@ class _ParameterState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""this attribute has been deprecated""")
     def overwrite(self) -> Optional[pulumi.Input[bool]]:
         """
         Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         """
-        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
-        pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
-
         return pulumi.get(self, "overwrite")
 
     @overwrite.setter
@@ -411,13 +407,11 @@ class _ParameterState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -810,13 +804,11 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""this attribute has been deprecated""")
     def overwrite(self) -> pulumi.Output[Optional[bool]]:
         """
         Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         """
-        warnings.warn("""this attribute has been deprecated""", DeprecationWarning)
-        pulumi.log.warn("""overwrite is deprecated: this attribute has been deprecated""")
-
         return pulumi.get(self, "overwrite")
 
     @property
@@ -829,13 +821,11 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

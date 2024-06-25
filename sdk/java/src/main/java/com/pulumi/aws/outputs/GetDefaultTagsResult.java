@@ -13,7 +13,7 @@ import java.util.Objects;
 public final class GetDefaultTagsResult {
     private String id;
     /**
-     * @return Blocks of default tags set on the provider. See details below.
+     * @return Key-value mapping of provider default tags.
      * 
      */
     private Map<String,String> tags;
@@ -23,7 +23,7 @@ public final class GetDefaultTagsResult {
         return this.id;
     }
     /**
-     * @return Blocks of default tags set on the provider. See details below.
+     * @return Key-value mapping of provider default tags.
      * 
      */
     public Map<String,String> tags() {

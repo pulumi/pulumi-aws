@@ -239,7 +239,7 @@ class PublishingDestination(pulumi.CustomResource):
             detector_id=test_gd.id,
             destination_arn=gd_bucket.arn,
             kms_key_arn=gd_key.arn,
-            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
         ```
 
         > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
@@ -336,7 +336,7 @@ class PublishingDestination(pulumi.CustomResource):
             detector_id=test_gd.id,
             destination_arn=gd_bucket.arn,
             kms_key_arn=gd_key.arn,
-            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
+            opts = pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
         ```
 
         > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html

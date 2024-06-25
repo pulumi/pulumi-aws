@@ -175,7 +175,7 @@ class Insight(pulumi.CustomResource):
             ),
             group_by_attribute="AwsAccountId",
             name="example-insight",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### Filter by date range
@@ -196,7 +196,7 @@ class Insight(pulumi.CustomResource):
             ),
             group_by_attribute="CreatedAt",
             name="example-insight",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### Filter by destination IPv4 address
@@ -214,7 +214,7 @@ class Insight(pulumi.CustomResource):
             ),
             group_by_attribute="NetworkDestinationIpV4",
             name="example-insight",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### Filter by finding's confidence
@@ -232,7 +232,7 @@ class Insight(pulumi.CustomResource):
             ),
             group_by_attribute="Confidence",
             name="example-insight",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### Filter by resource tags
@@ -252,7 +252,7 @@ class Insight(pulumi.CustomResource):
             ),
             group_by_attribute="ResourceTags",
             name="example-insight",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import
@@ -302,7 +302,7 @@ class Insight(pulumi.CustomResource):
             ),
             group_by_attribute="AwsAccountId",
             name="example-insight",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### Filter by date range
@@ -323,7 +323,7 @@ class Insight(pulumi.CustomResource):
             ),
             group_by_attribute="CreatedAt",
             name="example-insight",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### Filter by destination IPv4 address
@@ -341,7 +341,7 @@ class Insight(pulumi.CustomResource):
             ),
             group_by_attribute="NetworkDestinationIpV4",
             name="example-insight",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### Filter by finding's confidence
@@ -359,7 +359,7 @@ class Insight(pulumi.CustomResource):
             ),
             group_by_attribute="Confidence",
             name="example-insight",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ### Filter by resource tags
@@ -379,7 +379,7 @@ class Insight(pulumi.CustomResource):
             ),
             group_by_attribute="ResourceTags",
             name="example-insight",
-            opts=pulumi.ResourceOptions(depends_on=[example]))
+            opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
         ## Import

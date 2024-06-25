@@ -28,6 +28,16 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  prerequisites:
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    uses: ./.github/workflows/prerequisites.yml
+    secrets: inherit
+    with:
+      default_branch: ${{ github.event.repository.default_branch }}
+      is_pr: ${{ github.event_name == 'pull_request' }}
+      is_automated: ${{ github.actor == 'dependabot[bot]' }}
+
   build_sdk:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
@@ -35,6 +45,8 @@ jobs:
     needs: prerequisites
     uses: ./.github/workflows/build_sdk.yml
     secrets: inherit
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
 
   comment-notification:
     if: github.event_name == 'repository_dispatch'
@@ -51,16 +63,6 @@ jobs:
         issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
         repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
-  prerequisites:
-    if: github.event_name == 'repository_dispatch' ||
-      github.event.pull_request.head.repo.full_name == github.repository
-    uses: ./.github/workflows/prerequisites.yml
-    secrets: inherit
-    with:
-      default_branch: ${{ github.event.repository.default_branch }}
-      is_pr: ${{ github.event_name == 'pull_request' }}
-      is_automated: ${{ github.actor == 'dependabot[bot]' }}
-
   sentinel:
     name: sentinel
     if: github.event_name == 'repository_dispatch' ||
@@ -89,11 +91,15 @@ jobs:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
     name: test
-    needs: build_sdk
+    needs:
+      - prerequisites
+      - build_sdk
     permissions:
       contents: read
       id-token: write
     runs-on: ubuntu-latest
+    env:
+      PROVIDER_VERSION: ${{ needs.prerequisites.outputs.version }}
     steps:
     # Run as first step so we don't delete things that have just been installed
     - name: Free Disk Space (Ubuntu)
@@ -106,9 +112,6 @@ jobs:
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
-    - uses: pulumi/provider-version-action@v1
-      with:
-        set-env: 'PROVIDER_VERSION'
     - name: Checkout p/examples
       if: matrix.testTarget == 'pulumiExamples'
       uses: actions/checkout@v4
@@ -167,13 +170,6 @@ jobs:
       if: matrix.testTarget == 'local'
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
         matrix.language }} -skip TestPulumiExamples -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    - if: failure() && github.event_name == 'push' && matrix.testTarget == 'local'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in running ${{ matrix.language }} tests
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
     - name: Run pulumi/examples tests
       if: matrix.testTarget == 'pulumiExamples'
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{

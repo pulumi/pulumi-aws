@@ -365,13 +365,13 @@ class GlobalCluster(pulumi.CustomResource):
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
             db_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(depends_on=[primary]))
+            opts = pulumi.ResourceOptions(depends_on=[primary]))
         secondary_cluster_instance = aws.docdb.ClusterInstance("secondary",
             engine=example.engine,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
             instance_class="db.r5.large",
-            opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
+            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         ```
 
         ### New Global Cluster From Existing DB Cluster
@@ -448,13 +448,13 @@ class GlobalCluster(pulumi.CustomResource):
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
             db_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(depends_on=[primary]))
+            opts = pulumi.ResourceOptions(depends_on=[primary]))
         secondary_cluster_instance = aws.docdb.ClusterInstance("secondary",
             engine=example.engine,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
             instance_class="db.r5.large",
-            opts=pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
+            opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         ```
 
         ### New Global Cluster From Existing DB Cluster

@@ -22,15 +22,15 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
      * ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
-    @Import(name="destination", required=true)
-    private Output<String> destination;
+    @Import(name="destination")
+    private @Nullable Output<String> destination;
 
     /**
      * @return ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
      * 
      */
-    public Output<String> destination() {
-        return this.destination;
+    public Optional<Output<String>> destination() {
+        return Optional.ofNullable(this.destination);
     }
 
     /**
@@ -163,7 +163,7 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder destination(Output<String> destination) {
+        public Builder destination(@Nullable Output<String> destination) {
             $.destination = destination;
             return this;
         }
@@ -309,9 +309,6 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
         }
 
         public NetworkInsightsPathArgs build() {
-            if ($.destination == null) {
-                throw new MissingRequiredPropertyException("NetworkInsightsPathArgs", "destination");
-            }
             if ($.protocol == null) {
                 throw new MissingRequiredPropertyException("NetworkInsightsPathArgs", "protocol");
             }

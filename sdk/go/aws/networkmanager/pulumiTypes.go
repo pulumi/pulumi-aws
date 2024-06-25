@@ -1740,8 +1740,10 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput) Index(i pulumi.
 }
 
 type GetCoreNetworkPolicyDocumentAttachmentPolicyAction struct {
+	// The name of the network function group to attach to the attachment policy.
+	AddToNetworkFunctionGroup *string `pulumi:"addToNetworkFunctionGroup"`
 	// Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
-	AssociationMethod string `pulumi:"associationMethod"`
+	AssociationMethod *string `pulumi:"associationMethod"`
 	// Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
 	RequireAcceptance *bool `pulumi:"requireAcceptance"`
 	// Name of the `segment` to share as defined in the `segments` section. This is used only when the `associationMethod` is `constant`.
@@ -1762,8 +1764,10 @@ type GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput interface {
 }
 
 type GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs struct {
+	// The name of the network function group to attach to the attachment policy.
+	AddToNetworkFunctionGroup pulumi.StringPtrInput `pulumi:"addToNetworkFunctionGroup"`
 	// Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
-	AssociationMethod pulumi.StringInput `pulumi:"associationMethod"`
+	AssociationMethod pulumi.StringPtrInput `pulumi:"associationMethod"`
 	// Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
 	RequireAcceptance pulumi.BoolPtrInput `pulumi:"requireAcceptance"`
 	// Name of the `segment` to share as defined in the `segments` section. This is used only when the `associationMethod` is `constant`.
@@ -1798,9 +1802,14 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) ToGetCoreNetwo
 	return o
 }
 
+// The name of the network function group to attach to the attachment policy.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) AddToNetworkFunctionGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) *string { return v.AddToNetworkFunctionGroup }).(pulumi.StringPtrOutput)
+}
+
 // Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
-func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) AssociationMethod() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) string { return v.AssociationMethod }).(pulumi.StringOutput)
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) AssociationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) *string { return v.AssociationMethod }).(pulumi.StringPtrOutput)
 }
 
 // Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
@@ -2182,6 +2191,121 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOut
 	}).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput)
 }
 
+type GetCoreNetworkPolicyDocumentNetworkFunctionGroup struct {
+	// Optional description of the network function group.
+	Description *string `pulumi:"description"`
+	// This identifies the network function group container.
+	Name string `pulumi:"name"`
+	// This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
+	RequireAttachmentAcceptance bool `pulumi:"requireAttachmentAcceptance"`
+}
+
+// GetCoreNetworkPolicyDocumentNetworkFunctionGroupInput is an input type that accepts GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs and GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentNetworkFunctionGroupInput` via:
+//
+//	GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs{...}
+type GetCoreNetworkPolicyDocumentNetworkFunctionGroupInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput() GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput
+	ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput
+}
+
+type GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs struct {
+	// Optional description of the network function group.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// This identifies the network function group container.
+	Name pulumi.StringInput `pulumi:"name"`
+	// This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
+	RequireAttachmentAcceptance pulumi.BoolInput `pulumi:"requireAttachmentAcceptance"`
+}
+
+func (GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentNetworkFunctionGroup)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs) ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput() GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput {
+	return i.ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs) ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput)
+}
+
+// GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentNetworkFunctionGroupArray and GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayInput` via:
+//
+//	GetCoreNetworkPolicyDocumentNetworkFunctionGroupArray{ GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs{...} }
+type GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput() GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput
+	ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentNetworkFunctionGroupArray []GetCoreNetworkPolicyDocumentNetworkFunctionGroupInput
+
+func (GetCoreNetworkPolicyDocumentNetworkFunctionGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentNetworkFunctionGroup)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentNetworkFunctionGroupArray) ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput() GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentNetworkFunctionGroupArray) ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentNetworkFunctionGroup)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput) ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput() GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput) ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput {
+	return o
+}
+
+// Optional description of the network function group.
+func (o GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentNetworkFunctionGroup) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// This identifies the network function group container.
+func (o GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentNetworkFunctionGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
+func (o GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput) RequireAttachmentAcceptance() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentNetworkFunctionGroup) bool { return v.RequireAttachmentAcceptance }).(pulumi.BoolOutput)
+}
+
+type GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentNetworkFunctionGroup)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput) ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput() GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput) ToGetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentNetworkFunctionGroup {
+		return vs[0].([]GetCoreNetworkPolicyDocumentNetworkFunctionGroup)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput)
+}
+
 type GetCoreNetworkPolicyDocumentSegment struct {
 	// List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
 	AllowFilters []string `pulumi:"allowFilters"`
@@ -2334,7 +2458,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetCoreNetworkPolicyDocumentSegmentAction struct {
-	// Action to take for the chosen segment. Valid values `create-route` or `share`.
+	// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
 	Action string `pulumi:"action"`
 	// A user-defined string describing the segment action.
 	Description *string `pulumi:"description"`
@@ -2342,7 +2466,7 @@ type GetCoreNetworkPolicyDocumentSegmentAction struct {
 	DestinationCidrBlocks []string `pulumi:"destinationCidrBlocks"`
 	// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
 	Destinations []string `pulumi:"destinations"`
-	// String. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
+	// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
 	Mode *string `pulumi:"mode"`
 	// Name of the segment.
 	Segment string `pulumi:"segment"`
@@ -2350,6 +2474,10 @@ type GetCoreNetworkPolicyDocumentSegmentAction struct {
 	ShareWithExcepts []string `pulumi:"shareWithExcepts"`
 	// A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
 	ShareWiths []string `pulumi:"shareWiths"`
+	// The network function groups and any edge overrides associated with the action.
+	Via *GetCoreNetworkPolicyDocumentSegmentActionVia `pulumi:"via"`
+	// The destination segments for the `send-via` or `send-to` `action`.
+	WhenSentTo *GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo `pulumi:"whenSentTo"`
 }
 
 // GetCoreNetworkPolicyDocumentSegmentActionInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionArgs and GetCoreNetworkPolicyDocumentSegmentActionOutput values.
@@ -2364,7 +2492,7 @@ type GetCoreNetworkPolicyDocumentSegmentActionInput interface {
 }
 
 type GetCoreNetworkPolicyDocumentSegmentActionArgs struct {
-	// Action to take for the chosen segment. Valid values `create-route` or `share`.
+	// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
 	Action pulumi.StringInput `pulumi:"action"`
 	// A user-defined string describing the segment action.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -2372,7 +2500,7 @@ type GetCoreNetworkPolicyDocumentSegmentActionArgs struct {
 	DestinationCidrBlocks pulumi.StringArrayInput `pulumi:"destinationCidrBlocks"`
 	// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
 	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
-	// String. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
+	// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// Name of the segment.
 	Segment pulumi.StringInput `pulumi:"segment"`
@@ -2380,6 +2508,10 @@ type GetCoreNetworkPolicyDocumentSegmentActionArgs struct {
 	ShareWithExcepts pulumi.StringArrayInput `pulumi:"shareWithExcepts"`
 	// A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
 	ShareWiths pulumi.StringArrayInput `pulumi:"shareWiths"`
+	// The network function groups and any edge overrides associated with the action.
+	Via GetCoreNetworkPolicyDocumentSegmentActionViaPtrInput `pulumi:"via"`
+	// The destination segments for the `send-via` or `send-to` `action`.
+	WhenSentTo GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrInput `pulumi:"whenSentTo"`
 }
 
 func (GetCoreNetworkPolicyDocumentSegmentActionArgs) ElementType() reflect.Type {
@@ -2433,7 +2565,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ToGetCoreNetworkPolicyD
 	return o
 }
 
-// Action to take for the chosen segment. Valid values `create-route` or `share`.
+// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -2453,7 +2585,7 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Destinations() pulumi.S
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.Destinations }).(pulumi.StringArrayOutput)
 }
 
-// String. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
+// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -2471,6 +2603,20 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ShareWithExcepts() pulu
 // A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ShareWiths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.ShareWiths }).(pulumi.StringArrayOutput)
+}
+
+// The network function groups and any edge overrides associated with the action.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Via() GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) *GetCoreNetworkPolicyDocumentSegmentActionVia {
+		return v.Via
+	}).(GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput)
+}
+
+// The destination segments for the `send-via` or `send-to` `action`.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) WhenSentTo() GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) *GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo {
+		return v.WhenSentTo
+	}).(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput)
 }
 
 type GetCoreNetworkPolicyDocumentSegmentActionArrayOutput struct{ *pulumi.OutputState }
@@ -2491,6 +2637,407 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentSegmentAction {
 		return vs[0].([]GetCoreNetworkPolicyDocumentSegmentAction)[vs[1].(int)]
 	}).(GetCoreNetworkPolicyDocumentSegmentActionOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionVia struct {
+	// A list of strings. The network function group to use for the service insertion action.
+	NetworkFunctionGroups []string `pulumi:"networkFunctionGroups"`
+	// Any edge overrides and the preferred edge to use.
+	WithEdgeOverrides []GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride `pulumi:"withEdgeOverrides"`
+}
+
+// GetCoreNetworkPolicyDocumentSegmentActionViaInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionViaArgs and GetCoreNetworkPolicyDocumentSegmentActionViaOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionViaInput` via:
+//
+//	GetCoreNetworkPolicyDocumentSegmentActionViaArgs{...}
+type GetCoreNetworkPolicyDocumentSegmentActionViaInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentActionViaOutput() GetCoreNetworkPolicyDocumentSegmentActionViaOutput
+	ToGetCoreNetworkPolicyDocumentSegmentActionViaOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaOutput
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionViaArgs struct {
+	// A list of strings. The network function group to use for the service insertion action.
+	NetworkFunctionGroups pulumi.StringArrayInput `pulumi:"networkFunctionGroups"`
+	// Any edge overrides and the preferred edge to use.
+	WithEdgeOverrides GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayInput `pulumi:"withEdgeOverrides"`
+}
+
+func (GetCoreNetworkPolicyDocumentSegmentActionViaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionVia)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionViaArgs) ToGetCoreNetworkPolicyDocumentSegmentActionViaOutput() GetCoreNetworkPolicyDocumentSegmentActionViaOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionViaOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionViaArgs) ToGetCoreNetworkPolicyDocumentSegmentActionViaOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionViaOutput)
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionViaArgs) ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionViaArgs) ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionViaOutput).ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutputWithContext(ctx)
+}
+
+// GetCoreNetworkPolicyDocumentSegmentActionViaPtrInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionViaArgs, GetCoreNetworkPolicyDocumentSegmentActionViaPtr and GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionViaPtrInput` via:
+//
+//	        GetCoreNetworkPolicyDocumentSegmentActionViaArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCoreNetworkPolicyDocumentSegmentActionViaPtrInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput
+	ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput
+}
+
+type getCoreNetworkPolicyDocumentSegmentActionViaPtrType GetCoreNetworkPolicyDocumentSegmentActionViaArgs
+
+func GetCoreNetworkPolicyDocumentSegmentActionViaPtr(v *GetCoreNetworkPolicyDocumentSegmentActionViaArgs) GetCoreNetworkPolicyDocumentSegmentActionViaPtrInput {
+	return (*getCoreNetworkPolicyDocumentSegmentActionViaPtrType)(v)
+}
+
+func (*getCoreNetworkPolicyDocumentSegmentActionViaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCoreNetworkPolicyDocumentSegmentActionVia)(nil)).Elem()
+}
+
+func (i *getCoreNetworkPolicyDocumentSegmentActionViaPtrType) ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutputWithContext(context.Background())
+}
+
+func (i *getCoreNetworkPolicyDocumentSegmentActionViaPtrType) ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionViaOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentActionViaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionVia)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaOutput) ToGetCoreNetworkPolicyDocumentSegmentActionViaOutput() GetCoreNetworkPolicyDocumentSegmentActionViaOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaOutput) ToGetCoreNetworkPolicyDocumentSegmentActionViaOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaOutput) ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput {
+	return o.ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutputWithContext(context.Background())
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaOutput) ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCoreNetworkPolicyDocumentSegmentActionVia) *GetCoreNetworkPolicyDocumentSegmentActionVia {
+		return &v
+	}).(GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput)
+}
+
+// A list of strings. The network function group to use for the service insertion action.
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaOutput) NetworkFunctionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionVia) []string { return v.NetworkFunctionGroups }).(pulumi.StringArrayOutput)
+}
+
+// Any edge overrides and the preferred edge to use.
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaOutput) WithEdgeOverrides() GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionVia) []GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride {
+		return v.WithEdgeOverrides
+	}).(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCoreNetworkPolicyDocumentSegmentActionVia)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput) ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput) ToGetCoreNetworkPolicyDocumentSegmentActionViaPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput) Elem() GetCoreNetworkPolicyDocumentSegmentActionViaOutput {
+	return o.ApplyT(func(v *GetCoreNetworkPolicyDocumentSegmentActionVia) GetCoreNetworkPolicyDocumentSegmentActionVia {
+		if v != nil {
+			return *v
+		}
+		var ret GetCoreNetworkPolicyDocumentSegmentActionVia
+		return ret
+	}).(GetCoreNetworkPolicyDocumentSegmentActionViaOutput)
+}
+
+// A list of strings. The network function group to use for the service insertion action.
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput) NetworkFunctionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetCoreNetworkPolicyDocumentSegmentActionVia) []string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkFunctionGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Any edge overrides and the preferred edge to use.
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput) WithEdgeOverrides() GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput {
+	return o.ApplyT(func(v *GetCoreNetworkPolicyDocumentSegmentActionVia) []GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride {
+		if v == nil {
+			return nil
+		}
+		return v.WithEdgeOverrides
+	}).(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride struct {
+	// A list of strings. The list of edges associated with the network function group.
+	EdgeSets []string `pulumi:"edgeSets"`
+	// The preferred edge to use.
+	UseEdge *string `pulumi:"useEdge"`
+}
+
+// GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs and GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInput` via:
+//
+//	GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs{...}
+type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput() GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput
+	ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs struct {
+	// A list of strings. The list of edges associated with the network function group.
+	EdgeSets pulumi.StringArrayInput `pulumi:"edgeSets"`
+	// The preferred edge to use.
+	UseEdge pulumi.StringPtrInput `pulumi:"useEdge"`
+}
+
+func (GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs) ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput() GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs) ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput)
+}
+
+// GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArray and GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayInput` via:
+//
+//	GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArray{ GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs{...} }
+type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput() GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput
+	ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArray []GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInput
+
+func (GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArray) ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput() GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArray) ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput() GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput {
+	return o
+}
+
+// A list of strings. The list of edges associated with the network function group.
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) EdgeSets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride) []string { return v.EdgeSets }).(pulumi.StringArrayOutput)
+}
+
+// The preferred edge to use.
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput) UseEdge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride) *string { return v.UseEdge }).(pulumi.StringPtrOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput) ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput() GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput) ToGetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride {
+		return vs[0].([]GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverride)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo struct {
+	// A list of strings. The list of segments that the `send-via` `action` uses.
+	Segments []string `pulumi:"segments"`
+}
+
+// GetCoreNetworkPolicyDocumentSegmentActionWhenSentToInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs and GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionWhenSentToInput` via:
+//
+//	GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs{...}
+type GetCoreNetworkPolicyDocumentSegmentActionWhenSentToInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput() GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput
+	ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs struct {
+	// A list of strings. The list of segments that the `send-via` `action` uses.
+	Segments pulumi.StringArrayInput `pulumi:"segments"`
+}
+
+func (GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput() GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput)
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput).ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutputWithContext(ctx)
+}
+
+// GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs, GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtr and GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrInput` via:
+//
+//	        GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput
+	ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput
+}
+
+type getCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrType GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs
+
+func GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtr(v *GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs) GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrInput {
+	return (*getCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrType)(v)
+}
+
+func (*getCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo)(nil)).Elem()
+}
+
+func (i *getCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrType) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutputWithContext(context.Background())
+}
+
+func (i *getCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrType) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput() GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput {
+	return o.ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutputWithContext(context.Background())
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo) *GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo {
+		return &v
+	}).(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput)
+}
+
+// A list of strings. The list of segments that the `send-via` `action` uses.
+func (o GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput) Segments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo) []string { return v.Segments }).(pulumi.StringArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput() GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput) ToGetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput) Elem() GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput {
+	return o.ApplyT(func(v *GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo) GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo {
+		if v != nil {
+			return *v
+		}
+		var ret GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo
+		return ret
+	}).(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput)
+}
+
+// A list of strings. The list of segments that the `send-via` `action` uses.
+func (o GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput) Segments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Segments
+	}).(pulumi.StringArrayOutput)
 }
 
 type GetDeviceAwsLocation struct {
@@ -2967,10 +3514,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentNetworkFunctionGroupInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentNetworkFunctionGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionViaInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionViaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionViaPtrInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionViaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionWhenSentToInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAwsLocationInput)(nil)).Elem(), GetDeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAwsLocationArrayInput)(nil)).Elem(), GetDeviceAwsLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceLocationInput)(nil)).Elem(), GetDeviceLocationArgs{})
@@ -3010,10 +3565,18 @@ func init() {
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentNetworkFunctionGroupOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentNetworkFunctionGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentArrayOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionOutput{})
 	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionViaOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionViaPtrOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionWhenSentToPtrOutput{})
 	pulumi.RegisterOutputType(GetDeviceAwsLocationOutput{})
 	pulumi.RegisterOutputType(GetDeviceAwsLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetDeviceLocationOutput{})

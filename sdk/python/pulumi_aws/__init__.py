@@ -173,6 +173,8 @@ if typing.TYPE_CHECKING:
     dms = __dms
     import pulumi_aws.docdb as __docdb
     docdb = __docdb
+    import pulumi_aws.drs as __drs
+    drs = __drs
     import pulumi_aws.dynamodb as __dynamodb
     dynamodb = __dynamodb
     import pulumi_aws.ebs as __ebs
@@ -517,6 +519,7 @@ else:
     dlm = _utilities.lazy_import('pulumi_aws.dlm')
     dms = _utilities.lazy_import('pulumi_aws.dms')
     docdb = _utilities.lazy_import('pulumi_aws.docdb')
+    drs = _utilities.lazy_import('pulumi_aws.drs')
     dynamodb = _utilities.lazy_import('pulumi_aws.dynamodb')
     ebs = _utilities.lazy_import('pulumi_aws.ebs')
     ec2 = _utilities.lazy_import('pulumi_aws.ec2')
@@ -3765,6 +3768,14 @@ _utilities.register(
   "fqn": "pulumi_aws.docdb",
   "classes": {
    "aws:docdb/subnetGroup:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "drs/replicationConfigurationTemplate",
+  "fqn": "pulumi_aws.drs",
+  "classes": {
+   "aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate": "ReplicationConfigurationTemplate"
   }
  },
  {

@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'ClusterParameterGroupParameter',
+    'ClusterRestoreToPointInTime',
     'ElasticClusterTimeouts',
     'GlobalClusterGlobalClusterMember',
 ]
@@ -71,6 +72,83 @@ class ClusterParameterGroupParameter(dict):
         Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
         """
         return pulumi.get(self, "apply_method")
+
+
+@pulumi.output_type
+class ClusterRestoreToPointInTime(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceClusterIdentifier":
+            suggest = "source_cluster_identifier"
+        elif key == "restoreToTime":
+            suggest = "restore_to_time"
+        elif key == "restoreType":
+            suggest = "restore_type"
+        elif key == "useLatestRestorableTime":
+            suggest = "use_latest_restorable_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterRestoreToPointInTime. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterRestoreToPointInTime.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterRestoreToPointInTime.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_cluster_identifier: str,
+                 restore_to_time: Optional[str] = None,
+                 restore_type: Optional[str] = None,
+                 use_latest_restorable_time: Optional[bool] = None):
+        """
+        :param str source_cluster_identifier: The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+        :param str restore_to_time: The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+        :param str restore_type: The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+        :param bool use_latest_restorable_time: A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+        """
+        pulumi.set(__self__, "source_cluster_identifier", source_cluster_identifier)
+        if restore_to_time is not None:
+            pulumi.set(__self__, "restore_to_time", restore_to_time)
+        if restore_type is not None:
+            pulumi.set(__self__, "restore_type", restore_type)
+        if use_latest_restorable_time is not None:
+            pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
+
+    @property
+    @pulumi.getter(name="sourceClusterIdentifier")
+    def source_cluster_identifier(self) -> str:
+        """
+        The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+        """
+        return pulumi.get(self, "source_cluster_identifier")
+
+    @property
+    @pulumi.getter(name="restoreToTime")
+    def restore_to_time(self) -> Optional[str]:
+        """
+        The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+        """
+        return pulumi.get(self, "restore_to_time")
+
+    @property
+    @pulumi.getter(name="restoreType")
+    def restore_type(self) -> Optional[str]:
+        """
+        The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+        """
+        return pulumi.get(self, "restore_type")
+
+    @property
+    @pulumi.getter(name="useLatestRestorableTime")
+    def use_latest_restorable_time(self) -> Optional[bool]:
+        """
+        A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+        """
+        return pulumi.get(self, "use_latest_restorable_time")
 
 
 @pulumi.output_type

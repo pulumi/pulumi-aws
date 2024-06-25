@@ -23,7 +23,7 @@ class GetCoreNetworkPolicyDocumentResult:
     """
     A collection of values returned by getCoreNetworkPolicyDocument.
     """
-    def __init__(__self__, attachment_policies=None, core_network_configurations=None, id=None, json=None, segment_actions=None, segments=None, version=None):
+    def __init__(__self__, attachment_policies=None, core_network_configurations=None, id=None, json=None, network_function_groups=None, segment_actions=None, segments=None, version=None):
         if attachment_policies and not isinstance(attachment_policies, list):
             raise TypeError("Expected argument 'attachment_policies' to be a list")
         pulumi.set(__self__, "attachment_policies", attachment_policies)
@@ -36,6 +36,9 @@ class GetCoreNetworkPolicyDocumentResult:
         if json and not isinstance(json, str):
             raise TypeError("Expected argument 'json' to be a str")
         pulumi.set(__self__, "json", json)
+        if network_function_groups and not isinstance(network_function_groups, list):
+            raise TypeError("Expected argument 'network_function_groups' to be a list")
+        pulumi.set(__self__, "network_function_groups", network_function_groups)
         if segment_actions and not isinstance(segment_actions, list):
             raise TypeError("Expected argument 'segment_actions' to be a list")
         pulumi.set(__self__, "segment_actions", segment_actions)
@@ -73,6 +76,11 @@ class GetCoreNetworkPolicyDocumentResult:
         return pulumi.get(self, "json")
 
     @property
+    @pulumi.getter(name="networkFunctionGroups")
+    def network_function_groups(self) -> Optional[Sequence['outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroupResult']]:
+        return pulumi.get(self, "network_function_groups")
+
+    @property
     @pulumi.getter(name="segmentActions")
     def segment_actions(self) -> Optional[Sequence['outputs.GetCoreNetworkPolicyDocumentSegmentActionResult']]:
         return pulumi.get(self, "segment_actions")
@@ -98,6 +106,7 @@ class AwaitableGetCoreNetworkPolicyDocumentResult(GetCoreNetworkPolicyDocumentRe
             core_network_configurations=self.core_network_configurations,
             id=self.id,
             json=self.json,
+            network_function_groups=self.network_function_groups,
             segment_actions=self.segment_actions,
             segments=self.segments,
             version=self.version)
@@ -105,6 +114,7 @@ class AwaitableGetCoreNetworkPolicyDocumentResult(GetCoreNetworkPolicyDocumentRe
 
 def get_core_network_policy_document(attachment_policies: Optional[Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs']]] = None,
                                      core_network_configurations: Optional[Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs']]] = None,
+                                     network_function_groups: Optional[Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs']]] = None,
                                      segment_actions: Optional[Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentSegmentActionArgs']]] = None,
                                      segments: Optional[Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentSegmentArgs']]] = None,
                                      version: Optional[str] = None,
@@ -191,12 +201,14 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[pulu
 
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs']] attachment_policies: In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs']] core_network_configurations: The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
+    :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs']] network_function_groups: Block argument that defines the service insertion actions you want to include. Detailed below.
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentSegmentActionArgs']] segment_actions: A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentSegmentArgs']] segments: Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
     """
     __args__ = dict()
     __args__['attachmentPolicies'] = attachment_policies
     __args__['coreNetworkConfigurations'] = core_network_configurations
+    __args__['networkFunctionGroups'] = network_function_groups
     __args__['segmentActions'] = segment_actions
     __args__['segments'] = segments
     __args__['version'] = version
@@ -208,6 +220,7 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[pulu
         core_network_configurations=pulumi.get(__ret__, 'core_network_configurations'),
         id=pulumi.get(__ret__, 'id'),
         json=pulumi.get(__ret__, 'json'),
+        network_function_groups=pulumi.get(__ret__, 'network_function_groups'),
         segment_actions=pulumi.get(__ret__, 'segment_actions'),
         segments=pulumi.get(__ret__, 'segments'),
         version=pulumi.get(__ret__, 'version'))
@@ -216,6 +229,7 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[pulu
 @_utilities.lift_output_func(get_core_network_policy_document)
 def get_core_network_policy_document_output(attachment_policies: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs']]]]] = None,
                                             core_network_configurations: Optional[pulumi.Input[Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs']]]] = None,
+                                            network_function_groups: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs']]]]] = None,
                                             segment_actions: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentSegmentActionArgs']]]]] = None,
                                             segments: Optional[pulumi.Input[Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentSegmentArgs']]]] = None,
                                             version: Optional[pulumi.Input[Optional[str]]] = None,
@@ -302,6 +316,7 @@ def get_core_network_policy_document_output(attachment_policies: Optional[pulumi
 
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs']] attachment_policies: In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs']] core_network_configurations: The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
+    :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs']] network_function_groups: Block argument that defines the service insertion actions you want to include. Detailed below.
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentSegmentActionArgs']] segment_actions: A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentSegmentArgs']] segments: Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
     """

@@ -700,21 +700,25 @@ class TableTtl(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 attribute_name: str,
+                 attribute_name: Optional[str] = None,
                  enabled: Optional[bool] = None):
         """
         :param str attribute_name: Name of the table attribute to store the TTL timestamp in.
+               Required if `enabled` is `true`, must not be set otherwise.
         :param bool enabled: Whether TTL is enabled.
+               Default value is `false`.
         """
-        pulumi.set(__self__, "attribute_name", attribute_name)
+        if attribute_name is not None:
+            pulumi.set(__self__, "attribute_name", attribute_name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="attributeName")
-    def attribute_name(self) -> str:
+    def attribute_name(self) -> Optional[str]:
         """
         Name of the table attribute to store the TTL timestamp in.
+        Required if `enabled` is `true`, must not be set otherwise.
         """
         return pulumi.get(self, "attribute_name")
 
@@ -723,6 +727,7 @@ class TableTtl(dict):
     def enabled(self) -> Optional[bool]:
         """
         Whether TTL is enabled.
+        Default value is `false`.
         """
         return pulumi.get(self, "enabled")
 

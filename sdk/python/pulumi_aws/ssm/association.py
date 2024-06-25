@@ -147,13 +147,11 @@ class AssociationArgs:
 
     @property
     @pulumi.getter(name="instanceId")
+    @_utilities.deprecated("""use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
         """
         The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         """
-        warnings.warn("""use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""", DeprecationWarning)
-        pulumi.log.warn("""instance_id is deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""")
-
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -437,13 +435,11 @@ class _AssociationState:
 
     @property
     @pulumi.getter(name="instanceId")
+    @_utilities.deprecated("""use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
         """
         The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         """
-        warnings.warn("""use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""", DeprecationWarning)
-        pulumi.log.warn("""instance_id is deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""")
-
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -951,13 +947,11 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceId")
+    @_utilities.deprecated("""use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""")
     def instance_id(self) -> pulumi.Output[Optional[str]]:
         """
         The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         """
-        warnings.warn("""use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""", DeprecationWarning)
-        pulumi.log.warn("""instance_id is deprecated: use 'targets' argument instead. https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateAssociation.html#systemsmanager-CreateAssociation-request-InstanceId""")
-
         return pulumi.get(self, "instance_id")
 
     @property

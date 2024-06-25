@@ -67,6 +67,10 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LocalStorageTypes;
         /// <summary>
+        /// Price protection threshold for Spot Instances.
+        /// </summary>
+        public readonly int MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+        /// <summary>
         /// List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult> MemoryGibPerVcpus;
@@ -133,6 +137,8 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             ImmutableArray<string> localStorageTypes,
 
+            int maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
+
             ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult> memoryGibPerVcpus,
 
             ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult> memoryMibs,
@@ -165,6 +171,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
             InstanceGenerations = instanceGenerations;
             LocalStorage = localStorage;
             LocalStorageTypes = localStorageTypes;
+            MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             MemoryGibPerVcpus = memoryGibPerVcpus;
             MemoryMibs = memoryMibs;
             NetworkBandwidthGbps = networkBandwidthGbps;

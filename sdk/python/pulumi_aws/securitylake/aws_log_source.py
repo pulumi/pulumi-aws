@@ -88,7 +88,7 @@ class AwsLogSource(pulumi.CustomResource):
             regions=["eu-west-1"],
             source_name="ROUTE53",
         ),
-        opts=pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
+        opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
         ## Import
@@ -129,7 +129,7 @@ class AwsLogSource(pulumi.CustomResource):
             regions=["eu-west-1"],
             source_name="ROUTE53",
         ),
-        opts=pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
+        opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
         ## Import

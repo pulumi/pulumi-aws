@@ -86,6 +86,12 @@ public class ApiKey extends com.pulumi.resources.CustomResource {
     public Output<String> apiId() {
         return this.apiId;
     }
+    @Export(name="apiKeyId", refs={String.class}, tree="[0]")
+    private Output<String> apiKeyId;
+
+    public Output<String> apiKeyId() {
+        return this.apiKeyId;
+    }
     /**
      * API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 

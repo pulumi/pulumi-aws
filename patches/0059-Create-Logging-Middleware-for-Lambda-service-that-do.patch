@@ -127,7 +127,7 @@ index 0000000000..737faef4a7
 +	return out, metadata, err
 +}
 diff --git a/internal/service/lambda/service_package_extra.go b/internal/service/lambda/service_package_extra.go
-index 4625f9e31c..0633092751 100644
+index ffd7fa9728..b958a21bff 100644
 --- a/internal/service/lambda/service_package_extra.go
 +++ b/internal/service/lambda/service_package_extra.go
 @@ -6,6 +6,7 @@ import (
@@ -136,13 +136,14 @@ index 4625f9e31c..0633092751 100644
  	lambda_sdkv2 "github.com/aws/aws-sdk-go-v2/service/lambda"
 +	"github.com/aws/smithy-go/middleware"
  	tfawserr_sdkv2 "github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
- 	"github.com/hashicorp/terraform-plugin-log/tflog"
  	"github.com/hashicorp/terraform-provider-aws/internal/conns"
-@@ -43,6 +44,19 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
- 				o.EndpointOptions.UseFIPSEndpoint = aws_sdkv2.FIPSEndpointStateDisabled
- 			}
- 		}
-+
+ 	"github.com/hashicorp/terraform-provider-aws/names"
+@@ -35,7 +36,20 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+ 		lambda_sdkv2.WithEndpointResolverV2(newEndpointResolverSDKv2()),
+ 		withBaseEndpoint(config[names.AttrEndpoint].(string)),
+ 		func(o *lambda_sdkv2.Options) {
+-			o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry)
++	
 +		// Switch out the terraform http logging middleware with a custom logging middleware that does not log the
 +		// lambda code. Logging the lambda code leads to memory bloating because it allocates a lot of copies of the
 +		// body
@@ -155,6 +156,7 @@ index 4625f9e31c..0633092751 100644
 +			err = stack.Deserialize.Add(NewWrappedRequestResponseLogger(loggingMiddleware), middleware.After)
 +			return err
 +		})
- 		o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry)
- 	}), nil
++		o.Retryer = conns.AddIsErrorRetryables(cfg.Retryer().(aws_sdkv2.RetryerV2), retry)
+ 		},
+ 	), nil
  }

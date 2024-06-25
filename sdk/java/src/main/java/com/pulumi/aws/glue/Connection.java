@@ -62,6 +62,51 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Non-VPC Connection with secret manager reference
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+ * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
+ * import com.pulumi.aws.glue.Connection;
+ * import com.pulumi.aws.glue.ConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+ *             .name("example-secret")
+ *             .build());
+ * 
+ *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
+ *             .connectionProperties(Map.ofEntries(
+ *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:mysql://example.com/exampledatabase"),
+ *                 Map.entry("SECRET_ID", example.applyValue(getSecretResult -> getSecretResult.name()))
+ *             ))
+ *             .name("example")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### VPC Connection
  * 
  * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
@@ -102,6 +147,73 @@ import javax.annotation.Nullable;
  *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
  *                 .subnetId(exampleAwsSubnet.id())
  *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Connection using a custom connector
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+ * import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
+ * import com.pulumi.aws.glue.Connection;
+ * import com.pulumi.aws.glue.ConnectionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // Define the custom connector using the connection_type of `CUSTOM` with the match_criteria of `template_connection`
+ *         // Example here being a snowflake jdbc connector with a secret having user and password as keys
+ *         final var example = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+ *             .name("example-secret")
+ *             .build());
+ * 
+ *         var exampleConnector = new Connection("exampleConnector", ConnectionArgs.builder()
+ *             .connectionType("CUSTOM")
+ *             .connectionProperties(Map.ofEntries(
+ *                 Map.entry("CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver"),
+ *                 Map.entry("CONNECTION_TYPE", "Jdbc"),
+ *                 Map.entry("CONNECTOR_URL", "s3://example/snowflake-jdbc.jar"),
+ *                 Map.entry("JDBC_CONNECTION_URL", "[[\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\"],\",\"]")
+ *             ))
+ *             .name("example_connector")
+ *             .matchCriterias("template-connection")
+ *             .build());
+ * 
+ *         // Reference the connector using match_criteria with the connector created above.
+ *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
+ *             .connectionType("CUSTOM")
+ *             .connectionProperties(Map.ofEntries(
+ *                 Map.entry("CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver"),
+ *                 Map.entry("CONNECTION_TYPE", "Jdbc"),
+ *                 Map.entry("CONNECTOR_URL", "s3://example/snowflake-jdbc.jar"),
+ *                 Map.entry("JDBC_CONNECTION_URL", "jdbc:snowflake://example.com/?user=${user}&password=${password}"),
+ *                 Map.entry("SECRET_ID", example.applyValue(getSecretResult -> getSecretResult.name()))
+ *             ))
+ *             .name("example")
+ *             .matchCriterias(            
+ *                 "Connection",
+ *                 exampleConnector.name())
  *             .build());
  * 
  *     }

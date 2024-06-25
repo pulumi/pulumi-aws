@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentAttachmentPolicy;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration;
+import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroup;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegment;
 import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegmentAction;
 import com.pulumi.core.annotations.CustomType;
@@ -29,6 +30,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
      * 
      */
     private String json;
+    private @Nullable List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup> networkFunctionGroups;
     private @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions;
     private List<GetCoreNetworkPolicyDocumentSegment> segments;
     private @Nullable String version;
@@ -54,6 +56,9 @@ public final class GetCoreNetworkPolicyDocumentResult {
     public String json() {
         return this.json;
     }
+    public List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup> networkFunctionGroups() {
+        return this.networkFunctionGroups == null ? List.of() : this.networkFunctionGroups;
+    }
     public List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions() {
         return this.segmentActions == null ? List.of() : this.segmentActions;
     }
@@ -77,6 +82,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
         private List<GetCoreNetworkPolicyDocumentCoreNetworkConfiguration> coreNetworkConfigurations;
         private String id;
         private String json;
+        private @Nullable List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup> networkFunctionGroups;
         private @Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions;
         private List<GetCoreNetworkPolicyDocumentSegment> segments;
         private @Nullable String version;
@@ -87,6 +93,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
     	      this.coreNetworkConfigurations = defaults.coreNetworkConfigurations;
     	      this.id = defaults.id;
     	      this.json = defaults.json;
+    	      this.networkFunctionGroups = defaults.networkFunctionGroups;
     	      this.segmentActions = defaults.segmentActions;
     	      this.segments = defaults.segments;
     	      this.version = defaults.version;
@@ -129,6 +136,15 @@ public final class GetCoreNetworkPolicyDocumentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder networkFunctionGroups(@Nullable List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup> networkFunctionGroups) {
+
+            this.networkFunctionGroups = networkFunctionGroups;
+            return this;
+        }
+        public Builder networkFunctionGroups(GetCoreNetworkPolicyDocumentNetworkFunctionGroup... networkFunctionGroups) {
+            return networkFunctionGroups(List.of(networkFunctionGroups));
+        }
+        @CustomType.Setter
         public Builder segmentActions(@Nullable List<GetCoreNetworkPolicyDocumentSegmentAction> segmentActions) {
 
             this.segmentActions = segmentActions;
@@ -160,6 +176,7 @@ public final class GetCoreNetworkPolicyDocumentResult {
             _resultValue.coreNetworkConfigurations = coreNetworkConfigurations;
             _resultValue.id = id;
             _resultValue.json = json;
+            _resultValue.networkFunctionGroups = networkFunctionGroups;
             _resultValue.segmentActions = segmentActions;
             _resultValue.segments = segments;
             _resultValue.version = version;

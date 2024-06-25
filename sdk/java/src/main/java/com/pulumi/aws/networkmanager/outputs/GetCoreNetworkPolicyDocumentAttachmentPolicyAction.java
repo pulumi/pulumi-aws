@@ -4,7 +4,6 @@
 package com.pulumi.aws.networkmanager.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -14,10 +13,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
     /**
+     * @return The name of the network function group to attach to the attachment policy.
+     * 
+     */
+    private @Nullable String addToNetworkFunctionGroup;
+    /**
      * @return Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
      * 
      */
-    private String associationMethod;
+    private @Nullable String associationMethod;
     /**
      * @return Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
      * 
@@ -36,11 +40,18 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
 
     private GetCoreNetworkPolicyDocumentAttachmentPolicyAction() {}
     /**
+     * @return The name of the network function group to attach to the attachment policy.
+     * 
+     */
+    public Optional<String> addToNetworkFunctionGroup() {
+        return Optional.ofNullable(this.addToNetworkFunctionGroup);
+    }
+    /**
      * @return Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
      * 
      */
-    public String associationMethod() {
-        return this.associationMethod;
+    public Optional<String> associationMethod() {
+        return Optional.ofNullable(this.associationMethod);
     }
     /**
      * @return Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
@@ -73,13 +84,15 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String associationMethod;
+        private @Nullable String addToNetworkFunctionGroup;
+        private @Nullable String associationMethod;
         private @Nullable Boolean requireAcceptance;
         private @Nullable String segment;
         private @Nullable String tagValueOfKey;
         public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentAttachmentPolicyAction defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.addToNetworkFunctionGroup = defaults.addToNetworkFunctionGroup;
     	      this.associationMethod = defaults.associationMethod;
     	      this.requireAcceptance = defaults.requireAcceptance;
     	      this.segment = defaults.segment;
@@ -87,10 +100,14 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
         }
 
         @CustomType.Setter
-        public Builder associationMethod(String associationMethod) {
-            if (associationMethod == null) {
-              throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentAttachmentPolicyAction", "associationMethod");
-            }
+        public Builder addToNetworkFunctionGroup(@Nullable String addToNetworkFunctionGroup) {
+
+            this.addToNetworkFunctionGroup = addToNetworkFunctionGroup;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder associationMethod(@Nullable String associationMethod) {
+
             this.associationMethod = associationMethod;
             return this;
         }
@@ -114,6 +131,7 @@ public final class GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
         }
         public GetCoreNetworkPolicyDocumentAttachmentPolicyAction build() {
             final var _resultValue = new GetCoreNetworkPolicyDocumentAttachmentPolicyAction();
+            _resultValue.addToNetworkFunctionGroup = addToNetworkFunctionGroup;
             _resultValue.associationMethod = associationMethod;
             _resultValue.requireAcceptance = requireAcceptance;
             _resultValue.segment = segment;

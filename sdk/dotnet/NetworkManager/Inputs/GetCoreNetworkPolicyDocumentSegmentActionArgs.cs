@@ -13,7 +13,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     public sealed class GetCoreNetworkPolicyDocumentSegmentActionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action to take for the chosen segment. Valid values `create-route` or `share`.
+        /// Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         }
 
         /// <summary>
-        /// String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+        /// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -83,6 +83,18 @@ namespace Pulumi.Aws.NetworkManager.Inputs
             get => _shareWiths ?? (_shareWiths = new InputList<string>());
             set => _shareWiths = value;
         }
+
+        /// <summary>
+        /// The network function groups and any edge overrides associated with the action.
+        /// </summary>
+        [Input("via")]
+        public Input<Inputs.GetCoreNetworkPolicyDocumentSegmentActionViaInputArgs>? Via { get; set; }
+
+        /// <summary>
+        /// The destination segments for the `send-via` or `send-to` `action`.
+        /// </summary>
+        [Input("whenSentTo")]
+        public Input<Inputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentToInputArgs>? WhenSentTo { get; set; }
 
         public GetCoreNetworkPolicyDocumentSegmentActionInputArgs()
         {

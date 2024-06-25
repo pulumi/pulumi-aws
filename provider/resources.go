@@ -119,6 +119,7 @@ const (
 	devicefarmMod               = "DeviceFarm"               // Device Farm
 	directoryserviceMod         = "DirectoryService"         // Directory Services
 	docdbMod                    = "DocDB"                    // Document DB
+	drsMod                      = "Drs"                      // Elastic Disaster Recovery (DRS)
 	dynamodbMod                 = "DynamoDB"                 // DynamoDB
 	dxMod                       = "DirectConnect"            // Direct Connect
 	dmsMod                      = "Dms"                      // Data Migraiton Services
@@ -338,6 +339,7 @@ var moduleMap = map[string]string{
 	"dlm":                             dlmMod,
 	"dms":                             dmsMod,
 	"docdb":                           docdbMod,
+	"drs":                             drsMod,
 	"dx":                              dxMod,
 	"dynamodb":                        dynamodbMod,
 	"ebs":                             ebsMod,

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.MediaLive.Inputs
     {
         [Input("audioSelectors")]
         private InputList<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorArgs>? _audioSelectors;
+
+        /// <summary>
+        /// Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+        /// </summary>
         public InputList<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorArgs> AudioSelectors
         {
             get => _audioSelectors ?? (_audioSelectors = new InputList<Inputs.ChannelInputAttachmentInputSettingsAudioSelectorArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
         [Input("captionSelectors")]
         private InputList<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorArgs>? _captionSelectors;
+
+        /// <summary>
+        /// Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+        /// </summary>
         public InputList<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorArgs> CaptionSelectors
         {
             get => _captionSelectors ?? (_captionSelectors = new InputList<Inputs.ChannelInputAttachmentInputSettingsCaptionSelectorArgs>());

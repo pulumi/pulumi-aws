@@ -121,6 +121,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LocalStorageTypes;
         /// <summary>
+        /// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+        /// </summary>
+        public readonly int? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
+        /// <summary>
         /// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         /// </summary>
         public readonly Outputs.LaunchTemplateInstanceRequirementsMemoryGibPerVcpu? MemoryGibPerVcpu;
@@ -147,7 +151,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool? RequireHibernateSupport;
         /// <summary>
-        /// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+        /// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
         /// 
         /// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
         /// </summary>
@@ -191,6 +195,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<string> localStorageTypes,
 
+            int? maxSpotPriceAsPercentageOfOptimalOnDemandPrice,
+
             Outputs.LaunchTemplateInstanceRequirementsMemoryGibPerVcpu? memoryGibPerVcpu,
 
             Outputs.LaunchTemplateInstanceRequirementsMemoryMib memoryMib,
@@ -223,6 +229,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             InstanceGenerations = instanceGenerations;
             LocalStorage = localStorage;
             LocalStorageTypes = localStorageTypes;
+            MaxSpotPriceAsPercentageOfOptimalOnDemandPrice = maxSpotPriceAsPercentageOfOptimalOnDemandPrice;
             MemoryGibPerVcpu = memoryGibPerVcpu;
             MemoryMib = memoryMib;
             NetworkBandwidthGbps = networkBandwidthGbps;

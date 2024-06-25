@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.networkmanager.outputs;
 
+import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegmentActionVia;
+import com.pulumi.aws.networkmanager.outputs.GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -14,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetCoreNetworkPolicyDocumentSegmentAction {
     /**
-     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
      * 
      */
     private String action;
@@ -34,7 +36,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
      */
     private @Nullable List<String> destinations;
     /**
-     * @return String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
      * 
      */
     private @Nullable String mode;
@@ -53,10 +55,20 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
      * 
      */
     private @Nullable List<String> shareWiths;
+    /**
+     * @return The network function groups and any edge overrides associated with the action.
+     * 
+     */
+    private @Nullable GetCoreNetworkPolicyDocumentSegmentActionVia via;
+    /**
+     * @return The destination segments for the `send-via` or `send-to` `action`.
+     * 
+     */
+    private @Nullable GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo whenSentTo;
 
     private GetCoreNetworkPolicyDocumentSegmentAction() {}
     /**
-     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
+     * @return Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
      * 
      */
     public String action() {
@@ -84,7 +96,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         return this.destinations == null ? List.of() : this.destinations;
     }
     /**
-     * @return String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+     * @return String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
      * 
      */
     public Optional<String> mode() {
@@ -111,6 +123,20 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
     public List<String> shareWiths() {
         return this.shareWiths == null ? List.of() : this.shareWiths;
     }
+    /**
+     * @return The network function groups and any edge overrides associated with the action.
+     * 
+     */
+    public Optional<GetCoreNetworkPolicyDocumentSegmentActionVia> via() {
+        return Optional.ofNullable(this.via);
+    }
+    /**
+     * @return The destination segments for the `send-via` or `send-to` `action`.
+     * 
+     */
+    public Optional<GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo> whenSentTo() {
+        return Optional.ofNullable(this.whenSentTo);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -129,6 +155,8 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         private String segment;
         private @Nullable List<String> shareWithExcepts;
         private @Nullable List<String> shareWiths;
+        private @Nullable GetCoreNetworkPolicyDocumentSegmentActionVia via;
+        private @Nullable GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo whenSentTo;
         public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentSegmentAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -140,6 +168,8 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
     	      this.segment = defaults.segment;
     	      this.shareWithExcepts = defaults.shareWithExcepts;
     	      this.shareWiths = defaults.shareWiths;
+    	      this.via = defaults.via;
+    	      this.whenSentTo = defaults.whenSentTo;
         }
 
         @CustomType.Setter
@@ -206,6 +236,18 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         public Builder shareWiths(String... shareWiths) {
             return shareWiths(List.of(shareWiths));
         }
+        @CustomType.Setter
+        public Builder via(@Nullable GetCoreNetworkPolicyDocumentSegmentActionVia via) {
+
+            this.via = via;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder whenSentTo(@Nullable GetCoreNetworkPolicyDocumentSegmentActionWhenSentTo whenSentTo) {
+
+            this.whenSentTo = whenSentTo;
+            return this;
+        }
         public GetCoreNetworkPolicyDocumentSegmentAction build() {
             final var _resultValue = new GetCoreNetworkPolicyDocumentSegmentAction();
             _resultValue.action = action;
@@ -216,6 +258,8 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
             _resultValue.segment = segment;
             _resultValue.shareWithExcepts = shareWithExcepts;
             _resultValue.shareWiths = shareWiths;
+            _resultValue.via = via;
+            _resultValue.whenSentTo = whenSentTo;
             return _resultValue;
         }
     }

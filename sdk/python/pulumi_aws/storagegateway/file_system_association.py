@@ -261,13 +261,11 @@ class _FileSystemAssociationState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -332,7 +330,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             instance_type=aws.ec2.InstanceType(available["instanceType"]),
             vpc_security_group_ids=[test_aws_security_group["id"]],
             subnet_id=test_aws_subnet[0]["id"],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     test_aws_route,
                     test_aws_vpc_dhcp_options_association,
                 ]))
@@ -420,7 +418,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             instance_type=aws.ec2.InstanceType(available["instanceType"]),
             vpc_security_group_ids=[test_aws_security_group["id"]],
             subnet_id=test_aws_subnet[0]["id"],
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     test_aws_route,
                     test_aws_vpc_dhcp_options_association,
                 ]))
@@ -619,13 +617,11 @@ class FileSystemAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

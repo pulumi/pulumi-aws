@@ -217,7 +217,7 @@ class ClusterActivityStream(pulumi.CustomResource):
             resource_arn=default.arn,
             mode="async",
             kms_key_id=default_key.key_id,
-            opts=pulumi.ResourceOptions(depends_on=[default_cluster_instance]))
+            opts = pulumi.ResourceOptions(depends_on=[default_cluster_instance]))
         ```
 
         ## Import
@@ -280,7 +280,7 @@ class ClusterActivityStream(pulumi.CustomResource):
             resource_arn=default.arn,
             mode="async",
             kms_key_id=default_key.key_id,
-            opts=pulumi.ResourceOptions(depends_on=[default_cluster_instance]))
+            opts = pulumi.ResourceOptions(depends_on=[default_cluster_instance]))
         ```
 
         ## Import

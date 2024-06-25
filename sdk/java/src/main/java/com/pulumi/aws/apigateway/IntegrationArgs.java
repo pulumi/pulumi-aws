@@ -228,14 +228,14 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+     * Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
      * 
      */
     @Import(name="timeoutMilliseconds")
     private @Nullable Output<Integer> timeoutMilliseconds;
 
     /**
-     * @return Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+     * @return Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
      * 
      */
     public Optional<Output<Integer>> timeoutMilliseconds() {
@@ -627,7 +627,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeoutMilliseconds Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+         * @param timeoutMilliseconds Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeoutMilliseconds Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
+         * @param timeoutMilliseconds Custom timeout between 50 and 300,000 milliseconds. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds.
          * 
          * @return builder
          * 

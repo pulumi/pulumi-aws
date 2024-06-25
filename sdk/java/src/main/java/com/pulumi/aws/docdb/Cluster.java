@@ -6,6 +6,7 @@ package com.pulumi.aws.docdb;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.docdb.ClusterArgs;
 import com.pulumi.aws.docdb.inputs.ClusterState;
+import com.pulumi.aws.docdb.outputs.ClusterRestoreToPointInTime;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -461,6 +462,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> readerEndpoint() {
         return this.readerEndpoint;
+    }
+    /**
+     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     * 
+     */
+    @Export(name="restoreToPointInTime", refs={ClusterRestoreToPointInTime.class}, tree="[0]")
+    private Output</* @Nullable */ ClusterRestoreToPointInTime> restoreToPointInTime;
+
+    /**
+     * @return A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
+     * 
+     */
+    public Output<Optional<ClusterRestoreToPointInTime>> restoreToPointInTime() {
+        return Codegen.optional(this.restoreToPointInTime);
     }
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.

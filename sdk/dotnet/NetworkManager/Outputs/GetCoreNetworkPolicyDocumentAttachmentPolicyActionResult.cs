@@ -14,9 +14,13 @@ namespace Pulumi.Aws.NetworkManager.Outputs
     public sealed class GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult
     {
         /// <summary>
+        /// The name of the network function group to attach to the attachment policy.
+        /// </summary>
+        public readonly string? AddToNetworkFunctionGroup;
+        /// <summary>
         /// Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
         /// </summary>
-        public readonly string AssociationMethod;
+        public readonly string? AssociationMethod;
         /// <summary>
         /// Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
         /// </summary>
@@ -32,7 +36,9 @@ namespace Pulumi.Aws.NetworkManager.Outputs
 
         [OutputConstructor]
         private GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult(
-            string associationMethod,
+            string? addToNetworkFunctionGroup,
+
+            string? associationMethod,
 
             bool? requireAcceptance,
 
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
 
             string? tagValueOfKey)
         {
+            AddToNetworkFunctionGroup = addToNetworkFunctionGroup;
             AssociationMethod = associationMethod;
             RequireAcceptance = requireAcceptance;
             Segment = segment;

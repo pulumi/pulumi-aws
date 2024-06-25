@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'ClusterParameterGroupParameterArgs',
+    'ClusterRestoreToPointInTimeArgs',
     'ElasticClusterTimeoutsArgs',
     'GlobalClusterGlobalClusterMemberArgs',
 ]
@@ -66,6 +67,76 @@ class ClusterParameterGroupParameterArgs:
     @apply_method.setter
     def apply_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "apply_method", value)
+
+
+@pulumi.input_type
+class ClusterRestoreToPointInTimeArgs:
+    def __init__(__self__, *,
+                 source_cluster_identifier: pulumi.Input[str],
+                 restore_to_time: Optional[pulumi.Input[str]] = None,
+                 restore_type: Optional[pulumi.Input[str]] = None,
+                 use_latest_restorable_time: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] source_cluster_identifier: The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+        :param pulumi.Input[str] restore_to_time: The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+        :param pulumi.Input[str] restore_type: The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+        :param pulumi.Input[bool] use_latest_restorable_time: A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+        """
+        pulumi.set(__self__, "source_cluster_identifier", source_cluster_identifier)
+        if restore_to_time is not None:
+            pulumi.set(__self__, "restore_to_time", restore_to_time)
+        if restore_type is not None:
+            pulumi.set(__self__, "restore_type", restore_type)
+        if use_latest_restorable_time is not None:
+            pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
+
+    @property
+    @pulumi.getter(name="sourceClusterIdentifier")
+    def source_cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+        """
+        return pulumi.get(self, "source_cluster_identifier")
+
+    @source_cluster_identifier.setter
+    def source_cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="restoreToTime")
+    def restore_to_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+        """
+        return pulumi.get(self, "restore_to_time")
+
+    @restore_to_time.setter
+    def restore_to_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_to_time", value)
+
+    @property
+    @pulumi.getter(name="restoreType")
+    def restore_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+        """
+        return pulumi.get(self, "restore_type")
+
+    @restore_type.setter
+    def restore_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_type", value)
+
+    @property
+    @pulumi.getter(name="useLatestRestorableTime")
+    def use_latest_restorable_time(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+        """
+        return pulumi.get(self, "use_latest_restorable_time")
+
+    @use_latest_restorable_time.setter
+    def use_latest_restorable_time(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_latest_restorable_time", value)
 
 
 @pulumi.input_type

@@ -254,6 +254,7 @@ class Endpoints(dict):
                  appintegrationsservice: Optional[str] = None,
                  applicationautoscaling: Optional[str] = None,
                  applicationinsights: Optional[str] = None,
+                 applicationsignals: Optional[str] = None,
                  appmesh: Optional[str] = None,
                  appregistry: Optional[str] = None,
                  apprunner: Optional[str] = None,
@@ -538,6 +539,7 @@ class Endpoints(dict):
         :param str appintegrationsservice: Use this to override the default service endpoint URL
         :param str applicationautoscaling: Use this to override the default service endpoint URL
         :param str applicationinsights: Use this to override the default service endpoint URL
+        :param str applicationsignals: Use this to override the default service endpoint URL
         :param str appmesh: Use this to override the default service endpoint URL
         :param str appregistry: Use this to override the default service endpoint URL
         :param str apprunner: Use this to override the default service endpoint URL
@@ -839,6 +841,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "applicationautoscaling", applicationautoscaling)
         if applicationinsights is not None:
             pulumi.set(__self__, "applicationinsights", applicationinsights)
+        if applicationsignals is not None:
+            pulumi.set(__self__, "applicationsignals", applicationsignals)
         if appmesh is not None:
             pulumi.set(__self__, "appmesh", appmesh)
         if appregistry is not None:
@@ -1507,6 +1511,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "applicationinsights")
+
+    @property
+    @pulumi.getter
+    def applicationsignals(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "applicationsignals")
 
     @property
     @pulumi.getter

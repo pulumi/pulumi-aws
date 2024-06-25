@@ -128,7 +128,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
                 username="test",
                 password="test!",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
+            opts = pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
         ```
 
         ## Import
@@ -179,7 +179,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
                 username="test",
                 password="test!",
             )],
-            opts=pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
+            opts = pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
         ```
 
         ## Import

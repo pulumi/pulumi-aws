@@ -55,7 +55,7 @@ type NetworkInsightsPath struct {
 	// ARN of the Network Insights Path.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-	Destination pulumi.StringOutput `pulumi:"destination"`
+	Destination pulumi.StringPtrOutput `pulumi:"destination"`
 	// ARN of the destination.
 	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
 	// IP address of the destination resource.
@@ -87,9 +87,6 @@ func NewNetworkInsightsPath(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Destination == nil {
-		return nil, errors.New("invalid value for required argument 'Destination'")
-	}
 	if args.Protocol == nil {
 		return nil, errors.New("invalid value for required argument 'Protocol'")
 	}
@@ -182,7 +179,7 @@ func (NetworkInsightsPathState) ElementType() reflect.Type {
 
 type networkInsightsPathArgs struct {
 	// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-	Destination string `pulumi:"destination"`
+	Destination *string `pulumi:"destination"`
 	// IP address of the destination resource.
 	DestinationIp *string `pulumi:"destinationIp"`
 	// Destination port to analyze access to.
@@ -202,7 +199,7 @@ type networkInsightsPathArgs struct {
 // The set of arguments for constructing a NetworkInsightsPath resource.
 type NetworkInsightsPathArgs struct {
 	// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-	Destination pulumi.StringInput
+	Destination pulumi.StringPtrInput
 	// IP address of the destination resource.
 	DestinationIp pulumi.StringPtrInput
 	// Destination port to analyze access to.
@@ -312,8 +309,8 @@ func (o NetworkInsightsPathOutput) Arn() pulumi.StringOutput {
 }
 
 // ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
-func (o NetworkInsightsPathOutput) Destination() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
+func (o NetworkInsightsPathOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the destination.

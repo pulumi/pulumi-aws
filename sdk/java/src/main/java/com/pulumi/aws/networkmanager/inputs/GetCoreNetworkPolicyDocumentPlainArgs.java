@@ -5,6 +5,7 @@ package com.pulumi.aws.networkmanager.inputs;
 
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicy;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration;
+import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentNetworkFunctionGroup;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegment;
 import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentAction;
 import com.pulumi.core.annotations.Import;
@@ -51,6 +52,21 @@ public final class GetCoreNetworkPolicyDocumentPlainArgs extends com.pulumi.reso
     }
 
     /**
+     * Block argument that defines the service insertion actions you want to include. Detailed below.
+     * 
+     */
+    @Import(name="networkFunctionGroups")
+    private @Nullable List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup> networkFunctionGroups;
+
+    /**
+     * @return Block argument that defines the service insertion actions you want to include. Detailed below.
+     * 
+     */
+    public Optional<List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup>> networkFunctionGroups() {
+        return Optional.ofNullable(this.networkFunctionGroups);
+    }
+
+    /**
      * A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
      * 
      */
@@ -92,6 +108,7 @@ public final class GetCoreNetworkPolicyDocumentPlainArgs extends com.pulumi.reso
     private GetCoreNetworkPolicyDocumentPlainArgs(GetCoreNetworkPolicyDocumentPlainArgs $) {
         this.attachmentPolicies = $.attachmentPolicies;
         this.coreNetworkConfigurations = $.coreNetworkConfigurations;
+        this.networkFunctionGroups = $.networkFunctionGroups;
         this.segmentActions = $.segmentActions;
         this.segments = $.segments;
         this.version = $.version;
@@ -155,6 +172,27 @@ public final class GetCoreNetworkPolicyDocumentPlainArgs extends com.pulumi.reso
          */
         public Builder coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfiguration... coreNetworkConfigurations) {
             return coreNetworkConfigurations(List.of(coreNetworkConfigurations));
+        }
+
+        /**
+         * @param networkFunctionGroups Block argument that defines the service insertion actions you want to include. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkFunctionGroups(@Nullable List<GetCoreNetworkPolicyDocumentNetworkFunctionGroup> networkFunctionGroups) {
+            $.networkFunctionGroups = networkFunctionGroups;
+            return this;
+        }
+
+        /**
+         * @param networkFunctionGroups Block argument that defines the service insertion actions you want to include. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkFunctionGroups(GetCoreNetworkPolicyDocumentNetworkFunctionGroup... networkFunctionGroups) {
+            return networkFunctionGroups(List.of(networkFunctionGroups));
         }
 
         /**

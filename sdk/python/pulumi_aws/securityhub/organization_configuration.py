@@ -156,7 +156,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             aws_service_access_principals=["securityhub.amazonaws.com"],
             feature_set="ALL")
         example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("example", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
         ```
 
@@ -167,16 +167,16 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securityhub.OrganizationAdminAccount("example", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example_aws_organizations_organization]))
+        opts = pulumi.ResourceOptions(depends_on=[example_aws_organizations_organization]))
         example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
             auto_enable=False,
             auto_enable_standards="NONE",
             organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
                 configuration_type="CENTRAL",
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
+            opts = pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
 
         ## Import
@@ -222,7 +222,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             aws_service_access_principals=["securityhub.amazonaws.com"],
             feature_set="ALL")
         example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("example", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
         ```
 
@@ -233,16 +233,16 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securityhub.OrganizationAdminAccount("example", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example_aws_organizations_organization]))
+        opts = pulumi.ResourceOptions(depends_on=[example_aws_organizations_organization]))
         example_finding_aggregator = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS",
-        opts=pulumi.ResourceOptions(depends_on=[example]))
+        opts = pulumi.ResourceOptions(depends_on=[example]))
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
             auto_enable=False,
             auto_enable_standards="NONE",
             organization_configuration=aws.securityhub.OrganizationConfigurationOrganizationConfigurationArgs(
                 configuration_type="CENTRAL",
             ),
-            opts=pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
+            opts = pulumi.ResourceOptions(depends_on=[example_finding_aggregator]))
         ```
 
         ## Import

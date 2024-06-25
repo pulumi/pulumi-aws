@@ -149,6 +149,7 @@ import * as directoryservice from "./directoryservice";
 import * as dlm from "./dlm";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
+import * as drs from "./drs";
 import * as dynamodb from "./dynamodb";
 import * as ebs from "./ebs";
 import * as ec2 from "./ec2";
@@ -361,6 +362,7 @@ export {
     dlm,
     dms,
     docdb,
+    drs,
     dynamodb,
     ebs,
     ec2,

@@ -2670,6 +2670,8 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirements struct {
 	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
 	// The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
@@ -2684,7 +2686,7 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirements struct {
 	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
 	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
-	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
 	//
 	// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
@@ -2739,6 +2741,8 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs struct {
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
 	// The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
@@ -2753,7 +2757,7 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs struct {
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
 	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
-	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
 	//
 	// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
@@ -2923,6 +2927,13 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) LocalStorag
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
 }
 
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
+}
+
 // Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) MemoryGibPerVcpu() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
@@ -2965,7 +2976,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) RequireHibe
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
 }
 
-// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
 //
 // If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
@@ -3157,6 +3168,16 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) LocalSto
 	}).(pulumi.StringArrayOutput)
 }
 
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
+}
+
 // Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) MemoryGibPerVcpu() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
@@ -3219,7 +3240,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) RequireH
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
 //
 // If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
@@ -11345,6 +11366,8 @@ type LaunchTemplateInstanceRequirements struct {
 	LocalStorage *string `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
 	LocalStorageTypes []string `pulumi:"localStorageTypes"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice *int `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
 	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
@@ -11359,7 +11382,7 @@ type LaunchTemplateInstanceRequirements struct {
 	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
 	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
-	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
 	//
 	// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
@@ -11415,6 +11438,8 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
 	// List of local storage type names. Default any storage type.
 	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntPtrInput `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
 	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 	MemoryGibPerVcpu LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
 	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
@@ -11429,7 +11454,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
 	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
-	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
 	//
 	// If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
@@ -11598,6 +11623,13 @@ func (o LaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.Str
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
 }
 
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+func (o LaunchTemplateInstanceRequirementsOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
+}
+
 // Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 func (o LaunchTemplateInstanceRequirementsOutput) MemoryGibPerVcpu() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
@@ -11638,7 +11670,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) RequireHibernateSupport() pulu
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
 }
 
-// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
 //
 // If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 func (o LaunchTemplateInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
@@ -11829,6 +11861,16 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spotMaxPricePercentageOverLowestPrice`
+func (o LaunchTemplateInstanceRequirementsPtrOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntPtrOutput)
+}
+
 // Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryGibPerVcpu() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
@@ -11891,7 +11933,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) RequireHibernateSupport() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `maxSpotPriceAsPercentageOfOptimalOnDemandPrice`
 //
 // If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
@@ -39274,29 +39316,30 @@ func (o GetLaunchTemplateInstanceMarketOptionSpotOptionArrayOutput) Index(i pulu
 }
 
 type GetLaunchTemplateInstanceRequirement struct {
-	AcceleratorCounts                         []GetLaunchTemplateInstanceRequirementAcceleratorCount          `pulumi:"acceleratorCounts"`
-	AcceleratorManufacturers                  []string                                                        `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          []string                                                        `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMibs                []GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMibs"`
-	AcceleratorTypes                          []string                                                        `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      []string                                                        `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 string                                                          `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  []GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp   `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      string                                                          `pulumi:"burstablePerformance"`
-	CpuManufacturers                          []string                                                        `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     []string                                                        `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       []string                                                        `pulumi:"instanceGenerations"`
-	LocalStorage                              string                                                          `pulumi:"localStorage"`
-	LocalStorageTypes                         []string                                                        `pulumi:"localStorageTypes"`
-	MemoryGibPerVcpus                         []GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus         `pulumi:"memoryGibPerVcpus"`
-	MemoryMibs                                []GetLaunchTemplateInstanceRequirementMemoryMib                 `pulumi:"memoryMibs"`
-	NetworkBandwidthGbps                      []GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp       `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCounts                    []GetLaunchTemplateInstanceRequirementNetworkInterfaceCount     `pulumi:"networkInterfaceCounts"`
-	OnDemandMaxPricePercentageOverLowestPrice int                                                             `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   bool                                                            `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     int                                                             `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGbs                      []GetLaunchTemplateInstanceRequirementTotalLocalStorageGb       `pulumi:"totalLocalStorageGbs"`
-	VcpuCounts                                []GetLaunchTemplateInstanceRequirementVcpuCount                 `pulumi:"vcpuCounts"`
+	AcceleratorCounts                              []GetLaunchTemplateInstanceRequirementAcceleratorCount          `pulumi:"acceleratorCounts"`
+	AcceleratorManufacturers                       []string                                                        `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               []string                                                        `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMibs                     []GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMibs"`
+	AcceleratorTypes                               []string                                                        `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           []string                                                        `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      string                                                          `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       []GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp   `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           string                                                          `pulumi:"burstablePerformance"`
+	CpuManufacturers                               []string                                                        `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          []string                                                        `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            []string                                                        `pulumi:"instanceGenerations"`
+	LocalStorage                                   string                                                          `pulumi:"localStorage"`
+	LocalStorageTypes                              []string                                                        `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice int                                                             `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGibPerVcpus                              []GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus         `pulumi:"memoryGibPerVcpus"`
+	MemoryMibs                                     []GetLaunchTemplateInstanceRequirementMemoryMib                 `pulumi:"memoryMibs"`
+	NetworkBandwidthGbps                           []GetLaunchTemplateInstanceRequirementNetworkBandwidthGbp       `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCounts                         []GetLaunchTemplateInstanceRequirementNetworkInterfaceCount     `pulumi:"networkInterfaceCounts"`
+	OnDemandMaxPricePercentageOverLowestPrice      int                                                             `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        bool                                                            `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          int                                                             `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGbs                           []GetLaunchTemplateInstanceRequirementTotalLocalStorageGb       `pulumi:"totalLocalStorageGbs"`
+	VcpuCounts                                     []GetLaunchTemplateInstanceRequirementVcpuCount                 `pulumi:"vcpuCounts"`
 }
 
 // GetLaunchTemplateInstanceRequirementInput is an input type that accepts GetLaunchTemplateInstanceRequirementArgs and GetLaunchTemplateInstanceRequirementOutput values.
@@ -39311,29 +39354,30 @@ type GetLaunchTemplateInstanceRequirementInput interface {
 }
 
 type GetLaunchTemplateInstanceRequirementArgs struct {
-	AcceleratorCounts                         GetLaunchTemplateInstanceRequirementAcceleratorCountArrayInput          `pulumi:"acceleratorCounts"`
-	AcceleratorManufacturers                  pulumi.StringArrayInput                                                 `pulumi:"acceleratorManufacturers"`
-	AcceleratorNames                          pulumi.StringArrayInput                                                 `pulumi:"acceleratorNames"`
-	AcceleratorTotalMemoryMibs                GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayInput `pulumi:"acceleratorTotalMemoryMibs"`
-	AcceleratorTypes                          pulumi.StringArrayInput                                                 `pulumi:"acceleratorTypes"`
-	AllowedInstanceTypes                      pulumi.StringArrayInput                                                 `pulumi:"allowedInstanceTypes"`
-	BareMetal                                 pulumi.StringInput                                                      `pulumi:"bareMetal"`
-	BaselineEbsBandwidthMbps                  GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayInput   `pulumi:"baselineEbsBandwidthMbps"`
-	BurstablePerformance                      pulumi.StringInput                                                      `pulumi:"burstablePerformance"`
-	CpuManufacturers                          pulumi.StringArrayInput                                                 `pulumi:"cpuManufacturers"`
-	ExcludedInstanceTypes                     pulumi.StringArrayInput                                                 `pulumi:"excludedInstanceTypes"`
-	InstanceGenerations                       pulumi.StringArrayInput                                                 `pulumi:"instanceGenerations"`
-	LocalStorage                              pulumi.StringInput                                                      `pulumi:"localStorage"`
-	LocalStorageTypes                         pulumi.StringArrayInput                                                 `pulumi:"localStorageTypes"`
-	MemoryGibPerVcpus                         GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayInput         `pulumi:"memoryGibPerVcpus"`
-	MemoryMibs                                GetLaunchTemplateInstanceRequirementMemoryMibArrayInput                 `pulumi:"memoryMibs"`
-	NetworkBandwidthGbps                      GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayInput       `pulumi:"networkBandwidthGbps"`
-	NetworkInterfaceCounts                    GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayInput     `pulumi:"networkInterfaceCounts"`
-	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntInput                                                         `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
-	RequireHibernateSupport                   pulumi.BoolInput                                                        `pulumi:"requireHibernateSupport"`
-	SpotMaxPricePercentageOverLowestPrice     pulumi.IntInput                                                         `pulumi:"spotMaxPricePercentageOverLowestPrice"`
-	TotalLocalStorageGbs                      GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayInput       `pulumi:"totalLocalStorageGbs"`
-	VcpuCounts                                GetLaunchTemplateInstanceRequirementVcpuCountArrayInput                 `pulumi:"vcpuCounts"`
+	AcceleratorCounts                              GetLaunchTemplateInstanceRequirementAcceleratorCountArrayInput          `pulumi:"acceleratorCounts"`
+	AcceleratorManufacturers                       pulumi.StringArrayInput                                                 `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                               pulumi.StringArrayInput                                                 `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMibs                     GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayInput `pulumi:"acceleratorTotalMemoryMibs"`
+	AcceleratorTypes                               pulumi.StringArrayInput                                                 `pulumi:"acceleratorTypes"`
+	AllowedInstanceTypes                           pulumi.StringArrayInput                                                 `pulumi:"allowedInstanceTypes"`
+	BareMetal                                      pulumi.StringInput                                                      `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                       GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayInput   `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                           pulumi.StringInput                                                      `pulumi:"burstablePerformance"`
+	CpuManufacturers                               pulumi.StringArrayInput                                                 `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                          pulumi.StringArrayInput                                                 `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                            pulumi.StringArrayInput                                                 `pulumi:"instanceGenerations"`
+	LocalStorage                                   pulumi.StringInput                                                      `pulumi:"localStorage"`
+	LocalStorageTypes                              pulumi.StringArrayInput                                                 `pulumi:"localStorageTypes"`
+	MaxSpotPriceAsPercentageOfOptimalOnDemandPrice pulumi.IntInput                                                         `pulumi:"maxSpotPriceAsPercentageOfOptimalOnDemandPrice"`
+	MemoryGibPerVcpus                              GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayInput         `pulumi:"memoryGibPerVcpus"`
+	MemoryMibs                                     GetLaunchTemplateInstanceRequirementMemoryMibArrayInput                 `pulumi:"memoryMibs"`
+	NetworkBandwidthGbps                           GetLaunchTemplateInstanceRequirementNetworkBandwidthGbpArrayInput       `pulumi:"networkBandwidthGbps"`
+	NetworkInterfaceCounts                         GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayInput     `pulumi:"networkInterfaceCounts"`
+	OnDemandMaxPricePercentageOverLowestPrice      pulumi.IntInput                                                         `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                        pulumi.BoolInput                                                        `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice          pulumi.IntInput                                                         `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGbs                           GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayInput       `pulumi:"totalLocalStorageGbs"`
+	VcpuCounts                                     GetLaunchTemplateInstanceRequirementVcpuCountArrayInput                 `pulumi:"vcpuCounts"`
 }
 
 func (GetLaunchTemplateInstanceRequirementArgs) ElementType() reflect.Type {
@@ -39447,6 +39491,12 @@ func (o GetLaunchTemplateInstanceRequirementOutput) LocalStorage() pulumi.String
 
 func (o GetLaunchTemplateInstanceRequirementOutput) LocalStorageTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) MaxSpotPriceAsPercentageOfOptimalOnDemandPrice() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) int {
+		return v.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+	}).(pulumi.IntOutput)
 }
 
 func (o GetLaunchTemplateInstanceRequirementOutput) MemoryGibPerVcpus() GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput {

@@ -501,13 +501,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -578,7 +576,7 @@ class Cluster(pulumi.CustomResource):
                     example2["id"],
                 ],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example__amazon_eks_cluster_policy,
                     example__amazon_eksvpc_resource_controller,
                 ]))
@@ -636,12 +634,12 @@ class Cluster(pulumi.CustomResource):
                 "audit",
             ],
             name=cluster_name,
-            opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
+            opts = pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
 
         ### Enabling IAM Roles for Service Accounts
 
-        Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+        For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
 
         ```python
         import pulumi
@@ -772,7 +770,7 @@ class Cluster(pulumi.CustomResource):
                     example2["id"],
                 ],
             ),
-            opts=pulumi.ResourceOptions(depends_on=[
+            opts = pulumi.ResourceOptions(depends_on=[
                     example__amazon_eks_cluster_policy,
                     example__amazon_eksvpc_resource_controller,
                 ]))
@@ -830,12 +828,12 @@ class Cluster(pulumi.CustomResource):
                 "audit",
             ],
             name=cluster_name,
-            opts=pulumi.ResourceOptions(depends_on=[example_log_group]))
+            opts = pulumi.ResourceOptions(depends_on=[example_log_group]))
         ```
 
         ### Enabling IAM Roles for Service Accounts
 
-        Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
+        For more information about this feature, see the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html).
 
         ```python
         import pulumi
@@ -1212,13 +1210,11 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

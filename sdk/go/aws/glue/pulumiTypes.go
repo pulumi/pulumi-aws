@@ -1114,6 +1114,8 @@ func (o CatalogTablePartitionKeyArrayOutput) Index(i pulumi.IntInput) CatalogTab
 }
 
 type CatalogTableStorageDescriptor struct {
+	// List of locations that point to the path where a Delta table is located.
+	AdditionalLocations []string `pulumi:"additionalLocations"`
 	// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns []string `pulumi:"bucketColumns"`
 	// Configuration block for columns in the table. See `columns` below.
@@ -1154,6 +1156,8 @@ type CatalogTableStorageDescriptorInput interface {
 }
 
 type CatalogTableStorageDescriptorArgs struct {
+	// List of locations that point to the path where a Delta table is located.
+	AdditionalLocations pulumi.StringArrayInput `pulumi:"additionalLocations"`
 	// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
 	// Configuration block for columns in the table. See `columns` below.
@@ -1259,6 +1263,11 @@ func (o CatalogTableStorageDescriptorOutput) ToCatalogTableStorageDescriptorPtrO
 	}).(CatalogTableStorageDescriptorPtrOutput)
 }
 
+// List of locations that point to the path where a Delta table is located.
+func (o CatalogTableStorageDescriptorOutput) AdditionalLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CatalogTableStorageDescriptor) []string { return v.AdditionalLocations }).(pulumi.StringArrayOutput)
+}
+
 // List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 func (o CatalogTableStorageDescriptorOutput) BucketColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CatalogTableStorageDescriptor) []string { return v.BucketColumns }).(pulumi.StringArrayOutput)
@@ -1348,6 +1357,16 @@ func (o CatalogTableStorageDescriptorPtrOutput) Elem() CatalogTableStorageDescri
 		var ret CatalogTableStorageDescriptor
 		return ret
 	}).(CatalogTableStorageDescriptorOutput)
+}
+
+// List of locations that point to the path where a Delta table is located.
+func (o CatalogTableStorageDescriptorPtrOutput) AdditionalLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CatalogTableStorageDescriptor) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalLocations
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of reducer grouping columns, clustering columns, and bucketing columns in the table.
@@ -9593,6 +9612,8 @@ func (o GetCatalogTablePartitionKeyArrayOutput) Index(i pulumi.IntInput) GetCata
 }
 
 type GetCatalogTableStorageDescriptor struct {
+	// List of locations that point to the path where a Delta table is located
+	AdditionalLocations []string `pulumi:"additionalLocations"`
 	// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns []string `pulumi:"bucketColumns"`
 	// Configuration block for columns in the table. See `columns` below.
@@ -9633,6 +9654,8 @@ type GetCatalogTableStorageDescriptorInput interface {
 }
 
 type GetCatalogTableStorageDescriptorArgs struct {
+	// List of locations that point to the path where a Delta table is located
+	AdditionalLocations pulumi.StringArrayInput `pulumi:"additionalLocations"`
 	// List of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns pulumi.StringArrayInput `pulumi:"bucketColumns"`
 	// Configuration block for columns in the table. See `columns` below.
@@ -9710,6 +9733,11 @@ func (o GetCatalogTableStorageDescriptorOutput) ToGetCatalogTableStorageDescript
 
 func (o GetCatalogTableStorageDescriptorOutput) ToGetCatalogTableStorageDescriptorOutputWithContext(ctx context.Context) GetCatalogTableStorageDescriptorOutput {
 	return o
+}
+
+// List of locations that point to the path where a Delta table is located
+func (o GetCatalogTableStorageDescriptorOutput) AdditionalLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCatalogTableStorageDescriptor) []string { return v.AdditionalLocations }).(pulumi.StringArrayOutput)
 }
 
 // List of reducer grouping columns, clustering columns, and bucketing columns in the table.

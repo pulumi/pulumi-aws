@@ -92,13 +92,11 @@ class JobQueueArgs:
 
     @property
     @pulumi.getter(name="computeEnvironments")
+    @_utilities.deprecated("""This parameter will be replaced by `compute_environment_order`.""")
     def compute_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         """
-        warnings.warn("""This parameter will be replaced by `compute_environment_order`.""", DeprecationWarning)
-        pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environment_order`.""")
-
         return pulumi.get(self, "compute_environments")
 
     @compute_environments.setter
@@ -230,13 +228,11 @@ class _JobQueueState:
 
     @property
     @pulumi.getter(name="computeEnvironments")
+    @_utilities.deprecated("""This parameter will be replaced by `compute_environment_order`.""")
     def compute_environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         """
-        warnings.warn("""This parameter will be replaced by `compute_environment_order`.""", DeprecationWarning)
-        pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environment_order`.""")
-
         return pulumi.get(self, "compute_environments")
 
     @compute_environments.setter
@@ -306,13 +302,11 @@ class _JobQueueState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -614,13 +608,11 @@ class JobQueue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="computeEnvironments")
+    @_utilities.deprecated("""This parameter will be replaced by `compute_environment_order`.""")
     def compute_environments(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         """
-        warnings.warn("""This parameter will be replaced by `compute_environment_order`.""", DeprecationWarning)
-        pulumi.log.warn("""compute_environments is deprecated: This parameter will be replaced by `compute_environment_order`.""")
-
         return pulumi.get(self, "compute_environments")
 
     @property
@@ -666,13 +658,11 @@ class JobQueue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

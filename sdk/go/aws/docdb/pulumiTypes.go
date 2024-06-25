@@ -128,6 +128,200 @@ func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) Clus
 	}).(ClusterParameterGroupParameterOutput)
 }
 
+type ClusterRestoreToPointInTime struct {
+	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+	RestoreToTime *string `pulumi:"restoreToTime"`
+	// The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+	RestoreType *string `pulumi:"restoreType"`
+	// The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+	SourceClusterIdentifier string `pulumi:"sourceClusterIdentifier"`
+	// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
+	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
+}
+
+// ClusterRestoreToPointInTimeInput is an input type that accepts ClusterRestoreToPointInTimeArgs and ClusterRestoreToPointInTimeOutput values.
+// You can construct a concrete instance of `ClusterRestoreToPointInTimeInput` via:
+//
+//	ClusterRestoreToPointInTimeArgs{...}
+type ClusterRestoreToPointInTimeInput interface {
+	pulumi.Input
+
+	ToClusterRestoreToPointInTimeOutput() ClusterRestoreToPointInTimeOutput
+	ToClusterRestoreToPointInTimeOutputWithContext(context.Context) ClusterRestoreToPointInTimeOutput
+}
+
+type ClusterRestoreToPointInTimeArgs struct {
+	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+	RestoreToTime pulumi.StringPtrInput `pulumi:"restoreToTime"`
+	// The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+	RestoreType pulumi.StringPtrInput `pulumi:"restoreType"`
+	// The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+	SourceClusterIdentifier pulumi.StringInput `pulumi:"sourceClusterIdentifier"`
+	// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
+	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
+}
+
+func (ClusterRestoreToPointInTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimeOutput() ClusterRestoreToPointInTimeOutput {
+	return i.ToClusterRestoreToPointInTimeOutputWithContext(context.Background())
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimeOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimeOutput)
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return i.ToClusterRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterRestoreToPointInTimeArgs) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimeOutput).ToClusterRestoreToPointInTimePtrOutputWithContext(ctx)
+}
+
+// ClusterRestoreToPointInTimePtrInput is an input type that accepts ClusterRestoreToPointInTimeArgs, ClusterRestoreToPointInTimePtr and ClusterRestoreToPointInTimePtrOutput values.
+// You can construct a concrete instance of `ClusterRestoreToPointInTimePtrInput` via:
+//
+//	        ClusterRestoreToPointInTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterRestoreToPointInTimePtrInput interface {
+	pulumi.Input
+
+	ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput
+	ToClusterRestoreToPointInTimePtrOutputWithContext(context.Context) ClusterRestoreToPointInTimePtrOutput
+}
+
+type clusterRestoreToPointInTimePtrType ClusterRestoreToPointInTimeArgs
+
+func ClusterRestoreToPointInTimePtr(v *ClusterRestoreToPointInTimeArgs) ClusterRestoreToPointInTimePtrInput {
+	return (*clusterRestoreToPointInTimePtrType)(v)
+}
+
+func (*clusterRestoreToPointInTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (i *clusterRestoreToPointInTimePtrType) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return i.ToClusterRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterRestoreToPointInTimePtrType) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterRestoreToPointInTimePtrOutput)
+}
+
+type ClusterRestoreToPointInTimeOutput struct{ *pulumi.OutputState }
+
+func (ClusterRestoreToPointInTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimeOutput() ClusterRestoreToPointInTimeOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimeOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimeOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return o.ToClusterRestoreToPointInTimePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRestoreToPointInTime) *ClusterRestoreToPointInTime {
+		return &v
+	}).(ClusterRestoreToPointInTimePtrOutput)
+}
+
+// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+func (o ClusterRestoreToPointInTimeOutput) RestoreToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreToTime }).(pulumi.StringPtrOutput)
+}
+
+// The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+func (o ClusterRestoreToPointInTimeOutput) RestoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreType }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+func (o ClusterRestoreToPointInTimeOutput) SourceClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) string { return v.SourceClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
+func (o ClusterRestoreToPointInTimeOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterRestoreToPointInTime) *bool { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterRestoreToPointInTimePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterRestoreToPointInTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterRestoreToPointInTime)(nil)).Elem()
+}
+
+func (o ClusterRestoreToPointInTimePtrOutput) ToClusterRestoreToPointInTimePtrOutput() ClusterRestoreToPointInTimePtrOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimePtrOutput) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
+	return o
+}
+
+func (o ClusterRestoreToPointInTimePtrOutput) Elem() ClusterRestoreToPointInTimeOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) ClusterRestoreToPointInTime {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRestoreToPointInTime
+		return ret
+	}).(ClusterRestoreToPointInTimeOutput)
+}
+
+// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+func (o ClusterRestoreToPointInTimePtrOutput) RestoreToTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreToTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+func (o ClusterRestoreToPointInTimePtrOutput) RestoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+func (o ClusterRestoreToPointInTimePtrOutput) SourceClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreToTime`.
+func (o ClusterRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLatestRestorableTime
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ElasticClusterTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -412,12 +606,16 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) Gl
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterInput)(nil)).Elem(), ClusterParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterArrayInput)(nil)).Elem(), ClusterParameterGroupParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestoreToPointInTimeInput)(nil)).Elem(), ClusterRestoreToPointInTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRestoreToPointInTimePtrInput)(nil)).Elem(), ClusterRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticClusterTimeoutsInput)(nil)).Elem(), ElasticClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ElasticClusterTimeoutsPtrInput)(nil)).Elem(), ElasticClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberArrayInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArray{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(ClusterRestoreToPointInTimeOutput{})
+	pulumi.RegisterOutputType(ClusterRestoreToPointInTimePtrOutput{})
 	pulumi.RegisterOutputType(ElasticClusterTimeoutsOutput{})
 	pulumi.RegisterOutputType(ElasticClusterTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberOutput{})

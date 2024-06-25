@@ -941,10 +941,8 @@ class InstanceArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated. Please use 'dbName' instead.""")
     def name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
-        pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
-
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2333,10 +2331,8 @@ class _InstanceState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated. Please use 'dbName' instead.""")
     def name(self) -> Optional[pulumi.Input[str]]:
-        warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
-        pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
-
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2643,13 +2639,11 @@ class _InstanceState:
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -4411,10 +4405,8 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property has been deprecated. Please use 'dbName' instead.""")
     def name(self) -> pulumi.Output[Optional[str]]:
-        warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
-        pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
-
         return pulumi.get(self, "name")
 
     @property
@@ -4625,13 +4617,11 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
-        warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-        pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-
         return pulumi.get(self, "tags_all")
 
     @property

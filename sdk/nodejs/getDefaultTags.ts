@@ -56,7 +56,7 @@ export interface GetDefaultTagsArgs {
 export interface GetDefaultTagsResult {
     readonly id: string;
     /**
-     * Blocks of default tags set on the provider. See details below.
+     * Key-value mapping of provider default tags.
      */
     readonly tags: {[key: string]: string};
 }

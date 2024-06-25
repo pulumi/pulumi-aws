@@ -366,6 +366,20 @@ public class Job extends com.pulumi.resources.CustomResource {
         return this.glueVersion;
     }
     /**
+     * Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     * 
+     */
+    @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> maintenanceWindow;
+
+    /**
+     * @return Specifies the day of the week and hour for the maintenance window for streaming jobs.
+     * 
+     */
+    public Output<Optional<String>> maintenanceWindow() {
+        return Codegen.optional(this.maintenanceWindow);
+    }
+    /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
      * 
      */

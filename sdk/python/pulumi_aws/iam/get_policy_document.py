@@ -81,10 +81,8 @@ class GetPolicyDocumentResult:
 
     @property
     @pulumi.getter(name="overrideJson")
+    @_utilities.deprecated("""Not used""")
     def override_json(self) -> Optional[str]:
-        warnings.warn("""Not used""", DeprecationWarning)
-        pulumi.log.warn("""override_json is deprecated: Not used""")
-
         return pulumi.get(self, "override_json")
 
     @property
@@ -99,10 +97,8 @@ class GetPolicyDocumentResult:
 
     @property
     @pulumi.getter(name="sourceJson")
+    @_utilities.deprecated("""Not used""")
     def source_json(self) -> Optional[str]:
-        warnings.warn("""Not used""", DeprecationWarning)
-        pulumi.log.warn("""source_json is deprecated: Not used""")
-
         return pulumi.get(self, "source_json")
 
     @property

@@ -21,16 +21,32 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
 
     public static final ChannelInputAttachmentInputSettingsArgs Empty = new ChannelInputAttachmentInputSettingsArgs();
 
+    /**
+     * Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+     * 
+     */
     @Import(name="audioSelectors")
     private @Nullable Output<List<ChannelInputAttachmentInputSettingsAudioSelectorArgs>> audioSelectors;
 
+    /**
+     * @return Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+     * 
+     */
     public Optional<Output<List<ChannelInputAttachmentInputSettingsAudioSelectorArgs>>> audioSelectors() {
         return Optional.ofNullable(this.audioSelectors);
     }
 
+    /**
+     * Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+     * 
+     */
     @Import(name="captionSelectors")
     private @Nullable Output<List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs>> captionSelectors;
 
+    /**
+     * @return Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+     * 
+     */
     public Optional<Output<List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs>>> captionSelectors() {
         return Optional.ofNullable(this.captionSelectors);
     }
@@ -196,28 +212,64 @@ public final class ChannelInputAttachmentInputSettingsArgs extends com.pulumi.re
             $ = new ChannelInputAttachmentInputSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param audioSelectors Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioSelectors(@Nullable Output<List<ChannelInputAttachmentInputSettingsAudioSelectorArgs>> audioSelectors) {
             $.audioSelectors = audioSelectors;
             return this;
         }
 
+        /**
+         * @param audioSelectors Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioSelectors(List<ChannelInputAttachmentInputSettingsAudioSelectorArgs> audioSelectors) {
             return audioSelectors(Output.of(audioSelectors));
         }
 
+        /**
+         * @param audioSelectors Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioSelectors(ChannelInputAttachmentInputSettingsAudioSelectorArgs... audioSelectors) {
             return audioSelectors(List.of(audioSelectors));
         }
 
+        /**
+         * @param captionSelectors Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder captionSelectors(@Nullable Output<List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs>> captionSelectors) {
             $.captionSelectors = captionSelectors;
             return this;
         }
 
+        /**
+         * @param captionSelectors Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder captionSelectors(List<ChannelInputAttachmentInputSettingsCaptionSelectorArgs> captionSelectors) {
             return captionSelectors(Output.of(captionSelectors));
         }
 
+        /**
+         * @param captionSelectors Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder captionSelectors(ChannelInputAttachmentInputSettingsCaptionSelectorArgs... captionSelectors) {
             return captionSelectors(List.of(captionSelectors));
         }

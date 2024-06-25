@@ -26,8 +26,12 @@ __all__ = [
     'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs',
     'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs',
     'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs',
+    'GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs',
     'GetCoreNetworkPolicyDocumentSegmentArgs',
     'GetCoreNetworkPolicyDocumentSegmentActionArgs',
+    'GetCoreNetworkPolicyDocumentSegmentActionViaArgs',
+    'GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs',
+    'GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs',
 ]
 
 @pulumi.input_type
@@ -650,17 +654,22 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
     def __init__(__self__, *,
-                 association_method: str,
+                 add_to_network_function_group: Optional[str] = None,
+                 association_method: Optional[str] = None,
                  require_acceptance: Optional[bool] = None,
                  segment: Optional[str] = None,
                  tag_value_of_key: Optional[str] = None):
         """
+        :param str add_to_network_function_group: The name of the network function group to attach to the attachment policy.
         :param str association_method: Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
         :param bool require_acceptance: Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
         :param str segment: Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
         :param str tag_value_of_key: Maps the attachment to the value of a known key. This is used with the `association_method` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
         """
-        pulumi.set(__self__, "association_method", association_method)
+        if add_to_network_function_group is not None:
+            pulumi.set(__self__, "add_to_network_function_group", add_to_network_function_group)
+        if association_method is not None:
+            pulumi.set(__self__, "association_method", association_method)
         if require_acceptance is not None:
             pulumi.set(__self__, "require_acceptance", require_acceptance)
         if segment is not None:
@@ -669,15 +678,27 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
             pulumi.set(__self__, "tag_value_of_key", tag_value_of_key)
 
     @property
+    @pulumi.getter(name="addToNetworkFunctionGroup")
+    def add_to_network_function_group(self) -> Optional[str]:
+        """
+        The name of the network function group to attach to the attachment policy.
+        """
+        return pulumi.get(self, "add_to_network_function_group")
+
+    @add_to_network_function_group.setter
+    def add_to_network_function_group(self, value: Optional[str]):
+        pulumi.set(self, "add_to_network_function_group", value)
+
+    @property
     @pulumi.getter(name="associationMethod")
-    def association_method(self) -> str:
+    def association_method(self) -> Optional[str]:
         """
         Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
         """
         return pulumi.get(self, "association_method")
 
     @association_method.setter
-    def association_method(self, value: str):
+    def association_method(self, value: Optional[str]):
         pulumi.set(self, "association_method", value)
 
     @property
@@ -907,6 +928,59 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs:
 
 
 @pulumi.input_type
+class GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 require_attachment_acceptance: bool,
+                 description: Optional[str] = None):
+        """
+        :param str name: This identifies the network function group container.
+        :param bool require_attachment_acceptance: This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
+        :param str description: Optional description of the network function group.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "require_attachment_acceptance", require_attachment_acceptance)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        This identifies the network function group container.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="requireAttachmentAcceptance")
+    def require_attachment_acceptance(self) -> bool:
+        """
+        This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
+        """
+        return pulumi.get(self, "require_attachment_acceptance")
+
+    @require_attachment_acceptance.setter
+    def require_attachment_acceptance(self, value: bool):
+        pulumi.set(self, "require_attachment_acceptance", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Optional description of the network function group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[str]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
 class GetCoreNetworkPolicyDocumentSegmentArgs:
     def __init__(__self__, *,
                  name: str,
@@ -1034,16 +1108,20 @@ class GetCoreNetworkPolicyDocumentSegmentActionArgs:
                  destinations: Optional[Sequence[str]] = None,
                  mode: Optional[str] = None,
                  share_with_excepts: Optional[Sequence[str]] = None,
-                 share_withs: Optional[Sequence[str]] = None):
+                 share_withs: Optional[Sequence[str]] = None,
+                 via: Optional['GetCoreNetworkPolicyDocumentSegmentActionViaArgs'] = None,
+                 when_sent_to: Optional['GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs'] = None):
         """
-        :param str action: Action to take for the chosen segment. Valid values `create-route` or `share`.
+        :param str action: Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
         :param str segment: Name of the segment.
         :param str description: A user-defined string describing the segment action.
         :param Sequence[str] destination_cidr_blocks: List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
         :param Sequence[str] destinations: A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
-        :param str mode: String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+        :param str mode: String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
         :param Sequence[str] share_with_excepts: A set subtraction of segments to not share with.
         :param Sequence[str] share_withs: A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
+        :param 'GetCoreNetworkPolicyDocumentSegmentActionViaArgs' via: The network function groups and any edge overrides associated with the action.
+        :param 'GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs' when_sent_to: The destination segments for the `send-via` or `send-to` `action`.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "segment", segment)
@@ -1059,12 +1137,16 @@ class GetCoreNetworkPolicyDocumentSegmentActionArgs:
             pulumi.set(__self__, "share_with_excepts", share_with_excepts)
         if share_withs is not None:
             pulumi.set(__self__, "share_withs", share_withs)
+        if via is not None:
+            pulumi.set(__self__, "via", via)
+        if when_sent_to is not None:
+            pulumi.set(__self__, "when_sent_to", when_sent_to)
 
     @property
     @pulumi.getter
     def action(self) -> str:
         """
-        Action to take for the chosen segment. Valid values `create-route` or `share`.
+        Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via` and `send-to`.
         """
         return pulumi.get(self, "action")
 
@@ -1124,7 +1206,7 @@ class GetCoreNetworkPolicyDocumentSegmentActionArgs:
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
+        String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
         """
         return pulumi.get(self, "mode")
 
@@ -1155,5 +1237,130 @@ class GetCoreNetworkPolicyDocumentSegmentActionArgs:
     @share_withs.setter
     def share_withs(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "share_withs", value)
+
+    @property
+    @pulumi.getter
+    def via(self) -> Optional['GetCoreNetworkPolicyDocumentSegmentActionViaArgs']:
+        """
+        The network function groups and any edge overrides associated with the action.
+        """
+        return pulumi.get(self, "via")
+
+    @via.setter
+    def via(self, value: Optional['GetCoreNetworkPolicyDocumentSegmentActionViaArgs']):
+        pulumi.set(self, "via", value)
+
+    @property
+    @pulumi.getter(name="whenSentTo")
+    def when_sent_to(self) -> Optional['GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs']:
+        """
+        The destination segments for the `send-via` or `send-to` `action`.
+        """
+        return pulumi.get(self, "when_sent_to")
+
+    @when_sent_to.setter
+    def when_sent_to(self, value: Optional['GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs']):
+        pulumi.set(self, "when_sent_to", value)
+
+
+@pulumi.input_type
+class GetCoreNetworkPolicyDocumentSegmentActionViaArgs:
+    def __init__(__self__, *,
+                 network_function_groups: Optional[Sequence[str]] = None,
+                 with_edge_overrides: Optional[Sequence['GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs']] = None):
+        """
+        :param Sequence[str] network_function_groups: A list of strings. The network function group to use for the service insertion action.
+        :param Sequence['GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs'] with_edge_overrides: Any edge overrides and the preferred edge to use.
+        """
+        if network_function_groups is not None:
+            pulumi.set(__self__, "network_function_groups", network_function_groups)
+        if with_edge_overrides is not None:
+            pulumi.set(__self__, "with_edge_overrides", with_edge_overrides)
+
+    @property
+    @pulumi.getter(name="networkFunctionGroups")
+    def network_function_groups(self) -> Optional[Sequence[str]]:
+        """
+        A list of strings. The network function group to use for the service insertion action.
+        """
+        return pulumi.get(self, "network_function_groups")
+
+    @network_function_groups.setter
+    def network_function_groups(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "network_function_groups", value)
+
+    @property
+    @pulumi.getter(name="withEdgeOverrides")
+    def with_edge_overrides(self) -> Optional[Sequence['GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs']]:
+        """
+        Any edge overrides and the preferred edge to use.
+        """
+        return pulumi.get(self, "with_edge_overrides")
+
+    @with_edge_overrides.setter
+    def with_edge_overrides(self, value: Optional[Sequence['GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs']]):
+        pulumi.set(self, "with_edge_overrides", value)
+
+
+@pulumi.input_type
+class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs:
+    def __init__(__self__, *,
+                 edge_sets: Optional[Sequence[str]] = None,
+                 use_edge: Optional[str] = None):
+        """
+        :param Sequence[str] edge_sets: A list of strings. The list of edges associated with the network function group.
+        :param str use_edge: The preferred edge to use.
+        """
+        if edge_sets is not None:
+            pulumi.set(__self__, "edge_sets", edge_sets)
+        if use_edge is not None:
+            pulumi.set(__self__, "use_edge", use_edge)
+
+    @property
+    @pulumi.getter(name="edgeSets")
+    def edge_sets(self) -> Optional[Sequence[str]]:
+        """
+        A list of strings. The list of edges associated with the network function group.
+        """
+        return pulumi.get(self, "edge_sets")
+
+    @edge_sets.setter
+    def edge_sets(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "edge_sets", value)
+
+    @property
+    @pulumi.getter(name="useEdge")
+    def use_edge(self) -> Optional[str]:
+        """
+        The preferred edge to use.
+        """
+        return pulumi.get(self, "use_edge")
+
+    @use_edge.setter
+    def use_edge(self, value: Optional[str]):
+        pulumi.set(self, "use_edge", value)
+
+
+@pulumi.input_type
+class GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs:
+    def __init__(__self__, *,
+                 segments: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] segments: A list of strings. The list of segments that the `send-via` `action` uses.
+        """
+        if segments is not None:
+            pulumi.set(__self__, "segments", segments)
+
+    @property
+    @pulumi.getter
+    def segments(self) -> Optional[Sequence[str]]:
+        """
+        A list of strings. The list of segments that the `send-via` `action` uses.
+        """
+        return pulumi.get(self, "segments")
+
+    @segments.setter
+    def segments(self, value: Optional[Sequence[str]]):
+        pulumi.set(self, "segments", value)
 
 

@@ -137,7 +137,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
         example_scram_secret_association = aws.msk.ScramSecretAssociation("example",
             cluster_arn=example_cluster.arn,
             secret_arn_lists=[example_secret.arn],
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+            opts = pulumi.ResourceOptions(depends_on=[example_secret_version]))
         example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AWSKafkaResourcePolicy",
             effect="Allow",
@@ -212,7 +212,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
         example_scram_secret_association = aws.msk.ScramSecretAssociation("example",
             cluster_arn=example_cluster.arn,
             secret_arn_lists=[example_secret.arn],
-            opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
+            opts = pulumi.ResourceOptions(depends_on=[example_secret_version]))
         example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             sid="AWSKafkaResourcePolicy",
             effect="Allow",

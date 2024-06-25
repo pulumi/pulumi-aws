@@ -20,6 +20,11 @@ import java.util.Objects;
 @CustomType
 public final class GetCatalogTableStorageDescriptor {
     /**
+     * @return List of locations that point to the path where a Delta table is located
+     * 
+     */
+    private List<String> additionalLocations;
+    /**
      * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
      */
@@ -86,6 +91,13 @@ public final class GetCatalogTableStorageDescriptor {
     private Boolean storedAsSubDirectories;
 
     private GetCatalogTableStorageDescriptor() {}
+    /**
+     * @return List of locations that point to the path where a Delta table is located
+     * 
+     */
+    public List<String> additionalLocations() {
+        return this.additionalLocations;
+    }
     /**
      * @return List of reducer grouping columns, clustering columns, and bucketing columns in the table.
      * 
@@ -187,6 +199,7 @@ public final class GetCatalogTableStorageDescriptor {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<String> additionalLocations;
         private List<String> bucketColumns;
         private List<GetCatalogTableStorageDescriptorColumn> columns;
         private Boolean compressed;
@@ -203,6 +216,7 @@ public final class GetCatalogTableStorageDescriptor {
         public Builder() {}
         public Builder(GetCatalogTableStorageDescriptor defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalLocations = defaults.additionalLocations;
     	      this.bucketColumns = defaults.bucketColumns;
     	      this.columns = defaults.columns;
     	      this.compressed = defaults.compressed;
@@ -218,6 +232,17 @@ public final class GetCatalogTableStorageDescriptor {
     	      this.storedAsSubDirectories = defaults.storedAsSubDirectories;
         }
 
+        @CustomType.Setter
+        public Builder additionalLocations(List<String> additionalLocations) {
+            if (additionalLocations == null) {
+              throw new MissingRequiredPropertyException("GetCatalogTableStorageDescriptor", "additionalLocations");
+            }
+            this.additionalLocations = additionalLocations;
+            return this;
+        }
+        public Builder additionalLocations(String... additionalLocations) {
+            return additionalLocations(List.of(additionalLocations));
+        }
         @CustomType.Setter
         public Builder bucketColumns(List<String> bucketColumns) {
             if (bucketColumns == null) {
@@ -342,6 +367,7 @@ public final class GetCatalogTableStorageDescriptor {
         }
         public GetCatalogTableStorageDescriptor build() {
             final var _resultValue = new GetCatalogTableStorageDescriptor();
+            _resultValue.additionalLocations = additionalLocations;
             _resultValue.bucketColumns = bucketColumns;
             _resultValue.columns = columns;
             _resultValue.compressed = compressed;

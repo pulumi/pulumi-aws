@@ -770,6 +770,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
                  instance_generations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  local_storage: Optional[pulumi.Input[str]] = None,
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_spot_price_as_percentage_of_optimal_on_demand_price: Optional[pulumi.Input[int]] = None,
                  memory_gib_per_vcpu: Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs']] = None,
                  memory_mib: Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs']] = None,
                  network_bandwidth_gbps: Optional[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']] = None,
@@ -807,6 +808,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
             pulumi.set(__self__, "local_storage", local_storage)
         if local_storage_types is not None:
             pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if max_spot_price_as_percentage_of_optimal_on_demand_price is not None:
+            pulumi.set(__self__, "max_spot_price_as_percentage_of_optimal_on_demand_price", max_spot_price_as_percentage_of_optimal_on_demand_price)
         if memory_gib_per_vcpu is not None:
             pulumi.set(__self__, "memory_gib_per_vcpu", memory_gib_per_vcpu)
         if memory_mib is not None:
@@ -951,6 +954,15 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @local_storage_types.setter
     def local_storage_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "local_storage_types", value)
+
+    @property
+    @pulumi.getter(name="maxSpotPriceAsPercentageOfOptimalOnDemandPrice")
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_spot_price_as_percentage_of_optimal_on_demand_price")
+
+    @max_spot_price_as_percentage_of_optimal_on_demand_price.setter
+    def max_spot_price_as_percentage_of_optimal_on_demand_price(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_spot_price_as_percentage_of_optimal_on_demand_price", value)
 
     @property
     @pulumi.getter(name="memoryGibPerVcpu")

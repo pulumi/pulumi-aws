@@ -25883,7 +25883,9 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 }
 
 type ChannelInputAttachmentInputSettings struct {
-	AudioSelectors   []ChannelInputAttachmentInputSettingsAudioSelector   `pulumi:"audioSelectors"`
+	// Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+	AudioSelectors []ChannelInputAttachmentInputSettingsAudioSelector `pulumi:"audioSelectors"`
+	// Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
 	CaptionSelectors []ChannelInputAttachmentInputSettingsCaptionSelector `pulumi:"captionSelectors"`
 	// Enable or disable the deblock filter when filtering.
 	DeblockFilter *string `pulumi:"deblockFilter"`
@@ -25916,7 +25918,9 @@ type ChannelInputAttachmentInputSettingsInput interface {
 }
 
 type ChannelInputAttachmentInputSettingsArgs struct {
-	AudioSelectors   ChannelInputAttachmentInputSettingsAudioSelectorArrayInput   `pulumi:"audioSelectors"`
+	// Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
+	AudioSelectors ChannelInputAttachmentInputSettingsAudioSelectorArrayInput `pulumi:"audioSelectors"`
+	// Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
 	CaptionSelectors ChannelInputAttachmentInputSettingsCaptionSelectorArrayInput `pulumi:"captionSelectors"`
 	// Enable or disable the deblock filter when filtering.
 	DeblockFilter pulumi.StringPtrInput `pulumi:"deblockFilter"`
@@ -26014,12 +26018,14 @@ func (o ChannelInputAttachmentInputSettingsOutput) ToChannelInputAttachmentInput
 	}).(ChannelInputAttachmentInputSettingsPtrOutput)
 }
 
+// Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
 func (o ChannelInputAttachmentInputSettingsOutput) AudioSelectors() ChannelInputAttachmentInputSettingsAudioSelectorArrayOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettings) []ChannelInputAttachmentInputSettingsAudioSelector {
 		return v.AudioSelectors
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorArrayOutput)
 }
 
+// Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
 func (o ChannelInputAttachmentInputSettingsOutput) CaptionSelectors() ChannelInputAttachmentInputSettingsCaptionSelectorArrayOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentInputSettings) []ChannelInputAttachmentInputSettingsCaptionSelector {
 		return v.CaptionSelectors
@@ -26098,6 +26104,7 @@ func (o ChannelInputAttachmentInputSettingsPtrOutput) Elem() ChannelInputAttachm
 	}).(ChannelInputAttachmentInputSettingsOutput)
 }
 
+// Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
 func (o ChannelInputAttachmentInputSettingsPtrOutput) AudioSelectors() ChannelInputAttachmentInputSettingsAudioSelectorArrayOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettings) []ChannelInputAttachmentInputSettingsAudioSelector {
 		if v == nil {
@@ -26107,6 +26114,7 @@ func (o ChannelInputAttachmentInputSettingsPtrOutput) AudioSelectors() ChannelIn
 	}).(ChannelInputAttachmentInputSettingsAudioSelectorArrayOutput)
 }
 
+// Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
 func (o ChannelInputAttachmentInputSettingsPtrOutput) CaptionSelectors() ChannelInputAttachmentInputSettingsCaptionSelectorArrayOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentInputSettings) []ChannelInputAttachmentInputSettingsCaptionSelector {
 		if v == nil {
