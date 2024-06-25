@@ -113,10 +113,3 @@ jobs:
         name: aws-provider.tar.gz
         path: ${{ github.workspace }}/bin/provider.tar.gz
         retention-days: 30
-    - if: failure() && inputs.is_pr
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in building provider prerequisites
-        fields: repo,commit,author,action
-        status: ${{ job.status }}

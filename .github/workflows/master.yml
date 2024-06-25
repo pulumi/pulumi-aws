@@ -155,13 +155,7 @@ jobs:
         args: -p 1 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
           150m0s
         version: latest
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in publishing binaries
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
+
   publish_sdk:
     name: publish_sdk
     needs:
@@ -314,13 +308,6 @@ jobs:
     - name: Run tests
       run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
         matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in running ${{ matrix.language }} tests
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
     strategy:
       fail-fast: false
       matrix:
