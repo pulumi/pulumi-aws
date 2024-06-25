@@ -87,7 +87,7 @@ build_python: upstream
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
 		rm ./bin/go.mod && \
 		python3 -m venv venv && \
-		./venv/bin/python -m pip install build && \
+		./venv/bin/python -m pip install build==1.2.1 && \
 		cd ./bin && \
 		../venv/bin/python -m build .
 
