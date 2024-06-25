@@ -122,11 +122,11 @@ func testProviderCodeChanges(t *testing.T, opts *testProviderCodeChangesOptions)
 	}
 
 	pt := pulumitest.NewPulumiTest(t, workdir, options...)
+	region := "us-east-2"
 	if opts != nil && opts.region != "" {
-		pt.SetConfig("aws:region", opts.region)
-	} else {
-		pt.SetConfig("aws:region", "us-east-2")
+		region = opts.region
 	}
+	pt.SetConfig("aws:region", region)
 
 	var export *apitype.UntypedDeployment
 	export, err = tryReadStackExport(stackExportFile)
@@ -153,6 +153,7 @@ func testProviderCodeChanges(t *testing.T, opts *testProviderCodeChangesOptions)
 	err = os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), opts.secondProgram, 0o600)
 	require.NoError(t, err)
 	secondTest := pulumitest.NewPulumiTest(t, workdir, secondOptions...)
+	pt.SetConfig("aws:region", region)
 	secondTest.ImportStack(*export)
 
 	return secondTest
