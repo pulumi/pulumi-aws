@@ -356,13 +356,13 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
      * 
      */
     @Import(name="subnetIds")
-    private @Nullable Output<String> subnetIds;
+    private @Nullable Output<List<String>> subnetIds;
 
     /**
      * @return A list of IDs for the subnets that the file system will be accessible from.
      * 
      */
-    public Optional<Output<String>> subnetIds() {
+    public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
 
@@ -998,7 +998,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder subnetIds(@Nullable Output<String> subnetIds) {
+        public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
@@ -1009,8 +1009,18 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder subnetIds(String subnetIds) {
+        public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
+        }
+
+        /**
+         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetIds(String... subnetIds) {
+            return subnetIds(List.of(subnetIds));
         }
 
         /**

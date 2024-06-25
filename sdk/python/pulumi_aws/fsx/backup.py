@@ -276,7 +276,7 @@ class Backup(pulumi.CustomResource):
 
         example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("example",
             storage_capacity=64,
-            subnet_ids=example_aws_subnet["id"],
+            subnet_ids=[example_aws_subnet["id"]],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
         example = aws.fsx.Backup("example", file_system_id=example_open_zfs_file_system.id)
@@ -357,7 +357,7 @@ class Backup(pulumi.CustomResource):
 
         example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("example",
             storage_capacity=64,
-            subnet_ids=example_aws_subnet["id"],
+            subnet_ids=[example_aws_subnet["id"]],
             deployment_type="SINGLE_AZ_1",
             throughput_capacity=64)
         example = aws.fsx.Backup("example", file_system_id=example_open_zfs_file_system.id)

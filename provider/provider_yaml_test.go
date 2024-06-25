@@ -305,6 +305,83 @@ func TestNonIdempotentSnsTopic(t *testing.T) {
 	require.ErrorContains(t, err, "already exists")
 }
 
+func TestOpenZfsFileSystemUpgrade(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
+	}
+	const pulumiYaml = `
+name: openzfs
+runtime: yaml
+resources:
+  MyFileSystem:
+    properties:
+      deploymentType: SINGLE_AZ_1
+      storageCapacity: 64
+      %s
+      throughputCapacity: 64
+    type: aws:fsx:OpenZfsFileSystem
+  MySubnet:
+    properties:
+      cidrBlock: "10.0.1.0/24"
+      vpcId: ${MyVPC.id}
+    type: aws:ec2:Subnet
+  MyVPC:
+    properties:
+      cidrBlock: "10.0.0.0/16"
+    type: aws:ec2:Vpc
+`
+
+	var (
+		providerName    string = "aws"
+		baselineVersion string = "6.41.0"
+	)
+	cwd, err := os.Getwd()
+	assert.NoError(t, err)
+	workdir := t.TempDir()
+
+	firstProgram := []byte(fmt.Sprintf(pulumiYaml, "subnetIds: ${MySubnet.id}"))
+	secondProgram := []byte(fmt.Sprintf(pulumiYaml, "subnetIds:\n        - ${MySubnet.id}"))
+	// test that we can upgrade from the previous version which accepted a string for `subnetIds`
+	// to the new version which accepts a list
+	t.Run("upgrade", func(t *testing.T) {
+		pulumiTest := testProviderCodeChanges(t, &testProviderCodeChangesOptions{
+			firstProgram: firstProgram,
+			firstProgramOptions: []opttest.Option{
+				opttest.DownloadProviderVersion(providerName, baselineVersion),
+			},
+			secondProgram: secondProgram,
+			secondProgramOptions: []opttest.Option{
+				opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+			},
+		})
+
+		res := pulumiTest.Preview()
+		fmt.Printf("stdout: %s \n", res.StdOut)
+		fmt.Printf("stderr: %s \n", res.StdErr)
+		assertpreview.HasNoChanges(t, res)
+
+		upResult := pulumiTest.Up()
+		fmt.Printf("stdout: %s \n", upResult.StdOut)
+		fmt.Printf("stderr: %s \n", upResult.StdErr)
+	})
+
+	// test that we can deploy a new filesystem with a list of subnetIds
+	// we use a test with a snapshot since this test is only useful the first time, once
+	// we know it works it should continue to work.
+	t.Run("new-version", func(t *testing.T) {
+		err = os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), secondProgram, 0o600)
+		assert.NoError(t, err)
+		pulumiTest := pulumitest.NewPulumiTest(t, workdir,
+			opttest.SkipInstall(),
+			opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+		)
+
+		pulumiTest.SetConfig("aws:region", "us-east-2")
+
+		pulumiUpWithSnapshot(t, pulumiTest)
+	})
+}
+
 // Make sure that legacy Bucket supports deleting tags out of band and detecting drift.
 func TestRegress3674(t *testing.T) {
 	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-3674"), opttest.SkipInstall())

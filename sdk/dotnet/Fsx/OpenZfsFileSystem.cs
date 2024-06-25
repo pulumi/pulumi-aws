@@ -26,7 +26,10 @@ namespace Pulumi.Aws.Fsx
     ///     var test = new Aws.Fsx.OpenZfsFileSystem("test", new()
     ///     {
     ///         StorageCapacity = 64,
-    ///         SubnetIds = test1.Id,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             test1.Id,
+    ///         },
     ///         DeploymentType = "SINGLE_AZ_1",
     ///         ThroughputCapacity = 64,
     ///     });
@@ -182,7 +185,7 @@ namespace Pulumi.Aws.Fsx
         /// A list of IDs for the subnets that the file system will be accessible from.
         /// </summary>
         [Output("subnetIds")]
-        public Output<string> SubnetIds { get; private set; } = null!;
+        public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -368,11 +371,17 @@ namespace Pulumi.Aws.Fsx
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
 
+        [Input("subnetIds", required: true)]
+        private InputList<string>? _subnetIds;
+
         /// <summary>
         /// A list of IDs for the subnets that the file system will be accessible from.
         /// </summary>
-        [Input("subnetIds", required: true)]
-        public Input<string> SubnetIds { get; set; } = null!;
+        public InputList<string> SubnetIds
+        {
+            get => _subnetIds ?? (_subnetIds = new InputList<string>());
+            set => _subnetIds = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -556,11 +565,17 @@ namespace Pulumi.Aws.Fsx
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
 
+        [Input("subnetIds")]
+        private InputList<string>? _subnetIds;
+
         /// <summary>
         /// A list of IDs for the subnets that the file system will be accessible from.
         /// </summary>
-        [Input("subnetIds")]
-        public Input<string>? SubnetIds { get; set; }
+        public InputList<string> SubnetIds
+        {
+            get => _subnetIds ?? (_subnetIds = new InputList<string>());
+            set => _subnetIds = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

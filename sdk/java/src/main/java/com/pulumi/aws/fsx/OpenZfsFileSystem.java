@@ -386,14 +386,14 @@ public class OpenZfsFileSystem extends com.pulumi.resources.CustomResource {
      * A list of IDs for the subnets that the file system will be accessible from.
      * 
      */
-    @Export(name="subnetIds", refs={String.class}, tree="[0]")
-    private Output<String> subnetIds;
+    @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> subnetIds;
 
     /**
      * @return A list of IDs for the subnets that the file system will be accessible from.
      * 
      */
-    public Output<String> subnetIds() {
+    public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
     /**

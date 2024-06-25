@@ -267,13 +267,13 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
      * 
      */
     @Import(name="subnetIds", required=true)
-    private Output<String> subnetIds;
+    private Output<List<String>> subnetIds;
 
     /**
      * @return A list of IDs for the subnets that the file system will be accessible from.
      * 
      */
-    public Output<String> subnetIds() {
+    public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
@@ -727,7 +727,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder subnetIds(Output<String> subnetIds) {
+        public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
@@ -738,8 +738,18 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder subnetIds(String subnetIds) {
+        public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
+        }
+
+        /**
+         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subnetIds(String... subnetIds) {
+            return subnetIds(List.of(subnetIds));
         }
 
         /**

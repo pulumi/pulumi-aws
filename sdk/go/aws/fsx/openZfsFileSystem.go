@@ -30,8 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOpenZfsFileSystem(ctx, "test", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity:    pulumi.Int(64),
-//				SubnetIds:          pulumi.Any(test1.Id),
+//				StorageCapacity: pulumi.Int(64),
+//				SubnetIds: pulumi.StringArray{
+//					test1.Id,
+//				},
 //				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
 //				ThroughputCapacity: pulumi.Int(64),
 //			})
@@ -100,7 +102,7 @@ type OpenZfsFileSystem struct {
 	// The filesystem storage type. Only `SSD` is supported.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from.
-	SubnetIds pulumi.StringOutput `pulumi:"subnetIds"`
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -199,7 +201,7 @@ type openZfsFileSystemState struct {
 	// The filesystem storage type. Only `SSD` is supported.
 	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from.
-	SubnetIds *string `pulumi:"subnetIds"`
+	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -260,7 +262,7 @@ type OpenZfsFileSystemState struct {
 	// The filesystem storage type. Only `SSD` is supported.
 	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from.
-	SubnetIds pulumi.StringPtrInput
+	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -313,7 +315,7 @@ type openZfsFileSystemArgs struct {
 	// The filesystem storage type. Only `SSD` is supported.
 	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from.
-	SubnetIds string `pulumi:"subnetIds"`
+	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
@@ -357,7 +359,7 @@ type OpenZfsFileSystemArgs struct {
 	// The filesystem storage type. Only `SSD` is supported.
 	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from.
-	SubnetIds pulumi.StringInput
+	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Throughput (MB/s) of the file system. Valid values depend on `deploymentType`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
@@ -568,8 +570,8 @@ func (o OpenZfsFileSystemOutput) StorageType() pulumi.StringPtrOutput {
 }
 
 // A list of IDs for the subnets that the file system will be accessible from.
-func (o OpenZfsFileSystemOutput) SubnetIds() pulumi.StringOutput {
-	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringOutput { return v.SubnetIds }).(pulumi.StringOutput)
+func (o OpenZfsFileSystemOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OpenZfsFileSystem) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

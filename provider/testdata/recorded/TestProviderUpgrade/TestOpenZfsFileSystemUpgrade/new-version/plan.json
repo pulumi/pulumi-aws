@@ -1,0 +1,203 @@
+{
+    "config": {
+        "aws:region": "us-east-2"
+    },
+    "manifest": {
+        "time": "2024-06-21T11:53:56.242051-04:00",
+        "magic": "26455f4e783faab27da6c6ee2e252716b1c84e7f67777a274faa7d2452f68cf7",
+        "version": "v3.120.0"
+    },
+    "resourcePlans": {
+        "urn:pulumi:test::openzfs::aws:ec2/subnet:Subnet::MySubnet": {
+            "goal": {
+                "type": "aws:ec2/subnet:Subnet",
+                "name": "MySubnet",
+                "custom": true,
+                "inputDiff": {
+                    "adds": {
+                        "__defaults": [
+                            "assignIpv6AddressOnCreation",
+                            "enableDns64",
+                            "enableResourceNameDnsARecordOnLaunch",
+                            "enableResourceNameDnsAaaaRecordOnLaunch",
+                            "ipv6Native",
+                            "mapPublicIpOnLaunch"
+                        ],
+                        "assignIpv6AddressOnCreation": false,
+                        "cidrBlock": "10.0.1.0/24",
+                        "enableDns64": false,
+                        "enableResourceNameDnsARecordOnLaunch": false,
+                        "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                        "ipv6Native": false,
+                        "mapPublicIpOnLaunch": false,
+                        "vpcId": "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
+                    }
+                },
+                "outputDiff": {},
+                "parent": "urn:pulumi:test::openzfs::pulumi:pulumi:Stack::openzfs-test",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:test::openzfs::aws:ec2/vpc:Vpc::MyVPC"
+                ],
+                "provider": "urn:pulumi:test::openzfs::pulumi:providers:aws::default::04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "propertyDependencies": {
+                    "cidrBlock": [],
+                    "vpcId": [
+                        "urn:pulumi:test::openzfs::aws:ec2/vpc:Vpc::MyVPC"
+                    ]
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "create"
+            ],
+            "state": {
+                "assignIpv6AddressOnCreation": false,
+                "cidrBlock": "10.0.1.0/24",
+                "enableDns64": false,
+                "enableResourceNameDnsARecordOnLaunch": false,
+                "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                "id": "",
+                "ipv6Native": false,
+                "mapPublicIpOnLaunch": false
+            },
+            "seed": "A/8WUtf+VHqLjHFCAuMN/H4nGq+hqtjY6QEh8Os/gL4="
+        },
+        "urn:pulumi:test::openzfs::aws:ec2/vpc:Vpc::MyVPC": {
+            "goal": {
+                "type": "aws:ec2/vpc:Vpc",
+                "name": "MyVPC",
+                "custom": true,
+                "inputDiff": {
+                    "adds": {
+                        "__defaults": [
+                            "enableDnsSupport"
+                        ],
+                        "cidrBlock": "10.0.0.0/16",
+                        "enableDnsSupport": true
+                    }
+                },
+                "outputDiff": {},
+                "parent": "urn:pulumi:test::openzfs::pulumi:pulumi:Stack::openzfs-test",
+                "protect": false,
+                "provider": "urn:pulumi:test::openzfs::pulumi:providers:aws::default::04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "propertyDependencies": {
+                    "cidrBlock": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "create"
+            ],
+            "state": {
+                "cidrBlock": "10.0.0.0/16",
+                "enableDnsSupport": true,
+                "id": "",
+                "instanceTenancy": "default"
+            },
+            "seed": "HRRxtNXyCA/albslvw9oRcNpmS+ZdRFdAcgnfB8FoIE="
+        },
+        "urn:pulumi:test::openzfs::aws:fsx/openZfsFileSystem:OpenZfsFileSystem::MyFileSystem": {
+            "goal": {
+                "type": "aws:fsx/openZfsFileSystem:OpenZfsFileSystem",
+                "name": "MyFileSystem",
+                "custom": true,
+                "inputDiff": {
+                    "adds": {
+                        "__defaults": [
+                            "automaticBackupRetentionDays",
+                            "copyTagsToBackups",
+                            "copyTagsToVolumes",
+                            "skipFinalBackup",
+                            "storageType"
+                        ],
+                        "automaticBackupRetentionDays": 0,
+                        "copyTagsToBackups": false,
+                        "copyTagsToVolumes": false,
+                        "deploymentType": "SINGLE_AZ_1",
+                        "skipFinalBackup": false,
+                        "storageCapacity": 64,
+                        "storageType": "SSD",
+                        "subnetIds": [
+                            "04da6b54-80e4-46f7-96ec-b56ff0331ba9"
+                        ],
+                        "throughputCapacity": 64
+                    }
+                },
+                "outputDiff": {},
+                "parent": "urn:pulumi:test::openzfs::pulumi:pulumi:Stack::openzfs-test",
+                "protect": false,
+                "dependencies": [
+                    "urn:pulumi:test::openzfs::aws:ec2/subnet:Subnet::MySubnet"
+                ],
+                "provider": "urn:pulumi:test::openzfs::pulumi:providers:aws::default::04da6b54-80e4-46f7-96ec-b56ff0331ba9",
+                "propertyDependencies": {
+                    "deploymentType": [],
+                    "storageCapacity": [],
+                    "subnetIds": [
+                        "urn:pulumi:test::openzfs::aws:ec2/subnet:Subnet::MySubnet"
+                    ],
+                    "throughputCapacity": []
+                },
+                "customTimeouts": {}
+            },
+            "steps": [
+                "create"
+            ],
+            "state": {
+                "automaticBackupRetentionDays": 0,
+                "copyTagsToBackups": false,
+                "copyTagsToVolumes": false,
+                "deploymentType": "SINGLE_AZ_1",
+                "id": "",
+                "skipFinalBackup": false,
+                "storageCapacity": 64,
+                "storageType": "SSD",
+                "throughputCapacity": 64
+            },
+            "seed": "NS4cTu4tsZzJ3zXCCYZ4HRNa+pvgcsfy8WCM1CXgaZM="
+        },
+        "urn:pulumi:test::openzfs::pulumi:providers:aws::default": {
+            "goal": {
+                "type": "pulumi:providers:aws",
+                "name": "default",
+                "custom": true,
+                "inputDiff": {
+                    "adds": {
+                        "region": "us-east-2",
+                        "skipCredentialsValidation": "false",
+                        "skipRegionValidation": "true"
+                    }
+                },
+                "outputDiff": {},
+                "protect": false,
+                "customTimeouts": {}
+            },
+            "steps": [
+                "create"
+            ],
+            "state": {
+                "region": "us-east-2",
+                "skipCredentialsValidation": "false",
+                "skipRegionValidation": "true"
+            },
+            "seed": "JSoHt3w+sEo4jC1wjZar653mfk7+3s9KJhvV186L+Zs="
+        },
+        "urn:pulumi:test::openzfs::pulumi:pulumi:Stack::openzfs-test": {
+            "goal": {
+                "type": "pulumi:pulumi:Stack",
+                "name": "openzfs-test",
+                "custom": false,
+                "inputDiff": {},
+                "outputDiff": {},
+                "protect": false,
+                "customTimeouts": {}
+            },
+            "steps": [
+                "create"
+            ],
+            "state": {},
+            "seed": "O8GPxHK8Ggd/nl1FsTnBkwVPMj0BPEyPFbDKEnhS3iQ="
+        }
+    }
+}
