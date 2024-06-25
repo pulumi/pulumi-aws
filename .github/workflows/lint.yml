@@ -56,10 +56,3 @@ jobs:
       with:
         version: v1.58.0
         working-directory: provider
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in linting provider
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
