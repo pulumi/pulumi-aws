@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -119,7 +124,7 @@ class AwaitableGetUserResult(GetUserResult):
 
 
 def get_user(access_string: Optional[str] = None,
-             authentication_modes: Optional[Sequence[pulumi.InputType['GetUserAuthenticationModeArgs']]] = None,
+             authentication_modes: Optional[Sequence[Union['GetUserAuthenticationModeArgs', 'GetUserAuthenticationModeArgsDict']]] = None,
              engine: Optional[str] = None,
              no_password_required: Optional[bool] = None,
              passwords: Optional[Sequence[str]] = None,
@@ -167,7 +172,7 @@ def get_user(access_string: Optional[str] = None,
 
 @_utilities.lift_output_func(get_user)
 def get_user_output(access_string: Optional[pulumi.Input[Optional[str]]] = None,
-                    authentication_modes: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUserAuthenticationModeArgs']]]]] = None,
+                    authentication_modes: Optional[pulumi.Input[Optional[Sequence[Union['GetUserAuthenticationModeArgs', 'GetUserAuthenticationModeArgsDict']]]]] = None,
                     engine: Optional[pulumi.Input[Optional[str]]] = None,
                     no_password_required: Optional[pulumi.Input[Optional[bool]]] = None,
                     passwords: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,

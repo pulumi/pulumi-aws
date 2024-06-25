@@ -4,16 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CollaborationDataEncryptionMetadataArgs',
+    'CollaborationDataEncryptionMetadataArgsDict',
     'CollaborationMemberArgs',
+    'CollaborationMemberArgsDict',
     'ConfiguredTableTableReferenceArgs',
+    'ConfiguredTableTableReferenceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CollaborationDataEncryptionMetadataArgsDict(TypedDict):
+        allow_clear_text: pulumi.Input[bool]
+        allow_duplicates: pulumi.Input[bool]
+        allow_joins_on_columns_with_different_names: pulumi.Input[bool]
+        preserve_nulls: pulumi.Input[bool]
+elif False:
+    CollaborationDataEncryptionMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollaborationDataEncryptionMetadataArgs:
@@ -64,6 +83,15 @@ class CollaborationDataEncryptionMetadataArgs:
         pulumi.set(self, "preserve_nulls", value)
 
 
+if not MYPY:
+    class CollaborationMemberArgsDict(TypedDict):
+        account_id: pulumi.Input[str]
+        display_name: pulumi.Input[str]
+        member_abilities: pulumi.Input[Sequence[pulumi.Input[str]]]
+        status: NotRequired[pulumi.Input[str]]
+elif False:
+    CollaborationMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CollaborationMemberArgs:
     def __init__(__self__, *,
@@ -113,6 +141,13 @@ class CollaborationMemberArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class ConfiguredTableTableReferenceArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        table_name: pulumi.Input[str]
+elif False:
+    ConfiguredTableTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfiguredTableTableReferenceArgs:

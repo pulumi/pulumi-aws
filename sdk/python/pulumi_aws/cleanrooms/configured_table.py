@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -299,7 +304,7 @@ class ConfiguredTable(pulumi.CustomResource):
                  analysis_method: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 table_reference: Optional[pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']]] = None,
+                 table_reference: Optional[pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -322,10 +327,10 @@ class ConfiguredTable(pulumi.CustomResource):
                 "column2",
                 "column3",
             ],
-            table_reference=aws.cleanrooms.ConfiguredTableTableReferenceArgs(
-                database_name="example_database",
-                table_name="example_table",
-            ),
+            table_reference={
+                "databaseName": "example_database",
+                "tableName": "example_table",
+            },
             tags={
                 "Project": "Pulumi",
             })
@@ -345,7 +350,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[str] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: The name of the configured table.
-        :param pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
+        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
                * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key value pairs which tag the configured table.
@@ -376,10 +381,10 @@ class ConfiguredTable(pulumi.CustomResource):
                 "column2",
                 "column3",
             ],
-            table_reference=aws.cleanrooms.ConfiguredTableTableReferenceArgs(
-                database_name="example_database",
-                table_name="example_table",
-            ),
+            table_reference={
+                "databaseName": "example_database",
+                "tableName": "example_table",
+            },
             tags={
                 "Project": "Pulumi",
             })
@@ -412,7 +417,7 @@ class ConfiguredTable(pulumi.CustomResource):
                  analysis_method: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 table_reference: Optional[pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']]] = None,
+                 table_reference: Optional[pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -455,7 +460,7 @@ class ConfiguredTable(pulumi.CustomResource):
             create_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            table_reference: Optional[pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']]] = None,
+            table_reference: Optional[pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             update_time: Optional[pulumi.Input[str]] = None) -> 'ConfiguredTable':
@@ -472,7 +477,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[str] create_time: The date and time the configured table was created.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: The name of the configured table.
-        :param pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
+        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: A reference to the AWS Glue table which will be used to create the configured table.
                * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
                * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key value pairs which tag the configured table.

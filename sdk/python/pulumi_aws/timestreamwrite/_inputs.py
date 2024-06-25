@@ -4,19 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'TableMagneticStoreWritePropertiesArgs',
+    'TableMagneticStoreWritePropertiesArgsDict',
     'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs',
+    'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict',
     'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs',
+    'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgsDict',
     'TableRetentionPropertiesArgs',
+    'TableRetentionPropertiesArgsDict',
     'TableSchemaArgs',
+    'TableSchemaArgsDict',
     'TableSchemaCompositePartitionKeyArgs',
+    'TableSchemaCompositePartitionKeyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class TableMagneticStoreWritePropertiesArgsDict(TypedDict):
+        enable_magnetic_store_writes: NotRequired[pulumi.Input[bool]]
+        """
+        A flag to enable magnetic store writes.
+        """
+        magnetic_store_rejected_data_location: NotRequired[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict']]
+        """
+        The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+        """
+elif False:
+    TableMagneticStoreWritePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableMagneticStoreWritePropertiesArgs:
@@ -57,6 +83,15 @@ class TableMagneticStoreWritePropertiesArgs:
         pulumi.set(self, "magnetic_store_rejected_data_location", value)
 
 
+if not MYPY:
+    class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict(TypedDict):
+        s3_configuration: NotRequired[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgsDict']]
+        """
+        Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+        """
+elif False:
+    TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs:
     def __init__(__self__, *,
@@ -79,6 +114,27 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs:
     def s3_configuration(self, value: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]):
         pulumi.set(self, "s3_configuration", value)
 
+
+if not MYPY:
+    class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgsDict(TypedDict):
+        bucket_name: NotRequired[pulumi.Input[str]]
+        """
+        Bucket name of the customer S3 bucket.
+        """
+        encryption_option: NotRequired[pulumi.Input[str]]
+        """
+        Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        KMS key arn for the customer s3 location when encrypting with a KMS managed key.
+        """
+        object_key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        Object key prefix for the customer S3 location.
+        """
+elif False:
+    TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs:
@@ -151,6 +207,19 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
         pulumi.set(self, "object_key_prefix", value)
 
 
+if not MYPY:
+    class TableRetentionPropertiesArgsDict(TypedDict):
+        magnetic_store_retention_period_in_days: pulumi.Input[int]
+        """
+        The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+        """
+        memory_store_retention_period_in_hours: pulumi.Input[int]
+        """
+        The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+        """
+elif False:
+    TableRetentionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableRetentionPropertiesArgs:
     def __init__(__self__, *,
@@ -188,6 +257,15 @@ class TableRetentionPropertiesArgs:
         pulumi.set(self, "memory_store_retention_period_in_hours", value)
 
 
+if not MYPY:
+    class TableSchemaArgsDict(TypedDict):
+        composite_partition_key: NotRequired[pulumi.Input['TableSchemaCompositePartitionKeyArgsDict']]
+        """
+        A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+        """
+elif False:
+    TableSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableSchemaArgs:
     def __init__(__self__, *,
@@ -210,6 +288,23 @@ class TableSchemaArgs:
     def composite_partition_key(self, value: Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']]):
         pulumi.set(self, "composite_partition_key", value)
 
+
+if not MYPY:
+    class TableSchemaCompositePartitionKeyArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+        """
+        enforcement_in_record: NotRequired[pulumi.Input[str]]
+        """
+        The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the attribute used for a dimension key.
+        """
+elif False:
+    TableSchemaCompositePartitionKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableSchemaCompositePartitionKeyArgs:

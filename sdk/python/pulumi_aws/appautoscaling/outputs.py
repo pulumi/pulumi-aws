@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -66,20 +71,20 @@ class PolicyStepScalingPolicyConfiguration(dict):
                import pulumi
                import pulumi_aws as aws
                
-               ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-                   step_adjustments=[
-                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                           metric_interval_lower_bound="1",
-                           metric_interval_upper_bound="2",
-                           scaling_adjustment=-1,
-                       ),
-                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                           metric_interval_lower_bound="2",
-                           metric_interval_upper_bound="3",
-                           scaling_adjustment=1,
-                       ),
+               ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
+                   "stepAdjustments": [
+                       {
+                           "metricIntervalLowerBound": "1",
+                           "metricIntervalUpperBound": "2",
+                           "scalingAdjustment": -1,
+                       },
+                       {
+                           "metricIntervalLowerBound": "2",
+                           "metricIntervalUpperBound": "3",
+                           "scalingAdjustment": 1,
+                       },
                    ],
-               ))
+               })
                ```
         """
         if adjustment_type is not None:
@@ -135,20 +140,20 @@ class PolicyStepScalingPolicyConfiguration(dict):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-            step_adjustments=[
-                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                    metric_interval_lower_bound="1",
-                    metric_interval_upper_bound="2",
-                    scaling_adjustment=-1,
-                ),
-                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                    metric_interval_lower_bound="2",
-                    metric_interval_upper_bound="3",
-                    scaling_adjustment=1,
-                ),
+        ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
+            "stepAdjustments": [
+                {
+                    "metricIntervalLowerBound": "1",
+                    "metricIntervalUpperBound": "2",
+                    "scalingAdjustment": -1,
+                },
+                {
+                    "metricIntervalLowerBound": "2",
+                    "metricIntervalUpperBound": "3",
+                    "scalingAdjustment": 1,
+                },
             ],
-        ))
+        })
         ```
         """
         return pulumi.get(self, "step_adjustments")

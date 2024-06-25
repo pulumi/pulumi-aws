@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -70,11 +75,11 @@ def get_hosted_zone_id(region: Optional[str] = None,
         zone_id=primary["zoneId"],
         name="example.com",
         type=aws.route53.RecordType.A,
-        aliases=[aws.route53.RecordAliasArgs(
-            name=main_aws_apprunner_custom_domain_association["dnsTarget"],
-            zone_id=main.id,
-            evaluate_target_health=True,
-        )])
+        aliases=[{
+            "name": main_aws_apprunner_custom_domain_association["dnsTarget"],
+            "zoneId": main.id,
+            "evaluateTargetHealth": True,
+        }])
     ```
 
 
@@ -109,11 +114,11 @@ def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = No
         zone_id=primary["zoneId"],
         name="example.com",
         type=aws.route53.RecordType.A,
-        aliases=[aws.route53.RecordAliasArgs(
-            name=main_aws_apprunner_custom_domain_association["dnsTarget"],
-            zone_id=main.id,
-            evaluate_target_health=True,
-        )])
+        aliases=[{
+            "name": main_aws_apprunner_custom_domain_association["dnsTarget"],
+            "zoneId": main.id,
+            "evaluateTargetHealth": True,
+        }])
     ```
 
 

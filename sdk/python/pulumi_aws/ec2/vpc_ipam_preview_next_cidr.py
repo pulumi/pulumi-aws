@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['VpcIpamPreviewNextCidrArgs', 'VpcIpamPreviewNextCidr']
@@ -159,9 +164,9 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
+        example_vpc_ipam = aws.ec2.VpcIpam("example", operating_regions=[{
+            "regionName": current.name,
+        }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example_vpc_ipam.private_default_scope_id,
@@ -200,9 +205,9 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
+        example_vpc_ipam = aws.ec2.VpcIpam("example", operating_regions=[{
+            "regionName": current.name,
+        }])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("example",
             address_family="ipv4",
             ipam_scope_id=example_vpc_ipam.private_default_scope_id,

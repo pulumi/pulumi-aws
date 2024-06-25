@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -480,7 +485,7 @@ class Product(pulumi.CustomResource):
                  distributor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']]] = None,
+                 provisioning_artifact_parameters: Optional[pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
                  support_description: Optional[pulumi.Input[str]] = None,
                  support_email: Optional[pulumi.Input[str]] = None,
                  support_url: Optional[pulumi.Input[str]] = None,
@@ -506,9 +511,9 @@ class Product(pulumi.CustomResource):
             name="example",
             owner="example-owner",
             type="CLOUD_FORMATION_TEMPLATE",
-            provisioning_artifact_parameters=aws.servicecatalog.ProductProvisioningArtifactParametersArgs(
-                template_url="https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
-            ),
+            provisioning_artifact_parameters={
+                "templateUrl": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
+            },
             tags={
                 "foo": "bar",
             })
@@ -529,7 +534,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] distributor: Distributor (i.e., vendor) of the product.
         :param pulumi.Input[str] name: Name of the product.
         :param pulumi.Input[str] owner: Owner of the product.
-        :param pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+        :param pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         :param pulumi.Input[str] support_description: Support information about the product.
         :param pulumi.Input[str] support_email: Contact email for product support.
         :param pulumi.Input[str] support_url: Contact URL for product support.
@@ -563,9 +568,9 @@ class Product(pulumi.CustomResource):
             name="example",
             owner="example-owner",
             type="CLOUD_FORMATION_TEMPLATE",
-            provisioning_artifact_parameters=aws.servicecatalog.ProductProvisioningArtifactParametersArgs(
-                template_url="https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
-            ),
+            provisioning_artifact_parameters={
+                "templateUrl": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
+            },
             tags={
                 "foo": "bar",
             })
@@ -599,7 +604,7 @@ class Product(pulumi.CustomResource):
                  distributor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']]] = None,
+                 provisioning_artifact_parameters: Optional[pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
                  support_description: Optional[pulumi.Input[str]] = None,
                  support_email: Optional[pulumi.Input[str]] = None,
                  support_url: Optional[pulumi.Input[str]] = None,
@@ -654,7 +659,7 @@ class Product(pulumi.CustomResource):
             has_default_path: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
-            provisioning_artifact_parameters: Optional[pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']]] = None,
+            provisioning_artifact_parameters: Optional[pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             support_description: Optional[pulumi.Input[str]] = None,
             support_email: Optional[pulumi.Input[str]] = None,
@@ -677,7 +682,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[bool] has_default_path: Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
         :param pulumi.Input[str] name: Name of the product.
         :param pulumi.Input[str] owner: Owner of the product.
-        :param pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+        :param pulumi.Input[Union['ProductProvisioningArtifactParametersArgs', 'ProductProvisioningArtifactParametersArgsDict']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         :param pulumi.Input[str] status: Status of the product.
         :param pulumi.Input[str] support_description: Support information about the product.
         :param pulumi.Input[str] support_email: Contact email for product support.

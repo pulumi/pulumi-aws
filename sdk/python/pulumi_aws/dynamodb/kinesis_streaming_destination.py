@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['KinesisStreamingDestinationArgs', 'KinesisStreamingDestination']
@@ -113,10 +118,10 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         example = aws.dynamodb.Table("example",
             name="orders",
             hash_key="id",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="id",
-                type="S",
-            )])
+            attributes=[{
+                "name": "id",
+                "type": "S",
+            }])
         example_stream = aws.kinesis.Stream("example",
             name="order_item_changes",
             shard_count=1)
@@ -157,10 +162,10 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         example = aws.dynamodb.Table("example",
             name="orders",
             hash_key="id",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="id",
-                type="S",
-            )])
+            attributes=[{
+                "name": "id",
+                "type": "S",
+            }])
         example_stream = aws.kinesis.Stream("example",
             name="order_item_changes",
             shard_count=1)

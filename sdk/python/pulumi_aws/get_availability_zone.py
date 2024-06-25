@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -190,7 +195,7 @@ class AwaitableGetAvailabilityZoneResult(GetAvailabilityZoneResult):
 
 
 def get_availability_zone(all_availability_zones: Optional[bool] = None,
-                          filters: Optional[Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']]] = None,
+                          filters: Optional[Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']]] = None,
                           name: Optional[str] = None,
                           state: Optional[str] = None,
                           zone_id: Optional[str] = None,
@@ -255,7 +260,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str name: Full name of the availability zone to select.
     :param str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param str zone_id: Zone ID of the availability zone to select.
@@ -288,7 +293,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
 
 @_utilities.lift_output_func(get_availability_zone)
 def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[Optional[bool]]] = None,
-                                 filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']]]]] = None,
+                                 filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']]]]] = None,
                                  name: Optional[pulumi.Input[Optional[str]]] = None,
                                  state: Optional[pulumi.Input[Optional[str]]] = None,
                                  zone_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -353,7 +358,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetAvailabilityZoneFilterArgs', 'GetAvailabilityZoneFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str name: Full name of the availability zone to select.
     :param str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param str zone_id: Zone ID of the availability zone to select.

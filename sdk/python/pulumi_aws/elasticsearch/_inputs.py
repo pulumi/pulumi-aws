@@ -4,32 +4,75 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DomainAdvancedSecurityOptionsArgs',
+    'DomainAdvancedSecurityOptionsArgsDict',
     'DomainAdvancedSecurityOptionsMasterUserOptionsArgs',
+    'DomainAdvancedSecurityOptionsMasterUserOptionsArgsDict',
     'DomainAutoTuneOptionsArgs',
+    'DomainAutoTuneOptionsArgsDict',
     'DomainAutoTuneOptionsMaintenanceScheduleArgs',
+    'DomainAutoTuneOptionsMaintenanceScheduleArgsDict',
     'DomainAutoTuneOptionsMaintenanceScheduleDurationArgs',
+    'DomainAutoTuneOptionsMaintenanceScheduleDurationArgsDict',
     'DomainClusterConfigArgs',
+    'DomainClusterConfigArgsDict',
     'DomainClusterConfigColdStorageOptionsArgs',
+    'DomainClusterConfigColdStorageOptionsArgsDict',
     'DomainClusterConfigZoneAwarenessConfigArgs',
+    'DomainClusterConfigZoneAwarenessConfigArgsDict',
     'DomainCognitoOptionsArgs',
+    'DomainCognitoOptionsArgsDict',
     'DomainDomainEndpointOptionsArgs',
+    'DomainDomainEndpointOptionsArgsDict',
     'DomainEbsOptionsArgs',
+    'DomainEbsOptionsArgsDict',
     'DomainEncryptAtRestArgs',
+    'DomainEncryptAtRestArgsDict',
     'DomainLogPublishingOptionArgs',
+    'DomainLogPublishingOptionArgsDict',
     'DomainNodeToNodeEncryptionArgs',
+    'DomainNodeToNodeEncryptionArgsDict',
     'DomainSamlOptionsSamlOptionsArgs',
+    'DomainSamlOptionsSamlOptionsArgsDict',
     'DomainSamlOptionsSamlOptionsIdpArgs',
+    'DomainSamlOptionsSamlOptionsIdpArgsDict',
     'DomainSnapshotOptionsArgs',
+    'DomainSnapshotOptionsArgsDict',
     'DomainVpcOptionsArgs',
+    'DomainVpcOptionsArgsDict',
     'VpcEndpointVpcOptionsArgs',
+    'VpcEndpointVpcOptionsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DomainAdvancedSecurityOptionsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Whether advanced security is enabled.
+        """
+        internal_user_database_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
+        """
+        master_user_options: NotRequired[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgsDict']]
+        """
+        Configuration block for the main user. Detailed below.
+        """
+elif False:
+    DomainAdvancedSecurityOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainAdvancedSecurityOptionsArgs:
@@ -84,6 +127,23 @@ class DomainAdvancedSecurityOptionsArgs:
     def master_user_options(self, value: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']]):
         pulumi.set(self, "master_user_options", value)
 
+
+if not MYPY:
+    class DomainAdvancedSecurityOptionsMasterUserOptionsArgsDict(TypedDict):
+        master_user_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN for the main user. Only specify if `internal_user_database_enabled` is not set or set to `false`.
+        """
+        master_user_name: NotRequired[pulumi.Input[str]]
+        """
+        Main user's username, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+        """
+        master_user_password: NotRequired[pulumi.Input[str]]
+        """
+        Main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
+        """
+elif False:
+    DomainAdvancedSecurityOptionsMasterUserOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainAdvancedSecurityOptionsMasterUserOptionsArgs:
@@ -140,6 +200,23 @@ class DomainAdvancedSecurityOptionsMasterUserOptionsArgs:
         pulumi.set(self, "master_user_password", value)
 
 
+if not MYPY:
+    class DomainAutoTuneOptionsArgsDict(TypedDict):
+        desired_state: pulumi.Input[str]
+        """
+        The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        """
+        maintenance_schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgsDict']]]]
+        """
+        Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+        """
+        rollback_on_disable: NotRequired[pulumi.Input[str]]
+        """
+        Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+        """
+elif False:
+    DomainAutoTuneOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainAutoTuneOptionsArgs:
     def __init__(__self__, *,
@@ -194,6 +271,23 @@ class DomainAutoTuneOptionsArgs:
         pulumi.set(self, "rollback_on_disable", value)
 
 
+if not MYPY:
+    class DomainAutoTuneOptionsMaintenanceScheduleArgsDict(TypedDict):
+        cron_expression_for_recurrence: pulumi.Input[str]
+        """
+        A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+        """
+        duration: pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArgsDict']
+        """
+        Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+        """
+        start_at: pulumi.Input[str]
+        """
+        Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
+elif False:
+    DomainAutoTuneOptionsMaintenanceScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainAutoTuneOptionsMaintenanceScheduleArgs:
     def __init__(__self__, *,
@@ -246,6 +340,19 @@ class DomainAutoTuneOptionsMaintenanceScheduleArgs:
         pulumi.set(self, "start_at", value)
 
 
+if not MYPY:
+    class DomainAutoTuneOptionsMaintenanceScheduleDurationArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+        """
+        value: pulumi.Input[int]
+        """
+        An integer specifying the value of the duration of an Auto-Tune maintenance window.
+        """
+elif False:
+    DomainAutoTuneOptionsMaintenanceScheduleDurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs:
     def __init__(__self__, *,
@@ -282,6 +389,55 @@ class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class DomainClusterConfigArgsDict(TypedDict):
+        cold_storage_options: NotRequired[pulumi.Input['DomainClusterConfigColdStorageOptionsArgsDict']]
+        """
+        Configuration block containing cold storage configuration. Detailed below.
+        """
+        dedicated_master_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of dedicated main nodes in the cluster.
+        """
+        dedicated_master_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether dedicated main nodes are enabled for the cluster.
+        """
+        dedicated_master_type: NotRequired[pulumi.Input[str]]
+        """
+        Instance type of the dedicated main nodes in the cluster.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of instances in the cluster.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        Instance type of data nodes in the cluster.
+        """
+        warm_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
+        """
+        warm_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable warm storage.
+        """
+        warm_type: NotRequired[pulumi.Input[str]]
+        """
+        Instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
+        """
+        zone_awareness_config: NotRequired[pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgsDict']]
+        """
+        Configuration block containing zone awareness settings. Detailed below.
+        """
+        zone_awareness_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
+        """
+elif False:
+    DomainClusterConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainClusterConfigArgs:
@@ -466,6 +622,15 @@ class DomainClusterConfigArgs:
         pulumi.set(self, "zone_awareness_enabled", value)
 
 
+if not MYPY:
+    class DomainClusterConfigColdStorageOptionsArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean to enable cold storage for an Elasticsearch domain. Defaults to `false`. Master and ultrawarm nodes must be enabled for cold storage.
+        """
+elif False:
+    DomainClusterConfigColdStorageOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainClusterConfigColdStorageOptionsArgs:
     def __init__(__self__, *,
@@ -489,6 +654,15 @@ class DomainClusterConfigColdStorageOptionsArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DomainClusterConfigZoneAwarenessConfigArgsDict(TypedDict):
+        availability_zone_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of Availability Zones for the domain to use with `zone_awareness_enabled`. Defaults to `2`. Valid values: `2` or `3`.
+        """
+elif False:
+    DomainClusterConfigZoneAwarenessConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainClusterConfigZoneAwarenessConfigArgs:
     def __init__(__self__, *,
@@ -511,6 +685,27 @@ class DomainClusterConfigZoneAwarenessConfigArgs:
     def availability_zone_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "availability_zone_count", value)
 
+
+if not MYPY:
+    class DomainCognitoOptionsArgsDict(TypedDict):
+        identity_pool_id: pulumi.Input[str]
+        """
+        ID of the Cognito Identity Pool to use.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        ARN of the IAM role that has the AmazonESCognitoAccess policy attached.
+        """
+        user_pool_id: pulumi.Input[str]
+        """
+        ID of the Cognito User Pool to use.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether Amazon Cognito authentication with Kibana is enabled or not.
+        """
+elif False:
+    DomainCognitoOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainCognitoOptionsArgs:
@@ -579,6 +774,31 @@ class DomainCognitoOptionsArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DomainDomainEndpointOptionsArgsDict(TypedDict):
+        custom_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified domain for your custom endpoint.
+        """
+        custom_endpoint_certificate_arn: NotRequired[pulumi.Input[str]]
+        """
+        ACM certificate ARN for your custom endpoint.
+        """
+        custom_endpoint_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable custom endpoint for the Elasticsearch domain.
+        """
+        enforce_https: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not to require HTTPS. Defaults to `true`.
+        """
+        tls_security_policy: NotRequired[pulumi.Input[str]]
+        """
+        Name of the TLS security policy that needs to be applied to the HTTPS endpoint. Valid values:  `Policy-Min-TLS-1-0-2019-07` and `Policy-Min-TLS-1-2-2019-07`. The provider will only perform drift detection if a configuration value is provided.
+        """
+elif False:
+    DomainDomainEndpointOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainDomainEndpointOptionsArgs:
@@ -667,6 +887,31 @@ class DomainDomainEndpointOptionsArgs:
         pulumi.set(self, "tls_security_policy", value)
 
 
+if not MYPY:
+    class DomainEbsOptionsArgsDict(TypedDict):
+        ebs_enabled: pulumi.Input[bool]
+        """
+        Whether EBS volumes are attached to data nodes in the domain.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the GP3 and Provisioned IOPS EBS volume types.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the throughput (in MiB/s) of the EBS volumes attached to data nodes. Applicable only for the gp3 volume type.
+        """
+        volume_size: NotRequired[pulumi.Input[int]]
+        """
+        Size of EBS volumes attached to data nodes (in GiB).
+        """
+        volume_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of EBS volumes attached to data nodes.
+        """
+elif False:
+    DomainEbsOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainEbsOptionsArgs:
     def __init__(__self__, *,
@@ -753,6 +998,19 @@ class DomainEbsOptionsArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class DomainEncryptAtRestArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable encryption at rest. If the `encrypt_at_rest` block is not provided then this defaults to `false`. Enabling encryption on new domains requires `elasticsearch_version` 5.1 or greater.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        KMS key ARN to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key. Note that KMS will accept a KMS key ID but will return the key ARN. To prevent the provider detecting unwanted changes, use the key ARN instead.
+        """
+elif False:
+    DomainEncryptAtRestArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainEncryptAtRestArgs:
     def __init__(__self__, *,
@@ -790,6 +1048,23 @@ class DomainEncryptAtRestArgs:
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
 
+
+if not MYPY:
+    class DomainLogPublishingOptionArgsDict(TypedDict):
+        cloudwatch_log_group_arn: pulumi.Input[str]
+        """
+        ARN of the Cloudwatch log group to which log needs to be published.
+        """
+        log_type: pulumi.Input[str]
+        """
+        Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether given log publishing option is enabled or not.
+        """
+elif False:
+    DomainLogPublishingOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainLogPublishingOptionArgs:
@@ -844,6 +1119,15 @@ class DomainLogPublishingOptionArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class DomainNodeToNodeEncryptionArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
+        """
+elif False:
+    DomainNodeToNodeEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainNodeToNodeEncryptionArgs:
     def __init__(__self__, *,
@@ -865,6 +1149,39 @@ class DomainNodeToNodeEncryptionArgs:
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class DomainSamlOptionsSamlOptionsArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether SAML authentication is enabled.
+        """
+        idp: NotRequired[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArgsDict']]
+        """
+        Information from your identity provider.
+        """
+        master_backend_role: NotRequired[pulumi.Input[str]]
+        """
+        This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+        """
+        master_user_name: NotRequired[pulumi.Input[str]]
+        """
+        This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+        """
+        roles_key: NotRequired[pulumi.Input[str]]
+        """
+        Element of the SAML assertion to use for backend roles. Default is roles.
+        """
+        session_timeout_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+        """
+        subject_key: NotRequired[pulumi.Input[str]]
+        """
+        Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
+        """
+elif False:
+    DomainSamlOptionsSamlOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainSamlOptionsSamlOptionsArgs:
@@ -985,6 +1302,19 @@ class DomainSamlOptionsSamlOptionsArgs:
         pulumi.set(self, "subject_key", value)
 
 
+if not MYPY:
+    class DomainSamlOptionsSamlOptionsIdpArgsDict(TypedDict):
+        entity_id: pulumi.Input[str]
+        """
+        The unique Entity ID of the application in SAML Identity Provider.
+        """
+        metadata_content: pulumi.Input[str]
+        """
+        The Metadata of the SAML application in xml format.
+        """
+elif False:
+    DomainSamlOptionsSamlOptionsIdpArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainSamlOptionsSamlOptionsIdpArgs:
     def __init__(__self__, *,
@@ -1022,6 +1352,15 @@ class DomainSamlOptionsSamlOptionsIdpArgs:
         pulumi.set(self, "metadata_content", value)
 
 
+if not MYPY:
+    class DomainSnapshotOptionsArgsDict(TypedDict):
+        automated_snapshot_start_hour: pulumi.Input[int]
+        """
+        Hour during which the service takes an automated daily snapshot of the indices in the domain.
+        """
+elif False:
+    DomainSnapshotOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainSnapshotOptionsArgs:
     def __init__(__self__, *,
@@ -1043,6 +1382,27 @@ class DomainSnapshotOptionsArgs:
     def automated_snapshot_start_hour(self, value: pulumi.Input[int]):
         pulumi.set(self, "automated_snapshot_start_hour", value)
 
+
+if not MYPY:
+    class DomainVpcOptionsArgsDict(TypedDict):
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        If the domain was created inside a VPC, the names of the availability zones the configured `subnet_ids` were created inside.
+        """
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of VPC Security Group IDs to be applied to the Elasticsearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of VPC Subnet IDs for the Elasticsearch domain endpoints to be created in.
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+        """
+        If the domain was created inside a VPC, the ID of the VPC.
+        """
+elif False:
+    DomainVpcOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainVpcOptionsArgs:
@@ -1114,6 +1474,21 @@ class DomainVpcOptionsArgs:
     def vpc_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_id", value)
 
+
+if not MYPY:
+    class VpcEndpointVpcOptionsArgsDict(TypedDict):
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, elasticsearch Service uses the default security group for the VPC.
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+elif False:
+    VpcEndpointVpcOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpcEndpointVpcOptionsArgs:

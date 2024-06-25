@@ -4,18 +4,59 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ProductProvisioningArtifactParametersArgs',
+    'ProductProvisioningArtifactParametersArgsDict',
     'ProvisionedProductOutputArgs',
+    'ProvisionedProductOutputArgsDict',
     'ProvisionedProductProvisioningParameterArgs',
+    'ProvisionedProductProvisioningParameterArgsDict',
     'ProvisionedProductStackSetProvisioningPreferencesArgs',
+    'ProvisionedProductStackSetProvisioningPreferencesArgsDict',
     'ServiceActionDefinitionArgs',
+    'ServiceActionDefinitionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ProductProvisioningArtifactParametersArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
+        """
+        disable_template_validation: NotRequired[pulumi.Input[bool]]
+        """
+        Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
+        """
+        template_physical_id: NotRequired[pulumi.Input[str]]
+        """
+        Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
+        """
+        template_url: NotRequired[pulumi.Input[str]]
+        """
+        Template source as URL of the CloudFormation template in Amazon S3.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
+        """
+elif False:
+    ProductProvisioningArtifactParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProductProvisioningArtifactParametersArgs:
@@ -120,6 +161,23 @@ class ProductProvisioningArtifactParametersArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ProvisionedProductOutputArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the output.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The output key.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The output value.
+        """
+elif False:
+    ProvisionedProductOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProvisionedProductOutputArgs:
     def __init__(__self__, *,
@@ -175,6 +233,23 @@ class ProvisionedProductOutputArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ProvisionedProductProvisioningParameterArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Parameter key.
+        """
+        use_previous_value: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Parameter value.
+        """
+elif False:
+    ProvisionedProductProvisioningParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProvisionedProductProvisioningParameterArgs:
     def __init__(__self__, *,
@@ -228,6 +303,35 @@ class ProvisionedProductProvisioningParameterArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ProvisionedProductStackSetProvisioningPreferencesArgsDict(TypedDict):
+        accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
+        """
+        failure_tolerance_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both. The default value is 0 if no value is specified.
+        """
+        failure_tolerance_percentage: NotRequired[pulumi.Input[int]]
+        """
+        Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both.
+        """
+        max_concurrency_count: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failure_tolerance_count`. `max_concurrency_count` is at most one more than the `failure_tolerance_count`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
+        """
+        max_concurrency_percentage: NotRequired[pulumi.Input[int]]
+        """
+        Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
+        """
+        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
+        """
+elif False:
+    ProvisionedProductStackSetProvisioningPreferencesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProvisionedProductStackSetProvisioningPreferencesArgs:
@@ -331,6 +435,31 @@ class ProvisionedProductStackSetProvisioningPreferencesArgs:
     def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "regions", value)
 
+
+if not MYPY:
+    class ServiceActionDefinitionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
+        """
+        version: pulumi.Input[str]
+        """
+        SSM document version. For example, `1`.
+        """
+        assume_role: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        List of parameters in JSON format. For example: `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TARGET\\"}]` or `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TEXT_VALUE\\"}]`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
+        """
+elif False:
+    ServiceActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceActionDefinitionArgs:

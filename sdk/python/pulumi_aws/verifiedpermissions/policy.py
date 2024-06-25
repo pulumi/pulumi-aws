@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -129,7 +134,7 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['PolicyDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
                  policy_store_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -145,11 +150,11 @@ class Policy(pulumi.CustomResource):
 
         test = aws.verifiedpermissions.Policy("test",
             policy_store_id=test_aws_verifiedpermissions_policy_store["id"],
-            definition=aws.verifiedpermissions.PolicyDefinitionArgs(
-                static=aws.verifiedpermissions.PolicyDefinitionStaticArgs(
-                    statement="permit (principal, action == Action::\\"view\\", resource in Album:: \\"test_album\\");",
-                ),
-            ))
+            definition={
+                "static": {
+                    "statement": "permit (principal, action == Action::\\"view\\", resource in Album:: \\"test_album\\");",
+                },
+            })
         ```
 
         ## Import
@@ -162,7 +167,7 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PolicyDefinitionArgs']] definition: The definition of the policy. See Definition below.
+        :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']] definition: The definition of the policy. See Definition below.
         :param pulumi.Input[str] policy_store_id: The Policy Store ID of the policy store.
         """
         ...
@@ -184,11 +189,11 @@ class Policy(pulumi.CustomResource):
 
         test = aws.verifiedpermissions.Policy("test",
             policy_store_id=test_aws_verifiedpermissions_policy_store["id"],
-            definition=aws.verifiedpermissions.PolicyDefinitionArgs(
-                static=aws.verifiedpermissions.PolicyDefinitionStaticArgs(
-                    statement="permit (principal, action == Action::\\"view\\", resource in Album:: \\"test_album\\");",
-                ),
-            ))
+            definition={
+                "static": {
+                    "statement": "permit (principal, action == Action::\\"view\\", resource in Album:: \\"test_album\\");",
+                },
+            })
         ```
 
         ## Import
@@ -214,7 +219,7 @@ class Policy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['PolicyDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
                  policy_store_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -242,7 +247,7 @@ class Policy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             created_date: Optional[pulumi.Input[str]] = None,
-            definition: Optional[pulumi.Input[pulumi.InputType['PolicyDefinitionArgs']]] = None,
+            definition: Optional[pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']]] = None,
             policy_id: Optional[pulumi.Input[str]] = None,
             policy_store_id: Optional[pulumi.Input[str]] = None) -> 'Policy':
         """
@@ -253,7 +258,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_date: The date the policy was created.
-        :param pulumi.Input[pulumi.InputType['PolicyDefinitionArgs']] definition: The definition of the policy. See Definition below.
+        :param pulumi.Input[Union['PolicyDefinitionArgs', 'PolicyDefinitionArgsDict']] definition: The definition of the policy. See Definition below.
         :param pulumi.Input[str] policy_id: The Policy ID of the policy.
         :param pulumi.Input[str] policy_store_id: The Policy Store ID of the policy store.
         """

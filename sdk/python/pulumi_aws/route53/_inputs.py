@@ -4,35 +4,80 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'RecordAliasArgs',
+    'RecordAliasArgsDict',
     'RecordCidrRoutingPolicyArgs',
+    'RecordCidrRoutingPolicyArgsDict',
     'RecordFailoverRoutingPolicyArgs',
+    'RecordFailoverRoutingPolicyArgsDict',
     'RecordGeolocationRoutingPolicyArgs',
+    'RecordGeolocationRoutingPolicyArgsDict',
     'RecordGeoproximityRoutingPolicyArgs',
+    'RecordGeoproximityRoutingPolicyArgsDict',
     'RecordGeoproximityRoutingPolicyCoordinateArgs',
+    'RecordGeoproximityRoutingPolicyCoordinateArgsDict',
     'RecordLatencyRoutingPolicyArgs',
+    'RecordLatencyRoutingPolicyArgsDict',
     'RecordWeightedRoutingPolicyArgs',
+    'RecordWeightedRoutingPolicyArgsDict',
     'ResolverEndpointIpAddressArgs',
+    'ResolverEndpointIpAddressArgsDict',
     'ResolverRuleTargetIpArgs',
+    'ResolverRuleTargetIpArgsDict',
     'ZoneVpcArgs',
+    'ZoneVpcArgsDict',
     'GetQueryLogConfigFilterArgs',
+    'GetQueryLogConfigFilterArgsDict',
     'GetResolverEndpointFilterArgs',
+    'GetResolverEndpointFilterArgsDict',
     'GetTrafficPolicyDocumentEndpointArgs',
+    'GetTrafficPolicyDocumentEndpointArgsDict',
     'GetTrafficPolicyDocumentRuleArgs',
+    'GetTrafficPolicyDocumentRuleArgsDict',
     'GetTrafficPolicyDocumentRuleGeoProximityLocationArgs',
+    'GetTrafficPolicyDocumentRuleGeoProximityLocationArgsDict',
     'GetTrafficPolicyDocumentRuleItemArgs',
+    'GetTrafficPolicyDocumentRuleItemArgsDict',
     'GetTrafficPolicyDocumentRuleLocationArgs',
+    'GetTrafficPolicyDocumentRuleLocationArgsDict',
     'GetTrafficPolicyDocumentRulePrimaryArgs',
+    'GetTrafficPolicyDocumentRulePrimaryArgsDict',
     'GetTrafficPolicyDocumentRuleRegionArgs',
+    'GetTrafficPolicyDocumentRuleRegionArgsDict',
     'GetTrafficPolicyDocumentRuleSecondaryArgs',
+    'GetTrafficPolicyDocumentRuleSecondaryArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class RecordAliasArgsDict(TypedDict):
+        evaluate_target_health: pulumi.Input[bool]
+        """
+        Set to `true` if you want Route 53 to determine whether to respond to DNS queries using this resource record set by checking the health of the resource record set. Some resources have special requirements, see [related part of documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-values.html#rrsets-values-alias-evaluate-target-health).
+        """
+        name: pulumi.Input[str]
+        """
+        DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
+        """
+        zone_id: pulumi.Input[str]
+        """
+        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
+        """
+elif False:
+    RecordAliasArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecordAliasArgs:
@@ -86,6 +131,19 @@ class RecordAliasArgs:
         pulumi.set(self, "zone_id", value)
 
 
+if not MYPY:
+    class RecordCidrRoutingPolicyArgsDict(TypedDict):
+        collection_id: pulumi.Input[str]
+        """
+        The CIDR collection ID. See the `route53.CidrCollection` resource for more details.
+        """
+        location_name: pulumi.Input[str]
+        """
+        The CIDR collection location name. See the `route53.CidrLocation` resource for more details. A `location_name` with an asterisk `"*"` can be used to create a default CIDR record. `collection_id` is still required for default record.
+        """
+elif False:
+    RecordCidrRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecordCidrRoutingPolicyArgs:
     def __init__(__self__, *,
@@ -123,6 +181,15 @@ class RecordCidrRoutingPolicyArgs:
         pulumi.set(self, "location_name", value)
 
 
+if not MYPY:
+    class RecordFailoverRoutingPolicyArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
+        """
+elif False:
+    RecordFailoverRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecordFailoverRoutingPolicyArgs:
     def __init__(__self__, *,
@@ -144,6 +211,23 @@ class RecordFailoverRoutingPolicyArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class RecordGeolocationRoutingPolicyArgsDict(TypedDict):
+        continent: NotRequired[pulumi.Input[str]]
+        """
+        A two-letter continent code. See http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html for code details. Either `continent` or `country` must be specified.
+        """
+        country: NotRequired[pulumi.Input[str]]
+        """
+        A two-character country code or `*` to indicate a default resource record set.
+        """
+        subdivision: NotRequired[pulumi.Input[str]]
+        """
+        A subdivision code for a country.
+        """
+elif False:
+    RecordGeolocationRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecordGeolocationRoutingPolicyArgs:
@@ -200,6 +284,15 @@ class RecordGeolocationRoutingPolicyArgs:
         pulumi.set(self, "subdivision", value)
 
 
+if not MYPY:
+    class RecordGeoproximityRoutingPolicyArgsDict(TypedDict):
+        aws_region: NotRequired[pulumi.Input[str]]
+        bias: NotRequired[pulumi.Input[int]]
+        coordinates: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgsDict']]]]
+        local_zone_group: NotRequired[pulumi.Input[str]]
+elif False:
+    RecordGeoproximityRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecordGeoproximityRoutingPolicyArgs:
     def __init__(__self__, *,
@@ -253,6 +346,13 @@ class RecordGeoproximityRoutingPolicyArgs:
         pulumi.set(self, "local_zone_group", value)
 
 
+if not MYPY:
+    class RecordGeoproximityRoutingPolicyCoordinateArgsDict(TypedDict):
+        latitude: pulumi.Input[str]
+        longitude: pulumi.Input[str]
+elif False:
+    RecordGeoproximityRoutingPolicyCoordinateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecordGeoproximityRoutingPolicyCoordinateArgs:
     def __init__(__self__, *,
@@ -280,6 +380,15 @@ class RecordGeoproximityRoutingPolicyCoordinateArgs:
         pulumi.set(self, "longitude", value)
 
 
+if not MYPY:
+    class RecordLatencyRoutingPolicyArgsDict(TypedDict):
+        region: pulumi.Input[str]
+        """
+        An AWS region from which to measure latency. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency
+        """
+elif False:
+    RecordLatencyRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecordLatencyRoutingPolicyArgs:
     def __init__(__self__, *,
@@ -302,6 +411,15 @@ class RecordLatencyRoutingPolicyArgs:
         pulumi.set(self, "region", value)
 
 
+if not MYPY:
+    class RecordWeightedRoutingPolicyArgsDict(TypedDict):
+        weight: pulumi.Input[int]
+        """
+        A numeric value indicating the relative weight of the record. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted.
+        """
+elif False:
+    RecordWeightedRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RecordWeightedRoutingPolicyArgs:
     def __init__(__self__, *,
@@ -323,6 +441,20 @@ class RecordWeightedRoutingPolicyArgs:
     def weight(self, value: pulumi.Input[int]):
         pulumi.set(self, "weight", value)
 
+
+if not MYPY:
+    class ResolverEndpointIpAddressArgsDict(TypedDict):
+        subnet_id: pulumi.Input[str]
+        """
+        The ID of the subnet that contains the IP address.
+        """
+        ip: NotRequired[pulumi.Input[str]]
+        """
+        The IP address in the subnet that you want to use for DNS queries.
+        """
+        ip_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ResolverEndpointIpAddressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResolverEndpointIpAddressArgs:
@@ -373,6 +505,23 @@ class ResolverEndpointIpAddressArgs:
     def ip_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_id", value)
 
+
+if not MYPY:
+    class ResolverRuleTargetIpArgsDict(TypedDict):
+        ip: pulumi.Input[str]
+        """
+        One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port at `ip` that you want to forward DNS queries to. Default value is `53`.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        The protocol for the resolver endpoint. Valid values can be found in the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TargetAddress.html). Default value is `Do53`.
+        """
+elif False:
+    ResolverRuleTargetIpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResolverRuleTargetIpArgs:
@@ -428,6 +577,19 @@ class ResolverRuleTargetIpArgs:
         pulumi.set(self, "protocol", value)
 
 
+if not MYPY:
+    class ZoneVpcArgsDict(TypedDict):
+        vpc_id: pulumi.Input[str]
+        """
+        ID of the VPC to associate.
+        """
+        vpc_region: NotRequired[pulumi.Input[str]]
+        """
+        Region of the VPC to associate. Defaults to AWS provider region.
+        """
+elif False:
+    ZoneVpcArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ZoneVpcArgs:
     def __init__(__self__, *,
@@ -466,6 +628,16 @@ class ZoneVpcArgs:
         pulumi.set(self, "vpc_region", value)
 
 
+if not MYPY:
+    class GetQueryLogConfigFilterArgsDict(TypedDict):
+        name: str
+        """
+        The name of the query logging configuration.
+        """
+        values: Sequence[str]
+elif False:
+    GetQueryLogConfigFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetQueryLogConfigFilterArgs:
     def __init__(__self__, *,
@@ -499,6 +671,13 @@ class GetQueryLogConfigFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetResolverEndpointFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetResolverEndpointFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetResolverEndpointFilterArgs:
     def __init__(__self__, *,
@@ -525,6 +704,27 @@ class GetResolverEndpointFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetTrafficPolicyDocumentEndpointArgsDict(TypedDict):
+        id: str
+        """
+        ID of an endpoint you want to assign.
+        """
+        region: NotRequired[str]
+        """
+        To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+        """
+        type: NotRequired[str]
+        """
+        Type of the endpoint. Valid values are `value`, `cloudfront`, `elastic-load-balancer`, `s3-website`, `application-load-balancer`, `network-load-balancer` and `elastic-beanstalk`
+        """
+        value: NotRequired[str]
+        """
+        Value of the `type`.
+        """
+elif False:
+    GetTrafficPolicyDocumentEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTrafficPolicyDocumentEndpointArgs:
@@ -595,6 +795,40 @@ class GetTrafficPolicyDocumentEndpointArgs:
     def value(self, value: Optional[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class GetTrafficPolicyDocumentRuleArgsDict(TypedDict):
+        id: str
+        """
+        ID of a rule you want to assign.
+        """
+        geo_proximity_locations: NotRequired[Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArgsDict']]
+        """
+        Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+        """
+        items: NotRequired[Sequence['GetTrafficPolicyDocumentRuleItemArgsDict']]
+        """
+        Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+        """
+        locations: NotRequired[Sequence['GetTrafficPolicyDocumentRuleLocationArgsDict']]
+        """
+        Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+        """
+        primary: NotRequired['GetTrafficPolicyDocumentRulePrimaryArgsDict']
+        """
+        Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+        """
+        regions: NotRequired[Sequence['GetTrafficPolicyDocumentRuleRegionArgsDict']]
+        secondary: NotRequired['GetTrafficPolicyDocumentRuleSecondaryArgsDict']
+        """
+        Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+        """
+        type: NotRequired[str]
+        """
+        Type of the rule.
+        """
+elif False:
+    GetTrafficPolicyDocumentRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTrafficPolicyDocumentRuleArgs:
@@ -725,6 +959,43 @@ class GetTrafficPolicyDocumentRuleArgs:
     def type(self, value: Optional[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class GetTrafficPolicyDocumentRuleGeoProximityLocationArgsDict(TypedDict):
+        bias: NotRequired[str]
+        """
+        Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
+        """
+        endpoint_reference: NotRequired[str]
+        """
+        References to an endpoint.
+        """
+        evaluate_target_health: NotRequired[bool]
+        """
+        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+        """
+        health_check: NotRequired[str]
+        """
+        If you want to associate a health check with the endpoint or rule.
+        """
+        latitude: NotRequired[str]
+        """
+        Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
+        """
+        longitude: NotRequired[str]
+        """
+        Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
+        """
+        region: NotRequired[str]
+        """
+        If your endpoint is an AWS resource, specify the AWS Region that you created the resource in.
+        """
+        rule_reference: NotRequired[str]
+        """
+        References to a rule.
+        """
+elif False:
+    GetTrafficPolicyDocumentRuleGeoProximityLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
@@ -861,6 +1132,13 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
         pulumi.set(self, "rule_reference", value)
 
 
+if not MYPY:
+    class GetTrafficPolicyDocumentRuleItemArgsDict(TypedDict):
+        endpoint_reference: NotRequired[str]
+        health_check: NotRequired[str]
+elif False:
+    GetTrafficPolicyDocumentRuleItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetTrafficPolicyDocumentRuleItemArgs:
     def __init__(__self__, *,
@@ -889,6 +1167,43 @@ class GetTrafficPolicyDocumentRuleItemArgs:
     def health_check(self, value: Optional[str]):
         pulumi.set(self, "health_check", value)
 
+
+if not MYPY:
+    class GetTrafficPolicyDocumentRuleLocationArgsDict(TypedDict):
+        continent: NotRequired[str]
+        """
+        Value of a continent.
+        """
+        country: NotRequired[str]
+        """
+        Value of a country.
+        """
+        endpoint_reference: NotRequired[str]
+        """
+        References to an endpoint.
+        """
+        evaluate_target_health: NotRequired[bool]
+        """
+        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+        """
+        health_check: NotRequired[str]
+        """
+        If you want to associate a health check with the endpoint or rule.
+        """
+        is_default: NotRequired[bool]
+        """
+        Indicates whether this set of values represents the default location.
+        """
+        rule_reference: NotRequired[str]
+        """
+        References to a rule.
+        """
+        subdivision: NotRequired[str]
+        """
+        Value of a subdivision.
+        """
+elif False:
+    GetTrafficPolicyDocumentRuleLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTrafficPolicyDocumentRuleLocationArgs:
@@ -1025,6 +1340,27 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
         pulumi.set(self, "subdivision", value)
 
 
+if not MYPY:
+    class GetTrafficPolicyDocumentRulePrimaryArgsDict(TypedDict):
+        endpoint_reference: NotRequired[str]
+        """
+        References to an endpoint.
+        """
+        evaluate_target_health: NotRequired[bool]
+        """
+        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+        """
+        health_check: NotRequired[str]
+        """
+        If you want to associate a health check with the endpoint or rule.
+        """
+        rule_reference: NotRequired[str]
+        """
+        References to a rule.
+        """
+elif False:
+    GetTrafficPolicyDocumentRulePrimaryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetTrafficPolicyDocumentRulePrimaryArgs:
     def __init__(__self__, *,
@@ -1095,6 +1431,31 @@ class GetTrafficPolicyDocumentRulePrimaryArgs:
     def rule_reference(self, value: Optional[str]):
         pulumi.set(self, "rule_reference", value)
 
+
+if not MYPY:
+    class GetTrafficPolicyDocumentRuleRegionArgsDict(TypedDict):
+        endpoint_reference: NotRequired[str]
+        """
+        References to an endpoint.
+        """
+        evaluate_target_health: NotRequired[bool]
+        """
+        Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+        """
+        health_check: NotRequired[str]
+        """
+        If you want to associate a health check with the endpoint or rule.
+        """
+        region: NotRequired[str]
+        """
+        Region code for the AWS Region that you created the resource in.
+        """
+        rule_reference: NotRequired[str]
+        """
+        References to a rule.
+        """
+elif False:
+    GetTrafficPolicyDocumentRuleRegionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTrafficPolicyDocumentRuleRegionArgs:
@@ -1182,6 +1543,15 @@ class GetTrafficPolicyDocumentRuleRegionArgs:
     def rule_reference(self, value: Optional[str]):
         pulumi.set(self, "rule_reference", value)
 
+
+if not MYPY:
+    class GetTrafficPolicyDocumentRuleSecondaryArgsDict(TypedDict):
+        endpoint_reference: NotRequired[str]
+        evaluate_target_health: NotRequired[bool]
+        health_check: NotRequired[str]
+        rule_reference: NotRequired[str]
+elif False:
+    GetTrafficPolicyDocumentRuleSecondaryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTrafficPolicyDocumentRuleSecondaryArgs:

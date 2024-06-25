@@ -4,16 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AppCampaignHookArgs',
+    'AppCampaignHookArgsDict',
     'AppLimitsArgs',
+    'AppLimitsArgsDict',
     'AppQuietTimeArgs',
+    'AppQuietTimeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AppCampaignHookArgsDict(TypedDict):
+        lambda_function_name: NotRequired[pulumi.Input[str]]
+        """
+        Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+        """
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
+        """
+        web_url: NotRequired[pulumi.Input[str]]
+        """
+        Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+        """
+elif False:
+    AppCampaignHookArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppCampaignHookArgs:
@@ -69,6 +96,27 @@ class AppCampaignHookArgs:
     def web_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "web_url", value)
 
+
+if not MYPY:
+    class AppLimitsArgsDict(TypedDict):
+        daily: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of messages that the campaign can send daily.
+        """
+        maximum_duration: NotRequired[pulumi.Input[int]]
+        """
+        The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+        """
+        messages_per_second: NotRequired[pulumi.Input[int]]
+        """
+        The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+        """
+        total: NotRequired[pulumi.Input[int]]
+        """
+        The maximum total number of messages that the campaign can send.
+        """
+elif False:
+    AppLimitsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppLimitsArgs:
@@ -140,6 +188,19 @@ class AppLimitsArgs:
     def total(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "total", value)
 
+
+if not MYPY:
+    class AppQuietTimeArgsDict(TypedDict):
+        end: NotRequired[pulumi.Input[str]]
+        """
+        The default end time for quiet time in ISO 8601 format. Required if `start` is set
+        """
+        start: NotRequired[pulumi.Input[str]]
+        """
+        The default start time for quiet time in ISO 8601 format. Required if `end` is set
+        """
+elif False:
+    AppQuietTimeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppQuietTimeArgs:

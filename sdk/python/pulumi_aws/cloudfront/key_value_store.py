@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -176,7 +181,7 @@ class KeyValueStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['KeyValueStoreTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS CloudFront Key Value Store.
@@ -256,7 +261,7 @@ class KeyValueStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['KeyValueStoreTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -287,7 +292,7 @@ class KeyValueStore(pulumi.CustomResource):
             etag: Optional[pulumi.Input[str]] = None,
             last_modified_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['KeyValueStoreTimeoutsArgs']]] = None) -> 'KeyValueStore':
+            timeouts: Optional[pulumi.Input[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict']]] = None) -> 'KeyValueStore':
         """
         Get an existing KeyValueStore resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

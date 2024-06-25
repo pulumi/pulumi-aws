@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -217,7 +222,7 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
             total_vcpus=self.total_vcpus)
 
 
-def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']]] = None,
+def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]] = None,
                        host_id: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
@@ -242,14 +247,14 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_dedicated_host(filters=[aws.ec2.GetDedicatedHostFilterArgs(
-        name="instance-type",
-        values=["c5.18xlarge"],
-    )])
+    test = aws.ec2.get_dedicated_host(filters=[{
+        "name": "instance-type",
+        "values": ["c5.18xlarge"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']] filters: Configuration block. Detailed below.
     :param str host_id: ID of the Dedicated Host.
     """
     __args__ = dict()
@@ -279,7 +284,7 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
 
 
 @_utilities.lift_output_func(get_dedicated_host)
-def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']]]]] = None,
+def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]]]] = None,
                               host_id: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
@@ -304,14 +309,14 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_dedicated_host(filters=[aws.ec2.GetDedicatedHostFilterArgs(
-        name="instance-type",
-        values=["c5.18xlarge"],
-    )])
+    test = aws.ec2.get_dedicated_host(filters=[{
+        "name": "instance-type",
+        "values": ["c5.18xlarge"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']] filters: Configuration block. Detailed below.
     :param str host_id: ID of the Dedicated Host.
     """
     ...

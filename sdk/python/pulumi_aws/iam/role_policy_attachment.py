@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['RolePolicyAttachmentArgs', 'RolePolicyAttachment']
@@ -110,22 +115,22 @@ class RolePolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["ec2.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         role = aws.iam.Role("role",
             name="test-role",
             assume_role_policy=assume_role.json)
-        policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
+        policy = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["ec2:Describe*"],
+            "resources": ["*"],
+        }])
         policy_policy = aws.iam.Policy("policy",
             name="test-policy",
             description="A test policy",
@@ -167,22 +172,22 @@ class RolePolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["ec2.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         role = aws.iam.Role("role",
             name="test-role",
             assume_role_policy=assume_role.json)
-        policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["ec2:Describe*"],
-            resources=["*"],
-        )])
+        policy = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["ec2:Describe*"],
+            "resources": ["*"],
+        }])
         policy_policy = aws.iam.Policy("policy",
             name="test-policy",
             description="A test policy",

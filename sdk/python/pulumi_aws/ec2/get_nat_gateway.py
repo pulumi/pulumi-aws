@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -196,7 +201,7 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
             vpc_id=self.vpc_id)
 
 
-def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFilterArgs']]] = None,
+def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']]] = None,
                     id: Optional[str] = None,
                     state: Optional[str] = None,
                     subnet_id: Optional[str] = None,
@@ -228,7 +233,7 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -268,7 +273,7 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
 
 
 @_utilities.lift_output_func(get_nat_gateway)
-def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNatGatewayFilterArgs']]]]] = None,
+def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']]]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
                            state: Optional[pulumi.Input[Optional[str]]] = None,
                            subnet_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -300,7 +305,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

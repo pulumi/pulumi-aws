@@ -4,14 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'NotificationRuleTargetArgs',
+    'NotificationRuleTargetArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class NotificationRuleTargetArgsDict(TypedDict):
+        address: pulumi.Input[str]
+        """
+        The ARN of notification rule target. For example, a SNS Topic ARN.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the notification target. Default value is `SNS`.
+        """
+elif False:
+    NotificationRuleTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationRuleTargetArgs:

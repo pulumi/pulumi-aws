@@ -4,18 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'LoadBalancerAccessLogsArgs',
+    'LoadBalancerAccessLogsArgsDict',
     'LoadBalancerHealthCheckArgs',
+    'LoadBalancerHealthCheckArgsDict',
     'LoadBalancerListenerArgs',
+    'LoadBalancerListenerArgsDict',
     'LoadBalancerPolicyPolicyAttributeArgs',
+    'LoadBalancerPolicyPolicyAttributeArgsDict',
     'SslNegotiationPolicyAttributeArgs',
+    'SslNegotiationPolicyAttributeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LoadBalancerAccessLogsArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        """
+        The S3 bucket name to store the logs in.
+        """
+        bucket_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The S3 bucket prefix. Logs are stored in the root if not configured.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean to enable / disable `access_logs`. Default is `true`
+        """
+        interval: NotRequired[pulumi.Input[int]]
+        """
+        The publishing interval in minutes. Valid values: `5` and `60`. Default: `60`
+        """
+elif False:
+    LoadBalancerAccessLogsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerAccessLogsArgs:
@@ -86,6 +119,34 @@ class LoadBalancerAccessLogsArgs:
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
 
+
+if not MYPY:
+    class LoadBalancerHealthCheckArgsDict(TypedDict):
+        healthy_threshold: pulumi.Input[int]
+        """
+        The number of checks before the instance is declared healthy.
+        """
+        interval: pulumi.Input[int]
+        """
+        The interval between checks.
+        """
+        target: pulumi.Input[str]
+        """
+        The target of the check. Valid pattern is "${PROTOCOL}:${PORT}${PATH}", where PROTOCOL
+        values are:
+        * `HTTP`, `HTTPS` - PORT and PATH are required
+        * `TCP`, `SSL` - PORT is required, PATH is not supported
+        """
+        timeout: pulumi.Input[int]
+        """
+        The length of time before the check times out.
+        """
+        unhealthy_threshold: pulumi.Input[int]
+        """
+        The number of checks before the instance is declared unhealthy.
+        """
+elif False:
+    LoadBalancerHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerHealthCheckArgs:
@@ -174,6 +235,34 @@ class LoadBalancerHealthCheckArgs:
     def unhealthy_threshold(self, value: pulumi.Input[int]):
         pulumi.set(self, "unhealthy_threshold", value)
 
+
+if not MYPY:
+    class LoadBalancerListenerArgsDict(TypedDict):
+        instance_port: pulumi.Input[int]
+        """
+        The port on the instance to route to
+        """
+        instance_protocol: pulumi.Input[str]
+        """
+        The protocol to use to the instance. Valid
+        values are `HTTP`, `HTTPS`, `TCP`, or `SSL`
+        """
+        lb_port: pulumi.Input[int]
+        """
+        The port to listen on for the load balancer
+        """
+        lb_protocol: pulumi.Input[str]
+        """
+        The protocol to listen on. Valid values are `HTTP`,
+        `HTTPS`, `TCP`, or `SSL`
+        """
+        ssl_certificate_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of an SSL certificate you have
+        uploaded to AWS IAM. **Note ECDSA-specific restrictions below.  Only valid when `lb_protocol` is either HTTPS or SSL**
+        """
+elif False:
+    LoadBalancerListenerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadBalancerListenerArgs:
@@ -264,6 +353,13 @@ class LoadBalancerListenerArgs:
         pulumi.set(self, "ssl_certificate_id", value)
 
 
+if not MYPY:
+    class LoadBalancerPolicyPolicyAttributeArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    LoadBalancerPolicyPolicyAttributeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadBalancerPolicyPolicyAttributeArgs:
     def __init__(__self__, *,
@@ -292,6 +388,19 @@ class LoadBalancerPolicyPolicyAttributeArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SslNegotiationPolicyAttributeArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the attribute
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the attribute
+        """
+elif False:
+    SslNegotiationPolicyAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SslNegotiationPolicyAttributeArgs:

@@ -4,15 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ClusterClusterEndpointArgs',
+    'ClusterClusterEndpointArgsDict',
     'SafetyRuleRuleConfigArgs',
+    'SafetyRuleRuleConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterClusterEndpointArgsDict(TypedDict):
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Cluster endpoint.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        Region of the endpoint.
+        """
+elif False:
+    ClusterClusterEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterClusterEndpointArgs:
@@ -52,6 +74,23 @@ class ClusterClusterEndpointArgs:
     def region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region", value)
 
+
+if not MYPY:
+    class SafetyRuleRuleConfigArgsDict(TypedDict):
+        inverted: pulumi.Input[bool]
+        """
+        Logical negation of the rule.
+        """
+        threshold: pulumi.Input[int]
+        """
+        Number of controls that must be set when you specify an `ATLEAST` type rule.
+        """
+        type: pulumi.Input[str]
+        """
+        Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
+        """
+elif False:
+    SafetyRuleRuleConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SafetyRuleRuleConfigArgs:

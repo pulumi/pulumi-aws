@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -76,7 +81,7 @@ class AwaitableGetProductResult(GetProductResult):
             service_code=self.service_code)
 
 
-def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArgs']]] = None,
+def get_product(filters: Optional[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]] = None,
                 service_code: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
@@ -91,34 +96,34 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
 
     example = aws.pricing.get_product(service_code="AmazonEC2",
         filters=[
-            aws.pricing.GetProductFilterArgs(
-                field="instanceType",
-                value="c5.xlarge",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="operatingSystem",
-                value="Linux",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="location",
-                value="US East (N. Virginia)",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="preInstalledSw",
-                value="NA",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="licenseModel",
-                value="No License required",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="tenancy",
-                value="Shared",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="capacitystatus",
-                value="Used",
-            ),
+            {
+                "field": "instanceType",
+                "value": "c5.xlarge",
+            },
+            {
+                "field": "operatingSystem",
+                "value": "Linux",
+            },
+            {
+                "field": "location",
+                "value": "US East (N. Virginia)",
+            },
+            {
+                "field": "preInstalledSw",
+                "value": "NA",
+            },
+            {
+                "field": "licenseModel",
+                "value": "No License required",
+            },
+            {
+                "field": "tenancy",
+                "value": "Shared",
+            },
+            {
+                "field": "capacitystatus",
+                "value": "Used",
+            },
         ])
     ```
 
@@ -128,19 +133,19 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
 
     example = aws.pricing.get_product(service_code="AmazonRedshift",
         filters=[
-            aws.pricing.GetProductFilterArgs(
-                field="instanceType",
-                value="ds1.xlarge",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="location",
-                value="US East (N. Virginia)",
-            ),
+            {
+                "field": "instanceType",
+                "value": "ds1.xlarge",
+            },
+            {
+                "field": "location",
+                "value": "US East (N. Virginia)",
+            },
         ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetProductFilterArgs']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
     """
     __args__ = dict()
@@ -157,7 +162,7 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
 
 
 @_utilities.lift_output_func(get_product)
-def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['GetProductFilterArgs']]]] = None,
+def get_product_output(filters: Optional[pulumi.Input[Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']]]] = None,
                        service_code: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
     """
@@ -172,34 +177,34 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
 
     example = aws.pricing.get_product(service_code="AmazonEC2",
         filters=[
-            aws.pricing.GetProductFilterArgs(
-                field="instanceType",
-                value="c5.xlarge",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="operatingSystem",
-                value="Linux",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="location",
-                value="US East (N. Virginia)",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="preInstalledSw",
-                value="NA",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="licenseModel",
-                value="No License required",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="tenancy",
-                value="Shared",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="capacitystatus",
-                value="Used",
-            ),
+            {
+                "field": "instanceType",
+                "value": "c5.xlarge",
+            },
+            {
+                "field": "operatingSystem",
+                "value": "Linux",
+            },
+            {
+                "field": "location",
+                "value": "US East (N. Virginia)",
+            },
+            {
+                "field": "preInstalledSw",
+                "value": "NA",
+            },
+            {
+                "field": "licenseModel",
+                "value": "No License required",
+            },
+            {
+                "field": "tenancy",
+                "value": "Shared",
+            },
+            {
+                "field": "capacitystatus",
+                "value": "Used",
+            },
         ])
     ```
 
@@ -209,19 +214,19 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
 
     example = aws.pricing.get_product(service_code="AmazonRedshift",
         filters=[
-            aws.pricing.GetProductFilterArgs(
-                field="instanceType",
-                value="ds1.xlarge",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="location",
-                value="US East (N. Virginia)",
-            ),
+            {
+                "field": "instanceType",
+                "value": "ds1.xlarge",
+            },
+            {
+                "field": "location",
+                "value": "US East (N. Virginia)",
+            },
         ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetProductFilterArgs']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param Sequence[Union['GetProductFilterArgs', 'GetProductFilterArgsDict']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
     """
     ...

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -226,7 +231,7 @@ class DomainAssociation(pulumi.CustomResource):
                  app_id: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
-                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]]] = None,
+                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
                  wait_for_verification: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -240,11 +245,11 @@ class DomainAssociation(pulumi.CustomResource):
 
         example = aws.amplify.App("example",
             name="app",
-            custom_rules=[aws.amplify.AppCustomRuleArgs(
-                source="https://example.com",
-                status="302",
-                target="https://www.example.com",
-            )])
+            custom_rules=[{
+                "source": "https://example.com",
+                "status": "302",
+                "target": "https://www.example.com",
+            }])
         master = aws.amplify.Branch("master",
             app_id=example.id,
             branch_name="master")
@@ -252,14 +257,14 @@ class DomainAssociation(pulumi.CustomResource):
             app_id=example.id,
             domain_name="example.com",
             sub_domains=[
-                aws.amplify.DomainAssociationSubDomainArgs(
-                    branch_name=master.branch_name,
-                    prefix="",
-                ),
-                aws.amplify.DomainAssociationSubDomainArgs(
-                    branch_name=master.branch_name,
-                    prefix="www",
-                ),
+                {
+                    "branchName": master.branch_name,
+                    "prefix": "",
+                },
+                {
+                    "branchName": master.branch_name,
+                    "prefix": "www",
+                },
             ])
         ```
 
@@ -276,7 +281,7 @@ class DomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]] sub_domains: Setting for the subdomain. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         ...
@@ -296,11 +301,11 @@ class DomainAssociation(pulumi.CustomResource):
 
         example = aws.amplify.App("example",
             name="app",
-            custom_rules=[aws.amplify.AppCustomRuleArgs(
-                source="https://example.com",
-                status="302",
-                target="https://www.example.com",
-            )])
+            custom_rules=[{
+                "source": "https://example.com",
+                "status": "302",
+                "target": "https://www.example.com",
+            }])
         master = aws.amplify.Branch("master",
             app_id=example.id,
             branch_name="master")
@@ -308,14 +313,14 @@ class DomainAssociation(pulumi.CustomResource):
             app_id=example.id,
             domain_name="example.com",
             sub_domains=[
-                aws.amplify.DomainAssociationSubDomainArgs(
-                    branch_name=master.branch_name,
-                    prefix="",
-                ),
-                aws.amplify.DomainAssociationSubDomainArgs(
-                    branch_name=master.branch_name,
-                    prefix="www",
-                ),
+                {
+                    "branchName": master.branch_name,
+                    "prefix": "",
+                },
+                {
+                    "branchName": master.branch_name,
+                    "prefix": "www",
+                },
             ])
         ```
 
@@ -345,7 +350,7 @@ class DomainAssociation(pulumi.CustomResource):
                  app_id: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
-                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]]] = None,
+                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
                  wait_for_verification: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -384,7 +389,7 @@ class DomainAssociation(pulumi.CustomResource):
             certificate_verification_dns_record: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
-            sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]]] = None,
+            sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
             wait_for_verification: Optional[pulumi.Input[bool]] = None) -> 'DomainAssociation':
         """
         Get an existing DomainAssociation resource's state with the given name, id, and optional extra
@@ -398,7 +403,7 @@ class DomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]] sub_domains: Setting for the subdomain. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

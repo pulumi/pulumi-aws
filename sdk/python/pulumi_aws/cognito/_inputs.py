@@ -4,54 +4,119 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'IdentityPoolCognitoIdentityProviderArgs',
+    'IdentityPoolCognitoIdentityProviderArgsDict',
     'IdentityPoolRoleAttachmentRoleMappingArgs',
+    'IdentityPoolRoleAttachmentRoleMappingArgsDict',
     'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs',
+    'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgsDict',
     'ManagedUserPoolClientAnalyticsConfigurationArgs',
+    'ManagedUserPoolClientAnalyticsConfigurationArgsDict',
     'ManagedUserPoolClientTokenValidityUnitsArgs',
+    'ManagedUserPoolClientTokenValidityUnitsArgsDict',
     'ResourceServerScopeArgs',
+    'ResourceServerScopeArgsDict',
     'RiskConfigurationAccountTakeoverRiskConfigurationArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict',
     'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgsDict',
     'RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgsDict',
     'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgsDict',
     'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgsDict',
     'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgsDict',
     'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgsDict',
     'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgsDict',
     'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgsDict',
     'RiskConfigurationCompromisedCredentialsRiskConfigurationArgs',
+    'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict',
     'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs',
+    'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgsDict',
     'RiskConfigurationRiskExceptionConfigurationArgs',
+    'RiskConfigurationRiskExceptionConfigurationArgsDict',
     'UserPoolAccountRecoverySettingArgs',
+    'UserPoolAccountRecoverySettingArgsDict',
     'UserPoolAccountRecoverySettingRecoveryMechanismArgs',
+    'UserPoolAccountRecoverySettingRecoveryMechanismArgsDict',
     'UserPoolAdminCreateUserConfigArgs',
+    'UserPoolAdminCreateUserConfigArgsDict',
     'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs',
+    'UserPoolAdminCreateUserConfigInviteMessageTemplateArgsDict',
     'UserPoolClientAnalyticsConfigurationArgs',
+    'UserPoolClientAnalyticsConfigurationArgsDict',
     'UserPoolClientTokenValidityUnitsArgs',
+    'UserPoolClientTokenValidityUnitsArgsDict',
     'UserPoolDeviceConfigurationArgs',
+    'UserPoolDeviceConfigurationArgsDict',
     'UserPoolEmailConfigurationArgs',
+    'UserPoolEmailConfigurationArgsDict',
     'UserPoolLambdaConfigArgs',
+    'UserPoolLambdaConfigArgsDict',
     'UserPoolLambdaConfigCustomEmailSenderArgs',
+    'UserPoolLambdaConfigCustomEmailSenderArgsDict',
     'UserPoolLambdaConfigCustomSmsSenderArgs',
+    'UserPoolLambdaConfigCustomSmsSenderArgsDict',
     'UserPoolLambdaConfigPreTokenGenerationConfigArgs',
+    'UserPoolLambdaConfigPreTokenGenerationConfigArgsDict',
     'UserPoolPasswordPolicyArgs',
+    'UserPoolPasswordPolicyArgsDict',
     'UserPoolSchemaArgs',
+    'UserPoolSchemaArgsDict',
     'UserPoolSchemaNumberAttributeConstraintsArgs',
+    'UserPoolSchemaNumberAttributeConstraintsArgsDict',
     'UserPoolSchemaStringAttributeConstraintsArgs',
+    'UserPoolSchemaStringAttributeConstraintsArgsDict',
     'UserPoolSmsConfigurationArgs',
+    'UserPoolSmsConfigurationArgsDict',
     'UserPoolSoftwareTokenMfaConfigurationArgs',
+    'UserPoolSoftwareTokenMfaConfigurationArgsDict',
     'UserPoolUserAttributeUpdateSettingsArgs',
+    'UserPoolUserAttributeUpdateSettingsArgsDict',
     'UserPoolUserPoolAddOnsArgs',
+    'UserPoolUserPoolAddOnsArgsDict',
     'UserPoolUsernameConfigurationArgs',
+    'UserPoolUsernameConfigurationArgsDict',
     'UserPoolVerificationMessageTemplateArgs',
+    'UserPoolVerificationMessageTemplateArgsDict',
     'GetUserGroupsGroupArgs',
+    'GetUserGroupsGroupArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IdentityPoolCognitoIdentityProviderArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client ID for the Amazon Cognito Identity User Pool.
+        """
+        provider_name: NotRequired[pulumi.Input[str]]
+        """
+        The provider name for an Amazon Cognito Identity User Pool.
+        """
+        server_side_token_check: NotRequired[pulumi.Input[bool]]
+        """
+        Whether server-side token validation is enabled for the identity provider’s token or not.
+        """
+elif False:
+    IdentityPoolCognitoIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityPoolCognitoIdentityProviderArgs:
@@ -108,6 +173,15 @@ class IdentityPoolCognitoIdentityProviderArgs:
         pulumi.set(self, "server_side_token_check", value)
 
 
+if not MYPY:
+    class IdentityPoolRoleAttachmentRoleMappingArgsDict(TypedDict):
+        identity_provider: pulumi.Input[str]
+        type: pulumi.Input[str]
+        ambiguous_role_resolution: NotRequired[pulumi.Input[str]]
+        mapping_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgsDict']]]]
+elif False:
+    IdentityPoolRoleAttachmentRoleMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityPoolRoleAttachmentRoleMappingArgs:
     def __init__(__self__, *,
@@ -159,6 +233,15 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
         pulumi.set(self, "mapping_rules", value)
 
 
+if not MYPY:
+    class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgsDict(TypedDict):
+        claim: pulumi.Input[str]
+        match_type: pulumi.Input[str]
+        role_arn: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    IdentityPoolRoleAttachmentRoleMappingMappingRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     def __init__(__self__, *,
@@ -207,6 +290,31 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ManagedUserPoolClientAnalyticsConfigurationArgsDict(TypedDict):
+        application_arn: NotRequired[pulumi.Input[str]]
+        """
+        Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        Unique identifier for an Amazon Pinpoint application.
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        ID for the Analytics Configuration and conflicts with `application_arn`.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
+        """
+        user_data_shared: NotRequired[pulumi.Input[bool]]
+        """
+        If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        """
+elif False:
+    ManagedUserPoolClientAnalyticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedUserPoolClientAnalyticsConfigurationArgs:
@@ -295,6 +403,23 @@ class ManagedUserPoolClientAnalyticsConfigurationArgs:
         pulumi.set(self, "user_data_shared", value)
 
 
+if not MYPY:
+    class ManagedUserPoolClientTokenValidityUnitsArgsDict(TypedDict):
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Time unit for the value in `access_token_validity` and defaults to `hours`.
+        """
+        id_token: NotRequired[pulumi.Input[str]]
+        """
+        Time unit for the value in `id_token_validity`, and it defaults to `hours`.
+        """
+        refresh_token: NotRequired[pulumi.Input[str]]
+        """
+        Time unit for the value in `refresh_token_validity` and defaults to `days`.
+        """
+elif False:
+    ManagedUserPoolClientTokenValidityUnitsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedUserPoolClientTokenValidityUnitsArgs:
     def __init__(__self__, *,
@@ -350,6 +475,13 @@ class ManagedUserPoolClientTokenValidityUnitsArgs:
         pulumi.set(self, "refresh_token", value)
 
 
+if not MYPY:
+    class ResourceServerScopeArgsDict(TypedDict):
+        scope_description: pulumi.Input[str]
+        scope_name: pulumi.Input[str]
+elif False:
+    ResourceServerScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceServerScopeArgs:
     def __init__(__self__, *,
@@ -376,6 +508,19 @@ class ResourceServerScopeArgs:
     def scope_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "scope_name", value)
 
+
+if not MYPY:
+    class RiskConfigurationAccountTakeoverRiskConfigurationArgsDict(TypedDict):
+        actions: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgsDict']
+        """
+        Account takeover risk configuration actions. See details below.
+        """
+        notify_configuration: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgsDict']
+        """
+        The notify configuration used to construct email notifications. See details below.
+        """
+elif False:
+    RiskConfigurationAccountTakeoverRiskConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
@@ -413,6 +558,23 @@ class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
     def notify_configuration(self, value: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']):
         pulumi.set(self, "notify_configuration", value)
 
+
+if not MYPY:
+    class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgsDict(TypedDict):
+        high_action: NotRequired[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgsDict']]
+        """
+        Action to take for a high risk. See action block below.
+        """
+        low_action: NotRequired[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgsDict']]
+        """
+        Action to take for a low risk. See action block below.
+        """
+        medium_action: NotRequired[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgsDict']]
+        """
+        Action to take for a medium risk. See action block below.
+        """
+elif False:
+    RiskConfigurationAccountTakeoverRiskConfigurationActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs:
@@ -469,6 +631,13 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs:
         pulumi.set(self, "medium_action", value)
 
 
+if not MYPY:
+    class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgsDict(TypedDict):
+        event_action: pulumi.Input[str]
+        notify: pulumi.Input[bool]
+elif False:
+    RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
     def __init__(__self__, *,
@@ -495,6 +664,13 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
     def notify(self, value: pulumi.Input[bool]):
         pulumi.set(self, "notify", value)
 
+
+if not MYPY:
+    class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgsDict(TypedDict):
+        event_action: pulumi.Input[str]
+        notify: pulumi.Input[bool]
+elif False:
+    RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
@@ -523,6 +699,13 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
         pulumi.set(self, "notify", value)
 
 
+if not MYPY:
+    class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgsDict(TypedDict):
+        event_action: pulumi.Input[str]
+        notify: pulumi.Input[bool]
+elif False:
+    RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
     def __init__(__self__, *,
@@ -549,6 +732,35 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
     def notify(self, value: pulumi.Input[bool]):
         pulumi.set(self, "notify", value)
 
+
+if not MYPY:
+    class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgsDict(TypedDict):
+        source_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+        """
+        block_email: NotRequired[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgsDict']]
+        """
+        Email template used when a detected risk event is blocked. See notify email type below.
+        """
+        from_: NotRequired[pulumi.Input[str]]
+        """
+        The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        """
+        mfa_email: NotRequired[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgsDict']]
+        """
+        The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+        """
+        no_action_email: NotRequired[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgsDict']]
+        """
+        The email template used when a detected risk event is allowed. See notify email type below.
+        """
+        reply_to: NotRequired[pulumi.Input[str]]
+        """
+        The destination to which the receiver of an email should reply to.
+        """
+elif False:
+    RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
@@ -652,6 +864,14 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
         pulumi.set(self, "reply_to", value)
 
 
+if not MYPY:
+    class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgsDict(TypedDict):
+        html_body: pulumi.Input[str]
+        subject: pulumi.Input[str]
+        text_body: pulumi.Input[str]
+elif False:
+    RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs:
     def __init__(__self__, *,
@@ -689,6 +909,14 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
     def text_body(self, value: pulumi.Input[str]):
         pulumi.set(self, "text_body", value)
 
+
+if not MYPY:
+    class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgsDict(TypedDict):
+        html_body: pulumi.Input[str]
+        subject: pulumi.Input[str]
+        text_body: pulumi.Input[str]
+elif False:
+    RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs:
@@ -728,6 +956,14 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
         pulumi.set(self, "text_body", value)
 
 
+if not MYPY:
+    class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgsDict(TypedDict):
+        html_body: pulumi.Input[str]
+        subject: pulumi.Input[str]
+        text_body: pulumi.Input[str]
+elif False:
+    RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs:
     def __init__(__self__, *,
@@ -765,6 +1001,19 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
     def text_body(self, value: pulumi.Input[str]):
         pulumi.set(self, "text_body", value)
 
+
+if not MYPY:
+    class RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict(TypedDict):
+        actions: pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgsDict']
+        """
+        The compromised credentials risk configuration actions. See details below.
+        """
+        event_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+        """
+elif False:
+    RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs:
@@ -804,6 +1053,15 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs:
         pulumi.set(self, "event_filters", value)
 
 
+if not MYPY:
+    class RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgsDict(TypedDict):
+        event_action: pulumi.Input[str]
+        """
+        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+elif False:
+    RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs:
     def __init__(__self__, *,
@@ -825,6 +1083,23 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs:
     def event_action(self, value: pulumi.Input[str]):
         pulumi.set(self, "event_action", value)
 
+
+if not MYPY:
+    class RiskConfigurationRiskExceptionConfigurationArgsDict(TypedDict):
+        blocked_ip_range_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Overrides the risk decision to always block the pre-authentication requests.
+        The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        Can contain a maximum of 200 items.
+        """
+        skipped_ip_range_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Risk detection isn't performed on the IP addresses in this range list.
+        The IP range is in CIDR notation.
+        Can contain a maximum of 200 items.
+        """
+elif False:
+    RiskConfigurationRiskExceptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RiskConfigurationRiskExceptionConfigurationArgs:
@@ -873,6 +1148,15 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
         pulumi.set(self, "skipped_ip_range_lists", value)
 
 
+if not MYPY:
+    class UserPoolAccountRecoverySettingArgsDict(TypedDict):
+        recovery_mechanisms: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgsDict']]]]
+        """
+        List of Account Recovery Options of the following structure:
+        """
+elif False:
+    UserPoolAccountRecoverySettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPoolAccountRecoverySettingArgs:
     def __init__(__self__, *,
@@ -895,6 +1179,19 @@ class UserPoolAccountRecoverySettingArgs:
     def recovery_mechanisms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]]):
         pulumi.set(self, "recovery_mechanisms", value)
 
+
+if not MYPY:
+    class UserPoolAccountRecoverySettingRecoveryMechanismArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Recovery method for a user. Can be of the following: `verified_email`, `verified_phone_number`, and `admin_only`.
+        """
+        priority: pulumi.Input[int]
+        """
+        Positive integer specifying priority of a method with 1 being the highest priority.
+        """
+elif False:
+    UserPoolAccountRecoverySettingRecoveryMechanismArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
@@ -932,6 +1229,19 @@ class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
     def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
+
+if not MYPY:
+    class UserPoolAdminCreateUserConfigArgsDict(TypedDict):
+        allow_admin_create_user_only: NotRequired[pulumi.Input[bool]]
+        """
+        Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
+        """
+        invite_message_template: NotRequired[pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArgsDict']]
+        """
+        Invite message template structure. Detailed below.
+        """
+elif False:
+    UserPoolAdminCreateUserConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolAdminCreateUserConfigArgs:
@@ -971,6 +1281,23 @@ class UserPoolAdminCreateUserConfigArgs:
     def invite_message_template(self, value: Optional[pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArgs']]):
         pulumi.set(self, "invite_message_template", value)
 
+
+if not MYPY:
+    class UserPoolAdminCreateUserConfigInviteMessageTemplateArgsDict(TypedDict):
+        email_message: NotRequired[pulumi.Input[str]]
+        """
+        Message template for email messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
+        """
+        email_subject: NotRequired[pulumi.Input[str]]
+        """
+        Subject line for email messages.
+        """
+        sms_message: NotRequired[pulumi.Input[str]]
+        """
+        Message template for SMS messages. Must contain `{username}` and `{####}` placeholders, for username and temporary password, respectively.
+        """
+elif False:
+    UserPoolAdminCreateUserConfigInviteMessageTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
@@ -1026,6 +1353,31 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
     def sms_message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sms_message", value)
 
+
+if not MYPY:
+    class UserPoolClientAnalyticsConfigurationArgsDict(TypedDict):
+        application_arn: NotRequired[pulumi.Input[str]]
+        """
+        Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        Application ID for an Amazon Pinpoint application.
+        """
+        external_id: NotRequired[pulumi.Input[str]]
+        """
+        ID for the Analytics Configuration. Conflicts with `application_arn`.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+        """
+        user_data_shared: NotRequired[pulumi.Input[bool]]
+        """
+        If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        """
+elif False:
+    UserPoolClientAnalyticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolClientAnalyticsConfigurationArgs:
@@ -1114,6 +1466,23 @@ class UserPoolClientAnalyticsConfigurationArgs:
         pulumi.set(self, "user_data_shared", value)
 
 
+if not MYPY:
+    class UserPoolClientTokenValidityUnitsArgsDict(TypedDict):
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        Time unit in for the value in `access_token_validity`, defaults to `hours`.
+        """
+        id_token: NotRequired[pulumi.Input[str]]
+        """
+        Time unit in for the value in `id_token_validity`, defaults to `hours`.
+        """
+        refresh_token: NotRequired[pulumi.Input[str]]
+        """
+        Time unit in for the value in `refresh_token_validity`, defaults to `days`.
+        """
+elif False:
+    UserPoolClientTokenValidityUnitsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPoolClientTokenValidityUnitsArgs:
     def __init__(__self__, *,
@@ -1169,6 +1538,19 @@ class UserPoolClientTokenValidityUnitsArgs:
         pulumi.set(self, "refresh_token", value)
 
 
+if not MYPY:
+    class UserPoolDeviceConfigurationArgsDict(TypedDict):
+        challenge_required_on_new_device: NotRequired[pulumi.Input[bool]]
+        """
+        Whether a challenge is required on a new device. Only applicable to a new device.
+        """
+        device_only_remembered_on_user_prompt: NotRequired[pulumi.Input[bool]]
+        """
+        Whether a device is only remembered on user prompt. `false` equates to "Always" remember, `true` is "User Opt In," and not using a `device_configuration` block is "No."
+        """
+elif False:
+    UserPoolDeviceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPoolDeviceConfigurationArgs:
     def __init__(__self__, *,
@@ -1207,6 +1589,31 @@ class UserPoolDeviceConfigurationArgs:
     def device_only_remembered_on_user_prompt(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "device_only_remembered_on_user_prompt", value)
 
+
+if not MYPY:
+    class UserPoolEmailConfigurationArgsDict(TypedDict):
+        configuration_set: NotRequired[pulumi.Input[str]]
+        """
+        Email configuration set name from SES.
+        """
+        email_sending_account: NotRequired[pulumi.Input[str]]
+        """
+        Email delivery method to use. `COGNITO_DEFAULT` for the default email functionality built into Cognito or `DEVELOPER` to use your Amazon SES configuration. Required to be `DEVELOPER` if `from_email_address` is set.
+        """
+        from_email_address: NotRequired[pulumi.Input[str]]
+        """
+        Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\\"John Smith Ph.D.\\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
+        """
+        reply_to_email_address: NotRequired[pulumi.Input[str]]
+        """
+        REPLY-TO email address.
+        """
+        source_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the SES verified email identity to use. Required if `email_sending_account` is set to `DEVELOPER`.
+        """
+elif False:
+    UserPoolEmailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolEmailConfigurationArgs:
@@ -1294,6 +1701,67 @@ class UserPoolEmailConfigurationArgs:
     def source_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_arn", value)
 
+
+if not MYPY:
+    class UserPoolLambdaConfigArgsDict(TypedDict):
+        create_auth_challenge: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the lambda creating an authentication challenge.
+        """
+        custom_email_sender: NotRequired[pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArgsDict']]
+        """
+        A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+        """
+        custom_message: NotRequired[pulumi.Input[str]]
+        """
+        Custom Message AWS Lambda trigger.
+        """
+        custom_sms_sender: NotRequired[pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArgsDict']]
+        """
+        A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+        """
+        define_auth_challenge: NotRequired[pulumi.Input[str]]
+        """
+        Defines the authentication challenge.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+        """
+        post_authentication: NotRequired[pulumi.Input[str]]
+        """
+        Post-authentication AWS Lambda trigger.
+        """
+        post_confirmation: NotRequired[pulumi.Input[str]]
+        """
+        Post-confirmation AWS Lambda trigger.
+        """
+        pre_authentication: NotRequired[pulumi.Input[str]]
+        """
+        Pre-authentication AWS Lambda trigger.
+        """
+        pre_sign_up: NotRequired[pulumi.Input[str]]
+        """
+        Pre-registration AWS Lambda trigger.
+        """
+        pre_token_generation: NotRequired[pulumi.Input[str]]
+        """
+        Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
+        """
+        pre_token_generation_config: NotRequired[pulumi.Input['UserPoolLambdaConfigPreTokenGenerationConfigArgsDict']]
+        """
+        Allow to customize access tokens. See pre_token_configuration_type
+        """
+        user_migration: NotRequired[pulumi.Input[str]]
+        """
+        User migration Lambda config type.
+        """
+        verify_auth_challenge_response: NotRequired[pulumi.Input[str]]
+        """
+        Verifies the authentication challenge response.
+        """
+elif False:
+    UserPoolLambdaConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolLambdaConfigArgs:
@@ -1526,6 +1994,19 @@ class UserPoolLambdaConfigArgs:
         pulumi.set(self, "verify_auth_challenge_response", value)
 
 
+if not MYPY:
+    class UserPoolLambdaConfigCustomEmailSenderArgsDict(TypedDict):
+        lambda_arn: pulumi.Input[str]
+        """
+        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+        """
+        lambda_version: pulumi.Input[str]
+        """
+        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
+        """
+elif False:
+    UserPoolLambdaConfigCustomEmailSenderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPoolLambdaConfigCustomEmailSenderArgs:
     def __init__(__self__, *,
@@ -1562,6 +2043,19 @@ class UserPoolLambdaConfigCustomEmailSenderArgs:
     def lambda_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "lambda_version", value)
 
+
+if not MYPY:
+    class UserPoolLambdaConfigCustomSmsSenderArgsDict(TypedDict):
+        lambda_arn: pulumi.Input[str]
+        """
+        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        """
+        lambda_version: pulumi.Input[str]
+        """
+        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+        """
+elif False:
+    UserPoolLambdaConfigCustomSmsSenderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolLambdaConfigCustomSmsSenderArgs:
@@ -1600,6 +2094,13 @@ class UserPoolLambdaConfigCustomSmsSenderArgs:
         pulumi.set(self, "lambda_version", value)
 
 
+if not MYPY:
+    class UserPoolLambdaConfigPreTokenGenerationConfigArgsDict(TypedDict):
+        lambda_arn: pulumi.Input[str]
+        lambda_version: pulumi.Input[str]
+elif False:
+    UserPoolLambdaConfigPreTokenGenerationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPoolLambdaConfigPreTokenGenerationConfigArgs:
     def __init__(__self__, *,
@@ -1626,6 +2127,35 @@ class UserPoolLambdaConfigPreTokenGenerationConfigArgs:
     def lambda_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "lambda_version", value)
 
+
+if not MYPY:
+    class UserPoolPasswordPolicyArgsDict(TypedDict):
+        minimum_length: NotRequired[pulumi.Input[int]]
+        """
+        Minimum length of the password policy that you have set.
+        """
+        require_lowercase: NotRequired[pulumi.Input[bool]]
+        """
+        Whether you have required users to use at least one lowercase letter in their password.
+        """
+        require_numbers: NotRequired[pulumi.Input[bool]]
+        """
+        Whether you have required users to use at least one number in their password.
+        """
+        require_symbols: NotRequired[pulumi.Input[bool]]
+        """
+        Whether you have required users to use at least one symbol in their password.
+        """
+        require_uppercase: NotRequired[pulumi.Input[bool]]
+        """
+        Whether you have required users to use at least one uppercase letter in their password.
+        """
+        temporary_password_validity_days: NotRequired[pulumi.Input[int]]
+        """
+        In the password policy you have set, refers to the number of days a temporary password is valid. If the user does not sign-in during this time, their password will need to be reset by an administrator.
+        """
+elif False:
+    UserPoolPasswordPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolPasswordPolicyArgs:
@@ -1729,6 +2259,39 @@ class UserPoolPasswordPolicyArgs:
     def temporary_password_validity_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "temporary_password_validity_days", value)
 
+
+if not MYPY:
+    class UserPoolSchemaArgsDict(TypedDict):
+        attribute_data_type: pulumi.Input[str]
+        """
+        Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the attribute.
+        """
+        developer_only_attribute: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the attribute type is developer only.
+        """
+        mutable: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the attribute can be changed once it has been created.
+        """
+        number_attribute_constraints: NotRequired[pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArgsDict']]
+        """
+        Configuration block for the constraints for an attribute of the number type. Detailed below.
+        """
+        required: NotRequired[pulumi.Input[bool]]
+        """
+        Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
+        """
+        string_attribute_constraints: NotRequired[pulumi.Input['UserPoolSchemaStringAttributeConstraintsArgsDict']]
+        """
+        Constraints for an attribute of the string type. Detailed below.
+        """
+elif False:
+    UserPoolSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolSchemaArgs:
@@ -1847,6 +2410,19 @@ class UserPoolSchemaArgs:
         pulumi.set(self, "string_attribute_constraints", value)
 
 
+if not MYPY:
+    class UserPoolSchemaNumberAttributeConstraintsArgsDict(TypedDict):
+        max_value: NotRequired[pulumi.Input[str]]
+        """
+        Maximum value of an attribute that is of the number data type.
+        """
+        min_value: NotRequired[pulumi.Input[str]]
+        """
+        Minimum value of an attribute that is of the number data type.
+        """
+elif False:
+    UserPoolSchemaNumberAttributeConstraintsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPoolSchemaNumberAttributeConstraintsArgs:
     def __init__(__self__, *,
@@ -1886,6 +2462,19 @@ class UserPoolSchemaNumberAttributeConstraintsArgs:
         pulumi.set(self, "min_value", value)
 
 
+if not MYPY:
+    class UserPoolSchemaStringAttributeConstraintsArgsDict(TypedDict):
+        max_length: NotRequired[pulumi.Input[str]]
+        """
+        Maximum length of an attribute value of the string type.
+        """
+        min_length: NotRequired[pulumi.Input[str]]
+        """
+        Minimum length of an attribute value of the string type.
+        """
+elif False:
+    UserPoolSchemaStringAttributeConstraintsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPoolSchemaStringAttributeConstraintsArgs:
     def __init__(__self__, *,
@@ -1924,6 +2513,23 @@ class UserPoolSchemaStringAttributeConstraintsArgs:
     def min_length(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "min_length", value)
 
+
+if not MYPY:
+    class UserPoolSmsConfigurationArgsDict(TypedDict):
+        external_id: pulumi.Input[str]
+        """
+        External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
+        """
+        sns_caller_arn: pulumi.Input[str]
+        """
+        ARN of the Amazon SNS caller. This is usually the IAM role that you've given Cognito permission to assume.
+        """
+        sns_region: NotRequired[pulumi.Input[str]]
+        """
+        The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported Legacy Amazon SNS alternate Region. Amazon Cognito resources in the Asia Pacific (Seoul) AWS Region must use your Amazon SNS configuration in the Asia Pacific (Tokyo) Region. For more information, see [SMS message settings for Amazon Cognito user pools](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html).
+        """
+elif False:
+    UserPoolSmsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolSmsConfigurationArgs:
@@ -1978,6 +2584,15 @@ class UserPoolSmsConfigurationArgs:
         pulumi.set(self, "sns_region", value)
 
 
+if not MYPY:
+    class UserPoolSoftwareTokenMfaConfigurationArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `sms_configuration` is not present, the `mfa_configuration` argument must be set to `OFF` and the `software_token_mfa_configuration` configuration block must be fully removed.
+        """
+elif False:
+    UserPoolSoftwareTokenMfaConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPoolSoftwareTokenMfaConfigurationArgs:
     def __init__(__self__, *,
@@ -1999,6 +2614,15 @@ class UserPoolSoftwareTokenMfaConfigurationArgs:
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class UserPoolUserAttributeUpdateSettingsArgsDict(TypedDict):
+        attributes_require_verification_before_updates: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of attributes requiring verification before update. If set, the provided value(s) must also be set in `auto_verified_attributes`. Valid values: `email`, `phone_number`.
+        """
+elif False:
+    UserPoolUserAttributeUpdateSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolUserAttributeUpdateSettingsArgs:
@@ -2022,6 +2646,15 @@ class UserPoolUserAttributeUpdateSettingsArgs:
         pulumi.set(self, "attributes_require_verification_before_updates", value)
 
 
+if not MYPY:
+    class UserPoolUserPoolAddOnsArgsDict(TypedDict):
+        advanced_security_mode: pulumi.Input[str]
+        """
+        Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
+        """
+elif False:
+    UserPoolUserPoolAddOnsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPoolUserPoolAddOnsArgs:
     def __init__(__self__, *,
@@ -2044,6 +2677,15 @@ class UserPoolUserPoolAddOnsArgs:
         pulumi.set(self, "advanced_security_mode", value)
 
 
+if not MYPY:
+    class UserPoolUsernameConfigurationArgsDict(TypedDict):
+        case_sensitive: pulumi.Input[bool]
+        """
+        Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
+        """
+elif False:
+    UserPoolUsernameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserPoolUsernameConfigurationArgs:
     def __init__(__self__, *,
@@ -2065,6 +2707,35 @@ class UserPoolUsernameConfigurationArgs:
     def case_sensitive(self, value: pulumi.Input[bool]):
         pulumi.set(self, "case_sensitive", value)
 
+
+if not MYPY:
+    class UserPoolVerificationMessageTemplateArgsDict(TypedDict):
+        default_email_option: NotRequired[pulumi.Input[str]]
+        """
+        Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.
+        """
+        email_message: NotRequired[pulumi.Input[str]]
+        """
+        Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
+        """
+        email_message_by_link: NotRequired[pulumi.Input[str]]
+        """
+        Email message template for sending a confirmation link to the user, it must contain the `{##Click Here##}` placeholder.
+        """
+        email_subject: NotRequired[pulumi.Input[str]]
+        """
+        Subject line for the email message template. Conflicts with `email_verification_subject` argument.
+        """
+        email_subject_by_link: NotRequired[pulumi.Input[str]]
+        """
+        Subject line for the email message template for sending a confirmation link to the user.
+        """
+        sms_message: NotRequired[pulumi.Input[str]]
+        """
+        SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
+        """
+elif False:
+    UserPoolVerificationMessageTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolVerificationMessageTemplateArgs:
@@ -2168,6 +2839,27 @@ class UserPoolVerificationMessageTemplateArgs:
     def sms_message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sms_message", value)
 
+
+if not MYPY:
+    class GetUserGroupsGroupArgsDict(TypedDict):
+        description: str
+        """
+        Description of the user group.
+        """
+        group_name: str
+        """
+        Name of the user group.
+        """
+        precedence: int
+        """
+        Precedence of the user group.
+        """
+        role_arn: str
+        """
+        ARN of the IAM role to be associated with the user group.
+        """
+elif False:
+    GetUserGroupsGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetUserGroupsGroupArgs:

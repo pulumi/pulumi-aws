@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -249,7 +254,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  connector_label: Optional[pulumi.Input[str]] = None,
-                 connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
+                 connector_profile_config: Optional[pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -295,21 +300,21 @@ class ConnectorProfile(pulumi.CustomResource):
             name="example_profile",
             connector_type="Redshift",
             connection_mode="Public",
-            connector_profile_config=aws.appflow.ConnectorProfileConnectorProfileConfigArgs(
-                connector_profile_credentials=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs(
-                    redshift=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs(
-                        password=example_cluster.master_password,
-                        username=example_cluster.master_username,
-                    ),
-                ),
-                connector_profile_properties=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs(
-                    redshift=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs(
-                        bucket_name=example_bucket_v2.name,
-                        database_url=pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
-                        role_arn=example_role.arn,
-                    ),
-                ),
-            ))
+            connector_profile_config={
+                "connectorProfileCredentials": {
+                    "redshift": {
+                        "password": example_cluster.master_password,
+                        "username": example_cluster.master_username,
+                    },
+                },
+                "connectorProfileProperties": {
+                    "redshift": {
+                        "bucketName": example_bucket_v2.name,
+                        "databaseUrl": pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                        "roleArn": example_role.arn,
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -324,7 +329,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        :param pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         :param pulumi.Input[str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
@@ -375,21 +380,21 @@ class ConnectorProfile(pulumi.CustomResource):
             name="example_profile",
             connector_type="Redshift",
             connection_mode="Public",
-            connector_profile_config=aws.appflow.ConnectorProfileConnectorProfileConfigArgs(
-                connector_profile_credentials=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs(
-                    redshift=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs(
-                        password=example_cluster.master_password,
-                        username=example_cluster.master_username,
-                    ),
-                ),
-                connector_profile_properties=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs(
-                    redshift=aws.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs(
-                        bucket_name=example_bucket_v2.name,
-                        database_url=pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
-                        role_arn=example_role.arn,
-                    ),
-                ),
-            ))
+            connector_profile_config={
+                "connectorProfileCredentials": {
+                    "redshift": {
+                        "password": example_cluster.master_password,
+                        "username": example_cluster.master_username,
+                    },
+                },
+                "connectorProfileProperties": {
+                    "redshift": {
+                        "bucketName": example_bucket_v2.name,
+                        "databaseUrl": pulumi.Output.all(example_cluster.endpoint, example_cluster.database_name).apply(lambda endpoint, database_name: f"jdbc:redshift://{endpoint}/{database_name}"),
+                        "roleArn": example_role.arn,
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -417,7 +422,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  connector_label: Optional[pulumi.Input[str]] = None,
-                 connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
+                 connector_profile_config: Optional[pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -457,7 +462,7 @@ class ConnectorProfile(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             connection_mode: Optional[pulumi.Input[str]] = None,
             connector_label: Optional[pulumi.Input[str]] = None,
-            connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
+            connector_profile_config: Optional[pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']]] = None,
             connector_type: Optional[pulumi.Input[str]] = None,
             credentials_arn: Optional[pulumi.Input[str]] = None,
             kms_arn: Optional[pulumi.Input[str]] = None,
@@ -472,7 +477,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the connector profile.
         :param pulumi.Input[str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        :param pulumi.Input[Union['ConnectorProfileConnectorProfileConfigArgs', 'ConnectorProfileConnectorProfileConfigArgsDict']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         :param pulumi.Input[str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[str] credentials_arn: ARN of the connector profile credentials.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.

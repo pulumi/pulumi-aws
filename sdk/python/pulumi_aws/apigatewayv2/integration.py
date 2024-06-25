@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -670,10 +675,10 @@ class Integration(pulumi.CustomResource):
                  payload_format_version: Optional[pulumi.Input[str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationResponseParameterArgs']]]]] = None,
+                 response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[int]] = None,
-                 tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None,
+                 tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
                  __props__=None):
         """
         Manages an Amazon API Gateway Version 2 integration.
@@ -748,26 +753,26 @@ class Integration(pulumi.CustomResource):
             integration_method="ANY",
             connection_type="VPC_LINK",
             connection_id=example_aws_apigatewayv2_vpc_link["id"],
-            tls_config=aws.apigatewayv2.IntegrationTlsConfigArgs(
-                server_name_to_verify="example.com",
-            ),
+            tls_config={
+                "serverNameToVerify": "example.com",
+            },
             request_parameters={
                 "append:header.authforintegration": "$context.authorizer.authorizerResponse",
                 "overwrite:path": "staticValueForIntegration",
             },
             response_parameters=[
-                aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code="403",
-                    mappings={
+                {
+                    "statusCode": "403",
+                    "mappings": {
                         "append:header.auth": "$context.authorizer.authorizerResponse",
                     },
-                ),
-                aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code="200",
-                    mappings={
+                },
+                {
+                    "statusCode": "200",
+                    "mappings": {
                         "overwrite:statuscode": "204",
                     },
-                ),
+                },
             ])
         ```
 
@@ -802,12 +807,12 @@ class Integration(pulumi.CustomResource):
                For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationResponseParameterArgs']]]] response_parameters: Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]] response_parameters: Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
         :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
                The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
                this provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: TLS configuration for a private integration. Supported only for HTTP APIs.
+        :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: TLS configuration for a private integration. Supported only for HTTP APIs.
         """
         ...
     @overload
@@ -888,26 +893,26 @@ class Integration(pulumi.CustomResource):
             integration_method="ANY",
             connection_type="VPC_LINK",
             connection_id=example_aws_apigatewayv2_vpc_link["id"],
-            tls_config=aws.apigatewayv2.IntegrationTlsConfigArgs(
-                server_name_to_verify="example.com",
-            ),
+            tls_config={
+                "serverNameToVerify": "example.com",
+            },
             request_parameters={
                 "append:header.authforintegration": "$context.authorizer.authorizerResponse",
                 "overwrite:path": "staticValueForIntegration",
             },
             response_parameters=[
-                aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code="403",
-                    mappings={
+                {
+                    "statusCode": "403",
+                    "mappings": {
                         "append:header.auth": "$context.authorizer.authorizerResponse",
                     },
-                ),
-                aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code="200",
-                    mappings={
+                },
+                {
+                    "statusCode": "200",
+                    "mappings": {
                         "overwrite:statuscode": "204",
                     },
-                ),
+                },
             ])
         ```
 
@@ -949,10 +954,10 @@ class Integration(pulumi.CustomResource):
                  payload_format_version: Optional[pulumi.Input[str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationResponseParameterArgs']]]]] = None,
+                 response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[str]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[int]] = None,
-                 tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None,
+                 tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1010,10 +1015,10 @@ class Integration(pulumi.CustomResource):
             payload_format_version: Optional[pulumi.Input[str]] = None,
             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationResponseParameterArgs']]]]] = None,
+            response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
             template_selection_expression: Optional[pulumi.Input[str]] = None,
             timeout_milliseconds: Optional[pulumi.Input[int]] = None,
-            tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None) -> 'Integration':
+            tls_config: Optional[pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']]] = None) -> 'Integration':
         """
         Get an existing Integration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1042,12 +1047,12 @@ class Integration(pulumi.CustomResource):
                For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationResponseParameterArgs']]]] response_parameters: Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]] response_parameters: Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         :param pulumi.Input[str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
         :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
                The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
                this provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: TLS configuration for a private integration. Supported only for HTTP APIs.
+        :param pulumi.Input[Union['IntegrationTlsConfigArgs', 'IntegrationTlsConfigArgsDict']] tls_config: TLS configuration for a private integration. Supported only for HTTP APIs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

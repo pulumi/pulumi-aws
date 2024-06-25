@@ -4,17 +4,73 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AppAutoBranchCreationConfigArgs',
+    'AppAutoBranchCreationConfigArgsDict',
     'AppCustomRuleArgs',
+    'AppCustomRuleArgsDict',
     'AppProductionBranchArgs',
+    'AppProductionBranchArgsDict',
     'DomainAssociationSubDomainArgs',
+    'DomainAssociationSubDomainArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AppAutoBranchCreationConfigArgsDict(TypedDict):
+        basic_auth_credentials: NotRequired[pulumi.Input[str]]
+        """
+        Basic authorization credentials for the autocreated branch.
+        """
+        build_spec: NotRequired[pulumi.Input[str]]
+        """
+        Build specification (build spec) for the autocreated branch.
+        """
+        enable_auto_build: NotRequired[pulumi.Input[bool]]
+        """
+        Enables auto building for the autocreated branch.
+        """
+        enable_basic_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Enables basic authorization for the autocreated branch.
+        """
+        enable_performance_mode: NotRequired[pulumi.Input[bool]]
+        """
+        Enables performance mode for the branch.
+        """
+        enable_pull_request_preview: NotRequired[pulumi.Input[bool]]
+        """
+        Enables pull request previews for the autocreated branch.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Environment variables for the autocreated branch.
+        """
+        framework: NotRequired[pulumi.Input[str]]
+        """
+        Framework for the autocreated branch.
+        """
+        pull_request_environment_name: NotRequired[pulumi.Input[str]]
+        """
+        Amplify environment name for the pull request.
+        """
+        stage: NotRequired[pulumi.Input[str]]
+        """
+        Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
+        """
+elif False:
+    AppAutoBranchCreationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppAutoBranchCreationConfigArgs:
@@ -183,6 +239,27 @@ class AppAutoBranchCreationConfigArgs:
         pulumi.set(self, "stage", value)
 
 
+if not MYPY:
+    class AppCustomRuleArgsDict(TypedDict):
+        source: pulumi.Input[str]
+        """
+        Source pattern for a URL rewrite or redirect rule.
+        """
+        target: pulumi.Input[str]
+        """
+        Target pattern for a URL rewrite or redirect rule.
+        """
+        condition: NotRequired[pulumi.Input[str]]
+        """
+        Condition for a URL rewrite or redirect rule, such as a country code.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+        """
+elif False:
+    AppCustomRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppCustomRuleArgs:
     def __init__(__self__, *,
@@ -251,6 +328,27 @@ class AppCustomRuleArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class AppProductionBranchArgsDict(TypedDict):
+        branch_name: NotRequired[pulumi.Input[str]]
+        """
+        Branch name for the production branch.
+        """
+        last_deploy_time: NotRequired[pulumi.Input[str]]
+        """
+        Last deploy time of the production branch.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status of the production branch.
+        """
+        thumbnail_url: NotRequired[pulumi.Input[str]]
+        """
+        Thumbnail URL for the production branch.
+        """
+elif False:
+    AppProductionBranchArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppProductionBranchArgs:
@@ -322,6 +420,27 @@ class AppProductionBranchArgs:
     def thumbnail_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbnail_url", value)
 
+
+if not MYPY:
+    class DomainAssociationSubDomainArgsDict(TypedDict):
+        branch_name: pulumi.Input[str]
+        """
+        Branch name setting for the subdomain.
+        """
+        prefix: pulumi.Input[str]
+        """
+        Prefix setting for the subdomain.
+        """
+        dns_record: NotRequired[pulumi.Input[str]]
+        """
+        DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
+        """
+        verified: NotRequired[pulumi.Input[bool]]
+        """
+        Verified status of the subdomain.
+        """
+elif False:
+    DomainAssociationSubDomainArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainAssociationSubDomainArgs:

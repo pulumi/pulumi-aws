@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -88,7 +93,7 @@ class AwaitableGetContainerRecipesResult(GetContainerRecipesResult):
             owner=self.owner)
 
 
-def get_container_recipes(filters: Optional[Sequence[pulumi.InputType['GetContainerRecipesFilterArgs']]] = None,
+def get_container_recipes(filters: Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']]] = None,
                           owner: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerRecipesResult:
     """
@@ -101,14 +106,14 @@ def get_container_recipes(filters: Optional[Sequence[pulumi.InputType['GetContai
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_container_recipes(owner="Self",
-        filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )])
+        filters=[{
+            "name": "platform",
+            "values": ["Linux"],
+        }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetContainerRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
     __args__ = dict()
@@ -126,7 +131,7 @@ def get_container_recipes(filters: Optional[Sequence[pulumi.InputType['GetContai
 
 
 @_utilities.lift_output_func(get_container_recipes)
-def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetContainerRecipesFilterArgs']]]]] = None,
+def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']]]]] = None,
                                  owner: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerRecipesResult]:
     """
@@ -139,14 +144,14 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_container_recipes(owner="Self",
-        filters=[aws.imagebuilder.GetContainerRecipesFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )])
+        filters=[{
+            "name": "platform",
+            "values": ["Linux"],
+        }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetContainerRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetContainerRecipesFilterArgs', 'GetContainerRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
     """
     ...

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -313,9 +318,9 @@ class RoutingProfile(pulumi.CustomResource):
                  default_outbound_queue_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
-                 media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileMediaConcurrencyArgs']]]]] = None,
+                 media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileQueueConfigArgs']]]]] = None,
+                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -333,16 +338,16 @@ class RoutingProfile(pulumi.CustomResource):
             name="example",
             default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
             description="example description",
-            media_concurrencies=[aws.connect.RoutingProfileMediaConcurrencyArgs(
-                channel="VOICE",
-                concurrency=1,
-            )],
-            queue_configs=[aws.connect.RoutingProfileQueueConfigArgs(
-                channel="VOICE",
-                delay=2,
-                priority=1,
-                queue_id="12345678-1234-1234-1234-123456789012",
-            )],
+            media_concurrencies=[{
+                "channel": "VOICE",
+                "concurrency": 1,
+            }],
+            queue_configs=[{
+                "channel": "VOICE",
+                "delay": 2,
+                "priority": 1,
+                "queueId": "12345678-1234-1234-1234-123456789012",
+            }],
             tags={
                 "Name": "Example Routing Profile",
             })
@@ -361,9 +366,9 @@ class RoutingProfile(pulumi.CustomResource):
         :param pulumi.Input[str] default_outbound_queue_id: Specifies the default outbound queue for the Routing Profile.
         :param pulumi.Input[str] description: Specifies the description of the Routing Profile.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileMediaConcurrencyArgs']]]] media_concurrencies: One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]] media_concurrencies: One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
         :param pulumi.Input[str] name: Specifies the name of the Routing Profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileQueueConfigArgs']]]] queue_configs: One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]] queue_configs: One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Routing Profile. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -388,16 +393,16 @@ class RoutingProfile(pulumi.CustomResource):
             name="example",
             default_outbound_queue_id="12345678-1234-1234-1234-123456789012",
             description="example description",
-            media_concurrencies=[aws.connect.RoutingProfileMediaConcurrencyArgs(
-                channel="VOICE",
-                concurrency=1,
-            )],
-            queue_configs=[aws.connect.RoutingProfileQueueConfigArgs(
-                channel="VOICE",
-                delay=2,
-                priority=1,
-                queue_id="12345678-1234-1234-1234-123456789012",
-            )],
+            media_concurrencies=[{
+                "channel": "VOICE",
+                "concurrency": 1,
+            }],
+            queue_configs=[{
+                "channel": "VOICE",
+                "delay": 2,
+                "priority": 1,
+                "queueId": "12345678-1234-1234-1234-123456789012",
+            }],
             tags={
                 "Name": "Example Routing Profile",
             })
@@ -429,9 +434,9 @@ class RoutingProfile(pulumi.CustomResource):
                  default_outbound_queue_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
-                 media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileMediaConcurrencyArgs']]]]] = None,
+                 media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileQueueConfigArgs']]]]] = None,
+                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -474,9 +479,9 @@ class RoutingProfile(pulumi.CustomResource):
             default_outbound_queue_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             instance_id: Optional[pulumi.Input[str]] = None,
-            media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileMediaConcurrencyArgs']]]]] = None,
+            media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileQueueConfigArgs']]]]] = None,
+            queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]]] = None,
             routing_profile_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'RoutingProfile':
@@ -491,9 +496,9 @@ class RoutingProfile(pulumi.CustomResource):
         :param pulumi.Input[str] default_outbound_queue_id: Specifies the default outbound queue for the Routing Profile.
         :param pulumi.Input[str] description: Specifies the description of the Routing Profile.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileMediaConcurrencyArgs']]]] media_concurrencies: One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileMediaConcurrencyArgs', 'RoutingProfileMediaConcurrencyArgsDict']]]] media_concurrencies: One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
         :param pulumi.Input[str] name: Specifies the name of the Routing Profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingProfileQueueConfigArgs']]]] queue_configs: One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingProfileQueueConfigArgs', 'RoutingProfileQueueConfigArgsDict']]]] queue_configs: One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         :param pulumi.Input[str] routing_profile_id: The identifier for the Routing Profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Routing Profile. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -4,16 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DomainEndpointOptionsArgs',
+    'DomainEndpointOptionsArgsDict',
     'DomainIndexFieldArgs',
+    'DomainIndexFieldArgsDict',
     'DomainScalingParametersArgs',
+    'DomainScalingParametersArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DomainEndpointOptionsArgsDict(TypedDict):
+        enforce_https: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the requirement that all requests to the domain arrive over HTTPS.
+        """
+        tls_security_policy: NotRequired[pulumi.Input[str]]
+        """
+        The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
+        """
+elif False:
+    DomainEndpointOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainEndpointOptionsArgs:
@@ -53,6 +76,51 @@ class DomainEndpointOptionsArgs:
     def tls_security_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tls_security_policy", value)
 
+
+if not MYPY:
+    class DomainIndexFieldArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
+        """
+        type: pulumi.Input[str]
+        """
+        The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
+        """
+        analysis_scheme: NotRequired[pulumi.Input[str]]
+        """
+        The analysis scheme you want to use for a `text` field. The analysis scheme specifies the language-specific text processing options that are used during indexing.
+        """
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        The default value for the field. This value is used when no value is specified for the field in the document data.
+        """
+        facet: NotRequired[pulumi.Input[bool]]
+        """
+        You can get facet information by enabling this.
+        """
+        highlight: NotRequired[pulumi.Input[bool]]
+        """
+        You can highlight information.
+        """
+        return_: NotRequired[pulumi.Input[bool]]
+        """
+        You can enable returning the value of all searchable fields.
+        """
+        search: NotRequired[pulumi.Input[bool]]
+        """
+        You can set whether this index should be searchable or not.
+        """
+        sort: NotRequired[pulumi.Input[bool]]
+        """
+        You can enable the property to be sortable.
+        """
+        source_fields: NotRequired[pulumi.Input[str]]
+        """
+        A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
+        """
+elif False:
+    DomainIndexFieldArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainIndexFieldArgs:
@@ -218,6 +286,23 @@ class DomainIndexFieldArgs:
     def source_fields(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_fields", value)
 
+
+if not MYPY:
+    class DomainScalingParametersArgsDict(TypedDict):
+        desired_instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The instance type that you want to preconfigure for your domain. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ScalingParameters.html) for valid values.
+        """
+        desired_partition_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of partitions you want to preconfigure for your domain. Only valid when you select `search.2xlarge` as the instance type.
+        """
+        desired_replication_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of replicas you want to preconfigure for each index partition.
+        """
+elif False:
+    DomainScalingParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainScalingParametersArgs:

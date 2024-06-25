@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -471,7 +476,7 @@ class ElasticCluster(pulumi.CustomResource):
                  shard_count: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ElasticClusterTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict']]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -577,7 +582,7 @@ class ElasticCluster(pulumi.CustomResource):
                  shard_count: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ElasticClusterTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict']]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -638,7 +643,7 @@ class ElasticCluster(pulumi.CustomResource):
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ElasticClusterTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[Union['ElasticClusterTimeoutsArgs', 'ElasticClusterTimeoutsArgsDict']]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ElasticCluster':
         """
         Get an existing ElasticCluster resource's state with the given name, id, and optional extra

@@ -4,18 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AppAuthorizationCredentialArgs',
+    'AppAuthorizationCredentialArgsDict',
     'AppAuthorizationCredentialApiKeyCredentialArgs',
+    'AppAuthorizationCredentialApiKeyCredentialArgsDict',
     'AppAuthorizationCredentialOauth2CredentialArgs',
+    'AppAuthorizationCredentialOauth2CredentialArgsDict',
     'AppAuthorizationTenantArgs',
+    'AppAuthorizationTenantArgsDict',
     'AppAuthorizationTimeoutsArgs',
+    'AppAuthorizationTimeoutsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AppAuthorizationCredentialArgsDict(TypedDict):
+        api_key_credentials: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgsDict']]]]
+        """
+        Contains API key credential information.
+        """
+        oauth2_credential: NotRequired[pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgsDict']]
+        """
+        Contains OAuth2 client credential information.
+        """
+elif False:
+    AppAuthorizationCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppAuthorizationCredentialArgs:
@@ -56,6 +81,15 @@ class AppAuthorizationCredentialArgs:
         pulumi.set(self, "oauth2_credential", value)
 
 
+if not MYPY:
+    class AppAuthorizationCredentialApiKeyCredentialArgsDict(TypedDict):
+        api_key: pulumi.Input[str]
+        """
+        Contains API key credential information.
+        """
+elif False:
+    AppAuthorizationCredentialApiKeyCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppAuthorizationCredentialApiKeyCredentialArgs:
     def __init__(__self__, *,
@@ -77,6 +111,19 @@ class AppAuthorizationCredentialApiKeyCredentialArgs:
     def api_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "api_key", value)
 
+
+if not MYPY:
+    class AppAuthorizationCredentialOauth2CredentialArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The client ID of the client application.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The client secret of the client application.
+        """
+elif False:
+    AppAuthorizationCredentialOauth2CredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppAuthorizationCredentialOauth2CredentialArgs:
@@ -115,6 +162,19 @@ class AppAuthorizationCredentialOauth2CredentialArgs:
         pulumi.set(self, "client_secret", value)
 
 
+if not MYPY:
+    class AppAuthorizationTenantArgsDict(TypedDict):
+        tenant_display_name: pulumi.Input[str]
+        """
+        The display name of the tenant.
+        """
+        tenant_identifier: pulumi.Input[str]
+        """
+        The ID of the application tenant.
+        """
+elif False:
+    AppAuthorizationTenantArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppAuthorizationTenantArgs:
     def __init__(__self__, *,
@@ -151,6 +211,23 @@ class AppAuthorizationTenantArgs:
     def tenant_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "tenant_identifier", value)
 
+
+if not MYPY:
+    class AppAuthorizationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AppAuthorizationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppAuthorizationTimeoutsArgs:

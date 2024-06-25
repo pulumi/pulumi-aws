@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -184,7 +189,7 @@ class AwaitableGetAttachmentResult(GetAttachmentResult):
             transit_gateway_owner_id=self.transit_gateway_owner_id)
 
 
-def get_attachment(filters: Optional[Sequence[pulumi.InputType['GetAttachmentFilterArgs']]] = None,
+def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']]] = None,
                    tags: Optional[Mapping[str, str]] = None,
                    transit_gateway_attachment_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachmentResult:
@@ -198,19 +203,19 @@ def get_attachment(filters: Optional[Sequence[pulumi.InputType['GetAttachmentFil
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_attachment(filters=[
-        aws.ec2transitgateway.GetAttachmentFilterArgs(
-            name="transit-gateway-id",
-            values=[example_aws_ec2_transit_gateway["id"]],
-        ),
-        aws.ec2transitgateway.GetAttachmentFilterArgs(
-            name="resource-type",
-            values=["peering"],
-        ),
+        {
+            "name": "transit-gateway-id",
+            "values": [example_aws_ec2_transit_gateway["id"]],
+        },
+        {
+            "name": "resource-type",
+            "values": ["peering"],
+        },
     ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Key-value tags for the attachment.
     :param str transit_gateway_attachment_id: ID of the attachment.
     """
@@ -238,7 +243,7 @@ def get_attachment(filters: Optional[Sequence[pulumi.InputType['GetAttachmentFil
 
 
 @_utilities.lift_output_func(get_attachment)
-def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAttachmentFilterArgs']]]]] = None,
+def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']]]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           transit_gateway_attachment_id: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachmentResult]:
@@ -252,19 +257,19 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_attachment(filters=[
-        aws.ec2transitgateway.GetAttachmentFilterArgs(
-            name="transit-gateway-id",
-            values=[example_aws_ec2_transit_gateway["id"]],
-        ),
-        aws.ec2transitgateway.GetAttachmentFilterArgs(
-            name="resource-type",
-            values=["peering"],
-        ),
+        {
+            "name": "transit-gateway-id",
+            "values": [example_aws_ec2_transit_gateway["id"]],
+        },
+        {
+            "name": "resource-type",
+            "values": ["peering"],
+        },
     ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Key-value tags for the attachment.
     :param str transit_gateway_attachment_id: ID of the attachment.
     """

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -97,7 +102,7 @@ class InstancePublicPorts(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
-                 port_infos: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstancePublicPortsPortInfoArgs']]]]] = None,
+                 port_infos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]]] = None,
                  __props__=None):
         """
         Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
@@ -119,17 +124,17 @@ class InstancePublicPorts(pulumi.CustomResource):
             bundle_id="nano_3_0")
         test_instance_public_ports = aws.lightsail.InstancePublicPorts("test",
             instance_name=test.name,
-            port_infos=[aws.lightsail.InstancePublicPortsPortInfoArgs(
-                protocol="tcp",
-                from_port=80,
-                to_port=80,
-            )])
+            port_infos=[{
+                "protocol": "tcp",
+                "fromPort": 80,
+                "toPort": 80,
+            }])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_name: Name of the Lightsail Instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstancePublicPortsPortInfoArgs']]]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         """
         ...
     @overload
@@ -157,11 +162,11 @@ class InstancePublicPorts(pulumi.CustomResource):
             bundle_id="nano_3_0")
         test_instance_public_ports = aws.lightsail.InstancePublicPorts("test",
             instance_name=test.name,
-            port_infos=[aws.lightsail.InstancePublicPortsPortInfoArgs(
-                protocol="tcp",
-                from_port=80,
-                to_port=80,
-            )])
+            port_infos=[{
+                "protocol": "tcp",
+                "fromPort": 80,
+                "toPort": 80,
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -180,7 +185,7 @@ class InstancePublicPorts(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
-                 port_infos: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstancePublicPortsPortInfoArgs']]]]] = None,
+                 port_infos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -207,7 +212,7 @@ class InstancePublicPorts(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             instance_name: Optional[pulumi.Input[str]] = None,
-            port_infos: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstancePublicPortsPortInfoArgs']]]]] = None) -> 'InstancePublicPorts':
+            port_infos: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]]] = None) -> 'InstancePublicPorts':
         """
         Get an existing InstancePublicPorts resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -216,7 +221,7 @@ class InstancePublicPorts(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_name: Name of the Lightsail Instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstancePublicPortsPortInfoArgs']]]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstancePublicPortsPortInfoArgs', 'InstancePublicPortsPortInfoArgsDict']]]] port_infos: Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

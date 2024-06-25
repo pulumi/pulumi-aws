@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -37,10 +42,10 @@ class GetLicenseGrantsFilterResult(dict):
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArgs(
-                   name="ProductSKU",
-                   values=[""],
-               )])
+               selected = aws.licensemanager.get_license_grants(filters=[{
+                   "name": "ProductSKU",
+                   "values": [""],
+               }])
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
@@ -59,10 +64,10 @@ class GetLicenseGrantsFilterResult(dict):
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArgs(
-            name="ProductSKU",
-            values=[""],
-        )])
+        selected = aws.licensemanager.get_license_grants(filters=[{
+            "name": "ProductSKU",
+            "values": [""],
+        }])
         ```
         """
         return pulumi.get(self, "name")
@@ -373,10 +378,10 @@ class GetReceivedLicensesFilterResult(dict):
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArgs(
-                   name="ProductSKU",
-                   values=[""],
-               )])
+               selected = aws.licensemanager.get_received_licenses(filters=[{
+                   "name": "ProductSKU",
+                   "values": [""],
+               }])
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
         """
@@ -395,10 +400,10 @@ class GetReceivedLicensesFilterResult(dict):
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArgs(
-            name="ProductSKU",
-            values=[""],
-        )])
+        selected = aws.licensemanager.get_received_licenses(filters=[{
+            "name": "ProductSKU",
+            "values": [""],
+        }])
         ```
         """
         return pulumi.get(self, "name")

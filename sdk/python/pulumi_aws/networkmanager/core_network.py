@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -527,16 +532,16 @@ class CoreNetwork(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_global_network = aws.networkmanager.GlobalNetwork("example")
-        base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                    location="us-west-2",
-                    asn="65500",
-                )],
-            )],
-            segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                name="segment",
-            )])
+        base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [{
+                    "location": "us-west-2",
+                    "asn": "65500",
+                }],
+            }],
+            segments=[{
+                "name": "segment",
+            }])
         example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             base_policy_document=base.json,
@@ -545,22 +550,22 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             subnet_arns=[__item["arn"] for __item in example_aws_subnet],
             vpc_arn=example_aws_vpc["arn"])
-        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                    location="us-west-2",
-                    asn="65500",
-                )],
-            )],
-            segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                name="segment",
-            )],
-            segment_actions=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                action="create-route",
-                segment="segment",
-                destination_cidr_blocks=["0.0.0.0/0"],
-                destinations=[example_vpc_attachment.id],
-            )])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [{
+                    "location": "us-west-2",
+                    "asn": "65500",
+                }],
+            }],
+            segments=[{
+                "name": "segment",
+            }],
+            segment_actions=[{
+                "action": "create-route",
+                "segment": "segment",
+                "destinationCidrBlocks": ["0.0.0.0/0"],
+                "destinations": [example_vpc_attachment.id],
+            }])
         example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
             policy_document=example.json)
@@ -580,21 +585,21 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             subnet_arns=[__item["arn"] for __item in example_aws_subnet],
             vpc_arn=example_aws_vpc["arn"])
-        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                    location="us-west-2",
-                )],
-            )],
-            segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                name="segment",
-            )],
-            segment_actions=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                action="create-route",
-                segment="segment",
-                destination_cidr_blocks=["0.0.0.0/0"],
-                destinations=[example_vpc_attachment.id],
-            )])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [{
+                    "location": "us-west-2",
+                }],
+            }],
+            segments=[{
+                "name": "segment",
+            }],
+            segment_actions=[{
+                "action": "create-route",
+                "segment": "segment",
+                "destinationCidrBlocks": ["0.0.0.0/0"],
+                "destinations": [example_vpc_attachment.id],
+            }])
         example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
             policy_document=example.json)
@@ -614,22 +619,22 @@ class CoreNetwork(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_global_network = aws.networkmanager.GlobalNetwork("example")
-        base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-west-2",
-                        asn="65500",
-                    ),
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-east-1",
-                        asn="65501",
-                    ),
+        base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [
+                    {
+                        "location": "us-west-2",
+                        "asn": "65500",
+                    },
+                    {
+                        "location": "us-east-1",
+                        "asn": "65501",
+                    },
                 ],
-            )],
-            segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                name="segment",
-            )])
+            }],
+            segments=[{
+                "name": "segment",
+            }])
         example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             base_policy_document=base.json,
@@ -642,40 +647,40 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             subnet_arns=[__item["arn"] for __item in example_us_east1_aws_subnet],
             vpc_arn=example_us_east1_aws_vpc["arn"])
-        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-west-2",
-                        asn="65500",
-                    ),
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-east-1",
-                        asn="65501",
-                    ),
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [
+                    {
+                        "location": "us-west-2",
+                        "asn": "65500",
+                    },
+                    {
+                        "location": "us-east-1",
+                        "asn": "65501",
+                    },
                 ],
-            )],
+            }],
             segments=[
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                    name="segment",
-                ),
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                    name="segment2",
-                ),
+                {
+                    "name": "segment",
+                },
+                {
+                    "name": "segment2",
+                },
             ],
             segment_actions=[
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                    action="create-route",
-                    segment="segment",
-                    destination_cidr_blocks=["10.0.0.0/16"],
-                    destinations=[example_us_west2.id],
-                ),
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                    action="create-route",
-                    segment="segment",
-                    destination_cidr_blocks=["10.1.0.0/16"],
-                    destinations=[example_us_east1.id],
-                ),
+                {
+                    "action": "create-route",
+                    "segment": "segment",
+                    "destinationCidrBlocks": ["10.0.0.0/16"],
+                    "destinations": [example_us_west2.id],
+                },
+                {
+                    "action": "create-route",
+                    "segment": "segment",
+                    "destinationCidrBlocks": ["10.1.0.0/16"],
+                    "destinations": [example_us_east1.id],
+                },
             ])
         example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
@@ -704,38 +709,38 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             subnet_arns=[__item["arn"] for __item in example_us_east1_aws_subnet],
             vpc_arn=example_us_east1_aws_vpc["arn"])
-        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-west-2",
-                    ),
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-east-1",
-                    ),
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [
+                    {
+                        "location": "us-west-2",
+                    },
+                    {
+                        "location": "us-east-1",
+                    },
                 ],
-            )],
+            }],
             segments=[
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                    name="segment",
-                ),
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                    name="segment2",
-                ),
+                {
+                    "name": "segment",
+                },
+                {
+                    "name": "segment2",
+                },
             ],
             segment_actions=[
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                    action="create-route",
-                    segment="segment",
-                    destination_cidr_blocks=["10.0.0.0/16"],
-                    destinations=[example_us_west2.id],
-                ),
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                    action="create-route",
-                    segment="segment",
-                    destination_cidr_blocks=["10.1.0.0/16"],
-                    destinations=[example_us_east1.id],
-                ),
+                {
+                    "action": "create-route",
+                    "segment": "segment",
+                    "destinationCidrBlocks": ["10.0.0.0/16"],
+                    "destinations": [example_us_west2.id],
+                },
+                {
+                    "action": "create-route",
+                    "segment": "segment",
+                    "destinationCidrBlocks": ["10.1.0.0/16"],
+                    "destinations": [example_us_east1.id],
+                },
             ])
         example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
@@ -845,16 +850,16 @@ class CoreNetwork(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_global_network = aws.networkmanager.GlobalNetwork("example")
-        base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                    location="us-west-2",
-                    asn="65500",
-                )],
-            )],
-            segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                name="segment",
-            )])
+        base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [{
+                    "location": "us-west-2",
+                    "asn": "65500",
+                }],
+            }],
+            segments=[{
+                "name": "segment",
+            }])
         example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             base_policy_document=base.json,
@@ -863,22 +868,22 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             subnet_arns=[__item["arn"] for __item in example_aws_subnet],
             vpc_arn=example_aws_vpc["arn"])
-        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                    location="us-west-2",
-                    asn="65500",
-                )],
-            )],
-            segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                name="segment",
-            )],
-            segment_actions=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                action="create-route",
-                segment="segment",
-                destination_cidr_blocks=["0.0.0.0/0"],
-                destinations=[example_vpc_attachment.id],
-            )])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [{
+                    "location": "us-west-2",
+                    "asn": "65500",
+                }],
+            }],
+            segments=[{
+                "name": "segment",
+            }],
+            segment_actions=[{
+                "action": "create-route",
+                "segment": "segment",
+                "destinationCidrBlocks": ["0.0.0.0/0"],
+                "destinations": [example_vpc_attachment.id],
+            }])
         example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
             policy_document=example.json)
@@ -898,21 +903,21 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             subnet_arns=[__item["arn"] for __item in example_aws_subnet],
             vpc_arn=example_aws_vpc["arn"])
-        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                    location="us-west-2",
-                )],
-            )],
-            segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                name="segment",
-            )],
-            segment_actions=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                action="create-route",
-                segment="segment",
-                destination_cidr_blocks=["0.0.0.0/0"],
-                destinations=[example_vpc_attachment.id],
-            )])
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [{
+                    "location": "us-west-2",
+                }],
+            }],
+            segments=[{
+                "name": "segment",
+            }],
+            segment_actions=[{
+                "action": "create-route",
+                "segment": "segment",
+                "destinationCidrBlocks": ["0.0.0.0/0"],
+                "destinations": [example_vpc_attachment.id],
+            }])
         example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
             policy_document=example.json)
@@ -932,22 +937,22 @@ class CoreNetwork(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_global_network = aws.networkmanager.GlobalNetwork("example")
-        base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-west-2",
-                        asn="65500",
-                    ),
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-east-1",
-                        asn="65501",
-                    ),
+        base = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [
+                    {
+                        "location": "us-west-2",
+                        "asn": "65500",
+                    },
+                    {
+                        "location": "us-east-1",
+                        "asn": "65501",
+                    },
                 ],
-            )],
-            segments=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                name="segment",
-            )])
+            }],
+            segments=[{
+                "name": "segment",
+            }])
         example_core_network = aws.networkmanager.CoreNetwork("example",
             global_network_id=example_global_network.id,
             base_policy_document=base.json,
@@ -960,40 +965,40 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             subnet_arns=[__item["arn"] for __item in example_us_east1_aws_subnet],
             vpc_arn=example_us_east1_aws_vpc["arn"])
-        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-west-2",
-                        asn="65500",
-                    ),
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-east-1",
-                        asn="65501",
-                    ),
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [
+                    {
+                        "location": "us-west-2",
+                        "asn": "65500",
+                    },
+                    {
+                        "location": "us-east-1",
+                        "asn": "65501",
+                    },
                 ],
-            )],
+            }],
             segments=[
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                    name="segment",
-                ),
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                    name="segment2",
-                ),
+                {
+                    "name": "segment",
+                },
+                {
+                    "name": "segment2",
+                },
             ],
             segment_actions=[
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                    action="create-route",
-                    segment="segment",
-                    destination_cidr_blocks=["10.0.0.0/16"],
-                    destinations=[example_us_west2.id],
-                ),
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                    action="create-route",
-                    segment="segment",
-                    destination_cidr_blocks=["10.1.0.0/16"],
-                    destinations=[example_us_east1.id],
-                ),
+                {
+                    "action": "create-route",
+                    "segment": "segment",
+                    "destinationCidrBlocks": ["10.0.0.0/16"],
+                    "destinations": [example_us_west2.id],
+                },
+                {
+                    "action": "create-route",
+                    "segment": "segment",
+                    "destinationCidrBlocks": ["10.1.0.0/16"],
+                    "destinations": [example_us_east1.id],
+                },
             ])
         example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
@@ -1022,38 +1027,38 @@ class CoreNetwork(pulumi.CustomResource):
             core_network_id=example_core_network.id,
             subnet_arns=[__item["arn"] for __item in example_us_east1_aws_subnet],
             vpc_arn=example_us_east1_aws_vpc["arn"])
-        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
-                asn_ranges=["65022-65534"],
-                edge_locations=[
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-west-2",
-                    ),
-                    aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
-                        location="us-east-1",
-                    ),
+        example = aws.networkmanager.get_core_network_policy_document_output(core_network_configurations=[{
+                "asnRanges": ["65022-65534"],
+                "edgeLocations": [
+                    {
+                        "location": "us-west-2",
+                    },
+                    {
+                        "location": "us-east-1",
+                    },
                 ],
-            )],
+            }],
             segments=[
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                    name="segment",
-                ),
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
-                    name="segment2",
-                ),
+                {
+                    "name": "segment",
+                },
+                {
+                    "name": "segment2",
+                },
             ],
             segment_actions=[
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                    action="create-route",
-                    segment="segment",
-                    destination_cidr_blocks=["10.0.0.0/16"],
-                    destinations=[example_us_west2.id],
-                ),
-                aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
-                    action="create-route",
-                    segment="segment",
-                    destination_cidr_blocks=["10.1.0.0/16"],
-                    destinations=[example_us_east1.id],
-                ),
+                {
+                    "action": "create-route",
+                    "segment": "segment",
+                    "destinationCidrBlocks": ["10.0.0.0/16"],
+                    "destinations": [example_us_west2.id],
+                },
+                {
+                    "action": "create-route",
+                    "segment": "segment",
+                    "destinationCidrBlocks": ["10.1.0.0/16"],
+                    "destinations": [example_us_east1.id],
+                },
             ])
         example_core_network_policy_attachment = aws.networkmanager.CoreNetworkPolicyAttachment("example",
             core_network_id=example_core_network.id,
@@ -1131,9 +1136,9 @@ class CoreNetwork(pulumi.CustomResource):
             create_base_policy: Optional[pulumi.Input[bool]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            edges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkEdgeArgs']]]]] = None,
+            edges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CoreNetworkEdgeArgs', 'CoreNetworkEdgeArgsDict']]]]] = None,
             global_network_id: Optional[pulumi.Input[str]] = None,
-            segments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkSegmentArgs']]]]] = None,
+            segments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CoreNetworkSegmentArgs', 'CoreNetworkSegmentArgsDict']]]]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CoreNetwork':
@@ -1176,9 +1181,9 @@ class CoreNetwork(pulumi.CustomResource):
                ```
         :param pulumi.Input[str] created_at: Timestamp when a core network was created.
         :param pulumi.Input[str] description: Description of the Core Network.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkEdgeArgs']]]] edges: One or more blocks detailing the edges within a core network. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CoreNetworkEdgeArgs', 'CoreNetworkEdgeArgsDict']]]] edges: One or more blocks detailing the edges within a core network. Detailed below.
         :param pulumi.Input[str] global_network_id: The ID of the global network that a core network will be a part of.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkSegmentArgs']]]] segments: One or more blocks detailing the segments within a core network. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CoreNetworkSegmentArgs', 'CoreNetworkSegmentArgsDict']]]] segments: One or more blocks detailing the segments within a core network. Detailed below.
         :param pulumi.Input[str] state: Current state of a core network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

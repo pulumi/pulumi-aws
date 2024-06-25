@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -199,7 +204,7 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['SiteLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -227,7 +232,7 @@ class Site(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the Site.
         :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
-        :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: The site location as documented below.
+        :param pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']] location: The site location as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -274,7 +279,7 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[pulumi.InputType['SiteLocationArgs']]] = None,
+                 location: Optional[pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -306,7 +311,7 @@ class Site(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             global_network_id: Optional[pulumi.Input[str]] = None,
-            location: Optional[pulumi.Input[pulumi.InputType['SiteLocationArgs']]] = None,
+            location: Optional[pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Site':
         """
@@ -319,7 +324,7 @@ class Site(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Site Amazon Resource Name (ARN)
         :param pulumi.Input[str] description: Description of the Site.
         :param pulumi.Input[str] global_network_id: The ID of the Global Network to create the site in.
-        :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: The site location as documented below.
+        :param pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']] location: The site location as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Site. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

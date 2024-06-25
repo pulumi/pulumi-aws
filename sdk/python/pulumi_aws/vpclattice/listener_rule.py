@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -313,9 +318,9 @@ class ListenerRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]] = None,
+                 action: Optional[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]] = None,
                  listener_identifier: Optional[pulumi.Input[str]] = None,
-                 match: Optional[pulumi.Input[pulumi.InputType['ListenerRuleMatchArgs']]] = None,
+                 match: Optional[pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_identifier: Optional[pulumi.Input[str]] = None,
@@ -335,37 +340,37 @@ class ListenerRule(pulumi.CustomResource):
             listener_identifier=example_aws_vpclattice_listener["listenerId"],
             service_identifier=example_aws_vpclattice_service["id"],
             priority=20,
-            match=aws.vpclattice.ListenerRuleMatchArgs(
-                http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
-                    header_matches=[aws.vpclattice.ListenerRuleMatchHttpMatchHeaderMatchArgs(
-                        name="example-header",
-                        case_sensitive=False,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs(
-                            exact="example-contains",
-                        ),
-                    )],
-                    path_match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs(
-                        case_sensitive=True,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs(
-                            prefix="/example-path",
-                        ),
-                    ),
-                ),
-            ),
-            action=aws.vpclattice.ListenerRuleActionArgs(
-                forward=aws.vpclattice.ListenerRuleActionForwardArgs(
-                    target_groups=[
-                        aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=example["id"],
-                            weight=1,
-                        ),
-                        aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=example2["id"],
-                            weight=2,
-                        ),
+            match={
+                "httpMatch": {
+                    "headerMatches": [{
+                        "name": "example-header",
+                        "caseSensitive": False,
+                        "match": {
+                            "exact": "example-contains",
+                        },
+                    }],
+                    "pathMatch": {
+                        "caseSensitive": True,
+                        "match": {
+                            "prefix": "/example-path",
+                        },
+                    },
+                },
+            },
+            action={
+                "forward": {
+                    "targetGroups": [
+                        {
+                            "targetGroupIdentifier": example["id"],
+                            "weight": 1,
+                        },
+                        {
+                            "targetGroupIdentifier": example2["id"],
+                            "weight": 2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
 
         ### Basic Usage
@@ -379,21 +384,21 @@ class ListenerRule(pulumi.CustomResource):
             listener_identifier=example["listenerId"],
             service_identifier=example_aws_vpclattice_service["id"],
             priority=10,
-            match=aws.vpclattice.ListenerRuleMatchArgs(
-                http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
-                    path_match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs(
-                        case_sensitive=False,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs(
-                            exact="/example-path",
-                        ),
-                    ),
-                ),
-            ),
-            action=aws.vpclattice.ListenerRuleActionArgs(
-                fixed_response=aws.vpclattice.ListenerRuleActionFixedResponseArgs(
-                    status_code=404,
-                ),
-            ))
+            match={
+                "httpMatch": {
+                    "pathMatch": {
+                        "caseSensitive": False,
+                        "match": {
+                            "exact": "/example-path",
+                        },
+                    },
+                },
+            },
+            action={
+                "fixedResponse": {
+                    "statusCode": 404,
+                },
+            })
         ```
 
         ## Import
@@ -406,9 +411,9 @@ class ListenerRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']] action: The action for the listener rule.
+        :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']] action: The action for the listener rule.
         :param pulumi.Input[str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
-        :param pulumi.Input[pulumi.InputType['ListenerRuleMatchArgs']] match: The rule match.
+        :param pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']] match: The rule match.
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
                
@@ -436,37 +441,37 @@ class ListenerRule(pulumi.CustomResource):
             listener_identifier=example_aws_vpclattice_listener["listenerId"],
             service_identifier=example_aws_vpclattice_service["id"],
             priority=20,
-            match=aws.vpclattice.ListenerRuleMatchArgs(
-                http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
-                    header_matches=[aws.vpclattice.ListenerRuleMatchHttpMatchHeaderMatchArgs(
-                        name="example-header",
-                        case_sensitive=False,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs(
-                            exact="example-contains",
-                        ),
-                    )],
-                    path_match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs(
-                        case_sensitive=True,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs(
-                            prefix="/example-path",
-                        ),
-                    ),
-                ),
-            ),
-            action=aws.vpclattice.ListenerRuleActionArgs(
-                forward=aws.vpclattice.ListenerRuleActionForwardArgs(
-                    target_groups=[
-                        aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=example["id"],
-                            weight=1,
-                        ),
-                        aws.vpclattice.ListenerRuleActionForwardTargetGroupArgs(
-                            target_group_identifier=example2["id"],
-                            weight=2,
-                        ),
+            match={
+                "httpMatch": {
+                    "headerMatches": [{
+                        "name": "example-header",
+                        "caseSensitive": False,
+                        "match": {
+                            "exact": "example-contains",
+                        },
+                    }],
+                    "pathMatch": {
+                        "caseSensitive": True,
+                        "match": {
+                            "prefix": "/example-path",
+                        },
+                    },
+                },
+            },
+            action={
+                "forward": {
+                    "targetGroups": [
+                        {
+                            "targetGroupIdentifier": example["id"],
+                            "weight": 1,
+                        },
+                        {
+                            "targetGroupIdentifier": example2["id"],
+                            "weight": 2,
+                        },
                     ],
-                ),
-            ))
+                },
+            })
         ```
 
         ### Basic Usage
@@ -480,21 +485,21 @@ class ListenerRule(pulumi.CustomResource):
             listener_identifier=example["listenerId"],
             service_identifier=example_aws_vpclattice_service["id"],
             priority=10,
-            match=aws.vpclattice.ListenerRuleMatchArgs(
-                http_match=aws.vpclattice.ListenerRuleMatchHttpMatchArgs(
-                    path_match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchArgs(
-                        case_sensitive=False,
-                        match=aws.vpclattice.ListenerRuleMatchHttpMatchPathMatchMatchArgs(
-                            exact="/example-path",
-                        ),
-                    ),
-                ),
-            ),
-            action=aws.vpclattice.ListenerRuleActionArgs(
-                fixed_response=aws.vpclattice.ListenerRuleActionFixedResponseArgs(
-                    status_code=404,
-                ),
-            ))
+            match={
+                "httpMatch": {
+                    "pathMatch": {
+                        "caseSensitive": False,
+                        "match": {
+                            "exact": "/example-path",
+                        },
+                    },
+                },
+            },
+            action={
+                "fixedResponse": {
+                    "statusCode": 404,
+                },
+            })
         ```
 
         ## Import
@@ -520,9 +525,9 @@ class ListenerRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]] = None,
+                 action: Optional[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]] = None,
                  listener_identifier: Optional[pulumi.Input[str]] = None,
-                 match: Optional[pulumi.Input[pulumi.InputType['ListenerRuleMatchArgs']]] = None,
+                 match: Optional[pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_identifier: Optional[pulumi.Input[str]] = None,
@@ -566,10 +571,10 @@ class ListenerRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']]] = None,
+            action: Optional[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             listener_identifier: Optional[pulumi.Input[str]] = None,
-            match: Optional[pulumi.Input[pulumi.InputType['ListenerRuleMatchArgs']]] = None,
+            match: Optional[pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             rule_id: Optional[pulumi.Input[str]] = None,
@@ -583,10 +588,10 @@ class ListenerRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ListenerRuleActionArgs']] action: The action for the listener rule.
+        :param pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']] action: The action for the listener rule.
         :param pulumi.Input[str] arn: The ARN for the listener rule.
         :param pulumi.Input[str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
-        :param pulumi.Input[pulumi.InputType['ListenerRuleMatchArgs']] match: The rule match.
+        :param pulumi.Input[Union['ListenerRuleMatchArgs', 'ListenerRuleMatchArgsDict']] match: The rule match.
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
                

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -503,7 +508,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-            global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalClusterGlobalClusterMemberArgs']]]]] = None,
+            global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]]] = None,
             global_cluster_resource_id: Optional[pulumi.Input[str]] = None,
             source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -521,7 +526,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
                * **NOTE:** Upgrading major versions is not supported.
         :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalClusterGlobalClusterMemberArgs']]]] global_cluster_members: Set of objects containing Global Cluster members.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GlobalClusterGlobalClusterMemberArgs', 'GlobalClusterGlobalClusterMemberArgsDict']]]] global_cluster_members: Set of objects containing Global Cluster members.
         :param pulumi.Input[str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
         :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.

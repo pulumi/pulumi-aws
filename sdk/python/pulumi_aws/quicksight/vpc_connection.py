@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -377,7 +382,7 @@ class VpcConnection(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['VpcConnectionTimeoutsArgs', 'VpcConnectionTimeoutsArgsDict']]] = None,
                  vpc_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -403,9 +408,9 @@ class VpcConnection(pulumi.CustomResource):
                     },
                 }],
             }),
-            inline_policies=[aws.iam.RoleInlinePolicyArgs(
-                name="QuickSightVPCConnectionRolePolicy",
-                policy=json.dumps({
+            inline_policies=[{
+                "name": "QuickSightVPCConnectionRolePolicy",
+                "policy": json.dumps({
                     "Version": "2012-10-17",
                     "Statement": [{
                         "Effect": "Allow",
@@ -419,7 +424,7 @@ class VpcConnection(pulumi.CustomResource):
                         "Resource": ["*"],
                     }],
                 }),
-            )])
+            }])
         example = aws.quicksight.VpcConnection("example",
             vpc_connection_id="example-connection-id",
             name="Example Connection",
@@ -481,9 +486,9 @@ class VpcConnection(pulumi.CustomResource):
                     },
                 }],
             }),
-            inline_policies=[aws.iam.RoleInlinePolicyArgs(
-                name="QuickSightVPCConnectionRolePolicy",
-                policy=json.dumps({
+            inline_policies=[{
+                "name": "QuickSightVPCConnectionRolePolicy",
+                "policy": json.dumps({
                     "Version": "2012-10-17",
                     "Statement": [{
                         "Effect": "Allow",
@@ -497,7 +502,7 @@ class VpcConnection(pulumi.CustomResource):
                         "Resource": ["*"],
                     }],
                 }),
-            )])
+            }])
         example = aws.quicksight.VpcConnection("example",
             vpc_connection_id="example-connection-id",
             name="Example Connection",
@@ -539,7 +544,7 @@ class VpcConnection(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['VpcConnectionTimeoutsArgs', 'VpcConnectionTimeoutsArgsDict']]] = None,
                  vpc_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -590,7 +595,7 @@ class VpcConnection(pulumi.CustomResource):
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['VpcConnectionTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[Union['VpcConnectionTimeoutsArgs', 'VpcConnectionTimeoutsArgsDict']]] = None,
             vpc_connection_id: Optional[pulumi.Input[str]] = None) -> 'VpcConnection':
         """
         Get an existing VpcConnection resource's state with the given name, id, and optional extra

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -245,7 +250,7 @@ class Framework(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]]] = None,
+                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -265,74 +270,74 @@ class Framework(pulumi.CustomResource):
             name="exampleFramework",
             description="this is an example framework",
             controls=[
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
-                    input_parameters=[aws.backup.FrameworkControlInputParameterArgs(
-                        name="requiredRetentionDays",
-                        value="35",
-                    )],
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredFrequencyUnit",
-                            value="hours",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredRetentionDays",
-                            value="35",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredFrequencyValue",
-                            value="1",
-                        ),
+                {
+                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
+                    "inputParameters": [{
+                        "name": "requiredRetentionDays",
+                        "value": "35",
+                    }],
+                },
+                {
+                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
+                    "inputParameters": [
+                        {
+                            "name": "requiredFrequencyUnit",
+                            "value": "hours",
+                        },
+                        {
+                            "name": "requiredRetentionDays",
+                            "value": "35",
+                        },
+                        {
+                            "name": "requiredFrequencyValue",
+                            "value": "1",
+                        },
                     ],
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RECOVERY_POINT_ENCRYPTED",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="maxRetentionDays",
-                            value="100",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="minRetentionDays",
-                            value="1",
-                        ),
+                },
+                {
+                    "name": "BACKUP_RECOVERY_POINT_ENCRYPTED",
+                },
+                {
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
+                    "scope": {
+                        "complianceResourceTypes": ["EBS"],
+                    },
+                },
+                {
+                    "name": "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
+                },
+                {
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+                    "inputParameters": [
+                        {
+                            "name": "maxRetentionDays",
+                            "value": "100",
+                        },
+                        {
+                            "name": "minRetentionDays",
+                            "value": "1",
+                        },
                     ],
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_LAST_RECOVERY_POINT_CREATED",
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="recoveryPointAgeUnit",
-                            value="days",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="recoveryPointAgeValue",
-                            value="1",
-                        ),
+                    "scope": {
+                        "complianceResourceTypes": ["EBS"],
+                    },
+                },
+                {
+                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
+                    "inputParameters": [
+                        {
+                            "name": "recoveryPointAgeUnit",
+                            "value": "days",
+                        },
+                        {
+                            "name": "recoveryPointAgeValue",
+                            "value": "1",
+                        },
                     ],
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
+                    "scope": {
+                        "complianceResourceTypes": ["EBS"],
+                    },
+                },
             ],
             tags={
                 "Name": "Example Framework",
@@ -349,7 +354,7 @@ class Framework(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         :param pulumi.Input[str] description: The description of the framework with a maximum of 1,024 characters
         :param pulumi.Input[str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -375,74 +380,74 @@ class Framework(pulumi.CustomResource):
             name="exampleFramework",
             description="this is an example framework",
             controls=[
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
-                    input_parameters=[aws.backup.FrameworkControlInputParameterArgs(
-                        name="requiredRetentionDays",
-                        value="35",
-                    )],
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredFrequencyUnit",
-                            value="hours",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredRetentionDays",
-                            value="35",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="requiredFrequencyValue",
-                            value="1",
-                        ),
+                {
+                    "name": "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
+                    "inputParameters": [{
+                        "name": "requiredRetentionDays",
+                        "value": "35",
+                    }],
+                },
+                {
+                    "name": "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
+                    "inputParameters": [
+                        {
+                            "name": "requiredFrequencyUnit",
+                            "value": "hours",
+                        },
+                        {
+                            "name": "requiredRetentionDays",
+                            "value": "35",
+                        },
+                        {
+                            "name": "requiredFrequencyValue",
+                            "value": "1",
+                        },
                     ],
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RECOVERY_POINT_ENCRYPTED",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="maxRetentionDays",
-                            value="100",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="minRetentionDays",
-                            value="1",
-                        ),
+                },
+                {
+                    "name": "BACKUP_RECOVERY_POINT_ENCRYPTED",
+                },
+                {
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
+                    "scope": {
+                        "complianceResourceTypes": ["EBS"],
+                    },
+                },
+                {
+                    "name": "BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
+                },
+                {
+                    "name": "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+                    "inputParameters": [
+                        {
+                            "name": "maxRetentionDays",
+                            "value": "100",
+                        },
+                        {
+                            "name": "minRetentionDays",
+                            "value": "1",
+                        },
                     ],
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
-                aws.backup.FrameworkControlArgs(
-                    name="BACKUP_LAST_RECOVERY_POINT_CREATED",
-                    input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="recoveryPointAgeUnit",
-                            value="days",
-                        ),
-                        aws.backup.FrameworkControlInputParameterArgs(
-                            name="recoveryPointAgeValue",
-                            value="1",
-                        ),
+                    "scope": {
+                        "complianceResourceTypes": ["EBS"],
+                    },
+                },
+                {
+                    "name": "BACKUP_LAST_RECOVERY_POINT_CREATED",
+                    "inputParameters": [
+                        {
+                            "name": "recoveryPointAgeUnit",
+                            "value": "days",
+                        },
+                        {
+                            "name": "recoveryPointAgeValue",
+                            "value": "1",
+                        },
                     ],
-                    scope=aws.backup.FrameworkControlScopeArgs(
-                        compliance_resource_types=["EBS"],
-                    ),
-                ),
+                    "scope": {
+                        "complianceResourceTypes": ["EBS"],
+                    },
+                },
             ],
             tags={
                 "Name": "Example Framework",
@@ -472,7 +477,7 @@ class Framework(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]]] = None,
+                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -507,7 +512,7 @@ class Framework(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]]] = None,
+            controls: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]]] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
             deployment_status: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -523,7 +528,7 @@ class Framework(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the backup framework.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrameworkControlArgs', 'FrameworkControlArgsDict']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         :param pulumi.Input[str] creation_time: The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         :param pulumi.Input[str] deployment_status: The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
         :param pulumi.Input[str] description: The description of the framework with a maximum of 1,024 characters

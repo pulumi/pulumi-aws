@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -597,7 +602,7 @@ class ServerlessCache(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_usage_limits: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheCacheUsageLimitsArgs']]] = None,
+                 cache_usage_limits: Optional[pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
                  daily_snapshot_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -609,7 +614,7 @@ class ServerlessCache(pulumi.CustomResource):
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ServerlessCacheTimeoutsArgs', 'ServerlessCacheTimeoutsArgsDict']]] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -626,15 +631,15 @@ class ServerlessCache(pulumi.CustomResource):
         example = aws.elasticache.ServerlessCache("example",
             engine="memcached",
             name="example",
-            cache_usage_limits=aws.elasticache.ServerlessCacheCacheUsageLimitsArgs(
-                data_storage=aws.elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs(
-                    maximum=10,
-                    unit="GB",
-                ),
-                ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5000,
-                )],
-            ),
+            cache_usage_limits={
+                "dataStorage": {
+                    "maximum": 10,
+                    "unit": "GB",
+                },
+                "ecpuPerSeconds": [{
+                    "maximum": 5000,
+                }],
+            },
             description="Test Server",
             kms_key_id=test["arn"],
             major_engine_version="1.6",
@@ -651,15 +656,15 @@ class ServerlessCache(pulumi.CustomResource):
         example = aws.elasticache.ServerlessCache("example",
             engine="redis",
             name="example",
-            cache_usage_limits=aws.elasticache.ServerlessCacheCacheUsageLimitsArgs(
-                data_storage=aws.elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs(
-                    maximum=10,
-                    unit="GB",
-                ),
-                ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5000,
-                )],
-            ),
+            cache_usage_limits={
+                "dataStorage": {
+                    "maximum": 10,
+                    "unit": "GB",
+                },
+                "ecpuPerSeconds": [{
+                    "maximum": 5000,
+                }],
+            },
             daily_snapshot_time="09:00",
             description="Test Server",
             kms_key_id=test["arn"],
@@ -679,7 +684,7 @@ class ServerlessCache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServerlessCacheCacheUsageLimitsArgs']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
         :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
@@ -716,15 +721,15 @@ class ServerlessCache(pulumi.CustomResource):
         example = aws.elasticache.ServerlessCache("example",
             engine="memcached",
             name="example",
-            cache_usage_limits=aws.elasticache.ServerlessCacheCacheUsageLimitsArgs(
-                data_storage=aws.elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs(
-                    maximum=10,
-                    unit="GB",
-                ),
-                ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5000,
-                )],
-            ),
+            cache_usage_limits={
+                "dataStorage": {
+                    "maximum": 10,
+                    "unit": "GB",
+                },
+                "ecpuPerSeconds": [{
+                    "maximum": 5000,
+                }],
+            },
             description="Test Server",
             kms_key_id=test["arn"],
             major_engine_version="1.6",
@@ -741,15 +746,15 @@ class ServerlessCache(pulumi.CustomResource):
         example = aws.elasticache.ServerlessCache("example",
             engine="redis",
             name="example",
-            cache_usage_limits=aws.elasticache.ServerlessCacheCacheUsageLimitsArgs(
-                data_storage=aws.elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs(
-                    maximum=10,
-                    unit="GB",
-                ),
-                ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5000,
-                )],
-            ),
+            cache_usage_limits={
+                "dataStorage": {
+                    "maximum": 10,
+                    "unit": "GB",
+                },
+                "ecpuPerSeconds": [{
+                    "maximum": 5000,
+                }],
+            },
             daily_snapshot_time="09:00",
             description="Test Server",
             kms_key_id=test["arn"],
@@ -782,7 +787,7 @@ class ServerlessCache(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_usage_limits: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheCacheUsageLimitsArgs']]] = None,
+                 cache_usage_limits: Optional[pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
                  daily_snapshot_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -794,7 +799,7 @@ class ServerlessCache(pulumi.CustomResource):
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ServerlessCacheTimeoutsArgs', 'ServerlessCacheTimeoutsArgsDict']]] = None,
                  user_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -839,17 +844,17 @@ class ServerlessCache(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            cache_usage_limits: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheCacheUsageLimitsArgs']]] = None,
+            cache_usage_limits: Optional[pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']]] = None,
             create_time: Optional[pulumi.Input[str]] = None,
             daily_snapshot_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']]]]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]]]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             full_engine_version: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             major_engine_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            reader_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheReaderEndpointArgs']]]]] = None,
+            reader_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_arns_to_restores: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -857,7 +862,7 @@ class ServerlessCache(pulumi.CustomResource):
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[Union['ServerlessCacheTimeoutsArgs', 'ServerlessCacheTimeoutsArgsDict']]] = None,
             user_group_id: Optional[pulumi.Input[str]] = None) -> 'ServerlessCache':
         """
         Get an existing ServerlessCache resource's state with the given name, id, and optional extra
@@ -867,11 +872,11 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the serverless cache.
-        :param pulumi.Input[pulumi.InputType['ServerlessCacheCacheUsageLimitsArgs']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
+        :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See configuration below.
         :param pulumi.Input[str] create_time: Timestamp of when the serverless cache was created.
         :param pulumi.Input[str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine type `"redis"`. Defaults to `0`.
         :param pulumi.Input[str] description: User-provided description for the serverless cache. The default is NULL.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']]]] endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheEndpointArgs', 'ServerlessCacheEndpointArgsDict']]]] endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] full_engine_version: The name and version number of the engine the serverless cache is compatible with.
         :param pulumi.Input[str] kms_key_id: ARN of the customer managed key for encrypting the data at rest. If no KMS key is provided, a default service key is used.
@@ -880,7 +885,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessCacheReaderEndpointArgs']]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See config below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
         :param pulumi.Input[int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.

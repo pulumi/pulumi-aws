@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['EventRuleArgs', 'EventRule']
@@ -503,15 +508,15 @@ class EventRule(pulumi.CustomResource):
             rule=console.name,
             target_id="SendToSNS",
             arn=aws_logins.arn)
-        sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["SNS:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["events.amazonaws.com"],
-            )],
-            resources=[arn],
-        )]))
+        sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "actions": ["SNS:Publish"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["events.amazonaws.com"],
+            }],
+            "resources": [arn],
+        }]))
         default = aws.sns.TopicPolicy("default",
             arn=aws_logins.arn,
             policy=sns_topic_policy.json)
@@ -578,15 +583,15 @@ class EventRule(pulumi.CustomResource):
             rule=console.name,
             target_id="SendToSNS",
             arn=aws_logins.arn)
-        sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["SNS:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["events.amazonaws.com"],
-            )],
-            resources=[arn],
-        )]))
+        sns_topic_policy = aws_logins.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "actions": ["SNS:Publish"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["events.amazonaws.com"],
+            }],
+            "resources": [arn],
+        }]))
         default = aws.sns.TopicPolicy("default",
             arn=aws_logins.arn,
             policy=sns_topic_policy.json)

@@ -4,16 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'KeyKeyAttributesArgs',
+    'KeyKeyAttributesArgsDict',
     'KeyKeyAttributesKeyModesOfUseArgs',
+    'KeyKeyAttributesKeyModesOfUseArgsDict',
     'KeyTimeoutsArgs',
+    'KeyTimeoutsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class KeyKeyAttributesArgsDict(TypedDict):
+        key_algorithm: pulumi.Input[str]
+        """
+        Key algorithm to be use during creation of an AWS Payment Cryptography key.
+        """
+        key_class: pulumi.Input[str]
+        """
+        Type of AWS Payment Cryptography key to create.
+        """
+        key_usage: pulumi.Input[str]
+        """
+        Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
+        """
+        key_modes_of_use: NotRequired[pulumi.Input['KeyKeyAttributesKeyModesOfUseArgsDict']]
+        """
+        List of cryptographic operations that you can perform using the key.
+        """
+elif False:
+    KeyKeyAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyKeyAttributesArgs:
@@ -82,6 +113,47 @@ class KeyKeyAttributesArgs:
     def key_modes_of_use(self, value: Optional[pulumi.Input['KeyKeyAttributesKeyModesOfUseArgs']]):
         pulumi.set(self, "key_modes_of_use", value)
 
+
+if not MYPY:
+    class KeyKeyAttributesKeyModesOfUseArgsDict(TypedDict):
+        decrypt: NotRequired[pulumi.Input[bool]]
+        """
+        Whether an AWS Payment Cryptography key can be used to decrypt data.
+        """
+        derive_key: NotRequired[pulumi.Input[bool]]
+        """
+        Whether an AWS Payment Cryptography key can be used to derive new keys.
+        """
+        encrypt: NotRequired[pulumi.Input[bool]]
+        """
+        Whether an AWS Payment Cryptography key can be used to encrypt data.
+        """
+        generate: NotRequired[pulumi.Input[bool]]
+        """
+        Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
+        """
+        no_restrictions: NotRequired[pulumi.Input[bool]]
+        """
+        Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
+        """
+        sign: NotRequired[pulumi.Input[bool]]
+        """
+        Whether an AWS Payment Cryptography key can be used for signing.
+        """
+        unwrap: NotRequired[pulumi.Input[bool]]
+        """
+        Whether an AWS Payment Cryptography key can be used to unwrap other keys.
+        """
+        verify: NotRequired[pulumi.Input[bool]]
+        """
+        Whether an AWS Payment Cryptography key can be used to verify signatures.
+        """
+        wrap: NotRequired[pulumi.Input[bool]]
+        """
+        Whether an AWS Payment Cryptography key can be used to wrap other keys.
+        """
+elif False:
+    KeyKeyAttributesKeyModesOfUseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyKeyAttributesKeyModesOfUseArgs:
@@ -233,6 +305,23 @@ class KeyKeyAttributesKeyModesOfUseArgs:
     def wrap(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "wrap", value)
 
+
+if not MYPY:
+    class KeyTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    KeyTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyTimeoutsArgs:

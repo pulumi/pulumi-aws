@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -122,7 +127,7 @@ class Deployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  service_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DeploymentTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an App Runner Deployment Operation.
@@ -174,7 +179,7 @@ class Deployment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  service_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DeploymentTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,7 +208,7 @@ class Deployment(pulumi.CustomResource):
             operation_id: Optional[pulumi.Input[str]] = None,
             service_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['DeploymentTimeoutsArgs']]] = None) -> 'Deployment':
+            timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

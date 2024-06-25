@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -246,8 +251,8 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArgs']]] = None,
-                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']]] = None,
+                 firewall_policy: Optional[pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -262,15 +267,15 @@ class FirewallPolicy(pulumi.CustomResource):
 
         example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                stateless_default_actions=["aws:pass"],
-                stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
-                    priority=1,
-                    resource_arn=example_aws_networkfirewall_rule_group["arn"],
-                )],
-                tls_inspection_configuration_arn="arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
-            ),
+            firewall_policy={
+                "statelessDefaultActions": ["aws:pass"],
+                "statelessFragmentDefaultActions": ["aws:drop"],
+                "statelessRuleGroupReferences": [{
+                    "priority": 1,
+                    "resourceArn": example_aws_networkfirewall_rule_group["arn"],
+                }],
+                "tlsInspectionConfigurationArn": "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -285,25 +290,25 @@ class FirewallPolicy(pulumi.CustomResource):
 
         example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs(
-                    rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(
-                        key="HOME_NET",
-                        ip_set=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs(
-                            definitions=[
+            firewall_policy={
+                "policyVariables": {
+                    "ruleVariables": [{
+                        "key": "HOME_NET",
+                        "ipSet": {
+                            "definitions": [
                                 "10.0.0.0/16",
                                 "10.1.0.0/24",
                             ],
-                        ),
-                    )],
-                ),
-                stateless_default_actions=["aws:pass"],
-                stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
-                    priority=1,
-                    resource_arn=example_aws_networkfirewall_rule_group["arn"],
-                )],
-            ),
+                        },
+                    }],
+                },
+                "statelessDefaultActions": ["aws:pass"],
+                "statelessFragmentDefaultActions": ["aws:drop"],
+                "statelessRuleGroupReferences": [{
+                    "priority": 1,
+                    "resourceArn": example_aws_networkfirewall_rule_group["arn"],
+                }],
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -318,23 +323,23 @@ class FirewallPolicy(pulumi.CustomResource):
 
         test = aws.networkfirewall.FirewallPolicy("test",
             name="example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                stateless_default_actions=[
+            firewall_policy={
+                "statelessDefaultActions": [
                     "aws:pass",
                     "ExampleCustomAction",
                 ],
-                stateless_fragment_default_actions=["aws:drop"],
-                stateless_custom_actions=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArgs(
-                    action_definition=aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs(
-                        publish_metric_action=aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs(
-                            dimensions=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs(
-                                value="1",
-                            )],
-                        ),
-                    ),
-                    action_name="ExampleCustomAction",
-                )],
-            ))
+                "statelessFragmentDefaultActions": ["aws:drop"],
+                "statelessCustomActions": [{
+                    "actionDefinition": {
+                        "publishMetricAction": {
+                            "dimensions": [{
+                                "value": "1",
+                            }],
+                        },
+                    },
+                    "actionName": "ExampleCustomAction",
+                }],
+            })
         ```
 
         ## Import
@@ -348,8 +353,8 @@ class FirewallPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A friendly description of the firewall policy.
-        :param pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        :param pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[str] name: A friendly name of the firewall policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -370,15 +375,15 @@ class FirewallPolicy(pulumi.CustomResource):
 
         example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                stateless_default_actions=["aws:pass"],
-                stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
-                    priority=1,
-                    resource_arn=example_aws_networkfirewall_rule_group["arn"],
-                )],
-                tls_inspection_configuration_arn="arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
-            ),
+            firewall_policy={
+                "statelessDefaultActions": ["aws:pass"],
+                "statelessFragmentDefaultActions": ["aws:drop"],
+                "statelessRuleGroupReferences": [{
+                    "priority": 1,
+                    "resourceArn": example_aws_networkfirewall_rule_group["arn"],
+                }],
+                "tlsInspectionConfigurationArn": "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -393,25 +398,25 @@ class FirewallPolicy(pulumi.CustomResource):
 
         example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                policy_variables=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesArgs(
-                    rule_variables=[aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs(
-                        key="HOME_NET",
-                        ip_set=aws.networkfirewall.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs(
-                            definitions=[
+            firewall_policy={
+                "policyVariables": {
+                    "ruleVariables": [{
+                        "key": "HOME_NET",
+                        "ipSet": {
+                            "definitions": [
                                 "10.0.0.0/16",
                                 "10.1.0.0/24",
                             ],
-                        ),
-                    )],
-                ),
-                stateless_default_actions=["aws:pass"],
-                stateless_fragment_default_actions=["aws:drop"],
-                stateless_rule_group_references=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs(
-                    priority=1,
-                    resource_arn=example_aws_networkfirewall_rule_group["arn"],
-                )],
-            ),
+                        },
+                    }],
+                },
+                "statelessDefaultActions": ["aws:pass"],
+                "statelessFragmentDefaultActions": ["aws:drop"],
+                "statelessRuleGroupReferences": [{
+                    "priority": 1,
+                    "resourceArn": example_aws_networkfirewall_rule_group["arn"],
+                }],
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -426,23 +431,23 @@ class FirewallPolicy(pulumi.CustomResource):
 
         test = aws.networkfirewall.FirewallPolicy("test",
             name="example",
-            firewall_policy=aws.networkfirewall.FirewallPolicyFirewallPolicyArgs(
-                stateless_default_actions=[
+            firewall_policy={
+                "statelessDefaultActions": [
                     "aws:pass",
                     "ExampleCustomAction",
                 ],
-                stateless_fragment_default_actions=["aws:drop"],
-                stateless_custom_actions=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArgs(
-                    action_definition=aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs(
-                        publish_metric_action=aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs(
-                            dimensions=[aws.networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs(
-                                value="1",
-                            )],
-                        ),
-                    ),
-                    action_name="ExampleCustomAction",
-                )],
-            ))
+                "statelessFragmentDefaultActions": ["aws:drop"],
+                "statelessCustomActions": [{
+                    "actionDefinition": {
+                        "publishMetricAction": {
+                            "dimensions": [{
+                                "value": "1",
+                            }],
+                        },
+                    },
+                    "actionName": "ExampleCustomAction",
+                }],
+            })
         ```
 
         ## Import
@@ -469,8 +474,8 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArgs']]] = None,
-                 firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']]] = None,
+                 firewall_policy: Optional[pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -504,8 +509,8 @@ class FirewallPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArgs']]] = None,
-            firewall_policy: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']]] = None,
+            encryption_configuration: Optional[pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']]] = None,
+            firewall_policy: Optional[pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -519,8 +524,8 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the firewall policy.
         :param pulumi.Input[str] description: A friendly description of the firewall policy.
-        :param pulumi.Input[pulumi.InputType['FirewallPolicyEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
-        :param pulumi.Input[pulumi.InputType['FirewallPolicyFirewallPolicyArgs']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
+        :param pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[str] name: A friendly name of the firewall policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

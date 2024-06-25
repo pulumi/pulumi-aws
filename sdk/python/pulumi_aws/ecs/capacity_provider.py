@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -165,7 +170,7 @@ class CapacityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_provider: Optional[pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']]] = None,
+                 auto_scaling_group_provider: Optional[pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -180,23 +185,23 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.autoscaling.Group("test", tags=[aws.autoscaling.GroupTagArgs(
-            key="AmazonECSManaged",
-            value="true",
-            propagate_at_launch=True,
-        )])
+        test = aws.autoscaling.Group("test", tags=[{
+            "key": "AmazonECSManaged",
+            "value": "true",
+            "propagateAtLaunch": True,
+        }])
         test_capacity_provider = aws.ecs.CapacityProvider("test",
             name="test",
-            auto_scaling_group_provider=aws.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-                auto_scaling_group_arn=test.arn,
-                managed_termination_protection="ENABLED",
-                managed_scaling=aws.ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs(
-                    maximum_scaling_step_size=1000,
-                    minimum_scaling_step_size=1,
-                    status="ENABLED",
-                    target_capacity=10,
-                ),
-            ))
+            auto_scaling_group_provider={
+                "autoScalingGroupArn": test.arn,
+                "managedTerminationProtection": "ENABLED",
+                "managedScaling": {
+                    "maximumScalingStepSize": 1000,
+                    "minimumScalingStepSize": 1,
+                    "status": "ENABLED",
+                    "targetCapacity": 10,
+                },
+            })
         ```
 
         ## Import
@@ -209,7 +214,7 @@ class CapacityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
+        :param pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
         :param pulumi.Input[str] name: Name of the capacity provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -230,23 +235,23 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.autoscaling.Group("test", tags=[aws.autoscaling.GroupTagArgs(
-            key="AmazonECSManaged",
-            value="true",
-            propagate_at_launch=True,
-        )])
+        test = aws.autoscaling.Group("test", tags=[{
+            "key": "AmazonECSManaged",
+            "value": "true",
+            "propagateAtLaunch": True,
+        }])
         test_capacity_provider = aws.ecs.CapacityProvider("test",
             name="test",
-            auto_scaling_group_provider=aws.ecs.CapacityProviderAutoScalingGroupProviderArgs(
-                auto_scaling_group_arn=test.arn,
-                managed_termination_protection="ENABLED",
-                managed_scaling=aws.ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs(
-                    maximum_scaling_step_size=1000,
-                    minimum_scaling_step_size=1,
-                    status="ENABLED",
-                    target_capacity=10,
-                ),
-            ))
+            auto_scaling_group_provider={
+                "autoScalingGroupArn": test.arn,
+                "managedTerminationProtection": "ENABLED",
+                "managedScaling": {
+                    "maximumScalingStepSize": 1000,
+                    "minimumScalingStepSize": 1,
+                    "status": "ENABLED",
+                    "targetCapacity": 10,
+                },
+            })
         ```
 
         ## Import
@@ -272,7 +277,7 @@ class CapacityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_provider: Optional[pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']]] = None,
+                 auto_scaling_group_provider: Optional[pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -302,7 +307,7 @@ class CapacityProvider(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            auto_scaling_group_provider: Optional[pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']]] = None,
+            auto_scaling_group_provider: Optional[pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CapacityProvider':
@@ -314,7 +319,7 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN that identifies the capacity provider.
-        :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
+        :param pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
         :param pulumi.Input[str] name: Name of the capacity provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['VpcLinkArgs', 'VpcLink']
@@ -212,9 +217,9 @@ class VpcLink(pulumi.CustomResource):
             name="example",
             internal=True,
             load_balancer_type="network",
-            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
-                subnet_id="12345",
-            )])
+            subnet_mappings=[{
+                "subnetId": "12345",
+            }])
         example_vpc_link = aws.apigateway.VpcLink("example",
             name="example",
             description="example description",
@@ -258,9 +263,9 @@ class VpcLink(pulumi.CustomResource):
             name="example",
             internal=True,
             load_balancer_type="network",
-            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
-                subnet_id="12345",
-            )])
+            subnet_mappings=[{
+                "subnetId": "12345",
+            }])
         example_vpc_link = aws.apigateway.VpcLink("example",
             name="example",
             description="example description",

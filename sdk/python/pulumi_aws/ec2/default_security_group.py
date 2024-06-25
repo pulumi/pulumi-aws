@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -282,8 +287,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]]] = None,
-                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]]] = None,
                  revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -310,18 +315,18 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultSecurityGroup("default",
             vpc_id=mainvpc.id,
-            ingress=[aws.ec2.DefaultSecurityGroupIngressArgs(
-                protocol="-1",
-                self=True,
-                from_port=0,
-                to_port=0,
-            )],
-            egress=[aws.ec2.DefaultSecurityGroupEgressArgs(
-                from_port=0,
-                to_port=0,
-                protocol="-1",
-                cidr_blocks=["0.0.0.0/0"],
-            )])
+            ingress=[{
+                "protocol": "-1",
+                "self": True,
+                "fromPort": 0,
+                "toPort": 0,
+            }],
+            egress=[{
+                "fromPort": 0,
+                "toPort": 0,
+                "protocol": "-1",
+                "cidrBlocks": ["0.0.0.0/0"],
+            }])
         ```
 
         ### Example Config To Deny All Egress Traffic, Allowing Ingress
@@ -335,12 +340,12 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultSecurityGroup("default",
             vpc_id=mainvpc.id,
-            ingress=[aws.ec2.DefaultSecurityGroupIngressArgs(
-                protocol="-1",
-                self=True,
-                from_port=0,
-                to_port=0,
-            )])
+            ingress=[{
+                "protocol": "-1",
+                "self": True,
+                "fromPort": 0,
+                "toPort": 0,
+            }])
         ```
 
         ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
@@ -357,8 +362,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]] egress: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]] ingress: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]] egress: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]] ingress: Configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
         """
@@ -390,18 +395,18 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultSecurityGroup("default",
             vpc_id=mainvpc.id,
-            ingress=[aws.ec2.DefaultSecurityGroupIngressArgs(
-                protocol="-1",
-                self=True,
-                from_port=0,
-                to_port=0,
-            )],
-            egress=[aws.ec2.DefaultSecurityGroupEgressArgs(
-                from_port=0,
-                to_port=0,
-                protocol="-1",
-                cidr_blocks=["0.0.0.0/0"],
-            )])
+            ingress=[{
+                "protocol": "-1",
+                "self": True,
+                "fromPort": 0,
+                "toPort": 0,
+            }],
+            egress=[{
+                "fromPort": 0,
+                "toPort": 0,
+                "protocol": "-1",
+                "cidrBlocks": ["0.0.0.0/0"],
+            }])
         ```
 
         ### Example Config To Deny All Egress Traffic, Allowing Ingress
@@ -415,12 +420,12 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultSecurityGroup("default",
             vpc_id=mainvpc.id,
-            ingress=[aws.ec2.DefaultSecurityGroupIngressArgs(
-                protocol="-1",
-                self=True,
-                from_port=0,
-                to_port=0,
-            )])
+            ingress=[{
+                "protocol": "-1",
+                "self": True,
+                "fromPort": 0,
+                "toPort": 0,
+            }])
         ```
 
         ### Removing `ec2.DefaultSecurityGroup` From Your Configuration
@@ -450,8 +455,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]]] = None,
-                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]]] = None,
                  revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -487,8 +492,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]]] = None,
-            ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]]] = None,
+            egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]]] = None,
+            ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
@@ -505,8 +510,8 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the security group.
         :param pulumi.Input[str] description: Description of the security group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupEgressArgs']]]] egress: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DefaultSecurityGroupIngressArgs']]]] ingress: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]] egress: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]] ingress: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Name of the security group.
         :param pulumi.Input[str] owner_id: Owner ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

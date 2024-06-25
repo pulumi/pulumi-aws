@@ -4,76 +4,159 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CatalogDatabaseCreateTableDefaultPermissionArgs',
+    'CatalogDatabaseCreateTableDefaultPermissionArgsDict',
     'CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs',
+    'CatalogDatabaseCreateTableDefaultPermissionPrincipalArgsDict',
     'CatalogDatabaseFederatedDatabaseArgs',
+    'CatalogDatabaseFederatedDatabaseArgsDict',
     'CatalogDatabaseTargetDatabaseArgs',
+    'CatalogDatabaseTargetDatabaseArgsDict',
     'CatalogTableOpenTableFormatInputArgs',
+    'CatalogTableOpenTableFormatInputArgsDict',
     'CatalogTableOpenTableFormatInputIcebergInputArgs',
+    'CatalogTableOpenTableFormatInputIcebergInputArgsDict',
     'CatalogTablePartitionIndexArgs',
+    'CatalogTablePartitionIndexArgsDict',
     'CatalogTablePartitionKeyArgs',
+    'CatalogTablePartitionKeyArgsDict',
     'CatalogTableStorageDescriptorArgs',
+    'CatalogTableStorageDescriptorArgsDict',
     'CatalogTableStorageDescriptorColumnArgs',
+    'CatalogTableStorageDescriptorColumnArgsDict',
     'CatalogTableStorageDescriptorSchemaReferenceArgs',
+    'CatalogTableStorageDescriptorSchemaReferenceArgsDict',
     'CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs',
+    'CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgsDict',
     'CatalogTableStorageDescriptorSerDeInfoArgs',
+    'CatalogTableStorageDescriptorSerDeInfoArgsDict',
     'CatalogTableStorageDescriptorSkewedInfoArgs',
+    'CatalogTableStorageDescriptorSkewedInfoArgsDict',
     'CatalogTableStorageDescriptorSortColumnArgs',
+    'CatalogTableStorageDescriptorSortColumnArgsDict',
     'CatalogTableTargetTableArgs',
+    'CatalogTableTargetTableArgsDict',
     'ClassifierCsvClassifierArgs',
+    'ClassifierCsvClassifierArgsDict',
     'ClassifierGrokClassifierArgs',
+    'ClassifierGrokClassifierArgsDict',
     'ClassifierJsonClassifierArgs',
+    'ClassifierJsonClassifierArgsDict',
     'ClassifierXmlClassifierArgs',
+    'ClassifierXmlClassifierArgsDict',
     'ConnectionPhysicalConnectionRequirementsArgs',
+    'ConnectionPhysicalConnectionRequirementsArgsDict',
     'CrawlerCatalogTargetArgs',
+    'CrawlerCatalogTargetArgsDict',
     'CrawlerDeltaTargetArgs',
+    'CrawlerDeltaTargetArgsDict',
     'CrawlerDynamodbTargetArgs',
+    'CrawlerDynamodbTargetArgsDict',
     'CrawlerHudiTargetArgs',
+    'CrawlerHudiTargetArgsDict',
     'CrawlerIcebergTargetArgs',
+    'CrawlerIcebergTargetArgsDict',
     'CrawlerJdbcTargetArgs',
+    'CrawlerJdbcTargetArgsDict',
     'CrawlerLakeFormationConfigurationArgs',
+    'CrawlerLakeFormationConfigurationArgsDict',
     'CrawlerLineageConfigurationArgs',
+    'CrawlerLineageConfigurationArgsDict',
     'CrawlerMongodbTargetArgs',
+    'CrawlerMongodbTargetArgsDict',
     'CrawlerRecrawlPolicyArgs',
+    'CrawlerRecrawlPolicyArgsDict',
     'CrawlerS3TargetArgs',
+    'CrawlerS3TargetArgsDict',
     'CrawlerSchemaChangePolicyArgs',
+    'CrawlerSchemaChangePolicyArgsDict',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs',
+    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs',
+    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgsDict',
     'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs',
+    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgsDict',
     'DataQualityRulesetTargetTableArgs',
+    'DataQualityRulesetTargetTableArgsDict',
     'JobCommandArgs',
+    'JobCommandArgsDict',
     'JobExecutionPropertyArgs',
+    'JobExecutionPropertyArgsDict',
     'JobNotificationPropertyArgs',
+    'JobNotificationPropertyArgsDict',
     'MLTransformInputRecordTableArgs',
+    'MLTransformInputRecordTableArgsDict',
     'MLTransformParametersArgs',
+    'MLTransformParametersArgsDict',
     'MLTransformParametersFindMatchesParametersArgs',
+    'MLTransformParametersFindMatchesParametersArgsDict',
     'MLTransformSchemaArgs',
+    'MLTransformSchemaArgsDict',
     'PartitionIndexPartitionIndexArgs',
+    'PartitionIndexPartitionIndexArgsDict',
     'PartitionStorageDescriptorArgs',
+    'PartitionStorageDescriptorArgsDict',
     'PartitionStorageDescriptorColumnArgs',
+    'PartitionStorageDescriptorColumnArgsDict',
     'PartitionStorageDescriptorSerDeInfoArgs',
+    'PartitionStorageDescriptorSerDeInfoArgsDict',
     'PartitionStorageDescriptorSkewedInfoArgs',
+    'PartitionStorageDescriptorSkewedInfoArgsDict',
     'PartitionStorageDescriptorSortColumnArgs',
+    'PartitionStorageDescriptorSortColumnArgsDict',
     'SecurityConfigurationEncryptionConfigurationArgs',
+    'SecurityConfigurationEncryptionConfigurationArgsDict',
     'SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs',
+    'SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgsDict',
     'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs',
+    'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgsDict',
     'SecurityConfigurationEncryptionConfigurationS3EncryptionArgs',
+    'SecurityConfigurationEncryptionConfigurationS3EncryptionArgsDict',
     'TriggerActionArgs',
+    'TriggerActionArgsDict',
     'TriggerActionNotificationPropertyArgs',
+    'TriggerActionNotificationPropertyArgsDict',
     'TriggerEventBatchingConditionArgs',
+    'TriggerEventBatchingConditionArgsDict',
     'TriggerPredicateArgs',
+    'TriggerPredicateArgsDict',
     'TriggerPredicateConditionArgs',
+    'TriggerPredicateConditionArgsDict',
     'UserDefinedFunctionResourceUriArgs',
+    'UserDefinedFunctionResourceUriArgsDict',
     'GetScriptDagEdgeArgs',
+    'GetScriptDagEdgeArgsDict',
     'GetScriptDagNodeArgs',
+    'GetScriptDagNodeArgsDict',
     'GetScriptDagNodeArgArgs',
+    'GetScriptDagNodeArgArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CatalogDatabaseCreateTableDefaultPermissionArgsDict(TypedDict):
+        permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The permissions that are granted to the principal.
+        """
+        principal: NotRequired[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgsDict']]
+        """
+        The principal who is granted permissions.. See `principal` below.
+        """
+elif False:
+    CatalogDatabaseCreateTableDefaultPermissionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogDatabaseCreateTableDefaultPermissionArgs:
@@ -114,6 +197,15 @@ class CatalogDatabaseCreateTableDefaultPermissionArgs:
         pulumi.set(self, "principal", value)
 
 
+if not MYPY:
+    class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgsDict(TypedDict):
+        data_lake_principal_identifier: NotRequired[pulumi.Input[str]]
+        """
+        An identifier for the Lake Formation principal.
+        """
+elif False:
+    CatalogDatabaseCreateTableDefaultPermissionPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs:
     def __init__(__self__, *,
@@ -136,6 +228,19 @@ class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs:
     def data_lake_principal_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_lake_principal_identifier", value)
 
+
+if not MYPY:
+    class CatalogDatabaseFederatedDatabaseArgsDict(TypedDict):
+        connection_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the connection to the external metastore.
+        """
+        identifier: NotRequired[pulumi.Input[str]]
+        """
+        Unique identifier for the federated database.
+        """
+elif False:
+    CatalogDatabaseFederatedDatabaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogDatabaseFederatedDatabaseArgs:
@@ -175,6 +280,23 @@ class CatalogDatabaseFederatedDatabaseArgs:
     def identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identifier", value)
 
+
+if not MYPY:
+    class CatalogDatabaseTargetDatabaseArgsDict(TypedDict):
+        catalog_id: pulumi.Input[str]
+        """
+        ID of the Data Catalog in which the database resides.
+        """
+        database_name: pulumi.Input[str]
+        """
+        Name of the catalog database.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        Region of the target database.
+        """
+elif False:
+    CatalogDatabaseTargetDatabaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogDatabaseTargetDatabaseArgs:
@@ -229,6 +351,15 @@ class CatalogDatabaseTargetDatabaseArgs:
         pulumi.set(self, "region", value)
 
 
+if not MYPY:
+    class CatalogTableOpenTableFormatInputArgsDict(TypedDict):
+        iceberg_input: pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArgsDict']
+        """
+        Configuration block for iceberg table config. See `iceberg_input` below.
+        """
+elif False:
+    CatalogTableOpenTableFormatInputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CatalogTableOpenTableFormatInputArgs:
     def __init__(__self__, *,
@@ -250,6 +381,19 @@ class CatalogTableOpenTableFormatInputArgs:
     def iceberg_input(self, value: pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArgs']):
         pulumi.set(self, "iceberg_input", value)
 
+
+if not MYPY:
+    class CatalogTableOpenTableFormatInputIcebergInputArgsDict(TypedDict):
+        metadata_operation: pulumi.Input[str]
+        """
+        A required metadata operation. Can only be set to CREATE.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The table version for the Iceberg table. Defaults to 2.
+        """
+elif False:
+    CatalogTableOpenTableFormatInputIcebergInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogTableOpenTableFormatInputIcebergInputArgs:
@@ -288,6 +432,20 @@ class CatalogTableOpenTableFormatInputIcebergInputArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class CatalogTablePartitionIndexArgsDict(TypedDict):
+        index_name: pulumi.Input[str]
+        """
+        Name of the partition index.
+        """
+        keys: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Keys for the partition index.
+        """
+        index_status: NotRequired[pulumi.Input[str]]
+elif False:
+    CatalogTablePartitionIndexArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogTablePartitionIndexArgs:
@@ -337,6 +495,23 @@ class CatalogTablePartitionIndexArgs:
     def index_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "index_status", value)
 
+
+if not MYPY:
+    class CatalogTablePartitionKeyArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the Partition Key.
+        """
+        comment: NotRequired[pulumi.Input[str]]
+        """
+        Free-form text comment.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Datatype of data in the Partition Key.
+        """
+elif False:
+    CatalogTablePartitionKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogTablePartitionKeyArgs:
@@ -391,6 +566,67 @@ class CatalogTablePartitionKeyArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class CatalogTableStorageDescriptorArgsDict(TypedDict):
+        additional_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of locations that point to the path where a Delta table is located.
+        """
+        bucket_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArgsDict']]]]
+        """
+        Configuration block for columns in the table. See `columns` below.
+        """
+        compressed: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the data in the table is compressed.
+        """
+        input_format: NotRequired[pulumi.Input[str]]
+        """
+        Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        """
+        number_of_buckets: NotRequired[pulumi.Input[int]]
+        """
+        Must be specified if the table contains any dimension columns.
+        """
+        output_format: NotRequired[pulumi.Input[str]]
+        """
+        Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        User-supplied properties in key-value form.
+        """
+        schema_reference: NotRequired[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArgsDict']]
+        """
+        Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+        """
+        ser_de_info: NotRequired[pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArgsDict']]
+        """
+        Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
+        """
+        skewed_info: NotRequired[pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArgsDict']]
+        """
+        Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
+        """
+        sort_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArgsDict']]]]
+        """
+        Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
+        """
+        stored_as_sub_directories: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the table data is stored in subdirectories.
+        """
+elif False:
+    CatalogTableStorageDescriptorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogTableStorageDescriptorArgs:
@@ -623,6 +859,27 @@ class CatalogTableStorageDescriptorArgs:
         pulumi.set(self, "stored_as_sub_directories", value)
 
 
+if not MYPY:
+    class CatalogTableStorageDescriptorColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the Column.
+        """
+        comment: NotRequired[pulumi.Input[str]]
+        """
+        Free-form text comment.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-value pairs defining properties associated with the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Datatype of data in the Column.
+        """
+elif False:
+    CatalogTableStorageDescriptorColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CatalogTableStorageDescriptorColumnArgs:
     def __init__(__self__, *,
@@ -693,6 +950,23 @@ class CatalogTableStorageDescriptorColumnArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class CatalogTableStorageDescriptorSchemaReferenceArgsDict(TypedDict):
+        schema_version_number: pulumi.Input[int]
+        """
+        Version number of the schema.
+        """
+        schema_id: NotRequired[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgsDict']]
+        """
+        Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
+        """
+        schema_version_id: NotRequired[pulumi.Input[str]]
+        """
+        Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
+        """
+elif False:
+    CatalogTableStorageDescriptorSchemaReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CatalogTableStorageDescriptorSchemaReferenceArgs:
     def __init__(__self__, *,
@@ -746,6 +1020,23 @@ class CatalogTableStorageDescriptorSchemaReferenceArgs:
     def schema_version_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema_version_id", value)
 
+
+if not MYPY:
+    class CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgsDict(TypedDict):
+        registry_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the schema registry that contains the schema. Must be provided when `schema_name` is specified and conflicts with `schema_arn`.
+        """
+        schema_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the schema. One of `schema_arn` or `schema_name` has to be provided.
+        """
+        schema_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the schema. One of `schema_arn` or `schema_name` has to be provided.
+        """
+elif False:
+    CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs:
@@ -802,6 +1093,23 @@ class CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs:
         pulumi.set(self, "schema_name", value)
 
 
+if not MYPY:
+    class CatalogTableStorageDescriptorSerDeInfoArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the SerDe.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of initialization parameters for the SerDe, in key-value form.
+        """
+        serialization_library: NotRequired[pulumi.Input[str]]
+        """
+        Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
+        """
+elif False:
+    CatalogTableStorageDescriptorSerDeInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CatalogTableStorageDescriptorSerDeInfoArgs:
     def __init__(__self__, *,
@@ -856,6 +1164,23 @@ class CatalogTableStorageDescriptorSerDeInfoArgs:
     def serialization_library(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "serialization_library", value)
 
+
+if not MYPY:
+    class CatalogTableStorageDescriptorSkewedInfoArgsDict(TypedDict):
+        skewed_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of names of columns that contain skewed values.
+        """
+        skewed_column_value_location_maps: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        List of values that appear so frequently as to be considered skewed.
+        """
+        skewed_column_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Map of skewed values to the columns that contain them.
+        """
+elif False:
+    CatalogTableStorageDescriptorSkewedInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogTableStorageDescriptorSkewedInfoArgs:
@@ -912,6 +1237,19 @@ class CatalogTableStorageDescriptorSkewedInfoArgs:
         pulumi.set(self, "skewed_column_values", value)
 
 
+if not MYPY:
+    class CatalogTableStorageDescriptorSortColumnArgsDict(TypedDict):
+        column: pulumi.Input[str]
+        """
+        Name of the column.
+        """
+        sort_order: pulumi.Input[int]
+        """
+        Whether the column is sorted in ascending (`1`) or descending order (`0`).
+        """
+elif False:
+    CatalogTableStorageDescriptorSortColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CatalogTableStorageDescriptorSortColumnArgs:
     def __init__(__self__, *,
@@ -948,6 +1286,27 @@ class CatalogTableStorageDescriptorSortColumnArgs:
     def sort_order(self, value: pulumi.Input[int]):
         pulumi.set(self, "sort_order", value)
 
+
+if not MYPY:
+    class CatalogTableTargetTableArgsDict(TypedDict):
+        catalog_id: pulumi.Input[str]
+        """
+        ID of the Data Catalog in which the table resides.
+        """
+        database_name: pulumi.Input[str]
+        """
+        Name of the catalog database that contains the target table.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the target table.
+        """
+        region: NotRequired[pulumi.Input[str]]
+        """
+        Region of the target table.
+        """
+elif False:
+    CatalogTableTargetTableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogTableTargetTableArgs:
@@ -1016,6 +1375,44 @@ class CatalogTableTargetTableArgs:
     def region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region", value)
 
+
+if not MYPY:
+    class ClassifierCsvClassifierArgsDict(TypedDict):
+        allow_single_column: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the processing of files that contain only one column.
+        """
+        contains_header: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
+        """
+        custom_datatype_configured: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the custom datatype to be configured.
+        """
+        custom_datatypes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
+        """
+        delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter used in the Csv to separate columns.
+        """
+        disable_value_trimming: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to trim column values.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of strings representing column names.
+        """
+        quote_symbol: NotRequired[pulumi.Input[str]]
+        """
+        A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        """
+        serde: NotRequired[pulumi.Input[str]]
+elif False:
+    ClassifierCsvClassifierArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClassifierCsvClassifierArgs:
@@ -1164,6 +1561,23 @@ class ClassifierCsvClassifierArgs:
         pulumi.set(self, "serde", value)
 
 
+if not MYPY:
+    class ClassifierGrokClassifierArgsDict(TypedDict):
+        classification: pulumi.Input[str]
+        """
+        An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
+        """
+        grok_pattern: pulumi.Input[str]
+        """
+        The grok pattern used by this classifier.
+        """
+        custom_patterns: NotRequired[pulumi.Input[str]]
+        """
+        Custom grok patterns used by this classifier.
+        """
+elif False:
+    ClassifierGrokClassifierArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClassifierGrokClassifierArgs:
     def __init__(__self__, *,
@@ -1217,6 +1631,15 @@ class ClassifierGrokClassifierArgs:
         pulumi.set(self, "custom_patterns", value)
 
 
+if not MYPY:
+    class ClassifierJsonClassifierArgsDict(TypedDict):
+        json_path: pulumi.Input[str]
+        """
+        A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
+        """
+elif False:
+    ClassifierJsonClassifierArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClassifierJsonClassifierArgs:
     def __init__(__self__, *,
@@ -1238,6 +1661,19 @@ class ClassifierJsonClassifierArgs:
     def json_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "json_path", value)
 
+
+if not MYPY:
+    class ClassifierXmlClassifierArgsDict(TypedDict):
+        classification: pulumi.Input[str]
+        """
+        An identifier of the data format that the classifier matches.
+        """
+        row_tag: pulumi.Input[str]
+        """
+        The XML tag designating the element that contains each record in an XML document being parsed. Note that this cannot identify a self-closing element (closed by `/>`). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, `<row item_a="A" item_b="B"></row>` is okay, but `<row item_a="A" item_b="B" />` is not).
+        """
+elif False:
+    ClassifierXmlClassifierArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClassifierXmlClassifierArgs:
@@ -1275,6 +1711,23 @@ class ClassifierXmlClassifierArgs:
     def row_tag(self, value: pulumi.Input[str]):
         pulumi.set(self, "row_tag", value)
 
+
+if not MYPY:
+    class ConnectionPhysicalConnectionRequirementsArgsDict(TypedDict):
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        The availability zone of the connection. This field is redundant and implied by `subnet_id`, but is currently an api requirement.
+        """
+        security_group_id_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The security group ID list used by the connection.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The subnet ID used by the connection.
+        """
+elif False:
+    ConnectionPhysicalConnectionRequirementsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionPhysicalConnectionRequirementsArgs:
@@ -1330,6 +1783,35 @@ class ConnectionPhysicalConnectionRequirementsArgs:
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
 
+
+if not MYPY:
+    class CrawlerCatalogTargetArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The name of the Glue database to be synchronized.
+        """
+        tables: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of catalog tables to be synchronized.
+        """
+        connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a `NETWORK` Connection type.
+        """
+        dlq_event_queue_arn: NotRequired[pulumi.Input[str]]
+        """
+        A valid Amazon SQS ARN.
+
+        > **Note:** `deletion_behavior` of catalog target doesn't support `DEPRECATE_IN_DATABASE`.
+
+        > **Note:** `configuration` for catalog target crawlers will have `{ ... "Grouping": { "TableGroupingPolicy": "CombineCompatibleSchemas"} }` by default.
+        """
+        event_queue_arn: NotRequired[pulumi.Input[str]]
+        """
+        A valid Amazon SQS ARN.
+        """
+elif False:
+    CrawlerCatalogTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerCatalogTargetArgs:
@@ -1424,6 +1906,27 @@ class CrawlerCatalogTargetArgs:
         pulumi.set(self, "event_queue_arn", value)
 
 
+if not MYPY:
+    class CrawlerDeltaTargetArgsDict(TypedDict):
+        delta_tables: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the Amazon S3 paths to the Delta tables.
+        """
+        write_manifest: pulumi.Input[bool]
+        """
+        Specifies whether to write the manifest files to the Delta table path.
+        """
+        connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the connection to use to connect to the Delta table target.
+        """
+        create_native_delta_table: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the crawler will create native tables, to allow integration with query engines that support querying of the Delta transaction log directly.
+        """
+elif False:
+    CrawlerDeltaTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CrawlerDeltaTargetArgs:
     def __init__(__self__, *,
@@ -1493,6 +1996,23 @@ class CrawlerDeltaTargetArgs:
         pulumi.set(self, "create_native_delta_table", value)
 
 
+if not MYPY:
+    class CrawlerDynamodbTargetArgsDict(TypedDict):
+        path: pulumi.Input[str]
+        """
+        The name of the DynamoDB table to crawl.
+        """
+        scan_all: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.  defaults to `true`.
+        """
+        scan_rate: NotRequired[pulumi.Input[float]]
+        """
+        The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
+        """
+elif False:
+    CrawlerDynamodbTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CrawlerDynamodbTargetArgs:
     def __init__(__self__, *,
@@ -1546,6 +2066,27 @@ class CrawlerDynamodbTargetArgs:
     def scan_rate(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "scan_rate", value)
 
+
+if not MYPY:
+    class CrawlerHudiTargetArgsDict(TypedDict):
+        maximum_traversal_depth: pulumi.Input[int]
+        """
+        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        """
+        paths: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
+        """
+        connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the connection to use to connect to the Hudi target.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of glob patterns used to exclude from the crawl.
+        """
+elif False:
+    CrawlerHudiTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerHudiTargetArgs:
@@ -1616,6 +2157,27 @@ class CrawlerHudiTargetArgs:
         pulumi.set(self, "exclusions", value)
 
 
+if not MYPY:
+    class CrawlerIcebergTargetArgsDict(TypedDict):
+        maximum_traversal_depth: pulumi.Input[int]
+        """
+        The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Iceberg metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+        """
+        paths: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        One or more Amazon S3 paths that contains Iceberg metadata folders as s3://bucket/prefix.
+        """
+        connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the connection to use to connect to the Iceberg target.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of glob patterns used to exclude from the crawl.
+        """
+elif False:
+    CrawlerIcebergTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CrawlerIcebergTargetArgs:
     def __init__(__self__, *,
@@ -1684,6 +2246,27 @@ class CrawlerIcebergTargetArgs:
     def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "exclusions", value)
 
+
+if not MYPY:
+    class CrawlerJdbcTargetArgsDict(TypedDict):
+        connection_name: pulumi.Input[str]
+        """
+        The name of the connection to use to connect to the JDBC target.
+        """
+        path: pulumi.Input[str]
+        """
+        The path of the JDBC target.
+        """
+        enable_additional_metadatas: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify a value of `RAWTYPES` or `COMMENTS` to enable additional metadata intable responses. `RAWTYPES` provides the native-level datatype. `COMMENTS` provides comments associated with a column or table in the database.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of glob patterns used to exclude from the crawl.
+        """
+elif False:
+    CrawlerJdbcTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerJdbcTargetArgs:
@@ -1754,6 +2337,19 @@ class CrawlerJdbcTargetArgs:
         pulumi.set(self, "exclusions", value)
 
 
+if not MYPY:
+    class CrawlerLakeFormationConfigurationArgsDict(TypedDict):
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        Required for cross account crawls. For same account crawls as the target data, this can omitted.
+        """
+        use_lake_formation_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to use Lake Formation credentials for the crawler instead of the IAM role credentials.
+        """
+elif False:
+    CrawlerLakeFormationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CrawlerLakeFormationConfigurationArgs:
     def __init__(__self__, *,
@@ -1793,6 +2389,15 @@ class CrawlerLakeFormationConfigurationArgs:
         pulumi.set(self, "use_lake_formation_credentials", value)
 
 
+if not MYPY:
+    class CrawlerLineageConfigurationArgsDict(TypedDict):
+        crawler_lineage_settings: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `DISABLE`.
+        """
+elif False:
+    CrawlerLineageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CrawlerLineageConfigurationArgs:
     def __init__(__self__, *,
@@ -1815,6 +2420,23 @@ class CrawlerLineageConfigurationArgs:
     def crawler_lineage_settings(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "crawler_lineage_settings", value)
 
+
+if not MYPY:
+    class CrawlerMongodbTargetArgsDict(TypedDict):
+        connection_name: pulumi.Input[str]
+        """
+        The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        """
+        path: pulumi.Input[str]
+        """
+        The path of the Amazon DocumentDB or MongoDB target (database/collection).
+        """
+        scan_all: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table. Default value is `true`.
+        """
+elif False:
+    CrawlerMongodbTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerMongodbTargetArgs:
@@ -1869,6 +2491,15 @@ class CrawlerMongodbTargetArgs:
         pulumi.set(self, "scan_all", value)
 
 
+if not MYPY:
+    class CrawlerRecrawlPolicyArgsDict(TypedDict):
+        recrawl_behavior: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+        """
+elif False:
+    CrawlerRecrawlPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CrawlerRecrawlPolicyArgs:
     def __init__(__self__, *,
@@ -1891,6 +2522,35 @@ class CrawlerRecrawlPolicyArgs:
     def recrawl_behavior(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "recrawl_behavior", value)
 
+
+if not MYPY:
+    class CrawlerS3TargetArgsDict(TypedDict):
+        path: pulumi.Input[str]
+        """
+        The path to the Amazon S3 target.
+        """
+        connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of a connection which allows crawler to access data in S3 within a VPC.
+        """
+        dlq_event_queue_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the dead-letter SQS queue.
+        """
+        event_queue_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the SQS queue to receive S3 notifications from.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of glob patterns used to exclude from the crawl.
+        """
+        sample_size: NotRequired[pulumi.Input[int]]
+        """
+        Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+        """
+elif False:
+    CrawlerS3TargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CrawlerS3TargetArgs:
@@ -1994,6 +2654,19 @@ class CrawlerS3TargetArgs:
         pulumi.set(self, "sample_size", value)
 
 
+if not MYPY:
+    class CrawlerSchemaChangePolicyArgsDict(TypedDict):
+        delete_behavior: NotRequired[pulumi.Input[str]]
+        """
+        The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
+        """
+        update_behavior: NotRequired[pulumi.Input[str]]
+        """
+        The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
+        """
+elif False:
+    CrawlerSchemaChangePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CrawlerSchemaChangePolicyArgs:
     def __init__(__self__, *,
@@ -2033,6 +2706,19 @@ class CrawlerSchemaChangePolicyArgs:
         pulumi.set(self, "update_behavior", value)
 
 
+if not MYPY:
+    class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict(TypedDict):
+        connection_password_encryption: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgsDict']
+        """
+        When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+        """
+        encryption_at_rest: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgsDict']
+        """
+        Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+        """
+elif False:
+    DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs:
     def __init__(__self__, *,
@@ -2069,6 +2755,19 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs:
     def encryption_at_rest(self, value: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs']):
         pulumi.set(self, "encryption_at_rest", value)
 
+
+if not MYPY:
+    class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgsDict(TypedDict):
+        return_connection_password_encrypted: pulumi.Input[bool]
+        """
+        When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
+        """
+        aws_kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+        """
+elif False:
+    DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs:
@@ -2107,6 +2806,23 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswo
     def aws_kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aws_kms_key_id", value)
 
+
+if not MYPY:
+    class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgsDict(TypedDict):
+        catalog_encryption_mode: pulumi.Input[str]
+        """
+        The encryption-at-rest mode for encrypting Data Catalog data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-KMS-WITH-SERVICE-ROLE`.
+        """
+        catalog_encryption_service_role: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the AWS IAM role used for accessing encrypted Data Catalog data.
+        """
+        sse_aws_kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the AWS KMS key to use for encryption at rest.
+        """
+elif False:
+    DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs:
@@ -2162,6 +2878,23 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
         pulumi.set(self, "sse_aws_kms_key_id", value)
 
 
+if not MYPY:
+    class DataQualityRulesetTargetTableArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        Name of the database where the AWS Glue table exists.
+        """
+        table_name: pulumi.Input[str]
+        """
+        Name of the AWS Glue table.
+        """
+        catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        The catalog id where the AWS Glue table exists.
+        """
+elif False:
+    DataQualityRulesetTargetTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataQualityRulesetTargetTableArgs:
     def __init__(__self__, *,
@@ -2214,6 +2947,27 @@ class DataQualityRulesetTargetTableArgs:
     def catalog_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "catalog_id", value)
 
+
+if not MYPY:
+    class JobCommandArgsDict(TypedDict):
+        script_location: pulumi.Input[str]
+        """
+        Specifies the S3 path to a script that executes a job.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `glueray` for Ray Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        """
+        The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
+        """
+        runtime: NotRequired[pulumi.Input[str]]
+        """
+        In Ray jobs, runtime is used to specify the versions of Ray, Python and additional libraries available in your environment. This field is not used in other job types. For supported runtime environment values, see [Working with Ray jobs](https://docs.aws.amazon.com/glue/latest/dg/ray-jobs-section.html#author-job-ray-runtimes) in the Glue Developer Guide.
+        """
+elif False:
+    JobCommandArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobCommandArgs:
@@ -2285,6 +3039,15 @@ class JobCommandArgs:
         pulumi.set(self, "runtime", value)
 
 
+if not MYPY:
+    class JobExecutionPropertyArgsDict(TypedDict):
+        max_concurrent_runs: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of concurrent runs allowed for a job. The default is 1.
+        """
+elif False:
+    JobExecutionPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobExecutionPropertyArgs:
     def __init__(__self__, *,
@@ -2308,6 +3071,15 @@ class JobExecutionPropertyArgs:
         pulumi.set(self, "max_concurrent_runs", value)
 
 
+if not MYPY:
+    class JobNotificationPropertyArgsDict(TypedDict):
+        notify_delay_after: NotRequired[pulumi.Input[int]]
+        """
+        After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+elif False:
+    JobNotificationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobNotificationPropertyArgs:
     def __init__(__self__, *,
@@ -2330,6 +3102,27 @@ class JobNotificationPropertyArgs:
     def notify_delay_after(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "notify_delay_after", value)
 
+
+if not MYPY:
+    class MLTransformInputRecordTableArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        A database name in the AWS Glue Data Catalog.
+        """
+        table_name: pulumi.Input[str]
+        """
+        A table name in the AWS Glue Data Catalog.
+        """
+        catalog_id: NotRequired[pulumi.Input[str]]
+        """
+        A unique identifier for the AWS Glue Data Catalog.
+        """
+        connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the connection to the AWS Glue Data Catalog.
+        """
+elif False:
+    MLTransformInputRecordTableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MLTransformInputRecordTableArgs:
@@ -2400,6 +3193,19 @@ class MLTransformInputRecordTableArgs:
         pulumi.set(self, "connection_name", value)
 
 
+if not MYPY:
+    class MLTransformParametersArgsDict(TypedDict):
+        find_matches_parameters: pulumi.Input['MLTransformParametersFindMatchesParametersArgsDict']
+        """
+        The parameters for the find matches algorithm. see Find Matches Parameters.
+        """
+        transform_type: pulumi.Input[str]
+        """
+        The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
+        """
+elif False:
+    MLTransformParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MLTransformParametersArgs:
     def __init__(__self__, *,
@@ -2436,6 +3242,27 @@ class MLTransformParametersArgs:
     def transform_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "transform_type", value)
 
+
+if not MYPY:
+    class MLTransformParametersFindMatchesParametersArgsDict(TypedDict):
+        accuracy_cost_trade_off: NotRequired[pulumi.Input[float]]
+        """
+        The value that is selected when tuning your transform for a balance between accuracy and cost.
+        """
+        enforce_provided_labels: NotRequired[pulumi.Input[bool]]
+        """
+        The value to switch on or off to force the output to match the provided labels from users.
+        """
+        precision_recall_trade_off: NotRequired[pulumi.Input[float]]
+        """
+        The value selected when tuning your transform for a balance between precision and recall.
+        """
+        primary_key_column_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of a column that uniquely identifies rows in the source table.
+        """
+elif False:
+    MLTransformParametersFindMatchesParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MLTransformParametersFindMatchesParametersArgs:
@@ -2508,6 +3335,19 @@ class MLTransformParametersFindMatchesParametersArgs:
         pulumi.set(self, "primary_key_column_name", value)
 
 
+if not MYPY:
+    class MLTransformSchemaArgsDict(TypedDict):
+        data_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of data in the column.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name you assign to this ML Transform. It must be unique in your account.
+        """
+elif False:
+    MLTransformSchemaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MLTransformSchemaArgs:
     def __init__(__self__, *,
@@ -2546,6 +3386,20 @@ class MLTransformSchemaArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class PartitionIndexPartitionIndexArgsDict(TypedDict):
+        index_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the partition index.
+        """
+        index_status: NotRequired[pulumi.Input[str]]
+        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Keys for the partition index.
+        """
+elif False:
+    PartitionIndexPartitionIndexArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PartitionIndexPartitionIndexArgs:
@@ -2597,6 +3451,59 @@ class PartitionIndexPartitionIndexArgs:
     def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "keys", value)
 
+
+if not MYPY:
+    class PartitionStorageDescriptorArgsDict(TypedDict):
+        bucket_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgsDict']]]]
+        """
+        A list of the Columns in the table.
+        """
+        compressed: NotRequired[pulumi.Input[bool]]
+        """
+        True if the data in the table is compressed, or False if not.
+        """
+        input_format: NotRequired[pulumi.Input[str]]
+        """
+        The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
+        """
+        number_of_buckets: NotRequired[pulumi.Input[int]]
+        """
+        Must be specified if the table contains any dimension columns.
+        """
+        output_format: NotRequired[pulumi.Input[str]]
+        """
+        The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        User-supplied properties in key-value form.
+        """
+        ser_de_info: NotRequired[pulumi.Input['PartitionStorageDescriptorSerDeInfoArgsDict']]
+        """
+        Serialization/deserialization (SerDe) information.
+        """
+        skewed_info: NotRequired[pulumi.Input['PartitionStorageDescriptorSkewedInfoArgsDict']]
+        """
+        Information about values that appear very frequently in a column (skewed values).
+        """
+        sort_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgsDict']]]]
+        """
+        A list of Order objects specifying the sort order of each bucket in the table.
+        """
+        stored_as_sub_directories: NotRequired[pulumi.Input[bool]]
+        """
+        True if the table data is stored in subdirectories, or False if not.
+        """
+elif False:
+    PartitionStorageDescriptorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PartitionStorageDescriptorArgs:
@@ -2797,6 +3704,14 @@ class PartitionStorageDescriptorArgs:
         pulumi.set(self, "stored_as_sub_directories", value)
 
 
+if not MYPY:
+    class PartitionStorageDescriptorColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        comment: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    PartitionStorageDescriptorColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartitionStorageDescriptorColumnArgs:
     def __init__(__self__, *,
@@ -2836,6 +3751,23 @@ class PartitionStorageDescriptorColumnArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class PartitionStorageDescriptorSerDeInfoArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the SerDe.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of initialization parameters for the SerDe, in key-value form.
+        """
+        serialization_library: NotRequired[pulumi.Input[str]]
+        """
+        Usually the class that implements the SerDe. An example is: org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe.
+        """
+elif False:
+    PartitionStorageDescriptorSerDeInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PartitionStorageDescriptorSerDeInfoArgs:
@@ -2892,6 +3824,23 @@ class PartitionStorageDescriptorSerDeInfoArgs:
         pulumi.set(self, "serialization_library", value)
 
 
+if not MYPY:
+    class PartitionStorageDescriptorSkewedInfoArgsDict(TypedDict):
+        skewed_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of names of columns that contain skewed values.
+        """
+        skewed_column_value_location_maps: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A list of values that appear so frequently as to be considered skewed.
+        """
+        skewed_column_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A map of skewed values to the columns that contain them.
+        """
+elif False:
+    PartitionStorageDescriptorSkewedInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartitionStorageDescriptorSkewedInfoArgs:
     def __init__(__self__, *,
@@ -2947,6 +3896,19 @@ class PartitionStorageDescriptorSkewedInfoArgs:
         pulumi.set(self, "skewed_column_values", value)
 
 
+if not MYPY:
+    class PartitionStorageDescriptorSortColumnArgsDict(TypedDict):
+        column: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        sort_order: pulumi.Input[int]
+        """
+        Indicates that the column is sorted in ascending order (== 1), or in descending order (==0).
+        """
+elif False:
+    PartitionStorageDescriptorSortColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PartitionStorageDescriptorSortColumnArgs:
     def __init__(__self__, *,
@@ -2983,6 +3945,17 @@ class PartitionStorageDescriptorSortColumnArgs:
     def sort_order(self, value: pulumi.Input[int]):
         pulumi.set(self, "sort_order", value)
 
+
+if not MYPY:
+    class SecurityConfigurationEncryptionConfigurationArgsDict(TypedDict):
+        cloudwatch_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgsDict']
+        job_bookmarks_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgsDict']
+        s3_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArgsDict']
+        """
+        A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+        """
+elif False:
+    SecurityConfigurationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityConfigurationEncryptionConfigurationArgs:
@@ -3028,6 +4001,19 @@ class SecurityConfigurationEncryptionConfigurationArgs:
         pulumi.set(self, "s3_encryption", value)
 
 
+if not MYPY:
+    class SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgsDict(TypedDict):
+        cloudwatch_encryption_mode: NotRequired[pulumi.Input[str]]
+        """
+        Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+elif False:
+    SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs:
     def __init__(__self__, *,
@@ -3066,6 +4052,19 @@ class SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs:
     def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_arn", value)
 
+
+if not MYPY:
+    class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgsDict(TypedDict):
+        job_bookmarks_encryption_mode: NotRequired[pulumi.Input[str]]
+        """
+        Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+elif False:
+    SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs:
@@ -3106,6 +4105,19 @@ class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
+if not MYPY:
+    class SecurityConfigurationEncryptionConfigurationS3EncryptionArgsDict(TypedDict):
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        """
+        s3_encryption_mode: NotRequired[pulumi.Input[str]]
+        """
+        Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
+        """
+elif False:
+    SecurityConfigurationEncryptionConfigurationS3EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityConfigurationEncryptionConfigurationS3EncryptionArgs:
     def __init__(__self__, *,
@@ -3144,6 +4156,35 @@ class SecurityConfigurationEncryptionConfigurationS3EncryptionArgs:
     def s3_encryption_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_encryption_mode", value)
 
+
+if not MYPY:
+    class TriggerActionArgsDict(TypedDict):
+        arguments: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
+        """
+        crawler_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the crawler to be executed. Conflicts with `job_name`.
+        """
+        job_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of a job to be executed. Conflicts with `crawler_name`.
+        """
+        notification_property: NotRequired[pulumi.Input['TriggerActionNotificationPropertyArgsDict']]
+        """
+        Specifies configuration properties of a job run notification. See Notification Property details below.
+        """
+        security_configuration: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Security Configuration structure to be used with this action.
+        """
+        timeout: NotRequired[pulumi.Input[int]]
+        """
+        The job run timeout in minutes. It overrides the timeout value of the job.
+        """
+elif False:
+    TriggerActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerActionArgs:
@@ -3248,6 +4289,15 @@ class TriggerActionArgs:
         pulumi.set(self, "timeout", value)
 
 
+if not MYPY:
+    class TriggerActionNotificationPropertyArgsDict(TypedDict):
+        notify_delay_after: NotRequired[pulumi.Input[int]]
+        """
+        After a job run starts, the number of minutes to wait before sending a job run delay notification.
+        """
+elif False:
+    TriggerActionNotificationPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TriggerActionNotificationPropertyArgs:
     def __init__(__self__, *,
@@ -3270,6 +4320,19 @@ class TriggerActionNotificationPropertyArgs:
     def notify_delay_after(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "notify_delay_after", value)
 
+
+if not MYPY:
+    class TriggerEventBatchingConditionArgsDict(TypedDict):
+        batch_size: pulumi.Input[int]
+        """
+        Number of events that must be received from Amazon EventBridge before EventBridge  event trigger fires.
+        """
+        batch_window: NotRequired[pulumi.Input[int]]
+        """
+        Window of time in seconds after which EventBridge event trigger fires. Window starts when first event is received. Default value is `900`.
+        """
+elif False:
+    TriggerEventBatchingConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerEventBatchingConditionArgs:
@@ -3309,6 +4372,19 @@ class TriggerEventBatchingConditionArgs:
         pulumi.set(self, "batch_window", value)
 
 
+if not MYPY:
+    class TriggerPredicateArgsDict(TypedDict):
+        conditions: pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArgsDict']]]
+        """
+        A list of the conditions that determine when the trigger will fire. See Conditions.
+        """
+        logical: NotRequired[pulumi.Input[str]]
+        """
+        How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
+        """
+elif False:
+    TriggerPredicateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TriggerPredicateArgs:
     def __init__(__self__, *,
@@ -3346,6 +4422,31 @@ class TriggerPredicateArgs:
     def logical(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "logical", value)
 
+
+if not MYPY:
+    class TriggerPredicateConditionArgsDict(TypedDict):
+        crawl_state: NotRequired[pulumi.Input[str]]
+        """
+        The condition crawl state. Currently, the values supported are `RUNNING`, `SUCCEEDED`, `CANCELLED`, and `FAILED`. If this is specified, `crawler_name` must also be specified. Conflicts with `state`.
+        """
+        crawler_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
+        """
+        job_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
+        """
+        logical_operator: NotRequired[pulumi.Input[str]]
+        """
+        A logical operator. Defaults to `EQUALS`.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The condition job state. Currently, the values supported are `SUCCEEDED`, `STOPPED`, `TIMEOUT` and `FAILED`. If this is specified, `job_name` must also be specified. Conflicts with `crawler_state`.
+        """
+elif False:
+    TriggerPredicateConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerPredicateConditionArgs:
@@ -3434,6 +4535,19 @@ class TriggerPredicateConditionArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class UserDefinedFunctionResourceUriArgsDict(TypedDict):
+        resource_type: pulumi.Input[str]
+        """
+        The type of the resource. can be one of `JAR`, `FILE`, and `ARCHIVE`.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI for accessing the resource.
+        """
+elif False:
+    UserDefinedFunctionResourceUriArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserDefinedFunctionResourceUriArgs:
     def __init__(__self__, *,
@@ -3470,6 +4584,23 @@ class UserDefinedFunctionResourceUriArgs:
     def uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class GetScriptDagEdgeArgsDict(TypedDict):
+        source: str
+        """
+        ID of the node at which the edge starts.
+        """
+        target: str
+        """
+        ID of the node at which the edge ends.
+        """
+        target_parameter: NotRequired[str]
+        """
+        Target of the edge.
+        """
+elif False:
+    GetScriptDagEdgeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetScriptDagEdgeArgs:
@@ -3523,6 +4654,27 @@ class GetScriptDagEdgeArgs:
     def target_parameter(self, value: Optional[str]):
         pulumi.set(self, "target_parameter", value)
 
+
+if not MYPY:
+    class GetScriptDagNodeArgsDict(TypedDict):
+        args: Sequence['GetScriptDagNodeArgArgsDict']
+        """
+        Nested configuration an argument or property of a node. Defined below.
+        """
+        id: str
+        """
+        Node identifier that is unique within the node's graph.
+        """
+        node_type: str
+        """
+        Type of node this is.
+        """
+        line_number: NotRequired[int]
+        """
+        Line number of the node.
+        """
+elif False:
+    GetScriptDagNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetScriptDagNodeArgs:
@@ -3591,6 +4743,23 @@ class GetScriptDagNodeArgs:
     def line_number(self, value: Optional[int]):
         pulumi.set(self, "line_number", value)
 
+
+if not MYPY:
+    class GetScriptDagNodeArgArgsDict(TypedDict):
+        name: str
+        """
+        Name of the argument or property.
+        """
+        value: str
+        """
+        Value of the argument or property.
+        """
+        param: NotRequired[bool]
+        """
+        Boolean if the value is used as a parameter. Defaults to `false`.
+        """
+elif False:
+    GetScriptDagNodeArgArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetScriptDagNodeArgArgs:

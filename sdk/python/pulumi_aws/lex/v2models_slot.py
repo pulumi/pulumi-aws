@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -403,12 +408,12 @@ class V2modelsSlot(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  intent_id: Optional[pulumi.Input[str]] = None,
                  locale_id: Optional[pulumi.Input[str]] = None,
-                 multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsSlotMultipleValuesSettingArgs']]]]] = None,
+                 multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsSlotObfuscationSettingArgs']]]]] = None,
+                 obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]]] = None,
                  slot_type_id: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsSlotTimeoutsArgs']]] = None,
-                 value_elicitation_setting: Optional[pulumi.Input[pulumi.InputType['V2modelsSlotValueElicitationSettingArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['V2modelsSlotTimeoutsArgs', 'V2modelsSlotTimeoutsArgsDict']]] = None,
+                 value_elicitation_setting: Optional[pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lex V2 Models Slot.
@@ -444,11 +449,11 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the slot.
         :param pulumi.Input[str] intent_id: Identifier of the intent that contains the slot.
         :param pulumi.Input[str] locale_id: Identifier of the language and locale that the slot will be used in.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsSlotMultipleValuesSettingArgs']]]] multiple_values_settings: Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]] multiple_values_settings: Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
         :param pulumi.Input[str] name: Name of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsSlotObfuscationSettingArgs']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
         :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
-        :param pulumi.Input[pulumi.InputType['V2modelsSlotValueElicitationSettingArgs']] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+        :param pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
                
                The following arguments are optional:
         """
@@ -505,12 +510,12 @@ class V2modelsSlot(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  intent_id: Optional[pulumi.Input[str]] = None,
                  locale_id: Optional[pulumi.Input[str]] = None,
-                 multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsSlotMultipleValuesSettingArgs']]]]] = None,
+                 multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsSlotObfuscationSettingArgs']]]]] = None,
+                 obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]]] = None,
                  slot_type_id: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsSlotTimeoutsArgs']]] = None,
-                 value_elicitation_setting: Optional[pulumi.Input[pulumi.InputType['V2modelsSlotValueElicitationSettingArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['V2modelsSlotTimeoutsArgs', 'V2modelsSlotTimeoutsArgsDict']]] = None,
+                 value_elicitation_setting: Optional[pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -555,13 +560,13 @@ class V2modelsSlot(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             intent_id: Optional[pulumi.Input[str]] = None,
             locale_id: Optional[pulumi.Input[str]] = None,
-            multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsSlotMultipleValuesSettingArgs']]]]] = None,
+            multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsSlotObfuscationSettingArgs']]]]] = None,
+            obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]]] = None,
             slot_id: Optional[pulumi.Input[str]] = None,
             slot_type_id: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsSlotTimeoutsArgs']]] = None,
-            value_elicitation_setting: Optional[pulumi.Input[pulumi.InputType['V2modelsSlotValueElicitationSettingArgs']]] = None) -> 'V2modelsSlot':
+            timeouts: Optional[pulumi.Input[Union['V2modelsSlotTimeoutsArgs', 'V2modelsSlotTimeoutsArgsDict']]] = None,
+            value_elicitation_setting: Optional[pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']]] = None) -> 'V2modelsSlot':
         """
         Get an existing V2modelsSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -574,12 +579,12 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the slot.
         :param pulumi.Input[str] intent_id: Identifier of the intent that contains the slot.
         :param pulumi.Input[str] locale_id: Identifier of the language and locale that the slot will be used in.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsSlotMultipleValuesSettingArgs']]]] multiple_values_settings: Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]] multiple_values_settings: Whether the slot returns multiple values in one response. See the `multiple_values_setting` argument reference below.
         :param pulumi.Input[str] name: Name of the slot.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['V2modelsSlotObfuscationSettingArgs']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs. See the `obfuscation_setting` argument reference below.
         :param pulumi.Input[str] slot_id: Unique identifier associated with the slot.
         :param pulumi.Input[str] slot_type_id: Unique identifier for the slot type associated with this slot.
-        :param pulumi.Input[pulumi.InputType['V2modelsSlotValueElicitationSettingArgs']] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+        :param pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
                
                The following arguments are optional:
         """

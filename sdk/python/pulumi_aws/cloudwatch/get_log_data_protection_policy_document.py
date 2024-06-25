@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -96,7 +101,7 @@ class AwaitableGetLogDataProtectionPolicyDocumentResult(GetLogDataProtectionPoli
 
 def get_log_data_protection_policy_document(description: Optional[str] = None,
                                             name: Optional[str] = None,
-                                            statements: Optional[Sequence[pulumi.InputType['GetLogDataProtectionPolicyDocumentStatementArgs']]] = None,
+                                            statements: Optional[Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']]] = None,
                                             version: Optional[str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogDataProtectionPolicyDocumentResult:
     """
@@ -112,40 +117,40 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
 
     example = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
         statements=[
-            aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs(
-                sid="Audit",
-                data_identifiers=[
+            {
+                "sid": "Audit",
+                "dataIdentifiers": [
                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
                 ],
-                operation=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationArgs(
-                    audit=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs(
-                        findings_destination=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs(
-                            cloudwatch_logs=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs(
-                                log_group=audit["name"],
-                            ),
-                            firehose=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs(
-                                delivery_stream=audit_aws_kinesis_firehose_delivery_stream["name"],
-                            ),
-                            s3=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args(
-                                bucket=audit_aws_s3_bucket["bucket"],
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs(
-                sid="Deidentify",
-                data_identifiers=[
+                "operation": {
+                    "audit": {
+                        "findingsDestination": {
+                            "cloudwatchLogs": {
+                                "logGroup": audit["name"],
+                            },
+                            "firehose": {
+                                "deliveryStream": audit_aws_kinesis_firehose_delivery_stream["name"],
+                            },
+                            "s3": {
+                                "bucket": audit_aws_s3_bucket["bucket"],
+                            },
+                        },
+                    },
+                },
+            },
+            {
+                "sid": "Deidentify",
+                "dataIdentifiers": [
                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
                 ],
-                operation=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationArgs(
-                    deidentify=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs(
-                        mask_config=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs(),
-                    ),
-                ),
-            ),
+                "operation": {
+                    "deidentify": {
+                        "maskConfig": {},
+                    },
+                },
+            },
         ])
     example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
         log_group_name=example_aws_cloudwatch_log_group["name"],
@@ -154,7 +159,7 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
 
 
     :param str name: The name of the data protection policy document.
-    :param Sequence[pulumi.InputType['GetLogDataProtectionPolicyDocumentStatementArgs']] statements: Configures the data protection policy.
+    :param Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']] statements: Configures the data protection policy.
            
            > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
            
@@ -180,7 +185,7 @@ def get_log_data_protection_policy_document(description: Optional[str] = None,
 @_utilities.lift_output_func(get_log_data_protection_policy_document)
 def get_log_data_protection_policy_document_output(description: Optional[pulumi.Input[Optional[str]]] = None,
                                                    name: Optional[pulumi.Input[str]] = None,
-                                                   statements: Optional[pulumi.Input[Sequence[pulumi.InputType['GetLogDataProtectionPolicyDocumentStatementArgs']]]] = None,
+                                                   statements: Optional[pulumi.Input[Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']]]] = None,
                                                    version: Optional[pulumi.Input[Optional[str]]] = None,
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogDataProtectionPolicyDocumentResult]:
     """
@@ -196,40 +201,40 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
 
     example = aws.cloudwatch.get_log_data_protection_policy_document(name="Example",
         statements=[
-            aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs(
-                sid="Audit",
-                data_identifiers=[
+            {
+                "sid": "Audit",
+                "dataIdentifiers": [
                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
                 ],
-                operation=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationArgs(
-                    audit=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs(
-                        findings_destination=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs(
-                            cloudwatch_logs=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs(
-                                log_group=audit["name"],
-                            ),
-                            firehose=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs(
-                                delivery_stream=audit_aws_kinesis_firehose_delivery_stream["name"],
-                            ),
-                            s3=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args(
-                                bucket=audit_aws_s3_bucket["bucket"],
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementArgs(
-                sid="Deidentify",
-                data_identifiers=[
+                "operation": {
+                    "audit": {
+                        "findingsDestination": {
+                            "cloudwatchLogs": {
+                                "logGroup": audit["name"],
+                            },
+                            "firehose": {
+                                "deliveryStream": audit_aws_kinesis_firehose_delivery_stream["name"],
+                            },
+                            "s3": {
+                                "bucket": audit_aws_s3_bucket["bucket"],
+                            },
+                        },
+                    },
+                },
+            },
+            {
+                "sid": "Deidentify",
+                "dataIdentifiers": [
                     "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
                     "arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
                 ],
-                operation=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationArgs(
-                    deidentify=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs(
-                        mask_config=aws.cloudwatch.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs(),
-                    ),
-                ),
-            ),
+                "operation": {
+                    "deidentify": {
+                        "maskConfig": {},
+                    },
+                },
+            },
         ])
     example_log_data_protection_policy = aws.cloudwatch.LogDataProtectionPolicy("example",
         log_group_name=example_aws_cloudwatch_log_group["name"],
@@ -238,7 +243,7 @@ def get_log_data_protection_policy_document_output(description: Optional[pulumi.
 
 
     :param str name: The name of the data protection policy document.
-    :param Sequence[pulumi.InputType['GetLogDataProtectionPolicyDocumentStatementArgs']] statements: Configures the data protection policy.
+    :param Sequence[Union['GetLogDataProtectionPolicyDocumentStatementArgs', 'GetLogDataProtectionPolicyDocumentStatementArgsDict']] statements: Configures the data protection policy.
            
            > There must be exactly two statements: the first with an `audit` operation, and the second with a `deidentify` operation.
            

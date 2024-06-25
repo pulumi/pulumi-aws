@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ReplicationInstanceArgs', 'ReplicationInstance']
@@ -684,13 +689,13 @@ class ReplicationInstance(pulumi.CustomResource):
         #  * dms-vpc-role
         #  * dms-cloudwatch-logs-role
         #  * dms-access-for-endpoint
-        dms_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["dms.amazonaws.com"],
-                type="Service",
-            )],
-        )])
+        dms_assume_role = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "identifiers": ["dms.amazonaws.com"],
+                "type": "Service",
+            }],
+        }])
         dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint",
             assume_role_policy=dms_assume_role.json,
             name="dms-access-for-endpoint")
@@ -794,13 +799,13 @@ class ReplicationInstance(pulumi.CustomResource):
         #  * dms-vpc-role
         #  * dms-cloudwatch-logs-role
         #  * dms-access-for-endpoint
-        dms_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["dms.amazonaws.com"],
-                type="Service",
-            )],
-        )])
+        dms_assume_role = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "identifiers": ["dms.amazonaws.com"],
+                "type": "Service",
+            }],
+        }])
         dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint",
             assume_role_policy=dms_assume_role.json,
             name="dms-access-for-endpoint")

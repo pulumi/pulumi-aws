@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -189,7 +194,7 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  package_description: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
-                 package_source: Optional[pulumi.Input[pulumi.InputType['PackagePackageSourceArgs']]] = None,
+                 package_source: Optional[pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -212,10 +217,10 @@ class Package(pulumi.CustomResource):
             etag=std.filemd5(input="./example.txt").result)
         example_package = aws.opensearch.Package("example",
             package_name="example-txt",
-            package_source=aws.opensearch.PackagePackageSourceArgs(
-                s3_bucket_name=my_opensearch_packages.bucket,
-                s3_key=example.key,
-            ),
+            package_source={
+                "s3BucketName": my_opensearch_packages.bucket,
+                "s3Key": example.key,
+            },
             package_type="TXT-DICTIONARY")
         ```
 
@@ -231,7 +236,7 @@ class Package(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] package_description: Description of the package.
         :param pulumi.Input[str] package_name: Unique name for the package.
-        :param pulumi.Input[pulumi.InputType['PackagePackageSourceArgs']] package_source: Configuration block for the package source options.
+        :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']] package_source: Configuration block for the package source options.
         :param pulumi.Input[str] package_type: The type of package.
         """
         ...
@@ -260,10 +265,10 @@ class Package(pulumi.CustomResource):
             etag=std.filemd5(input="./example.txt").result)
         example_package = aws.opensearch.Package("example",
             package_name="example-txt",
-            package_source=aws.opensearch.PackagePackageSourceArgs(
-                s3_bucket_name=my_opensearch_packages.bucket,
-                s3_key=example.key,
-            ),
+            package_source={
+                "s3BucketName": my_opensearch_packages.bucket,
+                "s3Key": example.key,
+            },
             package_type="TXT-DICTIONARY")
         ```
 
@@ -292,7 +297,7 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  package_description: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
-                 package_source: Optional[pulumi.Input[pulumi.InputType['PackagePackageSourceArgs']]] = None,
+                 package_source: Optional[pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -329,7 +334,7 @@ class Package(pulumi.CustomResource):
             package_description: Optional[pulumi.Input[str]] = None,
             package_id: Optional[pulumi.Input[str]] = None,
             package_name: Optional[pulumi.Input[str]] = None,
-            package_source: Optional[pulumi.Input[pulumi.InputType['PackagePackageSourceArgs']]] = None,
+            package_source: Optional[pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
             package_type: Optional[pulumi.Input[str]] = None) -> 'Package':
         """
         Get an existing Package resource's state with the given name, id, and optional extra
@@ -341,7 +346,7 @@ class Package(pulumi.CustomResource):
         :param pulumi.Input[str] available_package_version: The current version of the package.
         :param pulumi.Input[str] package_description: Description of the package.
         :param pulumi.Input[str] package_name: Unique name for the package.
-        :param pulumi.Input[pulumi.InputType['PackagePackageSourceArgs']] package_source: Configuration block for the package source options.
+        :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']] package_source: Configuration block for the package source options.
         :param pulumi.Input[str] package_type: The type of package.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

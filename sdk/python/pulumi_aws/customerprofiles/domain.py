@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -304,8 +309,8 @@ class Domain(pulumi.CustomResource):
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
                  default_expiration_days: Optional[pulumi.Input[int]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 matching: Optional[pulumi.Input[pulumi.InputType['DomainMatchingArgs']]] = None,
-                 rule_based_matching: Optional[pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']]] = None,
+                 matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+                 rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -392,8 +397,8 @@ class Domain(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
-        :param pulumi.Input[pulumi.InputType['DomainMatchingArgs']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
-        :param pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
+        :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
+        :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -497,8 +502,8 @@ class Domain(pulumi.CustomResource):
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
                  default_expiration_days: Optional[pulumi.Input[int]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 matching: Optional[pulumi.Input[pulumi.InputType['DomainMatchingArgs']]] = None,
-                 rule_based_matching: Optional[pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']]] = None,
+                 matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+                 rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -537,8 +542,8 @@ class Domain(pulumi.CustomResource):
             default_encryption_key: Optional[pulumi.Input[str]] = None,
             default_expiration_days: Optional[pulumi.Input[int]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
-            matching: Optional[pulumi.Input[pulumi.InputType['DomainMatchingArgs']]] = None,
-            rule_based_matching: Optional[pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']]] = None,
+            matching: Optional[pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']]] = None,
+            rule_based_matching: Optional[pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Domain':
         """
@@ -555,8 +560,8 @@ class Domain(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] domain_name: The name for your Customer Profile domain. It must be unique for your AWS account.
-        :param pulumi.Input[pulumi.InputType['DomainMatchingArgs']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
-        :param pulumi.Input[pulumi.InputType['DomainRuleBasedMatchingArgs']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
+        :param pulumi.Input[Union['DomainMatchingArgs', 'DomainMatchingArgsDict']] matching: A block that specifies the process of matching duplicate profiles. Documented below.
+        :param pulumi.Input[Union['DomainRuleBasedMatchingArgs', 'DomainRuleBasedMatchingArgsDict']] rule_based_matching: A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

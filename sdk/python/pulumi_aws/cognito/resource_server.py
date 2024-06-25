@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -178,7 +183,7 @@ class ResourceServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -209,10 +214,10 @@ class ResourceServer(pulumi.CustomResource):
         resource = aws.cognito.ResourceServer("resource",
             identifier="https://example.com",
             name="example",
-            scopes=[aws.cognito.ResourceServerScopeArgs(
-                scope_name="sample-scope",
-                scope_description="a Sample Scope Description",
-            )],
+            scopes=[{
+                "scopeName": "sample-scope",
+                "scopeDescription": "a Sample Scope Description",
+            }],
             user_pool_id=pool.id)
         ```
 
@@ -228,7 +233,7 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identifier: An identifier for the resource server.
         :param pulumi.Input[str] name: A name for the resource server.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]] scopes: A list of Authorization Scope.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]] scopes: A list of Authorization Scope.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
         """
         ...
@@ -265,10 +270,10 @@ class ResourceServer(pulumi.CustomResource):
         resource = aws.cognito.ResourceServer("resource",
             identifier="https://example.com",
             name="example",
-            scopes=[aws.cognito.ResourceServerScopeArgs(
-                scope_name="sample-scope",
-                scope_description="a Sample Scope Description",
-            )],
+            scopes=[{
+                "scopeName": "sample-scope",
+                "scopeDescription": "a Sample Scope Description",
+            }],
             user_pool_id=pool.id)
         ```
 
@@ -297,7 +302,7 @@ class ResourceServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]]] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -330,7 +335,7 @@ class ResourceServer(pulumi.CustomResource):
             identifier: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             scope_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]]] = None,
+            scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]]] = None,
             user_pool_id: Optional[pulumi.Input[str]] = None) -> 'ResourceServer':
         """
         Get an existing ResourceServer resource's state with the given name, id, and optional extra
@@ -342,7 +347,7 @@ class ResourceServer(pulumi.CustomResource):
         :param pulumi.Input[str] identifier: An identifier for the resource server.
         :param pulumi.Input[str] name: A name for the resource server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_identifiers: A list of all scopes configured for this resource server in the format identifier/scope_name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceServerScopeArgs']]]] scopes: A list of Authorization Scope.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceServerScopeArgs', 'ResourceServerScopeArgsDict']]]] scopes: A list of Authorization Scope.
         :param pulumi.Input[str] user_pool_id: User pool the client belongs to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

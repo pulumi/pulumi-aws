@@ -4,67 +4,141 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'PipeEnrichmentParametersArgs',
+    'PipeEnrichmentParametersArgsDict',
     'PipeEnrichmentParametersHttpParametersArgs',
+    'PipeEnrichmentParametersHttpParametersArgsDict',
     'PipeLogConfigurationArgs',
+    'PipeLogConfigurationArgsDict',
     'PipeLogConfigurationCloudwatchLogsLogDestinationArgs',
+    'PipeLogConfigurationCloudwatchLogsLogDestinationArgsDict',
     'PipeLogConfigurationFirehoseLogDestinationArgs',
+    'PipeLogConfigurationFirehoseLogDestinationArgsDict',
     'PipeLogConfigurationS3LogDestinationArgs',
+    'PipeLogConfigurationS3LogDestinationArgsDict',
     'PipeSourceParametersArgs',
+    'PipeSourceParametersArgsDict',
     'PipeSourceParametersActivemqBrokerParametersArgs',
+    'PipeSourceParametersActivemqBrokerParametersArgsDict',
     'PipeSourceParametersActivemqBrokerParametersCredentialsArgs',
+    'PipeSourceParametersActivemqBrokerParametersCredentialsArgsDict',
     'PipeSourceParametersDynamodbStreamParametersArgs',
+    'PipeSourceParametersDynamodbStreamParametersArgsDict',
     'PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs',
+    'PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgsDict',
     'PipeSourceParametersFilterCriteriaArgs',
+    'PipeSourceParametersFilterCriteriaArgsDict',
     'PipeSourceParametersFilterCriteriaFilterArgs',
+    'PipeSourceParametersFilterCriteriaFilterArgsDict',
     'PipeSourceParametersKinesisStreamParametersArgs',
+    'PipeSourceParametersKinesisStreamParametersArgsDict',
     'PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs',
+    'PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgsDict',
     'PipeSourceParametersManagedStreamingKafkaParametersArgs',
+    'PipeSourceParametersManagedStreamingKafkaParametersArgsDict',
     'PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs',
+    'PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgsDict',
     'PipeSourceParametersRabbitmqBrokerParametersArgs',
+    'PipeSourceParametersRabbitmqBrokerParametersArgsDict',
     'PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs',
+    'PipeSourceParametersRabbitmqBrokerParametersCredentialsArgsDict',
     'PipeSourceParametersSelfManagedKafkaParametersArgs',
+    'PipeSourceParametersSelfManagedKafkaParametersArgsDict',
     'PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs',
+    'PipeSourceParametersSelfManagedKafkaParametersCredentialsArgsDict',
     'PipeSourceParametersSelfManagedKafkaParametersVpcArgs',
+    'PipeSourceParametersSelfManagedKafkaParametersVpcArgsDict',
     'PipeSourceParametersSqsQueueParametersArgs',
+    'PipeSourceParametersSqsQueueParametersArgsDict',
     'PipeTargetParametersArgs',
+    'PipeTargetParametersArgsDict',
     'PipeTargetParametersBatchJobParametersArgs',
+    'PipeTargetParametersBatchJobParametersArgsDict',
     'PipeTargetParametersBatchJobParametersArrayPropertiesArgs',
+    'PipeTargetParametersBatchJobParametersArrayPropertiesArgsDict',
     'PipeTargetParametersBatchJobParametersContainerOverridesArgs',
+    'PipeTargetParametersBatchJobParametersContainerOverridesArgsDict',
     'PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs',
+    'PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgsDict',
     'PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs',
+    'PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgsDict',
     'PipeTargetParametersBatchJobParametersDependsOnArgs',
+    'PipeTargetParametersBatchJobParametersDependsOnArgsDict',
     'PipeTargetParametersBatchJobParametersRetryStrategyArgs',
+    'PipeTargetParametersBatchJobParametersRetryStrategyArgsDict',
     'PipeTargetParametersCloudwatchLogsParametersArgs',
+    'PipeTargetParametersCloudwatchLogsParametersArgsDict',
     'PipeTargetParametersEcsTaskParametersArgs',
+    'PipeTargetParametersEcsTaskParametersArgsDict',
     'PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs',
+    'PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgsDict',
     'PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs',
+    'PipeTargetParametersEcsTaskParametersNetworkConfigurationArgsDict',
     'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs',
+    'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgsDict',
     'PipeTargetParametersEcsTaskParametersOverridesArgs',
+    'PipeTargetParametersEcsTaskParametersOverridesArgsDict',
     'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs',
+    'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgsDict',
     'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs',
+    'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgsDict',
     'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs',
+    'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgsDict',
     'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs',
+    'PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgsDict',
     'PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs',
+    'PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgsDict',
     'PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs',
+    'PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgsDict',
     'PipeTargetParametersEcsTaskParametersPlacementConstraintArgs',
+    'PipeTargetParametersEcsTaskParametersPlacementConstraintArgsDict',
     'PipeTargetParametersEcsTaskParametersPlacementStrategyArgs',
+    'PipeTargetParametersEcsTaskParametersPlacementStrategyArgsDict',
     'PipeTargetParametersEventbridgeEventBusParametersArgs',
+    'PipeTargetParametersEventbridgeEventBusParametersArgsDict',
     'PipeTargetParametersHttpParametersArgs',
+    'PipeTargetParametersHttpParametersArgsDict',
     'PipeTargetParametersKinesisStreamParametersArgs',
+    'PipeTargetParametersKinesisStreamParametersArgsDict',
     'PipeTargetParametersLambdaFunctionParametersArgs',
+    'PipeTargetParametersLambdaFunctionParametersArgsDict',
     'PipeTargetParametersRedshiftDataParametersArgs',
+    'PipeTargetParametersRedshiftDataParametersArgsDict',
     'PipeTargetParametersSagemakerPipelineParametersArgs',
+    'PipeTargetParametersSagemakerPipelineParametersArgsDict',
     'PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs',
+    'PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgsDict',
     'PipeTargetParametersSqsQueueParametersArgs',
+    'PipeTargetParametersSqsQueueParametersArgsDict',
     'PipeTargetParametersStepFunctionStateMachineParametersArgs',
+    'PipeTargetParametersStepFunctionStateMachineParametersArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PipeEnrichmentParametersArgsDict(TypedDict):
+        http_parameters: NotRequired[pulumi.Input['PipeEnrichmentParametersHttpParametersArgsDict']]
+        """
+        Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+        """
+        input_template: NotRequired[pulumi.Input[str]]
+        """
+        Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
+        """
+elif False:
+    PipeEnrichmentParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeEnrichmentParametersArgs:
@@ -104,6 +178,14 @@ class PipeEnrichmentParametersArgs:
     def input_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "input_template", value)
 
+
+if not MYPY:
+    class PipeEnrichmentParametersHttpParametersArgsDict(TypedDict):
+        header_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        path_parameter_values: NotRequired[pulumi.Input[str]]
+        query_string_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+elif False:
+    PipeEnrichmentParametersHttpParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeEnrichmentParametersHttpParametersArgs:
@@ -145,6 +227,27 @@ class PipeEnrichmentParametersHttpParametersArgs:
     def query_string_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "query_string_parameters", value)
 
+
+if not MYPY:
+    class PipeLogConfigurationArgsDict(TypedDict):
+        level: pulumi.Input[str]
+        """
+        The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+        """
+        cloudwatch_logs_log_destination: NotRequired[pulumi.Input['PipeLogConfigurationCloudwatchLogsLogDestinationArgsDict']]
+        """
+        Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+        """
+        firehose_log_destination: NotRequired[pulumi.Input['PipeLogConfigurationFirehoseLogDestinationArgsDict']]
+        """
+        Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+        """
+        s3_log_destination: NotRequired[pulumi.Input['PipeLogConfigurationS3LogDestinationArgsDict']]
+        """
+        Amazon S3 logging configuration settings for the pipe. Detailed below.
+        """
+elif False:
+    PipeLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeLogConfigurationArgs:
@@ -216,6 +319,12 @@ class PipeLogConfigurationArgs:
         pulumi.set(self, "s3_log_destination", value)
 
 
+if not MYPY:
+    class PipeLogConfigurationCloudwatchLogsLogDestinationArgsDict(TypedDict):
+        log_group_arn: pulumi.Input[str]
+elif False:
+    PipeLogConfigurationCloudwatchLogsLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeLogConfigurationCloudwatchLogsLogDestinationArgs:
     def __init__(__self__, *,
@@ -232,6 +341,12 @@ class PipeLogConfigurationCloudwatchLogsLogDestinationArgs:
         pulumi.set(self, "log_group_arn", value)
 
 
+if not MYPY:
+    class PipeLogConfigurationFirehoseLogDestinationArgsDict(TypedDict):
+        delivery_stream_arn: pulumi.Input[str]
+elif False:
+    PipeLogConfigurationFirehoseLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeLogConfigurationFirehoseLogDestinationArgs:
     def __init__(__self__, *,
@@ -247,6 +362,15 @@ class PipeLogConfigurationFirehoseLogDestinationArgs:
     def delivery_stream_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "delivery_stream_arn", value)
 
+
+if not MYPY:
+    class PipeLogConfigurationS3LogDestinationArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        bucket_owner: pulumi.Input[str]
+        output_format: NotRequired[pulumi.Input[str]]
+        prefix: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeLogConfigurationS3LogDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeLogConfigurationS3LogDestinationArgs:
@@ -298,6 +422,43 @@ class PipeLogConfigurationS3LogDestinationArgs:
     def prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prefix", value)
 
+
+if not MYPY:
+    class PipeSourceParametersArgsDict(TypedDict):
+        activemq_broker_parameters: NotRequired[pulumi.Input['PipeSourceParametersActivemqBrokerParametersArgsDict']]
+        """
+        The parameters for using an Active MQ broker as a source. Detailed below.
+        """
+        dynamodb_stream_parameters: NotRequired[pulumi.Input['PipeSourceParametersDynamodbStreamParametersArgsDict']]
+        """
+        The parameters for using a DynamoDB stream as a source.  Detailed below.
+        """
+        filter_criteria: NotRequired[pulumi.Input['PipeSourceParametersFilterCriteriaArgsDict']]
+        """
+        The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+        """
+        kinesis_stream_parameters: NotRequired[pulumi.Input['PipeSourceParametersKinesisStreamParametersArgsDict']]
+        """
+        The parameters for using a Kinesis stream as a source. Detailed below.
+        """
+        managed_streaming_kafka_parameters: NotRequired[pulumi.Input['PipeSourceParametersManagedStreamingKafkaParametersArgsDict']]
+        """
+        The parameters for using an MSK stream as a source. Detailed below.
+        """
+        rabbitmq_broker_parameters: NotRequired[pulumi.Input['PipeSourceParametersRabbitmqBrokerParametersArgsDict']]
+        """
+        The parameters for using a Rabbit MQ broker as a source. Detailed below.
+        """
+        self_managed_kafka_parameters: NotRequired[pulumi.Input['PipeSourceParametersSelfManagedKafkaParametersArgsDict']]
+        """
+        The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+        """
+        sqs_queue_parameters: NotRequired[pulumi.Input['PipeSourceParametersSqsQueueParametersArgsDict']]
+        """
+        The parameters for using a Amazon SQS stream as a source. Detailed below.
+        """
+elif False:
+    PipeSourceParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeSourceParametersArgs:
@@ -434,6 +595,15 @@ class PipeSourceParametersArgs:
         pulumi.set(self, "sqs_queue_parameters", value)
 
 
+if not MYPY:
+    class PipeSourceParametersActivemqBrokerParametersArgsDict(TypedDict):
+        credentials: pulumi.Input['PipeSourceParametersActivemqBrokerParametersCredentialsArgsDict']
+        queue_name: pulumi.Input[str]
+        batch_size: NotRequired[pulumi.Input[int]]
+        maximum_batching_window_in_seconds: NotRequired[pulumi.Input[int]]
+elif False:
+    PipeSourceParametersActivemqBrokerParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersActivemqBrokerParametersArgs:
     def __init__(__self__, *,
@@ -485,6 +655,12 @@ class PipeSourceParametersActivemqBrokerParametersArgs:
         pulumi.set(self, "maximum_batching_window_in_seconds", value)
 
 
+if not MYPY:
+    class PipeSourceParametersActivemqBrokerParametersCredentialsArgsDict(TypedDict):
+        basic_auth: pulumi.Input[str]
+elif False:
+    PipeSourceParametersActivemqBrokerParametersCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersActivemqBrokerParametersCredentialsArgs:
     def __init__(__self__, *,
@@ -500,6 +676,19 @@ class PipeSourceParametersActivemqBrokerParametersCredentialsArgs:
     def basic_auth(self, value: pulumi.Input[str]):
         pulumi.set(self, "basic_auth", value)
 
+
+if not MYPY:
+    class PipeSourceParametersDynamodbStreamParametersArgsDict(TypedDict):
+        starting_position: pulumi.Input[str]
+        batch_size: NotRequired[pulumi.Input[int]]
+        dead_letter_config: NotRequired[pulumi.Input['PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgsDict']]
+        maximum_batching_window_in_seconds: NotRequired[pulumi.Input[int]]
+        maximum_record_age_in_seconds: NotRequired[pulumi.Input[int]]
+        maximum_retry_attempts: NotRequired[pulumi.Input[int]]
+        on_partial_batch_item_failure: NotRequired[pulumi.Input[str]]
+        parallelization_factor: NotRequired[pulumi.Input[int]]
+elif False:
+    PipeSourceParametersDynamodbStreamParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeSourceParametersDynamodbStreamParametersArgs:
@@ -601,6 +790,15 @@ class PipeSourceParametersDynamodbStreamParametersArgs:
         pulumi.set(self, "parallelization_factor", value)
 
 
+if not MYPY:
+    class PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of this pipe.
+        """
+elif False:
+    PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs:
     def __init__(__self__, *,
@@ -624,6 +822,12 @@ class PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs:
         pulumi.set(self, "arn", value)
 
 
+if not MYPY:
+    class PipeSourceParametersFilterCriteriaArgsDict(TypedDict):
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeSourceParametersFilterCriteriaFilterArgsDict']]]]
+elif False:
+    PipeSourceParametersFilterCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersFilterCriteriaArgs:
     def __init__(__self__, *,
@@ -641,6 +845,12 @@ class PipeSourceParametersFilterCriteriaArgs:
         pulumi.set(self, "filters", value)
 
 
+if not MYPY:
+    class PipeSourceParametersFilterCriteriaFilterArgsDict(TypedDict):
+        pattern: pulumi.Input[str]
+elif False:
+    PipeSourceParametersFilterCriteriaFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersFilterCriteriaFilterArgs:
     def __init__(__self__, *,
@@ -656,6 +866,20 @@ class PipeSourceParametersFilterCriteriaFilterArgs:
     def pattern(self, value: pulumi.Input[str]):
         pulumi.set(self, "pattern", value)
 
+
+if not MYPY:
+    class PipeSourceParametersKinesisStreamParametersArgsDict(TypedDict):
+        starting_position: pulumi.Input[str]
+        batch_size: NotRequired[pulumi.Input[int]]
+        dead_letter_config: NotRequired[pulumi.Input['PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgsDict']]
+        maximum_batching_window_in_seconds: NotRequired[pulumi.Input[int]]
+        maximum_record_age_in_seconds: NotRequired[pulumi.Input[int]]
+        maximum_retry_attempts: NotRequired[pulumi.Input[int]]
+        on_partial_batch_item_failure: NotRequired[pulumi.Input[str]]
+        parallelization_factor: NotRequired[pulumi.Input[int]]
+        starting_position_timestamp: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeSourceParametersKinesisStreamParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeSourceParametersKinesisStreamParametersArgs:
@@ -769,6 +993,15 @@ class PipeSourceParametersKinesisStreamParametersArgs:
         pulumi.set(self, "starting_position_timestamp", value)
 
 
+if not MYPY:
+    class PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of this pipe.
+        """
+elif False:
+    PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs:
     def __init__(__self__, *,
@@ -791,6 +1024,17 @@ class PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs:
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
 
+
+if not MYPY:
+    class PipeSourceParametersManagedStreamingKafkaParametersArgsDict(TypedDict):
+        topic_name: pulumi.Input[str]
+        batch_size: NotRequired[pulumi.Input[int]]
+        consumer_group_id: NotRequired[pulumi.Input[str]]
+        credentials: NotRequired[pulumi.Input['PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgsDict']]
+        maximum_batching_window_in_seconds: NotRequired[pulumi.Input[int]]
+        starting_position: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeSourceParametersManagedStreamingKafkaParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeSourceParametersManagedStreamingKafkaParametersArgs:
@@ -868,6 +1112,13 @@ class PipeSourceParametersManagedStreamingKafkaParametersArgs:
         pulumi.set(self, "starting_position", value)
 
 
+if not MYPY:
+    class PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgsDict(TypedDict):
+        client_certificate_tls_auth: NotRequired[pulumi.Input[str]]
+        sasl_scram512_auth: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs:
     def __init__(__self__, *,
@@ -896,6 +1147,16 @@ class PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs:
     def sasl_scram512_auth(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sasl_scram512_auth", value)
 
+
+if not MYPY:
+    class PipeSourceParametersRabbitmqBrokerParametersArgsDict(TypedDict):
+        credentials: pulumi.Input['PipeSourceParametersRabbitmqBrokerParametersCredentialsArgsDict']
+        queue_name: pulumi.Input[str]
+        batch_size: NotRequired[pulumi.Input[int]]
+        maximum_batching_window_in_seconds: NotRequired[pulumi.Input[int]]
+        virtual_host: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeSourceParametersRabbitmqBrokerParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeSourceParametersRabbitmqBrokerParametersArgs:
@@ -960,6 +1221,12 @@ class PipeSourceParametersRabbitmqBrokerParametersArgs:
         pulumi.set(self, "virtual_host", value)
 
 
+if not MYPY:
+    class PipeSourceParametersRabbitmqBrokerParametersCredentialsArgsDict(TypedDict):
+        basic_auth: pulumi.Input[str]
+elif False:
+    PipeSourceParametersRabbitmqBrokerParametersCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs:
     def __init__(__self__, *,
@@ -975,6 +1242,20 @@ class PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs:
     def basic_auth(self, value: pulumi.Input[str]):
         pulumi.set(self, "basic_auth", value)
 
+
+if not MYPY:
+    class PipeSourceParametersSelfManagedKafkaParametersArgsDict(TypedDict):
+        topic_name: pulumi.Input[str]
+        additional_bootstrap_servers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        consumer_group_id: NotRequired[pulumi.Input[str]]
+        credentials: NotRequired[pulumi.Input['PipeSourceParametersSelfManagedKafkaParametersCredentialsArgsDict']]
+        maximum_batching_window_in_seconds: NotRequired[pulumi.Input[int]]
+        server_root_ca_certificate: NotRequired[pulumi.Input[str]]
+        starting_position: NotRequired[pulumi.Input[str]]
+        vpc: NotRequired[pulumi.Input['PipeSourceParametersSelfManagedKafkaParametersVpcArgsDict']]
+elif False:
+    PipeSourceParametersSelfManagedKafkaParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeSourceParametersSelfManagedKafkaParametersArgs:
@@ -1088,6 +1369,15 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
         pulumi.set(self, "vpc", value)
 
 
+if not MYPY:
+    class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgsDict(TypedDict):
+        basic_auth: NotRequired[pulumi.Input[str]]
+        client_certificate_tls_auth: NotRequired[pulumi.Input[str]]
+        sasl_scram256_auth: NotRequired[pulumi.Input[str]]
+        sasl_scram512_auth: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeSourceParametersSelfManagedKafkaParametersCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs:
     def __init__(__self__, *,
@@ -1141,6 +1431,13 @@ class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs:
         pulumi.set(self, "sasl_scram512_auth", value)
 
 
+if not MYPY:
+    class PipeSourceParametersSelfManagedKafkaParametersVpcArgsDict(TypedDict):
+        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    PipeSourceParametersSelfManagedKafkaParametersVpcArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersSelfManagedKafkaParametersVpcArgs:
     def __init__(__self__, *,
@@ -1170,6 +1467,13 @@ class PipeSourceParametersSelfManagedKafkaParametersVpcArgs:
         pulumi.set(self, "subnets", value)
 
 
+if not MYPY:
+    class PipeSourceParametersSqsQueueParametersArgsDict(TypedDict):
+        batch_size: NotRequired[pulumi.Input[int]]
+        maximum_batching_window_in_seconds: NotRequired[pulumi.Input[int]]
+elif False:
+    PipeSourceParametersSqsQueueParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeSourceParametersSqsQueueParametersArgs:
     def __init__(__self__, *,
@@ -1198,6 +1502,59 @@ class PipeSourceParametersSqsQueueParametersArgs:
     def maximum_batching_window_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maximum_batching_window_in_seconds", value)
 
+
+if not MYPY:
+    class PipeTargetParametersArgsDict(TypedDict):
+        batch_job_parameters: NotRequired[pulumi.Input['PipeTargetParametersBatchJobParametersArgsDict']]
+        """
+        The parameters for using an AWS Batch job as a target. Detailed below.
+        """
+        cloudwatch_logs_parameters: NotRequired[pulumi.Input['PipeTargetParametersCloudwatchLogsParametersArgsDict']]
+        """
+        The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+        """
+        ecs_task_parameters: NotRequired[pulumi.Input['PipeTargetParametersEcsTaskParametersArgsDict']]
+        """
+        The parameters for using an Amazon ECS task as a target. Detailed below.
+        """
+        eventbridge_event_bus_parameters: NotRequired[pulumi.Input['PipeTargetParametersEventbridgeEventBusParametersArgsDict']]
+        """
+        The parameters for using an EventBridge event bus as a target. Detailed below.
+        """
+        http_parameters: NotRequired[pulumi.Input['PipeTargetParametersHttpParametersArgsDict']]
+        """
+        These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+        """
+        input_template: NotRequired[pulumi.Input[str]]
+        """
+        Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
+        """
+        kinesis_stream_parameters: NotRequired[pulumi.Input['PipeTargetParametersKinesisStreamParametersArgsDict']]
+        """
+        The parameters for using a Kinesis stream as a source. Detailed below.
+        """
+        lambda_function_parameters: NotRequired[pulumi.Input['PipeTargetParametersLambdaFunctionParametersArgsDict']]
+        """
+        The parameters for using a Lambda function as a target. Detailed below.
+        """
+        redshift_data_parameters: NotRequired[pulumi.Input['PipeTargetParametersRedshiftDataParametersArgsDict']]
+        """
+        These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+        """
+        sagemaker_pipeline_parameters: NotRequired[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersArgsDict']]
+        """
+        The parameters for using a SageMaker pipeline as a target. Detailed below.
+        """
+        sqs_queue_parameters: NotRequired[pulumi.Input['PipeTargetParametersSqsQueueParametersArgsDict']]
+        """
+        The parameters for using a Amazon SQS stream as a target. Detailed below.
+        """
+        step_function_state_machine_parameters: NotRequired[pulumi.Input['PipeTargetParametersStepFunctionStateMachineParametersArgsDict']]
+        """
+        The parameters for using a Step Functions state machine as a target. Detailed below.
+        """
+elif False:
+    PipeTargetParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersArgs:
@@ -1398,6 +1755,18 @@ class PipeTargetParametersArgs:
         pulumi.set(self, "step_function_state_machine_parameters", value)
 
 
+if not MYPY:
+    class PipeTargetParametersBatchJobParametersArgsDict(TypedDict):
+        job_definition: pulumi.Input[str]
+        job_name: pulumi.Input[str]
+        array_properties: NotRequired[pulumi.Input['PipeTargetParametersBatchJobParametersArrayPropertiesArgsDict']]
+        container_overrides: NotRequired[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesArgsDict']]
+        depends_ons: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersDependsOnArgsDict']]]]
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        retry_strategy: NotRequired[pulumi.Input['PipeTargetParametersBatchJobParametersRetryStrategyArgsDict']]
+elif False:
+    PipeTargetParametersBatchJobParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersBatchJobParametersArgs:
     def __init__(__self__, *,
@@ -1485,6 +1854,12 @@ class PipeTargetParametersBatchJobParametersArgs:
         pulumi.set(self, "retry_strategy", value)
 
 
+if not MYPY:
+    class PipeTargetParametersBatchJobParametersArrayPropertiesArgsDict(TypedDict):
+        size: NotRequired[pulumi.Input[int]]
+elif False:
+    PipeTargetParametersBatchJobParametersArrayPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersBatchJobParametersArrayPropertiesArgs:
     def __init__(__self__, *,
@@ -1501,6 +1876,15 @@ class PipeTargetParametersBatchJobParametersArrayPropertiesArgs:
     def size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "size", value)
 
+
+if not MYPY:
+    class PipeTargetParametersBatchJobParametersContainerOverridesArgsDict(TypedDict):
+        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        environments: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgsDict']]]]
+        instance_type: NotRequired[pulumi.Input[str]]
+        resource_requirements: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgsDict']]]]
+elif False:
+    PipeTargetParametersBatchJobParametersContainerOverridesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersBatchJobParametersContainerOverridesArgs:
@@ -1555,6 +1939,16 @@ class PipeTargetParametersBatchJobParametersContainerOverridesArgs:
         pulumi.set(self, "resource_requirements", value)
 
 
+if not MYPY:
+    class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs:
     def __init__(__self__, *,
@@ -1590,6 +1984,13 @@ class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs:
     def __init__(__self__, *,
@@ -1616,6 +2017,13 @@ class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequiremen
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class PipeTargetParametersBatchJobParametersDependsOnArgsDict(TypedDict):
+        job_id: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeTargetParametersBatchJobParametersDependsOnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersBatchJobParametersDependsOnArgs:
@@ -1646,6 +2054,12 @@ class PipeTargetParametersBatchJobParametersDependsOnArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class PipeTargetParametersBatchJobParametersRetryStrategyArgsDict(TypedDict):
+        attempts: NotRequired[pulumi.Input[int]]
+elif False:
+    PipeTargetParametersBatchJobParametersRetryStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersBatchJobParametersRetryStrategyArgs:
     def __init__(__self__, *,
@@ -1662,6 +2076,13 @@ class PipeTargetParametersBatchJobParametersRetryStrategyArgs:
     def attempts(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "attempts", value)
 
+
+if not MYPY:
+    class PipeTargetParametersCloudwatchLogsParametersArgsDict(TypedDict):
+        log_stream_name: NotRequired[pulumi.Input[str]]
+        timestamp: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeTargetParametersCloudwatchLogsParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersCloudwatchLogsParametersArgs:
@@ -1691,6 +2112,29 @@ class PipeTargetParametersCloudwatchLogsParametersArgs:
     def timestamp(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timestamp", value)
 
+
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersArgsDict(TypedDict):
+        task_definition_arn: pulumi.Input[str]
+        capacity_provider_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgsDict']]]]
+        enable_ecs_managed_tags: NotRequired[pulumi.Input[bool]]
+        enable_execute_command: NotRequired[pulumi.Input[bool]]
+        group: NotRequired[pulumi.Input[str]]
+        launch_type: NotRequired[pulumi.Input[str]]
+        network_configuration: NotRequired[pulumi.Input['PipeTargetParametersEcsTaskParametersNetworkConfigurationArgsDict']]
+        overrides: NotRequired[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesArgsDict']]
+        placement_constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementConstraintArgsDict']]]]
+        placement_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementStrategyArgsDict']]]]
+        platform_version: NotRequired[pulumi.Input[str]]
+        propagate_tags: NotRequired[pulumi.Input[str]]
+        reference_id: NotRequired[pulumi.Input[str]]
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        task_count: NotRequired[pulumi.Input[int]]
+elif False:
+    PipeTargetParametersEcsTaskParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersArgs:
@@ -1882,6 +2326,14 @@ class PipeTargetParametersEcsTaskParametersArgs:
         pulumi.set(self, "task_count", value)
 
 
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgsDict(TypedDict):
+        capacity_provider: pulumi.Input[str]
+        base: NotRequired[pulumi.Input[int]]
+        weight: NotRequired[pulumi.Input[int]]
+elif False:
+    PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs:
     def __init__(__self__, *,
@@ -1922,6 +2374,12 @@ class PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs:
         pulumi.set(self, "weight", value)
 
 
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgsDict(TypedDict):
+        aws_vpc_configuration: NotRequired[pulumi.Input['PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgsDict']]
+elif False:
+    PipeTargetParametersEcsTaskParametersNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs:
     def __init__(__self__, *,
@@ -1938,6 +2396,14 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs:
     def aws_vpc_configuration(self, value: Optional[pulumi.Input['PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs']]):
         pulumi.set(self, "aws_vpc_configuration", value)
 
+
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgsDict(TypedDict):
+        assign_public_ip: NotRequired[pulumi.Input[str]]
+        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs:
@@ -1979,6 +2445,18 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurati
     def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnets", value)
 
+
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersOverridesArgsDict(TypedDict):
+        container_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgsDict']]]]
+        cpu: NotRequired[pulumi.Input[str]]
+        ephemeral_storage: NotRequired[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgsDict']]
+        execution_role_arn: NotRequired[pulumi.Input[str]]
+        inference_accelerator_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgsDict']]]]
+        memory: NotRequired[pulumi.Input[str]]
+        task_role_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeTargetParametersEcsTaskParametersOverridesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersOverridesArgs:
@@ -2068,6 +2546,22 @@ class PipeTargetParametersEcsTaskParametersOverridesArgs:
     def task_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "task_role_arn", value)
 
+
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgsDict(TypedDict):
+        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu: NotRequired[pulumi.Input[int]]
+        environment_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgsDict']]]]
+        environments: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgsDict']]]]
+        memory: NotRequired[pulumi.Input[int]]
+        memory_reservation: NotRequired[pulumi.Input[int]]
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
+        resource_requirements: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgsDict']]]]
+elif False:
+    PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs:
@@ -2176,6 +2670,16 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs:
         pulumi.set(self, "resource_requirements", value)
 
 
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs:
     def __init__(__self__, *,
@@ -2211,6 +2715,13 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs:
     def __init__(__self__, *,
@@ -2237,6 +2748,13 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs:
@@ -2265,6 +2783,12 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceReq
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgsDict(TypedDict):
+        size_in_gib: pulumi.Input[int]
+elif False:
+    PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs:
     def __init__(__self__, *,
@@ -2280,6 +2804,13 @@ class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs:
     def size_in_gib(self, value: pulumi.Input[int]):
         pulumi.set(self, "size_in_gib", value)
 
+
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgsDict(TypedDict):
+        device_name: NotRequired[pulumi.Input[str]]
+        device_type: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs:
@@ -2310,6 +2841,13 @@ class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride
         pulumi.set(self, "device_type", value)
 
 
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersPlacementConstraintArgsDict(TypedDict):
+        expression: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeTargetParametersEcsTaskParametersPlacementConstraintArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs:
     def __init__(__self__, *,
@@ -2339,6 +2877,13 @@ class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class PipeTargetParametersEcsTaskParametersPlacementStrategyArgsDict(TypedDict):
+        field: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeTargetParametersEcsTaskParametersPlacementStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersPlacementStrategyArgs:
     def __init__(__self__, *,
@@ -2367,6 +2912,19 @@ class PipeTargetParametersEcsTaskParametersPlacementStrategyArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class PipeTargetParametersEventbridgeEventBusParametersArgsDict(TypedDict):
+        detail_type: NotRequired[pulumi.Input[str]]
+        endpoint_id: NotRequired[pulumi.Input[str]]
+        resources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        source: NotRequired[pulumi.Input[str]]
+        """
+        Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        """
+        time: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeTargetParametersEventbridgeEventBusParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersEventbridgeEventBusParametersArgs:
@@ -2439,6 +2997,14 @@ class PipeTargetParametersEventbridgeEventBusParametersArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class PipeTargetParametersHttpParametersArgsDict(TypedDict):
+        header_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        path_parameter_values: NotRequired[pulumi.Input[str]]
+        query_string_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+elif False:
+    PipeTargetParametersHttpParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersHttpParametersArgs:
     def __init__(__self__, *,
@@ -2480,6 +3046,12 @@ class PipeTargetParametersHttpParametersArgs:
         pulumi.set(self, "query_string_parameters", value)
 
 
+if not MYPY:
+    class PipeTargetParametersKinesisStreamParametersArgsDict(TypedDict):
+        partition_key: pulumi.Input[str]
+elif False:
+    PipeTargetParametersKinesisStreamParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersKinesisStreamParametersArgs:
     def __init__(__self__, *,
@@ -2496,6 +3068,12 @@ class PipeTargetParametersKinesisStreamParametersArgs:
         pulumi.set(self, "partition_key", value)
 
 
+if not MYPY:
+    class PipeTargetParametersLambdaFunctionParametersArgsDict(TypedDict):
+        invocation_type: pulumi.Input[str]
+elif False:
+    PipeTargetParametersLambdaFunctionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersLambdaFunctionParametersArgs:
     def __init__(__self__, *,
@@ -2511,6 +3089,17 @@ class PipeTargetParametersLambdaFunctionParametersArgs:
     def invocation_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "invocation_type", value)
 
+
+if not MYPY:
+    class PipeTargetParametersRedshiftDataParametersArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        sqls: pulumi.Input[Sequence[pulumi.Input[str]]]
+        db_user: NotRequired[pulumi.Input[str]]
+        secret_manager_arn: NotRequired[pulumi.Input[str]]
+        statement_name: NotRequired[pulumi.Input[str]]
+        with_event: NotRequired[pulumi.Input[bool]]
+elif False:
+    PipeTargetParametersRedshiftDataParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersRedshiftDataParametersArgs:
@@ -2587,6 +3176,12 @@ class PipeTargetParametersRedshiftDataParametersArgs:
         pulumi.set(self, "with_event", value)
 
 
+if not MYPY:
+    class PipeTargetParametersSagemakerPipelineParametersArgsDict(TypedDict):
+        pipeline_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgsDict']]]]
+elif False:
+    PipeTargetParametersSagemakerPipelineParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersSagemakerPipelineParametersArgs:
     def __init__(__self__, *,
@@ -2603,6 +3198,16 @@ class PipeTargetParametersSagemakerPipelineParametersArgs:
     def pipeline_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs']]]]):
         pulumi.set(self, "pipeline_parameters", value)
 
+
+if not MYPY:
+    class PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
+        value: pulumi.Input[str]
+elif False:
+    PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs:
@@ -2637,6 +3242,13 @@ class PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class PipeTargetParametersSqsQueueParametersArgsDict(TypedDict):
+        message_deduplication_id: NotRequired[pulumi.Input[str]]
+        message_group_id: NotRequired[pulumi.Input[str]]
+elif False:
+    PipeTargetParametersSqsQueueParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipeTargetParametersSqsQueueParametersArgs:
     def __init__(__self__, *,
@@ -2665,6 +3277,12 @@ class PipeTargetParametersSqsQueueParametersArgs:
     def message_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message_group_id", value)
 
+
+if not MYPY:
+    class PipeTargetParametersStepFunctionStateMachineParametersArgsDict(TypedDict):
+        invocation_type: pulumi.Input[str]
+elif False:
+    PipeTargetParametersStepFunctionStateMachineParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipeTargetParametersStepFunctionStateMachineParametersArgs:

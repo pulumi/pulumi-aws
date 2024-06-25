@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['AuthorizerArgs', 'Authorizer']
@@ -360,26 +365,26 @@ class Authorizer(pulumi.CustomResource):
         import pulumi_std as std
 
         demo_rest_api = aws.apigateway.RestApi("demo", name="auth-demo")
-        invocation_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["apigateway.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        invocation_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["apigateway.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         invocation_role = aws.iam.Role("invocation_role",
             name="api_gateway_auth_invocation",
             path="/",
             assume_role_policy=invocation_assume_role.json)
-        lambda_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["lambda.amazonaws.com"],
-            )],
-        )])
+        lambda_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["lambda.amazonaws.com"],
+            }],
+        }])
         lambda_ = aws.iam.Role("lambda",
             name="demo-lambda",
             assume_role_policy=lambda_assume_role.json)
@@ -394,11 +399,11 @@ class Authorizer(pulumi.CustomResource):
             rest_api=demo_rest_api.id,
             authorizer_uri=authorizer.invoke_arn,
             authorizer_credentials=invocation_role.arn)
-        invocation_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["lambda:InvokeFunction"],
-            resources=[authorizer.arn],
-        )])
+        invocation_policy = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "actions": ["lambda:InvokeFunction"],
+            "resources": [authorizer.arn],
+        }])
         invocation_policy_role_policy = aws.iam.RolePolicy("invocation_policy",
             name="default",
             role=invocation_role.id,
@@ -443,26 +448,26 @@ class Authorizer(pulumi.CustomResource):
         import pulumi_std as std
 
         demo_rest_api = aws.apigateway.RestApi("demo", name="auth-demo")
-        invocation_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["apigateway.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        invocation_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["apigateway.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         invocation_role = aws.iam.Role("invocation_role",
             name="api_gateway_auth_invocation",
             path="/",
             assume_role_policy=invocation_assume_role.json)
-        lambda_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["lambda.amazonaws.com"],
-            )],
-        )])
+        lambda_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["lambda.amazonaws.com"],
+            }],
+        }])
         lambda_ = aws.iam.Role("lambda",
             name="demo-lambda",
             assume_role_policy=lambda_assume_role.json)
@@ -477,11 +482,11 @@ class Authorizer(pulumi.CustomResource):
             rest_api=demo_rest_api.id,
             authorizer_uri=authorizer.invoke_arn,
             authorizer_credentials=invocation_role.arn)
-        invocation_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["lambda:InvokeFunction"],
-            resources=[authorizer.arn],
-        )])
+        invocation_policy = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "actions": ["lambda:InvokeFunction"],
+            "resources": [authorizer.arn],
+        }])
         invocation_policy_role_policy = aws.iam.RolePolicy("invocation_policy",
             name="default",
             role=invocation_role.id,

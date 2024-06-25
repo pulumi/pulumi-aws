@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -704,19 +709,19 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command: Optional[pulumi.Input[pulumi.InputType['JobCommandArgs']]] = None,
+                 command: Optional[pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_class: Optional[pulumi.Input[str]] = None,
-                 execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
+                 execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 notification_property: Optional[pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']]] = None,
+                 notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -740,9 +745,9 @@ class Job(pulumi.CustomResource):
         example = aws.glue.Job("example",
             name="example",
             role_arn=example_aws_iam_role["arn"],
-            command=aws.glue.JobCommandArgs(
-                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
-            ))
+            command={
+                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+            })
         ```
 
         ### Ray Job
@@ -756,12 +761,12 @@ class Job(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             glue_version="4.0",
             worker_type="Z.2X",
-            command=aws.glue.JobCommandArgs(
-                name="glueray",
-                python_version="3.9",
-                runtime="Ray2.4",
-                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
-            ))
+            command={
+                "name": "glueray",
+                "pythonVersion": "3.9",
+                "runtime": "Ray2.4",
+                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+            })
         ```
 
         ### Scala Job
@@ -773,9 +778,9 @@ class Job(pulumi.CustomResource):
         example = aws.glue.Job("example",
             name="example",
             role_arn=example_aws_iam_role["arn"],
-            command=aws.glue.JobCommandArgs(
-                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
-            ),
+            command={
+                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
+            },
             default_arguments={
                 "--job-language": "scala",
             })
@@ -790,10 +795,10 @@ class Job(pulumi.CustomResource):
         example = aws.glue.Job("example",
             name="example streaming job",
             role_arn=example_aws_iam_role["arn"],
-            command=aws.glue.JobCommandArgs(
-                name="gluestreaming",
-                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.script",
-            ))
+            command={
+                "name": "gluestreaming",
+                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.script",
+            })
         ```
 
         ### Enabling CloudWatch Logs and Metrics
@@ -823,19 +828,19 @@ class Job(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['JobCommandArgs']] command: The command of the job. Defined below.
+        :param pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']] command: The command of the job. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: The list of connections used for this job.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[str] description: Description of the job.
         :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
-        :param pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']] execution_property: Execution property of the job. Defined below.
+        :param pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[str] maintenance_window: Specifies the day of the week and hour for the maintenance window for streaming jobs.
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
-        :param pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']] notification_property: Notification property of the job. Defined below.
+        :param pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
@@ -872,9 +877,9 @@ class Job(pulumi.CustomResource):
         example = aws.glue.Job("example",
             name="example",
             role_arn=example_aws_iam_role["arn"],
-            command=aws.glue.JobCommandArgs(
-                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
-            ))
+            command={
+                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+            })
         ```
 
         ### Ray Job
@@ -888,12 +893,12 @@ class Job(pulumi.CustomResource):
             role_arn=example_aws_iam_role["arn"],
             glue_version="4.0",
             worker_type="Z.2X",
-            command=aws.glue.JobCommandArgs(
-                name="glueray",
-                python_version="3.9",
-                runtime="Ray2.4",
-                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
-            ))
+            command={
+                "name": "glueray",
+                "pythonVersion": "3.9",
+                "runtime": "Ray2.4",
+                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.py",
+            })
         ```
 
         ### Scala Job
@@ -905,9 +910,9 @@ class Job(pulumi.CustomResource):
         example = aws.glue.Job("example",
             name="example",
             role_arn=example_aws_iam_role["arn"],
-            command=aws.glue.JobCommandArgs(
-                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
-            ),
+            command={
+                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.scala",
+            },
             default_arguments={
                 "--job-language": "scala",
             })
@@ -922,10 +927,10 @@ class Job(pulumi.CustomResource):
         example = aws.glue.Job("example",
             name="example streaming job",
             role_arn=example_aws_iam_role["arn"],
-            command=aws.glue.JobCommandArgs(
-                name="gluestreaming",
-                script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.script",
-            ))
+            command={
+                "name": "gluestreaming",
+                "scriptLocation": f"s3://{example_aws_s3_bucket['bucket']}/example.script",
+            })
         ```
 
         ### Enabling CloudWatch Logs and Metrics
@@ -968,19 +973,19 @@ class Job(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 command: Optional[pulumi.Input[pulumi.InputType['JobCommandArgs']]] = None,
+                 command: Optional[pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_class: Optional[pulumi.Input[str]] = None,
-                 execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
+                 execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 notification_property: Optional[pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']]] = None,
+                 notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -1032,19 +1037,19 @@ class Job(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            command: Optional[pulumi.Input[pulumi.InputType['JobCommandArgs']]] = None,
+            command: Optional[pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']]] = None,
             connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             execution_class: Optional[pulumi.Input[str]] = None,
-            execution_property: Optional[pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']]] = None,
+            execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
             glue_version: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             max_capacity: Optional[pulumi.Input[float]] = None,
             max_retries: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            notification_property: Optional[pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']]] = None,
+            notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
             number_of_workers: Optional[pulumi.Input[int]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             security_configuration: Optional[pulumi.Input[str]] = None,
@@ -1060,19 +1065,19 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Job
-        :param pulumi.Input[pulumi.InputType['JobCommandArgs']] command: The command of the job. Defined below.
+        :param pulumi.Input[Union['JobCommandArgs', 'JobCommandArgsDict']] command: The command of the job. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] connections: The list of connections used for this job.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] default_arguments: The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
         :param pulumi.Input[str] description: Description of the job.
         :param pulumi.Input[str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
-        :param pulumi.Input[pulumi.InputType['JobExecutionPropertyArgs']] execution_property: Execution property of the job. Defined below.
+        :param pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[str] maintenance_window: Specifies the day of the week and hour for the maintenance window for streaming jobs.
         :param pulumi.Input[float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this job if it fails.
         :param pulumi.Input[str] name: The name you assign to this job. It must be unique in your account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
-        :param pulumi.Input[pulumi.InputType['JobNotificationPropertyArgs']] notification_property: Notification property of the job. Defined below.
+        :param pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.

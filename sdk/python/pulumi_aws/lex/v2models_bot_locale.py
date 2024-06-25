@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -292,8 +297,8 @@ class V2modelsBotLocale(pulumi.CustomResource):
                  locale_id: Optional[pulumi.Input[str]] = None,
                  n_lu_intent_confidence_threshold: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsBotLocaleTimeoutsArgs']]] = None,
-                 voice_settings: Optional[pulumi.Input[pulumi.InputType['V2modelsBotLocaleVoiceSettingsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
+                 voice_settings: Optional[pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lex V2 Models Bot Locale.
@@ -324,10 +329,10 @@ class V2modelsBotLocale(pulumi.CustomResource):
             bot_version="DRAFT",
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7,
-            voice_settings=aws.lex.V2modelsBotLocaleVoiceSettingsArgs(
-                voice_id="Kendra",
-                engine="standard",
-            ))
+            voice_settings={
+                "voiceId": "Kendra",
+                "engine": "standard",
+            })
         ```
 
         ## Import
@@ -348,7 +353,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Specified locale name.
-        :param pulumi.Input[pulumi.InputType['V2modelsBotLocaleVoiceSettingsArgs']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+        :param pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         ...
     @overload
@@ -385,10 +390,10 @@ class V2modelsBotLocale(pulumi.CustomResource):
             bot_version="DRAFT",
             locale_id="en_US",
             n_lu_intent_confidence_threshold=0.7,
-            voice_settings=aws.lex.V2modelsBotLocaleVoiceSettingsArgs(
-                voice_id="Kendra",
-                engine="standard",
-            ))
+            voice_settings={
+                "voiceId": "Kendra",
+                "engine": "standard",
+            })
         ```
 
         ## Import
@@ -420,8 +425,8 @@ class V2modelsBotLocale(pulumi.CustomResource):
                  locale_id: Optional[pulumi.Input[str]] = None,
                  n_lu_intent_confidence_threshold: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsBotLocaleTimeoutsArgs']]] = None,
-                 voice_settings: Optional[pulumi.Input[pulumi.InputType['V2modelsBotLocaleVoiceSettingsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
+                 voice_settings: Optional[pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -463,8 +468,8 @@ class V2modelsBotLocale(pulumi.CustomResource):
             locale_id: Optional[pulumi.Input[str]] = None,
             n_lu_intent_confidence_threshold: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['V2modelsBotLocaleTimeoutsArgs']]] = None,
-            voice_settings: Optional[pulumi.Input[pulumi.InputType['V2modelsBotLocaleVoiceSettingsArgs']]] = None) -> 'V2modelsBotLocale':
+            timeouts: Optional[pulumi.Input[Union['V2modelsBotLocaleTimeoutsArgs', 'V2modelsBotLocaleTimeoutsArgsDict']]] = None,
+            voice_settings: Optional[pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']]] = None) -> 'V2modelsBotLocale':
         """
         Get an existing V2modelsBotLocale resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -480,7 +485,7 @@ class V2modelsBotLocale(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Specified locale name.
-        :param pulumi.Input[pulumi.InputType['V2modelsBotLocaleVoiceSettingsArgs']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
+        :param pulumi.Input[Union['V2modelsBotLocaleVoiceSettingsArgs', 'V2modelsBotLocaleVoiceSettingsArgsDict']] voice_settings: Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voice_settings`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -842,29 +847,29 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: Optional[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]] = None,
+                 artifacts: Optional[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
                  badge_enabled: Optional[pulumi.Input[bool]] = None,
-                 build_batch_config: Optional[pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']]] = None,
+                 build_batch_config: Optional[pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
                  build_timeout: Optional[pulumi.Input[int]] = None,
-                 cache: Optional[pulumi.Input[pulumi.InputType['ProjectCacheArgs']]] = None,
+                 cache: Optional[pulumi.Input[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
                  concurrent_build_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
-                 logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
+                 logs_config: Optional[pulumi.Input[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_visibility: Optional[pulumi.Input[str]] = None,
                  queued_timeout: Optional[pulumi.Input[int]] = None,
                  resource_access_role: Optional[pulumi.Input[str]] = None,
-                 secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]]] = None,
-                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]]] = None,
-                 secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]]] = None,
+                 secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
+                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
+                 secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
@@ -879,30 +884,30 @@ class Project(pulumi.CustomResource):
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example_bucket_v2.id,
             acl="private")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["codebuild.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["codebuild.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=assume_role.json)
         example = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
+            {
+                "effect": "Allow",
+                "actions": [
                     "logs:CreateLogGroup",
                     "logs:CreateLogStream",
                     "logs:PutLogEvents",
                 ],
-                resources=["*"],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
+                "resources": ["*"],
+            },
+            {
+                "effect": "Allow",
+                "actions": [
                     "ec2:CreateNetworkInterface",
                     "ec2:DescribeDhcpOptions",
                     "ec2:DescribeNetworkInterfaces",
@@ -911,36 +916,36 @@ class Project(pulumi.CustomResource):
                     "ec2:DescribeSecurityGroups",
                     "ec2:DescribeVpcs",
                 ],
-                resources=["*"],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["ec2:CreateNetworkInterfacePermission"],
-                resources=["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
-                conditions=[
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        variable="ec2:Subnet",
-                        values=[
+                "resources": ["*"],
+            },
+            {
+                "effect": "Allow",
+                "actions": ["ec2:CreateNetworkInterfacePermission"],
+                "resources": ["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
+                "conditions": [
+                    {
+                        "test": "StringEquals",
+                        "variable": "ec2:Subnet",
+                        "values": [
                             example1["arn"],
                             example2["arn"],
                         ],
-                    ),
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        variable="ec2:AuthorizedService",
-                        values=["codebuild.amazonaws.com"],
-                    ),
+                    },
+                    {
+                        "test": "StringEquals",
+                        "variable": "ec2:AuthorizedService",
+                        "values": ["codebuild.amazonaws.com"],
+                    },
                 ],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["s3:*"],
-                resources=[
+            },
+            {
+                "effect": "Allow",
+                "actions": ["s3:*"],
+                "resources": [
                     example_bucket_v2_arn,
                     f"{example_bucket_v2_arn1}/*",
                 ],
-            ),
+            },
         ]))
         example_role_policy = aws.iam.RolePolicy("example",
             role=example_role.name,
@@ -950,60 +955,60 @@ class Project(pulumi.CustomResource):
             description="test_codebuild_project",
             build_timeout=5,
             service_role=example_role.arn,
-            artifacts=aws.codebuild.ProjectArtifactsArgs(
-                type="NO_ARTIFACTS",
-            ),
-            cache=aws.codebuild.ProjectCacheArgs(
-                type="S3",
-                location=example_bucket_v2.bucket,
-            ),
-            environment=aws.codebuild.ProjectEnvironmentArgs(
-                compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
-                type="LINUX_CONTAINER",
-                image_pull_credentials_type="CODEBUILD",
-                environment_variables=[
-                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                        name="SOME_KEY1",
-                        value="SOME_VALUE1",
-                    ),
-                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                        name="SOME_KEY2",
-                        value="SOME_VALUE2",
-                        type="PARAMETER_STORE",
-                    ),
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            cache={
+                "type": "S3",
+                "location": example_bucket_v2.bucket,
+            },
+            environment={
+                "computeType": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+                "type": "LINUX_CONTAINER",
+                "imagePullCredentialsType": "CODEBUILD",
+                "environmentVariables": [
+                    {
+                        "name": "SOME_KEY1",
+                        "value": "SOME_VALUE1",
+                    },
+                    {
+                        "name": "SOME_KEY2",
+                        "value": "SOME_VALUE2",
+                        "type": "PARAMETER_STORE",
+                    },
                 ],
-            ),
-            logs_config=aws.codebuild.ProjectLogsConfigArgs(
-                cloudwatch_logs=aws.codebuild.ProjectLogsConfigCloudwatchLogsArgs(
-                    group_name="log-group",
-                    stream_name="log-stream",
-                ),
-                s3_logs=aws.codebuild.ProjectLogsConfigS3LogsArgs(
-                    status="ENABLED",
-                    location=example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
-                ),
-            ),
-            source=aws.codebuild.ProjectSourceArgs(
-                type="GITHUB",
-                location="https://github.com/mitchellh/packer.git",
-                git_clone_depth=1,
-                git_submodules_config=aws.codebuild.ProjectSourceGitSubmodulesConfigArgs(
-                    fetch_submodules=True,
-                ),
-            ),
+            },
+            logs_config={
+                "cloudwatchLogs": {
+                    "groupName": "log-group",
+                    "streamName": "log-stream",
+                },
+                "s3Logs": {
+                    "status": "ENABLED",
+                    "location": example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
+                },
+            },
+            source={
+                "type": "GITHUB",
+                "location": "https://github.com/mitchellh/packer.git",
+                "gitCloneDepth": 1,
+                "gitSubmodulesConfig": {
+                    "fetchSubmodules": True,
+                },
+            },
             source_version="master",
-            vpc_config=aws.codebuild.ProjectVpcConfigArgs(
-                vpc_id=example_aws_vpc["id"],
-                subnets=[
+            vpc_config={
+                "vpcId": example_aws_vpc["id"],
+                "subnets": [
                     example1["id"],
                     example2["id"],
                 ],
-                security_group_ids=[
+                "securityGroupIds": [
                     example1_aws_security_group["id"],
                     example2_aws_security_group["id"],
                 ],
-            ),
+            },
             tags={
                 "Environment": "Test",
             })
@@ -1013,31 +1018,31 @@ class Project(pulumi.CustomResource):
             build_timeout=5,
             queued_timeout=5,
             service_role=example_role.arn,
-            artifacts=aws.codebuild.ProjectArtifactsArgs(
-                type="NO_ARTIFACTS",
-            ),
-            cache=aws.codebuild.ProjectCacheArgs(
-                type="LOCAL",
-                modes=[
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            cache={
+                "type": "LOCAL",
+                "modes": [
                     "LOCAL_DOCKER_LAYER_CACHE",
                     "LOCAL_SOURCE_CACHE",
                 ],
-            ),
-            environment=aws.codebuild.ProjectEnvironmentArgs(
-                compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
-                type="LINUX_CONTAINER",
-                image_pull_credentials_type="CODEBUILD",
-                environment_variables=[aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                    name="SOME_KEY1",
-                    value="SOME_VALUE1",
-                )],
-            ),
-            source=aws.codebuild.ProjectSourceArgs(
-                type="GITHUB",
-                location="https://github.com/mitchellh/packer.git",
-                git_clone_depth=1,
-            ),
+            },
+            environment={
+                "computeType": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+                "type": "LINUX_CONTAINER",
+                "imagePullCredentialsType": "CODEBUILD",
+                "environmentVariables": [{
+                    "name": "SOME_KEY1",
+                    "value": "SOME_VALUE1",
+                }],
+            },
+            source={
+                "type": "GITHUB",
+                "location": "https://github.com/mitchellh/packer.git",
+                "gitCloneDepth": 1,
+            },
             tags={
                 "Environment": "Test",
             })
@@ -1053,31 +1058,31 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']] artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']] artifacts: Configuration block. Detailed below.
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        :param pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']] build_batch_config: Defines the batch build options for the project.
+        :param pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']] build_batch_config: Defines the batch build options for the project.
         :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
-        :param pulumi.Input[pulumi.InputType['ProjectCacheArgs']] cache: Configuration block. Detailed below.
+        :param pulumi.Input[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']] cache: Configuration block. Detailed below.
         :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        :param pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']] environment: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
-        :param pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']] logs_config: Configuration block. Detailed below.
+        :param pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']] environment: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
+        :param pulumi.Input[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Project's name.
         :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
         :param pulumi.Input[str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]] secondary_artifacts: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]] secondary_source_versions: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]] secondary_sources: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]] secondary_artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]] secondary_source_versions: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]] secondary_sources: Configuration block. Detailed below.
         :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-        :param pulumi.Input[pulumi.InputType['ProjectSourceArgs']] source: Configuration block. Detailed below.
+        :param pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']] source: Configuration block. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
+        :param pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']] vpc_config: Configuration block. Detailed below.
         """
         ...
     @overload
@@ -1098,30 +1103,30 @@ class Project(pulumi.CustomResource):
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example_bucket_v2.id,
             acl="private")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["codebuild.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["codebuild.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         example_role = aws.iam.Role("example",
             name="example",
             assume_role_policy=assume_role.json)
         example = pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
+            {
+                "effect": "Allow",
+                "actions": [
                     "logs:CreateLogGroup",
                     "logs:CreateLogStream",
                     "logs:PutLogEvents",
                 ],
-                resources=["*"],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
+                "resources": ["*"],
+            },
+            {
+                "effect": "Allow",
+                "actions": [
                     "ec2:CreateNetworkInterface",
                     "ec2:DescribeDhcpOptions",
                     "ec2:DescribeNetworkInterfaces",
@@ -1130,36 +1135,36 @@ class Project(pulumi.CustomResource):
                     "ec2:DescribeSecurityGroups",
                     "ec2:DescribeVpcs",
                 ],
-                resources=["*"],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["ec2:CreateNetworkInterfacePermission"],
-                resources=["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
-                conditions=[
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        variable="ec2:Subnet",
-                        values=[
+                "resources": ["*"],
+            },
+            {
+                "effect": "Allow",
+                "actions": ["ec2:CreateNetworkInterfacePermission"],
+                "resources": ["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
+                "conditions": [
+                    {
+                        "test": "StringEquals",
+                        "variable": "ec2:Subnet",
+                        "values": [
                             example1["arn"],
                             example2["arn"],
                         ],
-                    ),
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        variable="ec2:AuthorizedService",
-                        values=["codebuild.amazonaws.com"],
-                    ),
+                    },
+                    {
+                        "test": "StringEquals",
+                        "variable": "ec2:AuthorizedService",
+                        "values": ["codebuild.amazonaws.com"],
+                    },
                 ],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["s3:*"],
-                resources=[
+            },
+            {
+                "effect": "Allow",
+                "actions": ["s3:*"],
+                "resources": [
                     example_bucket_v2_arn,
                     f"{example_bucket_v2_arn1}/*",
                 ],
-            ),
+            },
         ]))
         example_role_policy = aws.iam.RolePolicy("example",
             role=example_role.name,
@@ -1169,60 +1174,60 @@ class Project(pulumi.CustomResource):
             description="test_codebuild_project",
             build_timeout=5,
             service_role=example_role.arn,
-            artifacts=aws.codebuild.ProjectArtifactsArgs(
-                type="NO_ARTIFACTS",
-            ),
-            cache=aws.codebuild.ProjectCacheArgs(
-                type="S3",
-                location=example_bucket_v2.bucket,
-            ),
-            environment=aws.codebuild.ProjectEnvironmentArgs(
-                compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
-                type="LINUX_CONTAINER",
-                image_pull_credentials_type="CODEBUILD",
-                environment_variables=[
-                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                        name="SOME_KEY1",
-                        value="SOME_VALUE1",
-                    ),
-                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                        name="SOME_KEY2",
-                        value="SOME_VALUE2",
-                        type="PARAMETER_STORE",
-                    ),
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            cache={
+                "type": "S3",
+                "location": example_bucket_v2.bucket,
+            },
+            environment={
+                "computeType": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+                "type": "LINUX_CONTAINER",
+                "imagePullCredentialsType": "CODEBUILD",
+                "environmentVariables": [
+                    {
+                        "name": "SOME_KEY1",
+                        "value": "SOME_VALUE1",
+                    },
+                    {
+                        "name": "SOME_KEY2",
+                        "value": "SOME_VALUE2",
+                        "type": "PARAMETER_STORE",
+                    },
                 ],
-            ),
-            logs_config=aws.codebuild.ProjectLogsConfigArgs(
-                cloudwatch_logs=aws.codebuild.ProjectLogsConfigCloudwatchLogsArgs(
-                    group_name="log-group",
-                    stream_name="log-stream",
-                ),
-                s3_logs=aws.codebuild.ProjectLogsConfigS3LogsArgs(
-                    status="ENABLED",
-                    location=example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
-                ),
-            ),
-            source=aws.codebuild.ProjectSourceArgs(
-                type="GITHUB",
-                location="https://github.com/mitchellh/packer.git",
-                git_clone_depth=1,
-                git_submodules_config=aws.codebuild.ProjectSourceGitSubmodulesConfigArgs(
-                    fetch_submodules=True,
-                ),
-            ),
+            },
+            logs_config={
+                "cloudwatchLogs": {
+                    "groupName": "log-group",
+                    "streamName": "log-stream",
+                },
+                "s3Logs": {
+                    "status": "ENABLED",
+                    "location": example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
+                },
+            },
+            source={
+                "type": "GITHUB",
+                "location": "https://github.com/mitchellh/packer.git",
+                "gitCloneDepth": 1,
+                "gitSubmodulesConfig": {
+                    "fetchSubmodules": True,
+                },
+            },
             source_version="master",
-            vpc_config=aws.codebuild.ProjectVpcConfigArgs(
-                vpc_id=example_aws_vpc["id"],
-                subnets=[
+            vpc_config={
+                "vpcId": example_aws_vpc["id"],
+                "subnets": [
                     example1["id"],
                     example2["id"],
                 ],
-                security_group_ids=[
+                "securityGroupIds": [
                     example1_aws_security_group["id"],
                     example2_aws_security_group["id"],
                 ],
-            ),
+            },
             tags={
                 "Environment": "Test",
             })
@@ -1232,31 +1237,31 @@ class Project(pulumi.CustomResource):
             build_timeout=5,
             queued_timeout=5,
             service_role=example_role.arn,
-            artifacts=aws.codebuild.ProjectArtifactsArgs(
-                type="NO_ARTIFACTS",
-            ),
-            cache=aws.codebuild.ProjectCacheArgs(
-                type="LOCAL",
-                modes=[
+            artifacts={
+                "type": "NO_ARTIFACTS",
+            },
+            cache={
+                "type": "LOCAL",
+                "modes": [
                     "LOCAL_DOCKER_LAYER_CACHE",
                     "LOCAL_SOURCE_CACHE",
                 ],
-            ),
-            environment=aws.codebuild.ProjectEnvironmentArgs(
-                compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/amazonlinux2-x86_64-standard:4.0",
-                type="LINUX_CONTAINER",
-                image_pull_credentials_type="CODEBUILD",
-                environment_variables=[aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                    name="SOME_KEY1",
-                    value="SOME_VALUE1",
-                )],
-            ),
-            source=aws.codebuild.ProjectSourceArgs(
-                type="GITHUB",
-                location="https://github.com/mitchellh/packer.git",
-                git_clone_depth=1,
-            ),
+            },
+            environment={
+                "computeType": "BUILD_GENERAL1_SMALL",
+                "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+                "type": "LINUX_CONTAINER",
+                "imagePullCredentialsType": "CODEBUILD",
+                "environmentVariables": [{
+                    "name": "SOME_KEY1",
+                    "value": "SOME_VALUE1",
+                }],
+            },
+            source={
+                "type": "GITHUB",
+                "location": "https://github.com/mitchellh/packer.git",
+                "gitCloneDepth": 1,
+            },
             tags={
                 "Environment": "Test",
             })
@@ -1285,29 +1290,29 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifacts: Optional[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]] = None,
+                 artifacts: Optional[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
                  badge_enabled: Optional[pulumi.Input[bool]] = None,
-                 build_batch_config: Optional[pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']]] = None,
+                 build_batch_config: Optional[pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
                  build_timeout: Optional[pulumi.Input[int]] = None,
-                 cache: Optional[pulumi.Input[pulumi.InputType['ProjectCacheArgs']]] = None,
+                 cache: Optional[pulumi.Input[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
                  concurrent_build_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[str]] = None,
-                 environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
-                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
-                 logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
+                 environment: Optional[pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
+                 file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
+                 logs_config: Optional[pulumi.Input[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_visibility: Optional[pulumi.Input[str]] = None,
                  queued_timeout: Optional[pulumi.Input[int]] = None,
                  resource_access_role: Optional[pulumi.Input[str]] = None,
-                 secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]]] = None,
-                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]]] = None,
-                 secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]]] = None,
+                 secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
+                 secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
+                 secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1363,32 +1368,32 @@ class Project(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            artifacts: Optional[pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']]] = None,
+            artifacts: Optional[pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']]] = None,
             badge_enabled: Optional[pulumi.Input[bool]] = None,
             badge_url: Optional[pulumi.Input[str]] = None,
-            build_batch_config: Optional[pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']]] = None,
+            build_batch_config: Optional[pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']]] = None,
             build_timeout: Optional[pulumi.Input[int]] = None,
-            cache: Optional[pulumi.Input[pulumi.InputType['ProjectCacheArgs']]] = None,
+            cache: Optional[pulumi.Input[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']]] = None,
             concurrent_build_limit: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
             encryption_key: Optional[pulumi.Input[str]] = None,
-            environment: Optional[pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']]] = None,
-            file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]]] = None,
-            logs_config: Optional[pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']]] = None,
+            environment: Optional[pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']]] = None,
+            file_system_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]]] = None,
+            logs_config: Optional[pulumi.Input[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             project_visibility: Optional[pulumi.Input[str]] = None,
             public_project_alias: Optional[pulumi.Input[str]] = None,
             queued_timeout: Optional[pulumi.Input[int]] = None,
             resource_access_role: Optional[pulumi.Input[str]] = None,
-            secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]]] = None,
-            secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]]] = None,
-            secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]]] = None,
+            secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
+            secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
+            secondary_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]]] = None,
             service_role: Optional[pulumi.Input[str]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['ProjectSourceArgs']]] = None,
+            source: Optional[pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']]] = None,
             source_version: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None) -> 'Project':
+            vpc_config: Optional[pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1397,34 +1402,34 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the CodeBuild project.
-        :param pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']] artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[Union['ProjectArtifactsArgs', 'ProjectArtifactsArgsDict']] artifacts: Configuration block. Detailed below.
         :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         :param pulumi.Input[str] badge_url: URL of the build badge when `badge_enabled` is enabled.
-        :param pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']] build_batch_config: Defines the batch build options for the project.
+        :param pulumi.Input[Union['ProjectBuildBatchConfigArgs', 'ProjectBuildBatchConfigArgsDict']] build_batch_config: Defines the batch build options for the project.
         :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
-        :param pulumi.Input[pulumi.InputType['ProjectCacheArgs']] cache: Configuration block. Detailed below.
+        :param pulumi.Input[Union['ProjectCacheArgs', 'ProjectCacheArgsDict']] cache: Configuration block. Detailed below.
         :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         :param pulumi.Input[str] description: Short description of the project.
         :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        :param pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']] environment: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
-        :param pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']] logs_config: Configuration block. Detailed below.
+        :param pulumi.Input[Union['ProjectEnvironmentArgs', 'ProjectEnvironmentArgsDict']] environment: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectFileSystemLocationArgs', 'ProjectFileSystemLocationArgsDict']]]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
+        :param pulumi.Input[Union['ProjectLogsConfigArgs', 'ProjectLogsConfigArgsDict']] logs_config: Configuration block. Detailed below.
         :param pulumi.Input[str] name: Project's name.
         :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
         :param pulumi.Input[str] public_project_alias: The project identifier used with the public build APIs.
         :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
         :param pulumi.Input[str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]] secondary_artifacts: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]] secondary_source_versions: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]] secondary_sources: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]] secondary_artifacts: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]] secondary_source_versions: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceArgs', 'ProjectSecondarySourceArgsDict']]]] secondary_sources: Configuration block. Detailed below.
         :param pulumi.Input[str] service_role: Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
-        :param pulumi.Input[pulumi.InputType['ProjectSourceArgs']] source: Configuration block. Detailed below.
+        :param pulumi.Input[Union['ProjectSourceArgs', 'ProjectSourceArgsDict']] source: Configuration block. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[str] source_version: Version of the build input to be built for this project. If not specified, the latest version is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
+        :param pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']] vpc_config: Configuration block. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

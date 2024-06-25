@@ -4,62 +4,131 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'FirewallEncryptionConfigurationArgs',
+    'FirewallEncryptionConfigurationArgsDict',
     'FirewallFirewallStatusArgs',
+    'FirewallFirewallStatusArgsDict',
     'FirewallFirewallStatusSyncStateArgs',
+    'FirewallFirewallStatusSyncStateArgsDict',
     'FirewallFirewallStatusSyncStateAttachmentArgs',
+    'FirewallFirewallStatusSyncStateAttachmentArgsDict',
     'FirewallPolicyEncryptionConfigurationArgs',
+    'FirewallPolicyEncryptionConfigurationArgsDict',
     'FirewallPolicyFirewallPolicyArgs',
+    'FirewallPolicyFirewallPolicyArgsDict',
     'FirewallPolicyFirewallPolicyPolicyVariablesArgs',
+    'FirewallPolicyFirewallPolicyPolicyVariablesArgsDict',
     'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs',
+    'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgsDict',
     'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs',
+    'FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgsDict',
     'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs',
+    'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgsDict',
     'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs',
+    'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgsDict',
     'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs',
+    'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgsDict',
     'FirewallPolicyFirewallPolicyStatelessCustomActionArgs',
+    'FirewallPolicyFirewallPolicyStatelessCustomActionArgsDict',
     'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs',
+    'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgsDict',
     'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs',
+    'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgsDict',
     'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs',
+    'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgsDict',
     'FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs',
+    'FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgsDict',
     'FirewallSubnetMappingArgs',
+    'FirewallSubnetMappingArgsDict',
     'LoggingConfigurationLoggingConfigurationArgs',
+    'LoggingConfigurationLoggingConfigurationArgsDict',
     'LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs',
+    'LoggingConfigurationLoggingConfigurationLogDestinationConfigArgsDict',
     'RuleGroupEncryptionConfigurationArgs',
+    'RuleGroupEncryptionConfigurationArgsDict',
     'RuleGroupRuleGroupArgs',
+    'RuleGroupRuleGroupArgsDict',
     'RuleGroupRuleGroupReferenceSetsArgs',
+    'RuleGroupRuleGroupReferenceSetsArgsDict',
     'RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs',
+    'RuleGroupRuleGroupReferenceSetsIpSetReferenceArgsDict',
     'RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs',
+    'RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgsDict',
     'RuleGroupRuleGroupRuleVariablesArgs',
+    'RuleGroupRuleGroupRuleVariablesArgsDict',
     'RuleGroupRuleGroupRuleVariablesIpSetArgs',
+    'RuleGroupRuleGroupRuleVariablesIpSetArgsDict',
     'RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs',
+    'RuleGroupRuleGroupRuleVariablesIpSetIpSetArgsDict',
     'RuleGroupRuleGroupRuleVariablesPortSetArgs',
+    'RuleGroupRuleGroupRuleVariablesPortSetArgsDict',
     'RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs',
+    'RuleGroupRuleGroupRuleVariablesPortSetPortSetArgsDict',
     'RuleGroupRuleGroupRulesSourceArgs',
+    'RuleGroupRuleGroupRulesSourceArgsDict',
     'RuleGroupRuleGroupRulesSourceRulesSourceListArgs',
+    'RuleGroupRuleGroupRulesSourceRulesSourceListArgsDict',
     'RuleGroupRuleGroupRulesSourceStatefulRuleArgs',
+    'RuleGroupRuleGroupRulesSourceStatefulRuleArgsDict',
     'RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs',
+    'RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgsDict',
     'RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs',
+    'RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgsDict',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs',
+    'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgsDict',
     'RuleGroupRuleGroupStatefulRuleOptionsArgs',
+    'RuleGroupRuleGroupStatefulRuleOptionsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FirewallEncryptionConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        """
+        key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
+elif False:
+    FirewallEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallEncryptionConfigurationArgs:
@@ -99,6 +168,15 @@ class FirewallEncryptionConfigurationArgs:
         pulumi.set(self, "key_id", value)
 
 
+if not MYPY:
+    class FirewallFirewallStatusArgsDict(TypedDict):
+        sync_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateArgsDict']]]]
+        """
+        Set of subnets configured for use by the firewall.
+        """
+elif False:
+    FirewallFirewallStatusArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallFirewallStatusArgs:
     def __init__(__self__, *,
@@ -121,6 +199,19 @@ class FirewallFirewallStatusArgs:
     def sync_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateArgs']]]]):
         pulumi.set(self, "sync_states", value)
 
+
+if not MYPY:
+    class FirewallFirewallStatusSyncStateArgsDict(TypedDict):
+        attachments: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateAttachmentArgsDict']]]]
+        """
+        Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+        """
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        The Availability Zone where the subnet is configured.
+        """
+elif False:
+    FirewallFirewallStatusSyncStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallFirewallStatusSyncStateArgs:
@@ -161,6 +252,19 @@ class FirewallFirewallStatusSyncStateArgs:
         pulumi.set(self, "availability_zone", value)
 
 
+if not MYPY:
+    class FirewallFirewallStatusSyncStateAttachmentArgsDict(TypedDict):
+        endpoint_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The unique identifier of the subnet that you've specified to be used for a firewall endpoint.
+        """
+elif False:
+    FirewallFirewallStatusSyncStateAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallFirewallStatusSyncStateAttachmentArgs:
     def __init__(__self__, *,
@@ -200,6 +304,19 @@ class FirewallFirewallStatusSyncStateAttachmentArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class FirewallPolicyEncryptionConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        """
+        key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
+elif False:
+    FirewallPolicyEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyEncryptionConfigurationArgs:
     def __init__(__self__, *,
@@ -237,6 +354,49 @@ class FirewallPolicyEncryptionConfigurationArgs:
     def key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_id", value)
 
+
+if not MYPY:
+    class FirewallPolicyFirewallPolicyArgsDict(TypedDict):
+        stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+        In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+        """
+        stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
+        In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+        """
+        policy_variables: NotRequired[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesArgsDict']]
+        """
+        . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
+        """
+        stateful_default_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+        """
+        stateful_engine_options: NotRequired[pulumi.Input['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgsDict']]
+        """
+        A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+        """
+        stateful_rule_group_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgsDict']]]]
+        """
+        Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
+        """
+        stateless_custom_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionArgsDict']]]]
+        """
+        Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
+        """
+        stateless_rule_group_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgsDict']]]]
+        """
+        Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
+        """
+        tls_inspection_configuration_arn: NotRequired[pulumi.Input[str]]
+        """
+        The (ARN) of the TLS Inspection policy to attach to the FW Policy.  This must be added at creation of the resource per AWS documentation. "You can only add a TLS inspection configuration to a new policy, not to an existing policy."  This cannot be removed from a FW Policy.
+        """
+elif False:
+    FirewallPolicyFirewallPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyArgs:
@@ -391,6 +551,12 @@ class FirewallPolicyFirewallPolicyArgs:
         pulumi.set(self, "tls_inspection_configuration_arn", value)
 
 
+if not MYPY:
+    class FirewallPolicyFirewallPolicyPolicyVariablesArgsDict(TypedDict):
+        rule_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgsDict']]]]
+elif False:
+    FirewallPolicyFirewallPolicyPolicyVariablesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyPolicyVariablesArgs:
     def __init__(__self__, *,
@@ -407,6 +573,19 @@ class FirewallPolicyFirewallPolicyPolicyVariablesArgs:
     def rule_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs']]]]):
         pulumi.set(self, "rule_variables", value)
 
+
+if not MYPY:
+    class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgsDict(TypedDict):
+        ip_set: pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgsDict']
+        """
+        A configuration block that defines a set of IP addresses. See IP Set below for details.
+        """
+        key: pulumi.Input[str]
+        """
+        An alphanumeric string to identify the `ip_set`. Valid values: `HOME_NET`
+        """
+elif False:
+    FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs:
@@ -445,6 +624,15 @@ class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgsDict(TypedDict):
+        definitions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Set of IPv4 or IPv6 addresses in CIDR notation to use for the Suricata `HOME_NET` variable.
+        """
+elif False:
+    FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs:
     def __init__(__self__, *,
@@ -466,6 +654,19 @@ class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs:
     def definitions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "definitions", value)
 
+
+if not MYPY:
+    class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgsDict(TypedDict):
+        rule_order: NotRequired[pulumi.Input[str]]
+        """
+        Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        """
+        stream_exception_policy: NotRequired[pulumi.Input[str]]
+        """
+        Describes how to treat traffic which has broken midstream. Default value: `DROP`. Valid values: `DROP`, `CONTINUE`, `REJECT`.
+        """
+elif False:
+    FirewallPolicyFirewallPolicyStatefulEngineOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs:
@@ -505,6 +706,23 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs:
     def stream_exception_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "stream_exception_policy", value)
 
+
+if not MYPY:
+    class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgsDict(TypedDict):
+        resource_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the stateful rule group.
+        """
+        override: NotRequired[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgsDict']]
+        """
+        Configuration block for override values
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+        """
+elif False:
+    FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs:
@@ -560,6 +778,15 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs:
         pulumi.set(self, "priority", value)
 
 
+if not MYPY:
+    class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
+        """
+elif False:
+    FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs:
     def __init__(__self__, *,
@@ -582,6 +809,19 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs:
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
 
+
+if not MYPY:
+    class FirewallPolicyFirewallPolicyStatelessCustomActionArgsDict(TypedDict):
+        action_definition: pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgsDict']
+        """
+        A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+        """
+        action_name: pulumi.Input[str]
+        """
+        A friendly name of the custom action.
+        """
+elif False:
+    FirewallPolicyFirewallPolicyStatelessCustomActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyStatelessCustomActionArgs:
@@ -620,6 +860,15 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionArgs:
         pulumi.set(self, "action_name", value)
 
 
+if not MYPY:
+    class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgsDict(TypedDict):
+        publish_metric_action: pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgsDict']
+        """
+        A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
+        """
+elif False:
+    FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs:
     def __init__(__self__, *,
@@ -641,6 +890,15 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs:
     def publish_metric_action(self, value: pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs']):
         pulumi.set(self, "publish_metric_action", value)
 
+
+if not MYPY:
+    class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgsDict(TypedDict):
+        dimensions: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgsDict']]]
+        """
+        Set of configuration blocks describing dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for more details.
+        """
+elif False:
+    FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs:
@@ -664,6 +922,15 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMe
         pulumi.set(self, "dimensions", value)
 
 
+if not MYPY:
+    class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        """
+        The string value to use in the custom metric dimension.
+        """
+elif False:
+    FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs:
     def __init__(__self__, *,
@@ -685,6 +952,19 @@ class FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMe
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgsDict(TypedDict):
+        priority: pulumi.Input[int]
+        """
+        An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
+        """
+        resource_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the stateless rule group.
+        """
+elif False:
+    FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs:
@@ -722,6 +1002,19 @@ class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs:
     def resource_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_arn", value)
 
+
+if not MYPY:
+    class FirewallSubnetMappingArgsDict(TypedDict):
+        subnet_id: pulumi.Input[str]
+        """
+        The unique identifier for the subnet.
+        """
+        ip_address_type: NotRequired[pulumi.Input[str]]
+        """
+        The subnet's IP address type. Valida values: `"DUALSTACK"`, `"IPV4"`.
+        """
+elif False:
+    FirewallSubnetMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FirewallSubnetMappingArgs:
@@ -761,6 +1054,15 @@ class FirewallSubnetMappingArgs:
         pulumi.set(self, "ip_address_type", value)
 
 
+if not MYPY:
+    class LoggingConfigurationLoggingConfigurationArgsDict(TypedDict):
+        log_destination_configs: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLoggingConfigurationLogDestinationConfigArgsDict']]]
+        """
+        Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
+        """
+elif False:
+    LoggingConfigurationLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoggingConfigurationLoggingConfigurationArgs:
     def __init__(__self__, *,
@@ -782,6 +1084,26 @@ class LoggingConfigurationLoggingConfigurationArgs:
     def log_destination_configs(self, value: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs']]]):
         pulumi.set(self, "log_destination_configs", value)
 
+
+if not MYPY:
+    class LoggingConfigurationLoggingConfigurationLogDestinationConfigArgsDict(TypedDict):
+        log_destination: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        A map describing the logging destination for the chosen `log_destination_type`.
+        * For an Amazon S3 bucket, specify the key `bucketName` with the name of the bucket and optionally specify the key `prefix` with a path.
+        * For a CloudWatch log group, specify the key `logGroup` with the name of the CloudWatch log group.
+        * For a Kinesis Data Firehose delivery stream, specify the key `deliveryStream` with the name of the delivery stream.
+        """
+        log_destination_type: pulumi.Input[str]
+        """
+        The location to send logs to. Valid values: `S3`, `CloudWatchLogs`, `KinesisDataFirehose`.
+        """
+        log_type: pulumi.Input[str]
+        """
+        The type of log to send. Valid values: `ALERT` or `FLOW`. Alert logs report traffic that matches a `StatefulRule` with an action setting that sends a log message. Flow logs are standard network traffic flow logs.
+        """
+elif False:
+    LoggingConfigurationLoggingConfigurationLogDestinationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs:
@@ -841,6 +1163,19 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs:
         pulumi.set(self, "log_type", value)
 
 
+if not MYPY:
+    class RuleGroupEncryptionConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
+        """
+        key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the customer managed key. You can use any of the [key identifiers](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) that KMS supports, unless you're using a key that's managed by another account. If you're using a key managed by another account, then specify the key ARN.
+        """
+elif False:
+    RuleGroupEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupEncryptionConfigurationArgs:
     def __init__(__self__, *,
@@ -878,6 +1213,27 @@ class RuleGroupEncryptionConfigurationArgs:
     def key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_id", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupArgsDict(TypedDict):
+        rules_source: pulumi.Input['RuleGroupRuleGroupRulesSourceArgsDict']
+        """
+        A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
+        """
+        reference_sets: NotRequired[pulumi.Input['RuleGroupRuleGroupReferenceSetsArgsDict']]
+        """
+        A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
+        """
+        rule_variables: NotRequired[pulumi.Input['RuleGroupRuleGroupRuleVariablesArgsDict']]
+        """
+        A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
+        """
+        stateful_rule_options: NotRequired[pulumi.Input['RuleGroupRuleGroupStatefulRuleOptionsArgsDict']]
+        """
+        A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
+        """
+elif False:
+    RuleGroupRuleGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupArgs:
@@ -949,6 +1305,12 @@ class RuleGroupRuleGroupArgs:
         pulumi.set(self, "stateful_rule_options", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupReferenceSetsArgsDict(TypedDict):
+        ip_set_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceArgsDict']]]]
+elif False:
+    RuleGroupRuleGroupReferenceSetsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupReferenceSetsArgs:
     def __init__(__self__, *,
@@ -965,6 +1327,13 @@ class RuleGroupRuleGroupReferenceSetsArgs:
     def ip_set_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs']]]]):
         pulumi.set(self, "ip_set_references", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgsDict(TypedDict):
+        ip_set_references: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgsDict']]]
+        key: pulumi.Input[str]
+elif False:
+    RuleGroupRuleGroupReferenceSetsIpSetReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs:
@@ -993,6 +1362,15 @@ class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgsDict(TypedDict):
+        reference_arn: pulumi.Input[str]
+        """
+        Set of Managed Prefix IP ARN(s)
+        """
+elif False:
+    RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs:
     def __init__(__self__, *,
@@ -1014,6 +1392,19 @@ class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs:
     def reference_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "reference_arn", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupRuleVariablesArgsDict(TypedDict):
+        ip_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRuleVariablesIpSetArgsDict']]]]
+        """
+        Set of configuration blocks that define IP address information. See IP Sets below for details.
+        """
+        port_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRuleVariablesPortSetArgsDict']]]]
+        """
+        Set of configuration blocks that define port range information. See Port Sets below for details.
+        """
+elif False:
+    RuleGroupRuleGroupRuleVariablesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupRuleVariablesArgs:
@@ -1054,6 +1445,19 @@ class RuleGroupRuleGroupRuleVariablesArgs:
         pulumi.set(self, "port_sets", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRuleVariablesIpSetArgsDict(TypedDict):
+        ip_set: pulumi.Input['RuleGroupRuleGroupRuleVariablesIpSetIpSetArgsDict']
+        """
+        A configuration block that defines a set of IP addresses. See IP Set below for details.
+        """
+        key: pulumi.Input[str]
+        """
+        A unique alphanumeric string to identify the `ip_set`.
+        """
+elif False:
+    RuleGroupRuleGroupRuleVariablesIpSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRuleVariablesIpSetArgs:
     def __init__(__self__, *,
@@ -1091,6 +1495,15 @@ class RuleGroupRuleGroupRuleVariablesIpSetArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRuleVariablesIpSetIpSetArgsDict(TypedDict):
+        definitions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Set of IP addresses and address ranges, in CIDR notation.
+        """
+elif False:
+    RuleGroupRuleGroupRuleVariablesIpSetIpSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs:
     def __init__(__self__, *,
@@ -1112,6 +1525,19 @@ class RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs:
     def definitions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "definitions", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupRuleVariablesPortSetArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        An unique alphanumeric string to identify the `port_set`.
+        """
+        port_set: pulumi.Input['RuleGroupRuleGroupRuleVariablesPortSetPortSetArgsDict']
+        """
+        A configuration block that defines a set of port ranges. See Port Set below for details.
+        """
+elif False:
+    RuleGroupRuleGroupRuleVariablesPortSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupRuleVariablesPortSetArgs:
@@ -1150,6 +1576,15 @@ class RuleGroupRuleGroupRuleVariablesPortSetArgs:
         pulumi.set(self, "port_set", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRuleVariablesPortSetPortSetArgsDict(TypedDict):
+        definitions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Set of port ranges.
+        """
+elif False:
+    RuleGroupRuleGroupRuleVariablesPortSetPortSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs:
     def __init__(__self__, *,
@@ -1171,6 +1606,27 @@ class RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs:
     def definitions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "definitions", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceArgsDict(TypedDict):
+        rules_source_list: NotRequired[pulumi.Input['RuleGroupRuleGroupRulesSourceRulesSourceListArgsDict']]
+        """
+        A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
+        """
+        rules_string: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified name of a file in an S3 bucket that contains Suricata compatible intrusion preventions system (IPS) rules or the Suricata rules as a string. These rules contain **stateful** inspection criteria and the action to take for traffic that matches the criteria.
+        """
+        stateful_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleArgsDict']]]]
+        """
+        Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
+        """
+        stateless_rules_and_custom_actions: NotRequired[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgsDict']]
+        """
+        A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceArgs:
@@ -1243,6 +1699,23 @@ class RuleGroupRuleGroupRulesSourceArgs:
         pulumi.set(self, "stateless_rules_and_custom_actions", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceRulesSourceListArgsDict(TypedDict):
+        generated_rules_type: pulumi.Input[str]
+        """
+        String value to specify whether domains in the target list are allowed or denied access. Valid values: `ALLOWLIST`, `DENYLIST`.
+        """
+        target_types: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Set of types of domain specifications that are provided in the `targets` argument. Valid values: `HTTP_HOST`, `TLS_SNI`.
+        """
+        targets: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Set of domains that you want to inspect for in your traffic flows.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceRulesSourceListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceRulesSourceListArgs:
     def __init__(__self__, *,
@@ -1295,6 +1768,23 @@ class RuleGroupRuleGroupRulesSourceRulesSourceListArgs:
         pulumi.set(self, "targets", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatefulRuleArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Action to take with packets in a traffic flow when the flow matches the stateful rule criteria. For all actions, AWS Network Firewall performs the specified action and discontinues stateful inspection of the traffic flow. Valid values: `ALERT`, `DROP`, `PASS`, or `REJECT`.
+        """
+        header: pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgsDict']
+        """
+        A configuration block containing the stateful 5-tuple inspection criteria for the rule, used to inspect traffic flows. See Header below for details.
+        """
+        rule_options: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgsDict']]]
+        """
+        Set of configuration blocks containing additional settings for a stateful rule. See Rule Option below for details.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatefulRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatefulRuleArgs:
     def __init__(__self__, *,
@@ -1346,6 +1836,35 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleArgs:
     def rule_options(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs']]]):
         pulumi.set(self, "rule_options", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgsDict(TypedDict):
+        destination: pulumi.Input[str]
+        """
+        The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify `ANY`.
+        """
+        destination_port: pulumi.Input[str]
+        """
+        The destination port to inspect for. To match with any address, specify `ANY`.
+        """
+        direction: pulumi.Input[str]
+        """
+        The direction of traffic flow to inspect. Valid values: `ANY` or `FORWARD`.
+        """
+        protocol: pulumi.Input[str]
+        """
+        The protocol to inspect. Valid values: `IP`, `TCP`, `UDP`, `ICMP`, `HTTP`, `FTP`, `TLS`, `SMB`, `DNS`, `DCERPC`, `SSH`, `SMTP`, `IMAP`, `MSN`, `KRB5`, `IKEV2`, `TFTP`, `NTP`, `DHCP`.
+        """
+        source: pulumi.Input[str]
+        """
+        The source IP address or address range for, in CIDR notation. To match with any address, specify `ANY`.
+        """
+        source_port: pulumi.Input[str]
+        """
+        The source port to inspect for. To match with any address, specify `ANY`.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs:
@@ -1444,6 +1963,20 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs:
         pulumi.set(self, "source_port", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgsDict(TypedDict):
+        keyword: pulumi.Input[str]
+        """
+        Keyword defined by open source detection systems like Snort or Suricata for stateful rule inspection.
+        See [Snort General Rule Options](http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node31.html) or [Suricata Rule Options](https://suricata.readthedocs.io/en/suricata-5.0.1/rules/intro.html#rule-options) for more details.
+        """
+        settings: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of strings for additional settings to use in stateful rule inspection.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs:
     def __init__(__self__, *,
@@ -1484,6 +2017,19 @@ class RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs:
         pulumi.set(self, "settings", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgsDict(TypedDict):
+        stateless_rules: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgsDict']]]
+        """
+        Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
+        """
+        custom_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgsDict']]]]
+        """
+        Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs:
     def __init__(__self__, *,
@@ -1522,6 +2068,19 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs:
         pulumi.set(self, "custom_actions", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgsDict(TypedDict):
+        action_definition: pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgsDict']
+        """
+        A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
+        """
+        action_name: pulumi.Input[str]
+        """
+        A friendly name of the custom action.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs:
     def __init__(__self__, *,
@@ -1559,6 +2118,15 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArg
         pulumi.set(self, "action_name", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgsDict(TypedDict):
+        publish_metric_action: pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgsDict']
+        """
+        A configuration block describing the stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. You can pair this custom action with any of the standard stateless rule actions. See Publish Metric Action below for details.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs:
     def __init__(__self__, *,
@@ -1580,6 +2148,15 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
     def publish_metric_action(self, value: pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs']):
         pulumi.set(self, "publish_metric_action", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgsDict(TypedDict):
+        dimensions: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgsDict']]]
+        """
+        Set of configuration blocks containing the dimension settings to use for Amazon CloudWatch custom metrics. See Dimension below for details.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs:
@@ -1603,6 +2180,15 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
         pulumi.set(self, "dimensions", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        """
+        The value to use in the custom metric dimension.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs:
     def __init__(__self__, *,
@@ -1624,6 +2210,19 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionAct
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgsDict(TypedDict):
+        priority: pulumi.Input[int]
+        """
+        A setting that indicates the order in which to run this rule relative to all of the rules that are defined for a stateless rule group. AWS Network Firewall evaluates the rules in a rule group starting with the lowest priority setting.
+        """
+        rule_definition: pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgsDict']
+        """
+        A configuration block defining the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria. See Rule Definition below for details.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs:
@@ -1662,6 +2261,19 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleAr
         pulumi.set(self, "rule_definition", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Set of actions to take on a packet that matches one of the stateless rule definition's `match_attributes`. For every rule you must specify 1 standard action, and you can add custom actions. Standard actions include: `aws:pass`, `aws:drop`, `aws:forward_to_sfe`.
+        """
+        match_attributes: pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgsDict']
+        """
+        A configuration block containing criteria for AWS Network Firewall to use to inspect an individual packet in stateless rule inspection. See Match Attributes below for details.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs:
     def __init__(__self__, *,
@@ -1698,6 +2310,35 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def match_attributes(self, value: pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs']):
         pulumi.set(self, "match_attributes", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgsDict(TypedDict):
+        destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgsDict']]]]
+        """
+        Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
+        """
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgsDict']]]]
+        """
+        Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+        """
+        source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgsDict']]]]
+        """
+        Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
+        """
+        sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgsDict']]]]
+        """
+        Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
+        """
+        tcp_flags: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgsDict']]]]
+        """
+        Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs:
@@ -1802,6 +2443,15 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         pulumi.set(self, "tcp_flags", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgsDict(TypedDict):
+        address_definition: pulumi.Input[str]
+        """
+        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs:
     def __init__(__self__, *,
@@ -1823,6 +2473,19 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def address_definition(self, value: pulumi.Input[str]):
         pulumi.set(self, "address_definition", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        """
+        The lower limit of the port range. This must be less than or equal to the `to_port`.
+        """
+        to_port: NotRequired[pulumi.Input[int]]
+        """
+        The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs:
@@ -1862,6 +2525,15 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         pulumi.set(self, "to_port", value)
 
 
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgsDict(TypedDict):
+        address_definition: pulumi.Input[str]
+        """
+        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs:
     def __init__(__self__, *,
@@ -1883,6 +2555,19 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def address_definition(self, value: pulumi.Input[str]):
         pulumi.set(self, "address_definition", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        """
+        The lower limit of the port range. This must be less than or equal to the `to_port`.
+        """
+        to_port: NotRequired[pulumi.Input[int]]
+        """
+        The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs:
@@ -1921,6 +2606,21 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def to_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to_port", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgsDict(TypedDict):
+        flags: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Set of flags to look for in a packet. This setting can only specify values that are also specified in `masks`.
+        Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
+        """
+        masks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of flags to consider in the inspection. To inspect all flags, leave this empty.
+        Valid values: `FIN`, `SYN`, `RST`, `PSH`, `ACK`, `URG`, `ECE`, `CWR`.
+        """
+elif False:
+    RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs:
@@ -1963,6 +2663,15 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     def masks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "masks", value)
 
+
+if not MYPY:
+    class RuleGroupRuleGroupStatefulRuleOptionsArgsDict(TypedDict):
+        rule_order: pulumi.Input[str]
+        """
+        Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        """
+elif False:
+    RuleGroupRuleGroupStatefulRuleOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleGroupRuleGroupStatefulRuleOptionsArgs:

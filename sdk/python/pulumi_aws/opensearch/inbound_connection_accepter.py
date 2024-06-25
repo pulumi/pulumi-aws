@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['InboundConnectionAccepterArgs', 'InboundConnectionAccepter']
@@ -96,16 +101,16 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         current_get_region = aws.get_region()
         foo = aws.opensearch.OutboundConnection("foo",
             connection_alias="outbound_connection",
-            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
-                owner_id=current.account_id,
-                region=current_get_region.name,
-                domain_name=local_domain["domainName"],
-            ),
-            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
-                owner_id=current.account_id,
-                region=current_get_region.name,
-                domain_name=remote_domain["domainName"],
-            ))
+            local_domain_info={
+                "ownerId": current.account_id,
+                "region": current_get_region.name,
+                "domainName": local_domain["domainName"],
+            },
+            remote_domain_info={
+                "ownerId": current.account_id,
+                "region": current_get_region.name,
+                "domainName": remote_domain["domainName"],
+            })
         foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
         ```
 
@@ -142,16 +147,16 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         current_get_region = aws.get_region()
         foo = aws.opensearch.OutboundConnection("foo",
             connection_alias="outbound_connection",
-            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
-                owner_id=current.account_id,
-                region=current_get_region.name,
-                domain_name=local_domain["domainName"],
-            ),
-            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
-                owner_id=current.account_id,
-                region=current_get_region.name,
-                domain_name=remote_domain["domainName"],
-            ))
+            local_domain_info={
+                "ownerId": current.account_id,
+                "region": current_get_region.name,
+                "domainName": local_domain["domainName"],
+            },
+            remote_domain_info={
+                "ownerId": current.account_id,
+                "region": current_get_region.name,
+                "domainName": remote_domain["domainName"],
+            })
         foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
         ```
 

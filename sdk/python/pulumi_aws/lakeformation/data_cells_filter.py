@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -90,8 +95,8 @@ class DataCellsFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 table_data: Optional[pulumi.Input[pulumi.InputType['DataCellsFilterTableDataArgs']]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DataCellsFilterTimeoutsArgs']]] = None,
+                 table_data: Optional[pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Lake Formation Data Cells Filter.
@@ -104,16 +109,16 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lakeformation.DataCellsFilter("example", table_data=aws.lakeformation.DataCellsFilterTableDataArgs(
-            database_name=test["name"],
-            name="example",
-            table_catalog_id=current["accountId"],
-            table_name=test_aws_glue_catalog_table["name"],
-            column_names=["my_column"],
-            row_filter=aws.lakeformation.DataCellsFilterTableDataRowFilterArgs(
-                filter_expression="my_column='example'",
-            ),
-        ))
+        example = aws.lakeformation.DataCellsFilter("example", table_data={
+            "databaseName": test["name"],
+            "name": "example",
+            "tableCatalogId": current["accountId"],
+            "tableName": test_aws_glue_catalog_table["name"],
+            "columnNames": ["my_column"],
+            "rowFilter": {
+                "filterExpression": "my_column='example'",
+            },
+        })
         ```
 
         ## Import
@@ -126,7 +131,7 @@ class DataCellsFilter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DataCellsFilterTableDataArgs']] table_data: Information about the data cells filter. See Table Data below for details.
+        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']] table_data: Information about the data cells filter. See Table Data below for details.
         """
         ...
     @overload
@@ -145,16 +150,16 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lakeformation.DataCellsFilter("example", table_data=aws.lakeformation.DataCellsFilterTableDataArgs(
-            database_name=test["name"],
-            name="example",
-            table_catalog_id=current["accountId"],
-            table_name=test_aws_glue_catalog_table["name"],
-            column_names=["my_column"],
-            row_filter=aws.lakeformation.DataCellsFilterTableDataRowFilterArgs(
-                filter_expression="my_column='example'",
-            ),
-        ))
+        example = aws.lakeformation.DataCellsFilter("example", table_data={
+            "databaseName": test["name"],
+            "name": "example",
+            "tableCatalogId": current["accountId"],
+            "tableName": test_aws_glue_catalog_table["name"],
+            "columnNames": ["my_column"],
+            "rowFilter": {
+                "filterExpression": "my_column='example'",
+            },
+        })
         ```
 
         ## Import
@@ -180,8 +185,8 @@ class DataCellsFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 table_data: Optional[pulumi.Input[pulumi.InputType['DataCellsFilterTableDataArgs']]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DataCellsFilterTimeoutsArgs']]] = None,
+                 table_data: Optional[pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,8 +208,8 @@ class DataCellsFilter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            table_data: Optional[pulumi.Input[pulumi.InputType['DataCellsFilterTableDataArgs']]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['DataCellsFilterTimeoutsArgs']]] = None) -> 'DataCellsFilter':
+            table_data: Optional[pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']]] = None,
+            timeouts: Optional[pulumi.Input[Union['DataCellsFilterTimeoutsArgs', 'DataCellsFilterTimeoutsArgsDict']]] = None) -> 'DataCellsFilter':
         """
         Get an existing DataCellsFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -212,7 +217,7 @@ class DataCellsFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DataCellsFilterTableDataArgs']] table_data: Information about the data cells filter. See Table Data below for details.
+        :param pulumi.Input[Union['DataCellsFilterTableDataArgs', 'DataCellsFilterTableDataArgsDict']] table_data: Information about the data cells filter. See Table Data below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

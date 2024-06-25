@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -484,7 +489,7 @@ class PhoneNumber(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             phone_number: Optional[pulumi.Input[str]] = None,
             prefix: Optional[pulumi.Input[str]] = None,
-            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberStatusArgs']]]]] = None,
+            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PhoneNumberStatusArgs', 'PhoneNumberStatusArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_arn: Optional[pulumi.Input[str]] = None,
@@ -501,7 +506,7 @@ class PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the phone number.
         :param pulumi.Input[str] phone_number: The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
         :param pulumi.Input[str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberStatusArgs']]]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PhoneNumberStatusArgs', 'PhoneNumberStatusArgsDict']]]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.

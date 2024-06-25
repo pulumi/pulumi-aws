@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -275,8 +280,8 @@ class Workteam(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamMemberDefinitionArgs']]]]] = None,
-                 notification_configuration: Optional[pulumi.Input[pulumi.InputType['WorkteamNotificationConfigurationArgs']]] = None,
+                 member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
+                 notification_configuration: Optional[pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workforce_name: Optional[pulumi.Input[str]] = None,
                  workteam_name: Optional[pulumi.Input[str]] = None,
@@ -296,13 +301,13 @@ class Workteam(pulumi.CustomResource):
             workteam_name="example",
             workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
-            member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
-                cognito_member_definition=aws.sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs(
-                    client_id=example_aws_cognito_user_pool_client["id"],
-                    user_pool=example_aws_cognito_user_pool_domain["userPoolId"],
-                    user_group=example_aws_cognito_user_group["id"],
-                ),
-            )])
+            member_definitions=[{
+                "cognitoMemberDefinition": {
+                    "clientId": example_aws_cognito_user_pool_client["id"],
+                    "userPool": example_aws_cognito_user_pool_domain["userPoolId"],
+                    "userGroup": example_aws_cognito_user_group["id"],
+                },
+            }])
         ```
 
         ### Oidc Usage
@@ -315,11 +320,11 @@ class Workteam(pulumi.CustomResource):
             workteam_name="example",
             workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
-            member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
-                oidc_member_definition=aws.sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs(
-                    groups=["example"],
-                ),
-            )])
+            member_definitions=[{
+                "oidcMemberDefinition": {
+                    "groups": ["example"],
+                },
+            }])
         ```
 
         ## Import
@@ -333,8 +338,8 @@ class Workteam(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the work team.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamMemberDefinitionArgs']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-        :param pulumi.Input[pulumi.InputType['WorkteamNotificationConfigurationArgs']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
+        :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] workforce_name: The name of the Workteam (must be unique).
         :param pulumi.Input[str] workteam_name: The name of the workforce.
@@ -360,13 +365,13 @@ class Workteam(pulumi.CustomResource):
             workteam_name="example",
             workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
-            member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
-                cognito_member_definition=aws.sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs(
-                    client_id=example_aws_cognito_user_pool_client["id"],
-                    user_pool=example_aws_cognito_user_pool_domain["userPoolId"],
-                    user_group=example_aws_cognito_user_group["id"],
-                ),
-            )])
+            member_definitions=[{
+                "cognitoMemberDefinition": {
+                    "clientId": example_aws_cognito_user_pool_client["id"],
+                    "userPool": example_aws_cognito_user_pool_domain["userPoolId"],
+                    "userGroup": example_aws_cognito_user_group["id"],
+                },
+            }])
         ```
 
         ### Oidc Usage
@@ -379,11 +384,11 @@ class Workteam(pulumi.CustomResource):
             workteam_name="example",
             workforce_name=example_aws_sagemaker_workforce["id"],
             description="example",
-            member_definitions=[aws.sagemaker.WorkteamMemberDefinitionArgs(
-                oidc_member_definition=aws.sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs(
-                    groups=["example"],
-                ),
-            )])
+            member_definitions=[{
+                "oidcMemberDefinition": {
+                    "groups": ["example"],
+                },
+            }])
         ```
 
         ## Import
@@ -410,8 +415,8 @@ class Workteam(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamMemberDefinitionArgs']]]]] = None,
-                 notification_configuration: Optional[pulumi.Input[pulumi.InputType['WorkteamNotificationConfigurationArgs']]] = None,
+                 member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
+                 notification_configuration: Optional[pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workforce_name: Optional[pulumi.Input[str]] = None,
                  workteam_name: Optional[pulumi.Input[str]] = None,
@@ -453,8 +458,8 @@ class Workteam(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamMemberDefinitionArgs']]]]] = None,
-            notification_configuration: Optional[pulumi.Input[pulumi.InputType['WorkteamNotificationConfigurationArgs']]] = None,
+            member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]]] = None,
+            notification_configuration: Optional[pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']]] = None,
             subdomain: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -469,8 +474,8 @@ class Workteam(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
         :param pulumi.Input[str] description: A description of the work team.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamMemberDefinitionArgs']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
-        :param pulumi.Input[pulumi.InputType['WorkteamNotificationConfigurationArgs']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
+        :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[str] subdomain: The subdomain for your OIDC Identity Provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

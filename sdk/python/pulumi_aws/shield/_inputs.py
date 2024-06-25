@@ -4,17 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ApplicationLayerAutomaticResponseTimeoutsArgs',
+    'ApplicationLayerAutomaticResponseTimeoutsArgsDict',
     'DrtAccessLogBucketAssociationTimeoutsArgs',
+    'DrtAccessLogBucketAssociationTimeoutsArgsDict',
     'DrtAccessRoleArnAssociationTimeoutsArgs',
+    'DrtAccessRoleArnAssociationTimeoutsArgsDict',
     'ProactiveEngagementEmergencyContactArgs',
+    'ProactiveEngagementEmergencyContactArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationLayerAutomaticResponseTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    ApplicationLayerAutomaticResponseTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationLayerAutomaticResponseTimeoutsArgs:
@@ -71,6 +99,19 @@ class ApplicationLayerAutomaticResponseTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
+if not MYPY:
+    class DrtAccessLogBucketAssociationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    DrtAccessLogBucketAssociationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DrtAccessLogBucketAssociationTimeoutsArgs:
     def __init__(__self__, *,
@@ -109,6 +150,23 @@ class DrtAccessLogBucketAssociationTimeoutsArgs:
     def delete(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delete", value)
 
+
+if not MYPY:
+    class DrtAccessRoleArnAssociationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    DrtAccessRoleArnAssociationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DrtAccessRoleArnAssociationTimeoutsArgs:
@@ -164,6 +222,14 @@ class DrtAccessRoleArnAssociationTimeoutsArgs:
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
 
+
+if not MYPY:
+    class ProactiveEngagementEmergencyContactArgsDict(TypedDict):
+        email_address: pulumi.Input[str]
+        contact_notes: NotRequired[pulumi.Input[str]]
+        phone_number: NotRequired[pulumi.Input[str]]
+elif False:
+    ProactiveEngagementEmergencyContactArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProactiveEngagementEmergencyContactArgs:

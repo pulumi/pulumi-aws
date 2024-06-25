@@ -4,15 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'WorkspaceNetworkAccessControlArgs',
+    'WorkspaceNetworkAccessControlArgsDict',
     'WorkspaceVpcConfigurationArgs',
+    'WorkspaceVpcConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class WorkspaceNetworkAccessControlArgsDict(TypedDict):
+        prefix_list_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        An array of prefix list IDs.
+        """
+        vpce_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
+        """
+elif False:
+    WorkspaceNetworkAccessControlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceNetworkAccessControlArgs:
@@ -50,6 +72,19 @@ class WorkspaceNetworkAccessControlArgs:
     def vpce_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "vpce_ids", value)
 
+
+if not MYPY:
+    class WorkspaceVpcConfigurationArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+        """
+elif False:
+    WorkspaceVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceVpcConfigurationArgs:

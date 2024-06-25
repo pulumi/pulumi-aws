@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -364,7 +369,7 @@ class EndpointAccess(pulumi.CustomResource):
             port: Optional[pulumi.Input[int]] = None,
             resource_owner: Optional[pulumi.Input[str]] = None,
             subnet_group_name: Optional[pulumi.Input[str]] = None,
-            vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcEndpointArgs']]]]] = None,
+            vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'EndpointAccess':
         """
         Get an existing EndpointAccess resource's state with the given name, id, and optional extra
@@ -379,7 +384,7 @@ class EndpointAccess(pulumi.CustomResource):
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input[str] resource_owner: The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         :param pulumi.Input[str] subnet_group_name: The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcEndpointArgs']]]] vpc_endpoints: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]] vpc_endpoints: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -335,7 +340,7 @@ class LocationSmb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 mount_options: Optional[pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']]] = None,
+                 mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -373,7 +378,7 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[str] domain: The name of the Windows domain the SMB server belongs to.
-        :param pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
+        :param pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         :param pulumi.Input[str] password: The password of the user who can mount the share and has file permissions in the SMB.
         :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -430,7 +435,7 @@ class LocationSmb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 mount_options: Optional[pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']]] = None,
+                 mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -481,7 +486,7 @@ class LocationSmb(pulumi.CustomResource):
             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
-            mount_options: Optional[pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']]] = None,
+            mount_options: Optional[pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']]] = None,
             password: Optional[pulumi.Input[str]] = None,
             server_hostname: Optional[pulumi.Input[str]] = None,
             subdirectory: Optional[pulumi.Input[str]] = None,
@@ -499,7 +504,7 @@ class LocationSmb(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[str] domain: The name of the Windows domain the SMB server belongs to.
-        :param pulumi.Input[pulumi.InputType['LocationSmbMountOptionsArgs']] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
+        :param pulumi.Input[Union['LocationSmbMountOptionsArgs', 'LocationSmbMountOptionsArgsDict']] mount_options: Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
         :param pulumi.Input[str] password: The password of the user who can mount the share and has file permissions in the SMB.
         :param pulumi.Input[str] server_hostname: Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.

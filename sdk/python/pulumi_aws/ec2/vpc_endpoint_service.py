@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -581,7 +586,7 @@ class VpcEndpointService(pulumi.CustomResource):
             manages_vpc_endpoints: Optional[pulumi.Input[bool]] = None,
             network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             private_dns_name: Optional[pulumi.Input[str]] = None,
-            private_dns_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]]] = None,
+            private_dns_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]]]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
             service_type: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
@@ -604,7 +609,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[bool] manages_vpc_endpoints: Whether or not the service manages its VPC endpoints - `true` or `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[str] private_dns_name: The private DNS name for the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
         :param pulumi.Input[str] service_name: The service name.
         :param pulumi.Input[str] service_type: The service type, `Gateway` or `Interface`.
         :param pulumi.Input[str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.

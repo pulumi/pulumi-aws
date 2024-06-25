@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -69,7 +74,7 @@ class AwaitableGetVpcIamPoolsResult(GetVpcIamPoolsResult):
             ipam_pools=self.ipam_pools)
 
 
-def get_vpc_iam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPoolsFilterArgs']]] = None,
+def get_vpc_iam_pools(filters: Optional[Sequence[Union['GetVpcIamPoolsFilterArgs', 'GetVpcIamPoolsFilterArgsDict']]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIamPoolsResult:
     """
     `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
@@ -85,19 +90,19 @@ def get_vpc_iam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPool
     import pulumi_aws as aws
 
     test = aws.ec2.get_vpc_ipam_pools(filters=[
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
-            name="description",
-            values=["*test*"],
-        ),
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
-            name="address-family",
-            values=["ipv4"],
-        ),
+        {
+            "name": "description",
+            "values": ["*test*"],
+        },
+        {
+            "name": "address-family",
+            "values": ["ipv4"],
+        },
     ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcIamPoolsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcIamPoolsFilterArgs', 'GetVpcIamPoolsFilterArgsDict']] filters: Custom filter block as described below.
     """
     pulumi.log.warn("""get_vpc_iam_pools is deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools""")
     __args__ = dict()
@@ -112,7 +117,7 @@ def get_vpc_iam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPool
 
 
 @_utilities.lift_output_func(get_vpc_iam_pools)
-def get_vpc_iam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIamPoolsFilterArgs']]]]] = None,
+def get_vpc_iam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIamPoolsFilterArgs', 'GetVpcIamPoolsFilterArgsDict']]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolsResult]:
     """
     `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
@@ -128,19 +133,19 @@ def get_vpc_iam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
     import pulumi_aws as aws
 
     test = aws.ec2.get_vpc_ipam_pools(filters=[
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
-            name="description",
-            values=["*test*"],
-        ),
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
-            name="address-family",
-            values=["ipv4"],
-        ),
+        {
+            "name": "description",
+            "values": ["*test*"],
+        },
+        {
+            "name": "address-family",
+            "values": ["ipv4"],
+        },
     ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcIamPoolsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcIamPoolsFilterArgs', 'GetVpcIamPoolsFilterArgsDict']] filters: Custom filter block as described below.
     """
     pulumi.log.warn("""get_vpc_iam_pools is deprecated: aws.ec2/getvpciampools.getVpcIamPools has been deprecated in favor of aws.ec2/getvpcipampools.getVpcIpamPools""")
     ...

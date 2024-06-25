@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['DomainPermissionsArgs', 'DomainPermissions']
@@ -192,15 +197,15 @@ class DomainPermissions(pulumi.CustomResource):
         example_domain = aws.codeartifact.Domain("example",
             domain="example",
             encryption_key=example.arn)
-        test = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["codeartifact:CreateRepository"],
-            resources=[example_domain.arn],
-        )])
+        test = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["codeartifact:CreateRepository"],
+            "resources": [example_domain.arn],
+        }])
         test_domain_permissions = aws.codeartifact.DomainPermissions("test",
             domain=example_domain.domain,
             policy_document=test.json)
@@ -240,15 +245,15 @@ class DomainPermissions(pulumi.CustomResource):
         example_domain = aws.codeartifact.Domain("example",
             domain="example",
             encryption_key=example.arn)
-        test = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["codeartifact:CreateRepository"],
-            resources=[example_domain.arn],
-        )])
+        test = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["codeartifact:CreateRepository"],
+            "resources": [example_domain.arn],
+        }])
         test_domain_permissions = aws.codeartifact.DomainPermissions("test",
             domain=example_domain.domain,
             policy_document=test.json)

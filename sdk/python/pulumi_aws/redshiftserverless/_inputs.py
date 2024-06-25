@@ -4,19 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'EndpointAccessVpcEndpointArgs',
+    'EndpointAccessVpcEndpointArgsDict',
     'EndpointAccessVpcEndpointNetworkInterfaceArgs',
+    'EndpointAccessVpcEndpointNetworkInterfaceArgsDict',
     'WorkgroupConfigParameterArgs',
+    'WorkgroupConfigParameterArgsDict',
     'WorkgroupEndpointArgs',
+    'WorkgroupEndpointArgsDict',
     'WorkgroupEndpointVpcEndpointArgs',
+    'WorkgroupEndpointVpcEndpointArgsDict',
     'WorkgroupEndpointVpcEndpointNetworkInterfaceArgs',
+    'WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EndpointAccessVpcEndpointArgsDict(TypedDict):
+        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgsDict']]]]
+        """
+        The network interfaces of the endpoint.. See `Network Interface` below.
+        """
+        vpc_endpoint_id: NotRequired[pulumi.Input[str]]
+        """
+        The DNS address of the VPC endpoint.
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+        """
+        The port that Amazon Redshift Serverless listens on.
+        """
+elif False:
+    EndpointAccessVpcEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointAccessVpcEndpointArgs:
@@ -72,6 +102,27 @@ class EndpointAccessVpcEndpointArgs:
     def vpc_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_id", value)
 
+
+if not MYPY:
+    class EndpointAccessVpcEndpointNetworkInterfaceArgsDict(TypedDict):
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        The availability Zone.
+        """
+        network_interface_id: NotRequired[pulumi.Input[str]]
+        """
+        The unique identifier of the network interface.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address of the network interface within the subnet.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The unique identifier of the subnet.
+        """
+elif False:
+    EndpointAccessVpcEndpointNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointAccessVpcEndpointNetworkInterfaceArgs:
@@ -144,6 +195,19 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class WorkgroupConfigParameterArgsDict(TypedDict):
+        parameter_key: pulumi.Input[str]
+        """
+        The key of the parameter. The options are `auto_mv`, `datestyle`, `enable_case_sensitive_identifier`, `enable_user_activity_logging`, `query_group`, `search_path`, `require_ssl`, `use_fips_ssl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `max_query_cpu_time`, `max_query_blocks_read`, `max_scan_row_count`, `max_query_execution_time`, `max_query_queue_time`, `max_query_cpu_usage_percent`, `max_query_temp_blocks_to_disk`, `max_join_row_count` and `max_nested_loop_join_row_count`.
+        """
+        parameter_value: pulumi.Input[str]
+        """
+        The value of the parameter to set.
+        """
+elif False:
+    WorkgroupConfigParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkgroupConfigParameterArgs:
     def __init__(__self__, *,
@@ -180,6 +244,23 @@ class WorkgroupConfigParameterArgs:
     def parameter_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "parameter_value", value)
 
+
+if not MYPY:
+    class WorkgroupEndpointArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        The DNS address of the VPC endpoint.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port number on which the cluster accepts incoming connections.
+        """
+        vpc_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointVpcEndpointArgsDict']]]]
+        """
+        The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+        """
+elif False:
+    WorkgroupEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkgroupEndpointArgs:
@@ -236,6 +317,23 @@ class WorkgroupEndpointArgs:
         pulumi.set(self, "vpc_endpoints", value)
 
 
+if not MYPY:
+    class WorkgroupEndpointVpcEndpointArgsDict(TypedDict):
+        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict']]]]
+        """
+        The network interfaces of the endpoint.. See `Network Interface` below.
+        """
+        vpc_endpoint_id: NotRequired[pulumi.Input[str]]
+        """
+        The DNS address of the VPC endpoint.
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+        """
+        The port that Amazon Redshift Serverless listens on.
+        """
+elif False:
+    WorkgroupEndpointVpcEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkgroupEndpointVpcEndpointArgs:
     def __init__(__self__, *,
@@ -290,6 +388,27 @@ class WorkgroupEndpointVpcEndpointArgs:
     def vpc_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_id", value)
 
+
+if not MYPY:
+    class WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict(TypedDict):
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        The availability Zone.
+        """
+        network_interface_id: NotRequired[pulumi.Input[str]]
+        """
+        The unique identifier of the network interface.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address of the network interface within the subnet.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The unique identifier of the subnet.
+        """
+elif False:
+    WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkgroupEndpointVpcEndpointNetworkInterfaceArgs:

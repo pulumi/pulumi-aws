@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -298,7 +303,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[pulumi.InputType['CustomRoutingAcceleratorAttributesArgs']]] = None,
+                 attributes: Optional[pulumi.Input[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -319,11 +324,11 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
             ip_address_type="IPV4",
             ip_addresses=["1.2.3.4"],
             enabled=True,
-            attributes=aws.globalaccelerator.CustomRoutingAcceleratorAttributesArgs(
-                flow_logs_enabled=True,
-                flow_logs_s3_bucket="example-bucket",
-                flow_logs_s3_prefix="flow-logs/",
-            ))
+            attributes={
+                "flowLogsEnabled": True,
+                "flowLogsS3Bucket": "example-bucket",
+                "flowLogsS3Prefix": "flow-logs/",
+            })
         ```
 
         ## Import
@@ -336,7 +341,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomRoutingAcceleratorAttributesArgs']] attributes: The attributes of the accelerator. Fields documented below.
+        :param pulumi.Input[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[str] ip_address_type: The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
@@ -363,11 +368,11 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
             ip_address_type="IPV4",
             ip_addresses=["1.2.3.4"],
             enabled=True,
-            attributes=aws.globalaccelerator.CustomRoutingAcceleratorAttributesArgs(
-                flow_logs_enabled=True,
-                flow_logs_s3_bucket="example-bucket",
-                flow_logs_s3_prefix="flow-logs/",
-            ))
+            attributes={
+                "flowLogsEnabled": True,
+                "flowLogsS3Bucket": "example-bucket",
+                "flowLogsS3Prefix": "flow-logs/",
+            })
         ```
 
         ## Import
@@ -393,7 +398,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[pulumi.InputType['CustomRoutingAcceleratorAttributesArgs']]] = None,
+                 attributes: Optional[pulumi.Input[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -428,13 +433,13 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attributes: Optional[pulumi.Input[pulumi.InputType['CustomRoutingAcceleratorAttributesArgs']]] = None,
+            attributes: Optional[pulumi.Input[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             hosted_zone_id: Optional[pulumi.Input[str]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
             ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            ip_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomRoutingAcceleratorIpSetArgs']]]]] = None,
+            ip_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingAcceleratorIpSetArgs', 'CustomRoutingAcceleratorIpSetArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CustomRoutingAccelerator':
@@ -445,7 +450,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomRoutingAcceleratorAttributesArgs']] attributes: The attributes of the accelerator. Fields documented below.
+        :param pulumi.Input[Union['CustomRoutingAcceleratorAttributesArgs', 'CustomRoutingAcceleratorAttributesArgsDict']] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         :param pulumi.Input[bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[str] hosted_zone_id: -  The Global Accelerator Route 53 zone ID that can be used to
@@ -453,7 +458,7 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
                is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         :param pulumi.Input[str] ip_address_type: The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomRoutingAcceleratorIpSetArgs']]]] ip_sets: IP address set associated with the accelerator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingAcceleratorIpSetArgs', 'CustomRoutingAcceleratorIpSetArgsDict']]]] ip_sets: IP address set associated with the accelerator.
         :param pulumi.Input[str] name: The name of a custom routing accelerator.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

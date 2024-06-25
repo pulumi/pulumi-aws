@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['TableExportArgs', 'TableExport']
@@ -431,13 +436,13 @@ class TableExport(pulumi.CustomResource):
             name="example-table-1",
             billing_mode="PAY_PER_REQUEST",
             hash_key="user_id",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="user_id",
-                type="S",
-            )],
-            point_in_time_recovery=aws.dynamodb.TablePointInTimeRecoveryArgs(
-                enabled=True,
-            ))
+            attributes=[{
+                "name": "user_id",
+                "type": "S",
+            }],
+            point_in_time_recovery={
+                "enabled": True,
+            })
         example_table_export = aws.dynamodb.TableExport("example",
             table_arn=example_table.arn,
             s3_bucket=example.id)
@@ -498,13 +503,13 @@ class TableExport(pulumi.CustomResource):
             name="example-table-1",
             billing_mode="PAY_PER_REQUEST",
             hash_key="user_id",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="user_id",
-                type="S",
-            )],
-            point_in_time_recovery=aws.dynamodb.TablePointInTimeRecoveryArgs(
-                enabled=True,
-            ))
+            attributes=[{
+                "name": "user_id",
+                "type": "S",
+            }],
+            point_in_time_recovery={
+                "enabled": True,
+            })
         example_table_export = aws.dynamodb.TableExport("example",
             table_arn=example_table.arn,
             s3_bucket=example.id)

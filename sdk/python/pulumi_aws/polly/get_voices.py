@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -91,7 +96,7 @@ class AwaitableGetVoicesResult(GetVoicesResult):
 def get_voices(engine: Optional[str] = None,
                include_additional_language_codes: Optional[bool] = None,
                language_code: Optional[str] = None,
-               voices: Optional[Sequence[pulumi.InputType['GetVoicesVoiceArgs']]] = None,
+               voices: Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVoicesResult:
     """
     Data source for managing an AWS Polly Voices.
@@ -120,7 +125,7 @@ def get_voices(engine: Optional[str] = None,
     :param str engine: Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
     :param bool include_additional_language_codes: Whether to return any bilingual voices that use the specified language as an additional language.
     :param str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-    :param Sequence[pulumi.InputType['GetVoicesVoiceArgs']] voices: List of voices with their properties. See `voices` Attribute Reference below.
+    :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']] voices: List of voices with their properties. See `voices` Attribute Reference below.
     """
     __args__ = dict()
     __args__['engine'] = engine
@@ -142,7 +147,7 @@ def get_voices(engine: Optional[str] = None,
 def get_voices_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
                       include_additional_language_codes: Optional[pulumi.Input[Optional[bool]]] = None,
                       language_code: Optional[pulumi.Input[Optional[str]]] = None,
-                      voices: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVoicesVoiceArgs']]]]] = None,
+                      voices: Optional[pulumi.Input[Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVoicesResult]:
     """
     Data source for managing an AWS Polly Voices.
@@ -171,6 +176,6 @@ def get_voices_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
     :param str engine: Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
     :param bool include_additional_language_codes: Whether to return any bilingual voices that use the specified language as an additional language.
     :param str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-    :param Sequence[pulumi.InputType['GetVoicesVoiceArgs']] voices: List of voices with their properties. See `voices` Attribute Reference below.
+    :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']] voices: List of voices with their properties. See `voices` Attribute Reference below.
     """
     ...

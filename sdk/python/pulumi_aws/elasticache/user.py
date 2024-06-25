@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -327,7 +332,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -362,9 +367,9 @@ class User(pulumi.CustomResource):
             user_name="testUserName",
             access_string="on ~* +@all",
             engine="REDIS",
-            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
-                type="iam",
-            ))
+            authentication_mode={
+                "type": "iam",
+            })
         ```
 
         ```python
@@ -376,13 +381,13 @@ class User(pulumi.CustomResource):
             user_name="testUserName",
             access_string="on ~* +@all",
             engine="REDIS",
-            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
-                type="password",
-                passwords=[
+            authentication_mode={
+                "type": "password",
+                "passwords": [
                     "password1",
                     "password2",
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -396,7 +401,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
@@ -439,9 +444,9 @@ class User(pulumi.CustomResource):
             user_name="testUserName",
             access_string="on ~* +@all",
             engine="REDIS",
-            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
-                type="iam",
-            ))
+            authentication_mode={
+                "type": "iam",
+            })
         ```
 
         ```python
@@ -453,13 +458,13 @@ class User(pulumi.CustomResource):
             user_name="testUserName",
             access_string="on ~* +@all",
             engine="REDIS",
-            authentication_mode=aws.elasticache.UserAuthenticationModeArgs(
-                type="password",
-                passwords=[
+            authentication_mode={
+                "type": "password",
+                "passwords": [
                     "password1",
                     "password2",
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -486,7 +491,7 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_string: Optional[pulumi.Input[str]] = None,
-                 authentication_mode: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  no_password_required: Optional[pulumi.Input[bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -534,7 +539,7 @@ class User(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_string: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            authentication_mode: Optional[pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']]] = None,
+            authentication_mode: Optional[pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             no_password_required: Optional[pulumi.Input[bool]] = None,
             passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -551,7 +556,7 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
-        :param pulumi.Input[pulumi.InputType['UserAuthenticationModeArgs']] authentication_mode: Denotes the user's authentication properties. Detailed below.
+        :param pulumi.Input[Union['UserAuthenticationModeArgs', 'UserAuthenticationModeArgsDict']] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.

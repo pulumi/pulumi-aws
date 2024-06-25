@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['EncryptionConfigArgs', 'EncryptionConfig']
@@ -119,16 +124,16 @@ class EncryptionConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Enable IAM User Permissions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
-            )],
-            actions=["kms:*"],
-            resources=["*"],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "sid": "Enable IAM User Permissions",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
+            }],
+            "actions": ["kms:*"],
+            "resources": ["*"],
+        }])
         example_key = aws.kms.Key("example",
             description="Some Key",
             deletion_window_in_days=7,
@@ -178,16 +183,16 @@ class EncryptionConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_caller_identity()
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Enable IAM User Permissions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
-            )],
-            actions=["kms:*"],
-            resources=["*"],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "sid": "Enable IAM User Permissions",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
+            }],
+            "actions": ["kms:*"],
+            "resources": ["*"],
+        }])
         example_key = aws.kms.Key("example",
             description="Some Key",
             deletion_window_in_days=7,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -379,7 +384,7 @@ class EndpointAccess(pulumi.CustomResource):
             owner_account: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcEndpointArgs']]]]] = None,
+            vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             workgroup_name: Optional[pulumi.Input[str]] = None) -> 'EndpointAccess':
         """
@@ -395,7 +400,7 @@ class EndpointAccess(pulumi.CustomResource):
         :param pulumi.Input[str] owner_account: The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         :param pulumi.Input[int] port: The port that Amazon Redshift Serverless listens on.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: An array of VPC subnet IDs to associate with the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcEndpointArgs']]]] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointAccessVpcEndpointArgs', 'EndpointAccessVpcEndpointArgsDict']]]] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: An array of security group IDs to associate with the workgroup.
         :param pulumi.Input[str] workgroup_name: The name of the workgroup.
         """

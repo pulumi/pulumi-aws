@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['SigningProfilePermissionArgs', 'SigningProfilePermission']
@@ -240,10 +245,10 @@ class SigningProfilePermission(pulumi.CustomResource):
         prod_sp = aws.signer.SigningProfile("prod_sp",
             platform_id="AWSLambda-SHA384-ECDSA",
             name_prefix="prod_sp_",
-            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                value=5,
-                type="YEARS",
-            ),
+            signature_validity_period={
+                "value": 5,
+                "type": "YEARS",
+            },
             tags={
                 "tag1": "value1",
                 "tag2": "value2",
@@ -300,10 +305,10 @@ class SigningProfilePermission(pulumi.CustomResource):
         prod_sp = aws.signer.SigningProfile("prod_sp",
             platform_id="AWSLambda-SHA384-ECDSA",
             name_prefix="prod_sp_",
-            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
-                value=5,
-                type="YEARS",
-            ),
+            signature_validity_period={
+                "value": 5,
+                "type": "YEARS",
+            },
             tags={
                 "tag1": "value1",
                 "tag2": "value2",

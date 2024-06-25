@@ -4,14 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'QueueReservationPlanSettingsArgs',
+    'QueueReservationPlanSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class QueueReservationPlanSettingsArgsDict(TypedDict):
+        commitment: pulumi.Input[str]
+        """
+        The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
+        """
+        renewal_type: pulumi.Input[str]
+        """
+        Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
+        """
+        reserved_slots: pulumi.Input[int]
+        """
+        Specifies the number of reserved transcode slots (RTS) for queue.
+        """
+elif False:
+    QueueReservationPlanSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QueueReservationPlanSettingsArgs:

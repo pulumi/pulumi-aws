@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -443,12 +448,12 @@ class ImageRecipe(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeBlockDeviceMappingArgs']]]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]]] = None,
+                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
-                 systems_manager_agent: Optional[pulumi.Input[pulumi.InputType['ImageRecipeSystemsManagerAgentArgs']]] = None,
+                 systems_manager_agent: Optional[pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -464,27 +469,27 @@ class ImageRecipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ImageRecipe("example",
-            block_device_mappings=[aws.imagebuilder.ImageRecipeBlockDeviceMappingArgs(
-                device_name="/dev/xvdb",
-                ebs=aws.imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs(
-                    delete_on_termination="true",
-                    volume_size=100,
-                    volume_type="gp2",
-                ),
-            )],
-            components=[aws.imagebuilder.ImageRecipeComponentArgs(
-                component_arn=example_aws_imagebuilder_component["arn"],
-                parameters=[
-                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
-                        name="Parameter1",
-                        value="Value1",
-                    ),
-                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
-                        name="Parameter2",
-                        value="Value2",
-                    ),
+            block_device_mappings=[{
+                "deviceName": "/dev/xvdb",
+                "ebs": {
+                    "deleteOnTermination": "true",
+                    "volumeSize": 100,
+                    "volumeType": "gp2",
+                },
+            }],
+            components=[{
+                "componentArn": example_aws_imagebuilder_component["arn"],
+                "parameters": [
+                    {
+                        "name": "Parameter1",
+                        "value": "Value1",
+                    },
+                    {
+                        "name": "Parameter2",
+                        "value": "Value2",
+                    },
                 ],
-            )],
+            }],
             name="example",
             parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['name']}:aws:image/amazon-linux-2-x86/x.x.x",
             version="1.0.0")
@@ -500,12 +505,12 @@ class ImageRecipe(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeBlockDeviceMappingArgs']]]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] description: Description of the image recipe.
         :param pulumi.Input[str] name: Name of the image recipe.
         :param pulumi.Input[str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
-        :param pulumi.Input[pulumi.InputType['ImageRecipeSystemsManagerAgentArgs']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+        :param pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
         :param pulumi.Input[str] version: The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
@@ -529,27 +534,27 @@ class ImageRecipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ImageRecipe("example",
-            block_device_mappings=[aws.imagebuilder.ImageRecipeBlockDeviceMappingArgs(
-                device_name="/dev/xvdb",
-                ebs=aws.imagebuilder.ImageRecipeBlockDeviceMappingEbsArgs(
-                    delete_on_termination="true",
-                    volume_size=100,
-                    volume_type="gp2",
-                ),
-            )],
-            components=[aws.imagebuilder.ImageRecipeComponentArgs(
-                component_arn=example_aws_imagebuilder_component["arn"],
-                parameters=[
-                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
-                        name="Parameter1",
-                        value="Value1",
-                    ),
-                    aws.imagebuilder.ImageRecipeComponentParameterArgs(
-                        name="Parameter2",
-                        value="Value2",
-                    ),
+            block_device_mappings=[{
+                "deviceName": "/dev/xvdb",
+                "ebs": {
+                    "deleteOnTermination": "true",
+                    "volumeSize": 100,
+                    "volumeType": "gp2",
+                },
+            }],
+            components=[{
+                "componentArn": example_aws_imagebuilder_component["arn"],
+                "parameters": [
+                    {
+                        "name": "Parameter1",
+                        "value": "Value1",
+                    },
+                    {
+                        "name": "Parameter2",
+                        "value": "Value2",
+                    },
                 ],
-            )],
+            }],
             name="example",
             parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['name']}:aws:image/amazon-linux-2-x86/x.x.x",
             version="1.0.0")
@@ -578,12 +583,12 @@ class ImageRecipe(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeBlockDeviceMappingArgs']]]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]]] = None,
+                 block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
-                 systems_manager_agent: Optional[pulumi.Input[pulumi.InputType['ImageRecipeSystemsManagerAgentArgs']]] = None,
+                 systems_manager_agent: Optional[pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -629,15 +634,15 @@ class ImageRecipe(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeBlockDeviceMappingArgs']]]]] = None,
-            components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]]] = None,
+            block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]]] = None,
+            components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]]] = None,
             date_created: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             parent_image: Optional[pulumi.Input[str]] = None,
             platform: Optional[pulumi.Input[str]] = None,
-            systems_manager_agent: Optional[pulumi.Input[pulumi.InputType['ImageRecipeSystemsManagerAgentArgs']]] = None,
+            systems_manager_agent: Optional[pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_data_base64: Optional[pulumi.Input[str]] = None,
@@ -651,15 +656,15 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: (Required) Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeBlockDeviceMappingArgs']]]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentArgs']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[str] date_created: Date the image recipe was created.
         :param pulumi.Input[str] description: Description of the image recipe.
         :param pulumi.Input[str] name: Name of the image recipe.
         :param pulumi.Input[str] owner: Owner of the image recipe.
         :param pulumi.Input[str] parent_image: The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
         :param pulumi.Input[str] platform: Platform of the image recipe.
-        :param pulumi.Input[pulumi.InputType['ImageRecipeSystemsManagerAgentArgs']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
+        :param pulumi.Input[Union['ImageRecipeSystemsManagerAgentArgs', 'ImageRecipeSystemsManagerAgentArgsDict']] systems_manager_agent: Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_data_base64: Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.

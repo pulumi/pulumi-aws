@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -76,7 +81,7 @@ class AwaitableGetVpcsResult(GetVpcsResult):
             tags=self.tags)
 
 
-def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] = None,
+def get_vpcs(filters: Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']]] = None,
              tags: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcsResult:
     """
@@ -113,7 +118,7 @@ def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] 
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -134,7 +139,7 @@ def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] 
 
 
 @_utilities.lift_output_func(get_vpcs)
-def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]]]] = None,
+def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']]]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcsResult]:
     """
@@ -171,7 +176,7 @@ def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcsFilterArgs', 'GetVpcsFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

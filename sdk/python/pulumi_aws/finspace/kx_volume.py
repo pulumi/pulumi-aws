@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -429,7 +434,7 @@ class KxVolume(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxVolumeNas1ConfigurationArgs']]]]] = None,
+                 nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -450,10 +455,10 @@ class KxVolume(pulumi.CustomResource):
             availability_zones="use1-az2",
             az_mode="SINGLE",
             type="NAS_1",
-            nas1_configurations=[aws.finspace.KxVolumeNas1ConfigurationArgs(
-                size=1200,
-                type="SSD_250",
-            )])
+            nas1_configurations=[{
+                "size": 1200,
+                "type": "SSD_250",
+            }])
         ```
 
         ## Import
@@ -474,7 +479,7 @@ class KxVolume(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the volume.
         :param pulumi.Input[str] environment_id: A unique identifier for the kdb environment, whose clusters can attach to the volume.
         :param pulumi.Input[str] name: Unique name for the volumr that you want to create.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxVolumeNas1ConfigurationArgs']]]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         :param pulumi.Input[str] type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
         """
@@ -501,10 +506,10 @@ class KxVolume(pulumi.CustomResource):
             availability_zones="use1-az2",
             az_mode="SINGLE",
             type="NAS_1",
-            nas1_configurations=[aws.finspace.KxVolumeNas1ConfigurationArgs(
-                size=1200,
-                type="SSD_250",
-            )])
+            nas1_configurations=[{
+                "size": 1200,
+                "type": "SSD_250",
+            }])
         ```
 
         ## Import
@@ -535,7 +540,7 @@ class KxVolume(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxVolumeNas1ConfigurationArgs']]]]] = None,
+                 nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -581,7 +586,7 @@ class KxVolume(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            attached_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxVolumeAttachedClusterArgs']]]]] = None,
+            attached_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeAttachedClusterArgs', 'KxVolumeAttachedClusterArgsDict']]]]] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             az_mode: Optional[pulumi.Input[str]] = None,
             created_timestamp: Optional[pulumi.Input[str]] = None,
@@ -589,7 +594,7 @@ class KxVolume(pulumi.CustomResource):
             environment_id: Optional[pulumi.Input[str]] = None,
             last_modified_timestamp: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxVolumeNas1ConfigurationArgs']]]]] = None,
+            nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             status_reason: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -613,7 +618,7 @@ class KxVolume(pulumi.CustomResource):
         :param pulumi.Input[str] environment_id: A unique identifier for the kdb environment, whose clusters can attach to the volume.
         :param pulumi.Input[str] last_modified_timestamp: Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[str] name: Unique name for the volumr that you want to create.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxVolumeNas1ConfigurationArgs']]]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
         :param pulumi.Input[str] status: The status of volume creation.
                * `CREATING` – The volume creation is in progress.
                * `CREATE_FAILED` – The volume creation has failed.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -364,7 +369,7 @@ class VpcAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentOptionsArgs']]] = None,
+                 options: Optional[pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_arn: Optional[pulumi.Input[str]] = None,
@@ -397,7 +402,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network for the VPC attachment.
-        :param pulumi.Input[pulumi.InputType['VpcAttachmentOptionsArgs']] options: Options for the VPC attachment.
+        :param pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']] options: Options for the VPC attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The subnet ARN of the VPC attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_arn: The ARN of the VPC.
@@ -451,7 +456,7 @@ class VpcAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentOptionsArgs']]] = None,
+                 options: Optional[pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_arn: Optional[pulumi.Input[str]] = None,
@@ -501,7 +506,7 @@ class VpcAttachment(pulumi.CustomResource):
             core_network_arn: Optional[pulumi.Input[str]] = None,
             core_network_id: Optional[pulumi.Input[str]] = None,
             edge_location: Optional[pulumi.Input[str]] = None,
-            options: Optional[pulumi.Input[pulumi.InputType['VpcAttachmentOptionsArgs']]] = None,
+            options: Optional[pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']]] = None,
             owner_account_id: Optional[pulumi.Input[str]] = None,
             resource_arn: Optional[pulumi.Input[str]] = None,
             segment_name: Optional[pulumi.Input[str]] = None,
@@ -523,7 +528,7 @@ class VpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_arn: The ARN of a core network.
         :param pulumi.Input[str] core_network_id: The ID of a core network for the VPC attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input[pulumi.InputType['VpcAttachmentOptionsArgs']] options: Options for the VPC attachment.
+        :param pulumi.Input[Union['VpcAttachmentOptionsArgs', 'VpcAttachmentOptionsArgsDict']] options: Options for the VPC attachment.
         :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.
         :param pulumi.Input[str] resource_arn: The attachment resource ARN.
         :param pulumi.Input[str] segment_name: The name of the segment attachment.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -359,14 +364,14 @@ class CatalogDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogDatabaseCreateTableDefaultPermissionArgs', 'CatalogDatabaseCreateTableDefaultPermissionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 federated_database: Optional[pulumi.Input[pulumi.InputType['CatalogDatabaseFederatedDatabaseArgs']]] = None,
+                 federated_database: Optional[pulumi.Input[Union['CatalogDatabaseFederatedDatabaseArgs', 'CatalogDatabaseFederatedDatabaseArgsDict']]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_database: Optional[pulumi.Input[pulumi.InputType['CatalogDatabaseTargetDatabaseArgs']]] = None,
+                 target_database: Optional[pulumi.Input[Union['CatalogDatabaseTargetDatabaseArgs', 'CatalogDatabaseTargetDatabaseArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
@@ -388,12 +393,12 @@ class CatalogDatabase(pulumi.CustomResource):
 
         example = aws.glue.CatalogDatabase("example",
             name="MyCatalogDatabase",
-            create_table_default_permissions=[aws.glue.CatalogDatabaseCreateTableDefaultPermissionArgs(
-                permissions=["SELECT"],
-                principal=aws.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(
-                    data_lake_principal_identifier="IAM_ALLOWED_PRINCIPALS",
-                ),
-            )])
+            create_table_default_permissions=[{
+                "permissions": ["SELECT"],
+                "principal": {
+                    "dataLakePrincipalIdentifier": "IAM_ALLOWED_PRINCIPALS",
+                },
+            }])
         ```
 
         ## Import
@@ -407,14 +412,14 @@ class CatalogDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogDatabaseCreateTableDefaultPermissionArgs', 'CatalogDatabaseCreateTableDefaultPermissionArgsDict']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
-        :param pulumi.Input[pulumi.InputType['CatalogDatabaseFederatedDatabaseArgs']] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        :param pulumi.Input[Union['CatalogDatabaseFederatedDatabaseArgs', 'CatalogDatabaseFederatedDatabaseArgsDict']] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of key-value pairs that define parameters and properties of the database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['CatalogDatabaseTargetDatabaseArgs']] target_database: Configuration block for a target database for resource linking. See `target_database` below.
+        :param pulumi.Input[Union['CatalogDatabaseTargetDatabaseArgs', 'CatalogDatabaseTargetDatabaseArgsDict']] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
         ...
     @overload
@@ -442,12 +447,12 @@ class CatalogDatabase(pulumi.CustomResource):
 
         example = aws.glue.CatalogDatabase("example",
             name="MyCatalogDatabase",
-            create_table_default_permissions=[aws.glue.CatalogDatabaseCreateTableDefaultPermissionArgs(
-                permissions=["SELECT"],
-                principal=aws.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(
-                    data_lake_principal_identifier="IAM_ALLOWED_PRINCIPALS",
-                ),
-            )])
+            create_table_default_permissions=[{
+                "permissions": ["SELECT"],
+                "principal": {
+                    "dataLakePrincipalIdentifier": "IAM_ALLOWED_PRINCIPALS",
+                },
+            }])
         ```
 
         ## Import
@@ -474,14 +479,14 @@ class CatalogDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogDatabaseCreateTableDefaultPermissionArgs', 'CatalogDatabaseCreateTableDefaultPermissionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 federated_database: Optional[pulumi.Input[pulumi.InputType['CatalogDatabaseFederatedDatabaseArgs']]] = None,
+                 federated_database: Optional[pulumi.Input[Union['CatalogDatabaseFederatedDatabaseArgs', 'CatalogDatabaseFederatedDatabaseArgsDict']]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_database: Optional[pulumi.Input[pulumi.InputType['CatalogDatabaseTargetDatabaseArgs']]] = None,
+                 target_database: Optional[pulumi.Input[Union['CatalogDatabaseTargetDatabaseArgs', 'CatalogDatabaseTargetDatabaseArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -514,15 +519,15 @@ class CatalogDatabase(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             catalog_id: Optional[pulumi.Input[str]] = None,
-            create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]] = None,
+            create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogDatabaseCreateTableDefaultPermissionArgs', 'CatalogDatabaseCreateTableDefaultPermissionArgsDict']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            federated_database: Optional[pulumi.Input[pulumi.InputType['CatalogDatabaseFederatedDatabaseArgs']]] = None,
+            federated_database: Optional[pulumi.Input[Union['CatalogDatabaseFederatedDatabaseArgs', 'CatalogDatabaseFederatedDatabaseArgsDict']]] = None,
             location_uri: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            target_database: Optional[pulumi.Input[pulumi.InputType['CatalogDatabaseTargetDatabaseArgs']]] = None) -> 'CatalogDatabase':
+            target_database: Optional[pulumi.Input[Union['CatalogDatabaseTargetDatabaseArgs', 'CatalogDatabaseTargetDatabaseArgsDict']]] = None) -> 'CatalogDatabase':
         """
         Get an existing CatalogDatabase resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -532,15 +537,15 @@ class CatalogDatabase(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Glue Catalog Database.
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogDatabaseCreateTableDefaultPermissionArgs', 'CatalogDatabaseCreateTableDefaultPermissionArgsDict']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         :param pulumi.Input[str] description: Description of the database.
-        :param pulumi.Input[pulumi.InputType['CatalogDatabaseFederatedDatabaseArgs']] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
+        :param pulumi.Input[Union['CatalogDatabaseFederatedDatabaseArgs', 'CatalogDatabaseFederatedDatabaseArgsDict']] federated_database: Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
         :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
         :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of key-value pairs that define parameters and properties of the database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['CatalogDatabaseTargetDatabaseArgs']] target_database: Configuration block for a target database for resource linking. See `target_database` below.
+        :param pulumi.Input[Union['CatalogDatabaseTargetDatabaseArgs', 'CatalogDatabaseTargetDatabaseArgsDict']] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

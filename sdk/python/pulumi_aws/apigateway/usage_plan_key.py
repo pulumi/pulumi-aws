@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['UsagePlanKeyArgs', 'UsagePlanKey']
@@ -174,10 +179,10 @@ class UsagePlanKey(pulumi.CustomResource):
         # ...
         myusageplan = aws.apigateway.UsagePlan("myusageplan",
             name="my_usage_plan",
-            api_stages=[aws.apigateway.UsagePlanApiStageArgs(
-                api_id=test.id,
-                stage=foo["stageName"],
-            )])
+            api_stages=[{
+                "apiId": test.id,
+                "stage": foo["stageName"],
+            }])
         mykey = aws.apigateway.ApiKey("mykey", name="my_key")
         main = aws.apigateway.UsagePlanKey("main",
             key_id=mykey.id,
@@ -218,10 +223,10 @@ class UsagePlanKey(pulumi.CustomResource):
         # ...
         myusageplan = aws.apigateway.UsagePlan("myusageplan",
             name="my_usage_plan",
-            api_stages=[aws.apigateway.UsagePlanApiStageArgs(
-                api_id=test.id,
-                stage=foo["stageName"],
-            )])
+            api_stages=[{
+                "apiId": test.id,
+                "stage": foo["stageName"],
+            }])
         mykey = aws.apigateway.ApiKey("mykey", name="my_key")
         main = aws.apigateway.UsagePlanKey("main",
             key_id=mykey.id,

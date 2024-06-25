@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -113,7 +118,7 @@ class Trigger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a CodeCommit Trigger Resource.
@@ -127,17 +132,17 @@ class Trigger(pulumi.CustomResource):
         test = aws.codecommit.Repository("test", repository_name="test")
         test_trigger = aws.codecommit.Trigger("test",
             repository_name=test.repository_name,
-            triggers=[aws.codecommit.TriggerTriggerArgs(
-                name="all",
-                events=["all"],
-                destination_arn=test_aws_sns_topic["arn"],
-            )])
+            triggers=[{
+                "name": "all",
+                "events": ["all"],
+                "destinationArn": test_aws_sns_topic["arn"],
+            }])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]] triggers: The name of the trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]] triggers: The name of the trigger.
         """
         ...
     @overload
@@ -157,11 +162,11 @@ class Trigger(pulumi.CustomResource):
         test = aws.codecommit.Repository("test", repository_name="test")
         test_trigger = aws.codecommit.Trigger("test",
             repository_name=test.repository_name,
-            triggers=[aws.codecommit.TriggerTriggerArgs(
-                name="all",
-                events=["all"],
-                destination_arn=test_aws_sns_topic["arn"],
-            )])
+            triggers=[{
+                "name": "all",
+                "events": ["all"],
+                "destinationArn": test_aws_sns_topic["arn"],
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -180,7 +185,7 @@ class Trigger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -209,7 +214,7 @@ class Trigger(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             configuration_id: Optional[pulumi.Input[str]] = None,
             repository_name: Optional[pulumi.Input[str]] = None,
-            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None) -> 'Trigger':
+            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]]] = None) -> 'Trigger':
         """
         Get an existing Trigger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -219,7 +224,7 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_id: System-generated unique identifier.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]] triggers: The name of the trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerTriggerArgs', 'TriggerTriggerArgsDict']]]] triggers: The name of the trigger.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

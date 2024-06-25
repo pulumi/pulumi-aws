@@ -4,15 +4,31 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DomainSingleSignOnArgs',
+    'DomainSingleSignOnArgsDict',
     'DomainTimeoutsArgs',
+    'DomainTimeoutsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DomainSingleSignOnArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        user_assignment: NotRequired[pulumi.Input[str]]
+elif False:
+    DomainSingleSignOnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainSingleSignOnArgs:
@@ -42,6 +58,19 @@ class DomainSingleSignOnArgs:
     def user_assignment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assignment", value)
 
+
+if not MYPY:
+    class DomainTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    DomainTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainTimeoutsArgs:

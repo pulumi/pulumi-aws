@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['EventStreamArgs', 'EventStream']
@@ -142,27 +147,27 @@ class EventStream(pulumi.CustomResource):
         test_stream = aws.kinesis.Stream("test_stream",
             name="pinpoint-kinesis-test",
             shard_count=1)
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pinpoint.us-east-1.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["pinpoint.us-east-1.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         test_role = aws.iam.Role("test_role", assume_role_policy=assume_role.json)
         stream = aws.pinpoint.EventStream("stream",
             application_id=app.application_id,
             destination_stream_arn=test_stream.arn,
             role_arn=test_role.arn)
-        test_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
+        test_role_policy = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": [
                 "kinesis:PutRecords",
                 "kinesis:DescribeStream",
             ],
-            resources=["arn:aws:kinesis:us-east-1:*:*/*"],
-        )])
+            "resources": ["arn:aws:kinesis:us-east-1:*:*/*"],
+        }])
         test_role_policy_role_policy = aws.iam.RolePolicy("test_role_policy",
             name="test_policy",
             role=test_role.id,
@@ -202,27 +207,27 @@ class EventStream(pulumi.CustomResource):
         test_stream = aws.kinesis.Stream("test_stream",
             name="pinpoint-kinesis-test",
             shard_count=1)
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pinpoint.us-east-1.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["pinpoint.us-east-1.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         test_role = aws.iam.Role("test_role", assume_role_policy=assume_role.json)
         stream = aws.pinpoint.EventStream("stream",
             application_id=app.application_id,
             destination_stream_arn=test_stream.arn,
             role_arn=test_role.arn)
-        test_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
+        test_role_policy = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": [
                 "kinesis:PutRecords",
                 "kinesis:DescribeStream",
             ],
-            resources=["arn:aws:kinesis:us-east-1:*:*/*"],
-        )])
+            "resources": ["arn:aws:kinesis:us-east-1:*:*/*"],
+        }])
         test_role_policy_role_policy = aws.iam.RolePolicy("test_role_policy",
             name="test_policy",
             role=test_role.id,

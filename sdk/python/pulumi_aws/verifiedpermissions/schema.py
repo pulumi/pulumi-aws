@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -113,7 +118,7 @@ class Schema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['SchemaDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
                  policy_store_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -121,7 +126,7 @@ class Schema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchemaDefinitionArgs']] definition: The definition of the schema.
+        :param pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']] definition: The definition of the schema.
         :param pulumi.Input[str] policy_store_id: The ID of the Policy Store.
         """
         ...
@@ -148,7 +153,7 @@ class Schema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['SchemaDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
                  policy_store_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -174,7 +179,7 @@ class Schema(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            definition: Optional[pulumi.Input[pulumi.InputType['SchemaDefinitionArgs']]] = None,
+            definition: Optional[pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']]] = None,
             namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             policy_store_id: Optional[pulumi.Input[str]] = None) -> 'Schema':
         """
@@ -184,7 +189,7 @@ class Schema(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchemaDefinitionArgs']] definition: The definition of the schema.
+        :param pulumi.Input[Union['SchemaDefinitionArgs', 'SchemaDefinitionArgsDict']] definition: The definition of the schema.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: (Optional) Identifies the namespaces of the entities referenced by this schema.
         :param pulumi.Input[str] policy_store_id: The ID of the Policy Store.
         """

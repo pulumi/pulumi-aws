@@ -4,14 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'LanguageModelInputDataConfigArgs',
+    'LanguageModelInputDataConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LanguageModelInputDataConfigArgsDict(TypedDict):
+        data_access_role_arn: pulumi.Input[str]
+        """
+        IAM role with access to S3 bucket.
+        """
+        s3_uri: pulumi.Input[str]
+        """
+        S3 URI where training data is located.
+        """
+        tuning_data_s3_uri: NotRequired[pulumi.Input[str]]
+        """
+        S3 URI where tuning data is located.
+
+        The following arguments are optional:
+        """
+elif False:
+    LanguageModelInputDataConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LanguageModelInputDataConfigArgs:

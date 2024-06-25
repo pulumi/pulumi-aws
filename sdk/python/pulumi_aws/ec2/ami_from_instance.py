@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -651,8 +656,8 @@ class AmiFromInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEbsBlockDeviceArgs', 'AmiFromInstanceEbsBlockDeviceArgsDict']]]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEphemeralBlockDeviceArgs', 'AmiFromInstanceEphemeralBlockDeviceArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  snapshot_without_reboot: Optional[pulumi.Input[bool]] = None,
                  source_instance_id: Optional[pulumi.Input[str]] = None,
@@ -692,9 +697,9 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEbsBlockDeviceArgs', 'AmiFromInstanceEbsBlockDeviceArgsDict']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEphemeralBlockDeviceArgs', 'AmiFromInstanceEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] name: Region-unique name for the AMI.
         :param pulumi.Input[bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
@@ -757,8 +762,8 @@ class AmiFromInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEbsBlockDeviceArgs', 'AmiFromInstanceEbsBlockDeviceArgsDict']]]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEphemeralBlockDeviceArgs', 'AmiFromInstanceEphemeralBlockDeviceArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  snapshot_without_reboot: Optional[pulumi.Input[bool]] = None,
                  source_instance_id: Optional[pulumi.Input[str]] = None,
@@ -820,9 +825,9 @@ class AmiFromInstance(pulumi.CustomResource):
             boot_mode: Optional[pulumi.Input[str]] = None,
             deprecation_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]]] = None,
+            ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEbsBlockDeviceArgs', 'AmiFromInstanceEbsBlockDeviceArgsDict']]]]] = None,
             ena_support: Optional[pulumi.Input[bool]] = None,
-            ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]]] = None,
+            ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEphemeralBlockDeviceArgs', 'AmiFromInstanceEphemeralBlockDeviceArgsDict']]]]] = None,
             hypervisor: Optional[pulumi.Input[str]] = None,
             image_location: Optional[pulumi.Input[str]] = None,
             image_owner_alias: Optional[pulumi.Input[str]] = None,
@@ -858,10 +863,10 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEbsBlockDeviceArgs', 'AmiFromInstanceEbsBlockDeviceArgsDict']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
         :param pulumi.Input[bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AmiFromInstanceEphemeralBlockDeviceArgs', 'AmiFromInstanceEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
                by the `ec2-upload-bundle` command in the EC2 command line tools.

@@ -4,27 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AccountThrottleSettingArgs',
+    'AccountThrottleSettingArgsDict',
     'DeploymentCanarySettingsArgs',
+    'DeploymentCanarySettingsArgsDict',
     'DocumentationPartLocationArgs',
+    'DocumentationPartLocationArgsDict',
     'DomainNameEndpointConfigurationArgs',
+    'DomainNameEndpointConfigurationArgsDict',
     'DomainNameMutualTlsAuthenticationArgs',
+    'DomainNameMutualTlsAuthenticationArgsDict',
     'IntegrationTlsConfigArgs',
+    'IntegrationTlsConfigArgsDict',
     'MethodSettingsSettingsArgs',
+    'MethodSettingsSettingsArgsDict',
     'RestApiEndpointConfigurationArgs',
+    'RestApiEndpointConfigurationArgsDict',
     'StageAccessLogSettingsArgs',
+    'StageAccessLogSettingsArgsDict',
     'StageCanarySettingsArgs',
+    'StageCanarySettingsArgsDict',
     'UsagePlanApiStageArgs',
+    'UsagePlanApiStageArgsDict',
     'UsagePlanApiStageThrottleArgs',
+    'UsagePlanApiStageThrottleArgsDict',
     'UsagePlanQuotaSettingsArgs',
+    'UsagePlanQuotaSettingsArgsDict',
     'UsagePlanThrottleSettingsArgs',
+    'UsagePlanThrottleSettingsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountThrottleSettingArgsDict(TypedDict):
+        burst_limit: NotRequired[pulumi.Input[int]]
+        """
+        Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+        """
+        rate_limit: NotRequired[pulumi.Input[float]]
+        """
+        Number of times API Gateway allows the API to be called per second on average (RPS).
+        """
+elif False:
+    AccountThrottleSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountThrottleSettingArgs:
@@ -64,6 +98,23 @@ class AccountThrottleSettingArgs:
     def rate_limit(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "rate_limit", value)
 
+
+if not MYPY:
+    class DeploymentCanarySettingsArgsDict(TypedDict):
+        percent_traffic: NotRequired[pulumi.Input[float]]
+        """
+        Percentage (0.0-100.0) of traffic routed to the canary deployment.
+        """
+        stage_variable_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
+        """
+        use_stage_cache: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
+        """
+elif False:
+    DeploymentCanarySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentCanarySettingsArgs:
@@ -119,6 +170,31 @@ class DeploymentCanarySettingsArgs:
     def use_stage_cache(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_stage_cache", value)
 
+
+if not MYPY:
+    class DocumentationPartLocationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+        """
+        method: NotRequired[pulumi.Input[str]]
+        """
+        HTTP verb of a method. The default value is `*` for any method.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the targeted API entity.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        URL path of the target. The default value is `/` for the root resource.
+        """
+        status_code: NotRequired[pulumi.Input[str]]
+        """
+        HTTP status code of a response. The default value is `*` for any status code.
+        """
+elif False:
+    DocumentationPartLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DocumentationPartLocationArgs:
@@ -206,6 +282,15 @@ class DocumentationPartLocationArgs:
         pulumi.set(self, "status_code", value)
 
 
+if not MYPY:
+    class DomainNameEndpointConfigurationArgsDict(TypedDict):
+        types: pulumi.Input[str]
+        """
+        List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        """
+elif False:
+    DomainNameEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainNameEndpointConfigurationArgs:
     def __init__(__self__, *,
@@ -227,6 +312,19 @@ class DomainNameEndpointConfigurationArgs:
     def types(self, value: pulumi.Input[str]):
         pulumi.set(self, "types", value)
 
+
+if not MYPY:
+    class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
+        truststore_uri: pulumi.Input[str]
+        """
+        Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        """
+        truststore_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
+elif False:
+    DomainNameMutualTlsAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainNameMutualTlsAuthenticationArgs:
@@ -266,6 +364,15 @@ class DomainNameMutualTlsAuthenticationArgs:
         pulumi.set(self, "truststore_version", value)
 
 
+if not MYPY:
+    class IntegrationTlsConfigArgsDict(TypedDict):
+        insecure_skip_verification: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+        """
+elif False:
+    IntegrationTlsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationTlsConfigArgs:
     def __init__(__self__, *,
@@ -288,6 +395,51 @@ class IntegrationTlsConfigArgs:
     def insecure_skip_verification(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "insecure_skip_verification", value)
 
+
+if not MYPY:
+    class MethodSettingsSettingsArgsDict(TypedDict):
+        cache_data_encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the cached responses are encrypted.
+        """
+        cache_ttl_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+        """
+        caching_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
+        """
+        data_trace_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+        """
+        logging_level: NotRequired[pulumi.Input[str]]
+        """
+        Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+        """
+        metrics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether Amazon CloudWatch metrics are enabled for this method.
+        """
+        require_authorization_for_cache_control: NotRequired[pulumi.Input[bool]]
+        """
+        Whether authorization is required for a cache invalidation request.
+        """
+        throttling_burst_limit: NotRequired[pulumi.Input[int]]
+        """
+        Throttling burst limit. Default: `-1` (throttling disabled).
+        """
+        throttling_rate_limit: NotRequired[pulumi.Input[float]]
+        """
+        Throttling rate limit. Default: `-1` (throttling disabled).
+        """
+        unauthorized_cache_control_header_strategy: NotRequired[pulumi.Input[str]]
+        """
+        How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+        """
+elif False:
+    MethodSettingsSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MethodSettingsSettingsArgs:
@@ -456,6 +608,19 @@ class MethodSettingsSettingsArgs:
         pulumi.set(self, "unauthorized_cache_control_header_strategy", value)
 
 
+if not MYPY:
+    class RestApiEndpointConfigurationArgsDict(TypedDict):
+        types: pulumi.Input[str]
+        """
+        List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+        """
+        vpc_endpoint_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
+        """
+elif False:
+    RestApiEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RestApiEndpointConfigurationArgs:
     def __init__(__self__, *,
@@ -493,6 +658,20 @@ class RestApiEndpointConfigurationArgs:
     def vpc_endpoint_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "vpc_endpoint_ids", value)
 
+
+if not MYPY:
+    class StageAccessLogSettingsArgsDict(TypedDict):
+        destination_arn: pulumi.Input[str]
+        """
+        ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+        """
+        format: pulumi.Input[str]
+        """
+        Formatting and values recorded in the logs.
+        For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+        """
+elif False:
+    StageAccessLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StageAccessLogSettingsArgs:
@@ -532,6 +711,23 @@ class StageAccessLogSettingsArgs:
     def format(self, value: pulumi.Input[str]):
         pulumi.set(self, "format", value)
 
+
+if not MYPY:
+    class StageCanarySettingsArgsDict(TypedDict):
+        percent_traffic: NotRequired[pulumi.Input[float]]
+        """
+        Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+        """
+        stage_variable_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of overridden stage `variables` (including new variables) for the canary deployment.
+        """
+        use_stage_cache: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the canary deployment uses the stage cache. Defaults to false.
+        """
+elif False:
+    StageCanarySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StageCanarySettingsArgs:
@@ -588,6 +784,14 @@ class StageCanarySettingsArgs:
         pulumi.set(self, "use_stage_cache", value)
 
 
+if not MYPY:
+    class UsagePlanApiStageArgsDict(TypedDict):
+        api_id: pulumi.Input[str]
+        stage: pulumi.Input[str]
+        throttles: NotRequired[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgsDict']]]]
+elif False:
+    UsagePlanApiStageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UsagePlanApiStageArgs:
     def __init__(__self__, *,
@@ -626,6 +830,23 @@ class UsagePlanApiStageArgs:
     def throttles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]]):
         pulumi.set(self, "throttles", value)
 
+
+if not MYPY:
+    class UsagePlanApiStageThrottleArgsDict(TypedDict):
+        path: pulumi.Input[str]
+        """
+        Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+        """
+        burst_limit: NotRequired[pulumi.Input[int]]
+        """
+        The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        """
+        rate_limit: NotRequired[pulumi.Input[float]]
+        """
+        The API request steady-state rate limit.
+        """
+elif False:
+    UsagePlanApiStageThrottleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UsagePlanApiStageThrottleArgs:
@@ -681,6 +902,14 @@ class UsagePlanApiStageThrottleArgs:
         pulumi.set(self, "rate_limit", value)
 
 
+if not MYPY:
+    class UsagePlanQuotaSettingsArgsDict(TypedDict):
+        limit: pulumi.Input[int]
+        period: pulumi.Input[str]
+        offset: NotRequired[pulumi.Input[int]]
+elif False:
+    UsagePlanQuotaSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UsagePlanQuotaSettingsArgs:
     def __init__(__self__, *,
@@ -719,6 +948,13 @@ class UsagePlanQuotaSettingsArgs:
     def offset(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "offset", value)
 
+
+if not MYPY:
+    class UsagePlanThrottleSettingsArgsDict(TypedDict):
+        burst_limit: NotRequired[pulumi.Input[int]]
+        rate_limit: NotRequired[pulumi.Input[float]]
+elif False:
+    UsagePlanThrottleSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UsagePlanThrottleSettingsArgs:

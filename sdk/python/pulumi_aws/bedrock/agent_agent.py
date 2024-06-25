@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -459,9 +464,9 @@ class AgentAgent(pulumi.CustomResource):
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
-                 prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentPromptOverrideConfigurationArgs']]]]] = None,
+                 prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['AgentAgentTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Agents for Amazon Bedrock Agent.
@@ -477,29 +482,29 @@ class AgentAgent(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
-        example_agent_trust = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["bedrock.amazonaws.com"],
-                type="Service",
-            )],
-            conditions=[
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    values=[current.account_id],
-                    variable="aws:SourceAccount",
-                ),
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="ArnLike",
-                    values=[f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
-                    variable="AWS:SourceArn",
-                ),
+        example_agent_trust = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "identifiers": ["bedrock.amazonaws.com"],
+                "type": "Service",
+            }],
+            "conditions": [
+                {
+                    "test": "StringEquals",
+                    "values": [current.account_id],
+                    "variable": "aws:SourceAccount",
+                },
+                {
+                    "test": "ArnLike",
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
+                    "variable": "AWS:SourceArn",
+                },
             ],
-        )])
-        example_agent_permissions = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["bedrock:InvokeModel"],
-            resources=[f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-v2"],
-        )])
+        }])
+        example_agent_permissions = aws.iam.get_policy_document(statements=[{
+            "actions": ["bedrock:InvokeModel"],
+            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-v2"],
+        }])
         example = aws.iam.Role("example",
             assume_role_policy=example_agent_trust.json,
             name_prefix="AmazonBedrockExecutionRoleForAgents_")
@@ -533,7 +538,7 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentPromptOverrideConfigurationArgs']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -556,29 +561,29 @@ class AgentAgent(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
-        example_agent_trust = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["bedrock.amazonaws.com"],
-                type="Service",
-            )],
-            conditions=[
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    values=[current.account_id],
-                    variable="aws:SourceAccount",
-                ),
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="ArnLike",
-                    values=[f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
-                    variable="AWS:SourceArn",
-                ),
+        example_agent_trust = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "identifiers": ["bedrock.amazonaws.com"],
+                "type": "Service",
+            }],
+            "conditions": [
+                {
+                    "test": "StringEquals",
+                    "values": [current.account_id],
+                    "variable": "aws:SourceAccount",
+                },
+                {
+                    "test": "ArnLike",
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
+                    "variable": "AWS:SourceArn",
+                },
             ],
-        )])
-        example_agent_permissions = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["bedrock:InvokeModel"],
-            resources=[f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-v2"],
-        )])
+        }])
+        example_agent_permissions = aws.iam.get_policy_document(statements=[{
+            "actions": ["bedrock:InvokeModel"],
+            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-v2"],
+        }])
         example = aws.iam.Role("example",
             assume_role_policy=example_agent_trust.json,
             name_prefix="AmazonBedrockExecutionRoleForAgents_")
@@ -623,9 +628,9 @@ class AgentAgent(pulumi.CustomResource):
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  instruction: Optional[pulumi.Input[str]] = None,
                  prepare_agent: Optional[pulumi.Input[bool]] = None,
-                 prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentPromptOverrideConfigurationArgs']]]]] = None,
+                 prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['AgentAgentTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -677,10 +682,10 @@ class AgentAgent(pulumi.CustomResource):
             idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
             instruction: Optional[pulumi.Input[str]] = None,
             prepare_agent: Optional[pulumi.Input[bool]] = None,
-            prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentPromptOverrideConfigurationArgs']]]]] = None,
+            prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['AgentAgentTimeoutsArgs']]] = None) -> 'AgentAgent':
+            timeouts: Optional[pulumi.Input[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None) -> 'AgentAgent':
         """
         Get an existing AgentAgent resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -701,7 +706,7 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[int] idle_session_ttl_in_seconds: Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         :param pulumi.Input[str] instruction: Instructions that tell the agent what it should do and how it should interact with users.
         :param pulumi.Input[bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentAgentPromptOverrideConfigurationArgs']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

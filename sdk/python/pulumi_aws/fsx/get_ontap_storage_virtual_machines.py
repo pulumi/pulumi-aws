@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -67,7 +72,7 @@ class AwaitableGetOntapStorageVirtualMachinesResult(GetOntapStorageVirtualMachin
             ids=self.ids)
 
 
-def get_ontap_storage_virtual_machines(filters: Optional[Sequence[pulumi.InputType['GetOntapStorageVirtualMachinesFilterArgs']]] = None,
+def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOntapStorageVirtualMachinesResult:
     """
     This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
@@ -80,14 +85,14 @@ def get_ontap_storage_virtual_machines(filters: Optional[Sequence[pulumi.InputTy
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.fsx.get_ontap_storage_virtual_machines(filters=[aws.fsx.GetOntapStorageVirtualMachinesFilterArgs(
-        name="file-system-id",
-        values=["fs-12345678"],
-    )])
+    example = aws.fsx.get_ontap_storage_virtual_machines(filters=[{
+        "name": "file-system-id",
+        "values": ["fs-12345678"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetOntapStorageVirtualMachinesFilterArgs']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']] filters: Configuration block. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -101,7 +106,7 @@ def get_ontap_storage_virtual_machines(filters: Optional[Sequence[pulumi.InputTy
 
 
 @_utilities.lift_output_func(get_ontap_storage_virtual_machines)
-def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetOntapStorageVirtualMachinesFilterArgs']]]]] = None,
+def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']]]]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOntapStorageVirtualMachinesResult]:
     """
     This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
@@ -114,13 +119,13 @@ def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Opt
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.fsx.get_ontap_storage_virtual_machines(filters=[aws.fsx.GetOntapStorageVirtualMachinesFilterArgs(
-        name="file-system-id",
-        values=["fs-12345678"],
-    )])
+    example = aws.fsx.get_ontap_storage_virtual_machines(filters=[{
+        "name": "file-system-id",
+        "values": ["fs-12345678"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetOntapStorageVirtualMachinesFilterArgs']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']] filters: Configuration block. Detailed below.
     """
     ...

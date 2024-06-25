@@ -4,19 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ConnectionAliasTimeoutsArgs',
+    'ConnectionAliasTimeoutsArgsDict',
     'DirectorySelfServicePermissionsArgs',
+    'DirectorySelfServicePermissionsArgsDict',
     'DirectoryWorkspaceAccessPropertiesArgs',
+    'DirectoryWorkspaceAccessPropertiesArgsDict',
     'DirectoryWorkspaceCreationPropertiesArgs',
+    'DirectoryWorkspaceCreationPropertiesArgsDict',
     'IpGroupRuleArgs',
+    'IpGroupRuleArgsDict',
     'WorkspaceWorkspacePropertiesArgs',
+    'WorkspaceWorkspacePropertiesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConnectionAliasTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    ConnectionAliasTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionAliasTimeoutsArgs:
@@ -72,6 +102,31 @@ class ConnectionAliasTimeoutsArgs:
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
 
+
+if not MYPY:
+    class DirectorySelfServicePermissionsArgsDict(TypedDict):
+        change_compute_type: NotRequired[pulumi.Input[bool]]
+        """
+        Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
+        """
+        increase_volume_size: NotRequired[pulumi.Input[bool]]
+        """
+        Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
+        """
+        rebuild_workspace: NotRequired[pulumi.Input[bool]]
+        """
+        Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
+        """
+        restart_workspace: NotRequired[pulumi.Input[bool]]
+        """
+        Whether WorkSpaces directory users can restart their workspace. Default `true`.
+        """
+        switch_running_mode: NotRequired[pulumi.Input[bool]]
+        """
+        Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
+        """
+elif False:
+    DirectorySelfServicePermissionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DirectorySelfServicePermissionsArgs:
@@ -159,6 +214,43 @@ class DirectorySelfServicePermissionsArgs:
     def switch_running_mode(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "switch_running_mode", value)
 
+
+if not MYPY:
+    class DirectoryWorkspaceAccessPropertiesArgsDict(TypedDict):
+        device_type_android: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether users can use Android devices to access their WorkSpaces.
+        """
+        device_type_chromeos: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether users can use Chromebooks to access their WorkSpaces.
+        """
+        device_type_ios: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether users can use iOS devices to access their WorkSpaces.
+        """
+        device_type_linux: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether users can use Linux clients to access their WorkSpaces.
+        """
+        device_type_osx: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether users can use macOS clients to access their WorkSpaces.
+        """
+        device_type_web: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether users can access their WorkSpaces through a web browser.
+        """
+        device_type_windows: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether users can use Windows clients to access their WorkSpaces.
+        """
+        device_type_zeroclient: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether users can use zero client devices to access their WorkSpaces.
+        """
+elif False:
+    DirectoryWorkspaceAccessPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DirectoryWorkspaceAccessPropertiesArgs:
@@ -295,6 +387,31 @@ class DirectoryWorkspaceAccessPropertiesArgs:
         pulumi.set(self, "device_type_zeroclient", value)
 
 
+if not MYPY:
+    class DirectoryWorkspaceCreationPropertiesArgsDict(TypedDict):
+        custom_security_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
+        """
+        default_ou: NotRequired[pulumi.Input[str]]
+        """
+        The default organizational unit (OU) for your WorkSpace directories. Should conform `"OU=<value>,DC=<value>,...,DC=<value>"` pattern.
+        """
+        enable_internet_access: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether internet access is enabled for your WorkSpaces.
+        """
+        enable_maintenance_mode: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html)..
+        """
+        user_enabled_as_local_administrator: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether users are local administrators of their WorkSpaces.
+        """
+elif False:
+    DirectoryWorkspaceCreationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DirectoryWorkspaceCreationPropertiesArgs:
     def __init__(__self__, *,
@@ -382,6 +499,16 @@ class DirectoryWorkspaceCreationPropertiesArgs:
         pulumi.set(self, "user_enabled_as_local_administrator", value)
 
 
+if not MYPY:
+    class IpGroupRuleArgsDict(TypedDict):
+        source: pulumi.Input[str]
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the IP group.
+        """
+elif False:
+    IpGroupRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IpGroupRuleArgs:
     def __init__(__self__, *,
@@ -415,6 +542,31 @@ class IpGroupRuleArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class WorkspaceWorkspacePropertiesArgsDict(TypedDict):
+        compute_type_name: NotRequired[pulumi.Input[str]]
+        """
+        The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+        """
+        root_volume_size_gib: NotRequired[pulumi.Input[int]]
+        """
+        The size of the root volume.
+        """
+        running_mode: NotRequired[pulumi.Input[str]]
+        """
+        The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
+        """
+        running_mode_auto_stop_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
+        """
+        user_volume_size_gib: NotRequired[pulumi.Input[int]]
+        """
+        The size of the user storage.
+        """
+elif False:
+    WorkspaceWorkspacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceWorkspacePropertiesArgs:

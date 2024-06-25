@@ -4,17 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'RuleLockConfigurationArgs',
+    'RuleLockConfigurationArgsDict',
     'RuleLockConfigurationUnlockDelayArgs',
+    'RuleLockConfigurationUnlockDelayArgsDict',
     'RuleResourceTagArgs',
+    'RuleResourceTagArgsDict',
     'RuleRetentionPeriodArgs',
+    'RuleRetentionPeriodArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class RuleLockConfigurationArgsDict(TypedDict):
+        unlock_delay: pulumi.Input['RuleLockConfigurationUnlockDelayArgsDict']
+        """
+        Information about the retention rule unlock delay. See `unlock_delay` below.
+        """
+elif False:
+    RuleLockConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleLockConfigurationArgs:
@@ -37,6 +57,19 @@ class RuleLockConfigurationArgs:
     def unlock_delay(self, value: pulumi.Input['RuleLockConfigurationUnlockDelayArgs']):
         pulumi.set(self, "unlock_delay", value)
 
+
+if not MYPY:
+    class RuleLockConfigurationUnlockDelayArgsDict(TypedDict):
+        unlock_delay_unit: pulumi.Input[str]
+        """
+        The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+        """
+        unlock_delay_value: pulumi.Input[int]
+        """
+        The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+        """
+elif False:
+    RuleLockConfigurationUnlockDelayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleLockConfigurationUnlockDelayArgs:
@@ -74,6 +107,21 @@ class RuleLockConfigurationUnlockDelayArgs:
     def unlock_delay_value(self, value: pulumi.Input[int]):
         pulumi.set(self, "unlock_delay_value", value)
 
+
+if not MYPY:
+    class RuleResourceTagArgsDict(TypedDict):
+        resource_tag_key: pulumi.Input[str]
+        """
+        The tag key.
+
+        The following argument is optional:
+        """
+        resource_tag_value: NotRequired[pulumi.Input[str]]
+        """
+        The tag value.
+        """
+elif False:
+    RuleResourceTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleResourceTagArgs:
@@ -116,6 +164,19 @@ class RuleResourceTagArgs:
     def resource_tag_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_tag_value", value)
 
+
+if not MYPY:
+    class RuleRetentionPeriodArgsDict(TypedDict):
+        retention_period_unit: pulumi.Input[str]
+        """
+        The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+        """
+        retention_period_value: pulumi.Input[int]
+        """
+        The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+        """
+elif False:
+    RuleRetentionPeriodArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RuleRetentionPeriodArgs:

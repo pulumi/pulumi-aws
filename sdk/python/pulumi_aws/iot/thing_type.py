@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -200,7 +205,7 @@ class ThingType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecated: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ThingTypePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -227,7 +232,7 @@ class ThingType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
         :param pulumi.Input[str] name: The name of the thing type.
-        :param pulumi.Input[pulumi.InputType['ThingTypePropertiesArgs']] properties: , Configuration block that can contain the following properties of the thing type:
+        :param pulumi.Input[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict']] properties: , Configuration block that can contain the following properties of the thing type:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
@@ -273,7 +278,7 @@ class ThingType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deprecated: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ThingTypePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -303,7 +308,7 @@ class ThingType(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             deprecated: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            properties: Optional[pulumi.Input[pulumi.InputType['ThingTypePropertiesArgs']]] = None,
+            properties: Optional[pulumi.Input[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ThingType':
         """
@@ -316,7 +321,7 @@ class ThingType(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the created AWS IoT Thing Type.
         :param pulumi.Input[bool] deprecated: Whether the thing type is deprecated. If true, no new things could be associated with this type.
         :param pulumi.Input[str] name: The name of the thing type.
-        :param pulumi.Input[pulumi.InputType['ThingTypePropertiesArgs']] properties: , Configuration block that can contain the following properties of the thing type:
+        :param pulumi.Input[Union['ThingTypePropertiesArgs', 'ThingTypePropertiesArgsDict']] properties: , Configuration block that can contain the following properties of the thing type:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

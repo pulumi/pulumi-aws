@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['UserPoolDomainArgs', 'UserPoolDomain']
@@ -259,11 +264,11 @@ class UserPoolDomain(pulumi.CustomResource):
             name=main.domain,
             type=aws.route53.RecordType.A,
             zone_id=example.zone_id,
-            aliases=[aws.route53.RecordAliasArgs(
-                evaluate_target_health=False,
-                name=main.cloudfront_distribution,
-                zone_id=main.cloudfront_distribution_zone_id,
-            )])
+            aliases=[{
+                "evaluateTargetHealth": False,
+                "name": main.cloudfront_distribution,
+                "zoneId": main.cloudfront_distribution_zone_id,
+            }])
         ```
 
         ## Import
@@ -319,11 +324,11 @@ class UserPoolDomain(pulumi.CustomResource):
             name=main.domain,
             type=aws.route53.RecordType.A,
             zone_id=example.zone_id,
-            aliases=[aws.route53.RecordAliasArgs(
-                evaluate_target_health=False,
-                name=main.cloudfront_distribution,
-                zone_id=main.cloudfront_distribution_zone_id,
-            )])
+            aliases=[{
+                "evaluateTargetHealth": False,
+                "name": main.cloudfront_distribution,
+                "zoneId": main.cloudfront_distribution_zone_id,
+            }])
         ```
 
         ## Import

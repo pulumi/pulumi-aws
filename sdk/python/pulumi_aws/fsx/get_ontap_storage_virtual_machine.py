@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -184,7 +189,7 @@ class AwaitableGetOntapStorageVirtualMachineResult(GetOntapStorageVirtualMachine
             uuid=self.uuid)
 
 
-def get_ontap_storage_virtual_machine(filters: Optional[Sequence[pulumi.InputType['GetOntapStorageVirtualMachineFilterArgs']]] = None,
+def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']]] = None,
                                       id: Optional[str] = None,
                                       tags: Optional[Mapping[str, str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOntapStorageVirtualMachineResult:
@@ -208,14 +213,14 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[pulumi.InputTyp
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.fsx.get_ontap_storage_virtual_machine(filters=[aws.fsx.GetOntapStorageVirtualMachineFilterArgs(
-        name="file-system-id",
-        values=["fs-12345678"],
-    )])
+    example = aws.fsx.get_ontap_storage_virtual_machine(filters=[{
+        "name": "file-system-id",
+        "values": ["fs-12345678"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetOntapStorageVirtualMachineFilterArgs']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']] filters: Configuration block. Detailed below.
     :param str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
     """
     __args__ = dict()
@@ -242,7 +247,7 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[pulumi.InputTyp
 
 
 @_utilities.lift_output_func(get_ontap_storage_virtual_machine)
-def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetOntapStorageVirtualMachineFilterArgs']]]]] = None,
+def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']]]]] = None,
                                              id: Optional[pulumi.Input[Optional[str]]] = None,
                                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOntapStorageVirtualMachineResult]:
@@ -266,14 +271,14 @@ def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Opti
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.fsx.get_ontap_storage_virtual_machine(filters=[aws.fsx.GetOntapStorageVirtualMachineFilterArgs(
-        name="file-system-id",
-        values=["fs-12345678"],
-    )])
+    example = aws.fsx.get_ontap_storage_virtual_machine(filters=[{
+        "name": "file-system-id",
+        "values": ["fs-12345678"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetOntapStorageVirtualMachineFilterArgs']] filters: Configuration block. Detailed below.
+    :param Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']] filters: Configuration block. Detailed below.
     :param str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
     """
     ...

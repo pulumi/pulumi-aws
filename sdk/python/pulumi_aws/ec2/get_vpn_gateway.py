@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -109,7 +114,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
 def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
                     attached_vpc_id: Optional[str] = None,
                     availability_zone: Optional[str] = None,
-                    filters: Optional[Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']]] = None,
+                    filters: Optional[Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']]] = None,
                     id: Optional[str] = None,
                     state: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
@@ -124,10 +129,10 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArgs(
-        name="tag:Name",
-        values=["vpn-gw"],
-    )])
+    selected = aws.ec2.get_vpn_gateway(filters=[{
+        "name": "tag:Name",
+        "values": ["vpn-gw"],
+    }])
     pulumi.export("vpnGatewayId", selected.id)
     ```
 
@@ -138,7 +143,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
            which take the following arguments:
     :param str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
-    :param Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPN Gateway to retrieve.
     :param str state: State of the specific VPN Gateway to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
@@ -170,7 +175,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
 def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]] = None,
                            attached_vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                            availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
-                           filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']]]]] = None,
+                           filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']]]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
                            state: Optional[pulumi.Input[Optional[str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -185,10 +190,10 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
     import pulumi
     import pulumi_aws as aws
 
-    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArgs(
-        name="tag:Name",
-        values=["vpn-gw"],
-    )])
+    selected = aws.ec2.get_vpn_gateway(filters=[{
+        "name": "tag:Name",
+        "values": ["vpn-gw"],
+    }])
     pulumi.export("vpnGatewayId", selected.id)
     ```
 
@@ -199,7 +204,7 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
            which take the following arguments:
     :param str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
-    :param Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPN Gateway to retrieve.
     :param str state: State of the specific VPN Gateway to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match

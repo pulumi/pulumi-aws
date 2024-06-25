@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['SharedDirectoryAccepterArgs', 'SharedDirectoryAccepter']
@@ -143,9 +148,9 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         example = aws.directoryservice.SharedDirectory("example",
             directory_id=example_aws_directory_service_directory["id"],
             notes="example",
-            target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=receiver["accountId"],
-            ))
+            target={
+                "id": receiver["accountId"],
+            })
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("example", shared_directory_id=example.shared_directory_id)
         ```
 
@@ -181,9 +186,9 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         example = aws.directoryservice.SharedDirectory("example",
             directory_id=example_aws_directory_service_directory["id"],
             notes="example",
-            target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=receiver["accountId"],
-            ))
+            target={
+                "id": receiver["accountId"],
+            })
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("example", shared_directory_id=example.shared_directory_id)
         ```
 

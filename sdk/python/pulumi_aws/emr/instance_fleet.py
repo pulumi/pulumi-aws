@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -262,8 +267,8 @@ class InstanceFleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
-                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceFleetInstanceTypeConfigArgs']]]]] = None,
-                 launch_specifications: Optional[pulumi.Input[pulumi.InputType['InstanceFleetLaunchSpecificationsArgs']]] = None,
+                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
+                 launch_specifications: Optional[pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[int]] = None,
@@ -285,35 +290,35 @@ class InstanceFleet(pulumi.CustomResource):
         task = aws.emr.InstanceFleet("task",
             cluster_id=cluster["id"],
             instance_type_configs=[
-                aws.emr.InstanceFleetInstanceTypeConfigArgs(
-                    bid_price_as_percentage_of_on_demand_price=100,
-                    ebs_configs=[aws.emr.InstanceFleetInstanceTypeConfigEbsConfigArgs(
-                        size=100,
-                        type="gp2",
-                        volumes_per_instance=1,
-                    )],
-                    instance_type="m4.xlarge",
-                    weighted_capacity=1,
-                ),
-                aws.emr.InstanceFleetInstanceTypeConfigArgs(
-                    bid_price_as_percentage_of_on_demand_price=100,
-                    ebs_configs=[aws.emr.InstanceFleetInstanceTypeConfigEbsConfigArgs(
-                        size=100,
-                        type="gp2",
-                        volumes_per_instance=1,
-                    )],
-                    instance_type="m4.2xlarge",
-                    weighted_capacity=2,
-                ),
+                {
+                    "bidPriceAsPercentageOfOnDemandPrice": 100,
+                    "ebsConfigs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    "instanceType": "m4.xlarge",
+                    "weightedCapacity": 1,
+                },
+                {
+                    "bidPriceAsPercentageOfOnDemandPrice": 100,
+                    "ebsConfigs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    "instanceType": "m4.2xlarge",
+                    "weightedCapacity": 2,
+                },
             ],
-            launch_specifications=aws.emr.InstanceFleetLaunchSpecificationsArgs(
-                spot_specifications=[aws.emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs(
-                    allocation_strategy="capacity-optimized",
-                    block_duration_minutes=0,
-                    timeout_action="TERMINATE_CLUSTER",
-                    timeout_duration_minutes=10,
-                )],
-            ),
+            launch_specifications={
+                "spotSpecifications": [{
+                    "allocationStrategy": "capacity-optimized",
+                    "blockDurationMinutes": 0,
+                    "timeoutAction": "TERMINATE_CLUSTER",
+                    "timeoutDurationMinutes": 10,
+                }],
+            },
             name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
@@ -330,8 +335,8 @@ class InstanceFleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceFleetInstanceTypeConfigArgs']]]] instance_type_configs: Configuration block for instance fleet
-        :param pulumi.Input[pulumi.InputType['InstanceFleetLaunchSpecificationsArgs']] launch_specifications: Configuration block for launch specification
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]] instance_type_configs: Configuration block for instance fleet
+        :param pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']] launch_specifications: Configuration block for launch specification
         :param pulumi.Input[str] name: Friendly name given to the instance fleet.
         :param pulumi.Input[int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -359,35 +364,35 @@ class InstanceFleet(pulumi.CustomResource):
         task = aws.emr.InstanceFleet("task",
             cluster_id=cluster["id"],
             instance_type_configs=[
-                aws.emr.InstanceFleetInstanceTypeConfigArgs(
-                    bid_price_as_percentage_of_on_demand_price=100,
-                    ebs_configs=[aws.emr.InstanceFleetInstanceTypeConfigEbsConfigArgs(
-                        size=100,
-                        type="gp2",
-                        volumes_per_instance=1,
-                    )],
-                    instance_type="m4.xlarge",
-                    weighted_capacity=1,
-                ),
-                aws.emr.InstanceFleetInstanceTypeConfigArgs(
-                    bid_price_as_percentage_of_on_demand_price=100,
-                    ebs_configs=[aws.emr.InstanceFleetInstanceTypeConfigEbsConfigArgs(
-                        size=100,
-                        type="gp2",
-                        volumes_per_instance=1,
-                    )],
-                    instance_type="m4.2xlarge",
-                    weighted_capacity=2,
-                ),
+                {
+                    "bidPriceAsPercentageOfOnDemandPrice": 100,
+                    "ebsConfigs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    "instanceType": "m4.xlarge",
+                    "weightedCapacity": 1,
+                },
+                {
+                    "bidPriceAsPercentageOfOnDemandPrice": 100,
+                    "ebsConfigs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumesPerInstance": 1,
+                    }],
+                    "instanceType": "m4.2xlarge",
+                    "weightedCapacity": 2,
+                },
             ],
-            launch_specifications=aws.emr.InstanceFleetLaunchSpecificationsArgs(
-                spot_specifications=[aws.emr.InstanceFleetLaunchSpecificationsSpotSpecificationArgs(
-                    allocation_strategy="capacity-optimized",
-                    block_duration_minutes=0,
-                    timeout_action="TERMINATE_CLUSTER",
-                    timeout_duration_minutes=10,
-                )],
-            ),
+            launch_specifications={
+                "spotSpecifications": [{
+                    "allocationStrategy": "capacity-optimized",
+                    "blockDurationMinutes": 0,
+                    "timeoutAction": "TERMINATE_CLUSTER",
+                    "timeoutDurationMinutes": 10,
+                }],
+            },
             name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
@@ -417,8 +422,8 @@ class InstanceFleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
-                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceFleetInstanceTypeConfigArgs']]]]] = None,
-                 launch_specifications: Optional[pulumi.Input[pulumi.InputType['InstanceFleetLaunchSpecificationsArgs']]] = None,
+                 instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
+                 launch_specifications: Optional[pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[int]] = None,
@@ -452,8 +457,8 @@ class InstanceFleet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
-            instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceFleetInstanceTypeConfigArgs']]]]] = None,
-            launch_specifications: Optional[pulumi.Input[pulumi.InputType['InstanceFleetLaunchSpecificationsArgs']]] = None,
+            instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
+            launch_specifications: Optional[pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             provisioned_on_demand_capacity: Optional[pulumi.Input[int]] = None,
             provisioned_spot_capacity: Optional[pulumi.Input[int]] = None,
@@ -467,8 +472,8 @@ class InstanceFleet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceFleetInstanceTypeConfigArgs']]]] instance_type_configs: Configuration block for instance fleet
-        :param pulumi.Input[pulumi.InputType['InstanceFleetLaunchSpecificationsArgs']] launch_specifications: Configuration block for launch specification
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]] instance_type_configs: Configuration block for instance fleet
+        :param pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']] launch_specifications: Configuration block for launch specification
         :param pulumi.Input[str] name: Friendly name given to the instance fleet.
         :param pulumi.Input[int] provisioned_on_demand_capacity: The number of On-Demand units that have been provisioned for the instance
                fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.

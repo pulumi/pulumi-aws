@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['LoadBalancerCookieStickinessPolicyArgs', 'LoadBalancerCookieStickinessPolicy']
@@ -191,12 +196,12 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         lb = aws.elb.LoadBalancer("lb",
             name="test-lb",
             availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="http",
-                lb_port=80,
-                lb_protocol="http",
-            )])
+            listeners=[{
+                "instancePort": 8000,
+                "instanceProtocol": "http",
+                "lbPort": 80,
+                "lbProtocol": "http",
+            }])
         foo = aws.elb.LoadBalancerCookieStickinessPolicy("foo",
             name="foo-policy",
             load_balancer=lb.id,
@@ -233,12 +238,12 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         lb = aws.elb.LoadBalancer("lb",
             name="test-lb",
             availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=8000,
-                instance_protocol="http",
-                lb_port=80,
-                lb_protocol="http",
-            )])
+            listeners=[{
+                "instancePort": 8000,
+                "instanceProtocol": "http",
+                "lbPort": 80,
+                "lbProtocol": "http",
+            }])
         foo = aws.elb.LoadBalancerCookieStickinessPolicy("foo",
             name="foo-policy",
             load_balancer=lb.id,

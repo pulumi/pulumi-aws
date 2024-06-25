@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -236,7 +241,7 @@ class ParameterGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -254,14 +259,14 @@ class ParameterGroup(pulumi.CustomResource):
             name="cache-params",
             family="redis2.8",
             parameters=[
-                aws.elasticache.ParameterGroupParameterArgs(
-                    name="activerehashing",
-                    value="yes",
-                ),
-                aws.elasticache.ParameterGroupParameterArgs(
-                    name="min-slaves-to-write",
-                    value="2",
-                ),
+                {
+                    "name": "activerehashing",
+                    "value": "yes",
+                },
+                {
+                    "name": "min-slaves-to-write",
+                    "value": "2",
+                },
             ])
         ```
 
@@ -278,7 +283,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the ElastiCache parameter group.
         :param pulumi.Input[str] name: The name of the ElastiCache parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of ElastiCache parameters to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: A list of ElastiCache parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
@@ -302,14 +307,14 @@ class ParameterGroup(pulumi.CustomResource):
             name="cache-params",
             family="redis2.8",
             parameters=[
-                aws.elasticache.ParameterGroupParameterArgs(
-                    name="activerehashing",
-                    value="yes",
-                ),
-                aws.elasticache.ParameterGroupParameterArgs(
-                    name="min-slaves-to-write",
-                    value="2",
-                ),
+                {
+                    "name": "activerehashing",
+                    "value": "yes",
+                },
+                {
+                    "name": "min-slaves-to-write",
+                    "value": "2",
+                },
             ])
         ```
 
@@ -339,7 +344,7 @@ class ParameterGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -375,7 +380,7 @@ class ParameterGroup(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             family: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]]] = None,
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ParameterGroup':
         """
@@ -389,7 +394,7 @@ class ParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
         :param pulumi.Input[str] family: The family of the ElastiCache parameter group.
         :param pulumi.Input[str] name: The name of the ElastiCache parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: A list of ElastiCache parameters to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ParameterGroupParameterArgs', 'ParameterGroupParameterArgsDict']]]] parameters: A list of ElastiCache parameters to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

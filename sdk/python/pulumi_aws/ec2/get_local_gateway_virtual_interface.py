@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -142,7 +147,7 @@ class AwaitableGetLocalGatewayVirtualInterfaceResult(GetLocalGatewayVirtualInter
             vlan=self.vlan)
 
 
-def get_local_gateway_virtual_interface(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceFilterArgs']]] = None,
+def get_local_gateway_virtual_interface(filters: Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceFilterArgs', 'GetLocalGatewayVirtualInterfaceFilterArgsDict']]] = None,
                                         id: Optional[str] = None,
                                         tags: Optional[Mapping[str, str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayVirtualInterfaceResult:
@@ -159,7 +164,7 @@ def get_local_gateway_virtual_interface(filters: Optional[Sequence[pulumi.InputT
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetLocalGatewayVirtualInterfaceFilterArgs', 'GetLocalGatewayVirtualInterfaceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
     :param str id: Identifier of EC2 Local Gateway Virtual Interface.
     :param Mapping[str, str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """
@@ -184,7 +189,7 @@ def get_local_gateway_virtual_interface(filters: Optional[Sequence[pulumi.InputT
 
 
 @_utilities.lift_output_func(get_local_gateway_virtual_interface)
-def get_local_gateway_virtual_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceFilterArgs']]]]] = None,
+def get_local_gateway_virtual_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayVirtualInterfaceFilterArgs', 'GetLocalGatewayVirtualInterfaceFilterArgsDict']]]]] = None,
                                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceResult]:
@@ -201,7 +206,7 @@ def get_local_gateway_virtual_interface_output(filters: Optional[pulumi.Input[Op
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
+    :param Sequence[Union['GetLocalGatewayVirtualInterfaceFilterArgs', 'GetLocalGatewayVirtualInterfaceFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
     :param str id: Identifier of EC2 Local Gateway Virtual Interface.
     :param Mapping[str, str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
     """

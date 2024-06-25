@@ -4,20 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'PolicyDefinitionArgs',
+    'PolicyDefinitionArgsDict',
     'PolicyDefinitionStaticArgs',
+    'PolicyDefinitionStaticArgsDict',
     'PolicyDefinitionTemplateLinkedArgs',
+    'PolicyDefinitionTemplateLinkedArgsDict',
     'PolicyDefinitionTemplateLinkedPrincipalArgs',
+    'PolicyDefinitionTemplateLinkedPrincipalArgsDict',
     'PolicyDefinitionTemplateLinkedResourceArgs',
+    'PolicyDefinitionTemplateLinkedResourceArgsDict',
     'PolicyStoreValidationSettingsArgs',
+    'PolicyStoreValidationSettingsArgsDict',
     'SchemaDefinitionArgs',
+    'SchemaDefinitionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PolicyDefinitionArgsDict(TypedDict):
+        static: NotRequired[pulumi.Input['PolicyDefinitionStaticArgsDict']]
+        """
+        The static policy statement. See Static below.
+        """
+        template_linked: NotRequired[pulumi.Input['PolicyDefinitionTemplateLinkedArgsDict']]
+        """
+        The template linked policy. See Template Linked below.
+        """
+elif False:
+    PolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyDefinitionArgs:
@@ -58,6 +85,19 @@ class PolicyDefinitionArgs:
         pulumi.set(self, "template_linked", value)
 
 
+if not MYPY:
+    class PolicyDefinitionStaticArgsDict(TypedDict):
+        statement: pulumi.Input[str]
+        """
+        The statement of the static policy.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the static policy.
+        """
+elif False:
+    PolicyDefinitionStaticArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyDefinitionStaticArgs:
     def __init__(__self__, *,
@@ -95,6 +135,23 @@ class PolicyDefinitionStaticArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class PolicyDefinitionTemplateLinkedArgsDict(TypedDict):
+        policy_template_id: pulumi.Input[str]
+        """
+        The ID of the template.
+        """
+        principal: NotRequired[pulumi.Input['PolicyDefinitionTemplateLinkedPrincipalArgsDict']]
+        """
+        The principal of the template linked policy.
+        """
+        resource: NotRequired[pulumi.Input['PolicyDefinitionTemplateLinkedResourceArgsDict']]
+        """
+        The resource of the template linked policy.
+        """
+elif False:
+    PolicyDefinitionTemplateLinkedArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyDefinitionTemplateLinkedArgs:
@@ -150,6 +207,19 @@ class PolicyDefinitionTemplateLinkedArgs:
         pulumi.set(self, "resource", value)
 
 
+if not MYPY:
+    class PolicyDefinitionTemplateLinkedPrincipalArgsDict(TypedDict):
+        entity_id: pulumi.Input[str]
+        """
+        The entity ID of the principal.
+        """
+        entity_type: pulumi.Input[str]
+        """
+        The entity type of the principal.
+        """
+elif False:
+    PolicyDefinitionTemplateLinkedPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyDefinitionTemplateLinkedPrincipalArgs:
     def __init__(__self__, *,
@@ -186,6 +256,19 @@ class PolicyDefinitionTemplateLinkedPrincipalArgs:
     def entity_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "entity_type", value)
 
+
+if not MYPY:
+    class PolicyDefinitionTemplateLinkedResourceArgsDict(TypedDict):
+        entity_id: pulumi.Input[str]
+        """
+        The entity ID of the resource.
+        """
+        entity_type: pulumi.Input[str]
+        """
+        The entity type of the resource.
+        """
+elif False:
+    PolicyDefinitionTemplateLinkedResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyDefinitionTemplateLinkedResourceArgs:
@@ -224,6 +307,17 @@ class PolicyDefinitionTemplateLinkedResourceArgs:
         pulumi.set(self, "entity_type", value)
 
 
+if not MYPY:
+    class PolicyStoreValidationSettingsArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        The mode for the validation settings. Valid values: `OFF`, `STRICT`.
+
+        The following arguments are optional:
+        """
+elif False:
+    PolicyStoreValidationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyStoreValidationSettingsArgs:
     def __init__(__self__, *,
@@ -249,6 +343,15 @@ class PolicyStoreValidationSettingsArgs:
     def mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class SchemaDefinitionArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        """
+        A JSON string representation of the schema.
+        """
+elif False:
+    SchemaDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchemaDefinitionArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ZoneAssociationArgs', 'ZoneAssociation']
@@ -169,9 +174,9 @@ class ZoneAssociation(pulumi.CustomResource):
             enable_dns_support=True)
         example = aws.route53.Zone("example",
             name="example.com",
-            vpcs=[aws.route53.ZoneVpcArgs(
-                vpc_id=primary.id,
-            )])
+            vpcs=[{
+                "vpcId": primary.id,
+            }])
         secondary_zone_association = aws.route53.ZoneAssociation("secondary",
             zone_id=example.zone_id,
             vpc_id=secondary.id)
@@ -229,9 +234,9 @@ class ZoneAssociation(pulumi.CustomResource):
             enable_dns_support=True)
         example = aws.route53.Zone("example",
             name="example.com",
-            vpcs=[aws.route53.ZoneVpcArgs(
-                vpc_id=primary.id,
-            )])
+            vpcs=[{
+                "vpcId": primary.id,
+            }])
         secondary_zone_association = aws.route53.ZoneAssociation("secondary",
             zone_id=example.zone_id,
             vpc_id=secondary.id)

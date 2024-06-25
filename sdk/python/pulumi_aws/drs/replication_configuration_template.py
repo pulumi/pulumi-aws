@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -580,13 +585,13 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  default_large_staging_disk_type: Optional[pulumi.Input[str]] = None,
                  ebs_encryption: Optional[pulumi.Input[str]] = None,
                  ebs_encryption_key_arn: Optional[pulumi.Input[str]] = None,
-                 pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigurationTemplatePitPolicyArgs']]]]] = None,
+                 pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
                  replication_server_instance_type: Optional[pulumi.Input[str]] = None,
                  replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  staging_area_subnet_id: Optional[pulumi.Input[str]] = None,
                  staging_area_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationTemplateTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ReplicationConfigurationTemplateTimeoutsArgs', 'ReplicationConfigurationTemplateTimeoutsArgsDict']]] = None,
                  use_dedicated_replication_server: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -614,7 +619,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] default_large_staging_disk_type: Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
         :param pulumi.Input[str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
         :param pulumi.Input[str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigurationTemplatePitPolicyArgs']]]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
         :param pulumi.Input[str] replication_server_instance_type: Instance type to be used for the replication server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
         :param pulumi.Input[str] staging_area_subnet_id: Subnet to be used by the replication staging area.
@@ -668,13 +673,13 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  default_large_staging_disk_type: Optional[pulumi.Input[str]] = None,
                  ebs_encryption: Optional[pulumi.Input[str]] = None,
                  ebs_encryption_key_arn: Optional[pulumi.Input[str]] = None,
-                 pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigurationTemplatePitPolicyArgs']]]]] = None,
+                 pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
                  replication_server_instance_type: Optional[pulumi.Input[str]] = None,
                  replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  staging_area_subnet_id: Optional[pulumi.Input[str]] = None,
                  staging_area_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationTemplateTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ReplicationConfigurationTemplateTimeoutsArgs', 'ReplicationConfigurationTemplateTimeoutsArgsDict']]] = None,
                  use_dedicated_replication_server: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -742,14 +747,14 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
             default_large_staging_disk_type: Optional[pulumi.Input[str]] = None,
             ebs_encryption: Optional[pulumi.Input[str]] = None,
             ebs_encryption_key_arn: Optional[pulumi.Input[str]] = None,
-            pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigurationTemplatePitPolicyArgs']]]]] = None,
+            pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
             replication_server_instance_type: Optional[pulumi.Input[str]] = None,
             replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             staging_area_subnet_id: Optional[pulumi.Input[str]] = None,
             staging_area_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationTemplateTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[Union['ReplicationConfigurationTemplateTimeoutsArgs', 'ReplicationConfigurationTemplateTimeoutsArgsDict']]] = None,
             use_dedicated_replication_server: Optional[pulumi.Input[bool]] = None) -> 'ReplicationConfigurationTemplate':
         """
         Get an existing ReplicationConfigurationTemplate resource's state with the given name, id, and optional extra
@@ -767,7 +772,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] default_large_staging_disk_type: Staging Disk EBS volume type to be used during replication. Valid values are `GP2`, `GP3`, `ST1`, or `AUTO`.
         :param pulumi.Input[str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
         :param pulumi.Input[str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationConfigurationTemplatePitPolicyArgs']]]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
         :param pulumi.Input[str] replication_server_instance_type: Instance type to be used for the replication server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
         :param pulumi.Input[str] staging_area_subnet_id: Subnet to be used by the replication staging area.

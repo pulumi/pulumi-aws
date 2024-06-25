@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -106,7 +111,7 @@ class AwaitableGetFrameworkResult(GetFrameworkResult):
             tags=self.tags)
 
 
-def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFrameworkControlSetArgs']]] = None,
+def get_framework(control_sets: Optional[Sequence[Union['GetFrameworkControlSetArgs', 'GetFrameworkControlSetArgsDict']]] = None,
                   framework_type: Optional[str] = None,
                   name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrameworkResult:
@@ -147,7 +152,7 @@ def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFramework
 
 
 @_utilities.lift_output_func(get_framework)
-def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetFrameworkControlSetArgs']]]]] = None,
+def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[Union['GetFrameworkControlSetArgs', 'GetFrameworkControlSetArgsDict']]]]] = None,
                          framework_type: Optional[pulumi.Input[str]] = None,
                          name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrameworkResult]:

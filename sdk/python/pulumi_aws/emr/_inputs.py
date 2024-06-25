@@ -4,49 +4,105 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs',
+    'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict',
     'ClusterAutoTerminationPolicyArgs',
+    'ClusterAutoTerminationPolicyArgsDict',
     'ClusterBootstrapActionArgs',
+    'ClusterBootstrapActionArgsDict',
     'ClusterCoreInstanceFleetArgs',
+    'ClusterCoreInstanceFleetArgsDict',
     'ClusterCoreInstanceFleetInstanceTypeConfigArgs',
+    'ClusterCoreInstanceFleetInstanceTypeConfigArgsDict',
     'ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs',
+    'ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgsDict',
     'ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs',
+    'ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgsDict',
     'ClusterCoreInstanceFleetLaunchSpecificationsArgs',
+    'ClusterCoreInstanceFleetLaunchSpecificationsArgsDict',
     'ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs',
+    'ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict',
     'ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs',
+    'ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgsDict',
     'ClusterCoreInstanceGroupArgs',
+    'ClusterCoreInstanceGroupArgsDict',
     'ClusterCoreInstanceGroupEbsConfigArgs',
+    'ClusterCoreInstanceGroupEbsConfigArgsDict',
     'ClusterEc2AttributesArgs',
+    'ClusterEc2AttributesArgsDict',
     'ClusterKerberosAttributesArgs',
+    'ClusterKerberosAttributesArgsDict',
     'ClusterMasterInstanceFleetArgs',
+    'ClusterMasterInstanceFleetArgsDict',
     'ClusterMasterInstanceFleetInstanceTypeConfigArgs',
+    'ClusterMasterInstanceFleetInstanceTypeConfigArgsDict',
     'ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs',
+    'ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgsDict',
     'ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs',
+    'ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgsDict',
     'ClusterMasterInstanceFleetLaunchSpecificationsArgs',
+    'ClusterMasterInstanceFleetLaunchSpecificationsArgsDict',
     'ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs',
+    'ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict',
     'ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs',
+    'ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgsDict',
     'ClusterMasterInstanceGroupArgs',
+    'ClusterMasterInstanceGroupArgsDict',
     'ClusterMasterInstanceGroupEbsConfigArgs',
+    'ClusterMasterInstanceGroupEbsConfigArgsDict',
     'ClusterPlacementGroupConfigArgs',
+    'ClusterPlacementGroupConfigArgsDict',
     'ClusterStepArgs',
+    'ClusterStepArgsDict',
     'ClusterStepHadoopJarStepArgs',
+    'ClusterStepHadoopJarStepArgsDict',
     'InstanceFleetInstanceTypeConfigArgs',
+    'InstanceFleetInstanceTypeConfigArgsDict',
     'InstanceFleetInstanceTypeConfigConfigurationArgs',
+    'InstanceFleetInstanceTypeConfigConfigurationArgsDict',
     'InstanceFleetInstanceTypeConfigEbsConfigArgs',
+    'InstanceFleetInstanceTypeConfigEbsConfigArgsDict',
     'InstanceFleetLaunchSpecificationsArgs',
+    'InstanceFleetLaunchSpecificationsArgsDict',
     'InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs',
+    'InstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict',
     'InstanceFleetLaunchSpecificationsSpotSpecificationArgs',
+    'InstanceFleetLaunchSpecificationsSpotSpecificationArgsDict',
     'InstanceGroupEbsConfigArgs',
+    'InstanceGroupEbsConfigArgsDict',
     'ManagedScalingPolicyComputeLimitArgs',
+    'ManagedScalingPolicyComputeLimitArgsDict',
     'GetReleaseLabelsFiltersArgs',
+    'GetReleaseLabelsFiltersArgsDict',
     'GetSupportedInstanceTypesSupportedInstanceTypeArgs',
+    'GetSupportedInstanceTypesSupportedInstanceTypeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict(TypedDict):
+        max_range: pulumi.Input[int]
+        """
+        The final port in the range of TCP ports.
+        """
+        min_range: pulumi.Input[int]
+        """
+        The first port in the range of TCP ports.
+        """
+elif False:
+    BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs:
@@ -85,6 +141,15 @@ class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs:
         pulumi.set(self, "min_range", value)
 
 
+if not MYPY:
+    class ClusterAutoTerminationPolicyArgsDict(TypedDict):
+        idle_timeout: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
+        """
+elif False:
+    ClusterAutoTerminationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterAutoTerminationPolicyArgs:
     def __init__(__self__, *,
@@ -107,6 +172,23 @@ class ClusterAutoTerminationPolicyArgs:
     def idle_timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "idle_timeout", value)
 
+
+if not MYPY:
+    class ClusterBootstrapActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the bootstrap action.
+        """
+        path: pulumi.Input[str]
+        """
+        Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
+        """
+        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of command line arguments to pass to the bootstrap action script.
+        """
+elif False:
+    ClusterBootstrapActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterBootstrapActionArgs:
@@ -160,6 +242,37 @@ class ClusterBootstrapActionArgs:
     def args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "args", value)
 
+
+if not MYPY:
+    class ClusterCoreInstanceFleetArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the cluster.
+        """
+        instance_type_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArgsDict']]]]
+        """
+        Configuration block for instance fleet.
+        """
+        launch_specifications: NotRequired[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArgsDict']]
+        """
+        Configuration block for launch specification.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name given to the instance fleet.
+        """
+        provisioned_on_demand_capacity: NotRequired[pulumi.Input[int]]
+        provisioned_spot_capacity: NotRequired[pulumi.Input[int]]
+        target_on_demand_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        """
+        target_spot_capacity: NotRequired[pulumi.Input[int]]
+        """
+        Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        """
+elif False:
+    ClusterCoreInstanceFleetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterCoreInstanceFleetArgs:
@@ -288,6 +401,35 @@ class ClusterCoreInstanceFleetArgs:
         pulumi.set(self, "target_spot_capacity", value)
 
 
+if not MYPY:
+    class ClusterCoreInstanceFleetInstanceTypeConfigArgsDict(TypedDict):
+        instance_type: pulumi.Input[str]
+        """
+        EC2 instance type, such as m4.xlarge.
+        """
+        bid_price: NotRequired[pulumi.Input[str]]
+        """
+        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        bid_price_as_percentage_of_on_demand_price: NotRequired[pulumi.Input[float]]
+        """
+        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgsDict']]]]
+        """
+        Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        """
+        ebs_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgsDict']]]]
+        """
+        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        """
+        weighted_capacity: NotRequired[pulumi.Input[int]]
+        """
+        Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+        """
+elif False:
+    ClusterCoreInstanceFleetInstanceTypeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     def __init__(__self__, *,
@@ -390,6 +532,19 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
         pulumi.set(self, "weighted_capacity", value)
 
 
+if not MYPY:
+    class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgsDict(TypedDict):
+        classification: NotRequired[pulumi.Input[str]]
+        """
+        Classification within a configuration.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of properties specified within a configuration classification.
+        """
+elif False:
+    ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs:
     def __init__(__self__, *,
@@ -428,6 +583,27 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs:
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgsDict(TypedDict):
+        size: pulumi.Input[int]
+        """
+        Volume size, in gibibytes (GiB).
+        """
+        type: pulumi.Input[str]
+        """
+        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Number of I/O operations per second (IOPS) that the volume supports.
+        """
+        volumes_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
+        """
+elif False:
+    ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
@@ -498,6 +674,19 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
         pulumi.set(self, "volumes_per_instance", value)
 
 
+if not MYPY:
+    class ClusterCoreInstanceFleetLaunchSpecificationsArgsDict(TypedDict):
+        on_demand_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict']]]]
+        """
+        Configuration block for on demand instances launch specifications.
+        """
+        spot_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgsDict']]]]
+        """
+        Configuration block for spot instances launch specifications.
+        """
+elif False:
+    ClusterCoreInstanceFleetLaunchSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterCoreInstanceFleetLaunchSpecificationsArgs:
     def __init__(__self__, *,
@@ -537,6 +726,15 @@ class ClusterCoreInstanceFleetLaunchSpecificationsArgs:
         pulumi.set(self, "spot_specifications", value)
 
 
+if not MYPY:
+    class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict(TypedDict):
+        allocation_strategy: pulumi.Input[str]
+        """
+        Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
+        """
+elif False:
+    ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     def __init__(__self__, *,
@@ -558,6 +756,27 @@ class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     def allocation_strategy(self, value: pulumi.Input[str]):
         pulumi.set(self, "allocation_strategy", value)
 
+
+if not MYPY:
+    class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgsDict(TypedDict):
+        allocation_strategy: pulumi.Input[str]
+        """
+        Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
+        """
+        timeout_action: pulumi.Input[str]
+        """
+        Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        """
+        timeout_duration_minutes: pulumi.Input[int]
+        """
+        Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        """
+        block_duration_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+elif False:
+    ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
@@ -626,6 +845,39 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     def block_duration_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "block_duration_minutes", value)
 
+
+if not MYPY:
+    class ClusterCoreInstanceGroupArgsDict(TypedDict):
+        instance_type: pulumi.Input[str]
+        """
+        EC2 instance type for all instances in the instance group.
+        """
+        autoscaling_policy: NotRequired[pulumi.Input[str]]
+        """
+        String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
+        """
+        bid_price: NotRequired[pulumi.Input[str]]
+        """
+        Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        """
+        ebs_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArgsDict']]]]
+        """
+        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Core node type Instance Group ID, if using Instance Group for this node type.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Target number of instances for the instance group. Must be at least 1. Defaults to 1.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name given to the instance group.
+        """
+elif False:
+    ClusterCoreInstanceGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterCoreInstanceGroupArgs:
@@ -745,6 +997,31 @@ class ClusterCoreInstanceGroupArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ClusterCoreInstanceGroupEbsConfigArgsDict(TypedDict):
+        size: pulumi.Input[int]
+        """
+        Volume size, in gibibytes (GiB).
+        """
+        type: pulumi.Input[str]
+        """
+        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Number of I/O operations per second (IOPS) that the volume supports.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        The throughput, in mebibyte per second (MiB/s).
+        """
+        volumes_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
+        """
+elif False:
+    ClusterCoreInstanceGroupEbsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterCoreInstanceGroupEbsConfigArgs:
     def __init__(__self__, *,
@@ -829,6 +1106,49 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
     def volumes_per_instance(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "volumes_per_instance", value)
 
+
+if not MYPY:
+    class ClusterEc2AttributesArgsDict(TypedDict):
+        instance_profile: pulumi.Input[str]
+        """
+        Instance Profile for EC2 instances of the cluster assume this role.
+        """
+        additional_master_security_groups: NotRequired[pulumi.Input[str]]
+        """
+        String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
+        """
+        additional_slave_security_groups: NotRequired[pulumi.Input[str]]
+        """
+        String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
+        """
+        emr_managed_master_security_group: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of the Amazon EC2 EMR-Managed security group for the master node.
+        """
+        emr_managed_slave_security_group: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
+        """
+        service_access_security_group: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
+
+        > **NOTE on EMR-Managed security groups:** These security groups will have any missing inbound or outbound access rules added and maintained by AWS, to ensure proper communication between instances in a cluster. The EMR service will maintain these rules for groups provided in `emr_managed_master_security_group` and `emr_managed_slave_security_group`; attempts to remove the required rules may succeed, only for the EMR service to re-add them in a matter of minutes. This may cause this provider to fail to destroy an environment that contains an EMR cluster, because the EMR service does not revoke rules added on deletion, leaving a cyclic dependency between the security groups that prevents their deletion. To avoid this, use the `revoke_rules_on_delete` optional attribute for any Security Group used in `emr_managed_master_security_group` and `emr_managed_slave_security_group`. See [Amazon EMR-Managed Security Groups](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html) for more information about the EMR-managed security group rules.
+        """
+elif False:
+    ClusterEc2AttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterEc2AttributesArgs:
@@ -984,6 +1304,31 @@ class ClusterEc2AttributesArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
+if not MYPY:
+    class ClusterKerberosAttributesArgsDict(TypedDict):
+        kdc_admin_password: pulumi.Input[str]
+        """
+        Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
+        """
+        realm: pulumi.Input[str]
+        """
+        Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
+        """
+        ad_domain_join_password: NotRequired[pulumi.Input[str]]
+        """
+        Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
+        """
+        ad_domain_join_user: NotRequired[pulumi.Input[str]]
+        """
+        Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
+        """
+        cross_realm_trust_principal_password: NotRequired[pulumi.Input[str]]
+        """
+        Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
+        """
+elif False:
+    ClusterKerberosAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterKerberosAttributesArgs:
     def __init__(__self__, *,
@@ -1068,6 +1413,37 @@ class ClusterKerberosAttributesArgs:
     def cross_realm_trust_principal_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cross_realm_trust_principal_password", value)
 
+
+if not MYPY:
+    class ClusterMasterInstanceFleetArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the cluster.
+        """
+        instance_type_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArgsDict']]]]
+        """
+        Configuration block for instance fleet.
+        """
+        launch_specifications: NotRequired[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArgsDict']]
+        """
+        Configuration block for launch specification.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name given to the instance fleet.
+        """
+        provisioned_on_demand_capacity: NotRequired[pulumi.Input[int]]
+        provisioned_spot_capacity: NotRequired[pulumi.Input[int]]
+        target_on_demand_capacity: NotRequired[pulumi.Input[int]]
+        """
+        Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        """
+        target_spot_capacity: NotRequired[pulumi.Input[int]]
+        """
+        Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        """
+elif False:
+    ClusterMasterInstanceFleetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterMasterInstanceFleetArgs:
@@ -1196,6 +1572,35 @@ class ClusterMasterInstanceFleetArgs:
         pulumi.set(self, "target_spot_capacity", value)
 
 
+if not MYPY:
+    class ClusterMasterInstanceFleetInstanceTypeConfigArgsDict(TypedDict):
+        instance_type: pulumi.Input[str]
+        """
+        EC2 instance type, such as m4.xlarge.
+        """
+        bid_price: NotRequired[pulumi.Input[str]]
+        """
+        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        bid_price_as_percentage_of_on_demand_price: NotRequired[pulumi.Input[float]]
+        """
+        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgsDict']]]]
+        """
+        Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        """
+        ebs_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgsDict']]]]
+        """
+        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        """
+        weighted_capacity: NotRequired[pulumi.Input[int]]
+        """
+        Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+        """
+elif False:
+    ClusterMasterInstanceFleetInstanceTypeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     def __init__(__self__, *,
@@ -1298,6 +1703,19 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
         pulumi.set(self, "weighted_capacity", value)
 
 
+if not MYPY:
+    class ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgsDict(TypedDict):
+        classification: NotRequired[pulumi.Input[str]]
+        """
+        Classification within a configuration.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of properties specified within a configuration classification.
+        """
+elif False:
+    ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs:
     def __init__(__self__, *,
@@ -1336,6 +1754,27 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs:
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgsDict(TypedDict):
+        size: pulumi.Input[int]
+        """
+        Volume size, in gibibytes (GiB).
+        """
+        type: pulumi.Input[str]
+        """
+        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Number of I/O operations per second (IOPS) that the volume supports.
+        """
+        volumes_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
+        """
+elif False:
+    ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
@@ -1406,6 +1845,19 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
         pulumi.set(self, "volumes_per_instance", value)
 
 
+if not MYPY:
+    class ClusterMasterInstanceFleetLaunchSpecificationsArgsDict(TypedDict):
+        on_demand_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict']]]]
+        """
+        Configuration block for on demand instances launch specifications.
+        """
+        spot_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgsDict']]]]
+        """
+        Configuration block for spot instances launch specifications.
+        """
+elif False:
+    ClusterMasterInstanceFleetLaunchSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterMasterInstanceFleetLaunchSpecificationsArgs:
     def __init__(__self__, *,
@@ -1445,6 +1897,15 @@ class ClusterMasterInstanceFleetLaunchSpecificationsArgs:
         pulumi.set(self, "spot_specifications", value)
 
 
+if not MYPY:
+    class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict(TypedDict):
+        allocation_strategy: pulumi.Input[str]
+        """
+        Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
+        """
+elif False:
+    ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     def __init__(__self__, *,
@@ -1466,6 +1927,27 @@ class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     def allocation_strategy(self, value: pulumi.Input[str]):
         pulumi.set(self, "allocation_strategy", value)
 
+
+if not MYPY:
+    class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgsDict(TypedDict):
+        allocation_strategy: pulumi.Input[str]
+        """
+        Specifies the strategy to use in launching Spot instance fleets. Valid values include `capacity-optimized`, `diversified`, `lowest-price`, `price-capacity-optimized`. See the [AWS documentation](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html#emr-instance-fleet-allocation-strategy) for details on each strategy type.
+        """
+        timeout_action: pulumi.Input[str]
+        """
+        Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        """
+        timeout_duration_minutes: pulumi.Input[int]
+        """
+        Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        """
+        block_duration_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+elif False:
+    ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
@@ -1534,6 +2016,35 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     def block_duration_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "block_duration_minutes", value)
 
+
+if not MYPY:
+    class ClusterMasterInstanceGroupArgsDict(TypedDict):
+        instance_type: pulumi.Input[str]
+        """
+        EC2 instance type for all instances in the instance group.
+        """
+        bid_price: NotRequired[pulumi.Input[str]]
+        """
+        Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
+        """
+        ebs_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArgsDict']]]]
+        """
+        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Master node type Instance Group ID, if using Instance Group for this node type.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Friendly name given to the instance group.
+        """
+elif False:
+    ClusterMasterInstanceGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterMasterInstanceGroupArgs:
@@ -1637,6 +2148,31 @@ class ClusterMasterInstanceGroupArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ClusterMasterInstanceGroupEbsConfigArgsDict(TypedDict):
+        size: pulumi.Input[int]
+        """
+        Volume size, in gibibytes (GiB).
+        """
+        type: pulumi.Input[str]
+        """
+        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Number of I/O operations per second (IOPS) that the volume supports.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        The throughput, in mebibyte per second (MiB/s).
+        """
+        volumes_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
+        """
+elif False:
+    ClusterMasterInstanceGroupEbsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterMasterInstanceGroupEbsConfigArgs:
     def __init__(__self__, *,
@@ -1722,6 +2258,19 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
         pulumi.set(self, "volumes_per_instance", value)
 
 
+if not MYPY:
+    class ClusterPlacementGroupConfigArgsDict(TypedDict):
+        instance_role: pulumi.Input[str]
+        """
+        Role of the instance in the cluster. Valid Values: `MASTER`, `CORE`, `TASK`.
+        """
+        placement_strategy: NotRequired[pulumi.Input[str]]
+        """
+        EC2 Placement Group strategy associated with instance role. Valid Values: `SPREAD`, `PARTITION`, `CLUSTER`, `NONE`.
+        """
+elif False:
+    ClusterPlacementGroupConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterPlacementGroupConfigArgs:
     def __init__(__self__, *,
@@ -1759,6 +2308,23 @@ class ClusterPlacementGroupConfigArgs:
     def placement_strategy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "placement_strategy", value)
 
+
+if not MYPY:
+    class ClusterStepArgsDict(TypedDict):
+        action_on_failure: pulumi.Input[str]
+        """
+        Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
+        """
+        hadoop_jar_step: pulumi.Input['ClusterStepHadoopJarStepArgsDict']
+        """
+        JAR file used for the step. See below.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the step.
+        """
+elif False:
+    ClusterStepArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterStepArgs:
@@ -1811,6 +2377,27 @@ class ClusterStepArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ClusterStepHadoopJarStepArgsDict(TypedDict):
+        jar: pulumi.Input[str]
+        """
+        Path to a JAR file run during the step.
+        """
+        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of command line arguments passed to the JAR file's main function when executed.
+        """
+        main_class: NotRequired[pulumi.Input[str]]
+        """
+        Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
+        """
+elif False:
+    ClusterStepHadoopJarStepArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterStepHadoopJarStepArgs:
@@ -1881,6 +2468,35 @@ class ClusterStepHadoopJarStepArgs:
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class InstanceFleetInstanceTypeConfigArgsDict(TypedDict):
+        instance_type: pulumi.Input[str]
+        """
+        An EC2 instance type, such as m4.xlarge.
+        """
+        bid_price: NotRequired[pulumi.Input[str]]
+        """
+        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        bid_price_as_percentage_of_on_demand_price: NotRequired[pulumi.Input[float]]
+        """
+        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgsDict']]]]
+        """
+        A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        """
+        ebs_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgsDict']]]]
+        """
+        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        """
+        weighted_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
+        """
+elif False:
+    InstanceFleetInstanceTypeConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceFleetInstanceTypeConfigArgs:
@@ -1984,6 +2600,19 @@ class InstanceFleetInstanceTypeConfigArgs:
         pulumi.set(self, "weighted_capacity", value)
 
 
+if not MYPY:
+    class InstanceFleetInstanceTypeConfigConfigurationArgsDict(TypedDict):
+        classification: NotRequired[pulumi.Input[str]]
+        """
+        The classification within a configuration.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of properties specified within a configuration classification
+        """
+elif False:
+    InstanceFleetInstanceTypeConfigConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceFleetInstanceTypeConfigConfigurationArgs:
     def __init__(__self__, *,
@@ -2022,6 +2651,27 @@ class InstanceFleetInstanceTypeConfigConfigurationArgs:
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class InstanceFleetInstanceTypeConfigEbsConfigArgsDict(TypedDict):
+        size: pulumi.Input[int]
+        """
+        The volume size, in gibibytes (GiB).
+        """
+        type: pulumi.Input[str]
+        """
+        The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        The number of I/O operations per second (IOPS) that the volume supports
+        """
+        volumes_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+        """
+elif False:
+    InstanceFleetInstanceTypeConfigEbsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceFleetInstanceTypeConfigEbsConfigArgs:
@@ -2092,6 +2742,19 @@ class InstanceFleetInstanceTypeConfigEbsConfigArgs:
         pulumi.set(self, "volumes_per_instance", value)
 
 
+if not MYPY:
+    class InstanceFleetLaunchSpecificationsArgsDict(TypedDict):
+        on_demand_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict']]]]
+        """
+        Configuration block for on demand instances launch specifications
+        """
+        spot_specifications: NotRequired[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgsDict']]]]
+        """
+        Configuration block for spot instances launch specifications
+        """
+elif False:
+    InstanceFleetLaunchSpecificationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceFleetLaunchSpecificationsArgs:
     def __init__(__self__, *,
@@ -2131,6 +2794,15 @@ class InstanceFleetLaunchSpecificationsArgs:
         pulumi.set(self, "spot_specifications", value)
 
 
+if not MYPY:
+    class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict(TypedDict):
+        allocation_strategy: pulumi.Input[str]
+        """
+        Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
+        """
+elif False:
+    InstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     def __init__(__self__, *,
@@ -2152,6 +2824,27 @@ class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     def allocation_strategy(self, value: pulumi.Input[str]):
         pulumi.set(self, "allocation_strategy", value)
 
+
+if not MYPY:
+    class InstanceFleetLaunchSpecificationsSpotSpecificationArgsDict(TypedDict):
+        allocation_strategy: pulumi.Input[str]
+        """
+        Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
+        """
+        timeout_action: pulumi.Input[str]
+        """
+        The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+        """
+        timeout_duration_minutes: pulumi.Input[int]
+        """
+        The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+        """
+        block_duration_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+        """
+elif False:
+    InstanceFleetLaunchSpecificationsSpotSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
@@ -2221,6 +2914,27 @@ class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
         pulumi.set(self, "block_duration_minutes", value)
 
 
+if not MYPY:
+    class InstanceGroupEbsConfigArgsDict(TypedDict):
+        size: pulumi.Input[int]
+        """
+        The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+        """
+        type: pulumi.Input[str]
+        """
+        The volume type. Valid options are 'gp2', 'io1' and 'standard'.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        The number of I/O operations per second (IOPS) that the volume supports.
+        """
+        volumes_per_instance: NotRequired[pulumi.Input[int]]
+        """
+        The number of EBS Volumes to attach per instance.
+        """
+elif False:
+    InstanceGroupEbsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceGroupEbsConfigArgs:
     def __init__(__self__, *,
@@ -2289,6 +3003,31 @@ class InstanceGroupEbsConfigArgs:
     def volumes_per_instance(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "volumes_per_instance", value)
 
+
+if not MYPY:
+    class ManagedScalingPolicyComputeLimitArgsDict(TypedDict):
+        maximum_capacity_units: pulumi.Input[int]
+        """
+        The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        """
+        minimum_capacity_units: pulumi.Input[int]
+        """
+        The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
+        """
+        unit_type: pulumi.Input[str]
+        """
+        The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
+        """
+        maximum_core_capacity_units: NotRequired[pulumi.Input[int]]
+        """
+        The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
+        """
+        maximum_ondemand_capacity_units: NotRequired[pulumi.Input[int]]
+        """
+        The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
+        """
+elif False:
+    ManagedScalingPolicyComputeLimitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedScalingPolicyComputeLimitArgs:
@@ -2374,6 +3113,19 @@ class ManagedScalingPolicyComputeLimitArgs:
         pulumi.set(self, "maximum_ondemand_capacity_units", value)
 
 
+if not MYPY:
+    class GetReleaseLabelsFiltersArgsDict(TypedDict):
+        application: NotRequired[str]
+        """
+        Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+        """
+        prefix: NotRequired[str]
+        """
+        Optional release label version prefix filter. For example, `emr-5`.
+        """
+elif False:
+    GetReleaseLabelsFiltersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetReleaseLabelsFiltersArgs:
     def __init__(__self__, *,
@@ -2412,6 +3164,55 @@ class GetReleaseLabelsFiltersArgs:
     def prefix(self, value: Optional[str]):
         pulumi.set(self, "prefix", value)
 
+
+if not MYPY:
+    class GetSupportedInstanceTypesSupportedInstanceTypeArgsDict(TypedDict):
+        architecture: str
+        """
+        CPU architecture.
+        """
+        ebs_optimized_available: bool
+        """
+        Indicates whether the instance type supports Amazon EBS optimization.
+        """
+        ebs_optimized_by_default: bool
+        """
+        Indicates whether the instance type uses Amazon EBS optimization by default.
+        """
+        ebs_storage_only: bool
+        """
+        Indicates whether the instance type only supports Amazon EBS.
+        """
+        instance_family_id: str
+        """
+        The Amazon EC2 family and generation for the instance type.
+        """
+        is64_bits_only: bool
+        """
+        Indicates whether the instance type only supports 64-bit architecture.
+        """
+        memory_gb: float
+        """
+        Memory that is available to Amazon EMR from the instance type.
+        """
+        number_of_disks: int
+        """
+        Number of disks for the instance type.
+        """
+        storage_gb: int
+        """
+        Storage capacity of the instance type.
+        """
+        type: str
+        """
+        Amazon EC2 instance type. For example, `m5.xlarge`.
+        """
+        vcpu: int
+        """
+        The number of vCPUs available for the instance type.
+        """
+elif False:
+    GetSupportedInstanceTypesSupportedInstanceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSupportedInstanceTypesSupportedInstanceTypeArgs:

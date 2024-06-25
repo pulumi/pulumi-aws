@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -76,7 +81,7 @@ class AwaitableGetTransitGatewayRouteTablesResult(GetTransitGatewayRouteTablesRe
             tags=self.tags)
 
 
-def get_transit_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType['GetTransitGatewayRouteTablesFilterArgs']]] = None,
+def get_transit_gateway_route_tables(filters: Optional[Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict']]] = None,
                                      tags: Optional[Mapping[str, str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayRouteTablesResult:
     """
@@ -95,7 +100,7 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType
     ```
 
 
-    :param Sequence[pulumi.InputType['GetTransitGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired transit gateway route table.
            
@@ -116,7 +121,7 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType
 
 
 @_utilities.lift_output_func(get_transit_gateway_route_tables)
-def get_transit_gateway_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTransitGatewayRouteTablesFilterArgs']]]]] = None,
+def get_transit_gateway_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict']]]]] = None,
                                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayRouteTablesResult]:
     """
@@ -135,7 +140,7 @@ def get_transit_gateway_route_tables_output(filters: Optional[pulumi.Input[Optio
     ```
 
 
-    :param Sequence[pulumi.InputType['GetTransitGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetTransitGatewayRouteTablesFilterArgs', 'GetTransitGatewayRouteTablesFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired transit gateway route table.
            

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -385,7 +390,7 @@ class CloudFormationType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 logging_config: Optional[pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArgs']]] = None,
+                 logging_config: Optional[pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
                  schema_handler_package: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
@@ -404,7 +409,7 @@ class CloudFormationType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
-        :param pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArgs']] logging_config: Configuration block containing logging configuration.
+        :param pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']] logging_config: Configuration block containing logging configuration.
         :param pulumi.Input[str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         :param pulumi.Input[str] type: CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         :param pulumi.Input[str] type_name: CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
@@ -442,7 +447,7 @@ class CloudFormationType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 logging_config: Optional[pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArgs']]] = None,
+                 logging_config: Optional[pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
                  schema_handler_package: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
@@ -493,7 +498,7 @@ class CloudFormationType(pulumi.CustomResource):
             documentation_url: Optional[pulumi.Input[str]] = None,
             execution_role_arn: Optional[pulumi.Input[str]] = None,
             is_default_version: Optional[pulumi.Input[bool]] = None,
-            logging_config: Optional[pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArgs']]] = None,
+            logging_config: Optional[pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
             provisioning_type: Optional[pulumi.Input[str]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             schema_handler_package: Optional[pulumi.Input[str]] = None,
@@ -517,7 +522,7 @@ class CloudFormationType(pulumi.CustomResource):
         :param pulumi.Input[str] documentation_url: URL of the documentation for the CloudFormation Type.
         :param pulumi.Input[str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
         :param pulumi.Input[bool] is_default_version: Whether the CloudFormation Type version is the default version.
-        :param pulumi.Input[pulumi.InputType['CloudFormationTypeLoggingConfigArgs']] logging_config: Configuration block containing logging configuration.
+        :param pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']] logging_config: Configuration block containing logging configuration.
         :param pulumi.Input[str] provisioning_type: Provisioning behavior of the CloudFormation Type.
         :param pulumi.Input[str] schema: JSON document of the CloudFormation Type schema.
         :param pulumi.Input[str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.

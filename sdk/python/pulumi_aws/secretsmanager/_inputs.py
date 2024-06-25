@@ -4,16 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'SecretReplicaArgs',
+    'SecretReplicaArgsDict',
     'SecretRotationRotationRulesArgs',
+    'SecretRotationRotationRulesArgsDict',
     'GetSecretsFilterArgs',
+    'GetSecretsFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SecretReplicaArgsDict(TypedDict):
+        region: pulumi.Input[str]
+        """
+        Region for replicating the secret.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
+        """
+        last_accessed_date: NotRequired[pulumi.Input[str]]
+        """
+        Date that you last accessed the secret in the Region.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status can be `InProgress`, `Failed`, or `InSync`.
+        """
+        status_message: NotRequired[pulumi.Input[str]]
+        """
+        Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
+        """
+elif False:
+    SecretReplicaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecretReplicaArgs:
@@ -101,6 +136,23 @@ class SecretReplicaArgs:
         pulumi.set(self, "status_message", value)
 
 
+if not MYPY:
+    class SecretRotationRotationRulesArgsDict(TypedDict):
+        automatically_after_days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days between automatic scheduled rotations of the secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+        """
+        duration: NotRequired[pulumi.Input[str]]
+        """
+        The length of the rotation window in hours. For example, `3h` for a three hour window.
+        """
+        schedule_expression: NotRequired[pulumi.Input[str]]
+        """
+        A `cron()` or `rate()` expression that defines the schedule for rotating your secret. Either `automatically_after_days` or `schedule_expression` must be specified.
+        """
+elif False:
+    SecretRotationRotationRulesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecretRotationRotationRulesArgs:
     def __init__(__self__, *,
@@ -155,6 +207,19 @@ class SecretRotationRotationRulesArgs:
     def schedule_expression(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schedule_expression", value)
 
+
+if not MYPY:
+    class GetSecretsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetSecretsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSecretsFilterArgs:

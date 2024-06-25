@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['TagArgs', 'Tag']
@@ -145,9 +150,9 @@ class Tag(pulumi.CustomResource):
 
         replica = aws.get_region()
         current = aws.get_region()
-        example = aws.dynamodb.Table("example", replicas=[aws.dynamodb.TableReplicaArgs(
-            region_name=replica.name,
-        )])
+        example = aws.dynamodb.Table("example", replicas=[{
+            "regionName": replica.name,
+        }])
         test = aws.dynamodb.Tag("test",
             resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
                 search=current.name,
@@ -192,9 +197,9 @@ class Tag(pulumi.CustomResource):
 
         replica = aws.get_region()
         current = aws.get_region()
-        example = aws.dynamodb.Table("example", replicas=[aws.dynamodb.TableReplicaArgs(
-            region_name=replica.name,
-        )])
+        example = aws.dynamodb.Table("example", replicas=[{
+            "regionName": replica.name,
+        }])
         test = aws.dynamodb.Tag("test",
             resource_arn=example.arn.apply(lambda arn: std.replace_output(text=arn,
                 search=current.name,

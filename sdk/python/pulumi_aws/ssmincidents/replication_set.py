@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -183,7 +188,7 @@ class ReplicationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetRegionArgs']]]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -202,9 +207,9 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-            )],
+            regions=[{
+                "name": "us-west-2",
+            }],
             tags={
                 "exampleTag": "exampleValue",
             })
@@ -217,12 +222,12 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[
-            aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-            ),
-            aws.ssmincidents.ReplicationSetRegionArgs(
-                name="ap-southeast-2",
-            ),
+            {
+                "name": "us-west-2",
+            },
+            {
+                "name": "ap-southeast-2",
+            },
         ])
         ```
 
@@ -232,9 +237,9 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-            name="us-west-2",
-        )])
+        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[{
+            "name": "us-west-2",
+        }])
         ```
 
         ## Basic Usage with an AWS Customer Managed Key
@@ -247,10 +252,10 @@ class ReplicationSet(pulumi.CustomResource):
 
         example_key = aws.kms.Key("example_key")
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-                kms_key_arn=example_key.arn,
-            )],
+            regions=[{
+                "name": "us-west-2",
+                "kmsKeyArn": example_key.arn,
+            }],
             tags={
                 "exampleTag": "exampleValue",
             })
@@ -289,9 +294,9 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-            )],
+            regions=[{
+                "name": "us-west-2",
+            }],
             tags={
                 "exampleTag": "exampleValue",
             })
@@ -304,12 +309,12 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[
-            aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-            ),
-            aws.ssmincidents.ReplicationSetRegionArgs(
-                name="ap-southeast-2",
-            ),
+            {
+                "name": "us-west-2",
+            },
+            {
+                "name": "ap-southeast-2",
+            },
         ])
         ```
 
@@ -319,9 +324,9 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-            name="us-west-2",
-        )])
+        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[{
+            "name": "us-west-2",
+        }])
         ```
 
         ## Basic Usage with an AWS Customer Managed Key
@@ -334,10 +339,10 @@ class ReplicationSet(pulumi.CustomResource):
 
         example_key = aws.kms.Key("example_key")
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
-                name="us-west-2",
-                kms_key_arn=example_key.arn,
-            )],
+            regions=[{
+                "name": "us-west-2",
+                "kmsKeyArn": example_key.arn,
+            }],
             tags={
                 "exampleTag": "exampleValue",
             })
@@ -366,7 +371,7 @@ class ReplicationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetRegionArgs']]]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -401,7 +406,7 @@ class ReplicationSet(pulumi.CustomResource):
             created_by: Optional[pulumi.Input[str]] = None,
             deletion_protected: Optional[pulumi.Input[bool]] = None,
             last_modified_by: Optional[pulumi.Input[str]] = None,
-            regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetRegionArgs']]]]] = None,
+            regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ReplicationSet':

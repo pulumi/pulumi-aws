@@ -4,48 +4,99 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AgentAgentActionGroupActionGroupExecutorArgs',
+    'AgentAgentActionGroupActionGroupExecutorArgsDict',
     'AgentAgentActionGroupApiSchemaArgs',
+    'AgentAgentActionGroupApiSchemaArgsDict',
     'AgentAgentActionGroupApiSchemaS3Args',
+    'AgentAgentActionGroupApiSchemaS3ArgsDict',
     'AgentAgentAliasRoutingConfigurationArgs',
+    'AgentAgentAliasRoutingConfigurationArgsDict',
     'AgentAgentAliasTimeoutsArgs',
+    'AgentAgentAliasTimeoutsArgsDict',
     'AgentAgentPromptOverrideConfigurationArgs',
+    'AgentAgentPromptOverrideConfigurationArgsDict',
     'AgentAgentTimeoutsArgs',
+    'AgentAgentTimeoutsArgsDict',
     'AgentDataSourceDataSourceConfigurationArgs',
+    'AgentDataSourceDataSourceConfigurationArgsDict',
     'AgentDataSourceDataSourceConfigurationS3ConfigurationArgs',
+    'AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict',
     'AgentDataSourceServerSideEncryptionConfigurationArgs',
+    'AgentDataSourceServerSideEncryptionConfigurationArgsDict',
     'AgentDataSourceTimeoutsArgs',
+    'AgentDataSourceTimeoutsArgsDict',
     'AgentDataSourceVectorIngestionConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationArgsDict',
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict',
     'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict',
     'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs',
+    'AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgsDict',
     'AgentKnowledgeBaseStorageConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationArgsDict',
     'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgsDict',
     'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgsDict',
     'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgsDict',
     'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgsDict',
     'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgsDict',
     'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgsDict',
     'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs',
+    'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgsDict',
     'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs',
+    'AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgsDict',
     'AgentKnowledgeBaseTimeoutsArgs',
+    'AgentKnowledgeBaseTimeoutsArgsDict',
     'CustomModelOutputDataConfigArgs',
+    'CustomModelOutputDataConfigArgsDict',
     'CustomModelTimeoutsArgs',
+    'CustomModelTimeoutsArgsDict',
     'CustomModelTrainingDataConfigArgs',
+    'CustomModelTrainingDataConfigArgsDict',
     'CustomModelTrainingMetricArgs',
+    'CustomModelTrainingMetricArgsDict',
     'CustomModelValidationDataConfigArgs',
+    'CustomModelValidationDataConfigArgsDict',
     'CustomModelValidationDataConfigValidatorArgs',
+    'CustomModelValidationDataConfigValidatorArgsDict',
     'CustomModelValidationMetricArgs',
+    'CustomModelValidationMetricArgsDict',
     'CustomModelVpcConfigArgs',
+    'CustomModelVpcConfigArgsDict',
     'ProvisionedModelThroughputTimeoutsArgs',
+    'ProvisionedModelThroughputTimeoutsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AgentAgentActionGroupActionGroupExecutorArgsDict(TypedDict):
+        lambda_: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Lambda function containing the business logic that is carried out upon invoking the action.
+        """
+elif False:
+    AgentAgentActionGroupActionGroupExecutorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentAgentActionGroupActionGroupExecutorArgs:
@@ -69,6 +120,19 @@ class AgentAgentActionGroupActionGroupExecutorArgs:
     def lambda_(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lambda_", value)
 
+
+if not MYPY:
+    class AgentAgentActionGroupApiSchemaArgsDict(TypedDict):
+        payload: NotRequired[pulumi.Input[str]]
+        """
+        JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+        """
+        s3: NotRequired[pulumi.Input['AgentAgentActionGroupApiSchemaS3ArgsDict']]
+        """
+        Details about the S3 object containing the OpenAPI schema for the action group. See `s3` block for details.
+        """
+elif False:
+    AgentAgentActionGroupApiSchemaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentAgentActionGroupApiSchemaArgs:
@@ -109,6 +173,19 @@ class AgentAgentActionGroupApiSchemaArgs:
         pulumi.set(self, "s3", value)
 
 
+if not MYPY:
+    class AgentAgentActionGroupApiSchemaS3ArgsDict(TypedDict):
+        s3_bucket_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the S3 bucket.
+        """
+        s3_object_key: NotRequired[pulumi.Input[str]]
+        """
+        S3 object key containing the resource.
+        """
+elif False:
+    AgentAgentActionGroupApiSchemaS3ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentAgentActionGroupApiSchemaS3Args:
     def __init__(__self__, *,
@@ -148,6 +225,15 @@ class AgentAgentActionGroupApiSchemaS3Args:
         pulumi.set(self, "s3_object_key", value)
 
 
+if not MYPY:
+    class AgentAgentAliasRoutingConfigurationArgsDict(TypedDict):
+        agent_version: pulumi.Input[str]
+        """
+        Version of the agent with which the alias is associated.
+        """
+elif False:
+    AgentAgentAliasRoutingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentAgentAliasRoutingConfigurationArgs:
     def __init__(__self__, *,
@@ -169,6 +255,23 @@ class AgentAgentAliasRoutingConfigurationArgs:
     def agent_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "agent_version", value)
 
+
+if not MYPY:
+    class AgentAgentAliasTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AgentAgentAliasTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentAgentAliasTimeoutsArgs:
@@ -225,6 +328,19 @@ class AgentAgentAliasTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
+if not MYPY:
+    class AgentAgentPromptOverrideConfigurationArgsDict(TypedDict):
+        override_lambda: pulumi.Input[str]
+        """
+        ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
+        """
+        prompt_configurations: pulumi.Input[Sequence[Any]]
+        """
+        Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+        """
+elif False:
+    AgentAgentPromptOverrideConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentAgentPromptOverrideConfigurationArgs:
     def __init__(__self__, *,
@@ -261,6 +377,23 @@ class AgentAgentPromptOverrideConfigurationArgs:
     def prompt_configurations(self, value: pulumi.Input[Sequence[Any]]):
         pulumi.set(self, "prompt_configurations", value)
 
+
+if not MYPY:
+    class AgentAgentTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AgentAgentTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentAgentTimeoutsArgs:
@@ -317,6 +450,19 @@ class AgentAgentTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
+if not MYPY:
+    class AgentDataSourceDataSourceConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Type of storage for the data source. Valid values: `S3`.
+        """
+        s3_configuration: NotRequired[pulumi.Input['AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict']]
+        """
+        Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
+        """
+elif False:
+    AgentDataSourceDataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentDataSourceDataSourceConfigurationArgs:
     def __init__(__self__, *,
@@ -354,6 +500,14 @@ class AgentDataSourceDataSourceConfigurationArgs:
     def s3_configuration(self, value: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationS3ConfigurationArgs']]):
         pulumi.set(self, "s3_configuration", value)
 
+
+if not MYPY:
+    class AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict(TypedDict):
+        bucket_arn: pulumi.Input[str]
+        bucket_owner_account_id: NotRequired[pulumi.Input[str]]
+        inclusion_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
@@ -395,6 +549,15 @@ class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
         pulumi.set(self, "inclusion_prefixes", value)
 
 
+if not MYPY:
+    class AgentDataSourceServerSideEncryptionConfigurationArgsDict(TypedDict):
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the AWS KMS key used to encrypt the resource.
+        """
+elif False:
+    AgentDataSourceServerSideEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentDataSourceServerSideEncryptionConfigurationArgs:
     def __init__(__self__, *,
@@ -417,6 +580,19 @@ class AgentDataSourceServerSideEncryptionConfigurationArgs:
     def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_arn", value)
 
+
+if not MYPY:
+    class AgentDataSourceTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    AgentDataSourceTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentDataSourceTimeoutsArgs:
@@ -457,6 +633,15 @@ class AgentDataSourceTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationArgsDict(TypedDict):
+        chunking_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict']]
+        """
+        Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentDataSourceVectorIngestionConfigurationArgs:
     def __init__(__self__, *,
@@ -479,6 +664,19 @@ class AgentDataSourceVectorIngestionConfigurationArgs:
     def chunking_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs']]):
         pulumi.set(self, "chunking_configuration", value)
 
+
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict(TypedDict):
+        chunking_strategy: pulumi.Input[str]
+        """
+        Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIX_SIZE`, `NONE`.
+        """
+        fixed_size_chunking_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgsDict']]
+        """
+        Configurations for when you choose fixed-size chunking. If you set the chunking_strategy as `NONE`, exclude this field. See `fixed_size_chunking_configuration` for details.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs:
@@ -518,6 +716,19 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs:
         pulumi.set(self, "fixed_size_chunking_configuration", value)
 
 
+if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgsDict(TypedDict):
+        max_tokens: pulumi.Input[int]
+        """
+        Maximum number of tokens to include in a chunk.
+        """
+        overlap_percentage: pulumi.Input[int]
+        """
+        Percentage of overlap between adjacent chunks of a data source.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs:
     def __init__(__self__, *,
@@ -554,6 +765,19 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeC
     def overlap_percentage(self, value: pulumi.Input[int]):
         pulumi.set(self, "overlap_percentage", value)
 
+
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`.
+        """
+        vector_knowledge_base_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgsDict']]
+        """
+        Details about the embeddings model that'sused to convert the data source. See `vector_knowledge_base_configuration` block for details.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs:
@@ -593,6 +817,15 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationArgs:
         pulumi.set(self, "vector_knowledge_base_configuration", value)
 
 
+if not MYPY:
+    class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgsDict(TypedDict):
+        embedding_model_arn: pulumi.Input[str]
+        """
+        ARN of the model used to create vector embeddings for the knowledge base.
+        """
+elif False:
+    AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
@@ -614,6 +847,31 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     def embedding_model_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "embedding_model_arn", value)
 
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Vector store service in which the knowledge base is stored. Valid Values: `OPENSEARCH_SERVERLESS`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`.
+        """
+        opensearch_serverless_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgsDict']]
+        """
+        The storage configuration of the knowledge base in Amazon OpenSearch Service. See `opensearch_serverless_configuration` block for details.
+        """
+        pinecone_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgsDict']]
+        """
+        The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
+        """
+        rds_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgsDict']]
+        """
+        Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
+        """
+        redis_enterprise_cloud_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgsDict']]
+        """
+        The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationArgs:
@@ -701,6 +959,23 @@ class AgentKnowledgeBaseStorageConfigurationArgs:
         pulumi.set(self, "redis_enterprise_cloud_configuration", value)
 
 
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgsDict(TypedDict):
+        collection_arn: pulumi.Input[str]
+        """
+        ARN of the OpenSearch Service vector store.
+        """
+        vector_index_name: pulumi.Input[str]
+        """
+        Name of the vector store.
+        """
+        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgsDict']]
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs:
     def __init__(__self__, *,
@@ -753,6 +1028,23 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArg
     def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs']]):
         pulumi.set(self, "field_mapping", value)
 
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgsDict(TypedDict):
+        metadata_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        text_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        vector_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs:
@@ -808,6 +1100,27 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFie
     def vector_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vector_field", value)
 
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgsDict(TypedDict):
+        connection_string: pulumi.Input[str]
+        """
+        Endpoint URL for your index management page.
+        """
+        credentials_secret_arn: pulumi.Input[str]
+        """
+        ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
+        """
+        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgsDict']]
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        Namespace to be used to write new data to your database.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs:
@@ -878,6 +1191,19 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs:
         pulumi.set(self, "namespace", value)
 
 
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgsDict(TypedDict):
+        metadata_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        text_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs:
     def __init__(__self__, *,
@@ -916,6 +1242,31 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArg
     def text_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text_field", value)
 
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgsDict(TypedDict):
+        credentials_secret_arn: pulumi.Input[str]
+        """
+        ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
+        """
+        database_name: pulumi.Input[str]
+        """
+        Name of your Amazon RDS database.
+        """
+        resource_arn: pulumi.Input[str]
+        """
+        ARN of the vector store.
+        """
+        table_name: pulumi.Input[str]
+        """
+        Name of the table in the database.
+        """
+        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgsDict']]
+        """
+        Names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs:
@@ -1000,6 +1351,27 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs:
         pulumi.set(self, "field_mapping", value)
 
 
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgsDict(TypedDict):
+        metadata_field: pulumi.Input[str]
+        """
+        Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        primary_key_field: pulumi.Input[str]
+        """
+        Name of the field in which Amazon Bedrock stores the ID for each entry.
+        """
+        text_field: pulumi.Input[str]
+        """
+        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        vector_field: pulumi.Input[str]
+        """
+        Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs:
     def __init__(__self__, *,
@@ -1066,6 +1438,27 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs:
     def vector_field(self, value: pulumi.Input[str]):
         pulumi.set(self, "vector_field", value)
 
+
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgsDict(TypedDict):
+        credentials_secret_arn: pulumi.Input[str]
+        """
+        ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        Endpoint URL of the Redis Enterprise Cloud database.
+        """
+        vector_index_name: pulumi.Input[str]
+        """
+        Name of the vector index.
+        """
+        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgsDict']]
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs:
@@ -1135,6 +1528,23 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArg
         pulumi.set(self, "field_mapping", value)
 
 
+if not MYPY:
+    class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgsDict(TypedDict):
+        metadata_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of the field in which Amazon Bedrock stores metadata about the vector store.
+        """
+        text_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+        """
+        vector_field: NotRequired[pulumi.Input[str]]
+        """
+        Name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+        """
+elif False:
+    AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs:
     def __init__(__self__, *,
@@ -1189,6 +1599,23 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFie
     def vector_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vector_field", value)
 
+
+if not MYPY:
+    class AgentKnowledgeBaseTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AgentKnowledgeBaseTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentKnowledgeBaseTimeoutsArgs:
@@ -1245,6 +1672,15 @@ class AgentKnowledgeBaseTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
+if not MYPY:
+    class CustomModelOutputDataConfigArgsDict(TypedDict):
+        s3_uri: pulumi.Input[str]
+        """
+        The S3 URI where the output data is stored.
+        """
+elif False:
+    CustomModelOutputDataConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomModelOutputDataConfigArgs:
     def __init__(__self__, *,
@@ -1266,6 +1702,19 @@ class CustomModelOutputDataConfigArgs:
     def s3_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_uri", value)
 
+
+if not MYPY:
+    class CustomModelTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    CustomModelTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomModelTimeoutsArgs:
@@ -1306,6 +1755,15 @@ class CustomModelTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
+if not MYPY:
+    class CustomModelTrainingDataConfigArgsDict(TypedDict):
+        s3_uri: pulumi.Input[str]
+        """
+        The S3 URI where the training data is stored.
+        """
+elif False:
+    CustomModelTrainingDataConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomModelTrainingDataConfigArgs:
     def __init__(__self__, *,
@@ -1328,6 +1786,15 @@ class CustomModelTrainingDataConfigArgs:
         pulumi.set(self, "s3_uri", value)
 
 
+if not MYPY:
+    class CustomModelTrainingMetricArgsDict(TypedDict):
+        training_loss: pulumi.Input[float]
+        """
+        Loss metric associated with the customization job.
+        """
+elif False:
+    CustomModelTrainingMetricArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomModelTrainingMetricArgs:
     def __init__(__self__, *,
@@ -1349,6 +1816,15 @@ class CustomModelTrainingMetricArgs:
     def training_loss(self, value: pulumi.Input[float]):
         pulumi.set(self, "training_loss", value)
 
+
+if not MYPY:
+    class CustomModelValidationDataConfigArgsDict(TypedDict):
+        validators: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomModelValidationDataConfigValidatorArgsDict']]]]
+        """
+        Information about the validators.
+        """
+elif False:
+    CustomModelValidationDataConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomModelValidationDataConfigArgs:
@@ -1373,6 +1849,15 @@ class CustomModelValidationDataConfigArgs:
         pulumi.set(self, "validators", value)
 
 
+if not MYPY:
+    class CustomModelValidationDataConfigValidatorArgsDict(TypedDict):
+        s3_uri: pulumi.Input[str]
+        """
+        The S3 URI where the validation data is stored.
+        """
+elif False:
+    CustomModelValidationDataConfigValidatorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomModelValidationDataConfigValidatorArgs:
     def __init__(__self__, *,
@@ -1395,6 +1880,15 @@ class CustomModelValidationDataConfigValidatorArgs:
         pulumi.set(self, "s3_uri", value)
 
 
+if not MYPY:
+    class CustomModelValidationMetricArgsDict(TypedDict):
+        validation_loss: pulumi.Input[float]
+        """
+        The validation loss associated with the validator.
+        """
+elif False:
+    CustomModelValidationMetricArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomModelValidationMetricArgs:
     def __init__(__self__, *,
@@ -1416,6 +1910,19 @@ class CustomModelValidationMetricArgs:
     def validation_loss(self, value: pulumi.Input[float]):
         pulumi.set(self, "validation_loss", value)
 
+
+if not MYPY:
+    class CustomModelVpcConfigArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        VPC configuration security group IDs.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        VPC configuration subnets.
+        """
+elif False:
+    CustomModelVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomModelVpcConfigArgs:
@@ -1453,6 +1960,15 @@ class CustomModelVpcConfigArgs:
     def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnet_ids", value)
 
+
+if not MYPY:
+    class ProvisionedModelThroughputTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    ProvisionedModelThroughputTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProvisionedModelThroughputTimeoutsArgs:

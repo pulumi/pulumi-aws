@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['VpcEndpointConnectionNotificationArgs', 'VpcEndpointConnectionNotification']
@@ -213,15 +218,15 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        topic = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["vpce.amazonaws.com"],
-            )],
-            actions=["SNS:Publish"],
-            resources=["arn:aws:sns:*:*:vpce-notification-topic"],
-        )])
+        topic = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["vpce.amazonaws.com"],
+            }],
+            "actions": ["SNS:Publish"],
+            "resources": ["arn:aws:sns:*:*:vpce-notification-topic"],
+        }])
         topic_topic = aws.sns.Topic("topic",
             name="vpce-notification-topic",
             policy=topic.json)
@@ -270,15 +275,15 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        topic = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["vpce.amazonaws.com"],
-            )],
-            actions=["SNS:Publish"],
-            resources=["arn:aws:sns:*:*:vpce-notification-topic"],
-        )])
+        topic = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["vpce.amazonaws.com"],
+            }],
+            "actions": ["SNS:Publish"],
+            "resources": ["arn:aws:sns:*:*:vpce-notification-topic"],
+        }])
         topic_topic = aws.sns.Topic("topic",
             name="vpce-notification-topic",
             policy=topic.json)

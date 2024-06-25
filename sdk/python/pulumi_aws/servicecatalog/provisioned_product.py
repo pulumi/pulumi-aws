@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -696,9 +701,9 @@ class ProvisionedProduct(pulumi.CustomResource):
                  product_name: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductProvisioningParameterArgs']]]]] = None,
+                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
                  retain_physical_resources: Optional[pulumi.Input[bool]] = None,
-                 stack_set_provisioning_preferences: Optional[pulumi.Input[pulumi.InputType['ProvisionedProductStackSetProvisioningPreferencesArgs']]] = None,
+                 stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -724,10 +729,10 @@ class ProvisionedProduct(pulumi.CustomResource):
             name="example",
             product_name="Example product",
             provisioning_artifact_name="Example version",
-            provisioning_parameters=[aws.servicecatalog.ProvisionedProductProvisioningParameterArgs(
-                key="foo",
-                value="bar",
-            )],
+            provisioning_parameters=[{
+                "key": "foo",
+                "value": "bar",
+            }],
             tags={
                 "foo": "bar",
             })
@@ -755,9 +760,9 @@ class ProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[str] product_name: Name of the product. You must provide `product_id` or `product_name`, but not both.
         :param pulumi.Input[str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductProvisioningParameterArgs']]]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
         :param pulumi.Input[bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
-        :param pulumi.Input[pulumi.InputType['ProvisionedProductStackSetProvisioningPreferencesArgs']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See details below.
+        :param pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -789,10 +794,10 @@ class ProvisionedProduct(pulumi.CustomResource):
             name="example",
             product_name="Example product",
             provisioning_artifact_name="Example version",
-            provisioning_parameters=[aws.servicecatalog.ProvisionedProductProvisioningParameterArgs(
-                key="foo",
-                value="bar",
-            )],
+            provisioning_parameters=[{
+                "key": "foo",
+                "value": "bar",
+            }],
             tags={
                 "foo": "bar",
             })
@@ -831,9 +836,9 @@ class ProvisionedProduct(pulumi.CustomResource):
                  product_name: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
                  provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductProvisioningParameterArgs']]]]] = None,
+                 provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
                  retain_physical_resources: Optional[pulumi.Input[bool]] = None,
-                 stack_set_provisioning_preferences: Optional[pulumi.Input[pulumi.InputType['ProvisionedProductStackSetProvisioningPreferencesArgs']]] = None,
+                 stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -891,16 +896,16 @@ class ProvisionedProduct(pulumi.CustomResource):
             launch_role_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductOutputArgs']]]]] = None,
+            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductOutputArgs', 'ProvisionedProductOutputArgsDict']]]]] = None,
             path_id: Optional[pulumi.Input[str]] = None,
             path_name: Optional[pulumi.Input[str]] = None,
             product_id: Optional[pulumi.Input[str]] = None,
             product_name: Optional[pulumi.Input[str]] = None,
             provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
             provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
-            provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductProvisioningParameterArgs']]]]] = None,
+            provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]]] = None,
             retain_physical_resources: Optional[pulumi.Input[bool]] = None,
-            stack_set_provisioning_preferences: Optional[pulumi.Input[pulumi.InputType['ProvisionedProductStackSetProvisioningPreferencesArgs']]] = None,
+            stack_set_provisioning_preferences: Optional[pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             status_message: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -926,16 +931,16 @@ class ProvisionedProduct(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_arns: Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductOutputArgs']]]] outputs: The set of outputs for the product created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductOutputArgs', 'ProvisionedProductOutputArgsDict']]]] outputs: The set of outputs for the product created.
         :param pulumi.Input[str] path_id: Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `servicecatalog_get_launch_paths`. When required, you must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] path_name: Name of the path. You must provide `path_id` or `path_name`, but not both.
         :param pulumi.Input[str] product_id: Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         :param pulumi.Input[str] product_name: Name of the product. You must provide `product_id` or `product_name`, but not both.
         :param pulumi.Input[str] provisioning_artifact_id: Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         :param pulumi.Input[str] provisioning_artifact_name: Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProvisionedProductProvisioningParameterArgs']]]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProvisionedProductProvisioningParameterArgs', 'ProvisionedProductProvisioningParameterArgsDict']]]] provisioning_parameters: Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
         :param pulumi.Input[bool] retain_physical_resources: _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
-        :param pulumi.Input[pulumi.InputType['ProvisionedProductStackSetProvisioningPreferencesArgs']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See details below.
+        :param pulumi.Input[Union['ProvisionedProductStackSetProvisioningPreferencesArgs', 'ProvisionedProductStackSetProvisioningPreferencesArgsDict']] stack_set_provisioning_preferences: Configuration block with information about the provisioning preferences for a stack set. See details below.
         :param pulumi.Input[str] status: Current status of the provisioned product. See meanings below.
         :param pulumi.Input[str] status_message: Current status message of the provisioned product.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

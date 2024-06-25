@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -229,7 +234,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']]] = None,
+                 policy_details: Optional[pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -244,21 +249,21 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["dlm.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["dlm.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         dlm_lifecycle_role = aws.iam.Role("dlm_lifecycle_role",
             name="dlm-lifecycle-role",
             assume_role_policy=assume_role.json)
         dlm_lifecycle = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
+            {
+                "effect": "Allow",
+                "actions": [
                     "ec2:CreateSnapshot",
                     "ec2:CreateSnapshots",
                     "ec2:DeleteSnapshot",
@@ -266,13 +271,13 @@ class LifecyclePolicy(pulumi.CustomResource):
                     "ec2:DescribeVolumes",
                     "ec2:DescribeSnapshots",
                 ],
-                resources=["*"],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["ec2:CreateTags"],
-                resources=["arn:aws:ec2:*::snapshot/*"],
-            ),
+                "resources": ["*"],
+            },
+            {
+                "effect": "Allow",
+                "actions": ["ec2:CreateTags"],
+                "resources": ["arn:aws:ec2:*::snapshot/*"],
+            },
         ])
         dlm_lifecycle_role_policy = aws.iam.RolePolicy("dlm_lifecycle",
             name="dlm-lifecycle-policy",
@@ -282,27 +287,27 @@ class LifecyclePolicy(pulumi.CustomResource):
             description="example DLM lifecycle policy",
             execution_role_arn=dlm_lifecycle_role.arn,
             state="ENABLED",
-            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
-                resource_types="VOLUME",
-                schedules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleArgs(
-                    name="2 weeks of daily snapshots",
-                    create_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(
-                        interval=24,
-                        interval_unit="HOURS",
-                        times="23:45",
-                    ),
-                    retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(
-                        count=14,
-                    ),
-                    tags_to_add={
+            policy_details={
+                "resourceTypes": "VOLUME",
+                "schedules": [{
+                    "name": "2 weeks of daily snapshots",
+                    "createRule": {
+                        "interval": 24,
+                        "intervalUnit": "HOURS",
+                        "times": "23:45",
+                    },
+                    "retainRule": {
+                        "count": 14,
+                    },
+                    "tagsToAdd": {
                         "SnapshotCreator": "DLM",
                     },
-                    copy_tags=False,
-                )],
-                target_tags={
+                    "copyTags": False,
+                }],
+                "targetTags": {
                     "Snapshot": "true",
                 },
-            ))
+            })
         ```
 
         ### Example Cross-Region Snapshot Copy Usage
@@ -313,16 +318,16 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         # ...other configuration...
         current = aws.get_caller_identity()
-        key = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Enable IAM User Permissions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
-            )],
-            actions=["kms:*"],
-            resources=["*"],
-        )])
+        key = aws.iam.get_policy_document(statements=[{
+            "sid": "Enable IAM User Permissions",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
+            }],
+            "actions": ["kms:*"],
+            "resources": ["*"],
+        }])
         dlm_cross_region_copy_cmk = aws.kms.Key("dlm_cross_region_copy_cmk",
             description="Example Alternate Region KMS Key",
             policy=key.json)
@@ -330,37 +335,37 @@ class LifecyclePolicy(pulumi.CustomResource):
             description="example DLM lifecycle policy",
             execution_role_arn=dlm_lifecycle_role["arn"],
             state="ENABLED",
-            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
-                resource_types="VOLUME",
-                schedules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleArgs(
-                    name="2 weeks of daily snapshots",
-                    create_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(
-                        interval=24,
-                        interval_unit="HOURS",
-                        times="23:45",
-                    ),
-                    retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(
-                        count=14,
-                    ),
-                    tags_to_add={
+            policy_details={
+                "resourceTypes": "VOLUME",
+                "schedules": [{
+                    "name": "2 weeks of daily snapshots",
+                    "createRule": {
+                        "interval": 24,
+                        "intervalUnit": "HOURS",
+                        "times": "23:45",
+                    },
+                    "retainRule": {
+                        "count": 14,
+                    },
+                    "tagsToAdd": {
                         "SnapshotCreator": "DLM",
                     },
-                    copy_tags=False,
-                    cross_region_copy_rules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs(
-                        target="us-west-2",
-                        encrypted=True,
-                        cmk_arn=dlm_cross_region_copy_cmk.arn,
-                        copy_tags=True,
-                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs(
-                            interval=30,
-                            interval_unit="DAYS",
-                        ),
-                    )],
-                )],
-                target_tags={
+                    "copyTags": False,
+                    "crossRegionCopyRules": [{
+                        "target": "us-west-2",
+                        "encrypted": True,
+                        "cmkArn": dlm_cross_region_copy_cmk.arn,
+                        "copyTags": True,
+                        "retainRule": {
+                            "interval": 30,
+                            "intervalUnit": "DAYS",
+                        },
+                    }],
+                }],
+                "targetTags": {
                     "Snapshot": "true",
                 },
-            ))
+            })
         ```
 
         ### Example Event Based Policy Usage
@@ -373,28 +378,28 @@ class LifecyclePolicy(pulumi.CustomResource):
         example_lifecycle_policy = aws.dlm.LifecyclePolicy("example",
             description="tf-acc-basic",
             execution_role_arn=example_aws_iam_role["arn"],
-            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
-                policy_type="EVENT_BASED_POLICY",
-                action=aws.dlm.LifecyclePolicyPolicyDetailsActionArgs(
-                    name="tf-acc-basic",
-                    cross_region_copies=[aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs(
-                        encryption_configuration=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs(),
-                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs(
-                            interval=15,
-                            interval_unit="MONTHS",
-                        ),
-                        target="us-east-1",
-                    )],
-                ),
-                event_source=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceArgs(
-                    type="MANAGED_CWE",
-                    parameters=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArgs(
-                        description_regex="^.*Created for policy: policy-1234567890abcdef0.*$",
-                        event_type="shareSnapshot",
-                        snapshot_owners=[current.account_id],
-                    ),
-                ),
-            ))
+            policy_details={
+                "policyType": "EVENT_BASED_POLICY",
+                "action": {
+                    "name": "tf-acc-basic",
+                    "crossRegionCopies": [{
+                        "encryptionConfiguration": {},
+                        "retainRule": {
+                            "interval": 15,
+                            "intervalUnit": "MONTHS",
+                        },
+                        "target": "us-east-1",
+                    }],
+                },
+                "eventSource": {
+                    "type": "MANAGED_CWE",
+                    "parameters": {
+                        "descriptionRegex": "^.*Created for policy: policy-1234567890abcdef0.*$",
+                        "eventType": "shareSnapshot",
+                        "snapshotOwners": [current.account_id],
+                    },
+                },
+            })
         example = aws.iam.get_policy(name="AWSDataLifecycleManagerServiceRole")
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             role=example_aws_iam_role["id"],
@@ -413,7 +418,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
-        :param pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']] policy_details: See the `policy_details` configuration block. Max of 1.
+        :param pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -434,21 +439,21 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["dlm.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["dlm.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         dlm_lifecycle_role = aws.iam.Role("dlm_lifecycle_role",
             name="dlm-lifecycle-role",
             assume_role_policy=assume_role.json)
         dlm_lifecycle = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=[
+            {
+                "effect": "Allow",
+                "actions": [
                     "ec2:CreateSnapshot",
                     "ec2:CreateSnapshots",
                     "ec2:DeleteSnapshot",
@@ -456,13 +461,13 @@ class LifecyclePolicy(pulumi.CustomResource):
                     "ec2:DescribeVolumes",
                     "ec2:DescribeSnapshots",
                 ],
-                resources=["*"],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["ec2:CreateTags"],
-                resources=["arn:aws:ec2:*::snapshot/*"],
-            ),
+                "resources": ["*"],
+            },
+            {
+                "effect": "Allow",
+                "actions": ["ec2:CreateTags"],
+                "resources": ["arn:aws:ec2:*::snapshot/*"],
+            },
         ])
         dlm_lifecycle_role_policy = aws.iam.RolePolicy("dlm_lifecycle",
             name="dlm-lifecycle-policy",
@@ -472,27 +477,27 @@ class LifecyclePolicy(pulumi.CustomResource):
             description="example DLM lifecycle policy",
             execution_role_arn=dlm_lifecycle_role.arn,
             state="ENABLED",
-            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
-                resource_types="VOLUME",
-                schedules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleArgs(
-                    name="2 weeks of daily snapshots",
-                    create_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(
-                        interval=24,
-                        interval_unit="HOURS",
-                        times="23:45",
-                    ),
-                    retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(
-                        count=14,
-                    ),
-                    tags_to_add={
+            policy_details={
+                "resourceTypes": "VOLUME",
+                "schedules": [{
+                    "name": "2 weeks of daily snapshots",
+                    "createRule": {
+                        "interval": 24,
+                        "intervalUnit": "HOURS",
+                        "times": "23:45",
+                    },
+                    "retainRule": {
+                        "count": 14,
+                    },
+                    "tagsToAdd": {
                         "SnapshotCreator": "DLM",
                     },
-                    copy_tags=False,
-                )],
-                target_tags={
+                    "copyTags": False,
+                }],
+                "targetTags": {
                     "Snapshot": "true",
                 },
-            ))
+            })
         ```
 
         ### Example Cross-Region Snapshot Copy Usage
@@ -503,16 +508,16 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         # ...other configuration...
         current = aws.get_caller_identity()
-        key = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Enable IAM User Permissions",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[f"arn:aws:iam::{current.account_id}:root"],
-            )],
-            actions=["kms:*"],
-            resources=["*"],
-        )])
+        key = aws.iam.get_policy_document(statements=[{
+            "sid": "Enable IAM User Permissions",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
+            }],
+            "actions": ["kms:*"],
+            "resources": ["*"],
+        }])
         dlm_cross_region_copy_cmk = aws.kms.Key("dlm_cross_region_copy_cmk",
             description="Example Alternate Region KMS Key",
             policy=key.json)
@@ -520,37 +525,37 @@ class LifecyclePolicy(pulumi.CustomResource):
             description="example DLM lifecycle policy",
             execution_role_arn=dlm_lifecycle_role["arn"],
             state="ENABLED",
-            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
-                resource_types="VOLUME",
-                schedules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleArgs(
-                    name="2 weeks of daily snapshots",
-                    create_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs(
-                        interval=24,
-                        interval_unit="HOURS",
-                        times="23:45",
-                    ),
-                    retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs(
-                        count=14,
-                    ),
-                    tags_to_add={
+            policy_details={
+                "resourceTypes": "VOLUME",
+                "schedules": [{
+                    "name": "2 weeks of daily snapshots",
+                    "createRule": {
+                        "interval": 24,
+                        "intervalUnit": "HOURS",
+                        "times": "23:45",
+                    },
+                    "retainRule": {
+                        "count": 14,
+                    },
+                    "tagsToAdd": {
                         "SnapshotCreator": "DLM",
                     },
-                    copy_tags=False,
-                    cross_region_copy_rules=[aws.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs(
-                        target="us-west-2",
-                        encrypted=True,
-                        cmk_arn=dlm_cross_region_copy_cmk.arn,
-                        copy_tags=True,
-                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs(
-                            interval=30,
-                            interval_unit="DAYS",
-                        ),
-                    )],
-                )],
-                target_tags={
+                    "copyTags": False,
+                    "crossRegionCopyRules": [{
+                        "target": "us-west-2",
+                        "encrypted": True,
+                        "cmkArn": dlm_cross_region_copy_cmk.arn,
+                        "copyTags": True,
+                        "retainRule": {
+                            "interval": 30,
+                            "intervalUnit": "DAYS",
+                        },
+                    }],
+                }],
+                "targetTags": {
                     "Snapshot": "true",
                 },
-            ))
+            })
         ```
 
         ### Example Event Based Policy Usage
@@ -563,28 +568,28 @@ class LifecyclePolicy(pulumi.CustomResource):
         example_lifecycle_policy = aws.dlm.LifecyclePolicy("example",
             description="tf-acc-basic",
             execution_role_arn=example_aws_iam_role["arn"],
-            policy_details=aws.dlm.LifecyclePolicyPolicyDetailsArgs(
-                policy_type="EVENT_BASED_POLICY",
-                action=aws.dlm.LifecyclePolicyPolicyDetailsActionArgs(
-                    name="tf-acc-basic",
-                    cross_region_copies=[aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs(
-                        encryption_configuration=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs(),
-                        retain_rule=aws.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs(
-                            interval=15,
-                            interval_unit="MONTHS",
-                        ),
-                        target="us-east-1",
-                    )],
-                ),
-                event_source=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceArgs(
-                    type="MANAGED_CWE",
-                    parameters=aws.dlm.LifecyclePolicyPolicyDetailsEventSourceParametersArgs(
-                        description_regex="^.*Created for policy: policy-1234567890abcdef0.*$",
-                        event_type="shareSnapshot",
-                        snapshot_owners=[current.account_id],
-                    ),
-                ),
-            ))
+            policy_details={
+                "policyType": "EVENT_BASED_POLICY",
+                "action": {
+                    "name": "tf-acc-basic",
+                    "crossRegionCopies": [{
+                        "encryptionConfiguration": {},
+                        "retainRule": {
+                            "interval": 15,
+                            "intervalUnit": "MONTHS",
+                        },
+                        "target": "us-east-1",
+                    }],
+                },
+                "eventSource": {
+                    "type": "MANAGED_CWE",
+                    "parameters": {
+                        "descriptionRegex": "^.*Created for policy: policy-1234567890abcdef0.*$",
+                        "eventType": "shareSnapshot",
+                        "snapshotOwners": [current.account_id],
+                    },
+                },
+            })
         example = aws.iam.get_policy(name="AWSDataLifecycleManagerServiceRole")
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             role=example_aws_iam_role["id"],
@@ -616,7 +621,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']]] = None,
+                 policy_details: Optional[pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -654,7 +659,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             execution_role_arn: Optional[pulumi.Input[str]] = None,
-            policy_details: Optional[pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']]] = None,
+            policy_details: Optional[pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LifecyclePolicy':
@@ -668,7 +673,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
         :param pulumi.Input[str] description: A description for the DLM lifecycle policy.
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
-        :param pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']] policy_details: See the `policy_details` configuration block. Max of 1.
+        :param pulumi.Input[Union['LifecyclePolicyPolicyDetailsArgs', 'LifecyclePolicyPolicyDetailsArgsDict']] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

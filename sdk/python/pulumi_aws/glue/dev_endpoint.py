@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['DevEndpointArgs', 'DevEndpoint']
@@ -702,13 +707,13 @@ class DevEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["glue.amazonaws.com"],
-            )],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["glue.amazonaws.com"],
+            }],
+        }])
         example_role = aws.iam.Role("example",
             name="AWSGlueServiceRole-foo",
             assume_role_policy=example.json)
@@ -763,13 +768,13 @@ class DevEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["glue.amazonaws.com"],
-            )],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["glue.amazonaws.com"],
+            }],
+        }])
         example_role = aws.iam.Role("example",
             name="AWSGlueServiceRole-foo",
             assume_role_policy=example.json)

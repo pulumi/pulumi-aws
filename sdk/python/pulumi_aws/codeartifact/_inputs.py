@@ -4,15 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'RepositoryExternalConnectionsArgs',
+    'RepositoryExternalConnectionsArgsDict',
     'RepositoryUpstreamArgs',
+    'RepositoryUpstreamArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class RepositoryExternalConnectionsArgsDict(TypedDict):
+        external_connection_name: pulumi.Input[str]
+        """
+        The name of the external connection associated with a repository.
+        """
+        package_format: NotRequired[pulumi.Input[str]]
+        status: NotRequired[pulumi.Input[str]]
+elif False:
+    RepositoryExternalConnectionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RepositoryExternalConnectionsArgs:
@@ -59,6 +79,15 @@ class RepositoryExternalConnectionsArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class RepositoryUpstreamArgsDict(TypedDict):
+        repository_name: pulumi.Input[str]
+        """
+        The name of an upstream repository.
+        """
+elif False:
+    RepositoryUpstreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RepositoryUpstreamArgs:

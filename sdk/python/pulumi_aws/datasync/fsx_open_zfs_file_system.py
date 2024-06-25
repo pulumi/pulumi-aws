@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -260,7 +265,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[pulumi.InputType['FsxOpenZfsFileSystemProtocolArgs']]] = None,
+                 protocol: Optional[pulumi.Input[Union['FsxOpenZfsFileSystemProtocolArgs', 'FsxOpenZfsFileSystemProtocolArgsDict']]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -277,13 +282,13 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         example = aws.datasync.FsxOpenZfsFileSystem("example",
             fsx_filesystem_arn=example_aws_fsx_openzfs_file_system["arn"],
             security_group_arns=[example_aws_security_group["arn"]],
-            protocol=aws.datasync.FsxOpenZfsFileSystemProtocolArgs(
-                nfs=aws.datasync.FsxOpenZfsFileSystemProtocolNfsArgs(
-                    mount_options=aws.datasync.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs(
-                        version="AUTOMATIC",
-                    ),
-                ),
-            ))
+            protocol={
+                "nfs": {
+                    "mountOptions": {
+                        "version": "AUTOMATIC",
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -297,7 +302,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
-        :param pulumi.Input[pulumi.InputType['FsxOpenZfsFileSystemProtocolArgs']] protocol: The type of protocol that DataSync uses to access your file system. See below.
+        :param pulumi.Input[Union['FsxOpenZfsFileSystemProtocolArgs', 'FsxOpenZfsFileSystemProtocolArgsDict']] protocol: The type of protocol that DataSync uses to access your file system. See below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -320,13 +325,13 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         example = aws.datasync.FsxOpenZfsFileSystem("example",
             fsx_filesystem_arn=example_aws_fsx_openzfs_file_system["arn"],
             security_group_arns=[example_aws_security_group["arn"]],
-            protocol=aws.datasync.FsxOpenZfsFileSystemProtocolArgs(
-                nfs=aws.datasync.FsxOpenZfsFileSystemProtocolNfsArgs(
-                    mount_options=aws.datasync.FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs(
-                        version="AUTOMATIC",
-                    ),
-                ),
-            ))
+            protocol={
+                "nfs": {
+                    "mountOptions": {
+                        "version": "AUTOMATIC",
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -353,7 +358,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[pulumi.InputType['FsxOpenZfsFileSystemProtocolArgs']]] = None,
+                 protocol: Optional[pulumi.Input[Union['FsxOpenZfsFileSystemProtocolArgs', 'FsxOpenZfsFileSystemProtocolArgsDict']]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -394,7 +399,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
             fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
-            protocol: Optional[pulumi.Input[pulumi.InputType['FsxOpenZfsFileSystemProtocolArgs']]] = None,
+            protocol: Optional[pulumi.Input[Union['FsxOpenZfsFileSystemProtocolArgs', 'FsxOpenZfsFileSystemProtocolArgsDict']]] = None,
             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subdirectory: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -410,7 +415,7 @@ class FsxOpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[str] creation_time: The time that the FSx for openzfs location was created.
         :param pulumi.Input[str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
-        :param pulumi.Input[pulumi.InputType['FsxOpenZfsFileSystemProtocolArgs']] protocol: The type of protocol that DataSync uses to access your file system. See below.
+        :param pulumi.Input[Union['FsxOpenZfsFileSystemProtocolArgs', 'FsxOpenZfsFileSystemProtocolArgsDict']] protocol: The type of protocol that DataSync uses to access your file system. See below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
         :param pulumi.Input[str] subdirectory: Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

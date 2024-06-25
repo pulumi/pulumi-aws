@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -356,10 +361,10 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  home_directory: Optional[pulumi.Input[str]] = None,
-                 home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHomeDirectoryMappingArgs']]]]] = None,
+                 home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserHomeDirectoryMappingArgs', 'UserHomeDirectoryMappingArgsDict']]]]] = None,
                  home_directory_type: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
-                 posix_profile: Optional[pulumi.Input[pulumi.InputType['UserPosixProfileArgs']]] = None,
+                 posix_profile: Optional[pulumi.Input[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -377,23 +382,23 @@ class User(pulumi.CustomResource):
             tags={
                 "NAME": "tf-acc-test-transfer-server",
             })
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["transfer.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["transfer.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         foo_role = aws.iam.Role("foo",
             name="tf-test-transfer-user-iam-role",
             assume_role_policy=assume_role.json)
-        foo = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AllowFullAccesstoS3",
-            effect="Allow",
-            actions=["s3:*"],
-            resources=["*"],
-        )])
+        foo = aws.iam.get_policy_document(statements=[{
+            "sid": "AllowFullAccesstoS3",
+            "effect": "Allow",
+            "actions": ["s3:*"],
+            "resources": ["*"],
+        }])
         foo_role_policy = aws.iam.RolePolicy("foo",
             name="tf-test-transfer-user-iam-policy",
             role=foo_role.id,
@@ -403,10 +408,10 @@ class User(pulumi.CustomResource):
             user_name="tftestuser",
             role=foo_role.arn,
             home_directory_type="LOGICAL",
-            home_directory_mappings=[aws.transfer.UserHomeDirectoryMappingArgs(
-                entry="/test.pdf",
-                target="/bucket3/test-path/tftestuser.pdf",
-            )])
+            home_directory_mappings=[{
+                "entry": "/test.pdf",
+                "target": "/bucket3/test-path/tftestuser.pdf",
+            }])
         ```
 
         ## Import
@@ -420,10 +425,10 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHomeDirectoryMappingArgs']]]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserHomeDirectoryMappingArgs', 'UserHomeDirectoryMappingArgsDict']]]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
         :param pulumi.Input[str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
-        :param pulumi.Input[pulumi.InputType['UserPosixProfileArgs']] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        :param pulumi.Input[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
@@ -447,23 +452,23 @@ class User(pulumi.CustomResource):
             tags={
                 "NAME": "tf-acc-test-transfer-server",
             })
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["transfer.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["transfer.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         foo_role = aws.iam.Role("foo",
             name="tf-test-transfer-user-iam-role",
             assume_role_policy=assume_role.json)
-        foo = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="AllowFullAccesstoS3",
-            effect="Allow",
-            actions=["s3:*"],
-            resources=["*"],
-        )])
+        foo = aws.iam.get_policy_document(statements=[{
+            "sid": "AllowFullAccesstoS3",
+            "effect": "Allow",
+            "actions": ["s3:*"],
+            "resources": ["*"],
+        }])
         foo_role_policy = aws.iam.RolePolicy("foo",
             name="tf-test-transfer-user-iam-policy",
             role=foo_role.id,
@@ -473,10 +478,10 @@ class User(pulumi.CustomResource):
             user_name="tftestuser",
             role=foo_role.arn,
             home_directory_type="LOGICAL",
-            home_directory_mappings=[aws.transfer.UserHomeDirectoryMappingArgs(
-                entry="/test.pdf",
-                target="/bucket3/test-path/tftestuser.pdf",
-            )])
+            home_directory_mappings=[{
+                "entry": "/test.pdf",
+                "target": "/bucket3/test-path/tftestuser.pdf",
+            }])
         ```
 
         ## Import
@@ -503,10 +508,10 @@ class User(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  home_directory: Optional[pulumi.Input[str]] = None,
-                 home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHomeDirectoryMappingArgs']]]]] = None,
+                 home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserHomeDirectoryMappingArgs', 'UserHomeDirectoryMappingArgsDict']]]]] = None,
                  home_directory_type: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
-                 posix_profile: Optional[pulumi.Input[pulumi.InputType['UserPosixProfileArgs']]] = None,
+                 posix_profile: Optional[pulumi.Input[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -549,10 +554,10 @@ class User(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             home_directory: Optional[pulumi.Input[str]] = None,
-            home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHomeDirectoryMappingArgs']]]]] = None,
+            home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserHomeDirectoryMappingArgs', 'UserHomeDirectoryMappingArgsDict']]]]] = None,
             home_directory_type: Optional[pulumi.Input[str]] = None,
             policy: Optional[pulumi.Input[str]] = None,
-            posix_profile: Optional[pulumi.Input[pulumi.InputType['UserPosixProfileArgs']]] = None,
+            posix_profile: Optional[pulumi.Input[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']]] = None,
             role: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -567,10 +572,10 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Transfer User
         :param pulumi.Input[str] home_directory: The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHomeDirectoryMappingArgs']]]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserHomeDirectoryMappingArgs', 'UserHomeDirectoryMappingArgsDict']]]] home_directory_mappings: Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
         :param pulumi.Input[str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
-        :param pulumi.Input[pulumi.InputType['UserPosixProfileArgs']] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        :param pulumi.Input[Union['UserPosixProfileArgs', 'UserPosixProfileArgsDict']] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.

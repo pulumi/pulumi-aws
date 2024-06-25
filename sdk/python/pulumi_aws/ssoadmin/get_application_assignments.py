@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -68,7 +73,7 @@ class AwaitableGetApplicationAssignmentsResult(GetApplicationAssignmentsResult):
 
 
 def get_application_assignments(application_arn: Optional[str] = None,
-                                application_assignments: Optional[Sequence[pulumi.InputType['GetApplicationAssignmentsApplicationAssignmentArgs']]] = None,
+                                application_assignments: Optional[Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationAssignmentsResult:
     """
     Data source for managing AWS SSO Admin Application Assignments.
@@ -86,7 +91,7 @@ def get_application_assignments(application_arn: Optional[str] = None,
 
 
     :param str application_arn: ARN of the application.
-    :param Sequence[pulumi.InputType['GetApplicationAssignmentsApplicationAssignmentArgs']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
+    :param Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
@@ -102,7 +107,7 @@ def get_application_assignments(application_arn: Optional[str] = None,
 
 @_utilities.lift_output_func(get_application_assignments)
 def get_application_assignments_output(application_arn: Optional[pulumi.Input[str]] = None,
-                                       application_assignments: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetApplicationAssignmentsApplicationAssignmentArgs']]]]] = None,
+                                       application_assignments: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']]]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationAssignmentsResult]:
     """
     Data source for managing AWS SSO Admin Application Assignments.
@@ -120,6 +125,6 @@ def get_application_assignments_output(application_arn: Optional[pulumi.Input[st
 
 
     :param str application_arn: ARN of the application.
-    :param Sequence[pulumi.InputType['GetApplicationAssignmentsApplicationAssignmentArgs']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
+    :param Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
     """
     ...

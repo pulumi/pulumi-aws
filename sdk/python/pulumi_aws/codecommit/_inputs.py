@@ -4,14 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'TriggerTriggerArgs',
+    'TriggerTriggerArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class TriggerTriggerArgsDict(TypedDict):
+        destination_arn: pulumi.Input[str]
+        """
+        The ARN of the resource that is the target for a trigger. For example, the ARN of a topic in Amazon Simple Notification Service (SNS).
+        """
+        events: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The repository events that will cause the trigger to run actions in another service, such as sending a notification through Amazon Simple Notification Service (SNS). If no events are specified, the trigger will run for all repository events. Event types include: `all`, `updateReference`, `createReference`, `deleteReference`.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the trigger.
+        """
+        branches: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The branches that will be included in the trigger configuration. If no branches   are specified, the trigger will apply to all branches.
+        """
+        custom_data: NotRequired[pulumi.Input[str]]
+        """
+        Any custom data associated with the trigger that will be included in the information sent to the target of the trigger.
+        """
+elif False:
+    TriggerTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerTriggerArgs:

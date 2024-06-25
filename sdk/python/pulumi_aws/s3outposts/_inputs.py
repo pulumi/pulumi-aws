@@ -4,14 +4,31 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'EndpointNetworkInterfaceArgs',
+    'EndpointNetworkInterfaceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EndpointNetworkInterfaceArgsDict(TypedDict):
+        network_interface_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of the Elastic Network Interface (ENI).
+        """
+elif False:
+    EndpointNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointNetworkInterfaceArgs:

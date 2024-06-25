@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['RepositoryPermissionsPolicyArgs', 'RepositoryPermissionsPolicy']
@@ -227,15 +232,15 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         example_repository = aws.codeartifact.Repository("example",
             repository="example",
             domain=example_domain.domain)
-        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["codeartifact:ReadFromRepository"],
-            resources=[example_repository.arn],
-        )])
+        example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["codeartifact:ReadFromRepository"],
+            "resources": [example_repository.arn],
+        }])
         example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("example",
             repository=example_repository.repository,
             domain=example_domain.domain,
@@ -280,15 +285,15 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         example_repository = aws.codeartifact.Repository("example",
             repository="example",
             domain=example_domain.domain)
-        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="*",
-                identifiers=["*"],
-            )],
-            actions=["codeartifact:ReadFromRepository"],
-            resources=[example_repository.arn],
-        )])
+        example = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "actions": ["codeartifact:ReadFromRepository"],
+            "resources": [example_repository.arn],
+        }])
         example_repository_permissions_policy = aws.codeartifact.RepositoryPermissionsPolicy("example",
             repository=example_repository.repository,
             domain=example_domain.domain,

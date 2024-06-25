@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -182,7 +187,7 @@ class LoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']]] = None,
+                 destination_configuration: Optional[pulumi.Input[Union['LoggingConfigurationDestinationConfigurationArgs', 'LoggingConfigurationDestinationConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -198,11 +203,11 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.LogGroup("example")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(
-                log_group_name=example.name,
-            ),
-        ))
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
+            "cloudwatchLogs": {
+                "logGroupName": example.name,
+            },
+        })
         ```
 
         ### Basic Usage - Logging to Kinesis Firehose with Extended S3
@@ -212,35 +217,35 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket_v2 = aws.s3.BucketV2("example", bucket_prefix="tf-ivschat-logging-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["firehose.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         example_role = aws.iam.Role("example",
             name="firehose_example_role",
             assume_role_policy=assume_role.json)
         example = aws.kinesis.FirehoseDeliveryStream("example",
             name="pulumi-kinesis-firehose-extended-s3-example-stream",
             destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=example_role.arn,
-                bucket_arn=example_bucket_v2.arn,
-            ),
+            extended_s3_configuration={
+                "roleArn": example_role.arn,
+                "bucketArn": example_bucket_v2.arn,
+            },
             tags={
                 "LogDeliveryEnabled": "true",
             })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example_bucket_v2.id,
             acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs(
-                delivery_stream_name=example.name,
-            ),
-        ))
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
+            "firehose": {
+                "deliveryStreamName": example.name,
+            },
+        })
         ```
 
         ## Import
@@ -253,7 +258,7 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
+        :param pulumi.Input[Union['LoggingConfigurationDestinationConfigurationArgs', 'LoggingConfigurationDestinationConfigurationArgsDict']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
         :param pulumi.Input[str] name: Logging Configuration name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -275,11 +280,11 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.LogGroup("example")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(
-                log_group_name=example.name,
-            ),
-        ))
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
+            "cloudwatchLogs": {
+                "logGroupName": example.name,
+            },
+        })
         ```
 
         ### Basic Usage - Logging to Kinesis Firehose with Extended S3
@@ -289,35 +294,35 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket_v2 = aws.s3.BucketV2("example", bucket_prefix="tf-ivschat-logging-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["firehose.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["firehose.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         example_role = aws.iam.Role("example",
             name="firehose_example_role",
             assume_role_policy=assume_role.json)
         example = aws.kinesis.FirehoseDeliveryStream("example",
             name="pulumi-kinesis-firehose-extended-s3-example-stream",
             destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
-                role_arn=example_role.arn,
-                bucket_arn=example_bucket_v2.arn,
-            ),
+            extended_s3_configuration={
+                "roleArn": example_role.arn,
+                "bucketArn": example_bucket_v2.arn,
+            },
             tags={
                 "LogDeliveryEnabled": "true",
             })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example_bucket_v2.id,
             acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs(
-                delivery_stream_name=example.name,
-            ),
-        ))
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("example", destination_configuration={
+            "firehose": {
+                "deliveryStreamName": example.name,
+            },
+        })
         ```
 
         ## Import
@@ -343,7 +348,7 @@ class LoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']]] = None,
+                 destination_configuration: Optional[pulumi.Input[Union['LoggingConfigurationDestinationConfigurationArgs', 'LoggingConfigurationDestinationConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -372,7 +377,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            destination_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']]] = None,
+            destination_configuration: Optional[pulumi.Input[Union['LoggingConfigurationDestinationConfigurationArgs', 'LoggingConfigurationDestinationConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -385,7 +390,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Logging Configuration.
-        :param pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
+        :param pulumi.Input[Union['LoggingConfigurationDestinationConfigurationArgs', 'LoggingConfigurationDestinationConfigurationArgsDict']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
         :param pulumi.Input[str] name: Logging Configuration name.
         :param pulumi.Input[str] state: State of the Logging Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

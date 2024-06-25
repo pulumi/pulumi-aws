@@ -4,14 +4,31 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ProfilingGroupAgentOrchestrationConfigArgs',
+    'ProfilingGroupAgentOrchestrationConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ProfilingGroupAgentOrchestrationConfigArgsDict(TypedDict):
+        profiling_enabled: pulumi.Input[bool]
+        """
+        (Required) Boolean that specifies whether the profiling agent collects profiling data or
+        """
+elif False:
+    ProfilingGroupAgentOrchestrationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProfilingGroupAgentOrchestrationConfigArgs:

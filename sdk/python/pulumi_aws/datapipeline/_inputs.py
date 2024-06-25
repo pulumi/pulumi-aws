@@ -4,19 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'PipelineDefinitionParameterObjectArgs',
+    'PipelineDefinitionParameterObjectArgsDict',
     'PipelineDefinitionParameterObjectAttributeArgs',
+    'PipelineDefinitionParameterObjectAttributeArgsDict',
     'PipelineDefinitionParameterValueArgs',
+    'PipelineDefinitionParameterValueArgsDict',
     'PipelineDefinitionPipelineObjectArgs',
+    'PipelineDefinitionPipelineObjectArgsDict',
     'PipelineDefinitionPipelineObjectFieldArgs',
+    'PipelineDefinitionPipelineObjectFieldArgsDict',
     'GetPipelineDefinitionParameterValueArgs',
+    'GetPipelineDefinitionParameterValueArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PipelineDefinitionParameterObjectArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        ID of the parameter object.
+        """
+        attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgsDict']]]]
+        """
+        Configuration block for attributes of the parameter object. See below
+        """
+elif False:
+    PipelineDefinitionParameterObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineDefinitionParameterObjectArgs:
@@ -56,6 +82,19 @@ class PipelineDefinitionParameterObjectArgs:
         pulumi.set(self, "attributes", value)
 
 
+if not MYPY:
+    class PipelineDefinitionParameterObjectAttributeArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Field identifier.
+        """
+        string_value: pulumi.Input[str]
+        """
+        Field value, expressed as a String.
+        """
+elif False:
+    PipelineDefinitionParameterObjectAttributeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipelineDefinitionParameterObjectAttributeArgs:
     def __init__(__self__, *,
@@ -93,6 +132,19 @@ class PipelineDefinitionParameterObjectAttributeArgs:
         pulumi.set(self, "string_value", value)
 
 
+if not MYPY:
+    class PipelineDefinitionParameterValueArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        ID of the parameter value.
+        """
+        string_value: pulumi.Input[str]
+        """
+        Field value, expressed as a String.
+        """
+elif False:
+    PipelineDefinitionParameterValueArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipelineDefinitionParameterValueArgs:
     def __init__(__self__, *,
@@ -129,6 +181,23 @@ class PipelineDefinitionParameterValueArgs:
     def string_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "string_value", value)
 
+
+if not MYPY:
+    class PipelineDefinitionPipelineObjectArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        ID of the object.
+        """
+        name: pulumi.Input[str]
+        """
+        ARN of the storage connector.
+        """
+        fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgsDict']]]]
+        """
+        Configuration block for Key-value pairs that define the properties of the object. See below
+        """
+elif False:
+    PipelineDefinitionPipelineObjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineDefinitionPipelineObjectArgs:
@@ -183,6 +252,23 @@ class PipelineDefinitionPipelineObjectArgs:
         pulumi.set(self, "fields", value)
 
 
+if not MYPY:
+    class PipelineDefinitionPipelineObjectFieldArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Field identifier.
+        """
+        ref_value: NotRequired[pulumi.Input[str]]
+        """
+        Field value, expressed as the identifier of another object
+        """
+        string_value: NotRequired[pulumi.Input[str]]
+        """
+        Field value, expressed as a String.
+        """
+elif False:
+    PipelineDefinitionPipelineObjectFieldArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipelineDefinitionPipelineObjectFieldArgs:
     def __init__(__self__, *,
@@ -236,6 +322,19 @@ class PipelineDefinitionPipelineObjectFieldArgs:
     def string_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "string_value", value)
 
+
+if not MYPY:
+    class GetPipelineDefinitionParameterValueArgsDict(TypedDict):
+        id: str
+        """
+        ID of the object.
+        """
+        string_value: str
+        """
+        Field value, expressed as a String.
+        """
+elif False:
+    GetPipelineDefinitionParameterValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetPipelineDefinitionParameterValueArgs:

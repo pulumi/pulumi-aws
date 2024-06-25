@@ -4,18 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'LoggingConfigurationDestinationConfigurationArgs',
+    'LoggingConfigurationDestinationConfigurationArgsDict',
     'LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs',
+    'LoggingConfigurationDestinationConfigurationCloudwatchLogsArgsDict',
     'LoggingConfigurationDestinationConfigurationFirehoseArgs',
+    'LoggingConfigurationDestinationConfigurationFirehoseArgsDict',
     'LoggingConfigurationDestinationConfigurationS3Args',
+    'LoggingConfigurationDestinationConfigurationS3ArgsDict',
     'RoomMessageReviewHandlerArgs',
+    'RoomMessageReviewHandlerArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LoggingConfigurationDestinationConfigurationArgsDict(TypedDict):
+        cloudwatch_logs: NotRequired[pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgsDict']]
+        """
+        An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        """
+        firehose: NotRequired[pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArgsDict']]
+        """
+        An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        """
+        s3: NotRequired[pulumi.Input['LoggingConfigurationDestinationConfigurationS3ArgsDict']]
+        """
+        An Amazon S3 destination configuration where chat activity will be logged.
+        """
+elif False:
+    LoggingConfigurationDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoggingConfigurationDestinationConfigurationArgs:
@@ -72,6 +101,15 @@ class LoggingConfigurationDestinationConfigurationArgs:
         pulumi.set(self, "s3", value)
 
 
+if not MYPY:
+    class LoggingConfigurationDestinationConfigurationCloudwatchLogsArgsDict(TypedDict):
+        log_group_name: pulumi.Input[str]
+        """
+        Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
+        """
+elif False:
+    LoggingConfigurationDestinationConfigurationCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs:
     def __init__(__self__, *,
@@ -94,6 +132,15 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs:
         pulumi.set(self, "log_group_name", value)
 
 
+if not MYPY:
+    class LoggingConfigurationDestinationConfigurationFirehoseArgsDict(TypedDict):
+        delivery_stream_name: pulumi.Input[str]
+        """
+        Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
+        """
+elif False:
+    LoggingConfigurationDestinationConfigurationFirehoseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoggingConfigurationDestinationConfigurationFirehoseArgs:
     def __init__(__self__, *,
@@ -115,6 +162,17 @@ class LoggingConfigurationDestinationConfigurationFirehoseArgs:
     def delivery_stream_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "delivery_stream_name", value)
 
+
+if not MYPY:
+    class LoggingConfigurationDestinationConfigurationS3ArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        """
+        Name of the Amazon S3 bucket where chat activity will be logged.
+
+        The following arguments are optional:
+        """
+elif False:
+    LoggingConfigurationDestinationConfigurationS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoggingConfigurationDestinationConfigurationS3Args:
@@ -141,6 +199,21 @@ class LoggingConfigurationDestinationConfigurationS3Args:
     def bucket_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket_name", value)
 
+
+if not MYPY:
+    class RoomMessageReviewHandlerArgsDict(TypedDict):
+        fallback_result: NotRequired[pulumi.Input[str]]
+        """
+        The fallback behavior (whether the message
+        is allowed or denied) if the handler does not return a valid response,
+        encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the lambda message review handler function.
+        """
+elif False:
+    RoomMessageReviewHandlerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoomMessageReviewHandlerArgs:

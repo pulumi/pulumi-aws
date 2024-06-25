@@ -4,17 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DevEnvironmentIdesArgs',
+    'DevEnvironmentIdesArgsDict',
     'DevEnvironmentPersistentStorageArgs',
+    'DevEnvironmentPersistentStorageArgsDict',
     'DevEnvironmentRepositoryArgs',
+    'DevEnvironmentRepositoryArgsDict',
     'GetDevEnvironmentRepositoryArgs',
+    'GetDevEnvironmentRepositoryArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DevEnvironmentIdesArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
+        """
+        runtime: NotRequired[pulumi.Input[str]]
+        """
+        A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
+        """
+elif False:
+    DevEnvironmentIdesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DevEnvironmentIdesArgs:
@@ -55,6 +79,12 @@ class DevEnvironmentIdesArgs:
         pulumi.set(self, "runtime", value)
 
 
+if not MYPY:
+    class DevEnvironmentPersistentStorageArgsDict(TypedDict):
+        size: pulumi.Input[int]
+elif False:
+    DevEnvironmentPersistentStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DevEnvironmentPersistentStorageArgs:
     def __init__(__self__, *,
@@ -70,6 +100,21 @@ class DevEnvironmentPersistentStorageArgs:
     def size(self, value: pulumi.Input[int]):
         pulumi.set(self, "size", value)
 
+
+if not MYPY:
+    class DevEnvironmentRepositoryArgsDict(TypedDict):
+        repository_name: pulumi.Input[str]
+        """
+        The name of the source repository.
+        """
+        branch_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the branch in a source repository.
+
+        persistent storage (` persistent_storage`) supports the following:
+        """
+elif False:
+    DevEnvironmentRepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DevEnvironmentRepositoryArgs:
@@ -112,6 +157,13 @@ class DevEnvironmentRepositoryArgs:
     def branch_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "branch_name", value)
 
+
+if not MYPY:
+    class GetDevEnvironmentRepositoryArgsDict(TypedDict):
+        branch_name: str
+        repository_name: str
+elif False:
+    GetDevEnvironmentRepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetDevEnvironmentRepositoryArgs:

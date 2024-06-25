@@ -4,132 +4,279 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AnalysisParametersArgs',
+    'AnalysisParametersArgsDict',
     'AnalysisParametersDateTimeParameterArgs',
+    'AnalysisParametersDateTimeParameterArgsDict',
     'AnalysisParametersDecimalParameterArgs',
+    'AnalysisParametersDecimalParameterArgsDict',
     'AnalysisParametersIntegerParameterArgs',
+    'AnalysisParametersIntegerParameterArgsDict',
     'AnalysisParametersStringParameterArgs',
+    'AnalysisParametersStringParameterArgsDict',
     'AnalysisPermissionArgs',
+    'AnalysisPermissionArgsDict',
     'AnalysisSourceEntityArgs',
+    'AnalysisSourceEntityArgsDict',
     'AnalysisSourceEntitySourceTemplateArgs',
+    'AnalysisSourceEntitySourceTemplateArgsDict',
     'AnalysisSourceEntitySourceTemplateDataSetReferenceArgs',
+    'AnalysisSourceEntitySourceTemplateDataSetReferenceArgsDict',
     'DashboardDashboardPublishOptionsArgs',
+    'DashboardDashboardPublishOptionsArgsDict',
     'DashboardDashboardPublishOptionsAdHocFilteringOptionArgs',
+    'DashboardDashboardPublishOptionsAdHocFilteringOptionArgsDict',
     'DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs',
+    'DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgsDict',
     'DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs',
+    'DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgsDict',
     'DashboardDashboardPublishOptionsDataPointTooltipOptionArgs',
+    'DashboardDashboardPublishOptionsDataPointTooltipOptionArgsDict',
     'DashboardDashboardPublishOptionsExportToCsvOptionArgs',
+    'DashboardDashboardPublishOptionsExportToCsvOptionArgsDict',
     'DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs',
+    'DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgsDict',
     'DashboardDashboardPublishOptionsSheetControlsOptionArgs',
+    'DashboardDashboardPublishOptionsSheetControlsOptionArgsDict',
     'DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs',
+    'DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgsDict',
     'DashboardDashboardPublishOptionsVisualAxisSortOptionArgs',
+    'DashboardDashboardPublishOptionsVisualAxisSortOptionArgsDict',
     'DashboardDashboardPublishOptionsVisualMenuOptionArgs',
+    'DashboardDashboardPublishOptionsVisualMenuOptionArgsDict',
     'DashboardParametersArgs',
+    'DashboardParametersArgsDict',
     'DashboardParametersDateTimeParameterArgs',
+    'DashboardParametersDateTimeParameterArgsDict',
     'DashboardParametersDecimalParameterArgs',
+    'DashboardParametersDecimalParameterArgsDict',
     'DashboardParametersIntegerParameterArgs',
+    'DashboardParametersIntegerParameterArgsDict',
     'DashboardParametersStringParameterArgs',
+    'DashboardParametersStringParameterArgsDict',
     'DashboardPermissionArgs',
+    'DashboardPermissionArgsDict',
     'DashboardSourceEntityArgs',
+    'DashboardSourceEntityArgsDict',
     'DashboardSourceEntitySourceTemplateArgs',
+    'DashboardSourceEntitySourceTemplateArgsDict',
     'DashboardSourceEntitySourceTemplateDataSetReferenceArgs',
+    'DashboardSourceEntitySourceTemplateDataSetReferenceArgsDict',
     'DataSetColumnGroupArgs',
+    'DataSetColumnGroupArgsDict',
     'DataSetColumnGroupGeoSpatialColumnGroupArgs',
+    'DataSetColumnGroupGeoSpatialColumnGroupArgsDict',
     'DataSetColumnLevelPermissionRuleArgs',
+    'DataSetColumnLevelPermissionRuleArgsDict',
     'DataSetDataSetUsageConfigurationArgs',
+    'DataSetDataSetUsageConfigurationArgsDict',
     'DataSetFieldFolderArgs',
+    'DataSetFieldFolderArgsDict',
     'DataSetLogicalTableMapArgs',
+    'DataSetLogicalTableMapArgsDict',
     'DataSetLogicalTableMapDataTransformArgs',
+    'DataSetLogicalTableMapDataTransformArgsDict',
     'DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs',
+    'DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgsDict',
     'DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs',
+    'DataSetLogicalTableMapDataTransformCreateColumnsOperationArgsDict',
     'DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs',
+    'DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgsDict',
     'DataSetLogicalTableMapDataTransformFilterOperationArgs',
+    'DataSetLogicalTableMapDataTransformFilterOperationArgsDict',
     'DataSetLogicalTableMapDataTransformProjectOperationArgs',
+    'DataSetLogicalTableMapDataTransformProjectOperationArgsDict',
     'DataSetLogicalTableMapDataTransformRenameColumnOperationArgs',
+    'DataSetLogicalTableMapDataTransformRenameColumnOperationArgsDict',
     'DataSetLogicalTableMapDataTransformTagColumnOperationArgs',
+    'DataSetLogicalTableMapDataTransformTagColumnOperationArgsDict',
     'DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs',
+    'DataSetLogicalTableMapDataTransformTagColumnOperationTagArgsDict',
     'DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs',
+    'DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgsDict',
     'DataSetLogicalTableMapDataTransformUntagColumnOperationArgs',
+    'DataSetLogicalTableMapDataTransformUntagColumnOperationArgsDict',
     'DataSetLogicalTableMapSourceArgs',
+    'DataSetLogicalTableMapSourceArgsDict',
     'DataSetLogicalTableMapSourceJoinInstructionArgs',
+    'DataSetLogicalTableMapSourceJoinInstructionArgsDict',
     'DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs',
+    'DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgsDict',
     'DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs',
+    'DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgsDict',
     'DataSetOutputColumnArgs',
+    'DataSetOutputColumnArgsDict',
     'DataSetPermissionArgs',
+    'DataSetPermissionArgsDict',
     'DataSetPhysicalTableMapArgs',
+    'DataSetPhysicalTableMapArgsDict',
     'DataSetPhysicalTableMapCustomSqlArgs',
+    'DataSetPhysicalTableMapCustomSqlArgsDict',
     'DataSetPhysicalTableMapCustomSqlColumnArgs',
+    'DataSetPhysicalTableMapCustomSqlColumnArgsDict',
     'DataSetPhysicalTableMapRelationalTableArgs',
+    'DataSetPhysicalTableMapRelationalTableArgsDict',
     'DataSetPhysicalTableMapRelationalTableInputColumnArgs',
+    'DataSetPhysicalTableMapRelationalTableInputColumnArgsDict',
     'DataSetPhysicalTableMapS3SourceArgs',
+    'DataSetPhysicalTableMapS3SourceArgsDict',
     'DataSetPhysicalTableMapS3SourceInputColumnArgs',
+    'DataSetPhysicalTableMapS3SourceInputColumnArgsDict',
     'DataSetPhysicalTableMapS3SourceUploadSettingsArgs',
+    'DataSetPhysicalTableMapS3SourceUploadSettingsArgsDict',
     'DataSetRefreshPropertiesArgs',
+    'DataSetRefreshPropertiesArgsDict',
     'DataSetRefreshPropertiesRefreshConfigurationArgs',
+    'DataSetRefreshPropertiesRefreshConfigurationArgsDict',
     'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs',
+    'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgsDict',
     'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs',
+    'DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgsDict',
     'DataSetRowLevelPermissionDataSetArgs',
+    'DataSetRowLevelPermissionDataSetArgsDict',
     'DataSetRowLevelPermissionTagConfigurationArgs',
+    'DataSetRowLevelPermissionTagConfigurationArgsDict',
     'DataSetRowLevelPermissionTagConfigurationTagRuleArgs',
+    'DataSetRowLevelPermissionTagConfigurationTagRuleArgsDict',
     'DataSourceCredentialsArgs',
+    'DataSourceCredentialsArgsDict',
     'DataSourceCredentialsCredentialPairArgs',
+    'DataSourceCredentialsCredentialPairArgsDict',
     'DataSourceParametersArgs',
+    'DataSourceParametersArgsDict',
     'DataSourceParametersAmazonElasticsearchArgs',
+    'DataSourceParametersAmazonElasticsearchArgsDict',
     'DataSourceParametersAthenaArgs',
+    'DataSourceParametersAthenaArgsDict',
     'DataSourceParametersAuroraArgs',
+    'DataSourceParametersAuroraArgsDict',
     'DataSourceParametersAuroraPostgresqlArgs',
+    'DataSourceParametersAuroraPostgresqlArgsDict',
     'DataSourceParametersAwsIotAnalyticsArgs',
+    'DataSourceParametersAwsIotAnalyticsArgsDict',
     'DataSourceParametersJiraArgs',
+    'DataSourceParametersJiraArgsDict',
     'DataSourceParametersMariaDbArgs',
+    'DataSourceParametersMariaDbArgsDict',
     'DataSourceParametersMysqlArgs',
+    'DataSourceParametersMysqlArgsDict',
     'DataSourceParametersOracleArgs',
+    'DataSourceParametersOracleArgsDict',
     'DataSourceParametersPostgresqlArgs',
+    'DataSourceParametersPostgresqlArgsDict',
     'DataSourceParametersPrestoArgs',
+    'DataSourceParametersPrestoArgsDict',
     'DataSourceParametersRdsArgs',
+    'DataSourceParametersRdsArgsDict',
     'DataSourceParametersRedshiftArgs',
+    'DataSourceParametersRedshiftArgsDict',
     'DataSourceParametersS3Args',
+    'DataSourceParametersS3ArgsDict',
     'DataSourceParametersS3ManifestFileLocationArgs',
+    'DataSourceParametersS3ManifestFileLocationArgsDict',
     'DataSourceParametersServiceNowArgs',
+    'DataSourceParametersServiceNowArgsDict',
     'DataSourceParametersSnowflakeArgs',
+    'DataSourceParametersSnowflakeArgsDict',
     'DataSourceParametersSparkArgs',
+    'DataSourceParametersSparkArgsDict',
     'DataSourceParametersSqlServerArgs',
+    'DataSourceParametersSqlServerArgsDict',
     'DataSourceParametersTeradataArgs',
+    'DataSourceParametersTeradataArgsDict',
     'DataSourceParametersTwitterArgs',
+    'DataSourceParametersTwitterArgsDict',
     'DataSourcePermissionArgs',
+    'DataSourcePermissionArgsDict',
     'DataSourceSslPropertiesArgs',
+    'DataSourceSslPropertiesArgsDict',
     'DataSourceVpcConnectionPropertiesArgs',
+    'DataSourceVpcConnectionPropertiesArgsDict',
     'FolderPermissionArgs',
+    'FolderPermissionArgsDict',
     'IamPolicyAssignmentIdentitiesArgs',
+    'IamPolicyAssignmentIdentitiesArgsDict',
     'NamespaceTimeoutsArgs',
+    'NamespaceTimeoutsArgsDict',
     'RefreshScheduleScheduleArgs',
+    'RefreshScheduleScheduleArgsDict',
     'RefreshScheduleScheduleScheduleFrequencyArgs',
+    'RefreshScheduleScheduleScheduleFrequencyArgsDict',
     'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs',
+    'RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgsDict',
     'TemplatePermissionArgs',
+    'TemplatePermissionArgsDict',
     'TemplateSourceEntityArgs',
+    'TemplateSourceEntityArgsDict',
     'TemplateSourceEntitySourceAnalysisArgs',
+    'TemplateSourceEntitySourceAnalysisArgsDict',
     'TemplateSourceEntitySourceAnalysisDataSetReferenceArgs',
+    'TemplateSourceEntitySourceAnalysisDataSetReferenceArgsDict',
     'TemplateSourceEntitySourceTemplateArgs',
+    'TemplateSourceEntitySourceTemplateArgsDict',
     'ThemeConfigurationArgs',
+    'ThemeConfigurationArgsDict',
     'ThemeConfigurationDataColorPaletteArgs',
+    'ThemeConfigurationDataColorPaletteArgsDict',
     'ThemeConfigurationSheetArgs',
+    'ThemeConfigurationSheetArgsDict',
     'ThemeConfigurationSheetTileArgs',
+    'ThemeConfigurationSheetTileArgsDict',
     'ThemeConfigurationSheetTileBorderArgs',
+    'ThemeConfigurationSheetTileBorderArgsDict',
     'ThemeConfigurationSheetTileLayoutArgs',
+    'ThemeConfigurationSheetTileLayoutArgsDict',
     'ThemeConfigurationSheetTileLayoutGutterArgs',
+    'ThemeConfigurationSheetTileLayoutGutterArgsDict',
     'ThemeConfigurationSheetTileLayoutMarginArgs',
+    'ThemeConfigurationSheetTileLayoutMarginArgsDict',
     'ThemeConfigurationTypographyArgs',
+    'ThemeConfigurationTypographyArgsDict',
     'ThemeConfigurationTypographyFontFamilyArgs',
+    'ThemeConfigurationTypographyFontFamilyArgsDict',
     'ThemeConfigurationUiColorPaletteArgs',
+    'ThemeConfigurationUiColorPaletteArgsDict',
     'ThemePermissionArgs',
+    'ThemePermissionArgsDict',
     'VpcConnectionTimeoutsArgs',
+    'VpcConnectionTimeoutsArgsDict',
     'GetDataSetColumnLevelPermissionRuleArgs',
+    'GetDataSetColumnLevelPermissionRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AnalysisParametersArgsDict(TypedDict):
+        date_time_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgsDict']]]]
+        """
+        A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        """
+        decimal_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgsDict']]]]
+        """
+        A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        """
+        integer_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgsDict']]]]
+        """
+        A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        """
+        string_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalysisParametersStringParameterArgsDict']]]]
+        """
+        A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        """
+elif False:
+    AnalysisParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalysisParametersArgs:
@@ -202,6 +349,18 @@ class AnalysisParametersArgs:
         pulumi.set(self, "string_parameters", value)
 
 
+if not MYPY:
+    class AnalysisParametersDateTimeParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Display name for the analysis.
+
+        The following arguments are optional:
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    AnalysisParametersDateTimeParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnalysisParametersDateTimeParameterArgs:
     def __init__(__self__, *,
@@ -238,6 +397,18 @@ class AnalysisParametersDateTimeParameterArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AnalysisParametersDecimalParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Display name for the analysis.
+
+        The following arguments are optional:
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[float]]]
+elif False:
+    AnalysisParametersDecimalParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalysisParametersDecimalParameterArgs:
@@ -276,6 +447,18 @@ class AnalysisParametersDecimalParameterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AnalysisParametersIntegerParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Display name for the analysis.
+
+        The following arguments are optional:
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[int]]]
+elif False:
+    AnalysisParametersIntegerParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnalysisParametersIntegerParameterArgs:
     def __init__(__self__, *,
@@ -312,6 +495,18 @@ class AnalysisParametersIntegerParameterArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AnalysisParametersStringParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Display name for the analysis.
+
+        The following arguments are optional:
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    AnalysisParametersStringParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalysisParametersStringParameterArgs:
@@ -350,6 +545,19 @@ class AnalysisParametersStringParameterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AnalysisPermissionArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        principal: pulumi.Input[str]
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+elif False:
+    AnalysisPermissionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnalysisPermissionArgs:
     def __init__(__self__, *,
@@ -387,6 +595,15 @@ class AnalysisPermissionArgs:
         pulumi.set(self, "principal", value)
 
 
+if not MYPY:
+    class AnalysisSourceEntityArgsDict(TypedDict):
+        source_template: NotRequired[pulumi.Input['AnalysisSourceEntitySourceTemplateArgsDict']]
+        """
+        The source template. See source_template.
+        """
+elif False:
+    AnalysisSourceEntityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnalysisSourceEntityArgs:
     def __init__(__self__, *,
@@ -409,6 +626,19 @@ class AnalysisSourceEntityArgs:
     def source_template(self, value: Optional[pulumi.Input['AnalysisSourceEntitySourceTemplateArgs']]):
         pulumi.set(self, "source_template", value)
 
+
+if not MYPY:
+    class AnalysisSourceEntitySourceTemplateArgsDict(TypedDict):
+        arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the resource.
+        """
+        data_set_references: pulumi.Input[Sequence[pulumi.Input['AnalysisSourceEntitySourceTemplateDataSetReferenceArgsDict']]]
+        """
+        List of dataset references. See data_set_references.
+        """
+elif False:
+    AnalysisSourceEntitySourceTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalysisSourceEntitySourceTemplateArgs:
@@ -447,6 +677,19 @@ class AnalysisSourceEntitySourceTemplateArgs:
         pulumi.set(self, "data_set_references", value)
 
 
+if not MYPY:
+    class AnalysisSourceEntitySourceTemplateDataSetReferenceArgsDict(TypedDict):
+        data_set_arn: pulumi.Input[str]
+        """
+        Dataset Amazon Resource Name (ARN).
+        """
+        data_set_placeholder: pulumi.Input[str]
+        """
+        Dataset placeholder.
+        """
+elif False:
+    AnalysisSourceEntitySourceTemplateDataSetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnalysisSourceEntitySourceTemplateDataSetReferenceArgs:
     def __init__(__self__, *,
@@ -483,6 +726,51 @@ class AnalysisSourceEntitySourceTemplateDataSetReferenceArgs:
     def data_set_placeholder(self, value: pulumi.Input[str]):
         pulumi.set(self, "data_set_placeholder", value)
 
+
+if not MYPY:
+    class DashboardDashboardPublishOptionsArgsDict(TypedDict):
+        ad_hoc_filtering_option: NotRequired[pulumi.Input['DashboardDashboardPublishOptionsAdHocFilteringOptionArgsDict']]
+        """
+        Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+        """
+        data_point_drill_up_down_option: NotRequired[pulumi.Input['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgsDict']]
+        """
+        The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+        """
+        data_point_menu_label_option: NotRequired[pulumi.Input['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgsDict']]
+        """
+        The data point menu label options of a dashboard. See data_point_menu_label_option.
+        """
+        data_point_tooltip_option: NotRequired[pulumi.Input['DashboardDashboardPublishOptionsDataPointTooltipOptionArgsDict']]
+        """
+        The data point tool tip options of a dashboard. See data_point_tooltip_option.
+        """
+        export_to_csv_option: NotRequired[pulumi.Input['DashboardDashboardPublishOptionsExportToCsvOptionArgsDict']]
+        """
+        Export to .csv option. See export_to_csv_option.
+        """
+        export_with_hidden_fields_option: NotRequired[pulumi.Input['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgsDict']]
+        """
+        Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+        """
+        sheet_controls_option: NotRequired[pulumi.Input['DashboardDashboardPublishOptionsSheetControlsOptionArgsDict']]
+        """
+        Sheet controls option. See sheet_controls_option.
+        """
+        sheet_layout_element_maximization_option: NotRequired[pulumi.Input['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgsDict']]
+        """
+        The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+        """
+        visual_axis_sort_option: NotRequired[pulumi.Input['DashboardDashboardPublishOptionsVisualAxisSortOptionArgsDict']]
+        """
+        The axis sort options of a dashboard. See visual_axis_sort_option.
+        """
+        visual_menu_option: NotRequired[pulumi.Input['DashboardDashboardPublishOptionsVisualMenuOptionArgsDict']]
+        """
+        The menu options of a visual in a dashboard. See visual_menu_option.
+        """
+elif False:
+    DashboardDashboardPublishOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardDashboardPublishOptionsArgs:
@@ -651,6 +939,15 @@ class DashboardDashboardPublishOptionsArgs:
         pulumi.set(self, "visual_menu_option", value)
 
 
+if not MYPY:
+    class DashboardDashboardPublishOptionsAdHocFilteringOptionArgsDict(TypedDict):
+        availability_status: NotRequired[pulumi.Input[str]]
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+elif False:
+    DashboardDashboardPublishOptionsAdHocFilteringOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardDashboardPublishOptionsAdHocFilteringOptionArgs:
     def __init__(__self__, *,
@@ -673,6 +970,15 @@ class DashboardDashboardPublishOptionsAdHocFilteringOptionArgs:
     def availability_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_status", value)
 
+
+if not MYPY:
+    class DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgsDict(TypedDict):
+        availability_status: NotRequired[pulumi.Input[str]]
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+elif False:
+    DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs:
@@ -697,6 +1003,15 @@ class DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs:
         pulumi.set(self, "availability_status", value)
 
 
+if not MYPY:
+    class DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgsDict(TypedDict):
+        availability_status: NotRequired[pulumi.Input[str]]
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+elif False:
+    DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs:
     def __init__(__self__, *,
@@ -719,6 +1034,15 @@ class DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs:
     def availability_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_status", value)
 
+
+if not MYPY:
+    class DashboardDashboardPublishOptionsDataPointTooltipOptionArgsDict(TypedDict):
+        availability_status: NotRequired[pulumi.Input[str]]
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+elif False:
+    DashboardDashboardPublishOptionsDataPointTooltipOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardDashboardPublishOptionsDataPointTooltipOptionArgs:
@@ -743,6 +1067,15 @@ class DashboardDashboardPublishOptionsDataPointTooltipOptionArgs:
         pulumi.set(self, "availability_status", value)
 
 
+if not MYPY:
+    class DashboardDashboardPublishOptionsExportToCsvOptionArgsDict(TypedDict):
+        availability_status: NotRequired[pulumi.Input[str]]
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+elif False:
+    DashboardDashboardPublishOptionsExportToCsvOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardDashboardPublishOptionsExportToCsvOptionArgs:
     def __init__(__self__, *,
@@ -765,6 +1098,15 @@ class DashboardDashboardPublishOptionsExportToCsvOptionArgs:
     def availability_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_status", value)
 
+
+if not MYPY:
+    class DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgsDict(TypedDict):
+        availability_status: NotRequired[pulumi.Input[str]]
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+elif False:
+    DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs:
@@ -789,6 +1131,15 @@ class DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs:
         pulumi.set(self, "availability_status", value)
 
 
+if not MYPY:
+    class DashboardDashboardPublishOptionsSheetControlsOptionArgsDict(TypedDict):
+        visibility_state: NotRequired[pulumi.Input[str]]
+        """
+        Visibility state. Possibles values: EXPANDED, COLLAPSED.
+        """
+elif False:
+    DashboardDashboardPublishOptionsSheetControlsOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardDashboardPublishOptionsSheetControlsOptionArgs:
     def __init__(__self__, *,
@@ -811,6 +1162,15 @@ class DashboardDashboardPublishOptionsSheetControlsOptionArgs:
     def visibility_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "visibility_state", value)
 
+
+if not MYPY:
+    class DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgsDict(TypedDict):
+        availability_status: NotRequired[pulumi.Input[str]]
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+elif False:
+    DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs:
@@ -835,6 +1195,15 @@ class DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs:
         pulumi.set(self, "availability_status", value)
 
 
+if not MYPY:
+    class DashboardDashboardPublishOptionsVisualAxisSortOptionArgsDict(TypedDict):
+        availability_status: NotRequired[pulumi.Input[str]]
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+elif False:
+    DashboardDashboardPublishOptionsVisualAxisSortOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardDashboardPublishOptionsVisualAxisSortOptionArgs:
     def __init__(__self__, *,
@@ -858,6 +1227,15 @@ class DashboardDashboardPublishOptionsVisualAxisSortOptionArgs:
         pulumi.set(self, "availability_status", value)
 
 
+if not MYPY:
+    class DashboardDashboardPublishOptionsVisualMenuOptionArgsDict(TypedDict):
+        availability_status: NotRequired[pulumi.Input[str]]
+        """
+        Availability status. Possibles values: ENABLED, DISABLED.
+        """
+elif False:
+    DashboardDashboardPublishOptionsVisualMenuOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardDashboardPublishOptionsVisualMenuOptionArgs:
     def __init__(__self__, *,
@@ -880,6 +1258,27 @@ class DashboardDashboardPublishOptionsVisualMenuOptionArgs:
     def availability_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_status", value)
 
+
+if not MYPY:
+    class DashboardParametersArgsDict(TypedDict):
+        date_time_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgsDict']]]]
+        """
+        A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        """
+        decimal_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgsDict']]]]
+        """
+        A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        """
+        integer_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgsDict']]]]
+        """
+        A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        """
+        string_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DashboardParametersStringParameterArgsDict']]]]
+        """
+        A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        """
+elif False:
+    DashboardParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardParametersArgs:
@@ -952,6 +1351,16 @@ class DashboardParametersArgs:
         pulumi.set(self, "string_parameters", value)
 
 
+if not MYPY:
+    class DashboardParametersDateTimeParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Display name for the dashboard.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    DashboardParametersDateTimeParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardParametersDateTimeParameterArgs:
     def __init__(__self__, *,
@@ -984,6 +1393,16 @@ class DashboardParametersDateTimeParameterArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class DashboardParametersDecimalParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Display name for the dashboard.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[float]]]
+elif False:
+    DashboardParametersDecimalParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardParametersDecimalParameterArgs:
@@ -1018,6 +1437,16 @@ class DashboardParametersDecimalParameterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class DashboardParametersIntegerParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Display name for the dashboard.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[int]]]
+elif False:
+    DashboardParametersIntegerParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardParametersIntegerParameterArgs:
     def __init__(__self__, *,
@@ -1051,6 +1480,16 @@ class DashboardParametersIntegerParameterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class DashboardParametersStringParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Display name for the dashboard.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    DashboardParametersStringParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardParametersStringParameterArgs:
     def __init__(__self__, *,
@@ -1083,6 +1522,19 @@ class DashboardParametersStringParameterArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class DashboardPermissionArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        principal: pulumi.Input[str]
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+elif False:
+    DashboardPermissionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardPermissionArgs:
@@ -1121,6 +1573,15 @@ class DashboardPermissionArgs:
         pulumi.set(self, "principal", value)
 
 
+if not MYPY:
+    class DashboardSourceEntityArgsDict(TypedDict):
+        source_template: NotRequired[pulumi.Input['DashboardSourceEntitySourceTemplateArgsDict']]
+        """
+        The source template. See source_template.
+        """
+elif False:
+    DashboardSourceEntityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardSourceEntityArgs:
     def __init__(__self__, *,
@@ -1143,6 +1604,19 @@ class DashboardSourceEntityArgs:
     def source_template(self, value: Optional[pulumi.Input['DashboardSourceEntitySourceTemplateArgs']]):
         pulumi.set(self, "source_template", value)
 
+
+if not MYPY:
+    class DashboardSourceEntitySourceTemplateArgsDict(TypedDict):
+        arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the resource.
+        """
+        data_set_references: pulumi.Input[Sequence[pulumi.Input['DashboardSourceEntitySourceTemplateDataSetReferenceArgsDict']]]
+        """
+        List of dataset references. See data_set_references.
+        """
+elif False:
+    DashboardSourceEntitySourceTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DashboardSourceEntitySourceTemplateArgs:
@@ -1181,6 +1655,19 @@ class DashboardSourceEntitySourceTemplateArgs:
         pulumi.set(self, "data_set_references", value)
 
 
+if not MYPY:
+    class DashboardSourceEntitySourceTemplateDataSetReferenceArgsDict(TypedDict):
+        data_set_arn: pulumi.Input[str]
+        """
+        Dataset Amazon Resource Name (ARN).
+        """
+        data_set_placeholder: pulumi.Input[str]
+        """
+        Dataset placeholder.
+        """
+elif False:
+    DashboardSourceEntitySourceTemplateDataSetReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DashboardSourceEntitySourceTemplateDataSetReferenceArgs:
     def __init__(__self__, *,
@@ -1218,6 +1705,15 @@ class DashboardSourceEntitySourceTemplateDataSetReferenceArgs:
         pulumi.set(self, "data_set_placeholder", value)
 
 
+if not MYPY:
+    class DataSetColumnGroupArgsDict(TypedDict):
+        geo_spatial_column_group: NotRequired[pulumi.Input['DataSetColumnGroupGeoSpatialColumnGroupArgsDict']]
+        """
+        Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+        """
+elif False:
+    DataSetColumnGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetColumnGroupArgs:
     def __init__(__self__, *,
@@ -1240,6 +1736,23 @@ class DataSetColumnGroupArgs:
     def geo_spatial_column_group(self, value: Optional[pulumi.Input['DataSetColumnGroupGeoSpatialColumnGroupArgs']]):
         pulumi.set(self, "geo_spatial_column_group", value)
 
+
+if not MYPY:
+    class DataSetColumnGroupGeoSpatialColumnGroupArgsDict(TypedDict):
+        columns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Columns in this hierarchy.
+        """
+        country_code: pulumi.Input[str]
+        """
+        Country code. Valid values are `US`.
+        """
+        name: pulumi.Input[str]
+        """
+        A display name for the hierarchy.
+        """
+elif False:
+    DataSetColumnGroupGeoSpatialColumnGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetColumnGroupGeoSpatialColumnGroupArgs:
@@ -1293,6 +1806,19 @@ class DataSetColumnGroupGeoSpatialColumnGroupArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class DataSetColumnLevelPermissionRuleArgsDict(TypedDict):
+        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of column names.
+        """
+        principals: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of ARNs for Amazon QuickSight users or groups.
+        """
+elif False:
+    DataSetColumnLevelPermissionRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetColumnLevelPermissionRuleArgs:
     def __init__(__self__, *,
@@ -1332,6 +1858,19 @@ class DataSetColumnLevelPermissionRuleArgs:
         pulumi.set(self, "principals", value)
 
 
+if not MYPY:
+    class DataSetDataSetUsageConfigurationArgsDict(TypedDict):
+        disable_use_as_direct_query_source: NotRequired[pulumi.Input[bool]]
+        """
+        Controls whether a child dataset of a direct query can use this dataset as a source.
+        """
+        disable_use_as_imported_source: NotRequired[pulumi.Input[bool]]
+        """
+        Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+        """
+elif False:
+    DataSetDataSetUsageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetDataSetUsageConfigurationArgs:
     def __init__(__self__, *,
@@ -1370,6 +1909,23 @@ class DataSetDataSetUsageConfigurationArgs:
     def disable_use_as_imported_source(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "disable_use_as_imported_source", value)
 
+
+if not MYPY:
+    class DataSetFieldFolderArgsDict(TypedDict):
+        field_folders_id: pulumi.Input[str]
+        """
+        Key of the field folder map.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of column names to add to the folder. A column can only be in one folder.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Field folder description.
+        """
+elif False:
+    DataSetFieldFolderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetFieldFolderArgs:
@@ -1424,6 +1980,27 @@ class DataSetFieldFolderArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class DataSetLogicalTableMapArgsDict(TypedDict):
+        alias: pulumi.Input[str]
+        """
+        A display name for the logical table.
+        """
+        logical_table_map_id: pulumi.Input[str]
+        """
+        Key of the logical table map.
+        """
+        source: pulumi.Input['DataSetLogicalTableMapSourceArgsDict']
+        """
+        Source of this logical table. See source.
+        """
+        data_transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformArgsDict']]]]
+        """
+        Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+        """
+elif False:
+    DataSetLogicalTableMapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetLogicalTableMapArgs:
@@ -1492,6 +2069,39 @@ class DataSetLogicalTableMapArgs:
     def data_transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformArgs']]]]):
         pulumi.set(self, "data_transforms", value)
 
+
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformArgsDict(TypedDict):
+        cast_column_type_operation: NotRequired[pulumi.Input['DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgsDict']]
+        """
+        A transform operation that casts a column to a different type. See cast_column_type_operation.
+        """
+        create_columns_operation: NotRequired[pulumi.Input['DataSetLogicalTableMapDataTransformCreateColumnsOperationArgsDict']]
+        """
+        An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+        """
+        filter_operation: NotRequired[pulumi.Input['DataSetLogicalTableMapDataTransformFilterOperationArgsDict']]
+        """
+        An operation that filters rows based on some condition. See filter_operation.
+        """
+        project_operation: NotRequired[pulumi.Input['DataSetLogicalTableMapDataTransformProjectOperationArgsDict']]
+        """
+        An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+        """
+        rename_column_operation: NotRequired[pulumi.Input['DataSetLogicalTableMapDataTransformRenameColumnOperationArgsDict']]
+        """
+        An operation that renames a column. See rename_column_operation.
+        """
+        tag_column_operation: NotRequired[pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationArgsDict']]
+        """
+        An operation that tags a column with additional information. See tag_column_operation.
+        """
+        untag_column_operation: NotRequired[pulumi.Input['DataSetLogicalTableMapDataTransformUntagColumnOperationArgsDict']]
+        """
+        A transform operation that removes tags associated with a column. See untag_column_operation.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformArgs:
@@ -1612,6 +2222,23 @@ class DataSetLogicalTableMapDataTransformArgs:
         pulumi.set(self, "untag_column_operation", value)
 
 
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgsDict(TypedDict):
+        column_name: pulumi.Input[str]
+        """
+        Column name.
+        """
+        new_column_type: pulumi.Input[str]
+        """
+        New column data type. Valid values are `STRING`, `INTEGER`, `DECIMAL`, `DATETIME`.
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        When casting a column from string to datetime type, you can supply a string in a format supported by Amazon QuickSight to denote the source data format.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs:
     def __init__(__self__, *,
@@ -1665,6 +2292,15 @@ class DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs:
         pulumi.set(self, "format", value)
 
 
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgsDict(TypedDict):
+        columns: pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgsDict']]]
+        """
+        Calculated columns to create. See columns.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformCreateColumnsOperationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs:
     def __init__(__self__, *,
@@ -1686,6 +2322,23 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs:
     def columns(self, value: pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs']]]):
         pulumi.set(self, "columns", value)
 
+
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgsDict(TypedDict):
+        column_id: pulumi.Input[str]
+        """
+        A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+        """
+        column_name: pulumi.Input[str]
+        """
+        Column name.
+        """
+        expression: pulumi.Input[str]
+        """
+        An expression that defines the calculated column.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs:
@@ -1739,6 +2392,15 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs:
         pulumi.set(self, "expression", value)
 
 
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformFilterOperationArgsDict(TypedDict):
+        condition_expression: pulumi.Input[str]
+        """
+        An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformFilterOperationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformFilterOperationArgs:
     def __init__(__self__, *,
@@ -1761,6 +2423,15 @@ class DataSetLogicalTableMapDataTransformFilterOperationArgs:
         pulumi.set(self, "condition_expression", value)
 
 
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformProjectOperationArgsDict(TypedDict):
+        projected_columns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Projected columns.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformProjectOperationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformProjectOperationArgs:
     def __init__(__self__, *,
@@ -1782,6 +2453,19 @@ class DataSetLogicalTableMapDataTransformProjectOperationArgs:
     def projected_columns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "projected_columns", value)
 
+
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformRenameColumnOperationArgsDict(TypedDict):
+        column_name: pulumi.Input[str]
+        """
+        Column to be renamed.
+        """
+        new_column_name: pulumi.Input[str]
+        """
+        New name for the column.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformRenameColumnOperationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformRenameColumnOperationArgs:
@@ -1820,6 +2504,19 @@ class DataSetLogicalTableMapDataTransformRenameColumnOperationArgs:
         pulumi.set(self, "new_column_name", value)
 
 
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformTagColumnOperationArgsDict(TypedDict):
+        column_name: pulumi.Input[str]
+        """
+        Column name.
+        """
+        tags: pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationTagArgsDict']]]
+        """
+        The dataset column tag, currently only used for geospatial type tagging. See tags.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformTagColumnOperationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformTagColumnOperationArgs:
     def __init__(__self__, *,
@@ -1856,6 +2553,19 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationArgs:
     def tags(self, value: pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs']]]):
         pulumi.set(self, "tags", value)
 
+
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgsDict(TypedDict):
+        column_description: NotRequired[pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgsDict']]
+        """
+        A description for a column. See column_description.
+        """
+        column_geographic_role: NotRequired[pulumi.Input[str]]
+        """
+        A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformTagColumnOperationTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs:
@@ -1896,6 +2606,15 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs:
         pulumi.set(self, "column_geographic_role", value)
 
 
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgsDict(TypedDict):
+        text: NotRequired[pulumi.Input[str]]
+        """
+        The text of a description for a column.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs:
     def __init__(__self__, *,
@@ -1918,6 +2637,19 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionA
     def text(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "text", value)
 
+
+if not MYPY:
+    class DataSetLogicalTableMapDataTransformUntagColumnOperationArgsDict(TypedDict):
+        column_name: pulumi.Input[str]
+        """
+        Column name.
+        """
+        tag_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The column tags to remove from this column.
+        """
+elif False:
+    DataSetLogicalTableMapDataTransformUntagColumnOperationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs:
@@ -1955,6 +2687,23 @@ class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs:
     def tag_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "tag_names", value)
 
+
+if not MYPY:
+    class DataSetLogicalTableMapSourceArgsDict(TypedDict):
+        data_set_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the parent data set.
+        """
+        join_instruction: NotRequired[pulumi.Input['DataSetLogicalTableMapSourceJoinInstructionArgsDict']]
+        """
+        Specifies the result of a join of two logical tables. See join_instruction.
+        """
+        physical_table_id: NotRequired[pulumi.Input[str]]
+        """
+        Physical table ID.
+        """
+elif False:
+    DataSetLogicalTableMapSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetLogicalTableMapSourceArgs:
@@ -2010,6 +2759,35 @@ class DataSetLogicalTableMapSourceArgs:
     def physical_table_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "physical_table_id", value)
 
+
+if not MYPY:
+    class DataSetLogicalTableMapSourceJoinInstructionArgsDict(TypedDict):
+        left_operand: pulumi.Input[str]
+        """
+        Operand on the left side of a join.
+        """
+        on_clause: pulumi.Input[str]
+        """
+        Join instructions provided in the ON clause of a join.
+        """
+        right_operand: pulumi.Input[str]
+        """
+        Operand on the right side of a join.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
+        """
+        left_join_key_properties: NotRequired[pulumi.Input['DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgsDict']]
+        """
+        Join key properties of the left operand. See left_join_key_properties.
+        """
+        right_join_key_properties: NotRequired[pulumi.Input['DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgsDict']]
+        """
+        Join key properties of the right operand. See right_join_key_properties.
+        """
+elif False:
+    DataSetLogicalTableMapSourceJoinInstructionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetLogicalTableMapSourceJoinInstructionArgs:
@@ -2110,6 +2888,15 @@ class DataSetLogicalTableMapSourceJoinInstructionArgs:
         pulumi.set(self, "right_join_key_properties", value)
 
 
+if not MYPY:
+    class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgsDict(TypedDict):
+        unique_key: NotRequired[pulumi.Input[bool]]
+        """
+        A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        """
+elif False:
+    DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs:
     def __init__(__self__, *,
@@ -2133,6 +2920,15 @@ class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs:
         pulumi.set(self, "unique_key", value)
 
 
+if not MYPY:
+    class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgsDict(TypedDict):
+        unique_key: NotRequired[pulumi.Input[bool]]
+        """
+        A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        """
+elif False:
+    DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs:
     def __init__(__self__, *,
@@ -2155,6 +2951,17 @@ class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs:
     def unique_key(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "unique_key", value)
 
+
+if not MYPY:
+    class DataSetOutputColumnArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Display name for the dataset.
+        """
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    DataSetOutputColumnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetOutputColumnArgs:
@@ -2203,6 +3010,19 @@ class DataSetOutputColumnArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class DataSetPermissionArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        principal: pulumi.Input[str]
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+elif False:
+    DataSetPermissionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetPermissionArgs:
     def __init__(__self__, *,
@@ -2239,6 +3059,27 @@ class DataSetPermissionArgs:
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
 
+
+if not MYPY:
+    class DataSetPhysicalTableMapArgsDict(TypedDict):
+        physical_table_map_id: pulumi.Input[str]
+        """
+        Key of the physical table map.
+        """
+        custom_sql: NotRequired[pulumi.Input['DataSetPhysicalTableMapCustomSqlArgsDict']]
+        """
+        A physical table type built from the results of the custom SQL query. See custom_sql.
+        """
+        relational_table: NotRequired[pulumi.Input['DataSetPhysicalTableMapRelationalTableArgsDict']]
+        """
+        A physical table type for relational data sources. See relational_table.
+        """
+        s3_source: NotRequired[pulumi.Input['DataSetPhysicalTableMapS3SourceArgsDict']]
+        """
+        A physical table type for as S3 data source. See s3_source.
+        """
+elif False:
+    DataSetPhysicalTableMapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetPhysicalTableMapArgs:
@@ -2310,6 +3151,27 @@ class DataSetPhysicalTableMapArgs:
         pulumi.set(self, "s3_source", value)
 
 
+if not MYPY:
+    class DataSetPhysicalTableMapCustomSqlArgsDict(TypedDict):
+        data_source_arn: pulumi.Input[str]
+        """
+        ARN of the data source.
+        """
+        name: pulumi.Input[str]
+        """
+        Display name for the SQL query result.
+        """
+        sql_query: pulumi.Input[str]
+        """
+        SQL query.
+        """
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapCustomSqlColumnArgsDict']]]]
+        """
+        Column schema from the SQL query result set. See columns.
+        """
+elif False:
+    DataSetPhysicalTableMapCustomSqlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetPhysicalTableMapCustomSqlArgs:
     def __init__(__self__, *,
@@ -2378,6 +3240,19 @@ class DataSetPhysicalTableMapCustomSqlArgs:
         pulumi.set(self, "columns", value)
 
 
+if not MYPY:
+    class DataSetPhysicalTableMapCustomSqlColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of this column in the underlying data source.
+        """
+        type: pulumi.Input[str]
+        """
+        Data type of the column.
+        """
+elif False:
+    DataSetPhysicalTableMapCustomSqlColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetPhysicalTableMapCustomSqlColumnArgs:
     def __init__(__self__, *,
@@ -2414,6 +3289,31 @@ class DataSetPhysicalTableMapCustomSqlColumnArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DataSetPhysicalTableMapRelationalTableArgsDict(TypedDict):
+        data_source_arn: pulumi.Input[str]
+        """
+        ARN of the data source.
+        """
+        input_columns: pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapRelationalTableInputColumnArgsDict']]]
+        """
+        Column schema of the table. See input_columns.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the relational table.
+        """
+        catalog: NotRequired[pulumi.Input[str]]
+        """
+        Catalog associated with the table.
+        """
+        schema: NotRequired[pulumi.Input[str]]
+        """
+        Schema name. This name applies to certain relational database engines.
+        """
+elif False:
+    DataSetPhysicalTableMapRelationalTableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetPhysicalTableMapRelationalTableArgs:
@@ -2499,6 +3399,19 @@ class DataSetPhysicalTableMapRelationalTableArgs:
         pulumi.set(self, "schema", value)
 
 
+if not MYPY:
+    class DataSetPhysicalTableMapRelationalTableInputColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of this column in the underlying data source.
+        """
+        type: pulumi.Input[str]
+        """
+        Data type of the column.
+        """
+elif False:
+    DataSetPhysicalTableMapRelationalTableInputColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetPhysicalTableMapRelationalTableInputColumnArgs:
     def __init__(__self__, *,
@@ -2535,6 +3448,23 @@ class DataSetPhysicalTableMapRelationalTableInputColumnArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DataSetPhysicalTableMapS3SourceArgsDict(TypedDict):
+        data_source_arn: pulumi.Input[str]
+        """
+        ARN of the data source.
+        """
+        input_columns: pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapS3SourceInputColumnArgsDict']]]
+        """
+        Column schema of the table. See input_columns.
+        """
+        upload_settings: pulumi.Input['DataSetPhysicalTableMapS3SourceUploadSettingsArgsDict']
+        """
+        Information about the format for the S3 source file or files. See upload_settings.
+        """
+elif False:
+    DataSetPhysicalTableMapS3SourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetPhysicalTableMapS3SourceArgs:
@@ -2588,6 +3518,19 @@ class DataSetPhysicalTableMapS3SourceArgs:
         pulumi.set(self, "upload_settings", value)
 
 
+if not MYPY:
+    class DataSetPhysicalTableMapS3SourceInputColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of this column in the underlying data source.
+        """
+        type: pulumi.Input[str]
+        """
+        Data type of the column.
+        """
+elif False:
+    DataSetPhysicalTableMapS3SourceInputColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetPhysicalTableMapS3SourceInputColumnArgs:
     def __init__(__self__, *,
@@ -2624,6 +3567,31 @@ class DataSetPhysicalTableMapS3SourceInputColumnArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DataSetPhysicalTableMapS3SourceUploadSettingsArgsDict(TypedDict):
+        contains_header: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the file has a header row, or the files each have a header row.
+        """
+        delimiter: NotRequired[pulumi.Input[str]]
+        """
+        Delimiter between values in the file.
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
+        """
+        start_from_row: NotRequired[pulumi.Input[int]]
+        """
+        A row number to start reading data from.
+        """
+        text_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
+        """
+elif False:
+    DataSetPhysicalTableMapS3SourceUploadSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetPhysicalTableMapS3SourceUploadSettingsArgs:
@@ -2712,6 +3680,15 @@ class DataSetPhysicalTableMapS3SourceUploadSettingsArgs:
         pulumi.set(self, "text_qualifier", value)
 
 
+if not MYPY:
+    class DataSetRefreshPropertiesArgsDict(TypedDict):
+        refresh_configuration: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgsDict']
+        """
+        The refresh configuration for the data set. See refresh_configuration.
+        """
+elif False:
+    DataSetRefreshPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetRefreshPropertiesArgs:
     def __init__(__self__, *,
@@ -2733,6 +3710,15 @@ class DataSetRefreshPropertiesArgs:
     def refresh_configuration(self, value: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgs']):
         pulumi.set(self, "refresh_configuration", value)
 
+
+if not MYPY:
+    class DataSetRefreshPropertiesRefreshConfigurationArgsDict(TypedDict):
+        incremental_refresh: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgsDict']
+        """
+        The incremental refresh for the data set. See incremental_refresh.
+        """
+elif False:
+    DataSetRefreshPropertiesRefreshConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetRefreshPropertiesRefreshConfigurationArgs:
@@ -2756,6 +3742,15 @@ class DataSetRefreshPropertiesRefreshConfigurationArgs:
         pulumi.set(self, "incremental_refresh", value)
 
 
+if not MYPY:
+    class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgsDict(TypedDict):
+        lookback_window: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgsDict']
+        """
+        The lookback window setup for an incremental refresh configuration. See lookback_window.
+        """
+elif False:
+    DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs:
     def __init__(__self__, *,
@@ -2777,6 +3772,23 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs:
     def lookback_window(self, value: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs']):
         pulumi.set(self, "lookback_window", value)
 
+
+if not MYPY:
+    class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgsDict(TypedDict):
+        column_name: pulumi.Input[str]
+        """
+        The name of the lookback window column.
+        """
+        size: pulumi.Input[int]
+        """
+        The lookback window column size.
+        """
+        size_unit: pulumi.Input[str]
+        """
+        The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+        """
+elif False:
+    DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs:
@@ -2829,6 +3841,31 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWind
     def size_unit(self, value: pulumi.Input[str]):
         pulumi.set(self, "size_unit", value)
 
+
+if not MYPY:
+    class DataSetRowLevelPermissionDataSetArgsDict(TypedDict):
+        arn: pulumi.Input[str]
+        """
+        ARN of the dataset that contains permissions for RLS.
+        """
+        permission_policy: pulumi.Input[str]
+        """
+        Type of permissions to use when interpreting the permissions for RLS. Valid values are `GRANT_ACCESS` and `DENY_ACCESS`.
+        """
+        format_version: NotRequired[pulumi.Input[str]]
+        """
+        User or group rules associated with the dataset that contains permissions for RLS.
+        """
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        Namespace associated with the dataset that contains permissions for RLS.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Status of the row-level security permission dataset. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+        """
+elif False:
+    DataSetRowLevelPermissionDataSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetRowLevelPermissionDataSetArgs:
@@ -2915,6 +3952,19 @@ class DataSetRowLevelPermissionDataSetArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class DataSetRowLevelPermissionTagConfigurationArgsDict(TypedDict):
+        tag_rules: pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagConfigurationTagRuleArgsDict']]]
+        """
+        A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+        """
+elif False:
+    DataSetRowLevelPermissionTagConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSetRowLevelPermissionTagConfigurationArgs:
     def __init__(__self__, *,
@@ -2952,6 +4002,27 @@ class DataSetRowLevelPermissionTagConfigurationArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class DataSetRowLevelPermissionTagConfigurationTagRuleArgsDict(TypedDict):
+        column_name: pulumi.Input[str]
+        """
+        Column name that a tag key is assigned to.
+        """
+        tag_key: pulumi.Input[str]
+        """
+        Unique key for a tag.
+        """
+        match_all_value: NotRequired[pulumi.Input[str]]
+        """
+        A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+        """
+        tag_multi_value_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        A string that you want to use to delimit the values when you pass the values at run time.
+        """
+elif False:
+    DataSetRowLevelPermissionTagConfigurationTagRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSetRowLevelPermissionTagConfigurationTagRuleArgs:
@@ -3022,6 +4093,20 @@ class DataSetRowLevelPermissionTagConfigurationTagRuleArgs:
         pulumi.set(self, "tag_multi_value_delimiter", value)
 
 
+if not MYPY:
+    class DataSourceCredentialsArgsDict(TypedDict):
+        copy_source_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+        When the value is not null, the `credential_pair` from the data source in the ARN is used.
+        """
+        credential_pair: NotRequired[pulumi.Input['DataSourceCredentialsCredentialPairArgsDict']]
+        """
+        Credential pair. See Credential Pair below for more details.
+        """
+elif False:
+    DataSourceCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceCredentialsArgs:
     def __init__(__self__, *,
@@ -3063,6 +4148,19 @@ class DataSourceCredentialsArgs:
         pulumi.set(self, "credential_pair", value)
 
 
+if not MYPY:
+    class DataSourceCredentialsCredentialPairArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        Password, maximum length of 1024 characters.
+        """
+        username: pulumi.Input[str]
+        """
+        User name, maximum length of 64 characters.
+        """
+elif False:
+    DataSourceCredentialsCredentialPairArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceCredentialsCredentialPairArgs:
     def __init__(__self__, *,
@@ -3099,6 +4197,91 @@ class DataSourceCredentialsCredentialPairArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class DataSourceParametersArgsDict(TypedDict):
+        amazon_elasticsearch: NotRequired[pulumi.Input['DataSourceParametersAmazonElasticsearchArgsDict']]
+        """
+        Parameters for connecting to Amazon Elasticsearch.
+        """
+        athena: NotRequired[pulumi.Input['DataSourceParametersAthenaArgsDict']]
+        """
+        Parameters for connecting to Athena.
+        """
+        aurora: NotRequired[pulumi.Input['DataSourceParametersAuroraArgsDict']]
+        """
+        Parameters for connecting to Aurora MySQL.
+        """
+        aurora_postgresql: NotRequired[pulumi.Input['DataSourceParametersAuroraPostgresqlArgsDict']]
+        """
+        Parameters for connecting to Aurora Postgresql.
+        """
+        aws_iot_analytics: NotRequired[pulumi.Input['DataSourceParametersAwsIotAnalyticsArgsDict']]
+        """
+        Parameters for connecting to AWS IOT Analytics.
+        """
+        jira: NotRequired[pulumi.Input['DataSourceParametersJiraArgsDict']]
+        """
+        Parameters for connecting to Jira.
+        """
+        maria_db: NotRequired[pulumi.Input['DataSourceParametersMariaDbArgsDict']]
+        """
+        Parameters for connecting to MariaDB.
+        """
+        mysql: NotRequired[pulumi.Input['DataSourceParametersMysqlArgsDict']]
+        """
+        Parameters for connecting to MySQL.
+        """
+        oracle: NotRequired[pulumi.Input['DataSourceParametersOracleArgsDict']]
+        """
+        Parameters for connecting to Oracle.
+        """
+        postgresql: NotRequired[pulumi.Input['DataSourceParametersPostgresqlArgsDict']]
+        """
+        Parameters for connecting to Postgresql.
+        """
+        presto: NotRequired[pulumi.Input['DataSourceParametersPrestoArgsDict']]
+        """
+        Parameters for connecting to Presto.
+        """
+        rds: NotRequired[pulumi.Input['DataSourceParametersRdsArgsDict']]
+        """
+        Parameters for connecting to RDS.
+        """
+        redshift: NotRequired[pulumi.Input['DataSourceParametersRedshiftArgsDict']]
+        """
+        Parameters for connecting to Redshift.
+        """
+        s3: NotRequired[pulumi.Input['DataSourceParametersS3ArgsDict']]
+        """
+        Parameters for connecting to S3.
+        """
+        service_now: NotRequired[pulumi.Input['DataSourceParametersServiceNowArgsDict']]
+        """
+        Parameters for connecting to ServiceNow.
+        """
+        snowflake: NotRequired[pulumi.Input['DataSourceParametersSnowflakeArgsDict']]
+        """
+        Parameters for connecting to Snowflake.
+        """
+        spark: NotRequired[pulumi.Input['DataSourceParametersSparkArgsDict']]
+        """
+        Parameters for connecting to Spark.
+        """
+        sql_server: NotRequired[pulumi.Input['DataSourceParametersSqlServerArgsDict']]
+        """
+        Parameters for connecting to SQL Server.
+        """
+        teradata: NotRequired[pulumi.Input['DataSourceParametersTeradataArgsDict']]
+        """
+        Parameters for connecting to Teradata.
+        """
+        twitter: NotRequired[pulumi.Input['DataSourceParametersTwitterArgsDict']]
+        """
+        Parameters for connecting to Twitter.
+        """
+elif False:
+    DataSourceParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersArgs:
@@ -3427,6 +4610,15 @@ class DataSourceParametersArgs:
         pulumi.set(self, "twitter", value)
 
 
+if not MYPY:
+    class DataSourceParametersAmazonElasticsearchArgsDict(TypedDict):
+        domain: pulumi.Input[str]
+        """
+        The OpenSearch domain.
+        """
+elif False:
+    DataSourceParametersAmazonElasticsearchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersAmazonElasticsearchArgs:
     def __init__(__self__, *,
@@ -3448,6 +4640,15 @@ class DataSourceParametersAmazonElasticsearchArgs:
     def domain(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain", value)
 
+
+if not MYPY:
+    class DataSourceParametersAthenaArgsDict(TypedDict):
+        work_group: NotRequired[pulumi.Input[str]]
+        """
+        The work-group to which to connect.
+        """
+elif False:
+    DataSourceParametersAthenaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersAthenaArgs:
@@ -3471,6 +4672,23 @@ class DataSourceParametersAthenaArgs:
     def work_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "work_group", value)
 
+
+if not MYPY:
+    class DataSourceParametersAuroraArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        port: pulumi.Input[int]
+        """
+        The port to which to connect.
+        """
+elif False:
+    DataSourceParametersAuroraArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersAuroraArgs:
@@ -3524,6 +4742,23 @@ class DataSourceParametersAuroraArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class DataSourceParametersAuroraPostgresqlArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        port: pulumi.Input[int]
+        """
+        The port to which to connect.
+        """
+elif False:
+    DataSourceParametersAuroraPostgresqlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersAuroraPostgresqlArgs:
     def __init__(__self__, *,
@@ -3576,6 +4811,15 @@ class DataSourceParametersAuroraPostgresqlArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class DataSourceParametersAwsIotAnalyticsArgsDict(TypedDict):
+        data_set_name: pulumi.Input[str]
+        """
+        The name of the data set to which to connect.
+        """
+elif False:
+    DataSourceParametersAwsIotAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersAwsIotAnalyticsArgs:
     def __init__(__self__, *,
@@ -3598,6 +4842,15 @@ class DataSourceParametersAwsIotAnalyticsArgs:
         pulumi.set(self, "data_set_name", value)
 
 
+if not MYPY:
+    class DataSourceParametersJiraArgsDict(TypedDict):
+        site_base_url: pulumi.Input[str]
+        """
+        The base URL of the Jira instance's site to which to connect.
+        """
+elif False:
+    DataSourceParametersJiraArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersJiraArgs:
     def __init__(__self__, *,
@@ -3619,6 +4872,23 @@ class DataSourceParametersJiraArgs:
     def site_base_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "site_base_url", value)
 
+
+if not MYPY:
+    class DataSourceParametersMariaDbArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        port: pulumi.Input[int]
+        """
+        The port to which to connect.
+        """
+elif False:
+    DataSourceParametersMariaDbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersMariaDbArgs:
@@ -3672,6 +4942,23 @@ class DataSourceParametersMariaDbArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class DataSourceParametersMysqlArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        port: pulumi.Input[int]
+        """
+        The port to which to connect.
+        """
+elif False:
+    DataSourceParametersMysqlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersMysqlArgs:
     def __init__(__self__, *,
@@ -3723,6 +5010,23 @@ class DataSourceParametersMysqlArgs:
     def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class DataSourceParametersOracleArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        port: pulumi.Input[int]
+        """
+        The port to which to connect.
+        """
+elif False:
+    DataSourceParametersOracleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersOracleArgs:
@@ -3776,6 +5080,23 @@ class DataSourceParametersOracleArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class DataSourceParametersPostgresqlArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        port: pulumi.Input[int]
+        """
+        The port to which to connect.
+        """
+elif False:
+    DataSourceParametersPostgresqlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersPostgresqlArgs:
     def __init__(__self__, *,
@@ -3827,6 +5148,23 @@ class DataSourceParametersPostgresqlArgs:
     def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class DataSourceParametersPrestoArgsDict(TypedDict):
+        catalog: pulumi.Input[str]
+        """
+        The catalog to which to connect.
+        """
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        port: pulumi.Input[int]
+        """
+        The port to which to connect.
+        """
+elif False:
+    DataSourceParametersPrestoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersPrestoArgs:
@@ -3880,6 +5218,19 @@ class DataSourceParametersPrestoArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class DataSourceParametersRdsArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        instance_id: pulumi.Input[str]
+        """
+        The instance ID to which to connect.
+        """
+elif False:
+    DataSourceParametersRdsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersRdsArgs:
     def __init__(__self__, *,
@@ -3916,6 +5267,27 @@ class DataSourceParametersRdsArgs:
     def instance_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "instance_id", value)
 
+
+if not MYPY:
+    class DataSourceParametersRedshiftArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        cluster_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the cluster to which to connect.
+        """
+        host: NotRequired[pulumi.Input[str]]
+        """
+        The host to which to connect.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port to which to connect.
+        """
+elif False:
+    DataSourceParametersRedshiftArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersRedshiftArgs:
@@ -3987,6 +5359,15 @@ class DataSourceParametersRedshiftArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class DataSourceParametersS3ArgsDict(TypedDict):
+        manifest_file_location: pulumi.Input['DataSourceParametersS3ManifestFileLocationArgsDict']
+        """
+        An object containing the S3 location of the S3 manifest file.
+        """
+elif False:
+    DataSourceParametersS3ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersS3Args:
     def __init__(__self__, *,
@@ -4008,6 +5389,19 @@ class DataSourceParametersS3Args:
     def manifest_file_location(self, value: pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs']):
         pulumi.set(self, "manifest_file_location", value)
 
+
+if not MYPY:
+    class DataSourceParametersS3ManifestFileLocationArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        """
+        The name of the bucket that contains the manifest file.
+        """
+        key: pulumi.Input[str]
+        """
+        The key of the manifest file within the bucket.
+        """
+elif False:
+    DataSourceParametersS3ManifestFileLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersS3ManifestFileLocationArgs:
@@ -4046,6 +5440,15 @@ class DataSourceParametersS3ManifestFileLocationArgs:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class DataSourceParametersServiceNowArgsDict(TypedDict):
+        site_base_url: pulumi.Input[str]
+        """
+        The base URL of the Jira instance's site to which to connect.
+        """
+elif False:
+    DataSourceParametersServiceNowArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersServiceNowArgs:
     def __init__(__self__, *,
@@ -4067,6 +5470,23 @@ class DataSourceParametersServiceNowArgs:
     def site_base_url(self, value: pulumi.Input[str]):
         pulumi.set(self, "site_base_url", value)
 
+
+if not MYPY:
+    class DataSourceParametersSnowflakeArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        warehouse: pulumi.Input[str]
+        """
+        The warehouse to which to connect.
+        """
+elif False:
+    DataSourceParametersSnowflakeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersSnowflakeArgs:
@@ -4120,6 +5540,19 @@ class DataSourceParametersSnowflakeArgs:
         pulumi.set(self, "warehouse", value)
 
 
+if not MYPY:
+    class DataSourceParametersSparkArgsDict(TypedDict):
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        port: pulumi.Input[int]
+        """
+        The warehouse to which to connect.
+        """
+elif False:
+    DataSourceParametersSparkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersSparkArgs:
     def __init__(__self__, *,
@@ -4156,6 +5589,23 @@ class DataSourceParametersSparkArgs:
     def port(self, value: pulumi.Input[int]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class DataSourceParametersSqlServerArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        port: pulumi.Input[int]
+        """
+        The warehouse to which to connect.
+        """
+elif False:
+    DataSourceParametersSqlServerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourceParametersSqlServerArgs:
@@ -4209,6 +5659,23 @@ class DataSourceParametersSqlServerArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class DataSourceParametersTeradataArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The database to which to connect.
+        """
+        host: pulumi.Input[str]
+        """
+        The host to which to connect.
+        """
+        port: pulumi.Input[int]
+        """
+        The warehouse to which to connect.
+        """
+elif False:
+    DataSourceParametersTeradataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersTeradataArgs:
     def __init__(__self__, *,
@@ -4261,6 +5728,19 @@ class DataSourceParametersTeradataArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class DataSourceParametersTwitterArgsDict(TypedDict):
+        max_rows: pulumi.Input[int]
+        """
+        The maximum number of rows to query.
+        """
+        query: pulumi.Input[str]
+        """
+        The Twitter query to retrieve the data.
+        """
+elif False:
+    DataSourceParametersTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceParametersTwitterArgs:
     def __init__(__self__, *,
@@ -4297,6 +5777,19 @@ class DataSourceParametersTwitterArgs:
     def query(self, value: pulumi.Input[str]):
         pulumi.set(self, "query", value)
 
+
+if not MYPY:
+    class DataSourcePermissionArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Set of IAM actions to grant or revoke permissions on. Max of 16 items.
+        """
+        principal: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the principal.
+        """
+elif False:
+    DataSourcePermissionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataSourcePermissionArgs:
@@ -4335,6 +5828,15 @@ class DataSourcePermissionArgs:
         pulumi.set(self, "principal", value)
 
 
+if not MYPY:
+    class DataSourceSslPropertiesArgsDict(TypedDict):
+        disable_ssl: pulumi.Input[bool]
+        """
+        A Boolean option to control whether SSL should be disabled.
+        """
+elif False:
+    DataSourceSslPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceSslPropertiesArgs:
     def __init__(__self__, *,
@@ -4357,6 +5859,15 @@ class DataSourceSslPropertiesArgs:
         pulumi.set(self, "disable_ssl", value)
 
 
+if not MYPY:
+    class DataSourceVpcConnectionPropertiesArgsDict(TypedDict):
+        vpc_connection_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) for the VPC connection.
+        """
+elif False:
+    DataSourceVpcConnectionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataSourceVpcConnectionPropertiesArgs:
     def __init__(__self__, *,
@@ -4378,6 +5889,19 @@ class DataSourceVpcConnectionPropertiesArgs:
     def vpc_connection_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpc_connection_arn", value)
 
+
+if not MYPY:
+    class FolderPermissionArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        principal: pulumi.Input[str]
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+elif False:
+    FolderPermissionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FolderPermissionArgs:
@@ -4415,6 +5939,19 @@ class FolderPermissionArgs:
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
 
+
+if not MYPY:
+    class IamPolicyAssignmentIdentitiesArgsDict(TypedDict):
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of Quicksight group names to assign the policy to.
+        """
+        users: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Array of Quicksight user names to assign the policy to.
+        """
+elif False:
+    IamPolicyAssignmentIdentitiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IamPolicyAssignmentIdentitiesArgs:
@@ -4455,6 +5992,19 @@ class IamPolicyAssignmentIdentitiesArgs:
         pulumi.set(self, "users", value)
 
 
+if not MYPY:
+    class NamespaceTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    NamespaceTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NamespaceTimeoutsArgs:
     def __init__(__self__, *,
@@ -4493,6 +6043,23 @@ class NamespaceTimeoutsArgs:
     def delete(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delete", value)
 
+
+if not MYPY:
+    class RefreshScheduleScheduleArgsDict(TypedDict):
+        refresh_type: pulumi.Input[str]
+        """
+        The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        """
+        schedule_frequency: NotRequired[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgsDict']]
+        """
+        The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        """
+        start_after_date_time: NotRequired[pulumi.Input[str]]
+        """
+        Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
+        """
+elif False:
+    RefreshScheduleScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RefreshScheduleScheduleArgs:
@@ -4547,6 +6114,27 @@ class RefreshScheduleScheduleArgs:
     def start_after_date_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_after_date_time", value)
 
+
+if not MYPY:
+    class RefreshScheduleScheduleScheduleFrequencyArgsDict(TypedDict):
+        interval: pulumi.Input[str]
+        """
+        The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+        """
+        refresh_on_day: NotRequired[pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgsDict']]
+        """
+        The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        """
+        time_of_the_day: NotRequired[pulumi.Input[str]]
+        """
+        The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+        """
+        timezone: NotRequired[pulumi.Input[str]]
+        """
+        The timezone that you want the refresh schedule to use.
+        """
+elif False:
+    RefreshScheduleScheduleScheduleFrequencyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RefreshScheduleScheduleScheduleFrequencyArgs:
@@ -4618,6 +6206,19 @@ class RefreshScheduleScheduleScheduleFrequencyArgs:
         pulumi.set(self, "timezone", value)
 
 
+if not MYPY:
+    class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgsDict(TypedDict):
+        day_of_month: NotRequired[pulumi.Input[str]]
+        """
+        The day of the month that you want to schedule refresh on.
+        """
+        day_of_week: NotRequired[pulumi.Input[str]]
+        """
+        The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+        """
+elif False:
+    RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs:
     def __init__(__self__, *,
@@ -4657,6 +6258,19 @@ class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs:
         pulumi.set(self, "day_of_week", value)
 
 
+if not MYPY:
+    class TemplatePermissionArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        principal: pulumi.Input[str]
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+elif False:
+    TemplatePermissionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TemplatePermissionArgs:
     def __init__(__self__, *,
@@ -4693,6 +6307,19 @@ class TemplatePermissionArgs:
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
 
+
+if not MYPY:
+    class TemplateSourceEntityArgsDict(TypedDict):
+        source_analysis: NotRequired[pulumi.Input['TemplateSourceEntitySourceAnalysisArgsDict']]
+        """
+        The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
+        """
+        source_template: NotRequired[pulumi.Input['TemplateSourceEntitySourceTemplateArgsDict']]
+        """
+        The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
+        """
+elif False:
+    TemplateSourceEntityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TemplateSourceEntityArgs:
@@ -4733,6 +6360,19 @@ class TemplateSourceEntityArgs:
         pulumi.set(self, "source_template", value)
 
 
+if not MYPY:
+    class TemplateSourceEntitySourceAnalysisArgsDict(TypedDict):
+        arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the resource.
+        """
+        data_set_references: pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgsDict']]]
+        """
+        A list of dataset references used as placeholders in the template. See data_set_references.
+        """
+elif False:
+    TemplateSourceEntitySourceAnalysisArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TemplateSourceEntitySourceAnalysisArgs:
     def __init__(__self__, *,
@@ -4769,6 +6409,19 @@ class TemplateSourceEntitySourceAnalysisArgs:
     def data_set_references(self, value: pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs']]]):
         pulumi.set(self, "data_set_references", value)
 
+
+if not MYPY:
+    class TemplateSourceEntitySourceAnalysisDataSetReferenceArgsDict(TypedDict):
+        data_set_arn: pulumi.Input[str]
+        """
+        Dataset Amazon Resource Name (ARN).
+        """
+        data_set_placeholder: pulumi.Input[str]
+        """
+        Dataset placeholder.
+        """
+elif False:
+    TemplateSourceEntitySourceAnalysisDataSetReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TemplateSourceEntitySourceAnalysisDataSetReferenceArgs:
@@ -4807,6 +6460,15 @@ class TemplateSourceEntitySourceAnalysisDataSetReferenceArgs:
         pulumi.set(self, "data_set_placeholder", value)
 
 
+if not MYPY:
+    class TemplateSourceEntitySourceTemplateArgsDict(TypedDict):
+        arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the resource.
+        """
+elif False:
+    TemplateSourceEntitySourceTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TemplateSourceEntitySourceTemplateArgs:
     def __init__(__self__, *,
@@ -4828,6 +6490,27 @@ class TemplateSourceEntitySourceTemplateArgs:
     def arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "arn", value)
 
+
+if not MYPY:
+    class ThemeConfigurationArgsDict(TypedDict):
+        data_color_palette: NotRequired[pulumi.Input['ThemeConfigurationDataColorPaletteArgsDict']]
+        """
+        Color properties that apply to chart data colors. See data_color_palette.
+        """
+        sheet: NotRequired[pulumi.Input['ThemeConfigurationSheetArgsDict']]
+        """
+        Display options related to sheets. See sheet.
+        """
+        typography: NotRequired[pulumi.Input['ThemeConfigurationTypographyArgsDict']]
+        """
+        Determines the typography options. See typography.
+        """
+        ui_color_palette: NotRequired[pulumi.Input['ThemeConfigurationUiColorPaletteArgsDict']]
+        """
+        Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
+        """
+elif False:
+    ThemeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThemeConfigurationArgs:
@@ -4900,6 +6583,23 @@ class ThemeConfigurationArgs:
         pulumi.set(self, "ui_color_palette", value)
 
 
+if not MYPY:
+    class ThemeConfigurationDataColorPaletteArgsDict(TypedDict):
+        colors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
+        """
+        empty_fill_color: NotRequired[pulumi.Input[str]]
+        """
+        The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+        """
+        min_max_gradients: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+        """
+elif False:
+    ThemeConfigurationDataColorPaletteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThemeConfigurationDataColorPaletteArgs:
     def __init__(__self__, *,
@@ -4955,6 +6655,19 @@ class ThemeConfigurationDataColorPaletteArgs:
         pulumi.set(self, "min_max_gradients", value)
 
 
+if not MYPY:
+    class ThemeConfigurationSheetArgsDict(TypedDict):
+        tile: NotRequired[pulumi.Input['ThemeConfigurationSheetTileArgsDict']]
+        """
+        The display options for tiles. See tile.
+        """
+        tile_layout: NotRequired[pulumi.Input['ThemeConfigurationSheetTileLayoutArgsDict']]
+        """
+        The layout options for tiles. See tile_layout.
+        """
+elif False:
+    ThemeConfigurationSheetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThemeConfigurationSheetArgs:
     def __init__(__self__, *,
@@ -4994,6 +6707,15 @@ class ThemeConfigurationSheetArgs:
         pulumi.set(self, "tile_layout", value)
 
 
+if not MYPY:
+    class ThemeConfigurationSheetTileArgsDict(TypedDict):
+        border: NotRequired[pulumi.Input['ThemeConfigurationSheetTileBorderArgsDict']]
+        """
+        The border around a tile. See border.
+        """
+elif False:
+    ThemeConfigurationSheetTileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThemeConfigurationSheetTileArgs:
     def __init__(__self__, *,
@@ -5017,6 +6739,15 @@ class ThemeConfigurationSheetTileArgs:
         pulumi.set(self, "border", value)
 
 
+if not MYPY:
+    class ThemeConfigurationSheetTileBorderArgsDict(TypedDict):
+        show: NotRequired[pulumi.Input[bool]]
+        """
+        The option to enable display of borders for visuals.
+        """
+elif False:
+    ThemeConfigurationSheetTileBorderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThemeConfigurationSheetTileBorderArgs:
     def __init__(__self__, *,
@@ -5039,6 +6770,19 @@ class ThemeConfigurationSheetTileBorderArgs:
     def show(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "show", value)
 
+
+if not MYPY:
+    class ThemeConfigurationSheetTileLayoutArgsDict(TypedDict):
+        gutter: NotRequired[pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgsDict']]
+        """
+        The gutter settings that apply between tiles. See gutter.
+        """
+        margin: NotRequired[pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgsDict']]
+        """
+        The margin settings that apply around the outside edge of sheets. See margin.
+        """
+elif False:
+    ThemeConfigurationSheetTileLayoutArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThemeConfigurationSheetTileLayoutArgs:
@@ -5079,6 +6823,15 @@ class ThemeConfigurationSheetTileLayoutArgs:
         pulumi.set(self, "margin", value)
 
 
+if not MYPY:
+    class ThemeConfigurationSheetTileLayoutGutterArgsDict(TypedDict):
+        show: NotRequired[pulumi.Input[bool]]
+        """
+        This Boolean value controls whether to display a gutter space between sheet tiles.
+        """
+elif False:
+    ThemeConfigurationSheetTileLayoutGutterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThemeConfigurationSheetTileLayoutGutterArgs:
     def __init__(__self__, *,
@@ -5101,6 +6854,15 @@ class ThemeConfigurationSheetTileLayoutGutterArgs:
     def show(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "show", value)
 
+
+if not MYPY:
+    class ThemeConfigurationSheetTileLayoutMarginArgsDict(TypedDict):
+        show: NotRequired[pulumi.Input[bool]]
+        """
+        This Boolean value controls whether to display sheet margins.
+        """
+elif False:
+    ThemeConfigurationSheetTileLayoutMarginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThemeConfigurationSheetTileLayoutMarginArgs:
@@ -5125,6 +6887,15 @@ class ThemeConfigurationSheetTileLayoutMarginArgs:
         pulumi.set(self, "show", value)
 
 
+if not MYPY:
+    class ThemeConfigurationTypographyArgsDict(TypedDict):
+        font_families: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgsDict']]]]
+        """
+        Determines the list of font families. Maximum number of 5 items. See font_families.
+        """
+elif False:
+    ThemeConfigurationTypographyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThemeConfigurationTypographyArgs:
     def __init__(__self__, *,
@@ -5148,6 +6919,15 @@ class ThemeConfigurationTypographyArgs:
         pulumi.set(self, "font_families", value)
 
 
+if not MYPY:
+    class ThemeConfigurationTypographyFontFamilyArgsDict(TypedDict):
+        font_family: NotRequired[pulumi.Input[str]]
+        """
+        Font family name.
+        """
+elif False:
+    ThemeConfigurationTypographyFontFamilyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThemeConfigurationTypographyFontFamilyArgs:
     def __init__(__self__, *,
@@ -5170,6 +6950,75 @@ class ThemeConfigurationTypographyFontFamilyArgs:
     def font_family(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "font_family", value)
 
+
+if not MYPY:
+    class ThemeConfigurationUiColorPaletteArgsDict(TypedDict):
+        accent: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to selected states and buttons.
+        """
+        accent_foreground: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the accent color.
+        """
+        danger: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to error messages.
+        """
+        danger_foreground: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the error color.
+        """
+        dimension: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to the names of fields that are identified as dimensions.
+        """
+        dimension_foreground: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the dimension color.
+        """
+        measure: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to the names of fields that are identified as measures.
+        """
+        measure_foreground: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the measure color.
+        """
+        primary_background: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to visuals and other high emphasis UI.
+        """
+        primary_foreground: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.
+        """
+        secondary_background: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to the sheet background and sheet controls.
+        """
+        secondary_foreground: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to any sheet title, sheet control text, or UI that appears over the secondary background.
+        """
+        success: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to success messages, for example the check mark for a successful download.
+        """
+        success_foreground: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the success color.
+        """
+        warning: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to warning and informational messages.
+        """
+        warning_foreground: NotRequired[pulumi.Input[str]]
+        """
+        Color (hexadecimal) that applies to any text or other elements that appear over the warning color.
+        """
+elif False:
+    ThemeConfigurationUiColorPaletteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ThemeConfigurationUiColorPaletteArgs:
@@ -5434,6 +7283,19 @@ class ThemeConfigurationUiColorPaletteArgs:
         pulumi.set(self, "warning_foreground", value)
 
 
+if not MYPY:
+    class ThemePermissionArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of IAM actions to grant or revoke permissions on.
+        """
+        principal: pulumi.Input[str]
+        """
+        ARN of the principal. See the [ResourcePermission documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ResourcePermission.html) for the applicable ARN values.
+        """
+elif False:
+    ThemePermissionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ThemePermissionArgs:
     def __init__(__self__, *,
@@ -5470,6 +7332,23 @@ class ThemePermissionArgs:
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
 
+
+if not MYPY:
+    class VpcConnectionTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    VpcConnectionTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpcConnectionTimeoutsArgs:
@@ -5525,6 +7404,13 @@ class VpcConnectionTimeoutsArgs:
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
 
+
+if not MYPY:
+    class GetDataSetColumnLevelPermissionRuleArgsDict(TypedDict):
+        column_names: Sequence[str]
+        principals: Sequence[str]
+elif False:
+    GetDataSetColumnLevelPermissionRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetDataSetColumnLevelPermissionRuleArgs:

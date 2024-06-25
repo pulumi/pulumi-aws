@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -221,7 +226,7 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']]] = None,
+                 catalog_data: Optional[pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -240,14 +245,14 @@ class Repository(pulumi.CustomResource):
 
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
-            catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
-                about_text="About Text",
-                architectures=["ARM"],
-                description="Description",
-                logo_image_blob=std.filebase64(input=png).result,
-                operating_systems=["Linux"],
-                usage_text="Usage Text",
-            ),
+            catalog_data={
+                "aboutText": "About Text",
+                "architectures": ["ARM"],
+                "description": "Description",
+                "logoImageBlob": std.filebase64(input=png).result,
+                "operatingSystems": ["Linux"],
+                "usageText": "Usage Text",
+            },
             tags={
                 "env": "production",
             })
@@ -263,7 +268,7 @@ class Repository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[str] repository_name: Name of the repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -287,14 +292,14 @@ class Repository(pulumi.CustomResource):
 
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
-            catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
-                about_text="About Text",
-                architectures=["ARM"],
-                description="Description",
-                logo_image_blob=std.filebase64(input=png).result,
-                operating_systems=["Linux"],
-                usage_text="Usage Text",
-            ),
+            catalog_data={
+                "aboutText": "About Text",
+                "architectures": ["ARM"],
+                "description": "Description",
+                "logoImageBlob": std.filebase64(input=png).result,
+                "operatingSystems": ["Linux"],
+                "usageText": "Usage Text",
+            },
             tags={
                 "env": "production",
             })
@@ -323,7 +328,7 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']]] = None,
+                 catalog_data: Optional[pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -357,7 +362,7 @@ class Repository(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']]] = None,
+            catalog_data: Optional[pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             registry_id: Optional[pulumi.Input[str]] = None,
             repository_name: Optional[pulumi.Input[str]] = None,
@@ -372,7 +377,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Full ARN of the repository.
-        :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[Union['RepositoryCatalogDataArgs', 'RepositoryCatalogDataArgsDict']] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_name: Name of the repository.
         :param pulumi.Input[str] repository_uri: The URI of the repository.

@@ -4,89 +4,197 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgsDict',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgsDict',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgsDict',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgsDict',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgsDict',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs',
+    'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgsDict',
     'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs',
+    'ContinuousDeploymentPolicyStagingDistributionDnsNamesArgsDict',
     'ContinuousDeploymentPolicyTrafficConfigArgs',
+    'ContinuousDeploymentPolicyTrafficConfigArgsDict',
     'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs',
+    'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgsDict',
     'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs',
+    'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgsDict',
     'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs',
+    'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgsDict',
     'DistributionCustomErrorResponseArgs',
+    'DistributionCustomErrorResponseArgsDict',
     'DistributionDefaultCacheBehaviorArgs',
+    'DistributionDefaultCacheBehaviorArgsDict',
     'DistributionDefaultCacheBehaviorForwardedValuesArgs',
+    'DistributionDefaultCacheBehaviorForwardedValuesArgsDict',
     'DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs',
+    'DistributionDefaultCacheBehaviorForwardedValuesCookiesArgsDict',
     'DistributionDefaultCacheBehaviorFunctionAssociationArgs',
+    'DistributionDefaultCacheBehaviorFunctionAssociationArgsDict',
     'DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs',
+    'DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgsDict',
     'DistributionLoggingConfigArgs',
+    'DistributionLoggingConfigArgsDict',
     'DistributionOrderedCacheBehaviorArgs',
+    'DistributionOrderedCacheBehaviorArgsDict',
     'DistributionOrderedCacheBehaviorForwardedValuesArgs',
+    'DistributionOrderedCacheBehaviorForwardedValuesArgsDict',
     'DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs',
+    'DistributionOrderedCacheBehaviorForwardedValuesCookiesArgsDict',
     'DistributionOrderedCacheBehaviorFunctionAssociationArgs',
+    'DistributionOrderedCacheBehaviorFunctionAssociationArgsDict',
     'DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs',
+    'DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgsDict',
     'DistributionOriginArgs',
+    'DistributionOriginArgsDict',
     'DistributionOriginCustomHeaderArgs',
+    'DistributionOriginCustomHeaderArgsDict',
     'DistributionOriginCustomOriginConfigArgs',
+    'DistributionOriginCustomOriginConfigArgsDict',
     'DistributionOriginGroupArgs',
+    'DistributionOriginGroupArgsDict',
     'DistributionOriginGroupFailoverCriteriaArgs',
+    'DistributionOriginGroupFailoverCriteriaArgsDict',
     'DistributionOriginGroupMemberArgs',
+    'DistributionOriginGroupMemberArgsDict',
     'DistributionOriginOriginShieldArgs',
+    'DistributionOriginOriginShieldArgsDict',
     'DistributionOriginS3OriginConfigArgs',
+    'DistributionOriginS3OriginConfigArgsDict',
     'DistributionRestrictionsArgs',
+    'DistributionRestrictionsArgsDict',
     'DistributionRestrictionsGeoRestrictionArgs',
+    'DistributionRestrictionsGeoRestrictionArgsDict',
     'DistributionTrustedKeyGroupArgs',
+    'DistributionTrustedKeyGroupArgsDict',
     'DistributionTrustedKeyGroupItemArgs',
+    'DistributionTrustedKeyGroupItemArgsDict',
     'DistributionTrustedSignerArgs',
+    'DistributionTrustedSignerArgsDict',
     'DistributionTrustedSignerItemArgs',
+    'DistributionTrustedSignerItemArgsDict',
     'DistributionViewerCertificateArgs',
+    'DistributionViewerCertificateArgsDict',
     'FieldLevelEncryptionConfigContentTypeProfileConfigArgs',
+    'FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict',
     'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs',
+    'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgsDict',
     'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs',
+    'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgsDict',
     'FieldLevelEncryptionConfigQueryArgProfileConfigArgs',
+    'FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict',
     'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs',
+    'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgsDict',
     'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs',
+    'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgsDict',
     'FieldLevelEncryptionProfileEncryptionEntitiesArgs',
+    'FieldLevelEncryptionProfileEncryptionEntitiesArgsDict',
     'FieldLevelEncryptionProfileEncryptionEntitiesItemArgs',
+    'FieldLevelEncryptionProfileEncryptionEntitiesItemArgsDict',
     'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs',
+    'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgsDict',
     'KeyValueStoreTimeoutsArgs',
+    'KeyValueStoreTimeoutsArgsDict',
     'MonitoringSubscriptionMonitoringSubscriptionArgs',
+    'MonitoringSubscriptionMonitoringSubscriptionArgsDict',
     'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs',
+    'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgsDict',
     'OriginRequestPolicyCookiesConfigArgs',
+    'OriginRequestPolicyCookiesConfigArgsDict',
     'OriginRequestPolicyCookiesConfigCookiesArgs',
+    'OriginRequestPolicyCookiesConfigCookiesArgsDict',
     'OriginRequestPolicyHeadersConfigArgs',
+    'OriginRequestPolicyHeadersConfigArgsDict',
     'OriginRequestPolicyHeadersConfigHeadersArgs',
+    'OriginRequestPolicyHeadersConfigHeadersArgsDict',
     'OriginRequestPolicyQueryStringsConfigArgs',
+    'OriginRequestPolicyQueryStringsConfigArgsDict',
     'OriginRequestPolicyQueryStringsConfigQueryStringsArgs',
+    'OriginRequestPolicyQueryStringsConfigQueryStringsArgsDict',
     'RealtimeLogConfigEndpointArgs',
+    'RealtimeLogConfigEndpointArgsDict',
     'RealtimeLogConfigEndpointKinesisStreamConfigArgs',
+    'RealtimeLogConfigEndpointKinesisStreamConfigArgsDict',
     'ResponseHeadersPolicyCorsConfigArgs',
+    'ResponseHeadersPolicyCorsConfigArgsDict',
     'ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs',
+    'ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgsDict',
     'ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs',
+    'ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgsDict',
     'ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs',
+    'ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgsDict',
     'ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs',
+    'ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgsDict',
     'ResponseHeadersPolicyCustomHeadersConfigArgs',
+    'ResponseHeadersPolicyCustomHeadersConfigArgsDict',
     'ResponseHeadersPolicyCustomHeadersConfigItemArgs',
+    'ResponseHeadersPolicyCustomHeadersConfigItemArgsDict',
     'ResponseHeadersPolicyRemoveHeadersConfigArgs',
+    'ResponseHeadersPolicyRemoveHeadersConfigArgsDict',
     'ResponseHeadersPolicyRemoveHeadersConfigItemArgs',
+    'ResponseHeadersPolicyRemoveHeadersConfigItemArgsDict',
     'ResponseHeadersPolicySecurityHeadersConfigArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigArgsDict',
     'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgsDict',
     'ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgsDict',
     'ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgsDict',
     'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgsDict',
     'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgsDict',
     'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgsDict',
     'ResponseHeadersPolicyServerTimingHeadersConfigArgs',
+    'ResponseHeadersPolicyServerTimingHeadersConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict(TypedDict):
+        cookies_config: pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgsDict']
+        """
+        Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        """
+        headers_config: pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgsDict']
+        """
+        Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        """
+        query_strings_config: pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgsDict']
+        """
+        Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
+        """
+        enable_accept_encoding_brotli: NotRequired[pulumi.Input[bool]]
+        """
+        Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
+        """
+        enable_accept_encoding_gzip: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
+        """
+elif False:
+    CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
@@ -172,6 +280,19 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
         pulumi.set(self, "enable_accept_encoding_gzip", value)
 
 
+if not MYPY:
+    class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgsDict(TypedDict):
+        cookie_behavior: pulumi.Input[str]
+        """
+        Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
+        """
+        cookies: NotRequired[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgsDict']]
+        """
+        Object that contains a list of cookie names. See Items for more information.
+        """
+elif False:
+    CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs:
     def __init__(__self__, *,
@@ -210,6 +331,12 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs:
         pulumi.set(self, "cookies", value)
 
 
+if not MYPY:
+    class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs:
     def __init__(__self__, *,
@@ -226,6 +353,19 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArg
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgsDict(TypedDict):
+        header_behavior: NotRequired[pulumi.Input[str]]
+        """
+        Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
+        """
+        headers: NotRequired[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgsDict']]
+        """
+        Object contains a list of header names. See Items for more information.
+        """
+elif False:
+    CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
@@ -266,6 +406,12 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
         pulumi.set(self, "headers", value)
 
 
+if not MYPY:
+    class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs:
     def __init__(__self__, *,
@@ -282,6 +428,13 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArg
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgsDict(TypedDict):
+        query_string_behavior: pulumi.Input[str]
+        query_strings: NotRequired[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgsDict']]
+elif False:
+    CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
@@ -311,6 +464,12 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
         pulumi.set(self, "query_strings", value)
 
 
+if not MYPY:
+    class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs:
     def __init__(__self__, *,
@@ -327,6 +486,19 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQuery
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class ContinuousDeploymentPolicyStagingDistributionDnsNamesArgsDict(TypedDict):
+        quantity: pulumi.Input[int]
+        """
+        Number of CloudFront domain names in the staging distribution.
+        """
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of CloudFront domain names for the staging distribution.
+        """
+elif False:
+    ContinuousDeploymentPolicyStagingDistributionDnsNamesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs:
@@ -365,6 +537,23 @@ class ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs:
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class ContinuousDeploymentPolicyTrafficConfigArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
+        """
+        single_header_config: NotRequired[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgsDict']]
+        """
+        Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
+        """
+        single_weight_config: NotRequired[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgsDict']]
+        """
+        Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
+        """
+elif False:
+    ContinuousDeploymentPolicyTrafficConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContinuousDeploymentPolicyTrafficConfigArgs:
@@ -420,6 +609,19 @@ class ContinuousDeploymentPolicyTrafficConfigArgs:
         pulumi.set(self, "single_weight_config", value)
 
 
+if not MYPY:
+    class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgsDict(TypedDict):
+        header: pulumi.Input[str]
+        """
+        Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
+        """
+        value: pulumi.Input[str]
+        """
+        Request header value.
+        """
+elif False:
+    ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs:
     def __init__(__self__, *,
@@ -456,6 +658,19 @@ class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgsDict(TypedDict):
+        weight: pulumi.Input[float]
+        """
+        The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
+        """
+        session_stickiness_config: NotRequired[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgsDict']]
+        """
+        Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+        """
+elif False:
+    ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs:
@@ -495,6 +710,19 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs:
         pulumi.set(self, "session_stickiness_config", value)
 
 
+if not MYPY:
+    class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgsDict(TypedDict):
+        idle_ttl: pulumi.Input[int]
+        """
+        The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+        """
+        maximum_ttl: pulumi.Input[int]
+        """
+        The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+        """
+elif False:
+    ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs:
     def __init__(__self__, *,
@@ -531,6 +759,15 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickiness
     def maximum_ttl(self, value: pulumi.Input[int]):
         pulumi.set(self, "maximum_ttl", value)
 
+
+if not MYPY:
+    class DistributionCustomErrorResponseArgsDict(TypedDict):
+        error_code: pulumi.Input[int]
+        error_caching_min_ttl: NotRequired[pulumi.Input[int]]
+        response_code: NotRequired[pulumi.Input[int]]
+        response_page_path: NotRequired[pulumi.Input[str]]
+elif False:
+    DistributionCustomErrorResponseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionCustomErrorResponseArgs:
@@ -583,6 +820,36 @@ class DistributionCustomErrorResponseArgs:
     def response_page_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "response_page_path", value)
 
+
+if not MYPY:
+    class DistributionDefaultCacheBehaviorArgsDict(TypedDict):
+        allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]]
+        cached_methods: pulumi.Input[Sequence[pulumi.Input[str]]]
+        target_origin_id: pulumi.Input[str]
+        viewer_protocol_policy: pulumi.Input[str]
+        cache_policy_id: NotRequired[pulumi.Input[str]]
+        compress: NotRequired[pulumi.Input[bool]]
+        default_ttl: NotRequired[pulumi.Input[int]]
+        field_level_encryption_id: NotRequired[pulumi.Input[str]]
+        forwarded_values: NotRequired[pulumi.Input['DistributionDefaultCacheBehaviorForwardedValuesArgsDict']]
+        function_associations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorFunctionAssociationArgsDict']]]]
+        lambda_function_associations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgsDict']]]]
+        max_ttl: NotRequired[pulumi.Input[int]]
+        min_ttl: NotRequired[pulumi.Input[int]]
+        origin_request_policy_id: NotRequired[pulumi.Input[str]]
+        realtime_log_config_arn: NotRequired[pulumi.Input[str]]
+        response_headers_policy_id: NotRequired[pulumi.Input[str]]
+        smooth_streaming: NotRequired[pulumi.Input[bool]]
+        trusted_key_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
+        """
+        trusted_signers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
+        """
+elif False:
+    DistributionDefaultCacheBehaviorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionDefaultCacheBehaviorArgs:
@@ -823,6 +1090,15 @@ class DistributionDefaultCacheBehaviorArgs:
         pulumi.set(self, "trusted_signers", value)
 
 
+if not MYPY:
+    class DistributionDefaultCacheBehaviorForwardedValuesArgsDict(TypedDict):
+        cookies: pulumi.Input['DistributionDefaultCacheBehaviorForwardedValuesCookiesArgsDict']
+        query_string: pulumi.Input[bool]
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        query_string_cache_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DistributionDefaultCacheBehaviorForwardedValuesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionDefaultCacheBehaviorForwardedValuesArgs:
     def __init__(__self__, *,
@@ -874,6 +1150,13 @@ class DistributionDefaultCacheBehaviorForwardedValuesArgs:
         pulumi.set(self, "query_string_cache_keys", value)
 
 
+if not MYPY:
+    class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgsDict(TypedDict):
+        forward: pulumi.Input[str]
+        whitelisted_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DistributionDefaultCacheBehaviorForwardedValuesCookiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs:
     def __init__(__self__, *,
@@ -901,6 +1184,19 @@ class DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs:
     def whitelisted_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "whitelisted_names", value)
 
+
+if not MYPY:
+    class DistributionDefaultCacheBehaviorFunctionAssociationArgsDict(TypedDict):
+        event_type: pulumi.Input[str]
+        """
+        Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
+        """
+        function_arn: pulumi.Input[str]
+        """
+        ARN of the CloudFront function.
+        """
+elif False:
+    DistributionDefaultCacheBehaviorFunctionAssociationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionDefaultCacheBehaviorFunctionAssociationArgs:
@@ -938,6 +1234,23 @@ class DistributionDefaultCacheBehaviorFunctionAssociationArgs:
     def function_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "function_arn", value)
 
+
+if not MYPY:
+    class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgsDict(TypedDict):
+        event_type: pulumi.Input[str]
+        """
+        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+        """
+        lambda_arn: pulumi.Input[str]
+        """
+        ARN of the Lambda function.
+        """
+        include_body: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
+        """
+elif False:
+    DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs:
@@ -992,6 +1305,14 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs:
         pulumi.set(self, "include_body", value)
 
 
+if not MYPY:
+    class DistributionLoggingConfigArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        include_cookies: NotRequired[pulumi.Input[bool]]
+        prefix: NotRequired[pulumi.Input[str]]
+elif False:
+    DistributionLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionLoggingConfigArgs:
     def __init__(__self__, *,
@@ -1031,6 +1352,37 @@ class DistributionLoggingConfigArgs:
     def prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prefix", value)
 
+
+if not MYPY:
+    class DistributionOrderedCacheBehaviorArgsDict(TypedDict):
+        allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]]
+        cached_methods: pulumi.Input[Sequence[pulumi.Input[str]]]
+        path_pattern: pulumi.Input[str]
+        target_origin_id: pulumi.Input[str]
+        viewer_protocol_policy: pulumi.Input[str]
+        cache_policy_id: NotRequired[pulumi.Input[str]]
+        compress: NotRequired[pulumi.Input[bool]]
+        default_ttl: NotRequired[pulumi.Input[int]]
+        field_level_encryption_id: NotRequired[pulumi.Input[str]]
+        forwarded_values: NotRequired[pulumi.Input['DistributionOrderedCacheBehaviorForwardedValuesArgsDict']]
+        function_associations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorFunctionAssociationArgsDict']]]]
+        lambda_function_associations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgsDict']]]]
+        max_ttl: NotRequired[pulumi.Input[int]]
+        min_ttl: NotRequired[pulumi.Input[int]]
+        origin_request_policy_id: NotRequired[pulumi.Input[str]]
+        realtime_log_config_arn: NotRequired[pulumi.Input[str]]
+        response_headers_policy_id: NotRequired[pulumi.Input[str]]
+        smooth_streaming: NotRequired[pulumi.Input[bool]]
+        trusted_key_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
+        """
+        trusted_signers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of nested attributes for active trusted signers, if the distribution is set up to serve private content with signed URLs.
+        """
+elif False:
+    DistributionOrderedCacheBehaviorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionOrderedCacheBehaviorArgs:
@@ -1282,6 +1634,15 @@ class DistributionOrderedCacheBehaviorArgs:
         pulumi.set(self, "trusted_signers", value)
 
 
+if not MYPY:
+    class DistributionOrderedCacheBehaviorForwardedValuesArgsDict(TypedDict):
+        cookies: pulumi.Input['DistributionOrderedCacheBehaviorForwardedValuesCookiesArgsDict']
+        query_string: pulumi.Input[bool]
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        query_string_cache_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DistributionOrderedCacheBehaviorForwardedValuesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionOrderedCacheBehaviorForwardedValuesArgs:
     def __init__(__self__, *,
@@ -1333,6 +1694,13 @@ class DistributionOrderedCacheBehaviorForwardedValuesArgs:
         pulumi.set(self, "query_string_cache_keys", value)
 
 
+if not MYPY:
+    class DistributionOrderedCacheBehaviorForwardedValuesCookiesArgsDict(TypedDict):
+        forward: pulumi.Input[str]
+        whitelisted_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DistributionOrderedCacheBehaviorForwardedValuesCookiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs:
     def __init__(__self__, *,
@@ -1360,6 +1728,19 @@ class DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs:
     def whitelisted_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "whitelisted_names", value)
 
+
+if not MYPY:
+    class DistributionOrderedCacheBehaviorFunctionAssociationArgsDict(TypedDict):
+        event_type: pulumi.Input[str]
+        """
+        Specific event to trigger this function. Valid values: `viewer-request` or `viewer-response`.
+        """
+        function_arn: pulumi.Input[str]
+        """
+        ARN of the CloudFront function.
+        """
+elif False:
+    DistributionOrderedCacheBehaviorFunctionAssociationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionOrderedCacheBehaviorFunctionAssociationArgs:
@@ -1397,6 +1778,23 @@ class DistributionOrderedCacheBehaviorFunctionAssociationArgs:
     def function_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "function_arn", value)
 
+
+if not MYPY:
+    class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgsDict(TypedDict):
+        event_type: pulumi.Input[str]
+        """
+        Specific event to trigger this function. Valid values: `viewer-request`, `origin-request`, `viewer-response`, `origin-response`.
+        """
+        lambda_arn: pulumi.Input[str]
+        """
+        ARN of the Lambda function.
+        """
+        include_body: NotRequired[pulumi.Input[bool]]
+        """
+        When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
+        """
+elif False:
+    DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs:
@@ -1450,6 +1848,24 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs:
     def include_body(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "include_body", value)
 
+
+if not MYPY:
+    class DistributionOriginArgsDict(TypedDict):
+        domain_name: pulumi.Input[str]
+        """
+        Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
+        """
+        origin_id: pulumi.Input[str]
+        connection_attempts: NotRequired[pulumi.Input[int]]
+        connection_timeout: NotRequired[pulumi.Input[int]]
+        custom_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgsDict']]]]
+        custom_origin_config: NotRequired[pulumi.Input['DistributionOriginCustomOriginConfigArgsDict']]
+        origin_access_control_id: NotRequired[pulumi.Input[str]]
+        origin_path: NotRequired[pulumi.Input[str]]
+        origin_shield: NotRequired[pulumi.Input['DistributionOriginOriginShieldArgsDict']]
+        s3_origin_config: NotRequired[pulumi.Input['DistributionOriginS3OriginConfigArgsDict']]
+elif False:
+    DistributionOriginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionOriginArgs:
@@ -1580,6 +1996,13 @@ class DistributionOriginArgs:
         pulumi.set(self, "s3_origin_config", value)
 
 
+if not MYPY:
+    class DistributionOriginCustomHeaderArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    DistributionOriginCustomHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionOriginCustomHeaderArgs:
     def __init__(__self__, *,
@@ -1606,6 +2029,17 @@ class DistributionOriginCustomHeaderArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class DistributionOriginCustomOriginConfigArgsDict(TypedDict):
+        http_port: pulumi.Input[int]
+        https_port: pulumi.Input[int]
+        origin_protocol_policy: pulumi.Input[str]
+        origin_ssl_protocols: pulumi.Input[Sequence[pulumi.Input[str]]]
+        origin_keepalive_timeout: NotRequired[pulumi.Input[int]]
+        origin_read_timeout: NotRequired[pulumi.Input[int]]
+elif False:
+    DistributionOriginCustomOriginConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionOriginCustomOriginConfigArgs:
@@ -1680,6 +2114,14 @@ class DistributionOriginCustomOriginConfigArgs:
         pulumi.set(self, "origin_read_timeout", value)
 
 
+if not MYPY:
+    class DistributionOriginGroupArgsDict(TypedDict):
+        failover_criteria: pulumi.Input['DistributionOriginGroupFailoverCriteriaArgsDict']
+        members: pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgsDict']]]
+        origin_id: pulumi.Input[str]
+elif False:
+    DistributionOriginGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionOriginGroupArgs:
     def __init__(__self__, *,
@@ -1718,6 +2160,12 @@ class DistributionOriginGroupArgs:
         pulumi.set(self, "origin_id", value)
 
 
+if not MYPY:
+    class DistributionOriginGroupFailoverCriteriaArgsDict(TypedDict):
+        status_codes: pulumi.Input[Sequence[pulumi.Input[int]]]
+elif False:
+    DistributionOriginGroupFailoverCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionOriginGroupFailoverCriteriaArgs:
     def __init__(__self__, *,
@@ -1734,6 +2182,12 @@ class DistributionOriginGroupFailoverCriteriaArgs:
         pulumi.set(self, "status_codes", value)
 
 
+if not MYPY:
+    class DistributionOriginGroupMemberArgsDict(TypedDict):
+        origin_id: pulumi.Input[str]
+elif False:
+    DistributionOriginGroupMemberArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionOriginGroupMemberArgs:
     def __init__(__self__, *,
@@ -1749,6 +2203,16 @@ class DistributionOriginGroupMemberArgs:
     def origin_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "origin_id", value)
 
+
+if not MYPY:
+    class DistributionOriginOriginShieldArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        """
+        origin_shield_region: NotRequired[pulumi.Input[str]]
+elif False:
+    DistributionOriginOriginShieldArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionOriginOriginShieldArgs:
@@ -1784,6 +2248,12 @@ class DistributionOriginOriginShieldArgs:
         pulumi.set(self, "origin_shield_region", value)
 
 
+if not MYPY:
+    class DistributionOriginS3OriginConfigArgsDict(TypedDict):
+        origin_access_identity: pulumi.Input[str]
+elif False:
+    DistributionOriginS3OriginConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionOriginS3OriginConfigArgs:
     def __init__(__self__, *,
@@ -1800,6 +2270,12 @@ class DistributionOriginS3OriginConfigArgs:
         pulumi.set(self, "origin_access_identity", value)
 
 
+if not MYPY:
+    class DistributionRestrictionsArgsDict(TypedDict):
+        geo_restriction: pulumi.Input['DistributionRestrictionsGeoRestrictionArgsDict']
+elif False:
+    DistributionRestrictionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionRestrictionsArgs:
     def __init__(__self__, *,
@@ -1815,6 +2291,13 @@ class DistributionRestrictionsArgs:
     def geo_restriction(self, value: pulumi.Input['DistributionRestrictionsGeoRestrictionArgs']):
         pulumi.set(self, "geo_restriction", value)
 
+
+if not MYPY:
+    class DistributionRestrictionsGeoRestrictionArgsDict(TypedDict):
+        restriction_type: pulumi.Input[str]
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DistributionRestrictionsGeoRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionRestrictionsGeoRestrictionArgs:
@@ -1843,6 +2326,19 @@ class DistributionRestrictionsGeoRestrictionArgs:
     def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "locations", value)
 
+
+if not MYPY:
+    class DistributionTrustedKeyGroupArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        """
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedKeyGroupItemArgsDict']]]]
+        """
+        List of nested attributes for each trusted signer
+        """
+elif False:
+    DistributionTrustedKeyGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionTrustedKeyGroupArgs:
@@ -1883,6 +2379,19 @@ class DistributionTrustedKeyGroupArgs:
         pulumi.set(self, "items", value)
 
 
+if not MYPY:
+    class DistributionTrustedKeyGroupItemArgsDict(TypedDict):
+        key_group_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the key group that contains the public keys.
+        """
+        key_pair_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of active CloudFront key pairs associated with the signer account
+        """
+elif False:
+    DistributionTrustedKeyGroupItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionTrustedKeyGroupItemArgs:
     def __init__(__self__, *,
@@ -1921,6 +2430,19 @@ class DistributionTrustedKeyGroupItemArgs:
     def key_pair_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "key_pair_ids", value)
 
+
+if not MYPY:
+    class DistributionTrustedSignerArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
+        """
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionTrustedSignerItemArgsDict']]]]
+        """
+        List of nested attributes for each trusted signer
+        """
+elif False:
+    DistributionTrustedSignerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionTrustedSignerArgs:
@@ -1961,6 +2483,19 @@ class DistributionTrustedSignerArgs:
         pulumi.set(self, "items", value)
 
 
+if not MYPY:
+    class DistributionTrustedSignerItemArgsDict(TypedDict):
+        aws_account_number: NotRequired[pulumi.Input[str]]
+        """
+        AWS account ID or `self`
+        """
+        key_pair_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of active CloudFront key pairs associated with the signer account
+        """
+elif False:
+    DistributionTrustedSignerItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionTrustedSignerItemArgs:
     def __init__(__self__, *,
@@ -1999,6 +2534,16 @@ class DistributionTrustedSignerItemArgs:
     def key_pair_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "key_pair_ids", value)
 
+
+if not MYPY:
+    class DistributionViewerCertificateArgsDict(TypedDict):
+        acm_certificate_arn: NotRequired[pulumi.Input[str]]
+        cloudfront_default_certificate: NotRequired[pulumi.Input[bool]]
+        iam_certificate_id: NotRequired[pulumi.Input[str]]
+        minimum_protocol_version: NotRequired[pulumi.Input[str]]
+        ssl_support_method: NotRequired[pulumi.Input[str]]
+elif False:
+    DistributionViewerCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionViewerCertificateArgs:
@@ -2065,6 +2610,19 @@ class DistributionViewerCertificateArgs:
         pulumi.set(self, "ssl_support_method", value)
 
 
+if not MYPY:
+    class FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict(TypedDict):
+        content_type_profiles: pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgsDict']
+        """
+        Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+        """
+        forward_when_content_type_is_unknown: pulumi.Input[bool]
+        """
+        specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
+        """
+elif False:
+    FieldLevelEncryptionConfigContentTypeProfileConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FieldLevelEncryptionConfigContentTypeProfileConfigArgs:
     def __init__(__self__, *,
@@ -2102,6 +2660,12 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigArgs:
         pulumi.set(self, "forward_when_content_type_is_unknown", value)
 
 
+if not MYPY:
+    class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgsDict(TypedDict):
+        items: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgsDict']]]
+elif False:
+    FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs:
     def __init__(__self__, *,
@@ -2117,6 +2681,14 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs:
     def items(self, value: pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs']]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgsDict(TypedDict):
+        content_type: pulumi.Input[str]
+        format: pulumi.Input[str]
+        profile_id: NotRequired[pulumi.Input[str]]
+elif False:
+    FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs:
@@ -2157,6 +2729,19 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemA
         pulumi.set(self, "profile_id", value)
 
 
+if not MYPY:
+    class FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict(TypedDict):
+        forward_when_query_arg_profile_is_unknown: pulumi.Input[bool]
+        """
+        Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
+        """
+        query_arg_profiles: NotRequired[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgsDict']]
+        """
+        Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+        """
+elif False:
+    FieldLevelEncryptionConfigQueryArgProfileConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FieldLevelEncryptionConfigQueryArgProfileConfigArgs:
     def __init__(__self__, *,
@@ -2195,6 +2780,12 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigArgs:
         pulumi.set(self, "query_arg_profiles", value)
 
 
+if not MYPY:
+    class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgsDict']]]]
+elif False:
+    FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs:
     def __init__(__self__, *,
@@ -2211,6 +2802,13 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs:
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs']]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgsDict(TypedDict):
+        profile_id: pulumi.Input[str]
+        query_arg: pulumi.Input[str]
+elif False:
+    FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs:
@@ -2239,6 +2837,12 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs:
         pulumi.set(self, "query_arg", value)
 
 
+if not MYPY:
+    class FieldLevelEncryptionProfileEncryptionEntitiesArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesItemArgsDict']]]]
+elif False:
+    FieldLevelEncryptionProfileEncryptionEntitiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FieldLevelEncryptionProfileEncryptionEntitiesArgs:
     def __init__(__self__, *,
@@ -2255,6 +2859,14 @@ class FieldLevelEncryptionProfileEncryptionEntitiesArgs:
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesItemArgs']]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class FieldLevelEncryptionProfileEncryptionEntitiesItemArgsDict(TypedDict):
+        field_patterns: pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgsDict']
+        provider_id: pulumi.Input[str]
+        public_key_id: pulumi.Input[str]
+elif False:
+    FieldLevelEncryptionProfileEncryptionEntitiesItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FieldLevelEncryptionProfileEncryptionEntitiesItemArgs:
@@ -2294,6 +2906,12 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItemArgs:
         pulumi.set(self, "public_key_id", value)
 
 
+if not MYPY:
+    class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs:
     def __init__(__self__, *,
@@ -2310,6 +2928,15 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs:
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class KeyValueStoreTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    KeyValueStoreTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyValueStoreTimeoutsArgs:
@@ -2334,6 +2961,15 @@ class KeyValueStoreTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
+if not MYPY:
+    class MonitoringSubscriptionMonitoringSubscriptionArgsDict(TypedDict):
+        realtime_metrics_subscription_config: pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgsDict']
+        """
+        A subscription configuration for additional CloudWatch metrics. See below.
+        """
+elif False:
+    MonitoringSubscriptionMonitoringSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitoringSubscriptionMonitoringSubscriptionArgs:
     def __init__(__self__, *,
@@ -2356,6 +2992,15 @@ class MonitoringSubscriptionMonitoringSubscriptionArgs:
         pulumi.set(self, "realtime_metrics_subscription_config", value)
 
 
+if not MYPY:
+    class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgsDict(TypedDict):
+        realtime_metrics_subscription_status: pulumi.Input[str]
+        """
+        A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
+        """
+elif False:
+    MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs:
     def __init__(__self__, *,
@@ -2377,6 +3022,13 @@ class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionCon
     def realtime_metrics_subscription_status(self, value: pulumi.Input[str]):
         pulumi.set(self, "realtime_metrics_subscription_status", value)
 
+
+if not MYPY:
+    class OriginRequestPolicyCookiesConfigArgsDict(TypedDict):
+        cookie_behavior: pulumi.Input[str]
+        cookies: NotRequired[pulumi.Input['OriginRequestPolicyCookiesConfigCookiesArgsDict']]
+elif False:
+    OriginRequestPolicyCookiesConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginRequestPolicyCookiesConfigArgs:
@@ -2406,6 +3058,12 @@ class OriginRequestPolicyCookiesConfigArgs:
         pulumi.set(self, "cookies", value)
 
 
+if not MYPY:
+    class OriginRequestPolicyCookiesConfigCookiesArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    OriginRequestPolicyCookiesConfigCookiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginRequestPolicyCookiesConfigCookiesArgs:
     def __init__(__self__, *,
@@ -2422,6 +3080,13 @@ class OriginRequestPolicyCookiesConfigCookiesArgs:
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class OriginRequestPolicyHeadersConfigArgsDict(TypedDict):
+        header_behavior: NotRequired[pulumi.Input[str]]
+        headers: NotRequired[pulumi.Input['OriginRequestPolicyHeadersConfigHeadersArgsDict']]
+elif False:
+    OriginRequestPolicyHeadersConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginRequestPolicyHeadersConfigArgs:
@@ -2452,6 +3117,12 @@ class OriginRequestPolicyHeadersConfigArgs:
         pulumi.set(self, "headers", value)
 
 
+if not MYPY:
+    class OriginRequestPolicyHeadersConfigHeadersArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    OriginRequestPolicyHeadersConfigHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginRequestPolicyHeadersConfigHeadersArgs:
     def __init__(__self__, *,
@@ -2468,6 +3139,13 @@ class OriginRequestPolicyHeadersConfigHeadersArgs:
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class OriginRequestPolicyQueryStringsConfigArgsDict(TypedDict):
+        query_string_behavior: pulumi.Input[str]
+        query_strings: NotRequired[pulumi.Input['OriginRequestPolicyQueryStringsConfigQueryStringsArgsDict']]
+elif False:
+    OriginRequestPolicyQueryStringsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OriginRequestPolicyQueryStringsConfigArgs:
@@ -2497,6 +3175,12 @@ class OriginRequestPolicyQueryStringsConfigArgs:
         pulumi.set(self, "query_strings", value)
 
 
+if not MYPY:
+    class OriginRequestPolicyQueryStringsConfigQueryStringsArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    OriginRequestPolicyQueryStringsConfigQueryStringsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OriginRequestPolicyQueryStringsConfigQueryStringsArgs:
     def __init__(__self__, *,
@@ -2513,6 +3197,19 @@ class OriginRequestPolicyQueryStringsConfigQueryStringsArgs:
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class RealtimeLogConfigEndpointArgsDict(TypedDict):
+        kinesis_stream_config: pulumi.Input['RealtimeLogConfigEndpointKinesisStreamConfigArgsDict']
+        """
+        The Amazon Kinesis data stream configuration.
+        """
+        stream_type: pulumi.Input[str]
+        """
+        The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
+        """
+elif False:
+    RealtimeLogConfigEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RealtimeLogConfigEndpointArgs:
@@ -2550,6 +3247,20 @@ class RealtimeLogConfigEndpointArgs:
     def stream_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_type", value)
 
+
+if not MYPY:
+    class RealtimeLogConfigEndpointKinesisStreamConfigArgsDict(TypedDict):
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
+        See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
+        """
+        stream_arn: pulumi.Input[str]
+        """
+        The ARN of the Kinesis data stream.
+        """
+elif False:
+    RealtimeLogConfigEndpointKinesisStreamConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RealtimeLogConfigEndpointKinesisStreamConfigArgs:
@@ -2589,6 +3300,39 @@ class RealtimeLogConfigEndpointKinesisStreamConfigArgs:
     def stream_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_arn", value)
 
+
+if not MYPY:
+    class ResponseHeadersPolicyCorsConfigArgsDict(TypedDict):
+        access_control_allow_credentials: pulumi.Input[bool]
+        """
+        A Boolean value that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
+        """
+        access_control_allow_headers: pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgsDict']
+        """
+        Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
+        """
+        access_control_allow_methods: pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgsDict']
+        """
+        Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+        """
+        access_control_allow_origins: pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgsDict']
+        """
+        Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
+        """
+        origin_override: pulumi.Input[bool]
+        """
+        A Boolean value that determines how CloudFront behaves for the HTTP response header.
+        """
+        access_control_expose_headers: NotRequired[pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgsDict']]
+        """
+        Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
+        """
+        access_control_max_age_sec: NotRequired[pulumi.Input[int]]
+        """
+        A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
+        """
+elif False:
+    ResponseHeadersPolicyCorsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseHeadersPolicyCorsConfigArgs:
@@ -2704,6 +3448,12 @@ class ResponseHeadersPolicyCorsConfigArgs:
         pulumi.set(self, "access_control_max_age_sec", value)
 
 
+if not MYPY:
+    class ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs:
     def __init__(__self__, *,
@@ -2720,6 +3470,12 @@ class ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs:
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs:
@@ -2738,6 +3494,12 @@ class ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs:
         pulumi.set(self, "items", value)
 
 
+if not MYPY:
+    class ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs:
     def __init__(__self__, *,
@@ -2754,6 +3516,12 @@ class ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs:
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs:
@@ -2772,6 +3540,12 @@ class ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs:
         pulumi.set(self, "items", value)
 
 
+if not MYPY:
+    class ResponseHeadersPolicyCustomHeadersConfigArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigItemArgsDict']]]]
+elif False:
+    ResponseHeadersPolicyCustomHeadersConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponseHeadersPolicyCustomHeadersConfigArgs:
     def __init__(__self__, *,
@@ -2788,6 +3562,14 @@ class ResponseHeadersPolicyCustomHeadersConfigArgs:
     def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigItemArgs']]]]):
         pulumi.set(self, "items", value)
 
+
+if not MYPY:
+    class ResponseHeadersPolicyCustomHeadersConfigItemArgsDict(TypedDict):
+        header: pulumi.Input[str]
+        override: pulumi.Input[bool]
+        value: pulumi.Input[str]
+elif False:
+    ResponseHeadersPolicyCustomHeadersConfigItemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseHeadersPolicyCustomHeadersConfigItemArgs:
@@ -2827,6 +3609,12 @@ class ResponseHeadersPolicyCustomHeadersConfigItemArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ResponseHeadersPolicyRemoveHeadersConfigArgsDict(TypedDict):
+        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigItemArgsDict']]]]
+elif False:
+    ResponseHeadersPolicyRemoveHeadersConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponseHeadersPolicyRemoveHeadersConfigArgs:
     def __init__(__self__, *,
@@ -2844,6 +3632,12 @@ class ResponseHeadersPolicyRemoveHeadersConfigArgs:
         pulumi.set(self, "items", value)
 
 
+if not MYPY:
+    class ResponseHeadersPolicyRemoveHeadersConfigItemArgsDict(TypedDict):
+        header: pulumi.Input[str]
+elif False:
+    ResponseHeadersPolicyRemoveHeadersConfigItemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponseHeadersPolicyRemoveHeadersConfigItemArgs:
     def __init__(__self__, *,
@@ -2859,6 +3653,35 @@ class ResponseHeadersPolicyRemoveHeadersConfigItemArgs:
     def header(self, value: pulumi.Input[str]):
         pulumi.set(self, "header", value)
 
+
+if not MYPY:
+    class ResponseHeadersPolicySecurityHeadersConfigArgsDict(TypedDict):
+        content_security_policy: NotRequired[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgsDict']]
+        """
+        The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
+        """
+        content_type_options: NotRequired[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgsDict']]
+        """
+        Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
+        """
+        frame_options: NotRequired[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgsDict']]
+        """
+        Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
+        """
+        referrer_policy: NotRequired[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgsDict']]
+        """
+        Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
+        """
+        strict_transport_security: NotRequired[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgsDict']]
+        """
+        Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
+        """
+        xss_protection: NotRequired[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgsDict']]
+        """
+        Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
+        """
+elif False:
+    ResponseHeadersPolicySecurityHeadersConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseHeadersPolicySecurityHeadersConfigArgs:
@@ -2963,6 +3786,19 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
         pulumi.set(self, "xss_protection", value)
 
 
+if not MYPY:
+    class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgsDict(TypedDict):
+        content_security_policy: pulumi.Input[str]
+        """
+        The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+        """
+        override: pulumi.Input[bool]
+        """
+        Whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+elif False:
+    ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs:
     def __init__(__self__, *,
@@ -3000,6 +3836,15 @@ class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs:
         pulumi.set(self, "override", value)
 
 
+if not MYPY:
+    class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgsDict(TypedDict):
+        override: pulumi.Input[bool]
+        """
+        Whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+elif False:
+    ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs:
     def __init__(__self__, *,
@@ -3021,6 +3866,19 @@ class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs:
     def override(self, value: pulumi.Input[bool]):
         pulumi.set(self, "override", value)
 
+
+if not MYPY:
+    class ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgsDict(TypedDict):
+        frame_option: pulumi.Input[str]
+        """
+        The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
+        """
+        override: pulumi.Input[bool]
+        """
+        Whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+elif False:
+    ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs:
@@ -3059,6 +3917,19 @@ class ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs:
         pulumi.set(self, "override", value)
 
 
+if not MYPY:
+    class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgsDict(TypedDict):
+        override: pulumi.Input[bool]
+        """
+        Whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        referrer_policy: pulumi.Input[str]
+        """
+        The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        """
+elif False:
+    ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs:
     def __init__(__self__, *,
@@ -3095,6 +3966,27 @@ class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs:
     def referrer_policy(self, value: pulumi.Input[str]):
         pulumi.set(self, "referrer_policy", value)
 
+
+if not MYPY:
+    class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgsDict(TypedDict):
+        access_control_max_age_sec: pulumi.Input[int]
+        """
+        A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+        """
+        override: pulumi.Input[bool]
+        """
+        Whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        include_subdomains: NotRequired[pulumi.Input[bool]]
+        """
+        Whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
+        """
+        preload: NotRequired[pulumi.Input[bool]]
+        """
+        Whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
+        """
+elif False:
+    ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs:
@@ -3165,6 +4057,27 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs:
         pulumi.set(self, "preload", value)
 
 
+if not MYPY:
+    class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgsDict(TypedDict):
+        override: pulumi.Input[bool]
+        """
+        Whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        protection: pulumi.Input[bool]
+        """
+        A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
+        """
+        mode_block: NotRequired[pulumi.Input[bool]]
+        """
+        Whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
+        """
+        report_uri: NotRequired[pulumi.Input[str]]
+        """
+        A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
+        """
+elif False:
+    ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs:
     def __init__(__self__, *,
@@ -3233,6 +4146,19 @@ class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs:
     def report_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "report_uri", value)
 
+
+if not MYPY:
+    class ResponseHeadersPolicyServerTimingHeadersConfigArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        A Whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        """
+        sampling_rate: pulumi.Input[float]
+        """
+        A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
+        """
+elif False:
+    ResponseHeadersPolicyServerTimingHeadersConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponseHeadersPolicyServerTimingHeadersConfigArgs:

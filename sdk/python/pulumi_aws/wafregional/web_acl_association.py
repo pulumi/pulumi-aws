@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['WebAclAssociationArgs', 'WebAclAssociation']
@@ -112,31 +117,31 @@ class WebAclAssociation(pulumi.CustomResource):
 
         ipset = aws.wafregional.IpSet("ipset",
             name="tfIPSet",
-            ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
-                type="IPV4",
-                value="192.0.7.0/24",
-            )])
+            ip_set_descriptors=[{
+                "type": "IPV4",
+                "value": "192.0.7.0/24",
+            }])
         foo = aws.wafregional.Rule("foo",
             name="tfWAFRule",
             metric_name="tfWAFRule",
-            predicates=[aws.wafregional.RulePredicateArgs(
-                data_id=ipset.id,
-                negated=False,
-                type="IPMatch",
-            )])
+            predicates=[{
+                "dataId": ipset.id,
+                "negated": False,
+                "type": "IPMatch",
+            }])
         foo_web_acl = aws.wafregional.WebAcl("foo",
             name="foo",
             metric_name="foo",
-            default_action=aws.wafregional.WebAclDefaultActionArgs(
-                type="ALLOW",
-            ),
-            rules=[aws.wafregional.WebAclRuleArgs(
-                action=aws.wafregional.WebAclRuleActionArgs(
-                    type="BLOCK",
-                ),
-                priority=1,
-                rule_id=foo.id,
-            )])
+            default_action={
+                "type": "ALLOW",
+            },
+            rules=[{
+                "action": {
+                    "type": "BLOCK",
+                },
+                "priority": 1,
+                "ruleId": foo.id,
+            }])
         foo_vpc = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
         available = aws.get_availability_zones()
         foo_subnet = aws.ec2.Subnet("foo",
@@ -192,31 +197,31 @@ class WebAclAssociation(pulumi.CustomResource):
 
         ipset = aws.wafregional.IpSet("ipset",
             name="tfIPSet",
-            ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
-                type="IPV4",
-                value="192.0.7.0/24",
-            )])
+            ip_set_descriptors=[{
+                "type": "IPV4",
+                "value": "192.0.7.0/24",
+            }])
         foo = aws.wafregional.Rule("foo",
             name="tfWAFRule",
             metric_name="tfWAFRule",
-            predicates=[aws.wafregional.RulePredicateArgs(
-                data_id=ipset.id,
-                negated=False,
-                type="IPMatch",
-            )])
+            predicates=[{
+                "dataId": ipset.id,
+                "negated": False,
+                "type": "IPMatch",
+            }])
         foo_web_acl = aws.wafregional.WebAcl("foo",
             name="foo",
             metric_name="foo",
-            default_action=aws.wafregional.WebAclDefaultActionArgs(
-                type="ALLOW",
-            ),
-            rules=[aws.wafregional.WebAclRuleArgs(
-                action=aws.wafregional.WebAclRuleActionArgs(
-                    type="BLOCK",
-                ),
-                priority=1,
-                rule_id=foo.id,
-            )])
+            default_action={
+                "type": "ALLOW",
+            },
+            rules=[{
+                "action": {
+                    "type": "BLOCK",
+                },
+                "priority": 1,
+                "ruleId": foo.id,
+            }])
         foo_vpc = aws.ec2.Vpc("foo", cidr_block="10.1.0.0/16")
         available = aws.get_availability_zones()
         foo_subnet = aws.ec2.Subnet("foo",

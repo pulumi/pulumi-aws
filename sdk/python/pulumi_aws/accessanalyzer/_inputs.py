@@ -4,16 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AnalyzerConfigurationArgs',
+    'AnalyzerConfigurationArgsDict',
     'AnalyzerConfigurationUnusedAccessArgs',
+    'AnalyzerConfigurationUnusedAccessArgsDict',
     'ArchiveRuleFilterArgs',
+    'ArchiveRuleFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AnalyzerConfigurationArgsDict(TypedDict):
+        unused_access: NotRequired[pulumi.Input['AnalyzerConfigurationUnusedAccessArgsDict']]
+        """
+        A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+        """
+elif False:
+    AnalyzerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyzerConfigurationArgs:
@@ -38,6 +57,15 @@ class AnalyzerConfigurationArgs:
         pulumi.set(self, "unused_access", value)
 
 
+if not MYPY:
+    class AnalyzerConfigurationUnusedAccessArgsDict(TypedDict):
+        unused_access_age: NotRequired[pulumi.Input[int]]
+        """
+        The specified access age in days for which to generate findings for unused access.
+        """
+elif False:
+    AnalyzerConfigurationUnusedAccessArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AnalyzerConfigurationUnusedAccessArgs:
     def __init__(__self__, *,
@@ -60,6 +88,31 @@ class AnalyzerConfigurationUnusedAccessArgs:
     def unused_access_age(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "unused_access_age", value)
 
+
+if not MYPY:
+    class ArchiveRuleFilterArgsDict(TypedDict):
+        criteria: pulumi.Input[str]
+        """
+        Filter criteria.
+        """
+        contains: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Contains comparator.
+        """
+        eqs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Equals comparator.
+        """
+        exists: NotRequired[pulumi.Input[str]]
+        """
+        Boolean comparator.
+        """
+        neqs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Not Equals comparator.
+        """
+elif False:
+    ArchiveRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ArchiveRuleFilterArgs:

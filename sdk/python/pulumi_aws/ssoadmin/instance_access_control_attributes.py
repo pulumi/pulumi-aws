@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -120,7 +125,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArgs']]]]] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -136,18 +141,18 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         example_instance_access_control_attributes = aws.ssoadmin.InstanceAccessControlAttributes("example",
             instance_arn=example.arns[0],
             attributes=[
-                aws.ssoadmin.InstanceAccessControlAttributesAttributeArgs(
-                    key="name",
-                    values=[aws.ssoadmin.InstanceAccessControlAttributesAttributeValueArgs(
-                        sources=["${path:name.givenName}"],
-                    )],
-                ),
-                aws.ssoadmin.InstanceAccessControlAttributesAttributeArgs(
-                    key="last",
-                    values=[aws.ssoadmin.InstanceAccessControlAttributesAttributeValueArgs(
-                        sources=["${path:name.familyName}"],
-                    )],
-                ),
+                {
+                    "key": "name",
+                    "values": [{
+                        "sources": ["${path:name.givenName}"],
+                    }],
+                },
+                {
+                    "key": "last",
+                    "values": [{
+                        "sources": ["${path:name.familyName}"],
+                    }],
+                },
             ])
         ```
 
@@ -161,7 +166,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArgs']]]] attributes: See AccessControlAttribute for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
         """
         ...
@@ -183,18 +188,18 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         example_instance_access_control_attributes = aws.ssoadmin.InstanceAccessControlAttributes("example",
             instance_arn=example.arns[0],
             attributes=[
-                aws.ssoadmin.InstanceAccessControlAttributesAttributeArgs(
-                    key="name",
-                    values=[aws.ssoadmin.InstanceAccessControlAttributesAttributeValueArgs(
-                        sources=["${path:name.givenName}"],
-                    )],
-                ),
-                aws.ssoadmin.InstanceAccessControlAttributesAttributeArgs(
-                    key="last",
-                    values=[aws.ssoadmin.InstanceAccessControlAttributesAttributeValueArgs(
-                        sources=["${path:name.familyName}"],
-                    )],
-                ),
+                {
+                    "key": "name",
+                    "values": [{
+                        "sources": ["${path:name.givenName}"],
+                    }],
+                },
+                {
+                    "key": "last",
+                    "values": [{
+                        "sources": ["${path:name.familyName}"],
+                    }],
+                },
             ])
         ```
 
@@ -221,7 +226,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArgs']]]]] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -250,7 +255,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArgs']]]]] = None,
+            attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]]] = None,
             instance_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             status_reason: Optional[pulumi.Input[str]] = None) -> 'InstanceAccessControlAttributes':
@@ -261,7 +266,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArgs']]]] attributes: See AccessControlAttribute for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

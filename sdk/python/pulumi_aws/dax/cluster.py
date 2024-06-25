@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -663,7 +668,7 @@ class Cluster(pulumi.CustomResource):
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 server_side_encryption: Optional[pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']]] = None,
+                 server_side_encryption: Optional[pulumi.Input[Union['ClusterServerSideEncryptionArgs', 'ClusterServerSideEncryptionArgsDict']]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -720,7 +725,7 @@ class Cluster(pulumi.CustomResource):
                replicas
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
                with the cluster
-        :param pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']] server_side_encryption: Encrypt at rest options
+        :param pulumi.Input[Union['ClusterServerSideEncryptionArgs', 'ClusterServerSideEncryptionArgsDict']] server_side_encryption: Encrypt at rest options
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
                cluster
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -781,7 +786,7 @@ class Cluster(pulumi.CustomResource):
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 server_side_encryption: Optional[pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']]] = None,
+                 server_side_encryption: Optional[pulumi.Input[Union['ClusterServerSideEncryptionArgs', 'ClusterServerSideEncryptionArgsDict']]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -841,13 +846,13 @@ class Cluster(pulumi.CustomResource):
             iam_role_arn: Optional[pulumi.Input[str]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
-            nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]]] = None,
+            nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterNodeArgs', 'ClusterNodeArgsDict']]]]] = None,
             notification_topic_arn: Optional[pulumi.Input[str]] = None,
             parameter_group_name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             replication_factor: Optional[pulumi.Input[int]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            server_side_encryption: Optional[pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']]] = None,
+            server_side_encryption: Optional[pulumi.Input[Union['ClusterServerSideEncryptionArgs', 'ClusterServerSideEncryptionArgsDict']]] = None,
             subnet_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Cluster':
@@ -879,7 +884,7 @@ class Cluster(pulumi.CustomResource):
                `sun:05:00-sun:09:00`
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes. See
                [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]] nodes: List of node objects including `id`, `address`, `port` and
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterNodeArgs', 'ClusterNodeArgsDict']]]] nodes: List of node objects including `id`, `address`, `port` and
                `availability_zone`. Referenceable e.g., as
                `${aws_dax_cluster.test.nodes.0.address}`
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
@@ -893,7 +898,7 @@ class Cluster(pulumi.CustomResource):
                replicas
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: One or more VPC security groups associated
                with the cluster
-        :param pulumi.Input[pulumi.InputType['ClusterServerSideEncryptionArgs']] server_side_encryption: Encrypt at rest options
+        :param pulumi.Input[Union['ClusterServerSideEncryptionArgs', 'ClusterServerSideEncryptionArgsDict']] server_side_encryption: Encrypt at rest options
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the
                cluster
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -246,7 +251,7 @@ class CachePolicy(pulumi.CustomResource):
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input[pulumi.InputType['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']]] = None,
+                 parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input[Union['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs', 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -263,26 +268,26 @@ class CachePolicy(pulumi.CustomResource):
             default_ttl=50,
             max_ttl=100,
             min_ttl=1,
-            parameters_in_cache_key_and_forwarded_to_origin=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs(
-                cookies_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs(
-                    cookie_behavior="whitelist",
-                    cookies=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs(
-                        items=["example"],
-                    ),
-                ),
-                headers_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs(
-                    header_behavior="whitelist",
-                    headers=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs(
-                        items=["example"],
-                    ),
-                ),
-                query_strings_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs(
-                    query_string_behavior="whitelist",
-                    query_strings=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs(
-                        items=["example"],
-                    ),
-                ),
-            ))
+            parameters_in_cache_key_and_forwarded_to_origin={
+                "cookiesConfig": {
+                    "cookieBehavior": "whitelist",
+                    "cookies": {
+                        "items": ["example"],
+                    },
+                },
+                "headersConfig": {
+                    "headerBehavior": "whitelist",
+                    "headers": {
+                        "items": ["example"],
+                    },
+                },
+                "queryStringsConfig": {
+                    "queryStringBehavior": "whitelist",
+                    "queryStrings": {
+                        "items": ["example"],
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -300,7 +305,7 @@ class CachePolicy(pulumi.CustomResource):
         :param pulumi.Input[int] max_ttl: Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         :param pulumi.Input[int] min_ttl: Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
         :param pulumi.Input[str] name: Unique name used to identify the cache policy.
-        :param pulumi.Input[pulumi.InputType['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']] parameters_in_cache_key_and_forwarded_to_origin: Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
+        :param pulumi.Input[Union['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs', 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict']] parameters_in_cache_key_and_forwarded_to_origin: Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
         """
         ...
     @overload
@@ -323,26 +328,26 @@ class CachePolicy(pulumi.CustomResource):
             default_ttl=50,
             max_ttl=100,
             min_ttl=1,
-            parameters_in_cache_key_and_forwarded_to_origin=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs(
-                cookies_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs(
-                    cookie_behavior="whitelist",
-                    cookies=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs(
-                        items=["example"],
-                    ),
-                ),
-                headers_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs(
-                    header_behavior="whitelist",
-                    headers=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs(
-                        items=["example"],
-                    ),
-                ),
-                query_strings_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs(
-                    query_string_behavior="whitelist",
-                    query_strings=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs(
-                        items=["example"],
-                    ),
-                ),
-            ))
+            parameters_in_cache_key_and_forwarded_to_origin={
+                "cookiesConfig": {
+                    "cookieBehavior": "whitelist",
+                    "cookies": {
+                        "items": ["example"],
+                    },
+                },
+                "headersConfig": {
+                    "headerBehavior": "whitelist",
+                    "headers": {
+                        "items": ["example"],
+                    },
+                },
+                "queryStringsConfig": {
+                    "queryStringBehavior": "whitelist",
+                    "queryStrings": {
+                        "items": ["example"],
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -373,7 +378,7 @@ class CachePolicy(pulumi.CustomResource):
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input[pulumi.InputType['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']]] = None,
+                 parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input[Union['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs', 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -408,7 +413,7 @@ class CachePolicy(pulumi.CustomResource):
             max_ttl: Optional[pulumi.Input[int]] = None,
             min_ttl: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input[pulumi.InputType['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']]] = None) -> 'CachePolicy':
+            parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input[Union['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs', 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict']]] = None) -> 'CachePolicy':
         """
         Get an existing CachePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -422,7 +427,7 @@ class CachePolicy(pulumi.CustomResource):
         :param pulumi.Input[int] max_ttl: Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         :param pulumi.Input[int] min_ttl: Minimum amount of time, in seconds, that objects should remain in the CloudFront cache before a new request is sent to the origin to check for updates.
         :param pulumi.Input[str] name: Unique name used to identify the cache policy.
-        :param pulumi.Input[pulumi.InputType['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']] parameters_in_cache_key_and_forwarded_to_origin: Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
+        :param pulumi.Input[Union['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs', 'CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict']] parameters_in_cache_key_and_forwarded_to_origin: Configuration for including HTTP headers, cookies, and URL query strings in the cache key. For more information, refer to the Parameters In Cache Key And Forwarded To Origin section.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

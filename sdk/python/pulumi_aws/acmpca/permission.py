@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['PermissionArgs', 'Permission']
@@ -188,13 +193,13 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate_authority = aws.acmpca.CertificateAuthority("example", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-            key_algorithm="RSA_4096",
-            signing_algorithm="SHA512WITHRSA",
-            subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                common_name="example.com",
-            ),
-        ))
+        example_certificate_authority = aws.acmpca.CertificateAuthority("example", certificate_authority_configuration={
+            "keyAlgorithm": "RSA_4096",
+            "signingAlgorithm": "SHA512WITHRSA",
+            "subject": {
+                "commonName": "example.com",
+            },
+        })
         example = aws.acmpca.Permission("example",
             certificate_authority_arn=example_certificate_authority.arn,
             actions=[
@@ -228,13 +233,13 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate_authority = aws.acmpca.CertificateAuthority("example", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-            key_algorithm="RSA_4096",
-            signing_algorithm="SHA512WITHRSA",
-            subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                common_name="example.com",
-            ),
-        ))
+        example_certificate_authority = aws.acmpca.CertificateAuthority("example", certificate_authority_configuration={
+            "keyAlgorithm": "RSA_4096",
+            "signingAlgorithm": "SHA512WITHRSA",
+            "subject": {
+                "commonName": "example.com",
+            },
+        })
         example = aws.acmpca.Permission("example",
             certificate_authority_arn=example_certificate_authority.arn,
             actions=[

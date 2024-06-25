@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -342,9 +347,9 @@ class RuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
+                 rule_group: Optional[pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']]] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -364,15 +369,15 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             name="example",
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-            ),
+            rule_group={
+                "rulesSource": {
+                    "rulesSourceList": {
+                        "generatedRulesType": "DENYLIST",
+                        "targetTypes": ["HTTP_HOST"],
+                        "targets": ["test.example.com"],
+                    },
+                },
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -394,25 +399,25 @@ class RuleGroup(pulumi.CustomResource):
             description="Permits http traffic from source",
             name="example",
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    stateful_rules=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleArgs(
-                        action="PASS",
-                        header=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs(
-                            destination="ANY",
-                            destination_port="ANY",
-                            protocol="HTTP",
-                            direction="ANY",
-                            source_port="ANY",
-                            source=entry["value"],
-                        ),
-                        rule_options=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs(
-                            keyword="sid",
-                            settings=["1"],
-                        )],
-                    ) for entry in [{"key": k, "value": v} for k, v in ips]],
-                ),
-            ),
+            rule_group={
+                "rulesSource": {
+                    "statefulRules": [{
+                        "action": "PASS",
+                        "header": {
+                            "destination": "ANY",
+                            "destinationPort": "ANY",
+                            "protocol": "HTTP",
+                            "direction": "ANY",
+                            "sourcePort": "ANY",
+                            "source": entry["value"],
+                        },
+                        "ruleOptions": [{
+                            "keyword": "sid",
+                            "settings": ["1"],
+                        }],
+                    } for entry in [{"key": k, "value": v} for k, v in ips]],
+                },
+            },
             tags={
                 "Name": "permit HTTP from source",
             })
@@ -428,25 +433,25 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             name="example",
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    stateful_rules=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleArgs(
-                        action="DROP",
-                        header=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs(
-                            destination="124.1.1.24/32",
-                            destination_port="53",
-                            direction="ANY",
-                            protocol="TCP",
-                            source="1.2.3.4/32",
-                            source_port="53",
-                        ),
-                        rule_options=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs(
-                            keyword="sid",
-                            settings=["1"],
-                        )],
-                    )],
-                ),
-            ),
+            rule_group={
+                "rulesSource": {
+                    "statefulRules": [{
+                        "action": "DROP",
+                        "header": {
+                            "destination": "124.1.1.24/32",
+                            "destinationPort": "53",
+                            "direction": "ANY",
+                            "protocol": "TCP",
+                            "source": "1.2.3.4/32",
+                            "sourcePort": "53",
+                        },
+                        "ruleOptions": [{
+                            "keyword": "sid",
+                            "settings": ["1"],
+                        }],
+                    }],
+                },
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -482,40 +487,40 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             name="example",
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArgs(
-                    ip_sets=[
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="WEBSERVERS_HOSTS",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=[
+            rule_group={
+                "ruleVariables": {
+                    "ipSets": [
+                        {
+                            "key": "WEBSERVERS_HOSTS",
+                            "ipSet": {
+                                "definitions": [
                                     "10.0.0.0/16",
                                     "10.0.1.0/24",
                                     "192.168.0.0/16",
                                 ],
-                            ),
-                        ),
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="EXTERNAL_HOST",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=["1.2.3.4/32"],
-                            ),
-                        ),
+                            },
+                        },
+                        {
+                            "key": "EXTERNAL_HOST",
+                            "ipSet": {
+                                "definitions": ["1.2.3.4/32"],
+                            },
+                        },
                     ],
-                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs(
-                        key="HTTP_PORTS",
-                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(
-                            definitions=[
+                    "portSets": [{
+                        "key": "HTTP_PORTS",
+                        "portSet": {
+                            "definitions": [
                                 "443",
                                 "80",
                             ],
-                        ),
-                    )],
-                ),
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_string=std.file(input="suricata_rules_file").result,
-                ),
-            ),
+                        },
+                    }],
+                },
+                "rulesSource": {
+                    "rulesString": std.file(input="suricata_rules_file").result,
+                },
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -533,55 +538,55 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             name="example",
             type="STATELESS",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    stateless_rules_and_custom_actions=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs(
-                        custom_actions=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs(
-                            action_definition=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs(
-                                publish_metric_action=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs(
-                                    dimensions=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs(
-                                        value="2",
-                                    )],
-                                ),
-                            ),
-                            action_name="ExampleMetricsAction",
-                        )],
-                        stateless_rules=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs(
-                            priority=1,
-                            rule_definition=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs(
-                                actions=[
+            rule_group={
+                "rulesSource": {
+                    "statelessRulesAndCustomActions": {
+                        "customActions": [{
+                            "actionDefinition": {
+                                "publishMetricAction": {
+                                    "dimensions": [{
+                                        "value": "2",
+                                    }],
+                                },
+                            },
+                            "actionName": "ExampleMetricsAction",
+                        }],
+                        "statelessRules": [{
+                            "priority": 1,
+                            "ruleDefinition": {
+                                "actions": [
                                     "aws:pass",
                                     "ExampleMetricsAction",
                                 ],
-                                match_attributes=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs(
-                                    sources=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs(
-                                        address_definition="1.2.3.4/32",
-                                    )],
-                                    source_ports=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs(
-                                        from_port=443,
-                                        to_port=443,
-                                    )],
-                                    destinations=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs(
-                                        address_definition="124.1.1.5/32",
-                                    )],
-                                    destination_ports=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs(
-                                        from_port=443,
-                                        to_port=443,
-                                    )],
-                                    protocols=[6],
-                                    tcp_flags=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs(
-                                        flags=["SYN"],
-                                        masks=[
+                                "matchAttributes": {
+                                    "sources": [{
+                                        "addressDefinition": "1.2.3.4/32",
+                                    }],
+                                    "sourcePorts": [{
+                                        "fromPort": 443,
+                                        "toPort": 443,
+                                    }],
+                                    "destinations": [{
+                                        "addressDefinition": "124.1.1.5/32",
+                                    }],
+                                    "destinationPorts": [{
+                                        "fromPort": 443,
+                                        "toPort": 443,
+                                    }],
+                                    "protocols": [6],
+                                    "tcpFlags": [{
+                                        "flags": ["SYN"],
+                                        "masks": [
                                             "SYN",
                                             "ACK",
                                         ],
-                                    )],
-                                ),
-                            ),
-                        )],
-                    ),
-                ),
-            ),
+                                    }],
+                                },
+                            },
+                        }],
+                    },
+                },
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -598,23 +603,23 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             name="example",
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArgs(
-                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
-                        key="example",
-                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
-                            reference_arn=this["arn"],
-                        )],
-                    )],
-                ),
-            ),
+            rule_group={
+                "rulesSource": {
+                    "rulesSourceList": {
+                        "generatedRulesType": "DENYLIST",
+                        "targetTypes": ["HTTP_HOST"],
+                        "targets": ["test.example.com"],
+                    },
+                },
+                "referenceSets": {
+                    "ipSetReferences": [{
+                        "key": "example",
+                        "ipSetReferences": [{
+                            "referenceArn": this["arn"],
+                        }],
+                    }],
+                },
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -633,9 +638,9 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[str] description: A friendly description of the rule group.
-        :param pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the rule group.
-        :param pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        :param pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
@@ -661,15 +666,15 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             name="example",
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-            ),
+            rule_group={
+                "rulesSource": {
+                    "rulesSourceList": {
+                        "generatedRulesType": "DENYLIST",
+                        "targetTypes": ["HTTP_HOST"],
+                        "targets": ["test.example.com"],
+                    },
+                },
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -691,25 +696,25 @@ class RuleGroup(pulumi.CustomResource):
             description="Permits http traffic from source",
             name="example",
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    stateful_rules=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleArgs(
-                        action="PASS",
-                        header=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs(
-                            destination="ANY",
-                            destination_port="ANY",
-                            protocol="HTTP",
-                            direction="ANY",
-                            source_port="ANY",
-                            source=entry["value"],
-                        ),
-                        rule_options=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs(
-                            keyword="sid",
-                            settings=["1"],
-                        )],
-                    ) for entry in [{"key": k, "value": v} for k, v in ips]],
-                ),
-            ),
+            rule_group={
+                "rulesSource": {
+                    "statefulRules": [{
+                        "action": "PASS",
+                        "header": {
+                            "destination": "ANY",
+                            "destinationPort": "ANY",
+                            "protocol": "HTTP",
+                            "direction": "ANY",
+                            "sourcePort": "ANY",
+                            "source": entry["value"],
+                        },
+                        "ruleOptions": [{
+                            "keyword": "sid",
+                            "settings": ["1"],
+                        }],
+                    } for entry in [{"key": k, "value": v} for k, v in ips]],
+                },
+            },
             tags={
                 "Name": "permit HTTP from source",
             })
@@ -725,25 +730,25 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             name="example",
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    stateful_rules=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleArgs(
-                        action="DROP",
-                        header=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleHeaderArgs(
-                            destination="124.1.1.24/32",
-                            destination_port="53",
-                            direction="ANY",
-                            protocol="TCP",
-                            source="1.2.3.4/32",
-                            source_port="53",
-                        ),
-                        rule_options=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatefulRuleRuleOptionArgs(
-                            keyword="sid",
-                            settings=["1"],
-                        )],
-                    )],
-                ),
-            ),
+            rule_group={
+                "rulesSource": {
+                    "statefulRules": [{
+                        "action": "DROP",
+                        "header": {
+                            "destination": "124.1.1.24/32",
+                            "destinationPort": "53",
+                            "direction": "ANY",
+                            "protocol": "TCP",
+                            "source": "1.2.3.4/32",
+                            "sourcePort": "53",
+                        },
+                        "ruleOptions": [{
+                            "keyword": "sid",
+                            "settings": ["1"],
+                        }],
+                    }],
+                },
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -779,40 +784,40 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             name="example",
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArgs(
-                    ip_sets=[
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="WEBSERVERS_HOSTS",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=[
+            rule_group={
+                "ruleVariables": {
+                    "ipSets": [
+                        {
+                            "key": "WEBSERVERS_HOSTS",
+                            "ipSet": {
+                                "definitions": [
                                     "10.0.0.0/16",
                                     "10.0.1.0/24",
                                     "192.168.0.0/16",
                                 ],
-                            ),
-                        ),
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
-                            key="EXTERNAL_HOST",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
-                                definitions=["1.2.3.4/32"],
-                            ),
-                        ),
+                            },
+                        },
+                        {
+                            "key": "EXTERNAL_HOST",
+                            "ipSet": {
+                                "definitions": ["1.2.3.4/32"],
+                            },
+                        },
                     ],
-                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs(
-                        key="HTTP_PORTS",
-                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(
-                            definitions=[
+                    "portSets": [{
+                        "key": "HTTP_PORTS",
+                        "portSet": {
+                            "definitions": [
                                 "443",
                                 "80",
                             ],
-                        ),
-                    )],
-                ),
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_string=std.file(input="suricata_rules_file").result,
-                ),
-            ),
+                        },
+                    }],
+                },
+                "rulesSource": {
+                    "rulesString": std.file(input="suricata_rules_file").result,
+                },
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -830,55 +835,55 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             name="example",
             type="STATELESS",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    stateless_rules_and_custom_actions=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs(
-                        custom_actions=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs(
-                            action_definition=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs(
-                                publish_metric_action=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionArgs(
-                                    dimensions=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionPublishMetricActionDimensionArgs(
-                                        value="2",
-                                    )],
-                                ),
-                            ),
-                            action_name="ExampleMetricsAction",
-                        )],
-                        stateless_rules=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleArgs(
-                            priority=1,
-                            rule_definition=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionArgs(
-                                actions=[
+            rule_group={
+                "rulesSource": {
+                    "statelessRulesAndCustomActions": {
+                        "customActions": [{
+                            "actionDefinition": {
+                                "publishMetricAction": {
+                                    "dimensions": [{
+                                        "value": "2",
+                                    }],
+                                },
+                            },
+                            "actionName": "ExampleMetricsAction",
+                        }],
+                        "statelessRules": [{
+                            "priority": 1,
+                            "ruleDefinition": {
+                                "actions": [
                                     "aws:pass",
                                     "ExampleMetricsAction",
                                 ],
-                                match_attributes=aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgs(
-                                    sources=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs(
-                                        address_definition="1.2.3.4/32",
-                                    )],
-                                    source_ports=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs(
-                                        from_port=443,
-                                        to_port=443,
-                                    )],
-                                    destinations=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs(
-                                        address_definition="124.1.1.5/32",
-                                    )],
-                                    destination_ports=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs(
-                                        from_port=443,
-                                        to_port=443,
-                                    )],
-                                    protocols=[6],
-                                    tcp_flags=[aws.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs(
-                                        flags=["SYN"],
-                                        masks=[
+                                "matchAttributes": {
+                                    "sources": [{
+                                        "addressDefinition": "1.2.3.4/32",
+                                    }],
+                                    "sourcePorts": [{
+                                        "fromPort": 443,
+                                        "toPort": 443,
+                                    }],
+                                    "destinations": [{
+                                        "addressDefinition": "124.1.1.5/32",
+                                    }],
+                                    "destinationPorts": [{
+                                        "fromPort": 443,
+                                        "toPort": 443,
+                                    }],
+                                    "protocols": [6],
+                                    "tcpFlags": [{
+                                        "flags": ["SYN"],
+                                        "masks": [
                                             "SYN",
                                             "ACK",
                                         ],
-                                    )],
-                                ),
-                            ),
-                        )],
-                    ),
-                ),
-            ),
+                                    }],
+                                },
+                            },
+                        }],
+                    },
+                },
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -895,23 +900,23 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             name="example",
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
-                        generated_rules_type="DENYLIST",
-                        target_types=["HTTP_HOST"],
-                        targets=["test.example.com"],
-                    ),
-                ),
-                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArgs(
-                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
-                        key="example",
-                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
-                            reference_arn=this["arn"],
-                        )],
-                    )],
-                ),
-            ),
+            rule_group={
+                "rulesSource": {
+                    "rulesSourceList": {
+                        "generatedRulesType": "DENYLIST",
+                        "targetTypes": ["HTTP_HOST"],
+                        "targets": ["test.example.com"],
+                    },
+                },
+                "referenceSets": {
+                    "ipSetReferences": [{
+                        "key": "example",
+                        "ipSetReferences": [{
+                            "referenceArn": this["arn"],
+                        }],
+                    }],
+                },
+            },
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -943,9 +948,9 @@ class RuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
+                 rule_group: Optional[pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']]] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -986,9 +991,9 @@ class RuleGroup(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']]] = None,
+            encryption_configuration: Optional[pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
+            rule_group: Optional[pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']]] = None,
             rules: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1004,9 +1009,9 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[str] description: A friendly description of the rule group.
-        :param pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the rule group.
-        :param pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        :param pulumi.Input[Union['RuleGroupRuleGroupArgs', 'RuleGroupRuleGroupArgsDict']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

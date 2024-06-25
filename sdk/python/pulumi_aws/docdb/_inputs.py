@@ -4,17 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ClusterParameterGroupParameterArgs',
+    'ClusterParameterGroupParameterArgsDict',
     'ClusterRestoreToPointInTimeArgs',
+    'ClusterRestoreToPointInTimeArgsDict',
     'ElasticClusterTimeoutsArgs',
+    'ElasticClusterTimeoutsArgsDict',
     'GlobalClusterGlobalClusterMemberArgs',
+    'GlobalClusterGlobalClusterMemberArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterParameterGroupParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the DocumentDB parameter.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the DocumentDB parameter.
+        """
+        apply_method: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+        """
+elif False:
+    ClusterParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterParameterGroupParameterArgs:
@@ -68,6 +96,27 @@ class ClusterParameterGroupParameterArgs:
     def apply_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "apply_method", value)
 
+
+if not MYPY:
+    class ClusterRestoreToPointInTimeArgsDict(TypedDict):
+        source_cluster_identifier: pulumi.Input[str]
+        """
+        The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+        """
+        restore_to_time: NotRequired[pulumi.Input[str]]
+        """
+        The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+        """
+        restore_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+        """
+        use_latest_restorable_time: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+        """
+elif False:
+    ClusterRestoreToPointInTimeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterRestoreToPointInTimeArgs:
@@ -139,6 +188,23 @@ class ClusterRestoreToPointInTimeArgs:
         pulumi.set(self, "use_latest_restorable_time", value)
 
 
+if not MYPY:
+    class ElasticClusterTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    ElasticClusterTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ElasticClusterTimeoutsArgs:
     def __init__(__self__, *,
@@ -193,6 +259,19 @@ class ElasticClusterTimeoutsArgs:
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
 
+
+if not MYPY:
+    class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
+        db_cluster_arn: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of member DB Cluster.
+        """
+        is_writer: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the member is the primary DB Cluster.
+        """
+elif False:
+    GlobalClusterGlobalClusterMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GlobalClusterGlobalClusterMemberArgs:

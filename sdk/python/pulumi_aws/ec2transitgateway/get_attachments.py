@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -76,7 +81,7 @@ class AwaitableGetAttachmentsResult(GetAttachmentsResult):
             tags=self.tags)
 
 
-def get_attachments(filters: Optional[Sequence[pulumi.InputType['GetAttachmentsFilterArgs']]] = None,
+def get_attachments(filters: Optional[Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']]] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachmentsResult:
     """
@@ -91,20 +96,20 @@ def get_attachments(filters: Optional[Sequence[pulumi.InputType['GetAttachmentsF
     import pulumi_aws as aws
 
     filtered = aws.ec2transitgateway.get_attachments(filters=[
-        aws.ec2transitgateway.GetAttachmentsFilterArgs(
-            name="state",
-            values=["pendingAcceptance"],
-        ),
-        aws.ec2transitgateway.GetAttachmentsFilterArgs(
-            name="resource-type",
-            values=["vpc"],
-        ),
+        {
+            "name": "state",
+            "values": ["pendingAcceptance"],
+        },
+        {
+            "name": "resource-type",
+            "values": ["vpc"],
+        },
     ])
     unit = [aws.ec2transitgateway.get_attachment(transit_gateway_attachment_id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
     ```
 
 
-    :param Sequence[pulumi.InputType['GetAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -120,7 +125,7 @@ def get_attachments(filters: Optional[Sequence[pulumi.InputType['GetAttachmentsF
 
 
 @_utilities.lift_output_func(get_attachments)
-def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAttachmentsFilterArgs']]]]] = None,
+def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']]]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachmentsResult]:
     """
@@ -135,19 +140,19 @@ def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi_aws as aws
 
     filtered = aws.ec2transitgateway.get_attachments(filters=[
-        aws.ec2transitgateway.GetAttachmentsFilterArgs(
-            name="state",
-            values=["pendingAcceptance"],
-        ),
-        aws.ec2transitgateway.GetAttachmentsFilterArgs(
-            name="resource-type",
-            values=["vpc"],
-        ),
+        {
+            "name": "state",
+            "values": ["pendingAcceptance"],
+        },
+        {
+            "name": "resource-type",
+            "values": ["vpc"],
+        },
     ])
     unit = [aws.ec2transitgateway.get_attachment(transit_gateway_attachment_id=filtered.ids[__index]) for __index in range(len(filtered.ids))]
     ```
 
 
-    :param Sequence[pulumi.InputType['GetAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetAttachmentsFilterArgs', 'GetAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     """
     ...

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -325,11 +330,11 @@ class Space(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
-                 ownership_settings: Optional[pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']]] = None,
+                 ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
                  space_display_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
-                 space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']]] = None,
-                 space_sharing_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSharingSettingsArgs']]] = None,
+                 space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
+                 space_sharing_settings: Optional[pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -359,11 +364,11 @@ class Space(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']] ownership_settings: A collection of ownership settings. See Ownership Settings below.
+        :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. See Ownership Settings below.
         :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
-        :param pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']] space_settings: A collection of space settings. See Space Settings below.
-        :param pulumi.Input[pulumi.InputType['SpaceSpaceSharingSettingsArgs']] space_sharing_settings: A collection of space sharing settings. See Space Sharing Settings below.
+        :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See Space Settings below.
+        :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. See Space Sharing Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -412,11 +417,11 @@ class Space(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
-                 ownership_settings: Optional[pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']]] = None,
+                 ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
                  space_display_name: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
-                 space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']]] = None,
-                 space_sharing_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSharingSettingsArgs']]] = None,
+                 space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
+                 space_sharing_settings: Optional[pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -455,11 +460,11 @@ class Space(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             domain_id: Optional[pulumi.Input[str]] = None,
             home_efs_file_system_uid: Optional[pulumi.Input[str]] = None,
-            ownership_settings: Optional[pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']]] = None,
+            ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
             space_display_name: Optional[pulumi.Input[str]] = None,
             space_name: Optional[pulumi.Input[str]] = None,
-            space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']]] = None,
-            space_sharing_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSharingSettingsArgs']]] = None,
+            space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
+            space_sharing_settings: Optional[pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'Space':
@@ -473,11 +478,11 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The space's Amazon Resource Name (ARN).
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
-        :param pulumi.Input[pulumi.InputType['SpaceOwnershipSettingsArgs']] ownership_settings: A collection of ownership settings. See Ownership Settings below.
+        :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. See Ownership Settings below.
         :param pulumi.Input[str] space_display_name: The name of the space that appears in the SageMaker Studio UI.
         :param pulumi.Input[str] space_name: The name of the space.
-        :param pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']] space_settings: A collection of space settings. See Space Settings below.
-        :param pulumi.Input[pulumi.InputType['SpaceSpaceSharingSettingsArgs']] space_sharing_settings: A collection of space sharing settings. See Space Sharing Settings below.
+        :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See Space Settings below.
+        :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. See Space Sharing Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: Returns the URL of the space. If the space is created with Amazon Web Services IAM Identity Center (Successor to Amazon Web Services Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through Amazon Web Services IAM Identity Center.

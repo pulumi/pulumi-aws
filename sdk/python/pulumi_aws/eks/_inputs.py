@@ -4,33 +4,73 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AccessPolicyAssociationAccessScopeArgs',
+    'AccessPolicyAssociationAccessScopeArgsDict',
     'ClusterAccessConfigArgs',
+    'ClusterAccessConfigArgsDict',
     'ClusterCertificateAuthorityArgs',
+    'ClusterCertificateAuthorityArgsDict',
     'ClusterEncryptionConfigArgs',
+    'ClusterEncryptionConfigArgsDict',
     'ClusterEncryptionConfigProviderArgs',
+    'ClusterEncryptionConfigProviderArgsDict',
     'ClusterIdentityArgs',
+    'ClusterIdentityArgsDict',
     'ClusterIdentityOidcArgs',
+    'ClusterIdentityOidcArgsDict',
     'ClusterKubernetesNetworkConfigArgs',
+    'ClusterKubernetesNetworkConfigArgsDict',
     'ClusterOutpostConfigArgs',
+    'ClusterOutpostConfigArgsDict',
     'ClusterOutpostConfigControlPlanePlacementArgs',
+    'ClusterOutpostConfigControlPlanePlacementArgsDict',
     'ClusterVpcConfigArgs',
+    'ClusterVpcConfigArgsDict',
     'FargateProfileSelectorArgs',
+    'FargateProfileSelectorArgsDict',
     'IdentityProviderConfigOidcArgs',
+    'IdentityProviderConfigOidcArgsDict',
     'NodeGroupLaunchTemplateArgs',
+    'NodeGroupLaunchTemplateArgsDict',
     'NodeGroupRemoteAccessArgs',
+    'NodeGroupRemoteAccessArgsDict',
     'NodeGroupResourceArgs',
+    'NodeGroupResourceArgsDict',
     'NodeGroupResourceAutoscalingGroupArgs',
+    'NodeGroupResourceAutoscalingGroupArgsDict',
     'NodeGroupScalingConfigArgs',
+    'NodeGroupScalingConfigArgsDict',
     'NodeGroupTaintArgs',
+    'NodeGroupTaintArgsDict',
     'NodeGroupUpdateConfigArgs',
+    'NodeGroupUpdateConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccessPolicyAssociationAccessScopeArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Valid values are `namespace` or `cluster`.
+        """
+        namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The namespaces to which the access scope applies when type is namespace.
+        """
+elif False:
+    AccessPolicyAssociationAccessScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccessPolicyAssociationAccessScopeArgs:
@@ -69,6 +109,19 @@ class AccessPolicyAssociationAccessScopeArgs:
     def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "namespaces", value)
 
+
+if not MYPY:
+    class ClusterAccessConfigArgsDict(TypedDict):
+        authentication_mode: NotRequired[pulumi.Input[str]]
+        """
+        The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+        """
+        bootstrap_cluster_creator_admin_permissions: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        """
+elif False:
+    ClusterAccessConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterAccessConfigArgs:
@@ -109,6 +162,15 @@ class ClusterAccessConfigArgs:
         pulumi.set(self, "bootstrap_cluster_creator_admin_permissions", value)
 
 
+if not MYPY:
+    class ClusterCertificateAuthorityArgsDict(TypedDict):
+        data: NotRequired[pulumi.Input[str]]
+        """
+        Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
+        """
+elif False:
+    ClusterCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterCertificateAuthorityArgs:
     def __init__(__self__, *,
@@ -131,6 +193,19 @@ class ClusterCertificateAuthorityArgs:
     def data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data", value)
 
+
+if not MYPY:
+    class ClusterEncryptionConfigArgsDict(TypedDict):
+        provider: pulumi.Input['ClusterEncryptionConfigProviderArgsDict']
+        """
+        Configuration block with provider for encryption. Detailed below.
+        """
+        resources: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of strings with resources to be encrypted. Valid values: `secrets`.
+        """
+elif False:
+    ClusterEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterEncryptionConfigArgs:
@@ -169,6 +244,15 @@ class ClusterEncryptionConfigArgs:
         pulumi.set(self, "resources", value)
 
 
+if not MYPY:
+    class ClusterEncryptionConfigProviderArgsDict(TypedDict):
+        key_arn: pulumi.Input[str]
+        """
+        ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+        """
+elif False:
+    ClusterEncryptionConfigProviderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterEncryptionConfigProviderArgs:
     def __init__(__self__, *,
@@ -190,6 +274,15 @@ class ClusterEncryptionConfigProviderArgs:
     def key_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_arn", value)
 
+
+if not MYPY:
+    class ClusterIdentityArgsDict(TypedDict):
+        oidcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgsDict']]]]
+        """
+        Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+        """
+elif False:
+    ClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterIdentityArgs:
@@ -214,6 +307,15 @@ class ClusterIdentityArgs:
         pulumi.set(self, "oidcs", value)
 
 
+if not MYPY:
+    class ClusterIdentityOidcArgsDict(TypedDict):
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        Issuer URL for the OpenID Connect identity provider.
+        """
+elif False:
+    ClusterIdentityOidcArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterIdentityOidcArgs:
     def __init__(__self__, *,
@@ -236,6 +338,29 @@ class ClusterIdentityOidcArgs:
     def issuer(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "issuer", value)
 
+
+if not MYPY:
+    class ClusterKubernetesNetworkConfigArgsDict(TypedDict):
+        ip_family: NotRequired[pulumi.Input[str]]
+        """
+        The IP family used to assign Kubernetes pod and service addresses. Valid values are `ipv4` (default) and `ipv6`. You can only specify an IP family when you create a cluster, changing this value will force a new cluster to be created.
+        """
+        service_ipv4_cidr: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block to assign Kubernetes pod and service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
+
+        * Within one of the following private IP address blocks: 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16.
+
+        * Doesn't overlap with any CIDR block assigned to the VPC that you selected for VPC.
+
+        * Between /24 and /12.
+        """
+        service_ipv6_cidr: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block that Kubernetes pod and service IP addresses are assigned from if you specified `ipv6` for ipFamily when you created the cluster. Kubernetes assigns service addresses from the unique local address range (fc00::/7) because you can't specify a custom IPv6 CIDR block when you create the cluster.
+        """
+elif False:
+    ClusterKubernetesNetworkConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterKubernetesNetworkConfigArgs:
@@ -303,6 +428,32 @@ class ClusterKubernetesNetworkConfigArgs:
     def service_ipv6_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_ipv6_cidr", value)
 
+
+if not MYPY:
+    class ClusterOutpostConfigArgsDict(TypedDict):
+        control_plane_instance_type: pulumi.Input[str]
+        """
+        The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
+
+        * 1–20 nodes, then we recommend specifying a large instance type.
+
+        * 21–100 nodes, then we recommend specifying an xlarge instance type.
+
+        * 101–250 nodes, then we recommend specifying a 2xlarge instance type.
+
+        For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
+        """
+        outpost_arns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
+        """
+        control_plane_placement: NotRequired[pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgsDict']]
+        """
+        An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+        The `control_plane_placement` configuration block supports the following arguments:
+        """
+elif False:
+    ClusterOutpostConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterOutpostConfigArgs:
@@ -375,6 +526,15 @@ class ClusterOutpostConfigArgs:
         pulumi.set(self, "control_plane_placement", value)
 
 
+if not MYPY:
+    class ClusterOutpostConfigControlPlanePlacementArgsDict(TypedDict):
+        group_name: pulumi.Input[str]
+        """
+        The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+        """
+elif False:
+    ClusterOutpostConfigControlPlanePlacementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterOutpostConfigControlPlanePlacementArgs:
     def __init__(__self__, *,
@@ -396,6 +556,39 @@ class ClusterOutpostConfigControlPlanePlacementArgs:
     def group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "group_name", value)
 
+
+if not MYPY:
+    class ClusterVpcConfigArgsDict(TypedDict):
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
+        """
+        cluster_security_group_id: NotRequired[pulumi.Input[str]]
+        """
+        Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+        """
+        endpoint_private_access: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
+        """
+        endpoint_public_access: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
+        """
+        public_access_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
+        """
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the VPC associated with your cluster.
+        """
+elif False:
+    ClusterVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterVpcConfigArgs:
@@ -515,6 +708,21 @@ class ClusterVpcConfigArgs:
         pulumi.set(self, "vpc_id", value)
 
 
+if not MYPY:
+    class FargateProfileSelectorArgsDict(TypedDict):
+        namespace: pulumi.Input[str]
+        """
+        Kubernetes namespace for selection.
+
+        The following arguments are optional:
+        """
+        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-value map of Kubernetes labels for selection.
+        """
+elif False:
+    FargateProfileSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FargateProfileSelectorArgs:
     def __init__(__self__, *,
@@ -556,6 +764,43 @@ class FargateProfileSelectorArgs:
     def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
+
+if not MYPY:
+    class IdentityProviderConfigOidcArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        Client ID for the OpenID Connect identity provider.
+        """
+        identity_provider_config_name: pulumi.Input[str]
+        """
+        The name of the identity provider config.
+        """
+        issuer_url: pulumi.Input[str]
+        """
+        Issuer URL for the OpenID Connect identity provider.
+        """
+        groups_claim: NotRequired[pulumi.Input[str]]
+        """
+        The JWT claim that the provider will use to return groups.
+        """
+        groups_prefix: NotRequired[pulumi.Input[str]]
+        """
+        A prefix that is prepended to group claims e.g., `oidc:`.
+        """
+        required_claims: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The key value pairs that describe required claims in the identity token.
+        """
+        username_claim: NotRequired[pulumi.Input[str]]
+        """
+        The JWT claim that the provider will use as the username.
+        """
+        username_prefix: NotRequired[pulumi.Input[str]]
+        """
+        A prefix that is prepended to username claims.
+        """
+elif False:
+    IdentityProviderConfigOidcArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IdentityProviderConfigOidcArgs:
@@ -689,6 +934,23 @@ class IdentityProviderConfigOidcArgs:
         pulumi.set(self, "username_prefix", value)
 
 
+if not MYPY:
+    class NodeGroupLaunchTemplateArgsDict(TypedDict):
+        version: pulumi.Input[str]
+        """
+        EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g., `1`) on read and the provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of the EC2 Launch Template. Conflicts with `name`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the EC2 Launch Template. Conflicts with `id`.
+        """
+elif False:
+    NodeGroupLaunchTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodeGroupLaunchTemplateArgs:
     def __init__(__self__, *,
@@ -743,6 +1005,19 @@ class NodeGroupLaunchTemplateArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NodeGroupRemoteAccessArgsDict(TypedDict):
+        ec2_ssh_key: NotRequired[pulumi.Input[str]]
+        """
+        EC2 Key Pair name that provides access for remote communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `source_security_group_ids` when you create an EKS Node Group, either port 3389 for Windows, or port 22 for all other operating systems is opened on the worker nodes to the Internet (0.0.0.0/0). For Windows nodes, this will allow you to use RDP, for all others this allows you to SSH into the worker nodes.
+        """
+        source_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes. If you specify `ec2_ssh_key`, but do not specify this configuration when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
+        """
+elif False:
+    NodeGroupRemoteAccessArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodeGroupRemoteAccessArgs:
     def __init__(__self__, *,
@@ -781,6 +1056,19 @@ class NodeGroupRemoteAccessArgs:
     def source_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "source_security_group_ids", value)
 
+
+if not MYPY:
+    class NodeGroupResourceArgsDict(TypedDict):
+        autoscaling_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgsDict']]]]
+        """
+        List of objects containing information about AutoScaling Groups.
+        """
+        remote_access_security_group_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of the remote access EC2 Security Group.
+        """
+elif False:
+    NodeGroupResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NodeGroupResourceArgs:
@@ -821,6 +1109,15 @@ class NodeGroupResourceArgs:
         pulumi.set(self, "remote_access_security_group_id", value)
 
 
+if not MYPY:
+    class NodeGroupResourceAutoscalingGroupArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the AutoScaling Group.
+        """
+elif False:
+    NodeGroupResourceAutoscalingGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodeGroupResourceAutoscalingGroupArgs:
     def __init__(__self__, *,
@@ -843,6 +1140,23 @@ class NodeGroupResourceAutoscalingGroupArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NodeGroupScalingConfigArgsDict(TypedDict):
+        desired_size: pulumi.Input[int]
+        """
+        Desired number of worker nodes.
+        """
+        max_size: pulumi.Input[int]
+        """
+        Maximum number of worker nodes.
+        """
+        min_size: pulumi.Input[int]
+        """
+        Minimum number of worker nodes.
+        """
+elif False:
+    NodeGroupScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NodeGroupScalingConfigArgs:
@@ -896,6 +1210,23 @@ class NodeGroupScalingConfigArgs:
         pulumi.set(self, "min_size", value)
 
 
+if not MYPY:
+    class NodeGroupTaintArgsDict(TypedDict):
+        effect: pulumi.Input[str]
+        """
+        The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
+        """
+        key: pulumi.Input[str]
+        """
+        The key of the taint. Maximum length of 63.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the taint. Maximum length of 63.
+        """
+elif False:
+    NodeGroupTaintArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodeGroupTaintArgs:
     def __init__(__self__, *,
@@ -948,6 +1279,19 @@ class NodeGroupTaintArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class NodeGroupUpdateConfigArgsDict(TypedDict):
+        max_unavailable: NotRequired[pulumi.Input[int]]
+        """
+        Desired max number of unavailable worker nodes during node group update.
+        """
+        max_unavailable_percentage: NotRequired[pulumi.Input[int]]
+        """
+        Desired max percentage of unavailable worker nodes during node group update.
+        """
+elif False:
+    NodeGroupUpdateConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NodeGroupUpdateConfigArgs:

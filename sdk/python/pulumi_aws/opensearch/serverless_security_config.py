@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -187,7 +192,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 saml_options: Optional[pulumi.Input[pulumi.InputType['ServerlessSecurityConfigSamlOptionsArgs']]] = None,
+                 saml_options: Optional[pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -207,7 +212,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the security configuration.
         :param pulumi.Input[str] name: Name of the policy.
-        :param pulumi.Input[pulumi.InputType['ServerlessSecurityConfigSamlOptionsArgs']] saml_options: Configuration block for SAML options.
+        :param pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']] saml_options: Configuration block for SAML options.
         :param pulumi.Input[str] type: Type of configuration. Must be `saml`.
                
                The following arguments are optional:
@@ -248,7 +253,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 saml_options: Optional[pulumi.Input[pulumi.InputType['ServerlessSecurityConfigSamlOptionsArgs']]] = None,
+                 saml_options: Optional[pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -279,7 +284,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
             config_version: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            saml_options: Optional[pulumi.Input[pulumi.InputType['ServerlessSecurityConfigSamlOptionsArgs']]] = None,
+            saml_options: Optional[pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ServerlessSecurityConfig':
         """
         Get an existing ServerlessSecurityConfig resource's state with the given name, id, and optional extra
@@ -291,7 +296,7 @@ class ServerlessSecurityConfig(pulumi.CustomResource):
         :param pulumi.Input[str] config_version: Version of the configuration.
         :param pulumi.Input[str] description: Description of the security configuration.
         :param pulumi.Input[str] name: Name of the policy.
-        :param pulumi.Input[pulumi.InputType['ServerlessSecurityConfigSamlOptionsArgs']] saml_options: Configuration block for SAML options.
+        :param pulumi.Input[Union['ServerlessSecurityConfigSamlOptionsArgs', 'ServerlessSecurityConfigSamlOptionsArgsDict']] saml_options: Configuration block for SAML options.
         :param pulumi.Input[str] type: Type of configuration. Must be `saml`.
                
                The following arguments are optional:

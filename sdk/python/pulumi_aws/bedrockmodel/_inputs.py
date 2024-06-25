@@ -4,17 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'InvocationLoggingConfigurationLoggingConfigArgs',
+    'InvocationLoggingConfigurationLoggingConfigArgsDict',
     'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs',
+    'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict',
     'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs',
+    'InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict',
     'InvocationLoggingConfigurationLoggingConfigS3ConfigArgs',
+    'InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class InvocationLoggingConfigurationLoggingConfigArgsDict(TypedDict):
+        embedding_data_delivery_enabled: pulumi.Input[bool]
+        """
+        Set to include embeddings data in the log delivery.
+        """
+        image_data_delivery_enabled: pulumi.Input[bool]
+        """
+        Set to include image data in the log delivery.
+        """
+        text_data_delivery_enabled: pulumi.Input[bool]
+        """
+        Set to include text data in the log delivery.
+        """
+        cloudwatch_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict']]
+        """
+        CloudWatch logging configuration.
+        """
+        s3_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict']]
+        """
+        S3 configuration for storing log data.
+        """
+elif False:
+    InvocationLoggingConfigurationLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigArgs:
@@ -100,6 +136,23 @@ class InvocationLoggingConfigurationLoggingConfigArgs:
         pulumi.set(self, "s3_config", value)
 
 
+if not MYPY:
+    class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict(TypedDict):
+        large_data_delivery_s3_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict']]
+        """
+        S3 configuration for delivering a large amount of data.
+        """
+        log_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Log group name.
+        """
+        role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The role ARN.
+        """
+elif False:
+    InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs:
     def __init__(__self__, *,
@@ -155,6 +208,19 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs:
         pulumi.set(self, "role_arn", value)
 
 
+if not MYPY:
+    class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict(TypedDict):
+        bucket_name: NotRequired[pulumi.Input[str]]
+        """
+        S3 bucket name.
+        """
+        key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        S3 prefix.
+        """
+elif False:
+    InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs:
     def __init__(__self__, *,
@@ -193,6 +259,19 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDelive
     def key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_prefix", value)
 
+
+if not MYPY:
+    class InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict(TypedDict):
+        bucket_name: NotRequired[pulumi.Input[str]]
+        """
+        S3 bucket name.
+        """
+        key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        S3 prefix.
+        """
+elif False:
+    InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs:

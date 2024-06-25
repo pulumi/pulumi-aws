@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -88,7 +93,7 @@ class AwaitableGetPrincipalApplicationAssignmentsResult(GetPrincipalApplicationA
             principal_type=self.principal_type)
 
 
-def get_principal_application_assignments(application_assignments: Optional[Sequence[pulumi.InputType['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs']]] = None,
+def get_principal_application_assignments(application_assignments: Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']]] = None,
                                           instance_arn: Optional[str] = None,
                                           principal_id: Optional[str] = None,
                                           principal_type: Optional[str] = None,
@@ -110,7 +115,7 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
     ```
 
 
-    :param Sequence[pulumi.InputType['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
+    :param Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
     :param str instance_arn: ARN of the instance of IAM Identity Center.
     :param str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
     :param str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
@@ -132,7 +137,7 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
 
 
 @_utilities.lift_output_func(get_principal_application_assignments)
-def get_principal_application_assignments_output(application_assignments: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs']]]]] = None,
+def get_principal_application_assignments_output(application_assignments: Optional[pulumi.Input[Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']]]]] = None,
                                                  instance_arn: Optional[pulumi.Input[str]] = None,
                                                  principal_id: Optional[pulumi.Input[str]] = None,
                                                  principal_type: Optional[pulumi.Input[str]] = None,
@@ -154,7 +159,7 @@ def get_principal_application_assignments_output(application_assignments: Option
     ```
 
 
-    :param Sequence[pulumi.InputType['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
+    :param Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
     :param str instance_arn: ARN of the instance of IAM Identity Center.
     :param str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
     :param str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.

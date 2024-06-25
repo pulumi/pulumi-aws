@@ -4,15 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'TrustAnchorSourceArgs',
+    'TrustAnchorSourceArgsDict',
     'TrustAnchorSourceSourceDataArgs',
+    'TrustAnchorSourceSourceDataArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class TrustAnchorSourceArgsDict(TypedDict):
+        source_data: pulumi.Input['TrustAnchorSourceSourceDataArgsDict']
+        """
+        The data denoting the source of trust, documented below
+        """
+        source_type: pulumi.Input[str]
+        """
+        The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
+        """
+elif False:
+    TrustAnchorSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrustAnchorSourceArgs:
@@ -50,6 +72,16 @@ class TrustAnchorSourceArgs:
     def source_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_type", value)
 
+
+if not MYPY:
+    class TrustAnchorSourceSourceDataArgsDict(TypedDict):
+        acm_pca_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of an ACM Private Certificate Authority.
+        """
+        x509_certificate_data: NotRequired[pulumi.Input[str]]
+elif False:
+    TrustAnchorSourceSourceDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrustAnchorSourceSourceDataArgs:

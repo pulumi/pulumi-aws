@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['RecorderStatusArgs', 'RecorderStatus']
@@ -113,14 +118,14 @@ class RecorderStatus(pulumi.CustomResource):
         foo_delivery_channel = aws.cfg.DeliveryChannel("foo",
             name="example",
             s3_bucket_name=b.bucket)
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["config.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         r = aws.iam.Role("r",
             name="example-awsconfig",
             assume_role_policy=assume_role.json)
@@ -134,14 +139,14 @@ class RecorderStatus(pulumi.CustomResource):
         a = aws.iam.RolePolicyAttachment("a",
             role=r.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
-        p = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["s3:*"],
-            resources=[
+        p = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "actions": ["s3:*"],
+            "resources": [
                 b.arn,
                 b.arn.apply(lambda arn: f"{arn}/*"),
             ],
-        )])
+        }])
         p_role_policy = aws.iam.RolePolicy("p",
             name="awsconfig-example",
             role=r.id,
@@ -182,14 +187,14 @@ class RecorderStatus(pulumi.CustomResource):
         foo_delivery_channel = aws.cfg.DeliveryChannel("foo",
             name="example",
             s3_bucket_name=b.bucket)
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["config.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["config.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         r = aws.iam.Role("r",
             name="example-awsconfig",
             assume_role_policy=assume_role.json)
@@ -203,14 +208,14 @@ class RecorderStatus(pulumi.CustomResource):
         a = aws.iam.RolePolicyAttachment("a",
             role=r.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
-        p = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["s3:*"],
-            resources=[
+        p = aws.iam.get_policy_document_output(statements=[{
+            "effect": "Allow",
+            "actions": ["s3:*"],
+            "resources": [
                 b.arn,
                 b.arn.apply(lambda arn: f"{arn}/*"),
             ],
-        )])
+        }])
         p_role_policy = aws.iam.RolePolicy("p",
             name="awsconfig-example",
             role=r.id,

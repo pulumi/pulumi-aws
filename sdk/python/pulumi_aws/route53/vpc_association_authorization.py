@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['VpcAssociationAuthorizationArgs', 'VpcAssociationAuthorization']
@@ -145,9 +150,9 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             enable_dns_support=True)
         example_zone = aws.route53.Zone("example",
             name="example.com",
-            vpcs=[aws.route53.ZoneVpcArgs(
-                vpc_id=example.id,
-            )])
+            vpcs=[{
+                "vpcId": example.id,
+            }])
         alternate = aws.ec2.Vpc("alternate",
             cidr_block="10.7.0.0/16",
             enable_dns_hostnames=True,
@@ -195,9 +200,9 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             enable_dns_support=True)
         example_zone = aws.route53.Zone("example",
             name="example.com",
-            vpcs=[aws.route53.ZoneVpcArgs(
-                vpc_id=example.id,
-            )])
+            vpcs=[{
+                "vpcId": example.id,
+            }])
         alternate = aws.ec2.Vpc("alternate",
             cidr_block="10.7.0.0/16",
             enable_dns_hostnames=True,

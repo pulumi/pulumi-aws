@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -279,7 +284,7 @@ class VirtualGateway(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualGatewaySpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['VirtualGatewaySpecArgs', 'VirtualGatewaySpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -296,14 +301,14 @@ class VirtualGateway(pulumi.CustomResource):
         example = aws.appmesh.VirtualGateway("example",
             name="example-virtual-gateway",
             mesh_name="example-service-mesh",
-            spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                )],
-            ),
+            spec={
+                "listeners": [{
+                    "portMapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                }],
+            },
             tags={
                 "Environment": "test",
             })
@@ -318,29 +323,29 @@ class VirtualGateway(pulumi.CustomResource):
         example = aws.appmesh.VirtualGateway("example",
             name="example-virtual-gateway",
             mesh_name="example-service-mesh",
-            spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                    tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
-                        certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
-                            acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=example_aws_acm_certificate["arn"],
-                            ),
-                        ),
-                        mode="STRICT",
-                    ),
-                )],
-                logging=aws.appmesh.VirtualGatewaySpecLoggingArgs(
-                    access_log=aws.appmesh.VirtualGatewaySpecLoggingAccessLogArgs(
-                        file=aws.appmesh.VirtualGatewaySpecLoggingAccessLogFileArgs(
-                            path="/var/log/access.log",
-                        ),
-                    ),
-                ),
-            ))
+            spec={
+                "listeners": [{
+                    "portMapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                    "tls": {
+                        "certificate": {
+                            "acm": {
+                                "certificateArn": example_aws_acm_certificate["arn"],
+                            },
+                        },
+                        "mode": "STRICT",
+                    },
+                }],
+                "logging": {
+                    "accessLog": {
+                        "file": {
+                            "path": "/var/log/access.log",
+                        },
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -356,7 +361,7 @@ class VirtualGateway(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the virtual gateway. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[pulumi.InputType['VirtualGatewaySpecArgs']] spec: Virtual gateway specification to apply.
+        :param pulumi.Input[Union['VirtualGatewaySpecArgs', 'VirtualGatewaySpecArgsDict']] spec: Virtual gateway specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -379,14 +384,14 @@ class VirtualGateway(pulumi.CustomResource):
         example = aws.appmesh.VirtualGateway("example",
             name="example-virtual-gateway",
             mesh_name="example-service-mesh",
-            spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                )],
-            ),
+            spec={
+                "listeners": [{
+                    "portMapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                }],
+            },
             tags={
                 "Environment": "test",
             })
@@ -401,29 +406,29 @@ class VirtualGateway(pulumi.CustomResource):
         example = aws.appmesh.VirtualGateway("example",
             name="example-virtual-gateway",
             mesh_name="example-service-mesh",
-            spec=aws.appmesh.VirtualGatewaySpecArgs(
-                listeners=[aws.appmesh.VirtualGatewaySpecListenerArgs(
-                    port_mapping=aws.appmesh.VirtualGatewaySpecListenerPortMappingArgs(
-                        port=8080,
-                        protocol="http",
-                    ),
-                    tls=aws.appmesh.VirtualGatewaySpecListenerTlsArgs(
-                        certificate=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateArgs(
-                            acm=aws.appmesh.VirtualGatewaySpecListenerTlsCertificateAcmArgs(
-                                certificate_arn=example_aws_acm_certificate["arn"],
-                            ),
-                        ),
-                        mode="STRICT",
-                    ),
-                )],
-                logging=aws.appmesh.VirtualGatewaySpecLoggingArgs(
-                    access_log=aws.appmesh.VirtualGatewaySpecLoggingAccessLogArgs(
-                        file=aws.appmesh.VirtualGatewaySpecLoggingAccessLogFileArgs(
-                            path="/var/log/access.log",
-                        ),
-                    ),
-                ),
-            ))
+            spec={
+                "listeners": [{
+                    "portMapping": {
+                        "port": 8080,
+                        "protocol": "http",
+                    },
+                    "tls": {
+                        "certificate": {
+                            "acm": {
+                                "certificateArn": example_aws_acm_certificate["arn"],
+                            },
+                        },
+                        "mode": "STRICT",
+                    },
+                }],
+                "logging": {
+                    "accessLog": {
+                        "file": {
+                            "path": "/var/log/access.log",
+                        },
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -452,7 +457,7 @@ class VirtualGateway(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['VirtualGatewaySpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['VirtualGatewaySpecArgs', 'VirtualGatewaySpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -494,7 +499,7 @@ class VirtualGateway(pulumi.CustomResource):
             mesh_owner: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_owner: Optional[pulumi.Input[str]] = None,
-            spec: Optional[pulumi.Input[pulumi.InputType['VirtualGatewaySpecArgs']]] = None,
+            spec: Optional[pulumi.Input[Union['VirtualGatewaySpecArgs', 'VirtualGatewaySpecArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VirtualGateway':
         """
@@ -511,7 +516,7 @@ class VirtualGateway(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the virtual gateway. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[pulumi.InputType['VirtualGatewaySpecArgs']] spec: Virtual gateway specification to apply.
+        :param pulumi.Input[Union['VirtualGatewaySpecArgs', 'VirtualGatewaySpecArgsDict']] spec: Virtual gateway specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

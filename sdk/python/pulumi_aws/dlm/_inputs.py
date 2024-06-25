@@ -4,30 +4,67 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'LifecyclePolicyPolicyDetailsArgs',
+    'LifecyclePolicyPolicyDetailsArgsDict',
     'LifecyclePolicyPolicyDetailsActionArgs',
+    'LifecyclePolicyPolicyDetailsActionArgsDict',
     'LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs',
+    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgsDict',
     'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs',
+    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgsDict',
     'LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs',
+    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgsDict',
     'LifecyclePolicyPolicyDetailsEventSourceArgs',
+    'LifecyclePolicyPolicyDetailsEventSourceArgsDict',
     'LifecyclePolicyPolicyDetailsEventSourceParametersArgs',
+    'LifecyclePolicyPolicyDetailsEventSourceParametersArgsDict',
     'LifecyclePolicyPolicyDetailsParametersArgs',
+    'LifecyclePolicyPolicyDetailsParametersArgsDict',
     'LifecyclePolicyPolicyDetailsScheduleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleArgsDict',
     'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgsDict',
     'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgsDict',
     'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgsDict',
     'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgsDict',
     'LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgsDict',
     'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgsDict',
     'LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleRetainRuleArgsDict',
     'LifecyclePolicyPolicyDetailsScheduleShareRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleShareRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsActionArgsDict']]
+        event_source: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgsDict']]
+        parameters: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgsDict']]
+        policy_type: NotRequired[pulumi.Input[str]]
+        resource_locations: NotRequired[pulumi.Input[str]]
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgsDict']]]]
+        target_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+elif False:
+    LifecyclePolicyPolicyDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsArgs:
@@ -130,6 +167,13 @@ class LifecyclePolicyPolicyDetailsArgs:
         pulumi.set(self, "target_tags", value)
 
 
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsActionArgsDict(TypedDict):
+        cross_region_copies: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgsDict']]]
+        name: pulumi.Input[str]
+elif False:
+    LifecyclePolicyPolicyDetailsActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsActionArgs:
     def __init__(__self__, *,
@@ -156,6 +200,14 @@ class LifecyclePolicyPolicyDetailsActionArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgsDict(TypedDict):
+        encryption_configuration: pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgsDict']
+        target: pulumi.Input[str]
+        retain_rule: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgsDict']]
+elif False:
+    LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs:
@@ -196,6 +248,13 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs:
         pulumi.set(self, "retain_rule", value)
 
 
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgsDict(TypedDict):
+        cmk_arn: NotRequired[pulumi.Input[str]]
+        encrypted: NotRequired[pulumi.Input[bool]]
+elif False:
+    LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs:
     def __init__(__self__, *,
@@ -225,6 +284,13 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationAr
         pulumi.set(self, "encrypted", value)
 
 
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgsDict(TypedDict):
+        interval: pulumi.Input[int]
+        interval_unit: pulumi.Input[str]
+elif False:
+    LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs:
     def __init__(__self__, *,
@@ -252,6 +318,13 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs:
         pulumi.set(self, "interval_unit", value)
 
 
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsEventSourceArgsDict(TypedDict):
+        parameters: pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgsDict']
+        type: pulumi.Input[str]
+elif False:
+    LifecyclePolicyPolicyDetailsEventSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsEventSourceArgs:
     def __init__(__self__, *,
@@ -278,6 +351,14 @@ class LifecyclePolicyPolicyDetailsEventSourceArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsEventSourceParametersArgsDict(TypedDict):
+        description_regex: pulumi.Input[str]
+        event_type: pulumi.Input[str]
+        snapshot_owners: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    LifecyclePolicyPolicyDetailsEventSourceParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsEventSourceParametersArgs:
@@ -317,6 +398,13 @@ class LifecyclePolicyPolicyDetailsEventSourceParametersArgs:
         pulumi.set(self, "snapshot_owners", value)
 
 
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsParametersArgsDict(TypedDict):
+        exclude_boot_volume: NotRequired[pulumi.Input[bool]]
+        no_reboot: NotRequired[pulumi.Input[bool]]
+elif False:
+    LifecyclePolicyPolicyDetailsParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsParametersArgs:
     def __init__(__self__, *,
@@ -345,6 +433,21 @@ class LifecyclePolicyPolicyDetailsParametersArgs:
     def no_reboot(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "no_reboot", value)
 
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsScheduleArgsDict(TypedDict):
+        create_rule: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArgsDict']
+        name: pulumi.Input[str]
+        retain_rule: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArgsDict']
+        copy_tags: NotRequired[pulumi.Input[bool]]
+        cross_region_copy_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgsDict']]]]
+        deprecate_rule: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgsDict']]
+        fast_restore_rule: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgsDict']]
+        share_rule: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgsDict']]
+        tags_to_add: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        variable_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+elif False:
+    LifecyclePolicyPolicyDetailsScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleArgs:
@@ -468,6 +571,16 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
         pulumi.set(self, "variable_tags", value)
 
 
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgsDict(TypedDict):
+        cron_expression: NotRequired[pulumi.Input[str]]
+        interval: NotRequired[pulumi.Input[int]]
+        interval_unit: NotRequired[pulumi.Input[str]]
+        location: NotRequired[pulumi.Input[str]]
+        times: NotRequired[pulumi.Input[str]]
+elif False:
+    LifecyclePolicyPolicyDetailsScheduleCreateRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
     def __init__(__self__, *,
@@ -532,6 +645,17 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
     def times(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "times", value)
 
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgsDict(TypedDict):
+        encrypted: pulumi.Input[bool]
+        target: pulumi.Input[str]
+        cmk_arn: NotRequired[pulumi.Input[str]]
+        copy_tags: NotRequired[pulumi.Input[bool]]
+        deprecate_rule: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgsDict']]
+        retain_rule: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgsDict']]
+elif False:
+    LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs:
@@ -608,6 +732,13 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs:
         pulumi.set(self, "retain_rule", value)
 
 
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgsDict(TypedDict):
+        interval: pulumi.Input[int]
+        interval_unit: pulumi.Input[str]
+elif False:
+    LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs:
     def __init__(__self__, *,
@@ -635,6 +766,13 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs:
         pulumi.set(self, "interval_unit", value)
 
 
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgsDict(TypedDict):
+        interval: pulumi.Input[int]
+        interval_unit: pulumi.Input[str]
+elif False:
+    LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs:
     def __init__(__self__, *,
@@ -661,6 +799,14 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs:
     def interval_unit(self, value: pulumi.Input[str]):
         pulumi.set(self, "interval_unit", value)
 
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgsDict(TypedDict):
+        count: NotRequired[pulumi.Input[int]]
+        interval: NotRequired[pulumi.Input[int]]
+        interval_unit: NotRequired[pulumi.Input[str]]
+elif False:
+    LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs:
@@ -702,6 +848,15 @@ class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs:
     def interval_unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "interval_unit", value)
 
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgsDict(TypedDict):
+        availability_zones: pulumi.Input[Sequence[pulumi.Input[str]]]
+        count: NotRequired[pulumi.Input[int]]
+        interval: NotRequired[pulumi.Input[int]]
+        interval_unit: NotRequired[pulumi.Input[str]]
+elif False:
+    LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs:
@@ -755,6 +910,14 @@ class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs:
         pulumi.set(self, "interval_unit", value)
 
 
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgsDict(TypedDict):
+        count: NotRequired[pulumi.Input[int]]
+        interval: NotRequired[pulumi.Input[int]]
+        interval_unit: NotRequired[pulumi.Input[str]]
+elif False:
+    LifecyclePolicyPolicyDetailsScheduleRetainRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs:
     def __init__(__self__, *,
@@ -795,6 +958,14 @@ class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs:
     def interval_unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "interval_unit", value)
 
+
+if not MYPY:
+    class LifecyclePolicyPolicyDetailsScheduleShareRuleArgsDict(TypedDict):
+        target_accounts: pulumi.Input[Sequence[pulumi.Input[str]]]
+        unshare_interval: NotRequired[pulumi.Input[int]]
+        unshare_interval_unit: NotRequired[pulumi.Input[str]]
+elif False:
+    LifecyclePolicyPolicyDetailsScheduleShareRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs:

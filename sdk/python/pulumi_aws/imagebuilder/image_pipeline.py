@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -546,11 +551,11 @@ class ImagePipeline(pulumi.CustomResource):
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImagePipelineImageScanningConfigurationArgs']]] = None,
-                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
+                 image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -567,9 +572,9 @@ class ImagePipeline(pulumi.CustomResource):
             image_recipe_arn=example_aws_imagebuilder_image_recipe["arn"],
             infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"],
             name="example",
-            schedule=aws.imagebuilder.ImagePipelineScheduleArgs(
-                schedule_expression="cron(0 0 * * ? *)",
-            ))
+            schedule={
+                "scheduleExpression": "cron(0 0 * * ? *)",
+            })
         ```
 
         ## Import
@@ -587,13 +592,13 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input[pulumi.InputType['ImagePipelineImageScanningConfigurationArgs']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[str] name: Name of the image pipeline.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']] schedule: Configuration block with schedule settings. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -616,9 +621,9 @@ class ImagePipeline(pulumi.CustomResource):
             image_recipe_arn=example_aws_imagebuilder_image_recipe["arn"],
             infrastructure_configuration_arn=example_aws_imagebuilder_infrastructure_configuration["arn"],
             name="example",
-            schedule=aws.imagebuilder.ImagePipelineScheduleArgs(
-                schedule_expression="cron(0 0 * * ? *)",
-            ))
+            schedule={
+                "scheduleExpression": "cron(0 0 * * ? *)",
+            })
         ```
 
         ## Import
@@ -649,11 +654,11 @@ class ImagePipeline(pulumi.CustomResource):
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImagePipelineImageScanningConfigurationArgs']]] = None,
-                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
+                 image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -706,12 +711,12 @@ class ImagePipeline(pulumi.CustomResource):
             distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
             enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
             image_recipe_arn: Optional[pulumi.Input[str]] = None,
-            image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImagePipelineImageScanningConfigurationArgs']]] = None,
-            image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']]] = None,
+            image_scanning_configuration: Optional[pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']]] = None,
+            image_tests_configuration: Optional[pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']]] = None,
             infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             platform: Optional[pulumi.Input[str]] = None,
-            schedule: Optional[pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']]] = None,
+            schedule: Optional[pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ImagePipeline':
@@ -732,14 +737,14 @@ class ImagePipeline(pulumi.CustomResource):
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input[pulumi.InputType['ImagePipelineImageScanningConfigurationArgs']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input[pulumi.InputType['ImagePipelineImageTestsConfigurationArgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineImageScanningConfigurationArgs', 'ImagePipelineImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineImageTestsConfigurationArgs', 'ImagePipelineImageTestsConfigurationArgsDict']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         :param pulumi.Input[str] name: Name of the image pipeline.
                
                The following arguments are optional:
         :param pulumi.Input[str] platform: Platform of the image pipeline.
-        :param pulumi.Input[pulumi.InputType['ImagePipelineScheduleArgs']] schedule: Configuration block with schedule settings. Detailed below.
+        :param pulumi.Input[Union['ImagePipelineScheduleArgs', 'ImagePipelineScheduleArgsDict']] schedule: Configuration block with schedule settings. Detailed below.
         :param pulumi.Input[str] status: Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

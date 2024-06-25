@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -264,7 +269,7 @@ class Experience(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ExperienceConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -286,15 +291,15 @@ class Experience(pulumi.CustomResource):
             description="My Kendra Experience",
             name="example",
             role_arn=example_aws_iam_role["arn"],
-            configuration=aws.kendra.ExperienceConfigurationArgs(
-                content_source_configuration=aws.kendra.ExperienceConfigurationContentSourceConfigurationArgs(
-                    direct_put_content=True,
-                    faq_ids=[example_aws_kendra_faq["faqId"]],
-                ),
-                user_identity_configuration=aws.kendra.ExperienceConfigurationUserIdentityConfigurationArgs(
-                    identity_attribute_name="12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
-                ),
-            ))
+            configuration={
+                "contentSourceConfiguration": {
+                    "directPutContent": True,
+                    "faqIds": [example_aws_kendra_faq["faqId"]],
+                },
+                "userIdentityConfiguration": {
+                    "identityAttributeName": "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
+                },
+            })
         ```
 
         ## Import
@@ -307,7 +312,7 @@ class Experience(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ExperienceConfigurationArgs']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[str] name: A name for your Amazon Kendra experience.
@@ -337,15 +342,15 @@ class Experience(pulumi.CustomResource):
             description="My Kendra Experience",
             name="example",
             role_arn=example_aws_iam_role["arn"],
-            configuration=aws.kendra.ExperienceConfigurationArgs(
-                content_source_configuration=aws.kendra.ExperienceConfigurationContentSourceConfigurationArgs(
-                    direct_put_content=True,
-                    faq_ids=[example_aws_kendra_faq["faqId"]],
-                ),
-                user_identity_configuration=aws.kendra.ExperienceConfigurationUserIdentityConfigurationArgs(
-                    identity_attribute_name="12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
-                ),
-            ))
+            configuration={
+                "contentSourceConfiguration": {
+                    "directPutContent": True,
+                    "faqIds": [example_aws_kendra_faq["faqId"]],
+                },
+                "userIdentityConfiguration": {
+                    "identityAttributeName": "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
+                },
+            })
         ```
 
         ## Import
@@ -371,7 +376,7 @@ class Experience(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ExperienceConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -409,9 +414,9 @@ class Experience(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['ExperienceConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperienceEndpointArgs']]]]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExperienceEndpointArgs', 'ExperienceEndpointArgsDict']]]]] = None,
             experience_id: Optional[pulumi.Input[str]] = None,
             index_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -425,9 +430,9 @@ class Experience(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Experience.
-        :param pulumi.Input[pulumi.InputType['ExperienceConfigurationArgs']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input[Union['ExperienceConfigurationArgs', 'ExperienceConfigurationArgsDict']] configuration: Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input[str] description: A description for your Amazon Kendra experience.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperienceEndpointArgs']]]] endpoints: Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperienceEndpointArgs', 'ExperienceEndpointArgsDict']]]] endpoints: Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
         :param pulumi.Input[str] experience_id: The unique identifier of the experience.
         :param pulumi.Input[str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[str] name: A name for your Amazon Kendra experience.

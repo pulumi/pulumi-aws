@@ -4,21 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'FastSnapshotRestoreTimeoutsArgs',
+    'FastSnapshotRestoreTimeoutsArgsDict',
     'SnapshotImportClientDataArgs',
+    'SnapshotImportClientDataArgsDict',
     'SnapshotImportDiskContainerArgs',
+    'SnapshotImportDiskContainerArgsDict',
     'SnapshotImportDiskContainerUserBucketArgs',
+    'SnapshotImportDiskContainerUserBucketArgsDict',
     'GetEbsVolumesFilterArgs',
+    'GetEbsVolumesFilterArgsDict',
     'GetSnapshotFilterArgs',
+    'GetSnapshotFilterArgsDict',
     'GetSnapshotIdsFilterArgs',
+    'GetSnapshotIdsFilterArgsDict',
     'GetVolumeFilterArgs',
+    'GetVolumeFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FastSnapshotRestoreTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    FastSnapshotRestoreTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FastSnapshotRestoreTimeoutsArgs:
@@ -58,6 +86,27 @@ class FastSnapshotRestoreTimeoutsArgs:
     def delete(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delete", value)
 
+
+if not MYPY:
+    class SnapshotImportClientDataArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[str]]
+        """
+        A user-defined comment about the disk upload.
+        """
+        upload_end: NotRequired[pulumi.Input[str]]
+        """
+        The time that the disk upload ends.
+        """
+        upload_size: NotRequired[pulumi.Input[float]]
+        """
+        The size of the uploaded disk image, in GiB.
+        """
+        upload_start: NotRequired[pulumi.Input[str]]
+        """
+        The time that the disk upload starts.
+        """
+elif False:
+    SnapshotImportClientDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SnapshotImportClientDataArgs:
@@ -130,6 +179,27 @@ class SnapshotImportClientDataArgs:
         pulumi.set(self, "upload_start", value)
 
 
+if not MYPY:
+    class SnapshotImportDiskContainerArgsDict(TypedDict):
+        format: pulumi.Input[str]
+        """
+        The format of the disk image being imported. One of `VHD` or `VMDK`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the disk image being imported.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+        """
+        user_bucket: NotRequired[pulumi.Input['SnapshotImportDiskContainerUserBucketArgsDict']]
+        """
+        The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
+        """
+elif False:
+    SnapshotImportDiskContainerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SnapshotImportDiskContainerArgs:
     def __init__(__self__, *,
@@ -200,6 +270,19 @@ class SnapshotImportDiskContainerArgs:
         pulumi.set(self, "user_bucket", value)
 
 
+if not MYPY:
+    class SnapshotImportDiskContainerUserBucketArgsDict(TypedDict):
+        s3_bucket: pulumi.Input[str]
+        """
+        The name of the Amazon S3 bucket where the disk image is located.
+        """
+        s3_key: pulumi.Input[str]
+        """
+        The file name of the disk image.
+        """
+elif False:
+    SnapshotImportDiskContainerUserBucketArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SnapshotImportDiskContainerUserBucketArgs:
     def __init__(__self__, *,
@@ -237,6 +320,35 @@ class SnapshotImportDiskContainerUserBucketArgs:
         pulumi.set(self, "s3_key", value)
 
 
+if not MYPY:
+    class GetEbsVolumesFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+        For example, if matching against the `size` filter, use:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[{
+            "name": "size",
+            "values": [
+                "10",
+                "20",
+            ],
+        }])
+        ```
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        EBS Volume IDs will be selected if any one of the given values match.
+        """
+elif False:
+    GetEbsVolumesFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetEbsVolumesFilterArgs:
     def __init__(__self__, *,
@@ -251,13 +363,13 @@ class GetEbsVolumesFilterArgs:
                import pulumi
                import pulumi_aws as aws
                
-               ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[aws.ebs.GetEbsVolumesFilterArgs(
-                   name="size",
-                   values=[
+               ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[{
+                   "name": "size",
+                   "values": [
                        "10",
                        "20",
                    ],
-               )])
+               }])
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                EBS Volume IDs will be selected if any one of the given values match.
@@ -277,13 +389,13 @@ class GetEbsVolumesFilterArgs:
         import pulumi
         import pulumi_aws as aws
 
-        ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[aws.ebs.GetEbsVolumesFilterArgs(
-            name="size",
-            values=[
+        ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[{
+            "name": "size",
+            "values": [
                 "10",
                 "20",
             ],
-        )])
+        }])
         ```
         """
         return pulumi.get(self, "name")
@@ -305,6 +417,13 @@ class GetEbsVolumesFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetSnapshotFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetSnapshotFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSnapshotFilterArgs:
@@ -333,6 +452,13 @@ class GetSnapshotFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetSnapshotIdsFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetSnapshotIdsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSnapshotIdsFilterArgs:
     def __init__(__self__, *,
@@ -359,6 +485,13 @@ class GetSnapshotIdsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetVolumeFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetVolumeFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetVolumeFilterArgs:

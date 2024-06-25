@@ -4,17 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CertificateDomainValidationOptionArgs',
+    'CertificateDomainValidationOptionArgsDict',
     'CertificateOptionsArgs',
+    'CertificateOptionsArgsDict',
     'CertificateRenewalSummaryArgs',
+    'CertificateRenewalSummaryArgsDict',
     'CertificateValidationOptionArgs',
+    'CertificateValidationOptionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CertificateDomainValidationOptionArgsDict(TypedDict):
+        domain_name: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified domain name (FQDN) in the certificate.
+        """
+        resource_record_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the DNS record to create to validate the certificate
+        """
+        resource_record_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of DNS record to create
+        """
+        resource_record_value: NotRequired[pulumi.Input[str]]
+        """
+        The value the DNS record needs to have
+        """
+elif False:
+    CertificateDomainValidationOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateDomainValidationOptionArgs:
@@ -87,6 +119,15 @@ class CertificateDomainValidationOptionArgs:
         pulumi.set(self, "resource_record_value", value)
 
 
+if not MYPY:
+    class CertificateOptionsArgsDict(TypedDict):
+        certificate_transparency_logging_preference: NotRequired[pulumi.Input[str]]
+        """
+        Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+        """
+elif False:
+    CertificateOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateOptionsArgs:
     def __init__(__self__, *,
@@ -109,6 +150,20 @@ class CertificateOptionsArgs:
     def certificate_transparency_logging_preference(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_transparency_logging_preference", value)
 
+
+if not MYPY:
+    class CertificateRenewalSummaryArgsDict(TypedDict):
+        renewal_status: NotRequired[pulumi.Input[str]]
+        """
+        The status of ACM's managed renewal of the certificate
+        """
+        renewal_status_reason: NotRequired[pulumi.Input[str]]
+        """
+        The reason that a renewal request was unsuccessful or is pending
+        """
+        updated_at: NotRequired[pulumi.Input[str]]
+elif False:
+    CertificateRenewalSummaryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateRenewalSummaryArgs:
@@ -160,6 +215,19 @@ class CertificateRenewalSummaryArgs:
     def updated_at(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "updated_at", value)
 
+
+if not MYPY:
+    class CertificateValidationOptionArgsDict(TypedDict):
+        domain_name: pulumi.Input[str]
+        """
+        Fully qualified domain name (FQDN) in the certificate.
+        """
+        validation_domain: pulumi.Input[str]
+        """
+        Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+        """
+elif False:
+    CertificateValidationOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateValidationOptionArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['DocumentationVersionArgs', 'DocumentationVersion']
@@ -141,9 +146,9 @@ class DocumentationVersion(pulumi.CustomResource):
 
         example_rest_api = aws.apigateway.RestApi("example", name="example_api")
         example_documentation_part = aws.apigateway.DocumentationPart("example",
-            location=aws.apigateway.DocumentationPartLocationArgs(
-                type="API",
-            ),
+            location={
+                "type": "API",
+            },
             properties="{\\"description\\":\\"Example\\"}",
             rest_api_id=example_rest_api.id)
         example = aws.apigateway.DocumentationVersion("example",
@@ -184,9 +189,9 @@ class DocumentationVersion(pulumi.CustomResource):
 
         example_rest_api = aws.apigateway.RestApi("example", name="example_api")
         example_documentation_part = aws.apigateway.DocumentationPart("example",
-            location=aws.apigateway.DocumentationPartLocationArgs(
-                type="API",
-            ),
+            location={
+                "type": "API",
+            },
             properties="{\\"description\\":\\"Example\\"}",
             rest_api_id=example_rest_api.id)
         example = aws.apigateway.DocumentationVersion("example",

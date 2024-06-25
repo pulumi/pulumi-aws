@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['FleetStackAssociationArgs', 'FleetStackAssociation']
@@ -110,9 +115,9 @@ class FleetStackAssociation(pulumi.CustomResource):
             name="NAME",
             image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.small",
-            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
-                desired_instances=1,
-            ))
+            compute_capacity={
+                "desiredInstances": 1,
+            })
         example_stack = aws.appstream.Stack("example", name="STACK NAME")
         example_fleet_stack_association = aws.appstream.FleetStackAssociation("example",
             fleet_name=example.name,
@@ -151,9 +156,9 @@ class FleetStackAssociation(pulumi.CustomResource):
             name="NAME",
             image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.small",
-            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
-                desired_instances=1,
-            ))
+            compute_capacity={
+                "desiredInstances": 1,
+            })
         example_stack = aws.appstream.Stack("example", name="STACK NAME")
         example_fleet_stack_association = aws.appstream.FleetStackAssociation("example",
             fleet_name=example.name,

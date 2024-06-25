@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -869,22 +874,22 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 elasticsearch_settings: Optional[pulumi.Input[pulumi.InputType['EndpointElasticsearchSettingsArgs']]] = None,
+                 elasticsearch_settings: Optional[pulumi.Input[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
                  endpoint_id: Optional[pulumi.Input[str]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  engine_name: Optional[pulumi.Input[str]] = None,
                  extra_connection_attributes: Optional[pulumi.Input[str]] = None,
-                 kafka_settings: Optional[pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']]] = None,
-                 kinesis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']]] = None,
+                 kafka_settings: Optional[pulumi.Input[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
+                 kinesis_settings: Optional[pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
+                 mongodb_settings: Optional[pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 postgres_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']]] = None,
-                 redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
-                 redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
-                 s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
+                 postgres_settings: Optional[pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
+                 redis_settings: Optional[pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
+                 redshift_settings: Optional[pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+                 s3_settings: Optional[pulumi.Input[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict']]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_arn: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -935,22 +940,22 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[str] database_name: Name of the endpoint database.
-        :param pulumi.Input[pulumi.InputType['EndpointElasticsearchSettingsArgs']] elasticsearch_settings: Configuration block for OpenSearch settings. See below.
+        :param pulumi.Input[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']] elasticsearch_settings: Configuration block for OpenSearch settings. See below.
         :param pulumi.Input[str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
         :param pulumi.Input[str] engine_name: Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
-        :param pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']] kafka_settings: Configuration block for Kafka settings. See below.
-        :param pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']] kinesis_settings: Configuration block for Kinesis settings. See below.
+        :param pulumi.Input[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']] kafka_settings: Configuration block for Kafka settings. See below.
+        :param pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']] kinesis_settings: Configuration block for Kinesis settings. See below.
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block for MongoDB settings. See below.
+        :param pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
-        :param pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']] postgres_settings: Configuration block for Postgres settings. See below.
-        :param pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']] redshift_settings: Configuration block for Redshift settings. See below.
-        :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
+        :param pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']] postgres_settings: Configuration block for Postgres settings. See below.
+        :param pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']] redshift_settings: Configuration block for Redshift settings. See below.
+        :param pulumi.Input[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict']] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
                
                > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.
@@ -1022,22 +1027,22 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 elasticsearch_settings: Optional[pulumi.Input[pulumi.InputType['EndpointElasticsearchSettingsArgs']]] = None,
+                 elasticsearch_settings: Optional[pulumi.Input[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
                  endpoint_id: Optional[pulumi.Input[str]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  engine_name: Optional[pulumi.Input[str]] = None,
                  extra_connection_attributes: Optional[pulumi.Input[str]] = None,
-                 kafka_settings: Optional[pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']]] = None,
-                 kinesis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']]] = None,
+                 kafka_settings: Optional[pulumi.Input[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
+                 kinesis_settings: Optional[pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
+                 mongodb_settings: Optional[pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 postgres_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']]] = None,
-                 redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
-                 redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
-                 s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
+                 postgres_settings: Optional[pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
+                 redis_settings: Optional[pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
+                 redshift_settings: Optional[pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+                 s3_settings: Optional[pulumi.Input[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict']]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_arn: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -1101,23 +1106,23 @@ class Endpoint(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate_arn: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
-            elasticsearch_settings: Optional[pulumi.Input[pulumi.InputType['EndpointElasticsearchSettingsArgs']]] = None,
+            elasticsearch_settings: Optional[pulumi.Input[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
             endpoint_arn: Optional[pulumi.Input[str]] = None,
             endpoint_id: Optional[pulumi.Input[str]] = None,
             endpoint_type: Optional[pulumi.Input[str]] = None,
             engine_name: Optional[pulumi.Input[str]] = None,
             extra_connection_attributes: Optional[pulumi.Input[str]] = None,
-            kafka_settings: Optional[pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']]] = None,
-            kinesis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']]] = None,
+            kafka_settings: Optional[pulumi.Input[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
+            kinesis_settings: Optional[pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
-            mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
+            mongodb_settings: Optional[pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']]] = None,
             password: Optional[pulumi.Input[str]] = None,
             pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
             port: Optional[pulumi.Input[int]] = None,
-            postgres_settings: Optional[pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']]] = None,
-            redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
-            redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
-            s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
+            postgres_settings: Optional[pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']]] = None,
+            redis_settings: Optional[pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
+            redshift_settings: Optional[pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+            s3_settings: Optional[pulumi.Input[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict']]] = None,
             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
             secrets_manager_arn: Optional[pulumi.Input[str]] = None,
             server_name: Optional[pulumi.Input[str]] = None,
@@ -1135,23 +1140,23 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[str] database_name: Name of the endpoint database.
-        :param pulumi.Input[pulumi.InputType['EndpointElasticsearchSettingsArgs']] elasticsearch_settings: Configuration block for OpenSearch settings. See below.
+        :param pulumi.Input[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']] elasticsearch_settings: Configuration block for OpenSearch settings. See below.
         :param pulumi.Input[str] endpoint_arn: ARN for the endpoint.
         :param pulumi.Input[str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
         :param pulumi.Input[str] engine_name: Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
-        :param pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']] kafka_settings: Configuration block for Kafka settings. See below.
-        :param pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']] kinesis_settings: Configuration block for Kinesis settings. See below.
+        :param pulumi.Input[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']] kafka_settings: Configuration block for Kafka settings. See below.
+        :param pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']] kinesis_settings: Configuration block for Kinesis settings. See below.
         :param pulumi.Input[str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region. To encrypt an S3 target with a KMS Key, use the parameter `s3_settings.server_side_encryption_kms_key_id`. When `engine_name` is `redshift`, `kms_key_arn` is the KMS Key for the Redshift target and the parameter `redshift_settings.server_side_encryption_kms_key_id` encrypts the S3 intermediate storage.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block for MongoDB settings. See below.
+        :param pulumi.Input[Union['EndpointMongodbSettingsArgs', 'EndpointMongodbSettingsArgsDict']] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
-        :param pulumi.Input[pulumi.InputType['EndpointPostgresSettingsArgs']] postgres_settings: Configuration block for Postgres settings. See below.
-        :param pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']] redshift_settings: Configuration block for Redshift settings. See below.
-        :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
+        :param pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']] postgres_settings: Configuration block for Postgres settings. See below.
+        :param pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']] redshift_settings: Configuration block for Redshift settings. See below.
+        :param pulumi.Input[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict']] s3_settings: (**Deprecated**, use the `dms.S3Endpoint` resource instead) Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in the Secrets Manager secret referred to by `secrets_manager_arn`. The role must allow the `iam:PassRole` action.
                
                > **Note:** You can specify one of two sets of values for these permissions. You can specify the values for this setting and `secrets_manager_arn`. Or you can specify clear-text values for `username`, `password` , `server_name`, and `port`. You can't specify both.

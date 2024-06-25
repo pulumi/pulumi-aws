@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['OriginAccessIdentityArgs', 'OriginAccessIdentity']
@@ -191,11 +196,11 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArgs(
-            s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                origin_access_identity=example_aws_cloudfront_origin_access_identity["cloudfrontAccessIdentityPath"],
-            ),
-        )])
+        example = aws.cloudfront.Distribution("example", origins=[{
+            "s3OriginConfig": {
+                "originAccessIdentity": example_aws_cloudfront_origin_access_identity["cloudfrontAccessIdentityPath"],
+            },
+        }])
         ```
 
         ### Updating your bucket policy
@@ -209,14 +214,14 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["s3:GetObject"],
-            resources=[f"{example_aws_s3_bucket['arn']}/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[example_aws_cloudfront_origin_access_identity["iamArn"]],
-            )],
-        )])
+        s3_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["s3:GetObject"],
+            "resources": [f"{example_aws_s3_bucket['arn']}/*"],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [example_aws_cloudfront_origin_access_identity["iamArn"]],
+            }],
+        }])
         example = aws.s3.BucketPolicy("example",
             bucket=example_aws_s3_bucket["id"],
             policy=s3_policy.json)
@@ -274,11 +279,11 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArgs(
-            s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
-                origin_access_identity=example_aws_cloudfront_origin_access_identity["cloudfrontAccessIdentityPath"],
-            ),
-        )])
+        example = aws.cloudfront.Distribution("example", origins=[{
+            "s3OriginConfig": {
+                "originAccessIdentity": example_aws_cloudfront_origin_access_identity["cloudfrontAccessIdentityPath"],
+            },
+        }])
         ```
 
         ### Updating your bucket policy
@@ -292,14 +297,14 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["s3:GetObject"],
-            resources=[f"{example_aws_s3_bucket['arn']}/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[example_aws_cloudfront_origin_access_identity["iamArn"]],
-            )],
-        )])
+        s3_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["s3:GetObject"],
+            "resources": [f"{example_aws_s3_bucket['arn']}/*"],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [example_aws_cloudfront_origin_access_identity["iamArn"]],
+            }],
+        }])
         example = aws.s3.BucketPolicy("example",
             bucket=example_aws_s3_bucket["id"],
             policy=s3_policy.json)

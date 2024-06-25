@@ -4,16 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'EndpointServicePrivateDnsVerificationTimeoutsArgs',
+    'EndpointServicePrivateDnsVerificationTimeoutsArgsDict',
     'GetSecurityGroupRuleFilterArgs',
+    'GetSecurityGroupRuleFilterArgsDict',
     'GetSecurityGroupRulesFilterArgs',
+    'GetSecurityGroupRulesFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EndpointServicePrivateDnsVerificationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    EndpointServicePrivateDnsVerificationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointServicePrivateDnsVerificationTimeoutsArgs:
@@ -37,6 +56,19 @@ class EndpointServicePrivateDnsVerificationTimeoutsArgs:
     def create(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "create", value)
 
+
+if not MYPY:
+    class GetSecurityGroupRuleFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetSecurityGroupRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSecurityGroupRuleFilterArgs:
@@ -74,6 +106,21 @@ class GetSecurityGroupRuleFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetSecurityGroupRulesFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        Security group rule IDs will be selected if any one of the given values match.
+        """
+elif False:
+    GetSecurityGroupRulesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSecurityGroupRulesFilterArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['UserGroupArgs', 'UserGroup']
@@ -207,26 +212,26 @@ class UserGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.cognito.UserPool("main", name="identity pool")
-        group_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Federated",
-                identifiers=["cognito-identity.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRoleWithWebIdentity"],
-            conditions=[
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="cognito-identity.amazonaws.com:aud",
-                    values=["us-east-1:12345678-dead-beef-cafe-123456790ab"],
-                ),
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="ForAnyValue:StringLike",
-                    variable="cognito-identity.amazonaws.com:amr",
-                    values=["authenticated"],
-                ),
+        group_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Federated",
+                "identifiers": ["cognito-identity.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRoleWithWebIdentity"],
+            "conditions": [
+                {
+                    "test": "StringEquals",
+                    "variable": "cognito-identity.amazonaws.com:aud",
+                    "values": ["us-east-1:12345678-dead-beef-cafe-123456790ab"],
+                },
+                {
+                    "test": "ForAnyValue:StringLike",
+                    "variable": "cognito-identity.amazonaws.com:amr",
+                    "values": ["authenticated"],
+                },
             ],
-        )])
+        }])
         group_role_role = aws.iam.Role("group_role",
             name="user-group-role",
             assume_role_policy=group_role.json)
@@ -270,26 +275,26 @@ class UserGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.cognito.UserPool("main", name="identity pool")
-        group_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Federated",
-                identifiers=["cognito-identity.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRoleWithWebIdentity"],
-            conditions=[
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="cognito-identity.amazonaws.com:aud",
-                    values=["us-east-1:12345678-dead-beef-cafe-123456790ab"],
-                ),
-                aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="ForAnyValue:StringLike",
-                    variable="cognito-identity.amazonaws.com:amr",
-                    values=["authenticated"],
-                ),
+        group_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Federated",
+                "identifiers": ["cognito-identity.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRoleWithWebIdentity"],
+            "conditions": [
+                {
+                    "test": "StringEquals",
+                    "variable": "cognito-identity.amazonaws.com:aud",
+                    "values": ["us-east-1:12345678-dead-beef-cafe-123456790ab"],
+                },
+                {
+                    "test": "ForAnyValue:StringLike",
+                    "variable": "cognito-identity.amazonaws.com:amr",
+                    "values": ["authenticated"],
+                },
             ],
-        )])
+        }])
         group_role_role = aws.iam.Role("group_role",
             name="user-group-role",
             assume_role_policy=group_role.json)

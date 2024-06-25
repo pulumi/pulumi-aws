@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -201,7 +206,7 @@ class TestGridProject(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['TestGridProjectVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource to manage AWS Device Farm Test Grid Projects.
@@ -216,11 +221,11 @@ class TestGridProject(pulumi.CustomResource):
 
         example = aws.devicefarm.TestGridProject("example",
             name="example",
-            vpc_config=aws.devicefarm.TestGridProjectVpcConfigArgs(
-                vpc_id=example_aws_vpc["id"],
-                subnet_ids=[__item["id"] for __item in example_aws_subnet],
-                security_group_ids=[__item["id"] for __item in example_aws_security_group],
-            ))
+            vpc_config={
+                "vpcId": example_aws_vpc["id"],
+                "subnetIds": [__item["id"] for __item in example_aws_subnet],
+                "securityGroupIds": [__item["id"] for __item in example_aws_security_group],
+            })
         ```
 
         ## Import
@@ -236,7 +241,7 @@ class TestGridProject(pulumi.CustomResource):
         :param pulumi.Input[str] description: Human-readable description of the project.
         :param pulumi.Input[str] name: The name of the Selenium testing project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['TestGridProjectVpcConfigArgs']] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
+        :param pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
         """
         ...
     @overload
@@ -257,11 +262,11 @@ class TestGridProject(pulumi.CustomResource):
 
         example = aws.devicefarm.TestGridProject("example",
             name="example",
-            vpc_config=aws.devicefarm.TestGridProjectVpcConfigArgs(
-                vpc_id=example_aws_vpc["id"],
-                subnet_ids=[__item["id"] for __item in example_aws_subnet],
-                security_group_ids=[__item["id"] for __item in example_aws_security_group],
-            ))
+            vpc_config={
+                "vpcId": example_aws_vpc["id"],
+                "subnetIds": [__item["id"] for __item in example_aws_subnet],
+                "securityGroupIds": [__item["id"] for __item in example_aws_security_group],
+            })
         ```
 
         ## Import
@@ -290,7 +295,7 @@ class TestGridProject(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['TestGridProjectVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -321,7 +326,7 @@ class TestGridProject(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vpc_config: Optional[pulumi.Input[pulumi.InputType['TestGridProjectVpcConfigArgs']]] = None) -> 'TestGridProject':
+            vpc_config: Optional[pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']]] = None) -> 'TestGridProject':
         """
         Get an existing TestGridProject resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -334,7 +339,7 @@ class TestGridProject(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Selenium testing project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['TestGridProjectVpcConfigArgs']] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
+        :param pulumi.Input[Union['TestGridProjectVpcConfigArgs', 'TestGridProjectVpcConfigArgsDict']] vpc_config: The VPC security groups and subnets that are attached to a project. See VPC Config below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

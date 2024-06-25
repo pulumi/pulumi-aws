@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -318,7 +323,7 @@ class Control(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_plan_instructions: Optional[pulumi.Input[str]] = None,
                  action_plan_title: Optional[pulumi.Input[str]] = None,
-                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArgs']]]]] = None,
+                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -337,11 +342,11 @@ class Control(pulumi.CustomResource):
 
         example = aws.auditmanager.Control("example",
             name="example",
-            control_mapping_sources=[aws.auditmanager.ControlControlMappingSourceArgs(
-                source_name="example",
-                source_set_up_option="Procedural_Controls_Mapping",
-                source_type="MANUAL",
-            )])
+            control_mapping_sources=[{
+                "sourceName": "example",
+                "sourceSetUpOption": "Procedural_Controls_Mapping",
+                "sourceType": "MANUAL",
+            }])
         ```
 
         ## Import
@@ -356,7 +361,7 @@ class Control(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
         :param pulumi.Input[str] action_plan_title: Title of the action plan for remediating the control.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArgs']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the control.
@@ -383,11 +388,11 @@ class Control(pulumi.CustomResource):
 
         example = aws.auditmanager.Control("example",
             name="example",
-            control_mapping_sources=[aws.auditmanager.ControlControlMappingSourceArgs(
-                source_name="example",
-                source_set_up_option="Procedural_Controls_Mapping",
-                source_type="MANUAL",
-            )])
+            control_mapping_sources=[{
+                "sourceName": "example",
+                "sourceSetUpOption": "Procedural_Controls_Mapping",
+                "sourceType": "MANUAL",
+            }])
         ```
 
         ## Import
@@ -415,7 +420,7 @@ class Control(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_plan_instructions: Optional[pulumi.Input[str]] = None,
                  action_plan_title: Optional[pulumi.Input[str]] = None,
-                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArgs']]]]] = None,
+                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -452,7 +457,7 @@ class Control(pulumi.CustomResource):
             action_plan_instructions: Optional[pulumi.Input[str]] = None,
             action_plan_title: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArgs']]]]] = None,
+            control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -470,7 +475,7 @@ class Control(pulumi.CustomResource):
         :param pulumi.Input[str] action_plan_title: Title of the action plan for remediating the control.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the control.
                * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArgs']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the control.

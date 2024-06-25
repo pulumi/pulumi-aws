@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -275,7 +280,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 source_s3_path: Optional[pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']]] = None,
+                 source_s3_path: Optional[pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -293,10 +298,10 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
             index_id=example_aws_kendra_index["id"],
             name="Example",
             role_arn=example_aws_iam_role["arn"],
-            source_s3_path=aws.kendra.QuerySuggestionsBlockListSourceS3PathArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key="example/suggestions.txt",
-            ),
+            source_s3_path={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": "example/suggestions.txt",
+            },
             tags={
                 "Name": "Example Kendra Index",
             })
@@ -315,7 +320,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[str] name: Name for the block list.
         :param pulumi.Input[str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
-        :param pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']] source_s3_path: S3 path where your block list text file is located. See details below.
+        :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
         """
         ...
     @overload
@@ -338,10 +343,10 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
             index_id=example_aws_kendra_index["id"],
             name="Example",
             role_arn=example_aws_iam_role["arn"],
-            source_s3_path=aws.kendra.QuerySuggestionsBlockListSourceS3PathArgs(
-                bucket=example_aws_s3_bucket["id"],
-                key="example/suggestions.txt",
-            ),
+            source_s3_path={
+                "bucket": example_aws_s3_bucket["id"],
+                "key": "example/suggestions.txt",
+            },
             tags={
                 "Name": "Example Kendra Index",
             })
@@ -374,7 +379,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 source_s3_path: Optional[pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']]] = None,
+                 source_s3_path: Optional[pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -417,7 +422,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             query_suggestions_block_list_id: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            source_s3_path: Optional[pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']]] = None,
+            source_s3_path: Optional[pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'QuerySuggestionsBlockList':
@@ -433,7 +438,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name for the block list.
         :param pulumi.Input[str] query_suggestions_block_list_id: Unique identifier of the block list.
         :param pulumi.Input[str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
-        :param pulumi.Input[pulumi.InputType['QuerySuggestionsBlockListSourceS3PathArgs']] source_s3_path: S3 path where your block list text file is located. See details below.
+        :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -436,12 +441,12 @@ class Trigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]]]] = None,
+                 event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
+                 predicate: Optional[pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  start_on_creation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -462,15 +467,15 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             name="example",
             type="CONDITIONAL",
-            actions=[aws.glue.TriggerActionArgs(
-                job_name=example1["name"],
-            )],
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=example2["name"],
-                    state="SUCCEEDED",
-                )],
-            ))
+            actions=[{
+                "jobName": example1["name"],
+            }],
+            predicate={
+                "conditions": [{
+                    "jobName": example2["name"],
+                    "state": "SUCCEEDED",
+                }],
+            })
         ```
 
         ### On-Demand Trigger
@@ -482,9 +487,9 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             name="example",
             type="ON_DEMAND",
-            actions=[aws.glue.TriggerActionArgs(
-                job_name=example_aws_glue_job["name"],
-            )])
+            actions=[{
+                "jobName": example_aws_glue_job["name"],
+            }])
         ```
 
         ### Scheduled Trigger
@@ -497,9 +502,9 @@ class Trigger(pulumi.CustomResource):
             name="example",
             schedule="cron(15 12 * * ? *)",
             type="SCHEDULED",
-            actions=[aws.glue.TriggerActionArgs(
-                job_name=example_aws_glue_job["name"],
-            )])
+            actions=[{
+                "jobName": example_aws_glue_job["name"],
+            }])
         ```
 
         ### Conditional Trigger with Crawler Action
@@ -513,15 +518,15 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             name="example",
             type="CONDITIONAL",
-            actions=[aws.glue.TriggerActionArgs(
-                crawler_name=example1["name"],
-            )],
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=example2["name"],
-                    state="SUCCEEDED",
-                )],
-            ))
+            actions=[{
+                "crawlerName": example1["name"],
+            }],
+            predicate={
+                "conditions": [{
+                    "jobName": example2["name"],
+                    "state": "SUCCEEDED",
+                }],
+            })
         ```
 
         ### Conditional Trigger with Crawler Condition
@@ -535,15 +540,15 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             name="example",
             type="CONDITIONAL",
-            actions=[aws.glue.TriggerActionArgs(
-                job_name=example1["name"],
-            )],
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    crawler_name=example2["name"],
-                    crawl_state="SUCCEEDED",
-                )],
-            ))
+            actions=[{
+                "jobName": example1["name"],
+            }],
+            predicate={
+                "conditions": [{
+                    "crawlerName": example2["name"],
+                    "crawlState": "SUCCEEDED",
+                }],
+            })
         ```
 
         ## Import
@@ -556,12 +561,12 @@ class Trigger(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
         :param pulumi.Input[str] description: A description of the new trigger.
         :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         :param pulumi.Input[str] name: The name of the trigger.
-        :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        :param pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -588,15 +593,15 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             name="example",
             type="CONDITIONAL",
-            actions=[aws.glue.TriggerActionArgs(
-                job_name=example1["name"],
-            )],
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=example2["name"],
-                    state="SUCCEEDED",
-                )],
-            ))
+            actions=[{
+                "jobName": example1["name"],
+            }],
+            predicate={
+                "conditions": [{
+                    "jobName": example2["name"],
+                    "state": "SUCCEEDED",
+                }],
+            })
         ```
 
         ### On-Demand Trigger
@@ -608,9 +613,9 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             name="example",
             type="ON_DEMAND",
-            actions=[aws.glue.TriggerActionArgs(
-                job_name=example_aws_glue_job["name"],
-            )])
+            actions=[{
+                "jobName": example_aws_glue_job["name"],
+            }])
         ```
 
         ### Scheduled Trigger
@@ -623,9 +628,9 @@ class Trigger(pulumi.CustomResource):
             name="example",
             schedule="cron(15 12 * * ? *)",
             type="SCHEDULED",
-            actions=[aws.glue.TriggerActionArgs(
-                job_name=example_aws_glue_job["name"],
-            )])
+            actions=[{
+                "jobName": example_aws_glue_job["name"],
+            }])
         ```
 
         ### Conditional Trigger with Crawler Action
@@ -639,15 +644,15 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             name="example",
             type="CONDITIONAL",
-            actions=[aws.glue.TriggerActionArgs(
-                crawler_name=example1["name"],
-            )],
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name=example2["name"],
-                    state="SUCCEEDED",
-                )],
-            ))
+            actions=[{
+                "crawlerName": example1["name"],
+            }],
+            predicate={
+                "conditions": [{
+                    "jobName": example2["name"],
+                    "state": "SUCCEEDED",
+                }],
+            })
         ```
 
         ### Conditional Trigger with Crawler Condition
@@ -661,15 +666,15 @@ class Trigger(pulumi.CustomResource):
         example = aws.glue.Trigger("example",
             name="example",
             type="CONDITIONAL",
-            actions=[aws.glue.TriggerActionArgs(
-                job_name=example1["name"],
-            )],
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    crawler_name=example2["name"],
-                    crawl_state="SUCCEEDED",
-                )],
-            ))
+            actions=[{
+                "jobName": example1["name"],
+            }],
+            predicate={
+                "conditions": [{
+                    "crawlerName": example2["name"],
+                    "crawlState": "SUCCEEDED",
+                }],
+            })
         ```
 
         ## Import
@@ -695,12 +700,12 @@ class Trigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]]]] = None,
+                 event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
+                 predicate: Optional[pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  start_on_creation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -743,13 +748,13 @@ class Trigger(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]]] = None,
+            actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]]]] = None,
+            event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
+            predicate: Optional[pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
             schedule: Optional[pulumi.Input[str]] = None,
             start_on_creation: Optional[pulumi.Input[bool]] = None,
             state: Optional[pulumi.Input[str]] = None,
@@ -764,13 +769,13 @@ class Trigger(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerActionArgs']]]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]] actions: List of actions initiated by this trigger when it fires. See Actions Below.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Trigger
         :param pulumi.Input[str] description: A description of the new trigger.
         :param pulumi.Input[bool] enabled: Start the trigger. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerEventBatchingConditionArgs']]]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         :param pulumi.Input[str] name: The name of the trigger.
-        :param pulumi.Input[pulumi.InputType['TriggerPredicateArgs']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        :param pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         :param pulumi.Input[str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         :param pulumi.Input[str] state: The current state of the trigger.

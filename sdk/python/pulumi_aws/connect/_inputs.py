@@ -4,47 +4,101 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'BotAssociationLexBotArgs',
+    'BotAssociationLexBotArgsDict',
     'HoursOfOperationConfigArgs',
+    'HoursOfOperationConfigArgsDict',
     'HoursOfOperationConfigEndTimeArgs',
+    'HoursOfOperationConfigEndTimeArgsDict',
     'HoursOfOperationConfigStartTimeArgs',
+    'HoursOfOperationConfigStartTimeArgsDict',
     'InstanceStorageConfigStorageConfigArgs',
+    'InstanceStorageConfigStorageConfigArgsDict',
     'InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs',
+    'InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict',
     'InstanceStorageConfigStorageConfigKinesisStreamConfigArgs',
+    'InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict',
     'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs',
+    'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict',
     'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs',
+    'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgsDict',
     'InstanceStorageConfigStorageConfigS3ConfigArgs',
+    'InstanceStorageConfigStorageConfigS3ConfigArgsDict',
     'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs',
+    'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict',
     'PhoneNumberStatusArgs',
+    'PhoneNumberStatusArgsDict',
     'QueueOutboundCallerConfigArgs',
+    'QueueOutboundCallerConfigArgsDict',
     'QuickConnectQuickConnectConfigArgs',
+    'QuickConnectQuickConnectConfigArgsDict',
     'QuickConnectQuickConnectConfigPhoneConfigArgs',
+    'QuickConnectQuickConnectConfigPhoneConfigArgsDict',
     'QuickConnectQuickConnectConfigQueueConfigArgs',
+    'QuickConnectQuickConnectConfigQueueConfigArgsDict',
     'QuickConnectQuickConnectConfigUserConfigArgs',
+    'QuickConnectQuickConnectConfigUserConfigArgsDict',
     'RoutingProfileMediaConcurrencyArgs',
+    'RoutingProfileMediaConcurrencyArgsDict',
     'RoutingProfileQueueConfigArgs',
+    'RoutingProfileQueueConfigArgsDict',
     'UserHierarchyGroupHierarchyPathArgs',
+    'UserHierarchyGroupHierarchyPathArgsDict',
     'UserHierarchyGroupHierarchyPathLevelFifeArgs',
+    'UserHierarchyGroupHierarchyPathLevelFifeArgsDict',
     'UserHierarchyGroupHierarchyPathLevelFourArgs',
+    'UserHierarchyGroupHierarchyPathLevelFourArgsDict',
     'UserHierarchyGroupHierarchyPathLevelOneArgs',
+    'UserHierarchyGroupHierarchyPathLevelOneArgsDict',
     'UserHierarchyGroupHierarchyPathLevelThreeArgs',
+    'UserHierarchyGroupHierarchyPathLevelThreeArgsDict',
     'UserHierarchyGroupHierarchyPathLevelTwoArgs',
+    'UserHierarchyGroupHierarchyPathLevelTwoArgsDict',
     'UserHierarchyStructureHierarchyStructureArgs',
+    'UserHierarchyStructureHierarchyStructureArgsDict',
     'UserHierarchyStructureHierarchyStructureLevelFiveArgs',
+    'UserHierarchyStructureHierarchyStructureLevelFiveArgsDict',
     'UserHierarchyStructureHierarchyStructureLevelFourArgs',
+    'UserHierarchyStructureHierarchyStructureLevelFourArgsDict',
     'UserHierarchyStructureHierarchyStructureLevelOneArgs',
+    'UserHierarchyStructureHierarchyStructureLevelOneArgsDict',
     'UserHierarchyStructureHierarchyStructureLevelThreeArgs',
+    'UserHierarchyStructureHierarchyStructureLevelThreeArgsDict',
     'UserHierarchyStructureHierarchyStructureLevelTwoArgs',
+    'UserHierarchyStructureHierarchyStructureLevelTwoArgsDict',
     'UserIdentityInfoArgs',
+    'UserIdentityInfoArgsDict',
     'UserPhoneConfigArgs',
+    'UserPhoneConfigArgsDict',
     'GetBotAssociationLexBotArgs',
+    'GetBotAssociationLexBotArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BotAssociationLexBotArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Amazon Lex (V1) bot.
+        """
+        lex_region: NotRequired[pulumi.Input[str]]
+        """
+        The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
+        """
+elif False:
+    BotAssociationLexBotArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BotAssociationLexBotArgs:
@@ -83,6 +137,23 @@ class BotAssociationLexBotArgs:
     def lex_region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lex_region", value)
 
+
+if not MYPY:
+    class HoursOfOperationConfigArgsDict(TypedDict):
+        day: pulumi.Input[str]
+        """
+        Specifies the day that the hours of operation applies to.
+        """
+        end_time: pulumi.Input['HoursOfOperationConfigEndTimeArgsDict']
+        """
+        A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+        """
+        start_time: pulumi.Input['HoursOfOperationConfigStartTimeArgsDict']
+        """
+        A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+        """
+elif False:
+    HoursOfOperationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HoursOfOperationConfigArgs:
@@ -136,6 +207,19 @@ class HoursOfOperationConfigArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class HoursOfOperationConfigEndTimeArgsDict(TypedDict):
+        hours: pulumi.Input[int]
+        """
+        Specifies the hour of closing.
+        """
+        minutes: pulumi.Input[int]
+        """
+        Specifies the minute of closing.
+        """
+elif False:
+    HoursOfOperationConfigEndTimeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HoursOfOperationConfigEndTimeArgs:
     def __init__(__self__, *,
@@ -173,6 +257,19 @@ class HoursOfOperationConfigEndTimeArgs:
         pulumi.set(self, "minutes", value)
 
 
+if not MYPY:
+    class HoursOfOperationConfigStartTimeArgsDict(TypedDict):
+        hours: pulumi.Input[int]
+        """
+        Specifies the hour of opening.
+        """
+        minutes: pulumi.Input[int]
+        """
+        Specifies the minute of opening.
+        """
+elif False:
+    HoursOfOperationConfigStartTimeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HoursOfOperationConfigStartTimeArgs:
     def __init__(__self__, *,
@@ -209,6 +306,31 @@ class HoursOfOperationConfigStartTimeArgs:
     def minutes(self, value: pulumi.Input[int]):
         pulumi.set(self, "minutes", value)
 
+
+if not MYPY:
+    class InstanceStorageConfigStorageConfigArgsDict(TypedDict):
+        storage_type: pulumi.Input[str]
+        """
+        A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
+        """
+        kinesis_firehose_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict']]
+        """
+        A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
+        """
+        kinesis_stream_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict']]
+        """
+        A block that specifies the configuration of the Kinesis data stream. Documented below.
+        """
+        kinesis_video_stream_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict']]
+        """
+        A block that specifies the configuration of the Kinesis video stream. Documented below.
+        """
+        s3_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgsDict']]
+        """
+        A block that specifies the configuration of S3 Bucket. Documented below.
+        """
+elif False:
+    InstanceStorageConfigStorageConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigArgs:
@@ -296,6 +418,15 @@ class InstanceStorageConfigStorageConfigArgs:
         pulumi.set(self, "s3_config", value)
 
 
+if not MYPY:
+    class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict(TypedDict):
+        firehose_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the delivery stream.
+        """
+elif False:
+    InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs:
     def __init__(__self__, *,
@@ -318,6 +449,15 @@ class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs:
         pulumi.set(self, "firehose_arn", value)
 
 
+if not MYPY:
+    class InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict(TypedDict):
+        stream_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the data stream.
+        """
+elif False:
+    InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs:
     def __init__(__self__, *,
@@ -339,6 +479,23 @@ class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs:
     def stream_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_arn", value)
 
+
+if not MYPY:
+    class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict(TypedDict):
+        encryption_config: pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgsDict']
+        """
+        The encryption configuration. Documented below.
+        """
+        prefix: pulumi.Input[str]
+        """
+        The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
+        """
+        retention_period_hours: pulumi.Input[int]
+        """
+        The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
+        """
+elif False:
+    InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs:
@@ -392,6 +549,19 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs:
         pulumi.set(self, "retention_period_hours", value)
 
 
+if not MYPY:
+    class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgsDict(TypedDict):
+        encryption_type: pulumi.Input[str]
+        """
+        The type of encryption. Valid Values: `KMS`.
+        """
+        key_id: pulumi.Input[str]
+        """
+        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+        """
+elif False:
+    InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs:
     def __init__(__self__, *,
@@ -428,6 +598,23 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig
     def key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_id", value)
 
+
+if not MYPY:
+    class InstanceStorageConfigStorageConfigS3ConfigArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        """
+        The S3 bucket name.
+        """
+        bucket_prefix: pulumi.Input[str]
+        """
+        The S3 bucket prefix.
+        """
+        encryption_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict']]
+        """
+        The encryption configuration. Documented below.
+        """
+elif False:
+    InstanceStorageConfigStorageConfigS3ConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigS3ConfigArgs:
@@ -482,6 +669,19 @@ class InstanceStorageConfigStorageConfigS3ConfigArgs:
         pulumi.set(self, "encryption_config", value)
 
 
+if not MYPY:
+    class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict(TypedDict):
+        encryption_type: pulumi.Input[str]
+        """
+        The type of encryption. Valid Values: `KMS`.
+        """
+        key_id: pulumi.Input[str]
+        """
+        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+        """
+elif False:
+    InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs:
     def __init__(__self__, *,
@@ -518,6 +718,19 @@ class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs:
     def key_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_id", value)
 
+
+if not MYPY:
+    class PhoneNumberStatusArgsDict(TypedDict):
+        message: NotRequired[pulumi.Input[str]]
+        """
+        The status message.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        """
+elif False:
+    PhoneNumberStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PhoneNumberStatusArgs:
@@ -557,6 +770,23 @@ class PhoneNumberStatusArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class QueueOutboundCallerConfigArgsDict(TypedDict):
+        outbound_caller_id_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the caller ID name.
+        """
+        outbound_caller_id_number_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the caller ID number.
+        """
+        outbound_flow_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies outbound whisper flow to be used during an outbound call.
+        """
+elif False:
+    QueueOutboundCallerConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QueueOutboundCallerConfigArgs:
@@ -612,6 +842,27 @@ class QueueOutboundCallerConfigArgs:
     def outbound_flow_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "outbound_flow_id", value)
 
+
+if not MYPY:
+    class QuickConnectQuickConnectConfigArgsDict(TypedDict):
+        quick_connect_type: pulumi.Input[str]
+        """
+        Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+        """
+        phone_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgsDict']]]]
+        """
+        Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        """
+        queue_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgsDict']]]]
+        """
+        Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        """
+        user_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgsDict']]]]
+        """
+        Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        """
+elif False:
+    QuickConnectQuickConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QuickConnectQuickConnectConfigArgs:
@@ -683,6 +934,15 @@ class QuickConnectQuickConnectConfigArgs:
         pulumi.set(self, "user_configs", value)
 
 
+if not MYPY:
+    class QuickConnectQuickConnectConfigPhoneConfigArgsDict(TypedDict):
+        phone_number: pulumi.Input[str]
+        """
+        Specifies the phone number in in E.164 format.
+        """
+elif False:
+    QuickConnectQuickConnectConfigPhoneConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QuickConnectQuickConnectConfigPhoneConfigArgs:
     def __init__(__self__, *,
@@ -704,6 +964,19 @@ class QuickConnectQuickConnectConfigPhoneConfigArgs:
     def phone_number(self, value: pulumi.Input[str]):
         pulumi.set(self, "phone_number", value)
 
+
+if not MYPY:
+    class QuickConnectQuickConnectConfigQueueConfigArgsDict(TypedDict):
+        contact_flow_id: pulumi.Input[str]
+        """
+        Specifies the identifier of the contact flow.
+        """
+        queue_id: pulumi.Input[str]
+        """
+        Specifies the identifier for the queue.
+        """
+elif False:
+    QuickConnectQuickConnectConfigQueueConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class QuickConnectQuickConnectConfigQueueConfigArgs:
@@ -742,6 +1015,19 @@ class QuickConnectQuickConnectConfigQueueConfigArgs:
         pulumi.set(self, "queue_id", value)
 
 
+if not MYPY:
+    class QuickConnectQuickConnectConfigUserConfigArgsDict(TypedDict):
+        contact_flow_id: pulumi.Input[str]
+        """
+        Specifies the identifier of the contact flow.
+        """
+        user_id: pulumi.Input[str]
+        """
+        Specifies the identifier for the user.
+        """
+elif False:
+    QuickConnectQuickConnectConfigUserConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class QuickConnectQuickConnectConfigUserConfigArgs:
     def __init__(__self__, *,
@@ -779,6 +1065,19 @@ class QuickConnectQuickConnectConfigUserConfigArgs:
         pulumi.set(self, "user_id", value)
 
 
+if not MYPY:
+    class RoutingProfileMediaConcurrencyArgsDict(TypedDict):
+        channel: pulumi.Input[str]
+        """
+        Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+        """
+        concurrency: pulumi.Input[int]
+        """
+        Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        """
+elif False:
+    RoutingProfileMediaConcurrencyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RoutingProfileMediaConcurrencyArgs:
     def __init__(__self__, *,
@@ -815,6 +1114,35 @@ class RoutingProfileMediaConcurrencyArgs:
     def concurrency(self, value: pulumi.Input[int]):
         pulumi.set(self, "concurrency", value)
 
+
+if not MYPY:
+    class RoutingProfileQueueConfigArgsDict(TypedDict):
+        channel: pulumi.Input[str]
+        """
+        Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        """
+        delay: pulumi.Input[int]
+        """
+        Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+        """
+        priority: pulumi.Input[int]
+        """
+        Specifies the order in which contacts are to be handled for the queue.
+        """
+        queue_id: pulumi.Input[str]
+        """
+        Specifies the identifier for the queue.
+        """
+        queue_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN for the queue.
+        """
+        queue_name: NotRequired[pulumi.Input[str]]
+        """
+        Name for the queue.
+        """
+elif False:
+    RoutingProfileQueueConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RoutingProfileQueueConfigArgs:
@@ -915,6 +1243,31 @@ class RoutingProfileQueueConfigArgs:
         pulumi.set(self, "queue_name", value)
 
 
+if not MYPY:
+    class UserHierarchyGroupHierarchyPathArgsDict(TypedDict):
+        level_fives: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgsDict']]]]
+        """
+        A block that defines the details of level five. The level block is documented below.
+        """
+        level_fours: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgsDict']]]]
+        """
+        A block that defines the details of level four. The level block is documented below.
+        """
+        level_ones: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgsDict']]]]
+        """
+        A block that defines the details of level one. The level block is documented below.
+        """
+        level_threes: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgsDict']]]]
+        """
+        A block that defines the details of level three. The level block is documented below.
+        """
+        level_twos: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgsDict']]]]
+        """
+        A block that defines the details of level two. The level block is documented below.
+        """
+elif False:
+    UserHierarchyGroupHierarchyPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathArgs:
     def __init__(__self__, *,
@@ -1002,6 +1355,23 @@ class UserHierarchyGroupHierarchyPathArgs:
         pulumi.set(self, "level_twos", value)
 
 
+if not MYPY:
+    class UserHierarchyGroupHierarchyPathLevelFifeArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy group.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy group.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+elif False:
+    UserHierarchyGroupHierarchyPathLevelFifeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelFifeArgs:
     def __init__(__self__, *,
@@ -1056,6 +1426,23 @@ class UserHierarchyGroupHierarchyPathLevelFifeArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class UserHierarchyGroupHierarchyPathLevelFourArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy group.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy group.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+elif False:
+    UserHierarchyGroupHierarchyPathLevelFourArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelFourArgs:
@@ -1112,6 +1499,23 @@ class UserHierarchyGroupHierarchyPathLevelFourArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class UserHierarchyGroupHierarchyPathLevelOneArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy group.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy group.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+elif False:
+    UserHierarchyGroupHierarchyPathLevelOneArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelOneArgs:
     def __init__(__self__, *,
@@ -1166,6 +1570,23 @@ class UserHierarchyGroupHierarchyPathLevelOneArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class UserHierarchyGroupHierarchyPathLevelThreeArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy group.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy group.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+elif False:
+    UserHierarchyGroupHierarchyPathLevelThreeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelThreeArgs:
@@ -1222,6 +1643,23 @@ class UserHierarchyGroupHierarchyPathLevelThreeArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class UserHierarchyGroupHierarchyPathLevelTwoArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy group.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy group.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+elif False:
+    UserHierarchyGroupHierarchyPathLevelTwoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelTwoArgs:
     def __init__(__self__, *,
@@ -1276,6 +1714,33 @@ class UserHierarchyGroupHierarchyPathLevelTwoArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class UserHierarchyStructureHierarchyStructureArgsDict(TypedDict):
+        level_five: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgsDict']]
+        """
+        A block that defines the details of level five. The level block is documented below.
+
+        Each level block supports the following arguments:
+        """
+        level_four: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgsDict']]
+        """
+        A block that defines the details of level four. The level block is documented below.
+        """
+        level_one: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgsDict']]
+        """
+        A block that defines the details of level one. The level block is documented below.
+        """
+        level_three: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgsDict']]
+        """
+        A block that defines the details of level three. The level block is documented below.
+        """
+        level_two: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgsDict']]
+        """
+        A block that defines the details of level two. The level block is documented below.
+        """
+elif False:
+    UserHierarchyStructureHierarchyStructureArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureArgs:
@@ -1368,6 +1833,20 @@ class UserHierarchyStructureHierarchyStructureArgs:
         pulumi.set(self, "level_two", value)
 
 
+if not MYPY:
+    class UserHierarchyStructureHierarchyStructureLevelFiveArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy level.
+        """
+elif False:
+    UserHierarchyStructureHierarchyStructureLevelFiveArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
     def __init__(__self__, *,
@@ -1417,6 +1896,20 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class UserHierarchyStructureHierarchyStructureLevelFourArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy level.
+        """
+elif False:
+    UserHierarchyStructureHierarchyStructureLevelFourArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureLevelFourArgs:
@@ -1468,6 +1961,20 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class UserHierarchyStructureHierarchyStructureLevelOneArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy level.
+        """
+elif False:
+    UserHierarchyStructureHierarchyStructureLevelOneArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureLevelOneArgs:
     def __init__(__self__, *,
@@ -1517,6 +2024,20 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class UserHierarchyStructureHierarchyStructureLevelThreeArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy level.
+        """
+elif False:
+    UserHierarchyStructureHierarchyStructureLevelThreeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
@@ -1568,6 +2089,20 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class UserHierarchyStructureHierarchyStructureLevelTwoArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the hierarchy level.
+        """
+elif False:
+    UserHierarchyStructureHierarchyStructureLevelTwoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
     def __init__(__self__, *,
@@ -1617,6 +2152,23 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class UserIdentityInfoArgsDict(TypedDict):
+        email: NotRequired[pulumi.Input[str]]
+        """
+        The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+        """
+        first_name: NotRequired[pulumi.Input[str]]
+        """
+        The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+        """
+        last_name: NotRequired[pulumi.Input[str]]
+        """
+        The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+        """
+elif False:
+    UserIdentityInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserIdentityInfoArgs:
@@ -1672,6 +2224,27 @@ class UserIdentityInfoArgs:
     def last_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_name", value)
 
+
+if not MYPY:
+    class UserPhoneConfigArgsDict(TypedDict):
+        phone_type: pulumi.Input[str]
+        """
+        The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+        """
+        after_contact_work_time_limit: NotRequired[pulumi.Input[int]]
+        """
+        The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
+        """
+        auto_accept: NotRequired[pulumi.Input[bool]]
+        """
+        When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+        """
+        desk_phone_number: NotRequired[pulumi.Input[str]]
+        """
+        The phone number for the user's desk phone. Required if `phone_type` is set as `DESK_PHONE`.
+        """
+elif False:
+    UserPhoneConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPhoneConfigArgs:
@@ -1742,6 +2315,19 @@ class UserPhoneConfigArgs:
     def desk_phone_number(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "desk_phone_number", value)
 
+
+if not MYPY:
+    class GetBotAssociationLexBotArgsDict(TypedDict):
+        lex_region: str
+        """
+        Region that the Amazon Lex (V1) bot was created in.
+        """
+        name: str
+        """
+        Name of the Amazon Lex (V1) bot.
+        """
+elif False:
+    GetBotAssociationLexBotArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetBotAssociationLexBotArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -259,8 +264,8 @@ class Replicator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]]] = None,
-                 replication_info_list: Optional[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArgs']]] = None,
+                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+                 replication_info_list: Optional[pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
                  replicator_name: Optional[pulumi.Input[str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -281,36 +286,36 @@ class Replicator(pulumi.CustomResource):
             description="test-description",
             service_execution_role_arn=source_aws_iam_role["arn"],
             kafka_clusters=[
-                aws.msk.ReplicatorKafkaClusterArgs(
-                    amazon_msk_cluster=aws.msk.ReplicatorKafkaClusterAmazonMskClusterArgs(
-                        msk_cluster_arn=source["arn"],
-                    ),
-                    vpc_config=aws.msk.ReplicatorKafkaClusterVpcConfigArgs(
-                        subnet_ids=[__item["id"] for __item in source_aws_subnet],
-                        security_groups_ids=[source_aws_security_group["id"]],
-                    ),
-                ),
-                aws.msk.ReplicatorKafkaClusterArgs(
-                    amazon_msk_cluster=aws.msk.ReplicatorKafkaClusterAmazonMskClusterArgs(
-                        msk_cluster_arn=target["arn"],
-                    ),
-                    vpc_config=aws.msk.ReplicatorKafkaClusterVpcConfigArgs(
-                        subnet_ids=[__item["id"] for __item in target_aws_subnet],
-                        security_groups_ids=[target_aws_security_group["id"]],
-                    ),
-                ),
+                {
+                    "amazonMskCluster": {
+                        "mskClusterArn": source["arn"],
+                    },
+                    "vpcConfig": {
+                        "subnetIds": [__item["id"] for __item in source_aws_subnet],
+                        "securityGroupsIds": [source_aws_security_group["id"]],
+                    },
+                },
+                {
+                    "amazonMskCluster": {
+                        "mskClusterArn": target["arn"],
+                    },
+                    "vpcConfig": {
+                        "subnetIds": [__item["id"] for __item in target_aws_subnet],
+                        "securityGroupsIds": [target_aws_security_group["id"]],
+                    },
+                },
             ],
-            replication_info_list=aws.msk.ReplicatorReplicationInfoListArgs(
-                source_kafka_cluster_arn=source["arn"],
-                target_kafka_cluster_arn=target["arn"],
-                target_compression_type="NONE",
-                topic_replications=[aws.msk.ReplicatorReplicationInfoListTopicReplicationArgs(
-                    topics_to_replicates=[".*"],
-                )],
-                consumer_group_replications=[aws.msk.ReplicatorReplicationInfoListConsumerGroupReplicationArgs(
-                    consumer_groups_to_replicates=[".*"],
-                )],
-            ))
+            replication_info_list={
+                "sourceKafkaClusterArn": source["arn"],
+                "targetKafkaClusterArn": target["arn"],
+                "targetCompressionType": "NONE",
+                "topicReplications": [{
+                    "topicsToReplicates": [".*"],
+                }],
+                "consumerGroupReplications": [{
+                    "consumerGroupsToReplicates": [".*"],
+                }],
+            })
         ```
 
         ## Import
@@ -324,8 +329,8 @@ class Replicator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
-        :param pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArgs']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[str] replicator_name: The name of the replicator.
         :param pulumi.Input[str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         """
@@ -351,36 +356,36 @@ class Replicator(pulumi.CustomResource):
             description="test-description",
             service_execution_role_arn=source_aws_iam_role["arn"],
             kafka_clusters=[
-                aws.msk.ReplicatorKafkaClusterArgs(
-                    amazon_msk_cluster=aws.msk.ReplicatorKafkaClusterAmazonMskClusterArgs(
-                        msk_cluster_arn=source["arn"],
-                    ),
-                    vpc_config=aws.msk.ReplicatorKafkaClusterVpcConfigArgs(
-                        subnet_ids=[__item["id"] for __item in source_aws_subnet],
-                        security_groups_ids=[source_aws_security_group["id"]],
-                    ),
-                ),
-                aws.msk.ReplicatorKafkaClusterArgs(
-                    amazon_msk_cluster=aws.msk.ReplicatorKafkaClusterAmazonMskClusterArgs(
-                        msk_cluster_arn=target["arn"],
-                    ),
-                    vpc_config=aws.msk.ReplicatorKafkaClusterVpcConfigArgs(
-                        subnet_ids=[__item["id"] for __item in target_aws_subnet],
-                        security_groups_ids=[target_aws_security_group["id"]],
-                    ),
-                ),
+                {
+                    "amazonMskCluster": {
+                        "mskClusterArn": source["arn"],
+                    },
+                    "vpcConfig": {
+                        "subnetIds": [__item["id"] for __item in source_aws_subnet],
+                        "securityGroupsIds": [source_aws_security_group["id"]],
+                    },
+                },
+                {
+                    "amazonMskCluster": {
+                        "mskClusterArn": target["arn"],
+                    },
+                    "vpcConfig": {
+                        "subnetIds": [__item["id"] for __item in target_aws_subnet],
+                        "securityGroupsIds": [target_aws_security_group["id"]],
+                    },
+                },
             ],
-            replication_info_list=aws.msk.ReplicatorReplicationInfoListArgs(
-                source_kafka_cluster_arn=source["arn"],
-                target_kafka_cluster_arn=target["arn"],
-                target_compression_type="NONE",
-                topic_replications=[aws.msk.ReplicatorReplicationInfoListTopicReplicationArgs(
-                    topics_to_replicates=[".*"],
-                )],
-                consumer_group_replications=[aws.msk.ReplicatorReplicationInfoListConsumerGroupReplicationArgs(
-                    consumer_groups_to_replicates=[".*"],
-                )],
-            ))
+            replication_info_list={
+                "sourceKafkaClusterArn": source["arn"],
+                "targetKafkaClusterArn": target["arn"],
+                "targetCompressionType": "NONE",
+                "topicReplications": [{
+                    "topicsToReplicates": [".*"],
+                }],
+                "consumerGroupReplications": [{
+                    "consumerGroupsToReplicates": [".*"],
+                }],
+            })
         ```
 
         ## Import
@@ -407,8 +412,8 @@ class Replicator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]]] = None,
-                 replication_info_list: Optional[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArgs']]] = None,
+                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+                 replication_info_list: Optional[pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
                  replicator_name: Optional[pulumi.Input[str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -451,8 +456,8 @@ class Replicator(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             current_version: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]]] = None,
-            replication_info_list: Optional[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArgs']]] = None,
+            kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]]] = None,
+            replication_info_list: Optional[pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']]] = None,
             replicator_name: Optional[pulumi.Input[str]] = None,
             service_execution_role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -466,8 +471,8 @@ class Replicator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         :param pulumi.Input[str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
-        :param pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArgs']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatorKafkaClusterArgs', 'ReplicatorKafkaClusterArgsDict']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[Union['ReplicatorReplicationInfoListArgs', 'ReplicatorReplicationInfoListArgsDict']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[str] replicator_name: The name of the replicator.
         :param pulumi.Input[str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         """

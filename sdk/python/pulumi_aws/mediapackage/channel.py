@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -295,7 +300,7 @@ class Channel(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             channel_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            hls_ingests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]]]] = None,
+            hls_ingests: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Channel':
         """
@@ -308,7 +313,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the channel
         :param pulumi.Input[str] channel_id: A unique identifier describing the channel
         :param pulumi.Input[str] description: A description of the channel
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]]] hls_ingests: A single item list of HLS ingest information
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelHlsIngestArgs', 'ChannelHlsIngestArgsDict']]]] hls_ingests: A single item list of HLS ingest information
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

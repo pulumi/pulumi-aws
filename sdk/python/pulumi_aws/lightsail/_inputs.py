@@ -4,32 +4,70 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CertificateDomainValidationOptionArgs',
+    'CertificateDomainValidationOptionArgsDict',
     'ContainerServiceDeploymentVersionContainerArgs',
+    'ContainerServiceDeploymentVersionContainerArgsDict',
     'ContainerServiceDeploymentVersionPublicEndpointArgs',
+    'ContainerServiceDeploymentVersionPublicEndpointArgsDict',
     'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs',
+    'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgsDict',
     'ContainerServicePrivateRegistryAccessArgs',
+    'ContainerServicePrivateRegistryAccessArgsDict',
     'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs',
+    'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgsDict',
     'ContainerServicePublicDomainNamesArgs',
+    'ContainerServicePublicDomainNamesArgsDict',
     'ContainerServicePublicDomainNamesCertificateArgs',
+    'ContainerServicePublicDomainNamesCertificateArgsDict',
     'DistributionCacheBehaviorArgs',
+    'DistributionCacheBehaviorArgsDict',
     'DistributionCacheBehaviorSettingsArgs',
+    'DistributionCacheBehaviorSettingsArgsDict',
     'DistributionCacheBehaviorSettingsForwardedCookiesArgs',
+    'DistributionCacheBehaviorSettingsForwardedCookiesArgsDict',
     'DistributionCacheBehaviorSettingsForwardedHeadersArgs',
+    'DistributionCacheBehaviorSettingsForwardedHeadersArgsDict',
     'DistributionCacheBehaviorSettingsForwardedQueryStringsArgs',
+    'DistributionCacheBehaviorSettingsForwardedQueryStringsArgsDict',
     'DistributionDefaultCacheBehaviorArgs',
+    'DistributionDefaultCacheBehaviorArgsDict',
     'DistributionLocationArgs',
+    'DistributionLocationArgsDict',
     'DistributionOriginArgs',
+    'DistributionOriginArgsDict',
     'InstanceAddOnArgs',
+    'InstanceAddOnArgsDict',
     'InstancePublicPortsPortInfoArgs',
+    'InstancePublicPortsPortInfoArgsDict',
     'LbCertificateDomainValidationRecordArgs',
+    'LbCertificateDomainValidationRecordArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CertificateDomainValidationOptionArgsDict(TypedDict):
+        domain_name: NotRequired[pulumi.Input[str]]
+        """
+        A domain name for which the certificate should be issued.
+        """
+        resource_record_name: NotRequired[pulumi.Input[str]]
+        resource_record_type: NotRequired[pulumi.Input[str]]
+        resource_record_value: NotRequired[pulumi.Input[str]]
+elif False:
+    CertificateDomainValidationOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateDomainValidationOptionArgs:
@@ -89,6 +127,31 @@ class CertificateDomainValidationOptionArgs:
     def resource_record_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_record_value", value)
 
+
+if not MYPY:
+    class ContainerServiceDeploymentVersionContainerArgsDict(TypedDict):
+        container_name: pulumi.Input[str]
+        """
+        The name for the container.
+        """
+        image: pulumi.Input[str]
+        """
+        The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+        """
+        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The launch command for the container. A list of string.
+        """
+        environment: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A key-value map of the environment variables of the container.
+        """
+        ports: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+        """
+elif False:
+    ContainerServiceDeploymentVersionContainerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerServiceDeploymentVersionContainerArgs:
@@ -175,6 +238,23 @@ class ContainerServiceDeploymentVersionContainerArgs:
         pulumi.set(self, "ports", value)
 
 
+if not MYPY:
+    class ContainerServiceDeploymentVersionPublicEndpointArgsDict(TypedDict):
+        container_name: pulumi.Input[str]
+        """
+        The name of the container for the endpoint.
+        """
+        container_port: pulumi.Input[int]
+        """
+        The port of the container to which traffic is forwarded to.
+        """
+        health_check: pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgsDict']
+        """
+        A configuration block that describes the health check configuration of the container. Detailed below.
+        """
+elif False:
+    ContainerServiceDeploymentVersionPublicEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerServiceDeploymentVersionPublicEndpointArgs:
     def __init__(__self__, *,
@@ -226,6 +306,35 @@ class ContainerServiceDeploymentVersionPublicEndpointArgs:
     def health_check(self, value: pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs']):
         pulumi.set(self, "health_check", value)
 
+
+if not MYPY:
+    class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgsDict(TypedDict):
+        healthy_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+        """
+        interval_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path on the container on which to perform the health check. Defaults to "/".
+        """
+        success_codes: NotRequired[pulumi.Input[str]]
+        """
+        The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+        """
+        timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+        """
+        unhealthy_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+        """
+elif False:
+    ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs:
@@ -330,6 +439,15 @@ class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs:
         pulumi.set(self, "unhealthy_threshold", value)
 
 
+if not MYPY:
+    class ContainerServicePrivateRegistryAccessArgsDict(TypedDict):
+        ecr_image_puller_role: NotRequired[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgsDict']]
+        """
+        Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+        """
+elif False:
+    ContainerServicePrivateRegistryAccessArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerServicePrivateRegistryAccessArgs:
     def __init__(__self__, *,
@@ -352,6 +470,21 @@ class ContainerServicePrivateRegistryAccessArgs:
     def ecr_image_puller_role(self, value: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs']]):
         pulumi.set(self, "ecr_image_puller_role", value)
 
+
+if not MYPY:
+    class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgsDict(TypedDict):
+        is_active: NotRequired[pulumi.Input[bool]]
+        """
+        A Boolean value that indicates whether to activate the role. The default is `false`.
+        """
+        principal_arn: NotRequired[pulumi.Input[str]]
+        """
+        The principal ARN of the container service. The principal ARN can be used to create a trust
+        relationship between your standard AWS account and your Lightsail container service. This allows you to give your
+        service permission to access resources in your standard AWS account.
+        """
+elif False:
+    ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs:
@@ -396,6 +529,12 @@ class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs:
         pulumi.set(self, "principal_arn", value)
 
 
+if not MYPY:
+    class ContainerServicePublicDomainNamesArgsDict(TypedDict):
+        certificates: pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArgsDict']]]
+elif False:
+    ContainerServicePublicDomainNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContainerServicePublicDomainNamesArgs:
     def __init__(__self__, *,
@@ -411,6 +550,13 @@ class ContainerServicePublicDomainNamesArgs:
     def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArgs']]]):
         pulumi.set(self, "certificates", value)
 
+
+if not MYPY:
+    class ContainerServicePublicDomainNamesCertificateArgsDict(TypedDict):
+        certificate_name: pulumi.Input[str]
+        domain_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    ContainerServicePublicDomainNamesCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContainerServicePublicDomainNamesCertificateArgs:
@@ -438,6 +584,19 @@ class ContainerServicePublicDomainNamesCertificateArgs:
     def domain_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "domain_names", value)
 
+
+if not MYPY:
+    class DistributionCacheBehaviorArgsDict(TypedDict):
+        behavior: pulumi.Input[str]
+        """
+        The cache behavior for the specified path.
+        """
+        path: pulumi.Input[str]
+        """
+        The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (path/to/assets/\\*), and file types (\\*.html, \\*jpg, \\*js). Directories and file paths are case-sensitive.
+        """
+elif False:
+    DistributionCacheBehaviorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionCacheBehaviorArgs:
@@ -475,6 +634,43 @@ class DistributionCacheBehaviorArgs:
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class DistributionCacheBehaviorSettingsArgsDict(TypedDict):
+        allowed_http_methods: NotRequired[pulumi.Input[str]]
+        """
+        The HTTP methods that are processed and forwarded to the distribution's origin.
+        """
+        cached_http_methods: NotRequired[pulumi.Input[str]]
+        """
+        The HTTP method responses that are cached by your distribution.
+        """
+        default_ttl: NotRequired[pulumi.Input[int]]
+        """
+        The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
+        """
+        forwarded_cookies: NotRequired[pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArgsDict']]
+        """
+        An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+        """
+        forwarded_headers: NotRequired[pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArgsDict']]
+        """
+        An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+        """
+        forwarded_query_strings: NotRequired[pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArgsDict']]
+        """
+        An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+        """
+        maximum_ttl: NotRequired[pulumi.Input[int]]
+        """
+        The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        """
+        minimum_ttl: NotRequired[pulumi.Input[int]]
+        """
+        The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
+        """
+elif False:
+    DistributionCacheBehaviorSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionCacheBehaviorSettingsArgs:
@@ -611,6 +807,19 @@ class DistributionCacheBehaviorSettingsArgs:
         pulumi.set(self, "minimum_ttl", value)
 
 
+if not MYPY:
+    class DistributionCacheBehaviorSettingsForwardedCookiesArgsDict(TypedDict):
+        cookies_allow_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The specific cookies to forward to your distribution's origin.
+        """
+        option: NotRequired[pulumi.Input[str]]
+        """
+        Specifies which cookies to forward to the distribution's origin for a cache behavior: all, none, or allow-list to forward only the cookies specified in the cookiesAllowList parameter.
+        """
+elif False:
+    DistributionCacheBehaviorSettingsForwardedCookiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionCacheBehaviorSettingsForwardedCookiesArgs:
     def __init__(__self__, *,
@@ -649,6 +858,19 @@ class DistributionCacheBehaviorSettingsForwardedCookiesArgs:
     def option(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "option", value)
 
+
+if not MYPY:
+    class DistributionCacheBehaviorSettingsForwardedHeadersArgsDict(TypedDict):
+        headers_allow_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The specific headers to forward to your distribution's origin.
+        """
+        option: NotRequired[pulumi.Input[str]]
+        """
+        The headers that you want your distribution to forward to your origin and base caching on.
+        """
+elif False:
+    DistributionCacheBehaviorSettingsForwardedHeadersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionCacheBehaviorSettingsForwardedHeadersArgs:
@@ -689,6 +911,19 @@ class DistributionCacheBehaviorSettingsForwardedHeadersArgs:
         pulumi.set(self, "option", value)
 
 
+if not MYPY:
+    class DistributionCacheBehaviorSettingsForwardedQueryStringsArgsDict(TypedDict):
+        option: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the distribution forwards and caches based on query strings.
+        """
+        query_strings_allowed_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The specific query strings that the distribution forwards to the origin.
+        """
+elif False:
+    DistributionCacheBehaviorSettingsForwardedQueryStringsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs:
     def __init__(__self__, *,
@@ -728,6 +963,15 @@ class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs:
         pulumi.set(self, "query_strings_allowed_lists", value)
 
 
+if not MYPY:
+    class DistributionDefaultCacheBehaviorArgsDict(TypedDict):
+        behavior: pulumi.Input[str]
+        """
+        The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
+        """
+elif False:
+    DistributionDefaultCacheBehaviorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DistributionDefaultCacheBehaviorArgs:
     def __init__(__self__, *,
@@ -749,6 +993,19 @@ class DistributionDefaultCacheBehaviorArgs:
     def behavior(self, value: pulumi.Input[str]):
         pulumi.set(self, "behavior", value)
 
+
+if not MYPY:
+    class DistributionLocationArgsDict(TypedDict):
+        availability_zone: pulumi.Input[str]
+        """
+        The Availability Zone. Follows the format us-east-2a (case-sensitive).
+        """
+        region_name: pulumi.Input[str]
+        """
+        The AWS Region name.
+        """
+elif False:
+    DistributionLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionLocationArgs:
@@ -786,6 +1043,27 @@ class DistributionLocationArgs:
     def region_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "region_name", value)
 
+
+if not MYPY:
+    class DistributionOriginArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
+        """
+        region_name: pulumi.Input[str]
+        """
+        The AWS Region name of the origin resource.
+        """
+        protocol_policy: NotRequired[pulumi.Input[str]]
+        """
+        The protocol that your Amazon Lightsail distribution uses when establishing a connection with your origin to pull content.
+        """
+        resource_type: NotRequired[pulumi.Input[str]]
+        """
+        The resource type of the origin resource (e.g., Instance).
+        """
+elif False:
+    DistributionOriginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DistributionOriginArgs:
@@ -856,6 +1134,23 @@ class DistributionOriginArgs:
         pulumi.set(self, "resource_type", value)
 
 
+if not MYPY:
+    class InstanceAddOnArgsDict(TypedDict):
+        snapshot_time: pulumi.Input[str]
+        """
+        The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
+        """
+        status: pulumi.Input[str]
+        """
+        The status of the add on. Valid Values: `Enabled`, `Disabled`.
+        """
+        type: pulumi.Input[str]
+        """
+        The add-on type. There is currently only one valid type `AutoSnapshot`.
+        """
+elif False:
+    InstanceAddOnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceAddOnArgs:
     def __init__(__self__, *,
@@ -907,6 +1202,34 @@ class InstanceAddOnArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class InstancePublicPortsPortInfoArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        """
+        First port in a range of open ports on an instance.
+        """
+        protocol: pulumi.Input[str]
+        """
+        IP protocol name. Valid values are `tcp`, `all`, `udp`, and `icmp`.
+        """
+        to_port: pulumi.Input[int]
+        """
+        Last port in a range of open ports on an instance.
+
+        The following arguments are optional:
+        """
+        cidr_list_aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of CIDR aliases that define access for a preconfigured range of IP addresses.
+        """
+        cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of CIDR blocks.
+        """
+        ipv6_cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    InstancePublicPortsPortInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstancePublicPortsPortInfoArgs:
@@ -1007,6 +1330,18 @@ class InstancePublicPortsPortInfoArgs:
     def ipv6_cidrs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ipv6_cidrs", value)
 
+
+if not MYPY:
+    class LbCertificateDomainValidationRecordArgsDict(TypedDict):
+        domain_name: NotRequired[pulumi.Input[str]]
+        """
+        The domain name (e.g., example.com) for your SSL/TLS certificate.
+        """
+        resource_record_name: NotRequired[pulumi.Input[str]]
+        resource_record_type: NotRequired[pulumi.Input[str]]
+        resource_record_value: NotRequired[pulumi.Input[str]]
+elif False:
+    LbCertificateDomainValidationRecordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LbCertificateDomainValidationRecordArgs:

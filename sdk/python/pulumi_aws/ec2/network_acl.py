@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -245,8 +250,8 @@ class NetworkAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]]] = None,
-                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -273,22 +278,22 @@ class NetworkAcl(pulumi.CustomResource):
 
         main = aws.ec2.NetworkAcl("main",
             vpc_id=main_aws_vpc["id"],
-            egress=[aws.ec2.NetworkAclEgressArgs(
-                protocol="tcp",
-                rule_no=200,
-                action="allow",
-                cidr_block="10.3.0.0/18",
-                from_port=443,
-                to_port=443,
-            )],
-            ingress=[aws.ec2.NetworkAclIngressArgs(
-                protocol="tcp",
-                rule_no=100,
-                action="allow",
-                cidr_block="10.3.0.0/18",
-                from_port=80,
-                to_port=80,
-            )],
+            egress=[{
+                "protocol": "tcp",
+                "ruleNo": 200,
+                "action": "allow",
+                "cidrBlock": "10.3.0.0/18",
+                "fromPort": 443,
+                "toPort": 443,
+            }],
+            ingress=[{
+                "protocol": "tcp",
+                "ruleNo": 100,
+                "action": "allow",
+                "cidrBlock": "10.3.0.0/18",
+                "fromPort": 80,
+                "toPort": 80,
+            }],
             tags={
                 "Name": "main",
             })
@@ -304,8 +309,8 @@ class NetworkAcl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
@@ -338,22 +343,22 @@ class NetworkAcl(pulumi.CustomResource):
 
         main = aws.ec2.NetworkAcl("main",
             vpc_id=main_aws_vpc["id"],
-            egress=[aws.ec2.NetworkAclEgressArgs(
-                protocol="tcp",
-                rule_no=200,
-                action="allow",
-                cidr_block="10.3.0.0/18",
-                from_port=443,
-                to_port=443,
-            )],
-            ingress=[aws.ec2.NetworkAclIngressArgs(
-                protocol="tcp",
-                rule_no=100,
-                action="allow",
-                cidr_block="10.3.0.0/18",
-                from_port=80,
-                to_port=80,
-            )],
+            egress=[{
+                "protocol": "tcp",
+                "ruleNo": 200,
+                "action": "allow",
+                "cidrBlock": "10.3.0.0/18",
+                "fromPort": 443,
+                "toPort": 443,
+            }],
+            ingress=[{
+                "protocol": "tcp",
+                "ruleNo": 100,
+                "action": "allow",
+                "cidrBlock": "10.3.0.0/18",
+                "fromPort": 80,
+                "toPort": 80,
+            }],
             tags={
                 "Name": "main",
             })
@@ -382,8 +387,8 @@ class NetworkAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]]] = None,
-                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -417,8 +422,8 @@ class NetworkAcl(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]]] = None,
-            ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]]] = None,
+            egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]]] = None,
+            ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -432,8 +437,8 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the network ACL
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclEgressArgs', 'NetworkAclEgressArgsDict']]]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAclIngressArgs', 'NetworkAclIngressArgsDict']]]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the network ACL.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

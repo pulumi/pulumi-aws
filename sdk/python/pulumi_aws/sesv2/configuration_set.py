@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -322,13 +327,13 @@ class ConfigurationSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: Optional[pulumi.Input[str]] = None,
-                 delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
-                 reputation_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']]] = None,
-                 sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
-                 suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
+                 delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
+                 reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
+                 sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
+                 suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
-                 vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None,
+                 tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
+                 vdm_options: Optional[pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
@@ -343,24 +348,24 @@ class ConfigurationSet(pulumi.CustomResource):
 
         example = aws.sesv2.ConfigurationSet("example",
             configuration_set_name="example",
-            delivery_options=aws.sesv2.ConfigurationSetDeliveryOptionsArgs(
-                tls_policy="REQUIRE",
-            ),
-            reputation_options=aws.sesv2.ConfigurationSetReputationOptionsArgs(
-                reputation_metrics_enabled=False,
-            ),
-            sending_options=aws.sesv2.ConfigurationSetSendingOptionsArgs(
-                sending_enabled=True,
-            ),
-            suppression_options=aws.sesv2.ConfigurationSetSuppressionOptionsArgs(
-                suppressed_reasons=[
+            delivery_options={
+                "tlsPolicy": "REQUIRE",
+            },
+            reputation_options={
+                "reputationMetricsEnabled": False,
+            },
+            sending_options={
+                "sendingEnabled": True,
+            },
+            suppression_options={
+                "suppressedReasons": [
                     "BOUNCE",
                     "COMPLAINT",
                 ],
-            ),
-            tracking_options=aws.sesv2.ConfigurationSetTrackingOptionsArgs(
-                custom_redirect_domain="example.com",
-            ))
+            },
+            tracking_options={
+                "customRedirectDomain": "example.com",
+            })
         ```
 
         ## Import
@@ -374,13 +379,13 @@ class ConfigurationSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']] suppression_options: An object that contains information about the suppression list preferences for your account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']] vdm_options: An object that defines the VDM settings that apply to emails that you send using the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']] vdm_options: An object that defines the VDM settings that apply to emails that you send using the configuration set.
         """
         ...
     @overload
@@ -401,24 +406,24 @@ class ConfigurationSet(pulumi.CustomResource):
 
         example = aws.sesv2.ConfigurationSet("example",
             configuration_set_name="example",
-            delivery_options=aws.sesv2.ConfigurationSetDeliveryOptionsArgs(
-                tls_policy="REQUIRE",
-            ),
-            reputation_options=aws.sesv2.ConfigurationSetReputationOptionsArgs(
-                reputation_metrics_enabled=False,
-            ),
-            sending_options=aws.sesv2.ConfigurationSetSendingOptionsArgs(
-                sending_enabled=True,
-            ),
-            suppression_options=aws.sesv2.ConfigurationSetSuppressionOptionsArgs(
-                suppressed_reasons=[
+            delivery_options={
+                "tlsPolicy": "REQUIRE",
+            },
+            reputation_options={
+                "reputationMetricsEnabled": False,
+            },
+            sending_options={
+                "sendingEnabled": True,
+            },
+            suppression_options={
+                "suppressedReasons": [
                     "BOUNCE",
                     "COMPLAINT",
                 ],
-            ),
-            tracking_options=aws.sesv2.ConfigurationSetTrackingOptionsArgs(
-                custom_redirect_domain="example.com",
-            ))
+            },
+            tracking_options={
+                "customRedirectDomain": "example.com",
+            })
         ```
 
         ## Import
@@ -445,13 +450,13 @@ class ConfigurationSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: Optional[pulumi.Input[str]] = None,
-                 delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
-                 reputation_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']]] = None,
-                 sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
-                 suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
+                 delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
+                 reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
+                 sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
+                 suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
-                 vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None,
+                 tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
+                 vdm_options: Optional[pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -485,14 +490,14 @@ class ConfigurationSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             configuration_set_name: Optional[pulumi.Input[str]] = None,
-            delivery_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']]] = None,
-            reputation_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']]] = None,
-            sending_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']]] = None,
-            suppression_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']]] = None,
+            delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
+            reputation_options: Optional[pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']]] = None,
+            sending_options: Optional[pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']]] = None,
+            suppression_options: Optional[pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
-            vdm_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']]] = None) -> 'ConfigurationSet':
+            tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
+            vdm_options: Optional[pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']]] = None) -> 'ConfigurationSet':
         """
         Get an existing ConfigurationSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -502,13 +507,13 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Configuration Set.
         :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
+        :param pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetReputationOptionsArgs', 'ConfigurationSetReputationOptionsArgsDict']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetSendingOptionsArgs', 'ConfigurationSetSendingOptionsArgsDict']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetSuppressionOptionsArgs', 'ConfigurationSetSuppressionOptionsArgsDict']] suppression_options: An object that contains information about the suppression list preferences for your account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetVdmOptionsArgs']] vdm_options: An object that defines the VDM settings that apply to emails that you send using the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
+        :param pulumi.Input[Union['ConfigurationSetVdmOptionsArgs', 'ConfigurationSetVdmOptionsArgsDict']] vdm_options: An object that defines the VDM settings that apply to emails that you send using the configuration set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

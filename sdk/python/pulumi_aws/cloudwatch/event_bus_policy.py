@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['EventBusPolicyArgs', 'EventBusPolicy']
@@ -117,16 +122,16 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="DevAccountAccess",
-            effect="Allow",
-            actions=["events:PutEvents"],
-            resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-        )])
+        test = aws.iam.get_policy_document(statements=[{
+            "sid": "DevAccountAccess",
+            "effect": "Allow",
+            "actions": ["events:PutEvents"],
+            "resources": ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["123456789012"],
+            }],
+        }])
         test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
             policy=test.json,
             event_bus_name=test_aws_cloudwatch_event_bus["name"])
@@ -138,29 +143,29 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="OrganizationAccess",
-            effect="Allow",
-            actions=[
+        test = aws.iam.get_policy_document(statements=[{
+            "sid": "OrganizationAccess",
+            "effect": "Allow",
+            "actions": [
                 "events:DescribeRule",
                 "events:ListRules",
                 "events:ListTargetsByRule",
                 "events:ListTagsForResource",
             ],
-            resources=[
+            "resources": [
                 "arn:aws:events:eu-west-1:123456789012:rule/*",
                 "arn:aws:events:eu-west-1:123456789012:event-bus/default",
             ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="StringEquals",
-                variable="aws:PrincipalOrgID",
-                values=[example["id"]],
-            )],
-        )])
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["*"],
+            }],
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "aws:PrincipalOrgID",
+                "values": [example["id"]],
+            }],
+        }])
         test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
             policy=test.json,
             event_bus_name=test_aws_cloudwatch_event_bus["name"])
@@ -173,39 +178,39 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="DevAccountAccess",
-                effect="Allow",
-                actions=["events:PutEvents"],
-                resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["123456789012"],
-                )],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="OrganizationAccess",
-                effect="Allow",
-                actions=[
+            {
+                "sid": "DevAccountAccess",
+                "effect": "Allow",
+                "actions": ["events:PutEvents"],
+                "resources": ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": ["123456789012"],
+                }],
+            },
+            {
+                "sid": "OrganizationAccess",
+                "effect": "Allow",
+                "actions": [
                     "events:DescribeRule",
                     "events:ListRules",
                     "events:ListTargetsByRule",
                     "events:ListTagsForResource",
                 ],
-                resources=[
+                "resources": [
                     "arn:aws:events:eu-west-1:123456789012:rule/*",
                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
                 ],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["*"],
-                )],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="aws:PrincipalOrgID",
-                    values=[example["id"]],
-                )],
-            ),
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": ["*"],
+                }],
+                "conditions": [{
+                    "test": "StringEquals",
+                    "variable": "aws:PrincipalOrgID",
+                    "values": [example["id"]],
+                }],
+            },
         ])
         test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
             policy=test.json,
@@ -247,16 +252,16 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="DevAccountAccess",
-            effect="Allow",
-            actions=["events:PutEvents"],
-            resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-        )])
+        test = aws.iam.get_policy_document(statements=[{
+            "sid": "DevAccountAccess",
+            "effect": "Allow",
+            "actions": ["events:PutEvents"],
+            "resources": ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["123456789012"],
+            }],
+        }])
         test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
             policy=test.json,
             event_bus_name=test_aws_cloudwatch_event_bus["name"])
@@ -268,29 +273,29 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="OrganizationAccess",
-            effect="Allow",
-            actions=[
+        test = aws.iam.get_policy_document(statements=[{
+            "sid": "OrganizationAccess",
+            "effect": "Allow",
+            "actions": [
                 "events:DescribeRule",
                 "events:ListRules",
                 "events:ListTargetsByRule",
                 "events:ListTagsForResource",
             ],
-            resources=[
+            "resources": [
                 "arn:aws:events:eu-west-1:123456789012:rule/*",
                 "arn:aws:events:eu-west-1:123456789012:event-bus/default",
             ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="StringEquals",
-                variable="aws:PrincipalOrgID",
-                values=[example["id"]],
-            )],
-        )])
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["*"],
+            }],
+            "conditions": [{
+                "test": "StringEquals",
+                "variable": "aws:PrincipalOrgID",
+                "values": [example["id"]],
+            }],
+        }])
         test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
             policy=test.json,
             event_bus_name=test_aws_cloudwatch_event_bus["name"])
@@ -303,39 +308,39 @@ class EventBusPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="DevAccountAccess",
-                effect="Allow",
-                actions=["events:PutEvents"],
-                resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["123456789012"],
-                )],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="OrganizationAccess",
-                effect="Allow",
-                actions=[
+            {
+                "sid": "DevAccountAccess",
+                "effect": "Allow",
+                "actions": ["events:PutEvents"],
+                "resources": ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": ["123456789012"],
+                }],
+            },
+            {
+                "sid": "OrganizationAccess",
+                "effect": "Allow",
+                "actions": [
                     "events:DescribeRule",
                     "events:ListRules",
                     "events:ListTargetsByRule",
                     "events:ListTagsForResource",
                 ],
-                resources=[
+                "resources": [
                     "arn:aws:events:eu-west-1:123456789012:rule/*",
                     "arn:aws:events:eu-west-1:123456789012:event-bus/default",
                 ],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["*"],
-                )],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="aws:PrincipalOrgID",
-                    values=[example["id"]],
-                )],
-            ),
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": ["*"],
+                }],
+                "conditions": [{
+                    "test": "StringEquals",
+                    "variable": "aws:PrincipalOrgID",
+                    "values": [example["id"]],
+                }],
+            },
         ])
         test_event_bus_policy = aws.cloudwatch.EventBusPolicy("test",
             policy=test.json,

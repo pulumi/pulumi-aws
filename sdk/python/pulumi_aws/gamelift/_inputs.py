@@ -4,27 +4,65 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AliasRoutingStrategyArgs',
+    'AliasRoutingStrategyArgsDict',
     'BuildStorageLocationArgs',
+    'BuildStorageLocationArgsDict',
     'FleetCertificateConfigurationArgs',
+    'FleetCertificateConfigurationArgsDict',
     'FleetEc2InboundPermissionArgs',
+    'FleetEc2InboundPermissionArgsDict',
     'FleetResourceCreationLimitPolicyArgs',
+    'FleetResourceCreationLimitPolicyArgsDict',
     'FleetRuntimeConfigurationArgs',
+    'FleetRuntimeConfigurationArgsDict',
     'FleetRuntimeConfigurationServerProcessArgs',
+    'FleetRuntimeConfigurationServerProcessArgsDict',
     'GameServerGroupAutoScalingPolicyArgs',
+    'GameServerGroupAutoScalingPolicyArgsDict',
     'GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs',
+    'GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgsDict',
     'GameServerGroupInstanceDefinitionArgs',
+    'GameServerGroupInstanceDefinitionArgsDict',
     'GameServerGroupLaunchTemplateArgs',
+    'GameServerGroupLaunchTemplateArgsDict',
     'GameSessionQueuePlayerLatencyPolicyArgs',
+    'GameSessionQueuePlayerLatencyPolicyArgsDict',
     'MatchmakingConfigurationGamePropertyArgs',
+    'MatchmakingConfigurationGamePropertyArgsDict',
     'ScriptStorageLocationArgs',
+    'ScriptStorageLocationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AliasRoutingStrategyArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
+        """
+        fleet_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the GameLift Fleet to point the alias to.
+        """
+        message: NotRequired[pulumi.Input[str]]
+        """
+        Message text to be used with the `TERMINAL` routing strategy.
+        """
+elif False:
+    AliasRoutingStrategyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AliasRoutingStrategyArgs:
@@ -79,6 +117,27 @@ class AliasRoutingStrategyArgs:
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
 
+
+if not MYPY:
+    class BuildStorageLocationArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        """
+        Name of your S3 bucket.
+        """
+        key: pulumi.Input[str]
+        """
+        Name of the zip file containing your build files.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+        """
+        object_version: NotRequired[pulumi.Input[str]]
+        """
+        A specific version of the file. If not set, the latest version of the file is retrieved.
+        """
+elif False:
+    BuildStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BuildStorageLocationArgs:
@@ -148,6 +207,15 @@ class BuildStorageLocationArgs:
         pulumi.set(self, "object_version", value)
 
 
+if not MYPY:
+    class FleetCertificateConfigurationArgsDict(TypedDict):
+        certificate_type: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether a TLS/SSL certificate is generated for a fleet. Valid values are `DISABLED` and `GENERATED`. Default value is `DISABLED`.
+        """
+elif False:
+    FleetCertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetCertificateConfigurationArgs:
     def __init__(__self__, *,
@@ -170,6 +238,27 @@ class FleetCertificateConfigurationArgs:
     def certificate_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_type", value)
 
+
+if not MYPY:
+    class FleetEc2InboundPermissionArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        """
+        Starting value for a range of allowed port numbers.
+        """
+        ip_range: pulumi.Input[str]
+        """
+        Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+        """
+        protocol: pulumi.Input[str]
+        """
+        Network communication protocol used by the fleetE.g., `TCP` or `UDP`
+        """
+        to_port: pulumi.Input[int]
+        """
+        Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
+        """
+elif False:
+    FleetEc2InboundPermissionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetEc2InboundPermissionArgs:
@@ -238,6 +327,19 @@ class FleetEc2InboundPermissionArgs:
         pulumi.set(self, "to_port", value)
 
 
+if not MYPY:
+    class FleetResourceCreationLimitPolicyArgsDict(TypedDict):
+        new_game_sessions_per_creator: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of game sessions that an individual can create during the policy period.
+        """
+        policy_period_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Time span used in evaluating the resource creation limit policy.
+        """
+elif False:
+    FleetResourceCreationLimitPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetResourceCreationLimitPolicyArgs:
     def __init__(__self__, *,
@@ -276,6 +378,23 @@ class FleetResourceCreationLimitPolicyArgs:
     def policy_period_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "policy_period_in_minutes", value)
 
+
+if not MYPY:
+    class FleetRuntimeConfigurationArgsDict(TypedDict):
+        game_session_activation_timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
+        """
+        max_concurrent_game_session_activations: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
+        """
+        server_processes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgsDict']]]]
+        """
+        Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
+        """
+elif False:
+    FleetRuntimeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetRuntimeConfigurationArgs:
@@ -332,6 +451,23 @@ class FleetRuntimeConfigurationArgs:
         pulumi.set(self, "server_processes", value)
 
 
+if not MYPY:
+    class FleetRuntimeConfigurationServerProcessArgsDict(TypedDict):
+        concurrent_executions: pulumi.Input[int]
+        """
+        Number of server processes using this configuration to run concurrently on an instance.
+        """
+        launch_path: pulumi.Input[str]
+        """
+        Location of the server executable in a game build. All game builds are installed on instances at the root : for Windows instances `C:\\game`, and for Linux instances `/local/game`.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        Optional list of parameters to pass to the server executable on launch.
+        """
+elif False:
+    FleetRuntimeConfigurationServerProcessArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetRuntimeConfigurationServerProcessArgs:
     def __init__(__self__, *,
@@ -385,6 +521,19 @@ class FleetRuntimeConfigurationServerProcessArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class GameServerGroupAutoScalingPolicyArgsDict(TypedDict):
+        target_tracking_configuration: pulumi.Input['GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgsDict']
+        estimated_instance_warmup: NotRequired[pulumi.Input[int]]
+        """
+        Length of time, in seconds, it takes for a new instance to start
+        new game server processes and register with GameLift FleetIQ.
+        Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up,
+        because it avoids prematurely starting new instances. Defaults to `60`.
+        """
+elif False:
+    GameServerGroupAutoScalingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GameServerGroupAutoScalingPolicyArgs:
     def __init__(__self__, *,
@@ -425,6 +574,15 @@ class GameServerGroupAutoScalingPolicyArgs:
         pulumi.set(self, "estimated_instance_warmup", value)
 
 
+if not MYPY:
+    class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgsDict(TypedDict):
+        target_value: pulumi.Input[float]
+        """
+        Desired value to use with a game server group target-based scaling policy.
+        """
+elif False:
+    GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs:
     def __init__(__self__, *,
@@ -446,6 +604,22 @@ class GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs:
     def target_value(self, value: pulumi.Input[float]):
         pulumi.set(self, "target_value", value)
 
+
+if not MYPY:
+    class GameServerGroupInstanceDefinitionArgsDict(TypedDict):
+        instance_type: pulumi.Input[str]
+        """
+        An EC2 instance type.
+        """
+        weighted_capacity: NotRequired[pulumi.Input[str]]
+        """
+        Instance weighting that indicates how much this instance type contributes
+        to the total capacity of a game server group.
+        Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify
+        the most cost-effective options.
+        """
+elif False:
+    GameServerGroupInstanceDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GameServerGroupInstanceDefinitionArgs:
@@ -490,6 +664,23 @@ class GameServerGroupInstanceDefinitionArgs:
     def weighted_capacity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "weighted_capacity", value)
 
+
+if not MYPY:
+    class GameServerGroupLaunchTemplateArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        A unique identifier for an existing EC2 launch template.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        A readable identifier for an existing EC2 launch template.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the EC2 launch template to use. If none is set, the default is the first version created.
+        """
+elif False:
+    GameServerGroupLaunchTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GameServerGroupLaunchTemplateArgs:
@@ -546,6 +737,19 @@ class GameServerGroupLaunchTemplateArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class GameSessionQueuePlayerLatencyPolicyArgsDict(TypedDict):
+        maximum_individual_player_latency_milliseconds: pulumi.Input[int]
+        """
+        Maximum latency value that is allowed for any player.
+        """
+        policy_duration_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Length of time that the policy is enforced while placing a new game session. Absence of value for this attribute means that the policy is enforced until the queue times out.
+        """
+elif False:
+    GameSessionQueuePlayerLatencyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GameSessionQueuePlayerLatencyPolicyArgs:
     def __init__(__self__, *,
@@ -584,6 +788,19 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
         pulumi.set(self, "policy_duration_seconds", value)
 
 
+if not MYPY:
+    class MatchmakingConfigurationGamePropertyArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        A game property key
+        """
+        value: pulumi.Input[str]
+        """
+        A game property value.
+        """
+elif False:
+    MatchmakingConfigurationGamePropertyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MatchmakingConfigurationGamePropertyArgs:
     def __init__(__self__, *,
@@ -620,6 +837,27 @@ class MatchmakingConfigurationGamePropertyArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ScriptStorageLocationArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        """
+        Name of your S3 bucket.
+        """
+        key: pulumi.Input[str]
+        """
+        Name of the zip file containing your script files.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        ARN of the access role that allows Amazon GameLift to access your S3 bucket.
+        """
+        object_version: NotRequired[pulumi.Input[str]]
+        """
+        A specific version of the file. If not set, the latest version of the file is retrieved.
+        """
+elif False:
+    ScriptStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScriptStorageLocationArgs:

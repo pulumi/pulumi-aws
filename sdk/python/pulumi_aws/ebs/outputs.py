@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -261,13 +266,13 @@ class GetEbsVolumesFilterResult(dict):
                import pulumi
                import pulumi_aws as aws
                
-               ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[aws.ebs.GetEbsVolumesFilterArgs(
-                   name="size",
-                   values=[
+               ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[{
+                   "name": "size",
+                   "values": [
                        "10",
                        "20",
                    ],
-               )])
+               }])
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                EBS Volume IDs will be selected if any one of the given values match.
@@ -287,13 +292,13 @@ class GetEbsVolumesFilterResult(dict):
         import pulumi
         import pulumi_aws as aws
 
-        ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[aws.ebs.GetEbsVolumesFilterArgs(
-            name="size",
-            values=[
+        ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[{
+            "name": "size",
+            "values": [
                 "10",
                 "20",
             ],
-        )])
+        }])
         ```
         """
         return pulumi.get(self, "name")

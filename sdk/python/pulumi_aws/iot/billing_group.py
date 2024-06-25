@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -191,7 +196,7 @@ class BillingGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['BillingGroupPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -205,9 +210,9 @@ class BillingGroup(pulumi.CustomResource):
 
         example = aws.iot.BillingGroup("example",
             name="example",
-            properties=aws.iot.BillingGroupPropertiesArgs(
-                description="This is my billing group",
-            ),
+            properties={
+                "description": "This is my billing group",
+            },
             tags={
                 "terraform": "true",
             })
@@ -224,7 +229,7 @@ class BillingGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Billing Group.
-        :param pulumi.Input[pulumi.InputType['BillingGroupPropertiesArgs']] properties: The Billing Group properties. Defined below.
+        :param pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']] properties: The Billing Group properties. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         """
         ...
@@ -244,9 +249,9 @@ class BillingGroup(pulumi.CustomResource):
 
         example = aws.iot.BillingGroup("example",
             name="example",
-            properties=aws.iot.BillingGroupPropertiesArgs(
-                description="This is my billing group",
-            ),
+            properties={
+                "description": "This is my billing group",
+            },
             tags={
                 "terraform": "true",
             })
@@ -276,7 +281,7 @@ class BillingGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['BillingGroupPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -305,9 +310,9 @@ class BillingGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BillingGroupMetadataArgs']]]]] = None,
+            metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BillingGroupMetadataArgs', 'BillingGroupMetadataArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            properties: Optional[pulumi.Input[pulumi.InputType['BillingGroupPropertiesArgs']]] = None,
+            properties: Optional[pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[int]] = None) -> 'BillingGroup':
@@ -320,7 +325,7 @@ class BillingGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Billing Group.
         :param pulumi.Input[str] name: The name of the Billing Group.
-        :param pulumi.Input[pulumi.InputType['BillingGroupPropertiesArgs']] properties: The Billing Group properties. Defined below.
+        :param pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']] properties: The Billing Group properties. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[int] version: The current version of the Billing Group record in the registry.
         """
