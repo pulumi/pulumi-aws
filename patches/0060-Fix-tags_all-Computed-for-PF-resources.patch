@@ -1,19 +1,19 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Florian Stadler <florian@pulumi.com>
-Date: Tue, 11 Jun 2024 14:02:40 +0200
+Date: Mon, 24 Jun 2024 12:21:45 +0200
 Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
-diff --git a/internal/service/paymentcryptography/key.go b/internal/service/paymentcryptography/key.go
-index 78d09e04e2..1673889cda 100644
---- a/internal/service/paymentcryptography/key.go
-+++ b/internal/service/paymentcryptography/key.go
-@@ -117,7 +117,7 @@ func (r *resourceKey) Schema(ctx context.Context, request resource.SchemaRequest
- 				},
- 			},
- 			names.AttrTags:    tftags.TagsAttribute(),
--			names.AttrTagsAll: tftags.TagsAttributeComputedOnly(),
+diff --git a/internal/service/drs/replication_configuration_template.go b/internal/service/drs/replication_configuration_template.go
+index 500e1a1947..3691471e73 100644
+--- a/internal/service/drs/replication_configuration_template.go
++++ b/internal/service/drs/replication_configuration_template.go
+@@ -100,7 +100,7 @@ func (r *replicationConfigurationTemplateResource) Schema(ctx context.Context, r
+ 
+ 			"staging_area_tags": tftags.TagsAttribute(),
+ 			names.AttrTags:      tftags.TagsAttribute(),
+-			names.AttrTagsAll:   tftags.TagsAttributeComputedOnly(),
 +			names.AttrTagsAll: tftags.TagsAttribute(),
- 		},
- 		Blocks: map[string]schema.Block{
- 			"key_attributes": schema.SingleNestedBlock{
+ 
+ 			"use_dedicated_replication_server": schema.BoolAttribute{
+ 				Required: true,
