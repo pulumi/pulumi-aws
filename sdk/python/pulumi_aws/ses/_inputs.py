@@ -4,25 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ConfigurationSetDeliveryOptionsArgs',
+    'ConfigurationSetDeliveryOptionsArgsDict',
     'ConfigurationSetTrackingOptionsArgs',
+    'ConfigurationSetTrackingOptionsArgsDict',
     'EventDestinationCloudwatchDestinationArgs',
+    'EventDestinationCloudwatchDestinationArgsDict',
     'EventDestinationKinesisDestinationArgs',
+    'EventDestinationKinesisDestinationArgsDict',
     'EventDestinationSnsDestinationArgs',
+    'EventDestinationSnsDestinationArgsDict',
     'ReceiptRuleAddHeaderActionArgs',
+    'ReceiptRuleAddHeaderActionArgsDict',
     'ReceiptRuleBounceActionArgs',
+    'ReceiptRuleBounceActionArgsDict',
     'ReceiptRuleLambdaActionArgs',
+    'ReceiptRuleLambdaActionArgsDict',
     'ReceiptRuleS3ActionArgs',
+    'ReceiptRuleS3ActionArgsDict',
     'ReceiptRuleSnsActionArgs',
+    'ReceiptRuleSnsActionArgsDict',
     'ReceiptRuleStopActionArgs',
+    'ReceiptRuleStopActionArgsDict',
     'ReceiptRuleWorkmailActionArgs',
+    'ReceiptRuleWorkmailActionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationSetDeliveryOptionsArgsDict(TypedDict):
+        tls_policy: NotRequired[pulumi.Input[str]]
+        """
+        Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+        """
+elif False:
+    ConfigurationSetDeliveryOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetDeliveryOptionsArgs:
@@ -47,6 +75,15 @@ class ConfigurationSetDeliveryOptionsArgs:
         pulumi.set(self, "tls_policy", value)
 
 
+if not MYPY:
+    class ConfigurationSetTrackingOptionsArgsDict(TypedDict):
+        custom_redirect_domain: NotRequired[pulumi.Input[str]]
+        """
+        Custom subdomain that is used to redirect email recipients to the Amazon SES event tracking domain.
+        """
+elif False:
+    ConfigurationSetTrackingOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
@@ -69,6 +106,23 @@ class ConfigurationSetTrackingOptionsArgs:
     def custom_redirect_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_redirect_domain", value)
 
+
+if not MYPY:
+    class EventDestinationCloudwatchDestinationArgsDict(TypedDict):
+        default_value: pulumi.Input[str]
+        """
+        The default value for the event
+        """
+        dimension_name: pulumi.Input[str]
+        """
+        The name for the dimension
+        """
+        value_source: pulumi.Input[str]
+        """
+        The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
+        """
+elif False:
+    EventDestinationCloudwatchDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventDestinationCloudwatchDestinationArgs:
@@ -122,6 +176,19 @@ class EventDestinationCloudwatchDestinationArgs:
         pulumi.set(self, "value_source", value)
 
 
+if not MYPY:
+    class EventDestinationKinesisDestinationArgsDict(TypedDict):
+        role_arn: pulumi.Input[str]
+        """
+        The ARN of the role that has permissions to access the Kinesis Stream
+        """
+        stream_arn: pulumi.Input[str]
+        """
+        The ARN of the Kinesis Stream
+        """
+elif False:
+    EventDestinationKinesisDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventDestinationKinesisDestinationArgs:
     def __init__(__self__, *,
@@ -159,6 +226,15 @@ class EventDestinationKinesisDestinationArgs:
         pulumi.set(self, "stream_arn", value)
 
 
+if not MYPY:
+    class EventDestinationSnsDestinationArgsDict(TypedDict):
+        topic_arn: pulumi.Input[str]
+        """
+        The ARN of the SNS topic
+        """
+elif False:
+    EventDestinationSnsDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventDestinationSnsDestinationArgs:
     def __init__(__self__, *,
@@ -180,6 +256,23 @@ class EventDestinationSnsDestinationArgs:
     def topic_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "topic_arn", value)
 
+
+if not MYPY:
+    class ReceiptRuleAddHeaderActionArgsDict(TypedDict):
+        header_name: pulumi.Input[str]
+        """
+        The name of the header to add
+        """
+        header_value: pulumi.Input[str]
+        """
+        The value of the header to add
+        """
+        position: pulumi.Input[int]
+        """
+        The position of the action in the receipt rule
+        """
+elif False:
+    ReceiptRuleAddHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReceiptRuleAddHeaderActionArgs:
@@ -232,6 +325,35 @@ class ReceiptRuleAddHeaderActionArgs:
     def position(self, value: pulumi.Input[int]):
         pulumi.set(self, "position", value)
 
+
+if not MYPY:
+    class ReceiptRuleBounceActionArgsDict(TypedDict):
+        message: pulumi.Input[str]
+        """
+        The message to send
+        """
+        position: pulumi.Input[int]
+        """
+        The position of the action in the receipt rule
+        """
+        sender: pulumi.Input[str]
+        """
+        The email address of the sender
+        """
+        smtp_reply_code: pulumi.Input[str]
+        """
+        The RFC 5321 SMTP reply code
+        """
+        status_code: NotRequired[pulumi.Input[str]]
+        """
+        The RFC 3463 SMTP enhanced status code
+        """
+        topic_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of an SNS topic to notify
+        """
+elif False:
+    ReceiptRuleBounceActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReceiptRuleBounceActionArgs:
@@ -332,6 +454,27 @@ class ReceiptRuleBounceActionArgs:
         pulumi.set(self, "topic_arn", value)
 
 
+if not MYPY:
+    class ReceiptRuleLambdaActionArgsDict(TypedDict):
+        function_arn: pulumi.Input[str]
+        """
+        The ARN of the Lambda function to invoke
+        """
+        position: pulumi.Input[int]
+        """
+        The position of the action in the receipt rule
+        """
+        invocation_type: NotRequired[pulumi.Input[str]]
+        """
+        `Event` or `RequestResponse`
+        """
+        topic_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of an SNS topic to notify
+        """
+elif False:
+    ReceiptRuleLambdaActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReceiptRuleLambdaActionArgs:
     def __init__(__self__, *,
@@ -400,6 +543,31 @@ class ReceiptRuleLambdaActionArgs:
     def topic_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "topic_arn", value)
 
+
+if not MYPY:
+    class ReceiptRuleS3ActionArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        """
+        The name of the S3 bucket
+        """
+        position: pulumi.Input[int]
+        """
+        The position of the action in the receipt rule
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the KMS key
+        """
+        object_key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The key prefix of the S3 bucket
+        """
+        topic_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of an SNS topic to notify
+        """
+elif False:
+    ReceiptRuleS3ActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReceiptRuleS3ActionArgs:
@@ -486,6 +654,23 @@ class ReceiptRuleS3ActionArgs:
         pulumi.set(self, "topic_arn", value)
 
 
+if not MYPY:
+    class ReceiptRuleSnsActionArgsDict(TypedDict):
+        position: pulumi.Input[int]
+        """
+        The position of the action in the receipt rule
+        """
+        topic_arn: pulumi.Input[str]
+        """
+        The ARN of an SNS topic to notify
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
+        """
+elif False:
+    ReceiptRuleSnsActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReceiptRuleSnsActionArgs:
     def __init__(__self__, *,
@@ -539,6 +724,23 @@ class ReceiptRuleSnsActionArgs:
         pulumi.set(self, "encoding", value)
 
 
+if not MYPY:
+    class ReceiptRuleStopActionArgsDict(TypedDict):
+        position: pulumi.Input[int]
+        """
+        The position of the action in the receipt rule
+        """
+        scope: pulumi.Input[str]
+        """
+        The scope to apply. The only acceptable value is `RuleSet`.
+        """
+        topic_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of an SNS topic to notify
+        """
+elif False:
+    ReceiptRuleStopActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReceiptRuleStopActionArgs:
     def __init__(__self__, *,
@@ -591,6 +793,23 @@ class ReceiptRuleStopActionArgs:
     def topic_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "topic_arn", value)
 
+
+if not MYPY:
+    class ReceiptRuleWorkmailActionArgsDict(TypedDict):
+        organization_arn: pulumi.Input[str]
+        """
+        The ARN of the WorkMail organization
+        """
+        position: pulumi.Input[int]
+        """
+        The position of the action in the receipt rule
+        """
+        topic_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of an SNS topic to notify
+        """
+elif False:
+    ReceiptRuleWorkmailActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReceiptRuleWorkmailActionArgs:

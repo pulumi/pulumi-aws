@@ -4,16 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'IndexTimeoutsArgs',
+    'IndexTimeoutsArgsDict',
     'ViewFiltersArgs',
+    'ViewFiltersArgsDict',
     'ViewIncludedPropertyArgs',
+    'ViewIncludedPropertyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IndexTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    IndexTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IndexTimeoutsArgs:
@@ -70,6 +97,15 @@ class IndexTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
+if not MYPY:
+    class ViewFiltersArgsDict(TypedDict):
+        filter_string: pulumi.Input[str]
+        """
+        The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
+        """
+elif False:
+    ViewFiltersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ViewFiltersArgs:
     def __init__(__self__, *,
@@ -91,6 +127,15 @@ class ViewFiltersArgs:
     def filter_string(self, value: pulumi.Input[str]):
         pulumi.set(self, "filter_string", value)
 
+
+if not MYPY:
+    class ViewIncludedPropertyArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the property that is included in this view. Valid values: `tags`.
+        """
+elif False:
+    ViewIncludedPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ViewIncludedPropertyArgs:

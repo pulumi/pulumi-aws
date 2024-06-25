@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -223,7 +228,7 @@ class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
             vpn_ecmp_support=self.vpn_ecmp_support)
 
 
-def get_transit_gateway(filters: Optional[Sequence[pulumi.InputType['GetTransitGatewayFilterArgs']]] = None,
+def get_transit_gateway(filters: Optional[Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']]] = None,
                         id: Optional[str] = None,
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayResult:
@@ -238,10 +243,10 @@ def get_transit_gateway(filters: Optional[Sequence[pulumi.InputType['GetTransitG
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_transit_gateway(filters=[aws.ec2transitgateway.GetTransitGatewayFilterArgs(
-        name="options.amazon-side-asn",
-        values=["64512"],
-    )])
+    example = aws.ec2transitgateway.get_transit_gateway(filters=[{
+        "name": "options.amazon-side-asn",
+        "values": ["64512"],
+    }])
     ```
 
     ### By Identifier
@@ -254,7 +259,7 @@ def get_transit_gateway(filters: Optional[Sequence[pulumi.InputType['GetTransitG
     ```
 
 
-    :param Sequence[pulumi.InputType['GetTransitGatewayFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway
     """
@@ -285,7 +290,7 @@ def get_transit_gateway(filters: Optional[Sequence[pulumi.InputType['GetTransitG
 
 
 @_utilities.lift_output_func(get_transit_gateway)
-def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTransitGatewayFilterArgs']]]]] = None,
+def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']]]]] = None,
                                id: Optional[pulumi.Input[Optional[str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayResult]:
@@ -300,10 +305,10 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_transit_gateway(filters=[aws.ec2transitgateway.GetTransitGatewayFilterArgs(
-        name="options.amazon-side-asn",
-        values=["64512"],
-    )])
+    example = aws.ec2transitgateway.get_transit_gateway(filters=[{
+        "name": "options.amazon-side-asn",
+        "values": ["64512"],
+    }])
     ```
 
     ### By Identifier
@@ -316,7 +321,7 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
     ```
 
 
-    :param Sequence[pulumi.InputType['GetTransitGatewayFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway
     """

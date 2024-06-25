@@ -4,16 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AliasRoutingConfigurationArgs',
+    'AliasRoutingConfigurationArgsDict',
     'StateMachineLoggingConfigurationArgs',
+    'StateMachineLoggingConfigurationArgsDict',
     'StateMachineTracingConfigurationArgs',
+    'StateMachineTracingConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AliasRoutingConfigurationArgsDict(TypedDict):
+        state_machine_version_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the state machine version.
+        """
+        weight: pulumi.Input[int]
+        """
+        Percentage of traffic routed to the state machine version.
+        """
+elif False:
+    AliasRoutingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AliasRoutingConfigurationArgs:
@@ -51,6 +74,23 @@ class AliasRoutingConfigurationArgs:
     def weight(self, value: pulumi.Input[int]):
         pulumi.set(self, "weight", value)
 
+
+if not MYPY:
+    class StateMachineLoggingConfigurationArgsDict(TypedDict):
+        include_execution_data: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether execution data is included in your log. When set to `false`, data is excluded.
+        """
+        level: NotRequired[pulumi.Input[str]]
+        """
+        Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
+        """
+        log_destination: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+        """
+elif False:
+    StateMachineLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StateMachineLoggingConfigurationArgs:
@@ -106,6 +146,15 @@ class StateMachineLoggingConfigurationArgs:
     def log_destination(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_destination", value)
 
+
+if not MYPY:
+    class StateMachineTracingConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
+        """
+elif False:
+    StateMachineTracingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StateMachineTracingConfigurationArgs:

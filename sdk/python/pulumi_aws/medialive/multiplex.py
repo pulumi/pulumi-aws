@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -234,7 +239,7 @@ class Multiplex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']]] = None,
+                 multiplex_settings: Optional[pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  start_multiplex: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -257,12 +262,12 @@ class Multiplex(pulumi.CustomResource):
                 available.names[0],
                 available.names[1],
             ],
-            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
-                transport_stream_bitrate=1000000,
-                transport_stream_id=1,
-                transport_stream_reserved_bitrate=1,
-                maximum_video_buffer_delay_milliseconds=1000,
-            ),
+            multiplex_settings={
+                "transportStreamBitrate": 1000000,
+                "transportStreamId": 1,
+                "transportStreamReservedBitrate": 1,
+                "maximumVideoBufferDelayMilliseconds": 1000,
+            },
             start_multiplex=True,
             tags={
                 "tag1": "value1",
@@ -280,7 +285,7 @@ class Multiplex(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
         :param pulumi.Input[str] name: name of Multiplex.
                
                The following arguments are optional:
@@ -311,12 +316,12 @@ class Multiplex(pulumi.CustomResource):
                 available.names[0],
                 available.names[1],
             ],
-            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
-                transport_stream_bitrate=1000000,
-                transport_stream_id=1,
-                transport_stream_reserved_bitrate=1,
-                maximum_video_buffer_delay_milliseconds=1000,
-            ),
+            multiplex_settings={
+                "transportStreamBitrate": 1000000,
+                "transportStreamId": 1,
+                "transportStreamReservedBitrate": 1,
+                "maximumVideoBufferDelayMilliseconds": 1000,
+            },
             start_multiplex=True,
             tags={
                 "tag1": "value1",
@@ -347,7 +352,7 @@ class Multiplex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']]] = None,
+                 multiplex_settings: Optional[pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  start_multiplex: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -381,7 +386,7 @@ class Multiplex(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']]] = None,
+            multiplex_settings: Optional[pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             start_multiplex: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -395,7 +400,7 @@ class Multiplex(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Multiplex.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[Union['MultiplexMultiplexSettingsArgs', 'MultiplexMultiplexSettingsArgsDict']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
         :param pulumi.Input[str] name: name of Multiplex.
                
                The following arguments are optional:

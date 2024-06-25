@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -103,7 +108,7 @@ class AwaitableGetSecurityGroupResult(GetSecurityGroupResult):
             vpc_id=self.vpc_id)
 
 
-def get_security_group(filters: Optional[Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']]] = None,
+def get_security_group(filters: Optional[Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']]] = None,
                        id: Optional[str] = None,
                        name: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
@@ -134,7 +139,7 @@ def get_security_group(filters: Optional[Sequence[pulumi.InputType['GetSecurityG
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']] filters: Custom filter block as described below.
     :param str id: Id of the specific security group to retrieve.
     :param str name: Name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
@@ -165,7 +170,7 @@ def get_security_group(filters: Optional[Sequence[pulumi.InputType['GetSecurityG
 
 
 @_utilities.lift_output_func(get_security_group)
-def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']]]]] = None,
+def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']]]]] = None,
                               id: Optional[pulumi.Input[Optional[str]]] = None,
                               name: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -196,7 +201,7 @@ def get_security_group_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSecurityGroupFilterArgs', 'GetSecurityGroupFilterArgsDict']] filters: Custom filter block as described below.
     :param str id: Id of the specific security group to retrieve.
     :param str name: Name of the field to filter by, as defined by
            [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).

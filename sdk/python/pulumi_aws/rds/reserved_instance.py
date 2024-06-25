@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -550,7 +555,7 @@ class ReservedInstance(pulumi.CustomResource):
             offering_id: Optional[pulumi.Input[str]] = None,
             offering_type: Optional[pulumi.Input[str]] = None,
             product_description: Optional[pulumi.Input[str]] = None,
-            recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReservedInstanceRecurringChargeArgs']]]]] = None,
+            recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]]] = None,
             reservation_id: Optional[pulumi.Input[str]] = None,
             start_time: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
@@ -577,7 +582,7 @@ class ReservedInstance(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[str] product_description: Description of the reserved DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReservedInstanceRecurringChargeArgs']]]] recurring_charges: Recurring price charged to run this reserved DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]] recurring_charges: Recurring price charged to run this reserved DB instance.
         :param pulumi.Input[str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[str] start_time: Time the reservation started.
         :param pulumi.Input[str] state: State of the reserved DB instance.

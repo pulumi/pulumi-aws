@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['NamedQueryArgs', 'NamedQuery']
@@ -211,14 +216,14 @@ class NamedQuery(pulumi.CustomResource):
             description="Athena KMS Key")
         test_workgroup = aws.athena.Workgroup("test",
             name="example",
-            configuration=aws.athena.WorkgroupConfigurationArgs(
-                result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                    encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                        encryption_option="SSE_KMS",
-                        kms_key_arn=test.arn,
-                    ),
-                ),
-            ))
+            configuration={
+                "resultConfiguration": {
+                    "encryptionConfiguration": {
+                        "encryptionOption": "SSE_KMS",
+                        "kmsKeyArn": test.arn,
+                    },
+                },
+            })
         hoge_database = aws.athena.Database("hoge",
             name="users",
             bucket=hoge.id)
@@ -266,14 +271,14 @@ class NamedQuery(pulumi.CustomResource):
             description="Athena KMS Key")
         test_workgroup = aws.athena.Workgroup("test",
             name="example",
-            configuration=aws.athena.WorkgroupConfigurationArgs(
-                result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                    encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                        encryption_option="SSE_KMS",
-                        kms_key_arn=test.arn,
-                    ),
-                ),
-            ))
+            configuration={
+                "resultConfiguration": {
+                    "encryptionConfiguration": {
+                        "encryptionOption": "SSE_KMS",
+                        "kmsKeyArn": test.arn,
+                    },
+                },
+            })
         hoge_database = aws.athena.Database("hoge",
             name="users",
             bucket=hoge.id)

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -461,7 +466,7 @@ class Workgroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: Optional[pulumi.Input[int]] = None,
-                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
+                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -497,7 +502,7 @@ class Workgroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[str] namespace_name: The name of the namespace.
@@ -554,7 +559,7 @@ class Workgroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: Optional[pulumi.Input[int]] = None,
-                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
+                 config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -604,8 +609,8 @@ class Workgroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             base_capacity: Optional[pulumi.Input[int]] = None,
-            config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]]] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupEndpointArgs']]]]] = None,
+            config_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupEndpointArgs', 'WorkgroupEndpointArgsDict']]]]] = None,
             enhanced_vpc_routing: Optional[pulumi.Input[bool]] = None,
             max_capacity: Optional[pulumi.Input[int]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
@@ -626,8 +631,8 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
         :param pulumi.Input[int] base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupConfigParameterArgs']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkgroupEndpointArgs']]]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupConfigParameterArgs', 'WorkgroupConfigParameterArgsDict']]]] config_parameters: An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkgroupEndpointArgs', 'WorkgroupEndpointArgsDict']]]] endpoints: The endpoint that is created from the workgroup. See `Endpoint` below.
         :param pulumi.Input[bool] enhanced_vpc_routing: The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
         :param pulumi.Input[int] max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries, specified in Redshift Processing Units (RPUs).
         :param pulumi.Input[str] namespace_name: The name of the namespace.

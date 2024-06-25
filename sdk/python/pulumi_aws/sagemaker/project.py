@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -214,7 +219,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']]] = None,
+                 service_catalog_provisioning_details: Optional[pulumi.Input[Union['ProjectServiceCatalogProvisioningDetailsArgs', 'ProjectServiceCatalogProvisioningDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -230,9 +235,9 @@ class Project(pulumi.CustomResource):
 
         example = aws.sagemaker.Project("example",
             project_name="example",
-            service_catalog_provisioning_details=aws.sagemaker.ProjectServiceCatalogProvisioningDetailsArgs(
-                product_id=example_aws_servicecatalog_product["id"],
-            ))
+            service_catalog_provisioning_details={
+                "productId": example_aws_servicecatalog_product["id"],
+            })
         ```
 
         ## Import
@@ -247,7 +252,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[str] project_name: The name of the Project.
-        :param pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+        :param pulumi.Input[Union['ProjectServiceCatalogProvisioningDetailsArgs', 'ProjectServiceCatalogProvisioningDetailsArgsDict']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -269,9 +274,9 @@ class Project(pulumi.CustomResource):
 
         example = aws.sagemaker.Project("example",
             project_name="example",
-            service_catalog_provisioning_details=aws.sagemaker.ProjectServiceCatalogProvisioningDetailsArgs(
-                product_id=example_aws_servicecatalog_product["id"],
-            ))
+            service_catalog_provisioning_details={
+                "productId": example_aws_servicecatalog_product["id"],
+            })
         ```
 
         ## Import
@@ -299,7 +304,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']]] = None,
+                 service_catalog_provisioning_details: Optional[pulumi.Input[Union['ProjectServiceCatalogProvisioningDetailsArgs', 'ProjectServiceCatalogProvisioningDetailsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -335,7 +340,7 @@ class Project(pulumi.CustomResource):
             project_description: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             project_name: Optional[pulumi.Input[str]] = None,
-            service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']]] = None,
+            service_catalog_provisioning_details: Optional[pulumi.Input[Union['ProjectServiceCatalogProvisioningDetailsArgs', 'ProjectServiceCatalogProvisioningDetailsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Project':
         """
@@ -349,7 +354,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] project_name: The name of the Project.
-        :param pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+        :param pulumi.Input[Union['ProjectServiceCatalogProvisioningDetailsArgs', 'ProjectServiceCatalogProvisioningDetailsArgsDict']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

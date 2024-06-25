@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -230,7 +235,7 @@ class Build(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -246,11 +251,11 @@ class Build(pulumi.CustomResource):
         test = aws.gamelift.Build("test",
             name="example-build",
             operating_system="WINDOWS_2012",
-            storage_location=aws.gamelift.BuildStorageLocationArgs(
-                bucket=test_aws_s3_bucket["id"],
-                key=test_aws_s3_object["key"],
-                role_arn=test_aws_iam_role["arn"],
-            ))
+            storage_location={
+                "bucket": test_aws_s3_bucket["id"],
+                "key": test_aws_s3_object["key"],
+                "roleArn": test_aws_iam_role["arn"],
+            })
         ```
 
         ## Import
@@ -265,7 +270,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the build
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
-        :param pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']] storage_location: Information indicating where your game build files are stored. See below.
+        :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version: Version that is associated with this build.
         """
@@ -287,11 +292,11 @@ class Build(pulumi.CustomResource):
         test = aws.gamelift.Build("test",
             name="example-build",
             operating_system="WINDOWS_2012",
-            storage_location=aws.gamelift.BuildStorageLocationArgs(
-                bucket=test_aws_s3_bucket["id"],
-                key=test_aws_s3_object["key"],
-                role_arn=test_aws_iam_role["arn"],
-            ))
+            storage_location={
+                "bucket": test_aws_s3_bucket["id"],
+                "key": test_aws_s3_object["key"],
+                "roleArn": test_aws_iam_role["arn"],
+            })
         ```
 
         ## Import
@@ -319,7 +324,7 @@ class Build(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -355,7 +360,7 @@ class Build(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             operating_system: Optional[pulumi.Input[str]] = None,
-            storage_location: Optional[pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']]] = None,
+            storage_location: Optional[pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'Build':
@@ -369,7 +374,7 @@ class Build(pulumi.CustomResource):
         :param pulumi.Input[str] arn: GameLift Build ARN.
         :param pulumi.Input[str] name: Name of the build
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run on. Valid values: `WINDOWS_2012`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `WINDOWS_2016`, `AMAZON_LINUX_2023`.
-        :param pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']] storage_location: Information indicating where your game build files are stored. See below.
+        :param pulumi.Input[Union['BuildStorageLocationArgs', 'BuildStorageLocationArgsDict']] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: Version that is associated with this build.

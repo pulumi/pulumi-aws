@@ -4,26 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GlobalTableReplicaArgs',
+    'GlobalTableReplicaArgsDict',
     'TableAttributeArgs',
+    'TableAttributeArgsDict',
     'TableGlobalSecondaryIndexArgs',
+    'TableGlobalSecondaryIndexArgsDict',
     'TableImportTableArgs',
+    'TableImportTableArgsDict',
     'TableImportTableInputFormatOptionsArgs',
+    'TableImportTableInputFormatOptionsArgsDict',
     'TableImportTableInputFormatOptionsCsvArgs',
+    'TableImportTableInputFormatOptionsCsvArgsDict',
     'TableImportTableS3BucketSourceArgs',
+    'TableImportTableS3BucketSourceArgsDict',
     'TableLocalSecondaryIndexArgs',
+    'TableLocalSecondaryIndexArgsDict',
     'TablePointInTimeRecoveryArgs',
+    'TablePointInTimeRecoveryArgsDict',
     'TableReplicaArgs',
+    'TableReplicaArgsDict',
     'TableServerSideEncryptionArgs',
+    'TableServerSideEncryptionArgsDict',
     'TableTtlArgs',
+    'TableTtlArgsDict',
     'GetTableServerSideEncryptionArgs',
+    'GetTableServerSideEncryptionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GlobalTableReplicaArgsDict(TypedDict):
+        region_name: pulumi.Input[str]
+        """
+        AWS region name of replica DynamoDB TableE.g., `us-east-1`
+        """
+elif False:
+    GlobalTableReplicaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GlobalTableReplicaArgs:
@@ -46,6 +75,19 @@ class GlobalTableReplicaArgs:
     def region_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "region_name", value)
 
+
+if not MYPY:
+    class TableAttributeArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the attribute
+        """
+        type: pulumi.Input[str]
+        """
+        Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
+        """
+elif False:
+    TableAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableAttributeArgs:
@@ -83,6 +125,39 @@ class TableAttributeArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class TableGlobalSecondaryIndexArgsDict(TypedDict):
+        hash_key: pulumi.Input[str]
+        """
+        Name of the hash key in the index; must be defined as an attribute in the resource.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the index.
+        """
+        projection_type: pulumi.Input[str]
+        """
+        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+        """
+        non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+        """
+        range_key: NotRequired[pulumi.Input[str]]
+        """
+        Name of the range key; must be defined
+        """
+        read_capacity: NotRequired[pulumi.Input[int]]
+        """
+        Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        """
+        write_capacity: NotRequired[pulumi.Input[int]]
+        """
+        Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        """
+elif False:
+    TableGlobalSecondaryIndexArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableGlobalSecondaryIndexArgs:
@@ -200,6 +275,32 @@ class TableGlobalSecondaryIndexArgs:
         pulumi.set(self, "write_capacity", value)
 
 
+if not MYPY:
+    class TableImportTableArgsDict(TypedDict):
+        input_format: pulumi.Input[str]
+        """
+        The format of the source data.
+        Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
+        """
+        s3_bucket_source: pulumi.Input['TableImportTableS3BucketSourceArgsDict']
+        """
+        Values for the S3 bucket the source file is imported from.
+        See below.
+        """
+        input_compression_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of compression to be used on the input coming from the imported table.
+        Valid values are `GZIP`, `ZSTD` and `NONE`.
+        """
+        input_format_options: NotRequired[pulumi.Input['TableImportTableInputFormatOptionsArgsDict']]
+        """
+        Describe the format options for the data that was imported into the target table.
+        There is one value, `csv`.
+        See below.
+        """
+elif False:
+    TableImportTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableImportTableArgs:
     def __init__(__self__, *,
@@ -279,6 +380,15 @@ class TableImportTableArgs:
         pulumi.set(self, "input_format_options", value)
 
 
+if not MYPY:
+    class TableImportTableInputFormatOptionsArgsDict(TypedDict):
+        csv: NotRequired[pulumi.Input['TableImportTableInputFormatOptionsCsvArgsDict']]
+        """
+        This block contains the processing options for the CSV file being imported:
+        """
+elif False:
+    TableImportTableInputFormatOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableImportTableInputFormatOptionsArgs:
     def __init__(__self__, *,
@@ -301,6 +411,19 @@ class TableImportTableInputFormatOptionsArgs:
     def csv(self, value: Optional[pulumi.Input['TableImportTableInputFormatOptionsCsvArgs']]):
         pulumi.set(self, "csv", value)
 
+
+if not MYPY:
+    class TableImportTableInputFormatOptionsCsvArgsDict(TypedDict):
+        delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter used for separating items in the CSV file being imported.
+        """
+        header_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of the headers used to specify a common header for all source CSV files being imported.
+        """
+elif False:
+    TableImportTableInputFormatOptionsCsvArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableImportTableInputFormatOptionsCsvArgs:
@@ -340,6 +463,23 @@ class TableImportTableInputFormatOptionsCsvArgs:
     def header_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "header_lists", value)
 
+
+if not MYPY:
+    class TableImportTableS3BucketSourceArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        """
+        The S3 bucket that is being imported from.
+        """
+        bucket_owner: NotRequired[pulumi.Input[str]]
+        """
+        The account number of the S3 bucket that is being imported from.
+        """
+        key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The key prefix shared by all S3 Objects that are being imported.
+        """
+elif False:
+    TableImportTableS3BucketSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableImportTableS3BucketSourceArgs:
@@ -394,6 +534,27 @@ class TableImportTableS3BucketSourceArgs:
     def key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_prefix", value)
 
+
+if not MYPY:
+    class TableLocalSecondaryIndexArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the index
+        """
+        projection_type: pulumi.Input[str]
+        """
+        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+        """
+        range_key: pulumi.Input[str]
+        """
+        Name of the range key.
+        """
+        non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+        """
+elif False:
+    TableLocalSecondaryIndexArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableLocalSecondaryIndexArgs:
@@ -463,6 +624,15 @@ class TableLocalSecondaryIndexArgs:
         pulumi.set(self, "non_key_attributes", value)
 
 
+if not MYPY:
+    class TablePointInTimeRecoveryArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
+        """
+elif False:
+    TablePointInTimeRecoveryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TablePointInTimeRecoveryArgs:
     def __init__(__self__, *,
@@ -484,6 +654,39 @@ class TablePointInTimeRecoveryArgs:
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class TableReplicaArgsDict(TypedDict):
+        region_name: pulumi.Input[str]
+        """
+        Region name of the replica.
+        """
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the table
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        """
+        point_in_time_recovery: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable Point In Time Recovery for the replica. Default is `false`.
+        """
+        propagate_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to propagate the global table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
+        """
+        stream_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Table Stream. Only available when `stream_enabled = true`
+        """
+        stream_label: NotRequired[pulumi.Input[str]]
+        """
+        Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+        """
+elif False:
+    TableReplicaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableReplicaArgs:
@@ -603,6 +806,19 @@ class TableReplicaArgs:
         pulumi.set(self, "stream_label", value)
 
 
+if not MYPY:
+    class TableServerSideEncryptionArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS-_owned_ key (shown as `DEFAULT` in the AWS console). Potentially confusingly, if `enabled` is `true` and no `kms_key_arn` is specified then server-side encryption is set to the _default_ KMS-_managed_ key (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS-_owned_ and KMS-_managed_ keys.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+        """
+elif False:
+    TableServerSideEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableServerSideEncryptionArgs:
     def __init__(__self__, *,
@@ -640,6 +856,21 @@ class TableServerSideEncryptionArgs:
     def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_arn", value)
 
+
+if not MYPY:
+    class TableTtlArgsDict(TypedDict):
+        attribute_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the table attribute to store the TTL timestamp in.
+        Required if `enabled` is `true`, must not be set otherwise.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether TTL is enabled.
+        Default value is `false`.
+        """
+elif False:
+    TableTtlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableTtlArgs:
@@ -683,6 +914,13 @@ class TableTtlArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class GetTableServerSideEncryptionArgsDict(TypedDict):
+        enabled: bool
+        kms_key_arn: str
+elif False:
+    GetTableServerSideEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTableServerSideEncryptionArgs:

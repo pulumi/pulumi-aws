@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -283,7 +288,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 protocol: Optional[pulumi.Input[pulumi.InputType['LocationFsxOntapFileSystemProtocolArgs']]] = None,
+                 protocol: Optional[pulumi.Input[Union['LocationFsxOntapFileSystemProtocolArgs', 'LocationFsxOntapFileSystemProtocolArgsDict']]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_virtual_machine_arn: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -304,7 +309,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LocationFsxOntapFileSystemProtocolArgs']] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
+        :param pulumi.Input[Union['LocationFsxOntapFileSystemProtocolArgs', 'LocationFsxOntapFileSystemProtocolArgsDict']] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
                * Network File System (NFS): TCP ports 111, 635, and 2049
                * Server Message Block (SMB): TCP port 445
@@ -348,7 +353,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 protocol: Optional[pulumi.Input[pulumi.InputType['LocationFsxOntapFileSystemProtocolArgs']]] = None,
+                 protocol: Optional[pulumi.Input[Union['LocationFsxOntapFileSystemProtocolArgs', 'LocationFsxOntapFileSystemProtocolArgsDict']]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_virtual_machine_arn: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -391,7 +396,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
             fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
-            protocol: Optional[pulumi.Input[pulumi.InputType['LocationFsxOntapFileSystemProtocolArgs']]] = None,
+            protocol: Optional[pulumi.Input[Union['LocationFsxOntapFileSystemProtocolArgs', 'LocationFsxOntapFileSystemProtocolArgsDict']]] = None,
             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             storage_virtual_machine_arn: Optional[pulumi.Input[str]] = None,
             subdirectory: Optional[pulumi.Input[str]] = None,
@@ -407,7 +412,7 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the DataSync Location for the FSx Ontap File System.
         :param pulumi.Input[str] fsx_filesystem_arn: ARN of the FSx Ontap File System.
-        :param pulumi.Input[pulumi.InputType['LocationFsxOntapFileSystemProtocolArgs']] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
+        :param pulumi.Input[Union['LocationFsxOntapFileSystemProtocolArgs', 'LocationFsxOntapFileSystemProtocolArgsDict']] protocol: The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
                * Network File System (NFS): TCP ports 111, 635, and 2049
                * Server Message Block (SMB): TCP port 445

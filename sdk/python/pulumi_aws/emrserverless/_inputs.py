@@ -4,21 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ApplicationAutoStartConfigurationArgs',
+    'ApplicationAutoStartConfigurationArgsDict',
     'ApplicationAutoStopConfigurationArgs',
+    'ApplicationAutoStopConfigurationArgsDict',
     'ApplicationImageConfigurationArgs',
+    'ApplicationImageConfigurationArgsDict',
     'ApplicationInitialCapacityArgs',
+    'ApplicationInitialCapacityArgsDict',
     'ApplicationInitialCapacityInitialCapacityConfigArgs',
+    'ApplicationInitialCapacityInitialCapacityConfigArgsDict',
     'ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs',
+    'ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgsDict',
     'ApplicationMaximumCapacityArgs',
+    'ApplicationMaximumCapacityArgsDict',
     'ApplicationNetworkConfigurationArgs',
+    'ApplicationNetworkConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationAutoStartConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the application to automatically start on job submission. Defaults to `true`.
+        """
+elif False:
+    ApplicationAutoStartConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationAutoStartConfigurationArgs:
@@ -42,6 +66,19 @@ class ApplicationAutoStartConfigurationArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ApplicationAutoStopConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
+        """
+        idle_timeout_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
+        """
+elif False:
+    ApplicationAutoStopConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationAutoStopConfigurationArgs:
@@ -82,6 +119,15 @@ class ApplicationAutoStopConfigurationArgs:
         pulumi.set(self, "idle_timeout_minutes", value)
 
 
+if not MYPY:
+    class ApplicationImageConfigurationArgsDict(TypedDict):
+        image_uri: pulumi.Input[str]
+        """
+        The image URI.
+        """
+elif False:
+    ApplicationImageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationImageConfigurationArgs:
     def __init__(__self__, *,
@@ -103,6 +149,19 @@ class ApplicationImageConfigurationArgs:
     def image_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "image_uri", value)
 
+
+if not MYPY:
+    class ApplicationInitialCapacityArgsDict(TypedDict):
+        initial_capacity_type: pulumi.Input[str]
+        """
+        The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
+        """
+        initial_capacity_config: NotRequired[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgsDict']]
+        """
+        The initial capacity configuration per worker.
+        """
+elif False:
+    ApplicationInitialCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationInitialCapacityArgs:
@@ -142,6 +201,19 @@ class ApplicationInitialCapacityArgs:
         pulumi.set(self, "initial_capacity_config", value)
 
 
+if not MYPY:
+    class ApplicationInitialCapacityInitialCapacityConfigArgsDict(TypedDict):
+        worker_count: pulumi.Input[int]
+        """
+        The number of workers in the initial capacity configuration.
+        """
+        worker_configuration: NotRequired[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgsDict']]
+        """
+        The resource configuration of the initial capacity configuration.
+        """
+elif False:
+    ApplicationInitialCapacityInitialCapacityConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationInitialCapacityInitialCapacityConfigArgs:
     def __init__(__self__, *,
@@ -179,6 +251,23 @@ class ApplicationInitialCapacityInitialCapacityConfigArgs:
     def worker_configuration(self, value: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']]):
         pulumi.set(self, "worker_configuration", value)
 
+
+if not MYPY:
+    class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgsDict(TypedDict):
+        cpu: pulumi.Input[str]
+        """
+        The CPU requirements for every worker instance of the worker type.
+        """
+        memory: pulumi.Input[str]
+        """
+        The memory requirements for every worker instance of the worker type.
+        """
+        disk: NotRequired[pulumi.Input[str]]
+        """
+        The disk requirements for every worker instance of the worker type.
+        """
+elif False:
+    ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs:
@@ -233,6 +322,23 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs:
         pulumi.set(self, "disk", value)
 
 
+if not MYPY:
+    class ApplicationMaximumCapacityArgsDict(TypedDict):
+        cpu: pulumi.Input[str]
+        """
+        The maximum allowed CPU for an application.
+        """
+        memory: pulumi.Input[str]
+        """
+        The maximum allowed resources for an application.
+        """
+        disk: NotRequired[pulumi.Input[str]]
+        """
+        The maximum allowed disk for an application.
+        """
+elif False:
+    ApplicationMaximumCapacityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationMaximumCapacityArgs:
     def __init__(__self__, *,
@@ -285,6 +391,19 @@ class ApplicationMaximumCapacityArgs:
     def disk(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk", value)
 
+
+if not MYPY:
+    class ApplicationNetworkConfigurationArgsDict(TypedDict):
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The array of security group Ids for customer VPC connectivity.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The array of subnet Ids for customer VPC connectivity.
+        """
+elif False:
+    ApplicationNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationNetworkConfigurationArgs:

@@ -4,17 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ApplicationAppversionLifecycleArgs',
+    'ApplicationAppversionLifecycleArgsDict',
     'ConfigurationTemplateSettingArgs',
+    'ConfigurationTemplateSettingArgsDict',
     'EnvironmentAllSettingArgs',
+    'EnvironmentAllSettingArgsDict',
     'EnvironmentSettingArgs',
+    'EnvironmentSettingArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationAppversionLifecycleArgsDict(TypedDict):
+        service_role: pulumi.Input[str]
+        """
+        The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+        """
+        delete_source_from_s3: NotRequired[pulumi.Input[bool]]
+        """
+        Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
+        """
+        max_age_in_days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
+        """
+        max_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
+        """
+elif False:
+    ApplicationAppversionLifecycleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationAppversionLifecycleArgs:
@@ -86,6 +118,18 @@ class ApplicationAppversionLifecycleArgs:
         pulumi.set(self, "max_count", value)
 
 
+if not MYPY:
+    class ConfigurationTemplateSettingArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        A unique name for this Template.
+        """
+        namespace: pulumi.Input[str]
+        value: pulumi.Input[str]
+        resource: NotRequired[pulumi.Input[str]]
+elif False:
+    ConfigurationTemplateSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationTemplateSettingArgs:
     def __init__(__self__, *,
@@ -141,6 +185,19 @@ class ConfigurationTemplateSettingArgs:
     def resource(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource", value)
 
+
+if not MYPY:
+    class EnvironmentAllSettingArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        A unique name for this Environment. This name is used
+        in the application URL
+        """
+        namespace: pulumi.Input[str]
+        value: pulumi.Input[str]
+        resource: NotRequired[pulumi.Input[str]]
+elif False:
+    EnvironmentAllSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentAllSettingArgs:
@@ -199,6 +256,19 @@ class EnvironmentAllSettingArgs:
     def resource(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource", value)
 
+
+if not MYPY:
+    class EnvironmentSettingArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        A unique name for this Environment. This name is used
+        in the application URL
+        """
+        namespace: pulumi.Input[str]
+        value: pulumi.Input[str]
+        resource: NotRequired[pulumi.Input[str]]
+elif False:
+    EnvironmentSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentSettingArgs:

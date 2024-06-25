@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['EmailChannelArgs', 'EmailChannel']
@@ -254,28 +259,28 @@ class EmailChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         app = aws.pinpoint.App("app")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pinpoint.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["pinpoint.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         email = aws.pinpoint.EmailChannel("email",
             application_id=app.application_id,
             from_address="user@example.com",
             role_arn=role.arn)
         identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
+        role_policy = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": [
                 "mobileanalytics:PutEvents",
                 "mobileanalytics:PutItems",
             ],
-            resources=["*"],
-        )])
+            "resources": ["*"],
+        }])
         role_policy_role_policy = aws.iam.RolePolicy("role_policy",
             name="role_policy",
             role=role.id,
@@ -315,28 +320,28 @@ class EmailChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         app = aws.pinpoint.App("app")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pinpoint.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["pinpoint.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         email = aws.pinpoint.EmailChannel("email",
             application_id=app.application_id,
             from_address="user@example.com",
             role_arn=role.arn)
         identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=[
+        role_policy = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "actions": [
                 "mobileanalytics:PutEvents",
                 "mobileanalytics:PutItems",
             ],
-            resources=["*"],
-        )])
+            "resources": ["*"],
+        }])
         role_policy_role_policy = aws.iam.RolePolicy("role_policy",
             name="role_policy",
             role=role.id,

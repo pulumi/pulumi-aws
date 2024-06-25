@@ -4,27 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AssessmentAssessmentReportsDestinationArgs',
+    'AssessmentAssessmentReportsDestinationArgsDict',
     'AssessmentRoleArgs',
+    'AssessmentRoleArgsDict',
     'AssessmentRolesAllArgs',
+    'AssessmentRolesAllArgsDict',
     'AssessmentScopeArgs',
+    'AssessmentScopeArgsDict',
     'AssessmentScopeAwsAccountArgs',
+    'AssessmentScopeAwsAccountArgsDict',
     'AssessmentScopeAwsServiceArgs',
+    'AssessmentScopeAwsServiceArgsDict',
     'ControlControlMappingSourceArgs',
+    'ControlControlMappingSourceArgsDict',
     'ControlControlMappingSourceSourceKeywordArgs',
+    'ControlControlMappingSourceSourceKeywordArgsDict',
     'FrameworkControlSetArgs',
+    'FrameworkControlSetArgsDict',
     'FrameworkControlSetControlArgs',
+    'FrameworkControlSetControlArgsDict',
     'GetControlControlMappingSourceArgs',
+    'GetControlControlMappingSourceArgsDict',
     'GetControlControlMappingSourceSourceKeywordArgs',
+    'GetControlControlMappingSourceSourceKeywordArgsDict',
     'GetFrameworkControlSetArgs',
+    'GetFrameworkControlSetArgsDict',
     'GetFrameworkControlSetControlArgs',
+    'GetFrameworkControlSetControlArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssessmentAssessmentReportsDestinationArgsDict(TypedDict):
+        destination: pulumi.Input[str]
+        """
+        Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
+        """
+        destination_type: pulumi.Input[str]
+        """
+        Destination type. Currently, `S3` is the only valid value.
+        """
+elif False:
+    AssessmentAssessmentReportsDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentAssessmentReportsDestinationArgs:
@@ -63,6 +97,19 @@ class AssessmentAssessmentReportsDestinationArgs:
         pulumi.set(self, "destination_type", value)
 
 
+if not MYPY:
+    class AssessmentRoleArgsDict(TypedDict):
+        role_arn: pulumi.Input[str]
+        """
+        Amazon Resource Name (ARN) of the IAM role.
+        """
+        role_type: pulumi.Input[str]
+        """
+        Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
+        """
+elif False:
+    AssessmentRoleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssessmentRoleArgs:
     def __init__(__self__, *,
@@ -100,6 +147,13 @@ class AssessmentRoleArgs:
         pulumi.set(self, "role_type", value)
 
 
+if not MYPY:
+    class AssessmentRolesAllArgsDict(TypedDict):
+        role_arn: pulumi.Input[str]
+        role_type: pulumi.Input[str]
+elif False:
+    AssessmentRolesAllArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssessmentRolesAllArgs:
     def __init__(__self__, *,
@@ -126,6 +180,19 @@ class AssessmentRolesAllArgs:
     def role_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_type", value)
 
+
+if not MYPY:
+    class AssessmentScopeArgsDict(TypedDict):
+        aws_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgsDict']]]]
+        """
+        Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
+        """
+        aws_services: NotRequired[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgsDict']]]]
+        """
+        Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
+        """
+elif False:
+    AssessmentScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentScopeArgs:
@@ -166,6 +233,15 @@ class AssessmentScopeArgs:
         pulumi.set(self, "aws_services", value)
 
 
+if not MYPY:
+    class AssessmentScopeAwsAccountArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Identifier for the Amazon Web Services account.
+        """
+elif False:
+    AssessmentScopeAwsAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssessmentScopeAwsAccountArgs:
     def __init__(__self__, *,
@@ -188,6 +264,15 @@ class AssessmentScopeAwsAccountArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class AssessmentScopeAwsServiceArgsDict(TypedDict):
+        service_name: pulumi.Input[str]
+        """
+        Name of the Amazon Web Service.
+        """
+elif False:
+    AssessmentScopeAwsServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssessmentScopeAwsServiceArgs:
     def __init__(__self__, *,
@@ -209,6 +294,42 @@ class AssessmentScopeAwsServiceArgs:
     def service_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_name", value)
 
+
+if not MYPY:
+    class ControlControlMappingSourceArgsDict(TypedDict):
+        source_name: pulumi.Input[str]
+        """
+        Name of the source.
+        """
+        source_set_up_option: pulumi.Input[str]
+        """
+        The setup option for the data source. This option reflects if the evidence collection is automated or manual. Valid values are `System_Controls_Mapping` (automated) and `Procedural_Controls_Mapping` (manual).
+        """
+        source_type: pulumi.Input[str]
+        """
+        Type of data source for evidence collection. If `source_set_up_option` is manual, the only valid value is `MANUAL`. If `source_set_up_option` is automated, valid values are `AWS_Cloudtrail`, `AWS_Config`, `AWS_Security_Hub`, or `AWS_API_Call`.
+
+        The following arguments are optional:
+        """
+        source_description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the source.
+        """
+        source_frequency: NotRequired[pulumi.Input[str]]
+        """
+        Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
+        """
+        source_id: NotRequired[pulumi.Input[str]]
+        source_keyword: NotRequired[pulumi.Input['ControlControlMappingSourceSourceKeywordArgsDict']]
+        """
+        The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+        """
+        troubleshooting_text: NotRequired[pulumi.Input[str]]
+        """
+        Instructions for troubleshooting the control.
+        """
+elif False:
+    ControlControlMappingSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ControlControlMappingSourceArgs:
@@ -342,6 +463,19 @@ class ControlControlMappingSourceArgs:
         pulumi.set(self, "troubleshooting_text", value)
 
 
+if not MYPY:
+    class ControlControlMappingSourceSourceKeywordArgsDict(TypedDict):
+        keyword_input_type: pulumi.Input[str]
+        """
+        Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
+        """
+        keyword_value: pulumi.Input[str]
+        """
+        The value of the keyword that's used when mapping a control data source. For example, this can be a CloudTrail event name, a rule name for Config, a Security Hub control, or the name of an Amazon Web Services API call. See the [Audit Manager supported control data sources documentation](https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources.html) for more information.
+        """
+elif False:
+    ControlControlMappingSourceSourceKeywordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ControlControlMappingSourceSourceKeywordArgs:
     def __init__(__self__, *,
@@ -378,6 +512,23 @@ class ControlControlMappingSourceSourceKeywordArgs:
     def keyword_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "keyword_value", value)
 
+
+if not MYPY:
+    class FrameworkControlSetArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the control set.
+        """
+        controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgsDict']]]]
+        """
+        Configuration block(s) for the controls within the control set. See `controls` Block below for details.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Unique identifier for the framework.
+        """
+elif False:
+    FrameworkControlSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrameworkControlSetArgs:
@@ -433,6 +584,15 @@ class FrameworkControlSetArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class FrameworkControlSetControlArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Unique identifier of the control.
+        """
+elif False:
+    FrameworkControlSetControlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrameworkControlSetControlArgs:
     def __init__(__self__, *,
@@ -454,6 +614,19 @@ class FrameworkControlSetControlArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetControlControlMappingSourceArgsDict(TypedDict):
+        source_description: str
+        source_frequency: str
+        source_id: str
+        source_name: str
+        source_set_up_option: str
+        source_type: str
+        troubleshooting_text: str
+        source_keyword: NotRequired['GetControlControlMappingSourceSourceKeywordArgsDict']
+elif False:
+    GetControlControlMappingSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetControlControlMappingSourceArgs:
@@ -549,6 +722,13 @@ class GetControlControlMappingSourceArgs:
         pulumi.set(self, "source_keyword", value)
 
 
+if not MYPY:
+    class GetControlControlMappingSourceSourceKeywordArgsDict(TypedDict):
+        keyword_input_type: str
+        keyword_value: str
+elif False:
+    GetControlControlMappingSourceSourceKeywordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetControlControlMappingSourceSourceKeywordArgs:
     def __init__(__self__, *,
@@ -575,6 +755,17 @@ class GetControlControlMappingSourceSourceKeywordArgs:
     def keyword_value(self, value: str):
         pulumi.set(self, "keyword_value", value)
 
+
+if not MYPY:
+    class GetFrameworkControlSetArgsDict(TypedDict):
+        id: str
+        name: str
+        """
+        Name of the framework.
+        """
+        controls: NotRequired[Sequence['GetFrameworkControlSetControlArgsDict']]
+elif False:
+    GetFrameworkControlSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFrameworkControlSetArgs:
@@ -620,6 +811,12 @@ class GetFrameworkControlSetArgs:
     def controls(self, value: Optional[Sequence['GetFrameworkControlSetControlArgs']]):
         pulumi.set(self, "controls", value)
 
+
+if not MYPY:
+    class GetFrameworkControlSetControlArgsDict(TypedDict):
+        id: str
+elif False:
+    GetFrameworkControlSetControlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetFrameworkControlSetControlArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -79,8 +84,8 @@ class AwaitableGetResourceCollectionResult(GetResourceCollectionResult):
             type=self.type)
 
 
-def get_resource_collection(cloudformations: Optional[Sequence[pulumi.InputType['GetResourceCollectionCloudformationArgs']]] = None,
-                            tags: Optional[Sequence[pulumi.InputType['GetResourceCollectionTagArgs']]] = None,
+def get_resource_collection(cloudformations: Optional[Sequence[Union['GetResourceCollectionCloudformationArgs', 'GetResourceCollectionCloudformationArgsDict']]] = None,
+                            tags: Optional[Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']]] = None,
                             type: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceCollectionResult:
     """
@@ -98,8 +103,8 @@ def get_resource_collection(cloudformations: Optional[Sequence[pulumi.InputType[
     ```
 
 
-    :param Sequence[pulumi.InputType['GetResourceCollectionCloudformationArgs']] cloudformations: A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-    :param Sequence[pulumi.InputType['GetResourceCollectionTagArgs']] tags: AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+    :param Sequence[Union['GetResourceCollectionCloudformationArgs', 'GetResourceCollectionCloudformationArgsDict']] cloudformations: A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+    :param Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']] tags: AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
     :param str type: Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
     """
     __args__ = dict()
@@ -117,8 +122,8 @@ def get_resource_collection(cloudformations: Optional[Sequence[pulumi.InputType[
 
 
 @_utilities.lift_output_func(get_resource_collection)
-def get_resource_collection_output(cloudformations: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetResourceCollectionCloudformationArgs']]]]] = None,
-                                   tags: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetResourceCollectionTagArgs']]]]] = None,
+def get_resource_collection_output(cloudformations: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceCollectionCloudformationArgs', 'GetResourceCollectionCloudformationArgsDict']]]]] = None,
+                                   tags: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']]]]] = None,
                                    type: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceCollectionResult]:
     """
@@ -136,8 +141,8 @@ def get_resource_collection_output(cloudformations: Optional[pulumi.Input[Option
     ```
 
 
-    :param Sequence[pulumi.InputType['GetResourceCollectionCloudformationArgs']] cloudformations: A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-    :param Sequence[pulumi.InputType['GetResourceCollectionTagArgs']] tags: AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+    :param Sequence[Union['GetResourceCollectionCloudformationArgs', 'GetResourceCollectionCloudformationArgsDict']] cloudformations: A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+    :param Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']] tags: AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
     :param str type: Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
     """
     ...

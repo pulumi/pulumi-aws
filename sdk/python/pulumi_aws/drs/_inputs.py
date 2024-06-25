@@ -4,15 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ReplicationConfigurationTemplatePitPolicyArgs',
+    'ReplicationConfigurationTemplatePitPolicyArgsDict',
     'ReplicationConfigurationTemplateTimeoutsArgs',
+    'ReplicationConfigurationTemplateTimeoutsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ReplicationConfigurationTemplatePitPolicyArgsDict(TypedDict):
+        interval: pulumi.Input[int]
+        """
+        How often, in the chosen units, a snapshot should be taken.
+        """
+        retention_duration: pulumi.Input[int]
+        """
+        Duration to retain a snapshot for, in the chosen `units`.
+        """
+        units: pulumi.Input[str]
+        """
+        Units used to measure the `interval` and `retention_duration`. Valid values are `MINUTE`, `HOUR`, and `DAY`.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether this rule is enabled or not.
+        """
+        rule_id: NotRequired[pulumi.Input[int]]
+        """
+        ID of the rule. Valid values are integers.
+        """
+elif False:
+    ReplicationConfigurationTemplatePitPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReplicationConfigurationTemplatePitPolicyArgs:
@@ -97,6 +131,23 @@ class ReplicationConfigurationTemplatePitPolicyArgs:
     def rule_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "rule_id", value)
 
+
+if not MYPY:
+    class ReplicationConfigurationTemplateTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    ReplicationConfigurationTemplateTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReplicationConfigurationTemplateTimeoutsArgs:

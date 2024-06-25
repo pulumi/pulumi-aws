@@ -4,18 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'EndpointAuthenticationOptionArgs',
+    'EndpointAuthenticationOptionArgsDict',
     'EndpointClientConnectOptionsArgs',
+    'EndpointClientConnectOptionsArgsDict',
     'EndpointClientLoginBannerOptionsArgs',
+    'EndpointClientLoginBannerOptionsArgsDict',
     'EndpointConnectionLogOptionsArgs',
+    'EndpointConnectionLogOptionsArgsDict',
     'GetEndpointFilterArgs',
+    'GetEndpointFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EndpointAuthenticationOptionArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
+        """
+        active_directory_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
+        """
+        root_certificate_chain_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
+        """
+        saml_provider_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM SAML identity provider if type is `federated-authentication`.
+        """
+        self_service_saml_provider_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
+        """
+elif False:
+    EndpointAuthenticationOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointAuthenticationOptionArgs:
@@ -103,6 +140,19 @@ class EndpointAuthenticationOptionArgs:
         pulumi.set(self, "self_service_saml_provider_arn", value)
 
 
+if not MYPY:
+    class EndpointClientConnectOptionsArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether client connect options are enabled. The default is `false` (not enabled).
+        """
+        lambda_function_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+        """
+elif False:
+    EndpointClientConnectOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointClientConnectOptionsArgs:
     def __init__(__self__, *,
@@ -142,6 +192,19 @@ class EndpointClientConnectOptionsArgs:
         pulumi.set(self, "lambda_function_arn", value)
 
 
+if not MYPY:
+    class EndpointClientLoginBannerOptionsArgsDict(TypedDict):
+        banner_text: NotRequired[pulumi.Input[str]]
+        """
+        Customizable text that will be displayed in a banner on AWS provided clients when a VPN session is established. UTF-8 encoded characters only. Maximum of 1400 characters.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable or disable a customizable text banner that will be displayed on AWS provided clients when a VPN session is established. The default is `false` (not enabled).
+        """
+elif False:
+    EndpointClientLoginBannerOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointClientLoginBannerOptionsArgs:
     def __init__(__self__, *,
@@ -180,6 +243,23 @@ class EndpointClientLoginBannerOptionsArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class EndpointConnectionLogOptionsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Indicates whether connection logging is enabled.
+        """
+        cloudwatch_log_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of the CloudWatch Logs log group.
+        """
+        cloudwatch_log_stream: NotRequired[pulumi.Input[str]]
+        """
+        The name of the CloudWatch Logs log stream to which the connection data is published.
+        """
+elif False:
+    EndpointConnectionLogOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointConnectionLogOptionsArgs:
@@ -234,6 +314,19 @@ class EndpointConnectionLogOptionsArgs:
     def cloudwatch_log_stream(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloudwatch_log_stream", value)
 
+
+if not MYPY:
+    class GetEndpointFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field. An endpoint will be selected if any one of the given values matches.
+        """
+elif False:
+    GetEndpointFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetEndpointFilterArgs:

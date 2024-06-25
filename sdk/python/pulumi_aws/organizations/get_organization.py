@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -201,23 +206,23 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
 
     example = aws.organizations.get_organization()
     sns_topic = aws.sns.Topic("sns_topic", name="my-sns-topic")
-    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        effect="Allow",
-        actions=[
+    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        "effect": "Allow",
+        "actions": [
             "SNS:Subscribe",
             "SNS:Publish",
         ],
-        conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-            test="StringEquals",
-            variable="aws:PrincipalOrgID",
-            values=[example.id],
-        )],
-        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-            type="AWS",
-            identifiers=["*"],
-        )],
-        resources=[arn],
-    )]))
+        "conditions": [{
+            "test": "StringEquals",
+            "variable": "aws:PrincipalOrgID",
+            "values": [example.id],
+        }],
+        "principals": [{
+            "type": "AWS",
+            "identifiers": ["*"],
+        }],
+        "resources": [arn],
+    }]))
     sns_topic_policy_topic_policy = aws.sns.TopicPolicy("sns_topic_policy",
         arn=sns_topic.arn,
         policy=sns_topic_policy.json)
@@ -267,23 +272,23 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
 
     example = aws.organizations.get_organization()
     sns_topic = aws.sns.Topic("sns_topic", name="my-sns-topic")
-    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        effect="Allow",
-        actions=[
+    sns_topic_policy = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        "effect": "Allow",
+        "actions": [
             "SNS:Subscribe",
             "SNS:Publish",
         ],
-        conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-            test="StringEquals",
-            variable="aws:PrincipalOrgID",
-            values=[example.id],
-        )],
-        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-            type="AWS",
-            identifiers=["*"],
-        )],
-        resources=[arn],
-    )]))
+        "conditions": [{
+            "test": "StringEquals",
+            "variable": "aws:PrincipalOrgID",
+            "values": [example.id],
+        }],
+        "principals": [{
+            "type": "AWS",
+            "identifiers": ["*"],
+        }],
+        "resources": [arn],
+    }]))
     sns_topic_policy_topic_policy = aws.sns.TopicPolicy("sns_topic_policy",
         arn=sns_topic.arn,
         policy=sns_topic_policy.json)

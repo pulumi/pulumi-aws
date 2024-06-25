@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -206,7 +211,7 @@ class ProfilingGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_orchestration_config: Optional[pulumi.Input[pulumi.InputType['ProfilingGroupAgentOrchestrationConfigArgs']]] = None,
+                 agent_orchestration_config: Optional[pulumi.Input[Union['ProfilingGroupAgentOrchestrationConfigArgs', 'ProfilingGroupAgentOrchestrationConfigArgsDict']]] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -225,9 +230,9 @@ class ProfilingGroup(pulumi.CustomResource):
         example = aws.codeguruprofiler.ProfilingGroup("example",
             name="example",
             compute_platform="Default",
-            agent_orchestration_config=aws.codeguruprofiler.ProfilingGroupAgentOrchestrationConfigArgs(
-                profiling_enabled=True,
-            ))
+            agent_orchestration_config={
+                "profilingEnabled": True,
+            })
         ```
 
         ## Import
@@ -240,7 +245,7 @@ class ProfilingGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProfilingGroupAgentOrchestrationConfigArgs']] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
+        :param pulumi.Input[Union['ProfilingGroupAgentOrchestrationConfigArgs', 'ProfilingGroupAgentOrchestrationConfigArgsDict']] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
         :param pulumi.Input[str] compute_platform: Compute platform of the profiling group.
         :param pulumi.Input[str] name: Name of the profiling group.
                
@@ -267,9 +272,9 @@ class ProfilingGroup(pulumi.CustomResource):
         example = aws.codeguruprofiler.ProfilingGroup("example",
             name="example",
             compute_platform="Default",
-            agent_orchestration_config=aws.codeguruprofiler.ProfilingGroupAgentOrchestrationConfigArgs(
-                profiling_enabled=True,
-            ))
+            agent_orchestration_config={
+                "profilingEnabled": True,
+            })
         ```
 
         ## Import
@@ -295,7 +300,7 @@ class ProfilingGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_orchestration_config: Optional[pulumi.Input[pulumi.InputType['ProfilingGroupAgentOrchestrationConfigArgs']]] = None,
+                 agent_orchestration_config: Optional[pulumi.Input[Union['ProfilingGroupAgentOrchestrationConfigArgs', 'ProfilingGroupAgentOrchestrationConfigArgsDict']]] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -324,7 +329,7 @@ class ProfilingGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_orchestration_config: Optional[pulumi.Input[pulumi.InputType['ProfilingGroupAgentOrchestrationConfigArgs']]] = None,
+            agent_orchestration_config: Optional[pulumi.Input[Union['ProfilingGroupAgentOrchestrationConfigArgs', 'ProfilingGroupAgentOrchestrationConfigArgsDict']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             compute_platform: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -337,7 +342,7 @@ class ProfilingGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProfilingGroupAgentOrchestrationConfigArgs']] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
+        :param pulumi.Input[Union['ProfilingGroupAgentOrchestrationConfigArgs', 'ProfilingGroupAgentOrchestrationConfigArgsDict']] agent_orchestration_config: Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
         :param pulumi.Input[str] arn: ARN of the profiling group.
         :param pulumi.Input[str] compute_platform: Compute platform of the profiling group.
         :param pulumi.Input[str] name: Name of the profiling group.

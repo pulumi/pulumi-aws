@@ -4,28 +4,63 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ApplicationPortalOptionsArgs',
+    'ApplicationPortalOptionsArgsDict',
     'ApplicationPortalOptionsSignInOptionsArgs',
+    'ApplicationPortalOptionsSignInOptionsArgsDict',
     'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs',
+    'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict',
     'InstanceAccessControlAttributesAttributeArgs',
+    'InstanceAccessControlAttributesAttributeArgsDict',
     'InstanceAccessControlAttributesAttributeValueArgs',
+    'InstanceAccessControlAttributesAttributeValueArgsDict',
     'PermissionsBoundaryAttachmentPermissionsBoundaryArgs',
+    'PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict',
     'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs',
+    'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict',
     'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs',
+    'TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict',
     'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs',
+    'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict',
     'GetApplicationAssignmentsApplicationAssignmentArgs',
+    'GetApplicationAssignmentsApplicationAssignmentArgsDict',
     'GetApplicationPortalOptionArgs',
+    'GetApplicationPortalOptionArgsDict',
     'GetApplicationPortalOptionSignInOptionArgs',
+    'GetApplicationPortalOptionSignInOptionArgsDict',
     'GetApplicationProvidersApplicationProviderArgs',
+    'GetApplicationProvidersApplicationProviderArgsDict',
     'GetApplicationProvidersApplicationProviderDisplayDataArgs',
+    'GetApplicationProvidersApplicationProviderDisplayDataArgsDict',
     'GetPrincipalApplicationAssignmentsApplicationAssignmentArgs',
+    'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationPortalOptionsArgsDict(TypedDict):
+        sign_in_options: NotRequired[pulumi.Input['ApplicationPortalOptionsSignInOptionsArgsDict']]
+        """
+        Sign-in options for the access portal. See `sign_in_options` below.
+        """
+        visibility: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
+        """
+elif False:
+    ApplicationPortalOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationPortalOptionsArgs:
@@ -65,6 +100,22 @@ class ApplicationPortalOptionsArgs:
     def visibility(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "visibility", value)
 
+
+if not MYPY:
+    class ApplicationPortalOptionsSignInOptionsArgsDict(TypedDict):
+        origin: pulumi.Input[str]
+        """
+        Determines how IAM Identity Center navigates the user to the target application.
+        Valid values are `APPLICATION` and `IDENTITY_CENTER`.
+        If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `application_url`.
+        If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
+        """
+        application_url: NotRequired[pulumi.Input[str]]
+        """
+        URL that accepts authentication requests for an application.
+        """
+elif False:
+    ApplicationPortalOptionsSignInOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationPortalOptionsSignInOptionsArgs:
@@ -110,6 +161,19 @@ class ApplicationPortalOptionsSignInOptionsArgs:
         pulumi.set(self, "application_url", value)
 
 
+if not MYPY:
+    class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the customer managed IAM Policy to be attached.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+        """
+elif False:
+    CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
     def __init__(__self__, *,
@@ -148,6 +212,13 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class InstanceAccessControlAttributesAttributeArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        values: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgsDict']]]
+elif False:
+    InstanceAccessControlAttributesAttributeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceAccessControlAttributesAttributeArgs:
     def __init__(__self__, *,
@@ -175,6 +246,12 @@ class InstanceAccessControlAttributesAttributeArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class InstanceAccessControlAttributesAttributeValueArgsDict(TypedDict):
+        sources: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    InstanceAccessControlAttributesAttributeValueArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceAccessControlAttributesAttributeValueArgs:
     def __init__(__self__, *,
@@ -190,6 +267,19 @@ class InstanceAccessControlAttributesAttributeValueArgs:
     def sources(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "sources", value)
 
+
+if not MYPY:
+    class PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict(TypedDict):
+        customer_managed_policy_reference: NotRequired[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict']]
+        """
+        Specifies the name and path of a customer managed policy. See below.
+        """
+        managed_policy_arn: NotRequired[pulumi.Input[str]]
+        """
+        AWS-managed IAM policy ARN to use as the permissions boundary.
+        """
+elif False:
+    PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
@@ -230,6 +320,19 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
         pulumi.set(self, "managed_policy_arn", value)
 
 
+if not MYPY:
+    class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the customer managed IAM Policy to be attached.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+        """
+elif False:
+    PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs:
     def __init__(__self__, *,
@@ -268,6 +371,15 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict(TypedDict):
+        oidc_jwt_configuration: NotRequired[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict']]
+        """
+        A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
+        """
+elif False:
+    TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs:
     def __init__(__self__, *,
@@ -290,6 +402,27 @@ class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs:
     def oidc_jwt_configuration(self, value: Optional[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs']]):
         pulumi.set(self, "oidc_jwt_configuration", value)
 
+
+if not MYPY:
+    class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict(TypedDict):
+        claim_attribute_path: pulumi.Input[str]
+        """
+        Specifies the path of the source attribute in the JWT from the trusted token issuer.
+        """
+        identity_store_attribute_path: pulumi.Input[str]
+        """
+        Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+        """
+        issuer_url: pulumi.Input[str]
+        """
+        Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
+        """
+        jwks_retrieval_option: pulumi.Input[str]
+        """
+        The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
+        """
+elif False:
+    TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs:
@@ -358,6 +491,23 @@ class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs:
         pulumi.set(self, "jwks_retrieval_option", value)
 
 
+if not MYPY:
+    class GetApplicationAssignmentsApplicationAssignmentArgsDict(TypedDict):
+        application_arn: str
+        """
+        ARN of the application.
+        """
+        principal_id: str
+        """
+        An identifier for an object in IAM Identity Center, such as a user or group.
+        """
+        principal_type: str
+        """
+        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        """
+elif False:
+    GetApplicationAssignmentsApplicationAssignmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetApplicationAssignmentsApplicationAssignmentArgs:
     def __init__(__self__, *,
@@ -410,6 +560,13 @@ class GetApplicationAssignmentsApplicationAssignmentArgs:
         pulumi.set(self, "principal_type", value)
 
 
+if not MYPY:
+    class GetApplicationPortalOptionArgsDict(TypedDict):
+        visibility: str
+        sign_in_options: NotRequired[Sequence['GetApplicationPortalOptionSignInOptionArgsDict']]
+elif False:
+    GetApplicationPortalOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetApplicationPortalOptionArgs:
     def __init__(__self__, *,
@@ -438,6 +595,13 @@ class GetApplicationPortalOptionArgs:
         pulumi.set(self, "sign_in_options", value)
 
 
+if not MYPY:
+    class GetApplicationPortalOptionSignInOptionArgsDict(TypedDict):
+        application_url: str
+        origin: str
+elif False:
+    GetApplicationPortalOptionSignInOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetApplicationPortalOptionSignInOptionArgs:
     def __init__(__self__, *,
@@ -464,6 +628,23 @@ class GetApplicationPortalOptionSignInOptionArgs:
     def origin(self, value: str):
         pulumi.set(self, "origin", value)
 
+
+if not MYPY:
+    class GetApplicationProvidersApplicationProviderArgsDict(TypedDict):
+        application_provider_arn: str
+        """
+        ARN of the application provider.
+        """
+        federation_protocol: str
+        """
+        Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
+        """
+        display_datas: NotRequired[Sequence['GetApplicationProvidersApplicationProviderDisplayDataArgsDict']]
+        """
+        An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
+        """
+elif False:
+    GetApplicationProvidersApplicationProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetApplicationProvidersApplicationProviderArgs:
@@ -518,6 +699,23 @@ class GetApplicationProvidersApplicationProviderArgs:
         pulumi.set(self, "display_datas", value)
 
 
+if not MYPY:
+    class GetApplicationProvidersApplicationProviderDisplayDataArgsDict(TypedDict):
+        description: str
+        """
+        Description of the application provider.
+        """
+        display_name: str
+        """
+        Name of the application provider.
+        """
+        icon_url: str
+        """
+        URL that points to an icon that represents the application provider.
+        """
+elif False:
+    GetApplicationProvidersApplicationProviderDisplayDataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetApplicationProvidersApplicationProviderDisplayDataArgs:
     def __init__(__self__, *,
@@ -569,6 +767,23 @@ class GetApplicationProvidersApplicationProviderDisplayDataArgs:
     def icon_url(self, value: str):
         pulumi.set(self, "icon_url", value)
 
+
+if not MYPY:
+    class GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict(TypedDict):
+        application_arn: str
+        """
+        ARN of the application.
+        """
+        principal_id: str
+        """
+        An identifier for an object in IAM Identity Center, such as a user or group.
+        """
+        principal_type: str
+        """
+        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        """
+elif False:
+    GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetPrincipalApplicationAssignmentsApplicationAssignmentArgs:

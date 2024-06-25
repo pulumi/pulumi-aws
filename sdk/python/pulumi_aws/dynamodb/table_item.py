@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['TableItemArgs', 'TableItem']
@@ -179,10 +184,10 @@ class TableItem(pulumi.CustomResource):
             read_capacity=10,
             write_capacity=10,
             hash_key="exampleHashKey",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="exampleHashKey",
-                type="S",
-            )])
+            attributes=[{
+                "name": "exampleHashKey",
+                "type": "S",
+            }])
         example = aws.dynamodb.TableItem("example",
             table_name=example_table.name,
             hash_key=example_table.hash_key,
@@ -230,10 +235,10 @@ class TableItem(pulumi.CustomResource):
             read_capacity=10,
             write_capacity=10,
             hash_key="exampleHashKey",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="exampleHashKey",
-                type="S",
-            )])
+            attributes=[{
+                "name": "exampleHashKey",
+                "type": "S",
+            }])
         example = aws.dynamodb.TableItem("example",
             table_name=example_table.name,
             hash_key=example_table.hash_key,

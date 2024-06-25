@@ -4,294 +4,630 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from ._enums import *
 
 __all__ = [
     'AmiCopyEbsBlockDeviceArgs',
+    'AmiCopyEbsBlockDeviceArgsDict',
     'AmiCopyEphemeralBlockDeviceArgs',
+    'AmiCopyEphemeralBlockDeviceArgsDict',
     'AmiEbsBlockDeviceArgs',
+    'AmiEbsBlockDeviceArgsDict',
     'AmiEphemeralBlockDeviceArgs',
+    'AmiEphemeralBlockDeviceArgsDict',
     'AmiFromInstanceEbsBlockDeviceArgs',
+    'AmiFromInstanceEbsBlockDeviceArgsDict',
     'AmiFromInstanceEphemeralBlockDeviceArgs',
+    'AmiFromInstanceEphemeralBlockDeviceArgsDict',
     'CapacityBlockReservationTimeoutsArgs',
+    'CapacityBlockReservationTimeoutsArgsDict',
     'DefaultNetworkAclEgressArgs',
+    'DefaultNetworkAclEgressArgsDict',
     'DefaultNetworkAclIngressArgs',
+    'DefaultNetworkAclIngressArgsDict',
     'DefaultRouteTableRouteArgs',
+    'DefaultRouteTableRouteArgsDict',
     'DefaultSecurityGroupEgressArgs',
+    'DefaultSecurityGroupEgressArgsDict',
     'DefaultSecurityGroupIngressArgs',
+    'DefaultSecurityGroupIngressArgsDict',
     'EipDomainNameTimeoutsArgs',
+    'EipDomainNameTimeoutsArgsDict',
     'FleetFleetInstanceSetArgs',
+    'FleetFleetInstanceSetArgsDict',
     'FleetLaunchTemplateConfigArgs',
+    'FleetLaunchTemplateConfigArgsDict',
     'FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs',
+    'FleetLaunchTemplateConfigLaunchTemplateSpecificationArgsDict',
     'FleetLaunchTemplateConfigOverrideArgs',
+    'FleetLaunchTemplateConfigOverrideArgsDict',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgsDict',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgsDict',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgsDict',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgsDict',
     'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgsDict',
     'FleetOnDemandOptionsArgs',
+    'FleetOnDemandOptionsArgsDict',
     'FleetOnDemandOptionsCapacityReservationOptionsArgs',
+    'FleetOnDemandOptionsCapacityReservationOptionsArgsDict',
     'FleetSpotOptionsArgs',
+    'FleetSpotOptionsArgsDict',
     'FleetSpotOptionsMaintenanceStrategiesArgs',
+    'FleetSpotOptionsMaintenanceStrategiesArgsDict',
     'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs',
+    'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgsDict',
     'FleetTargetCapacitySpecificationArgs',
+    'FleetTargetCapacitySpecificationArgsDict',
     'FlowLogDestinationOptionsArgs',
+    'FlowLogDestinationOptionsArgsDict',
     'InstanceCapacityReservationSpecificationArgs',
+    'InstanceCapacityReservationSpecificationArgsDict',
     'InstanceCapacityReservationSpecificationCapacityReservationTargetArgs',
+    'InstanceCapacityReservationSpecificationCapacityReservationTargetArgsDict',
     'InstanceCpuOptionsArgs',
+    'InstanceCpuOptionsArgsDict',
     'InstanceCreditSpecificationArgs',
+    'InstanceCreditSpecificationArgsDict',
     'InstanceEbsBlockDeviceArgs',
+    'InstanceEbsBlockDeviceArgsDict',
     'InstanceEnclaveOptionsArgs',
+    'InstanceEnclaveOptionsArgsDict',
     'InstanceEphemeralBlockDeviceArgs',
+    'InstanceEphemeralBlockDeviceArgsDict',
     'InstanceInstanceMarketOptionsArgs',
+    'InstanceInstanceMarketOptionsArgsDict',
     'InstanceInstanceMarketOptionsSpotOptionsArgs',
+    'InstanceInstanceMarketOptionsSpotOptionsArgsDict',
     'InstanceLaunchTemplateArgs',
+    'InstanceLaunchTemplateArgsDict',
     'InstanceMaintenanceOptionsArgs',
+    'InstanceMaintenanceOptionsArgsDict',
     'InstanceMetadataOptionsArgs',
+    'InstanceMetadataOptionsArgsDict',
     'InstanceNetworkInterfaceArgs',
+    'InstanceNetworkInterfaceArgsDict',
     'InstancePrivateDnsNameOptionsArgs',
+    'InstancePrivateDnsNameOptionsArgsDict',
     'InstanceRootBlockDeviceArgs',
+    'InstanceRootBlockDeviceArgsDict',
     'LaunchConfigurationEbsBlockDeviceArgs',
+    'LaunchConfigurationEbsBlockDeviceArgsDict',
     'LaunchConfigurationEphemeralBlockDeviceArgs',
+    'LaunchConfigurationEphemeralBlockDeviceArgsDict',
     'LaunchConfigurationMetadataOptionsArgs',
+    'LaunchConfigurationMetadataOptionsArgsDict',
     'LaunchConfigurationRootBlockDeviceArgs',
+    'LaunchConfigurationRootBlockDeviceArgsDict',
     'LaunchTemplateBlockDeviceMappingArgs',
+    'LaunchTemplateBlockDeviceMappingArgsDict',
     'LaunchTemplateBlockDeviceMappingEbsArgs',
+    'LaunchTemplateBlockDeviceMappingEbsArgsDict',
     'LaunchTemplateCapacityReservationSpecificationArgs',
+    'LaunchTemplateCapacityReservationSpecificationArgsDict',
     'LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs',
+    'LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgsDict',
     'LaunchTemplateCpuOptionsArgs',
+    'LaunchTemplateCpuOptionsArgsDict',
     'LaunchTemplateCreditSpecificationArgs',
+    'LaunchTemplateCreditSpecificationArgsDict',
     'LaunchTemplateElasticGpuSpecificationArgs',
+    'LaunchTemplateElasticGpuSpecificationArgsDict',
     'LaunchTemplateElasticInferenceAcceleratorArgs',
+    'LaunchTemplateElasticInferenceAcceleratorArgsDict',
     'LaunchTemplateEnclaveOptionsArgs',
+    'LaunchTemplateEnclaveOptionsArgsDict',
     'LaunchTemplateHibernationOptionsArgs',
+    'LaunchTemplateHibernationOptionsArgsDict',
     'LaunchTemplateIamInstanceProfileArgs',
+    'LaunchTemplateIamInstanceProfileArgsDict',
     'LaunchTemplateInstanceMarketOptionsArgs',
+    'LaunchTemplateInstanceMarketOptionsArgsDict',
     'LaunchTemplateInstanceMarketOptionsSpotOptionsArgs',
+    'LaunchTemplateInstanceMarketOptionsSpotOptionsArgsDict',
     'LaunchTemplateInstanceRequirementsArgs',
+    'LaunchTemplateInstanceRequirementsArgsDict',
     'LaunchTemplateInstanceRequirementsAcceleratorCountArgs',
+    'LaunchTemplateInstanceRequirementsAcceleratorCountArgsDict',
     'LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs',
+    'LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgsDict',
     'LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
+    'LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict',
     'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs',
+    'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgsDict',
     'LaunchTemplateInstanceRequirementsMemoryMibArgs',
+    'LaunchTemplateInstanceRequirementsMemoryMibArgsDict',
     'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs',
+    'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgsDict',
     'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs',
+    'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgsDict',
     'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs',
+    'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgsDict',
     'LaunchTemplateInstanceRequirementsVcpuCountArgs',
+    'LaunchTemplateInstanceRequirementsVcpuCountArgsDict',
     'LaunchTemplateLicenseSpecificationArgs',
+    'LaunchTemplateLicenseSpecificationArgsDict',
     'LaunchTemplateMaintenanceOptionsArgs',
+    'LaunchTemplateMaintenanceOptionsArgsDict',
     'LaunchTemplateMetadataOptionsArgs',
+    'LaunchTemplateMetadataOptionsArgsDict',
     'LaunchTemplateMonitoringArgs',
+    'LaunchTemplateMonitoringArgsDict',
     'LaunchTemplateNetworkInterfaceArgs',
+    'LaunchTemplateNetworkInterfaceArgsDict',
     'LaunchTemplatePlacementArgs',
+    'LaunchTemplatePlacementArgsDict',
     'LaunchTemplatePrivateDnsNameOptionsArgs',
+    'LaunchTemplatePrivateDnsNameOptionsArgsDict',
     'LaunchTemplateTagSpecificationArgs',
+    'LaunchTemplateTagSpecificationArgsDict',
     'ManagedPrefixListEntryArgs',
+    'ManagedPrefixListEntryArgsDict',
     'NetworkAclEgressArgs',
+    'NetworkAclEgressArgsDict',
     'NetworkAclIngressArgs',
+    'NetworkAclIngressArgsDict',
     'NetworkInsightsAnalysisAlternatePathHintArgs',
+    'NetworkInsightsAnalysisAlternatePathHintArgsDict',
     'NetworkInsightsAnalysisExplanationArgs',
+    'NetworkInsightsAnalysisExplanationArgsDict',
     'NetworkInsightsAnalysisExplanationAclArgs',
+    'NetworkInsightsAnalysisExplanationAclArgsDict',
     'NetworkInsightsAnalysisExplanationAclRuleArgs',
+    'NetworkInsightsAnalysisExplanationAclRuleArgsDict',
     'NetworkInsightsAnalysisExplanationAclRulePortRangeArgs',
+    'NetworkInsightsAnalysisExplanationAclRulePortRangeArgsDict',
     'NetworkInsightsAnalysisExplanationAttachedToArgs',
+    'NetworkInsightsAnalysisExplanationAttachedToArgsDict',
     'NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs',
+    'NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgsDict',
     'NetworkInsightsAnalysisExplanationComponentArgs',
+    'NetworkInsightsAnalysisExplanationComponentArgsDict',
     'NetworkInsightsAnalysisExplanationCustomerGatewayArgs',
+    'NetworkInsightsAnalysisExplanationCustomerGatewayArgsDict',
     'NetworkInsightsAnalysisExplanationDestinationArgs',
+    'NetworkInsightsAnalysisExplanationDestinationArgsDict',
     'NetworkInsightsAnalysisExplanationDestinationVpcArgs',
+    'NetworkInsightsAnalysisExplanationDestinationVpcArgsDict',
     'NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs',
+    'NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgsDict',
     'NetworkInsightsAnalysisExplanationIngressRouteTableArgs',
+    'NetworkInsightsAnalysisExplanationIngressRouteTableArgsDict',
     'NetworkInsightsAnalysisExplanationInternetGatewayArgs',
+    'NetworkInsightsAnalysisExplanationInternetGatewayArgsDict',
     'NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs',
+    'NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgsDict',
     'NetworkInsightsAnalysisExplanationNatGatewayArgs',
+    'NetworkInsightsAnalysisExplanationNatGatewayArgsDict',
     'NetworkInsightsAnalysisExplanationNetworkInterfaceArgs',
+    'NetworkInsightsAnalysisExplanationNetworkInterfaceArgsDict',
     'NetworkInsightsAnalysisExplanationPortRangeArgs',
+    'NetworkInsightsAnalysisExplanationPortRangeArgsDict',
     'NetworkInsightsAnalysisExplanationPrefixListArgs',
+    'NetworkInsightsAnalysisExplanationPrefixListArgsDict',
     'NetworkInsightsAnalysisExplanationRouteTableArgs',
+    'NetworkInsightsAnalysisExplanationRouteTableArgsDict',
     'NetworkInsightsAnalysisExplanationRouteTableRouteArgs',
+    'NetworkInsightsAnalysisExplanationRouteTableRouteArgsDict',
     'NetworkInsightsAnalysisExplanationSecurityGroupArgs',
+    'NetworkInsightsAnalysisExplanationSecurityGroupArgsDict',
     'NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs',
+    'NetworkInsightsAnalysisExplanationSecurityGroupRuleArgsDict',
     'NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs',
+    'NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgsDict',
     'NetworkInsightsAnalysisExplanationSourceVpcArgs',
+    'NetworkInsightsAnalysisExplanationSourceVpcArgsDict',
     'NetworkInsightsAnalysisExplanationSubnetArgs',
+    'NetworkInsightsAnalysisExplanationSubnetArgsDict',
     'NetworkInsightsAnalysisExplanationSubnetRouteTableArgs',
+    'NetworkInsightsAnalysisExplanationSubnetRouteTableArgsDict',
     'NetworkInsightsAnalysisExplanationTransitGatewayArgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayArgsDict',
     'NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgsDict',
     'NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgsDict',
     'NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgsDict',
     'NetworkInsightsAnalysisExplanationVpcArgs',
+    'NetworkInsightsAnalysisExplanationVpcArgsDict',
     'NetworkInsightsAnalysisExplanationVpcEndpointArgs',
+    'NetworkInsightsAnalysisExplanationVpcEndpointArgsDict',
     'NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs',
+    'NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgsDict',
     'NetworkInsightsAnalysisExplanationVpnConnectionArgs',
+    'NetworkInsightsAnalysisExplanationVpnConnectionArgsDict',
     'NetworkInsightsAnalysisExplanationVpnGatewayArgs',
+    'NetworkInsightsAnalysisExplanationVpnGatewayArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentArgs',
+    'NetworkInsightsAnalysisForwardPathComponentArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentAclRuleArgs',
+    'NetworkInsightsAnalysisForwardPathComponentAclRuleArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs',
+    'NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs',
+    'NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentAttachedToArgs',
+    'NetworkInsightsAnalysisForwardPathComponentAttachedToArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentComponentArgs',
+    'NetworkInsightsAnalysisForwardPathComponentComponentArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs',
+    'NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs',
+    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs',
+    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs',
+    'NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs',
+    'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs',
+    'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs',
+    'NetworkInsightsAnalysisForwardPathComponentSourceVpcArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentSubnetArgs',
+    'NetworkInsightsAnalysisForwardPathComponentSubnetArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs',
+    'NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs',
+    'NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgsDict',
     'NetworkInsightsAnalysisForwardPathComponentVpcArgs',
+    'NetworkInsightsAnalysisForwardPathComponentVpcArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentArgs',
+    'NetworkInsightsAnalysisReturnPathComponentArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentAclRuleArgs',
+    'NetworkInsightsAnalysisReturnPathComponentAclRuleArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs',
+    'NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs',
+    'NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentAttachedToArgs',
+    'NetworkInsightsAnalysisReturnPathComponentAttachedToArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentComponentArgs',
+    'NetworkInsightsAnalysisReturnPathComponentComponentArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs',
+    'NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs',
+    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs',
+    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs',
+    'NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs',
+    'NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs',
+    'NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs',
+    'NetworkInsightsAnalysisReturnPathComponentSourceVpcArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentSubnetArgs',
+    'NetworkInsightsAnalysisReturnPathComponentSubnetArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs',
+    'NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs',
+    'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgsDict',
     'NetworkInsightsAnalysisReturnPathComponentVpcArgs',
+    'NetworkInsightsAnalysisReturnPathComponentVpcArgsDict',
     'NetworkInterfaceAttachmentArgs',
+    'NetworkInterfaceAttachmentArgsDict',
     'PeeringConnectionOptionsAccepterArgs',
+    'PeeringConnectionOptionsAccepterArgsDict',
     'PeeringConnectionOptionsRequesterArgs',
+    'PeeringConnectionOptionsRequesterArgsDict',
     'RouteTableRouteArgs',
+    'RouteTableRouteArgsDict',
     'SecurityGroupEgressArgs',
+    'SecurityGroupEgressArgsDict',
     'SecurityGroupIngressArgs',
+    'SecurityGroupIngressArgsDict',
     'SpotFleetRequestLaunchSpecificationArgs',
+    'SpotFleetRequestLaunchSpecificationArgsDict',
     'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs',
+    'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgsDict',
     'SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs',
+    'SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgsDict',
     'SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs',
+    'SpotFleetRequestLaunchSpecificationRootBlockDeviceArgsDict',
     'SpotFleetRequestLaunchTemplateConfigArgs',
+    'SpotFleetRequestLaunchTemplateConfigArgsDict',
     'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs',
+    'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgsDict',
     'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgsDict',
     'SpotFleetRequestSpotMaintenanceStrategiesArgs',
+    'SpotFleetRequestSpotMaintenanceStrategiesArgsDict',
     'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs',
+    'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgsDict',
     'SpotInstanceRequestCapacityReservationSpecificationArgs',
+    'SpotInstanceRequestCapacityReservationSpecificationArgsDict',
     'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs',
+    'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgsDict',
     'SpotInstanceRequestCpuOptionsArgs',
+    'SpotInstanceRequestCpuOptionsArgsDict',
     'SpotInstanceRequestCreditSpecificationArgs',
+    'SpotInstanceRequestCreditSpecificationArgsDict',
     'SpotInstanceRequestEbsBlockDeviceArgs',
+    'SpotInstanceRequestEbsBlockDeviceArgsDict',
     'SpotInstanceRequestEnclaveOptionsArgs',
+    'SpotInstanceRequestEnclaveOptionsArgsDict',
     'SpotInstanceRequestEphemeralBlockDeviceArgs',
+    'SpotInstanceRequestEphemeralBlockDeviceArgsDict',
     'SpotInstanceRequestLaunchTemplateArgs',
+    'SpotInstanceRequestLaunchTemplateArgsDict',
     'SpotInstanceRequestMaintenanceOptionsArgs',
+    'SpotInstanceRequestMaintenanceOptionsArgsDict',
     'SpotInstanceRequestMetadataOptionsArgs',
+    'SpotInstanceRequestMetadataOptionsArgsDict',
     'SpotInstanceRequestNetworkInterfaceArgs',
+    'SpotInstanceRequestNetworkInterfaceArgsDict',
     'SpotInstanceRequestPrivateDnsNameOptionsArgs',
+    'SpotInstanceRequestPrivateDnsNameOptionsArgsDict',
     'SpotInstanceRequestRootBlockDeviceArgs',
+    'SpotInstanceRequestRootBlockDeviceArgsDict',
     'TrafficMirrorFilterRuleDestinationPortRangeArgs',
+    'TrafficMirrorFilterRuleDestinationPortRangeArgsDict',
     'TrafficMirrorFilterRuleSourcePortRangeArgs',
+    'TrafficMirrorFilterRuleSourcePortRangeArgsDict',
     'VpcEndpointDnsEntryArgs',
+    'VpcEndpointDnsEntryArgsDict',
     'VpcEndpointDnsOptionsArgs',
+    'VpcEndpointDnsOptionsArgsDict',
     'VpcEndpointServicePrivateDnsNameConfigurationArgs',
+    'VpcEndpointServicePrivateDnsNameConfigurationArgsDict',
     'VpcEndpointSubnetConfigurationArgs',
+    'VpcEndpointSubnetConfigurationArgsDict',
     'VpcIpamOperatingRegionArgs',
+    'VpcIpamOperatingRegionArgsDict',
     'VpcIpamPoolCidrCidrAuthorizationContextArgs',
+    'VpcIpamPoolCidrCidrAuthorizationContextArgsDict',
     'VpcIpamResourceDiscoveryOperatingRegionArgs',
+    'VpcIpamResourceDiscoveryOperatingRegionArgsDict',
     'VpcPeeringConnectionAccepterArgs',
+    'VpcPeeringConnectionAccepterArgsDict',
     'VpcPeeringConnectionAccepterAccepterArgs',
+    'VpcPeeringConnectionAccepterAccepterArgsDict',
     'VpcPeeringConnectionAccepterRequesterArgs',
+    'VpcPeeringConnectionAccepterRequesterArgsDict',
     'VpcPeeringConnectionRequesterArgs',
+    'VpcPeeringConnectionRequesterArgsDict',
     'VpnConnectionRouteArgs',
+    'VpnConnectionRouteArgsDict',
     'VpnConnectionTunnel1LogOptionsArgs',
+    'VpnConnectionTunnel1LogOptionsArgsDict',
     'VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs',
+    'VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgsDict',
     'VpnConnectionTunnel2LogOptionsArgs',
+    'VpnConnectionTunnel2LogOptionsArgsDict',
     'VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs',
+    'VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgsDict',
     'VpnConnectionVgwTelemetryArgs',
+    'VpnConnectionVgwTelemetryArgsDict',
     'GetAmiFilterArgs',
+    'GetAmiFilterArgsDict',
     'GetAmiIdsFilterArgs',
+    'GetAmiIdsFilterArgsDict',
     'GetCoipPoolFilterArgs',
+    'GetCoipPoolFilterArgsDict',
     'GetCoipPoolsFilterArgs',
+    'GetCoipPoolsFilterArgsDict',
     'GetCustomerGatewayFilterArgs',
+    'GetCustomerGatewayFilterArgsDict',
     'GetDedicatedHostFilterArgs',
+    'GetDedicatedHostFilterArgsDict',
     'GetEipsFilterArgs',
+    'GetEipsFilterArgsDict',
     'GetElasticIpFilterArgs',
+    'GetElasticIpFilterArgsDict',
     'GetInstanceFilterArgs',
+    'GetInstanceFilterArgsDict',
     'GetInstanceTypeOfferingFilterArgs',
+    'GetInstanceTypeOfferingFilterArgsDict',
     'GetInstanceTypeOfferingsFilterArgs',
+    'GetInstanceTypeOfferingsFilterArgsDict',
     'GetInstanceTypesFilterArgs',
+    'GetInstanceTypesFilterArgsDict',
     'GetInstancesFilterArgs',
+    'GetInstancesFilterArgsDict',
     'GetInternetGatewayFilterArgs',
+    'GetInternetGatewayFilterArgsDict',
     'GetKeyPairFilterArgs',
+    'GetKeyPairFilterArgsDict',
     'GetLaunchTemplateFilterArgs',
+    'GetLaunchTemplateFilterArgsDict',
     'GetLocalGatewayFilterArgs',
+    'GetLocalGatewayFilterArgsDict',
     'GetLocalGatewayRouteTableFilterArgs',
+    'GetLocalGatewayRouteTableFilterArgsDict',
     'GetLocalGatewayRouteTablesFilterArgs',
+    'GetLocalGatewayRouteTablesFilterArgsDict',
     'GetLocalGatewayVirtualInterfaceFilterArgs',
+    'GetLocalGatewayVirtualInterfaceFilterArgsDict',
     'GetLocalGatewayVirtualInterfaceGroupFilterArgs',
+    'GetLocalGatewayVirtualInterfaceGroupFilterArgsDict',
     'GetLocalGatewayVirtualInterfaceGroupsFilterArgs',
+    'GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict',
     'GetLocalGatewaysFilterArgs',
+    'GetLocalGatewaysFilterArgsDict',
     'GetManagedPrefixListFilterArgs',
+    'GetManagedPrefixListFilterArgsDict',
     'GetManagedPrefixListsFilterArgs',
+    'GetManagedPrefixListsFilterArgsDict',
     'GetNatGatewayFilterArgs',
+    'GetNatGatewayFilterArgsDict',
     'GetNatGatewaysFilterArgs',
+    'GetNatGatewaysFilterArgsDict',
     'GetNetworkAclsFilterArgs',
+    'GetNetworkAclsFilterArgsDict',
     'GetNetworkInsightsAnalysisFilterArgs',
+    'GetNetworkInsightsAnalysisFilterArgsDict',
     'GetNetworkInsightsPathFilterArgs',
+    'GetNetworkInsightsPathFilterArgsDict',
     'GetNetworkInterfaceFilterArgs',
+    'GetNetworkInterfaceFilterArgsDict',
     'GetNetworkInterfacesFilterArgs',
+    'GetNetworkInterfacesFilterArgsDict',
     'GetPrefixListFilterArgs',
+    'GetPrefixListFilterArgsDict',
     'GetPublicIpv4PoolsFilterArgs',
+    'GetPublicIpv4PoolsFilterArgsDict',
     'GetRouteTableFilterArgs',
+    'GetRouteTableFilterArgsDict',
     'GetRouteTablesFilterArgs',
+    'GetRouteTablesFilterArgsDict',
     'GetSecurityGroupFilterArgs',
+    'GetSecurityGroupFilterArgsDict',
     'GetSecurityGroupsFilterArgs',
+    'GetSecurityGroupsFilterArgsDict',
     'GetSpotPriceFilterArgs',
+    'GetSpotPriceFilterArgsDict',
     'GetSubnetFilterArgs',
+    'GetSubnetFilterArgsDict',
     'GetSubnetsFilterArgs',
+    'GetSubnetsFilterArgsDict',
     'GetTransitGatewayRouteTablesFilterArgs',
+    'GetTransitGatewayRouteTablesFilterArgsDict',
     'GetVpcDhcpOptionsFilterArgs',
+    'GetVpcDhcpOptionsFilterArgsDict',
     'GetVpcEndpointFilterArgs',
+    'GetVpcEndpointFilterArgsDict',
     'GetVpcEndpointServiceFilterArgs',
+    'GetVpcEndpointServiceFilterArgsDict',
     'GetVpcFilterArgs',
+    'GetVpcFilterArgsDict',
     'GetVpcIamPoolCidrsFilterArgs',
+    'GetVpcIamPoolCidrsFilterArgsDict',
     'GetVpcIamPoolFilterArgs',
+    'GetVpcIamPoolFilterArgsDict',
     'GetVpcIamPoolsFilterArgs',
+    'GetVpcIamPoolsFilterArgsDict',
     'GetVpcIpamPoolCidrsFilterArgs',
+    'GetVpcIpamPoolCidrsFilterArgsDict',
     'GetVpcIpamPoolFilterArgs',
+    'GetVpcIpamPoolFilterArgsDict',
     'GetVpcIpamPoolsFilterArgs',
+    'GetVpcIpamPoolsFilterArgsDict',
     'GetVpcPeeringConnectionFilterArgs',
+    'GetVpcPeeringConnectionFilterArgsDict',
     'GetVpcPeeringConnectionsFilterArgs',
+    'GetVpcPeeringConnectionsFilterArgsDict',
     'GetVpcsFilterArgs',
+    'GetVpcsFilterArgsDict',
     'GetVpnGatewayFilterArgs',
+    'GetVpnGatewayFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AmiCopyEbsBlockDeviceArgsDict(TypedDict):
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean controlling whether the EBS volumes created to
+        support each created instance will be deleted once that instance is terminated.
+        """
+        device_name: NotRequired[pulumi.Input[str]]
+        """
+        Path at which the device is exposed to created instances.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Number of I/O operations per second the
+        created volumes will support.
+        """
+        outpost_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Outpost on which the snapshot is stored.
+
+        > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
+        """
+        snapshot_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of an EBS snapshot that will be used to initialize the created
+        EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        snapshot.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        """
+        volume_size: NotRequired[pulumi.Input[int]]
+        """
+        Size of created volumes in GiB.
+        If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        as the selected snapshot.
+        """
+        volume_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        """
+elif False:
+    AmiCopyEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AmiCopyEbsBlockDeviceArgs:
@@ -460,6 +796,20 @@ class AmiCopyEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class AmiCopyEphemeralBlockDeviceArgsDict(TypedDict):
+        device_name: NotRequired[pulumi.Input[str]]
+        """
+        Path at which the device is exposed to created instances.
+        """
+        virtual_name: NotRequired[pulumi.Input[str]]
+        """
+        Name for the ephemeral device, of the form "ephemeralN" where
+        *N* is a volume number starting from zero.
+        """
+elif False:
+    AmiCopyEphemeralBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AmiCopyEphemeralBlockDeviceArgs:
     def __init__(__self__, *,
@@ -500,6 +850,55 @@ class AmiCopyEphemeralBlockDeviceArgs:
     def virtual_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_name", value)
 
+
+if not MYPY:
+    class AmiEbsBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        """
+        Path at which the device is exposed to created instances.
+        """
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean controlling whether the EBS volumes created to
+        support each created instance will be deleted once that instance is terminated.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Number of I/O operations per second the
+        created volumes will support.
+        """
+        outpost_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Outpost on which the snapshot is stored.
+
+        > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
+        """
+        snapshot_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of an EBS snapshot that will be used to initialize the created
+        EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        snapshot.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        """
+        volume_size: NotRequired[pulumi.Input[int]]
+        """
+        Size of created volumes in GiB.
+        If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        as the selected snapshot.
+        """
+        volume_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        """
+elif False:
+    AmiEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AmiEbsBlockDeviceArgs:
@@ -667,6 +1066,20 @@ class AmiEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class AmiEphemeralBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        """
+        Path at which the device is exposed to created instances.
+        """
+        virtual_name: pulumi.Input[str]
+        """
+        Name for the ephemeral device, of the form "ephemeralN" where
+        *N* is a volume number starting from zero.
+        """
+elif False:
+    AmiEphemeralBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AmiEphemeralBlockDeviceArgs:
     def __init__(__self__, *,
@@ -705,6 +1118,55 @@ class AmiEphemeralBlockDeviceArgs:
     def virtual_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_name", value)
 
+
+if not MYPY:
+    class AmiFromInstanceEbsBlockDeviceArgsDict(TypedDict):
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean controlling whether the EBS volumes created to
+        support each created instance will be deleted once that instance is terminated.
+        """
+        device_name: NotRequired[pulumi.Input[str]]
+        """
+        Path at which the device is exposed to created instances.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshot_id`.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Number of I/O operations per second the
+        created volumes will support.
+        """
+        outpost_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Outpost on which the snapshot is stored.
+
+        > **Note:** You can specify `encrypted` or `snapshot_id` but not both.
+        """
+        snapshot_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of an EBS snapshot that will be used to initialize the created
+        EBS volumes. If set, the `volume_size` attribute must be at least as large as the referenced
+        snapshot.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        Throughput that the EBS volume supports, in MiB/s. Only valid for `volume_type` of `gp3`.
+        """
+        volume_size: NotRequired[pulumi.Input[int]]
+        """
+        Size of created volumes in GiB.
+        If `snapshot_id` is set and `volume_size` is omitted then the volume will have the same size
+        as the selected snapshot.
+        """
+        volume_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of EBS volume to create. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `standard`).
+        """
+elif False:
+    AmiFromInstanceEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AmiFromInstanceEbsBlockDeviceArgs:
@@ -873,6 +1335,20 @@ class AmiFromInstanceEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class AmiFromInstanceEphemeralBlockDeviceArgsDict(TypedDict):
+        device_name: NotRequired[pulumi.Input[str]]
+        """
+        Path at which the device is exposed to created instances.
+        """
+        virtual_name: NotRequired[pulumi.Input[str]]
+        """
+        Name for the ephemeral device, of the form "ephemeralN" where
+        *N* is a volume number starting from zero.
+        """
+elif False:
+    AmiFromInstanceEphemeralBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AmiFromInstanceEphemeralBlockDeviceArgs:
     def __init__(__self__, *,
@@ -914,6 +1390,15 @@ class AmiFromInstanceEphemeralBlockDeviceArgs:
         pulumi.set(self, "virtual_name", value)
 
 
+if not MYPY:
+    class CapacityBlockReservationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    CapacityBlockReservationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CapacityBlockReservationTimeoutsArgs:
     def __init__(__self__, *,
@@ -936,6 +1421,51 @@ class CapacityBlockReservationTimeoutsArgs:
     def create(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "create", value)
 
+
+if not MYPY:
+    class DefaultNetworkAclEgressArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action to take.
+        """
+        from_port: pulumi.Input[int]
+        """
+        The from port to match.
+        """
+        protocol: pulumi.Input[str]
+        """
+        The protocol to match. If using the -1 'all' protocol, you must specify a from and to port of 0.
+        """
+        rule_no: pulumi.Input[int]
+        """
+        The rule number. Used for ordering.
+        """
+        to_port: pulumi.Input[int]
+        """
+        The to port to match.
+
+        The following arguments are optional:
+        """
+        cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block to match. This must be a valid network mask.
+        """
+        icmp_code: NotRequired[pulumi.Input[int]]
+        """
+        The ICMP type code to be used. Default 0.
+        """
+        icmp_type: NotRequired[pulumi.Input[int]]
+        """
+        The ICMP type to be used. Default 0.
+        """
+        ipv6_cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The IPv6 CIDR block.
+
+        > For more information on ICMP types and codes, see [Internet Control Message Protocol (ICMP) Parameters](https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml).
+        """
+elif False:
+    DefaultNetworkAclEgressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefaultNetworkAclEgressArgs:
@@ -1091,6 +1621,20 @@ class DefaultNetworkAclEgressArgs:
         pulumi.set(self, "ipv6_cidr_block", value)
 
 
+if not MYPY:
+    class DefaultNetworkAclIngressArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        from_port: pulumi.Input[int]
+        protocol: pulumi.Input[str]
+        rule_no: pulumi.Input[int]
+        to_port: pulumi.Input[int]
+        cidr_block: NotRequired[pulumi.Input[str]]
+        icmp_code: NotRequired[pulumi.Input[int]]
+        icmp_type: NotRequired[pulumi.Input[int]]
+        ipv6_cidr_block: NotRequired[pulumi.Input[str]]
+elif False:
+    DefaultNetworkAclIngressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultNetworkAclIngressArgs:
     def __init__(__self__, *,
@@ -1198,6 +1742,63 @@ class DefaultNetworkAclIngressArgs:
     def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
 
+
+if not MYPY:
+    class DefaultRouteTableRouteArgsDict(TypedDict):
+        cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block of the route.
+        """
+        core_network_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of a core network.
+        """
+        destination_prefix_list_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of a managed prefix list destination of the route.
+
+        One of the following target arguments must be supplied:
+        """
+        egress_only_gateway_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a VPC Egress Only Internet Gateway.
+        """
+        gateway_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a VPC internet gateway or a virtual private gateway.
+        """
+        instance_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of an EC2 instance.
+        """
+        ipv6_cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The Ipv6 CIDR block of the route
+        """
+        nat_gateway_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a VPC NAT gateway.
+        """
+        network_interface_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of an EC2 network interface.
+        """
+        transit_gateway_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of an EC2 Transit Gateway.
+        """
+        vpc_endpoint_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a VPC Endpoint. This route must be removed prior to VPC Endpoint deletion.
+        """
+        vpc_peering_connection_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a VPC peering connection.
+
+        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
+        """
+elif False:
+    DefaultRouteTableRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefaultRouteTableRouteArgs:
@@ -1406,6 +2007,47 @@ class DefaultRouteTableRouteArgs:
         pulumi.set(self, "vpc_peering_connection_id", value)
 
 
+if not MYPY:
+    class DefaultSecurityGroupEgressArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        """
+        Start port (or ICMP type number if protocol is `icmp`)
+        """
+        protocol: pulumi.Input[str]
+        """
+        Protocol. If you select a protocol of "-1" (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to `0`. If not `icmp`, `tcp`, `udp`, or `-1` use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        """
+        to_port: pulumi.Input[int]
+        """
+        End range port (or ICMP code if protocol is `icmp`).
+        """
+        cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of CIDR blocks.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of this rule.
+        """
+        ipv6_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IPv6 CIDR blocks.
+        """
+        prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of prefix list IDs (for allowing access to VPC endpoints)
+        """
+        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+        """
+        self: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the security group itself will be added as a source to this egress rule.
+        """
+elif False:
+    DefaultSecurityGroupEgressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultSecurityGroupEgressArgs:
     def __init__(__self__, *,
@@ -1554,6 +2196,23 @@ class DefaultSecurityGroupEgressArgs:
         pulumi.set(self, "self", value)
 
 
+if not MYPY:
+    class DefaultSecurityGroupIngressArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        protocol: pulumi.Input[str]
+        to_port: pulumi.Input[int]
+        cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the security group.
+        """
+        ipv6_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        self: NotRequired[pulumi.Input[bool]]
+elif False:
+    DefaultSecurityGroupIngressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefaultSecurityGroupIngressArgs:
     def __init__(__self__, *,
@@ -1670,6 +2329,23 @@ class DefaultSecurityGroupIngressArgs:
         pulumi.set(self, "self", value)
 
 
+if not MYPY:
+    class EipDomainNameTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    EipDomainNameTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EipDomainNameTimeoutsArgs:
     def __init__(__self__, *,
@@ -1724,6 +2400,27 @@ class EipDomainNameTimeoutsArgs:
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
 
+
+if not MYPY:
+    class FleetFleetInstanceSetArgsDict(TypedDict):
+        instance_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The IDs of the instances.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The instance type.
+        """
+        lifecycle: NotRequired[pulumi.Input[str]]
+        """
+        Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.
+        """
+        platform: NotRequired[pulumi.Input[str]]
+        """
+        The value is `Windows` for Windows instances. Otherwise, the value is blank.
+        """
+elif False:
+    FleetFleetInstanceSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetFleetInstanceSetArgs:
@@ -1796,6 +2493,19 @@ class FleetFleetInstanceSetArgs:
         pulumi.set(self, "platform", value)
 
 
+if not MYPY:
+    class FleetLaunchTemplateConfigArgsDict(TypedDict):
+        launch_template_specification: NotRequired[pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgsDict']]
+        """
+        Nested argument containing EC2 Launch Template to use. Defined below.
+        """
+        overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArgsDict']]]]
+        """
+        Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
+        """
+elif False:
+    FleetLaunchTemplateConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetLaunchTemplateConfigArgs:
     def __init__(__self__, *,
@@ -1834,6 +2544,23 @@ class FleetLaunchTemplateConfigArgs:
     def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArgs']]]]):
         pulumi.set(self, "overrides", value)
 
+
+if not MYPY:
+    class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgsDict(TypedDict):
+        version: pulumi.Input[str]
+        """
+        The launch template version number, `$Latest`, or `$Default.`
+        """
+        launch_template_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the launch template.
+        """
+        launch_template_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the launch template.
+        """
+elif False:
+    FleetLaunchTemplateConfigLaunchTemplateSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs:
@@ -1888,6 +2615,39 @@ class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs:
     def launch_template_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "launch_template_name", value)
 
+
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideArgsDict(TypedDict):
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        Availability Zone in which to launch the instances.
+        """
+        instance_requirements: NotRequired[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict']]
+        """
+        Override the instance type in the Launch Template with instance types that satisfy the requirements.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        Instance type.
+        """
+        max_price: NotRequired[pulumi.Input[str]]
+        """
+        Maximum price per unit hour that you are willing to pay for a Spot Instance.
+        """
+        priority: NotRequired[pulumi.Input[float]]
+        """
+        Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the subnet in which to launch the instances.
+        """
+        weighted_capacity: NotRequired[pulumi.Input[float]]
+        """
+        Number of units provided by the specified instance type.
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideArgs:
@@ -2007,6 +2767,116 @@ class FleetLaunchTemplateConfigOverrideArgs:
     def weighted_capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "weighted_capacity", value)
 
+
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(TypedDict):
+        memory_mib: pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgsDict']
+        """
+        The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
+        """
+        vcpu_count: pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgsDict']
+        """
+        Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        """
+        accelerator_count: NotRequired[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgsDict']]
+        """
+        Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
+        """
+        accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of accelerator manufacturer names. Default is any manufacturer.
+        """
+        accelerator_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of accelerator names. Default is any acclerator.
+        """
+        accelerator_total_memory_mib: NotRequired[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict']]
+        """
+        Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        """
+        accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The accelerator types that must be on the instance type. Default is any accelerator type.
+        """
+        allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
+
+        If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
+        """
+        bare_metal: NotRequired[pulumi.Input[str]]
+        """
+        Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        """
+        baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]
+        """
+        Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        """
+        burstable_performance: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
+        """
+        cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The CPU manufacturers to include. Default is any manufacturer.
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+        """
+        excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+
+        If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
+        """
+        instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
+        """
+        local_storage: NotRequired[pulumi.Input[str]]
+        """
+        Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+        """
+        local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
+        """
+        max_spot_price_as_percentage_of_optimal_on_demand_price: NotRequired[pulumi.Input[int]]
+        """
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+        """
+        memory_gib_per_vcpu: NotRequired[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict']]
+        """
+        Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        """
+        network_bandwidth_gbps: NotRequired[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict']]
+        """
+        The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+        """
+        network_interface_count: NotRequired[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgsDict']]
+        """
+        Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        """
+        on_demand_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[int]]
+        """
+        The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+
+        If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
+        """
+        require_hibernate_support: NotRequired[pulumi.Input[bool]]
+        """
+        Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+        """
+        spot_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[int]]
+        """
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
+        """
+        total_local_storage_gb: NotRequired[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgsDict']]
+        """
+        Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
@@ -2415,6 +3285,19 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         pulumi.set(self, "total_local_storage_gb", value)
 
 
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum. Set to `0` to exclude instance types with accelerators.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
     def __init__(__self__, *,
@@ -2453,6 +3336,19 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this parameter.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this parameter.
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs:
@@ -2493,6 +3389,19 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit this parameter..
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit this parameter..
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
     def __init__(__self__, *,
@@ -2531,6 +3440,19 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[float]]
+        """
+        The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this parameter.
+        """
+        min: NotRequired[pulumi.Input[float]]
+        """
+        The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this parameter.
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
@@ -2571,6 +3493,19 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgsDict(TypedDict):
+        min: pulumi.Input[int]
+        """
+        The minimum amount of memory, in MiB. To specify no minimum limit, specify `0`.
+        """
+        max: NotRequired[pulumi.Input[int]]
+        """
+        The maximum amount of memory, in MiB. To specify no maximum limit, omit this parameter.
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
     def __init__(__self__, *,
@@ -2608,6 +3543,19 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
     def max(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max", value)
 
+
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[float]]
+        """
+        The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
+        """
+        min: NotRequired[pulumi.Input[float]]
+        """
+        The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this parameter.
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs:
@@ -2648,6 +3596,19 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsA
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of network interfaces. To specify no maximum limit, omit this parameter.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs:
     def __init__(__self__, *,
@@ -2686,6 +3647,19 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[float]]
+        """
+        The maximum amount of total local storage, in GB. To specify no maximum limit, omit this parameter.
+        """
+        min: NotRequired[pulumi.Input[float]]
+        """
+        The minimum amount of total local storage, in GB. To specify no minimum limit, omit this parameter.
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs:
@@ -2726,6 +3700,19 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbAr
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgsDict(TypedDict):
+        min: pulumi.Input[int]
+        """
+        The minimum number of vCPUs. To specify no minimum limit, specify `0`.
+        """
+        max: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of vCPUs. To specify no maximum limit, omit this parameter.
+        """
+elif False:
+    FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
     def __init__(__self__, *,
@@ -2763,6 +3750,36 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
     def max(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max", value)
 
+
+if not MYPY:
+    class FleetOnDemandOptionsArgsDict(TypedDict):
+        allocation_strategy: NotRequired[pulumi.Input[str]]
+        """
+        The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
+        """
+        capacity_reservation_options: NotRequired[pulumi.Input['FleetOnDemandOptionsCapacityReservationOptionsArgsDict']]
+        """
+        The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
+        """
+        max_total_price: NotRequired[pulumi.Input[str]]
+        """
+        The maximum amount per hour for On-Demand Instances that you're willing to pay.
+        """
+        min_target_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The minimum target capacity for On-Demand Instances in the fleet. If the minimum target capacity is not reached, the fleet launches no instances. Supported only for fleets of type `instant`.
+        If you specify `min_target_capacity`, at least one of the following must be specified: `single_availability_zone` or `single_instance_type`.
+        """
+        single_availability_zone: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates that the fleet launches all On-Demand Instances into a single Availability Zone. Supported only for fleets of type `instant`.
+        """
+        single_instance_type: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type `instant`.
+        """
+elif False:
+    FleetOnDemandOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetOnDemandOptionsArgs:
@@ -2869,6 +3886,15 @@ class FleetOnDemandOptionsArgs:
         pulumi.set(self, "single_instance_type", value)
 
 
+if not MYPY:
+    class FleetOnDemandOptionsCapacityReservationOptionsArgsDict(TypedDict):
+        usage_strategy: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity. Valid values: `use-capacity-reservations-first`.
+        """
+elif False:
+    FleetOnDemandOptionsCapacityReservationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetOnDemandOptionsCapacityReservationOptionsArgs:
     def __init__(__self__, *,
@@ -2891,6 +3917,27 @@ class FleetOnDemandOptionsCapacityReservationOptionsArgs:
     def usage_strategy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "usage_strategy", value)
 
+
+if not MYPY:
+    class FleetSpotOptionsArgsDict(TypedDict):
+        allocation_strategy: NotRequired[pulumi.Input[str]]
+        """
+        How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
+        """
+        instance_interruption_behavior: NotRequired[pulumi.Input[str]]
+        """
+        Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
+        """
+        instance_pools_to_use_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
+        """
+        maintenance_strategies: NotRequired[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgsDict']]
+        """
+        Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        """
+elif False:
+    FleetSpotOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetSpotOptionsArgs:
@@ -2963,6 +4010,15 @@ class FleetSpotOptionsArgs:
         pulumi.set(self, "maintenance_strategies", value)
 
 
+if not MYPY:
+    class FleetSpotOptionsMaintenanceStrategiesArgsDict(TypedDict):
+        capacity_rebalance: NotRequired[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgsDict']]
+        """
+        Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        """
+elif False:
+    FleetSpotOptionsMaintenanceStrategiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetSpotOptionsMaintenanceStrategiesArgs:
     def __init__(__self__, *,
@@ -2985,6 +4041,16 @@ class FleetSpotOptionsMaintenanceStrategiesArgs:
     def capacity_rebalance(self, value: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs']]):
         pulumi.set(self, "capacity_rebalance", value)
 
+
+if not MYPY:
+    class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgsDict(TypedDict):
+        replacement_strategy: NotRequired[pulumi.Input[str]]
+        """
+        The replacement strategy to use. Only available for fleets of `type` set to `maintain`. Valid values: `launch`.
+        """
+        termination_delay: NotRequired[pulumi.Input[int]]
+elif False:
+    FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs:
@@ -3020,6 +4086,32 @@ class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs:
     def termination_delay(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "termination_delay", value)
 
+
+if not MYPY:
+    class FleetTargetCapacitySpecificationArgsDict(TypedDict):
+        default_target_capacity_type: pulumi.Input[str]
+        """
+        Default target capacity type. Valid values: `on-demand`, `spot`.
+        """
+        total_target_capacity: pulumi.Input[int]
+        """
+        The number of units to request, filled using `default_target_capacity_type`.
+        """
+        on_demand_target_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The number of On-Demand units to request.
+        """
+        spot_target_capacity: NotRequired[pulumi.Input[int]]
+        """
+        The number of Spot units to request.
+        """
+        target_capacity_unit_type: NotRequired[pulumi.Input[str]]
+        """
+        The unit for the target capacity.
+        If you specify `target_capacity_unit_type`, `instance_requirements` must be specified.
+        """
+elif False:
+    FleetTargetCapacitySpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetTargetCapacitySpecificationArgs:
@@ -3108,6 +4200,23 @@ class FleetTargetCapacitySpecificationArgs:
         pulumi.set(self, "target_capacity_unit_type", value)
 
 
+if not MYPY:
+    class FlowLogDestinationOptionsArgsDict(TypedDict):
+        file_format: NotRequired[pulumi.Input[str]]
+        """
+        The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+        """
+        hive_compatible_partitions: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+        """
+        per_hour_partition: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+        """
+elif False:
+    FlowLogDestinationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowLogDestinationOptionsArgs:
     def __init__(__self__, *,
@@ -3163,6 +4272,21 @@ class FlowLogDestinationOptionsArgs:
         pulumi.set(self, "per_hour_partition", value)
 
 
+if not MYPY:
+    class InstanceCapacityReservationSpecificationArgsDict(TypedDict):
+        capacity_reservation_preference: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        """
+        capacity_reservation_target: NotRequired[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgsDict']]
+        """
+        Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+
+        For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
+        """
+elif False:
+    InstanceCapacityReservationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceCapacityReservationSpecificationArgs:
     def __init__(__self__, *,
@@ -3206,6 +4330,19 @@ class InstanceCapacityReservationSpecificationArgs:
         pulumi.set(self, "capacity_reservation_target", value)
 
 
+if not MYPY:
+    class InstanceCapacityReservationSpecificationCapacityReservationTargetArgsDict(TypedDict):
+        capacity_reservation_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Capacity Reservation in which to run the instance.
+        """
+        capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+elif False:
+    InstanceCapacityReservationSpecificationCapacityReservationTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceCapacityReservationSpecificationCapacityReservationTargetArgs:
     def __init__(__self__, *,
@@ -3244,6 +4381,25 @@ class InstanceCapacityReservationSpecificationCapacityReservationTargetArgs:
     def capacity_reservation_resource_group_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "capacity_reservation_resource_group_arn", value)
 
+
+if not MYPY:
+    class InstanceCpuOptionsArgsDict(TypedDict):
+        amd_sev_snp: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+        """
+        core_count: NotRequired[pulumi.Input[int]]
+        """
+        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        """
+        threads_per_core: NotRequired[pulumi.Input[int]]
+        """
+        If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+
+        For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
+        """
+elif False:
+    InstanceCpuOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceCpuOptionsArgs:
@@ -3304,6 +4460,15 @@ class InstanceCpuOptionsArgs:
         pulumi.set(self, "threads_per_core", value)
 
 
+if not MYPY:
+    class InstanceCreditSpecificationArgsDict(TypedDict):
+        cpu_credits: NotRequired[pulumi.Input[str]]
+        """
+        Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        """
+elif False:
+    InstanceCreditSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceCreditSpecificationArgs:
     def __init__(__self__, *,
@@ -3326,6 +4491,61 @@ class InstanceCreditSpecificationArgs:
     def cpu_credits(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cpu_credits", value)
 
+
+if not MYPY:
+    class InstanceEbsBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        """
+        Name of the device to mount.
+        """
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the volume should be destroyed on instance termination. Defaults to `true`.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        """
+        snapshot_id: NotRequired[pulumi.Input[str]]
+        """
+        Snapshot ID to mount.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of tags to assign to the device.
+        """
+        tags_all: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
+        """
+        volume_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+        """
+        volume_size: NotRequired[pulumi.Input[int]]
+        """
+        Size of the volume in gibibytes (GiB).
+        """
+        volume_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+
+        > **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `ebs.Volume` and `ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` and `ec2.VolumeAttachment` resources for a given instance.
+        """
+elif False:
+    InstanceEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceEbsBlockDeviceArgs:
@@ -3529,6 +4749,17 @@ class InstanceEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class InstanceEnclaveOptionsArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+
+        For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
+        """
+elif False:
+    InstanceEnclaveOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceEnclaveOptionsArgs:
     def __init__(__self__, *,
@@ -3555,6 +4786,25 @@ class InstanceEnclaveOptionsArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class InstanceEphemeralBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        """
+        Name of the block device to mount on the instance.
+        """
+        no_device: NotRequired[pulumi.Input[bool]]
+        """
+        Suppresses the specified device included in the AMI's block device mapping.
+        """
+        virtual_name: NotRequired[pulumi.Input[str]]
+        """
+        [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+
+        Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
+        """
+elif False:
+    InstanceEphemeralBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceEphemeralBlockDeviceArgs:
@@ -3614,6 +4864,19 @@ class InstanceEphemeralBlockDeviceArgs:
         pulumi.set(self, "virtual_name", value)
 
 
+if not MYPY:
+    class InstanceInstanceMarketOptionsArgsDict(TypedDict):
+        market_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spot_options` is specified.
+        """
+        spot_options: NotRequired[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgsDict']]
+        """
+        Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+        """
+elif False:
+    InstanceInstanceMarketOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceInstanceMarketOptionsArgs:
     def __init__(__self__, *,
@@ -3652,6 +4915,27 @@ class InstanceInstanceMarketOptionsArgs:
     def spot_options(self, value: Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs']]):
         pulumi.set(self, "spot_options", value)
 
+
+if not MYPY:
+    class InstanceInstanceMarketOptionsSpotOptionsArgsDict(TypedDict):
+        instance_interruption_behavior: NotRequired[pulumi.Input[str]]
+        """
+        The behavior when a Spot Instance is interrupted. Valid values include `hibernate`, `stop`, `terminate` . The default is `terminate`.
+        """
+        max_price: NotRequired[pulumi.Input[str]]
+        """
+        The maximum hourly price that you're willing to pay for a Spot Instance.
+        """
+        spot_instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The Spot Instance request type. Valid values include `one-time`, `persistent`. Persistent Spot Instance requests are only supported when the instance interruption behavior is either hibernate or stop. The default is `one-time`.
+        """
+        valid_until: NotRequired[pulumi.Input[str]]
+        """
+        The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ). Supported only for persistent requests.
+        """
+elif False:
+    InstanceInstanceMarketOptionsSpotOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceInstanceMarketOptionsSpotOptionsArgs:
@@ -3724,6 +5008,23 @@ class InstanceInstanceMarketOptionsSpotOptionsArgs:
         pulumi.set(self, "valid_until", value)
 
 
+if not MYPY:
+    class InstanceLaunchTemplateArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the launch template. Conflicts with `name`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the launch template. Conflicts with `id`.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        """
+elif False:
+    InstanceLaunchTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceLaunchTemplateArgs:
     def __init__(__self__, *,
@@ -3779,6 +5080,15 @@ class InstanceLaunchTemplateArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class InstanceMaintenanceOptionsArgsDict(TypedDict):
+        auto_recovery: NotRequired[pulumi.Input[str]]
+        """
+        Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+elif False:
+    InstanceMaintenanceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceMaintenanceOptionsArgs:
     def __init__(__self__, *,
@@ -3801,6 +5111,33 @@ class InstanceMaintenanceOptionsArgs:
     def auto_recovery(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_recovery", value)
 
+
+if not MYPY:
+    class InstanceMetadataOptionsArgsDict(TypedDict):
+        http_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+        """
+        http_protocol_ipv6: NotRequired[pulumi.Input[str]]
+        """
+        Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+        """
+        http_put_response_hop_limit: NotRequired[pulumi.Input[int]]
+        """
+        Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
+        """
+        http_tokens: NotRequired[pulumi.Input[str]]
+        """
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+        """
+        instance_metadata_tags: NotRequired[pulumi.Input[str]]
+        """
+        Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+
+        For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
+        """
+elif False:
+    InstanceMetadataOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceMetadataOptionsArgs:
@@ -3893,6 +5230,27 @@ class InstanceMetadataOptionsArgs:
         pulumi.set(self, "instance_metadata_tags", value)
 
 
+if not MYPY:
+    class InstanceNetworkInterfaceArgsDict(TypedDict):
+        device_index: pulumi.Input[int]
+        """
+        Integer index of the network interface attachment. Limited by instance type.
+        """
+        network_interface_id: pulumi.Input[str]
+        """
+        ID of the network interface to attach.
+        """
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+        """
+        network_card_index: NotRequired[pulumi.Input[int]]
+        """
+        Integer index of the network card. Limited by instance type. The default index is `0`.
+        """
+elif False:
+    InstanceNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceNetworkInterfaceArgs:
     def __init__(__self__, *,
@@ -3962,6 +5320,23 @@ class InstanceNetworkInterfaceArgs:
         pulumi.set(self, "network_card_index", value)
 
 
+if not MYPY:
+    class InstancePrivateDnsNameOptionsArgsDict(TypedDict):
+        enable_resource_name_dns_a_record: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        hostname_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+elif False:
+    InstancePrivateDnsNameOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstancePrivateDnsNameOptionsArgs:
     def __init__(__self__, *,
@@ -4016,6 +5391,57 @@ class InstancePrivateDnsNameOptionsArgs:
     def hostname_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hostname_type", value)
 
+
+if not MYPY:
+    class InstanceRootBlockDeviceArgsDict(TypedDict):
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the volume should be destroyed on instance termination. Defaults to `true`.
+        """
+        device_name: NotRequired[pulumi.Input[str]]
+        """
+        Device name, e.g., `/dev/sdh` or `xvdh`.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of tags to assign to the device.
+        """
+        tags_all: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
+        """
+        volume_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
+        """
+        volume_size: NotRequired[pulumi.Input[int]]
+        """
+        Size of the volume in gibibytes (GiB).
+        """
+        volume_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+
+        Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
+        """
+elif False:
+    InstanceRootBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceRootBlockDeviceArgs:
@@ -4204,6 +5630,20 @@ class InstanceRootBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class LaunchConfigurationEbsBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        no_device: NotRequired[pulumi.Input[bool]]
+        snapshot_id: NotRequired[pulumi.Input[str]]
+        throughput: NotRequired[pulumi.Input[int]]
+        volume_size: NotRequired[pulumi.Input[int]]
+        volume_type: NotRequired[pulumi.Input[str]]
+elif False:
+    LaunchConfigurationEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchConfigurationEbsBlockDeviceArgs:
     def __init__(__self__, *,
@@ -4316,6 +5756,14 @@ class LaunchConfigurationEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class LaunchConfigurationEphemeralBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        no_device: NotRequired[pulumi.Input[bool]]
+        virtual_name: NotRequired[pulumi.Input[str]]
+elif False:
+    LaunchConfigurationEphemeralBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchConfigurationEphemeralBlockDeviceArgs:
     def __init__(__self__, *,
@@ -4355,6 +5803,23 @@ class LaunchConfigurationEphemeralBlockDeviceArgs:
     def virtual_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_name", value)
 
+
+if not MYPY:
+    class LaunchConfigurationMetadataOptionsArgsDict(TypedDict):
+        http_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The state of the metadata service: `enabled`, `disabled`.
+        """
+        http_put_response_hop_limit: NotRequired[pulumi.Input[int]]
+        """
+        The desired HTTP PUT response hop limit for instance metadata requests.
+        """
+        http_tokens: NotRequired[pulumi.Input[str]]
+        """
+        If session tokens are required: `optional`, `required`.
+        """
+elif False:
+    LaunchConfigurationMetadataOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchConfigurationMetadataOptionsArgs:
@@ -4410,6 +5875,17 @@ class LaunchConfigurationMetadataOptionsArgs:
     def http_tokens(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "http_tokens", value)
 
+
+if not MYPY:
+    class LaunchConfigurationRootBlockDeviceArgsDict(TypedDict):
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        throughput: NotRequired[pulumi.Input[int]]
+        volume_size: NotRequired[pulumi.Input[int]]
+        volume_type: NotRequired[pulumi.Input[str]]
+elif False:
+    LaunchConfigurationRootBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchConfigurationRootBlockDeviceArgs:
@@ -4488,6 +5964,29 @@ class LaunchConfigurationRootBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class LaunchTemplateBlockDeviceMappingArgsDict(TypedDict):
+        device_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the device to mount.
+        """
+        ebs: NotRequired[pulumi.Input['LaunchTemplateBlockDeviceMappingEbsArgsDict']]
+        """
+        Configure EBS volume properties.
+        """
+        no_device: NotRequired[pulumi.Input[str]]
+        """
+        Suppresses the specified device included in the AMI's block device mapping.
+        """
+        virtual_name: NotRequired[pulumi.Input[str]]
+        """
+        The [Instance Store Device
+        Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
+        (e.g., `"ephemeral0"`).
+        """
+elif False:
+    LaunchTemplateBlockDeviceMappingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateBlockDeviceMappingArgs:
     def __init__(__self__, *,
@@ -4562,6 +6061,48 @@ class LaunchTemplateBlockDeviceMappingArgs:
     def virtual_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_name", value)
 
+
+if not MYPY:
+    class LaunchTemplateBlockDeviceMappingEbsArgsDict(TypedDict):
+        delete_on_termination: NotRequired[pulumi.Input[str]]
+        """
+        Whether the volume should be destroyed on instance termination.
+        See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html) for more information.
+        """
+        encrypted: NotRequired[pulumi.Input[str]]
+        """
+        Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume.
+        Cannot be used with `snapshot_id`.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+        This must be set with a `volume_type` of `"io1/io2/gp3"`.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
+        `encrypted` must be set to `true` when this is set.
+        """
+        snapshot_id: NotRequired[pulumi.Input[str]]
+        """
+        The Snapshot ID to mount.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
+        """
+        volume_size: NotRequired[pulumi.Input[int]]
+        """
+        The size of the volume in gigabytes.
+        """
+        volume_type: NotRequired[pulumi.Input[str]]
+        """
+        The volume type.
+        Can be one of `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1`.
+        """
+elif False:
+    LaunchTemplateBlockDeviceMappingEbsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateBlockDeviceMappingEbsArgs:
@@ -4708,6 +6249,19 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class LaunchTemplateCapacityReservationSpecificationArgsDict(TypedDict):
+        capacity_reservation_preference: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
+        """
+        capacity_reservation_target: NotRequired[pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgsDict']]
+        """
+        Used to target a specific Capacity Reservation:
+        """
+elif False:
+    LaunchTemplateCapacityReservationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateCapacityReservationSpecificationArgs:
     def __init__(__self__, *,
@@ -4747,6 +6301,19 @@ class LaunchTemplateCapacityReservationSpecificationArgs:
         pulumi.set(self, "capacity_reservation_target", value)
 
 
+if not MYPY:
+    class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgsDict(TypedDict):
+        capacity_reservation_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Capacity Reservation in which to run the instance.
+        """
+        capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+elif False:
+    LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs:
     def __init__(__self__, *,
@@ -4785,6 +6352,27 @@ class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArg
     def capacity_reservation_resource_group_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "capacity_reservation_resource_group_arn", value)
 
+
+if not MYPY:
+    class LaunchTemplateCpuOptionsArgsDict(TypedDict):
+        amd_sev_snp: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+        """
+        core_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of CPU cores for the instance.
+        """
+        threads_per_core: NotRequired[pulumi.Input[int]]
+        """
+        The number of threads per CPU core.
+        To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
+        Otherwise, specify the default value of 2.
+
+        Both number of CPU cores and threads per core must be specified. Valid number of CPU cores and threads per core for the instance type can be found in the [CPU Options Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html?shortFooter=true#cpu-options-supported-instances-values)
+        """
+elif False:
+    LaunchTemplateCpuOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateCpuOptionsArgs:
@@ -4849,6 +6437,18 @@ class LaunchTemplateCpuOptionsArgs:
         pulumi.set(self, "threads_per_core", value)
 
 
+if not MYPY:
+    class LaunchTemplateCreditSpecificationArgsDict(TypedDict):
+        cpu_credits: NotRequired[pulumi.Input[str]]
+        """
+        The credit option for CPU usage.
+        Can be `standard` or `unlimited`.
+        T3 instances are launched as `unlimited` by default.
+        T2 instances are launched as `standard` by default.
+        """
+elif False:
+    LaunchTemplateCreditSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateCreditSpecificationArgs:
     def __init__(__self__, *,
@@ -4878,6 +6478,15 @@ class LaunchTemplateCreditSpecificationArgs:
         pulumi.set(self, "cpu_credits", value)
 
 
+if not MYPY:
+    class LaunchTemplateElasticGpuSpecificationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
+        """
+elif False:
+    LaunchTemplateElasticGpuSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateElasticGpuSpecificationArgs:
     def __init__(__self__, *,
@@ -4900,6 +6509,15 @@ class LaunchTemplateElasticGpuSpecificationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class LaunchTemplateElasticInferenceAcceleratorArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Accelerator type.
+        """
+elif False:
+    LaunchTemplateElasticInferenceAcceleratorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateElasticInferenceAcceleratorArgs:
     def __init__(__self__, *,
@@ -4921,6 +6539,17 @@ class LaunchTemplateElasticInferenceAcceleratorArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class LaunchTemplateEnclaveOptionsArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set to `true`, Nitro Enclaves will be enabled on the instance.
+
+        For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
+        """
+elif False:
+    LaunchTemplateEnclaveOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateEnclaveOptionsArgs:
@@ -4949,6 +6578,15 @@ class LaunchTemplateEnclaveOptionsArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class LaunchTemplateHibernationOptionsArgsDict(TypedDict):
+        configured: pulumi.Input[bool]
+        """
+        If set to `true`, the launched EC2 instance will hibernation enabled.
+        """
+elif False:
+    LaunchTemplateHibernationOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateHibernationOptionsArgs:
     def __init__(__self__, *,
@@ -4970,6 +6608,19 @@ class LaunchTemplateHibernationOptionsArgs:
     def configured(self, value: pulumi.Input[bool]):
         pulumi.set(self, "configured", value)
 
+
+if not MYPY:
+    class LaunchTemplateIamInstanceProfileArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the instance profile.
+        """
+elif False:
+    LaunchTemplateIamInstanceProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateIamInstanceProfileArgs:
@@ -5010,6 +6661,19 @@ class LaunchTemplateIamInstanceProfileArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class LaunchTemplateInstanceMarketOptionsArgsDict(TypedDict):
+        market_type: NotRequired[pulumi.Input[str]]
+        """
+        The market type. Can be `spot`.
+        """
+        spot_options: NotRequired[pulumi.Input['LaunchTemplateInstanceMarketOptionsSpotOptionsArgsDict']]
+        """
+        The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+        """
+elif False:
+    LaunchTemplateInstanceMarketOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateInstanceMarketOptionsArgs:
     def __init__(__self__, *,
@@ -5048,6 +6712,32 @@ class LaunchTemplateInstanceMarketOptionsArgs:
     def spot_options(self, value: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsSpotOptionsArgs']]):
         pulumi.set(self, "spot_options", value)
 
+
+if not MYPY:
+    class LaunchTemplateInstanceMarketOptionsSpotOptionsArgsDict(TypedDict):
+        block_duration_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The required duration in minutes. This value must be a multiple of 60.
+        """
+        instance_interruption_behavior: NotRequired[pulumi.Input[str]]
+        """
+        The behavior when a Spot Instance is interrupted. Can be `hibernate`,
+        `stop`, or `terminate`. (Default: `terminate`).
+        """
+        max_price: NotRequired[pulumi.Input[str]]
+        """
+        The maximum hourly price you're willing to pay for the Spot Instances.
+        """
+        spot_instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The Spot Instance request type. Can be `one-time`, or `persistent`.
+        """
+        valid_until: NotRequired[pulumi.Input[str]]
+        """
+        The end date of the request.
+        """
+elif False:
+    LaunchTemplateInstanceMarketOptionsSpotOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs:
@@ -5137,6 +6827,162 @@ class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs:
     def valid_until(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "valid_until", value)
 
+
+if not MYPY:
+    class LaunchTemplateInstanceRequirementsArgsDict(TypedDict):
+        memory_mib: pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArgsDict']
+        """
+        Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        """
+        vcpu_count: pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgsDict']
+        """
+        Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        """
+        accelerator_count: NotRequired[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgsDict']]
+        """
+        Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        """
+        accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of accelerator manufacturer names. Default is any manufacturer.
+
+        ```
+        Valid names:
+        * amazon-web-services
+        * amd
+        * nvidia
+        * xilinx
+        ```
+        """
+        accelerator_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of accelerator names. Default is any acclerator.
+
+        ```
+        Valid names:
+        * a100            - NVIDIA A100 GPUs
+        * v100            - NVIDIA V100 GPUs
+        * k80             - NVIDIA K80 GPUs
+        * t4              - NVIDIA T4 GPUs
+        * m60             - NVIDIA M60 GPUs
+        * radeon-pro-v520 - AMD Radeon Pro V520 GPUs
+        * vu9p            - Xilinx VU9P FPGAs
+        ```
+        """
+        accelerator_total_memory_mib: NotRequired[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgsDict']]
+        """
+        Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        """
+        accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of accelerator types. Default is any accelerator type.
+
+        ```
+        Valid types:
+        * fpga
+        * gpu
+        * inference
+        ```
+        """
+        allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+
+        > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
+        """
+        bare_metal: NotRequired[pulumi.Input[str]]
+        """
+        Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        """
+        baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]
+        """
+        Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        """
+        burstable_performance: NotRequired[pulumi.Input[str]]
+        """
+        Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        """
+        cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of CPU manufacturer names. Default is any manufacturer.
+
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+
+        ```
+        Valid names:
+        * amazon-web-services
+        * amd
+        * intel
+        ```
+        """
+        excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+
+        > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
+        """
+        instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of instance generation names. Default is any generation.
+
+        ```
+        Valid names:
+        * current  - Recommended for best performance.
+        * previous - For existing applications optimized for older instance types.
+        ```
+        """
+        local_storage: NotRequired[pulumi.Input[str]]
+        """
+        Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+        """
+        local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of local storage type names. Default any storage type.
+
+        ```
+        Value names:
+        * hdd - hard disk drive
+        * ssd - solid state drive
+        ```
+        """
+        max_spot_price_as_percentage_of_optimal_on_demand_price: NotRequired[pulumi.Input[int]]
+        """
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
+        """
+        memory_gib_per_vcpu: NotRequired[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgsDict']]
+        """
+        Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        """
+        network_bandwidth_gbps: NotRequired[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgsDict']]
+        """
+        Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        """
+        network_interface_count: NotRequired[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgsDict']]
+        """
+        Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        """
+        on_demand_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[int]]
+        """
+        The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
+        """
+        require_hibernate_support: NotRequired[pulumi.Input[bool]]
+        """
+        Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+        """
+        spot_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[int]]
+        """
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100. Conflicts with `max_spot_price_as_percentage_of_optimal_on_demand_price`
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
+        """
+        total_local_storage_gb: NotRequired[pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgsDict']]
+        """
+        Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        """
+elif False:
+    LaunchTemplateInstanceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsArgs:
@@ -5637,6 +7483,19 @@ class LaunchTemplateInstanceRequirementsArgs:
         pulumi.set(self, "total_local_storage_gb", value)
 
 
+if not MYPY:
+    class LaunchTemplateInstanceRequirementsAcceleratorCountArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum. Set to `0` to exclude instance types with accelerators.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    LaunchTemplateInstanceRequirementsAcceleratorCountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsAcceleratorCountArgs:
     def __init__(__self__, *,
@@ -5675,6 +7534,19 @@ class LaunchTemplateInstanceRequirementsAcceleratorCountArgs:
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs:
@@ -5715,6 +7587,19 @@ class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs:
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
     def __init__(__self__, *,
@@ -5753,6 +7638,19 @@ class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[float]]
+        """
+        Maximum. May be a decimal number, e.g. `0.5`.
+        """
+        min: NotRequired[pulumi.Input[float]]
+        """
+        Minimum. May be a decimal number, e.g. `0.5`.
+        """
+elif False:
+    LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
@@ -5793,6 +7691,19 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class LaunchTemplateInstanceRequirementsMemoryMibArgsDict(TypedDict):
+        min: pulumi.Input[int]
+        """
+        Minimum.
+        """
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum.
+        """
+elif False:
+    LaunchTemplateInstanceRequirementsMemoryMibArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsMemoryMibArgs:
     def __init__(__self__, *,
@@ -5830,6 +7741,19 @@ class LaunchTemplateInstanceRequirementsMemoryMibArgs:
     def max(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max", value)
 
+
+if not MYPY:
+    class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[float]]
+        """
+        Maximum.
+        """
+        min: NotRequired[pulumi.Input[float]]
+        """
+        Minimum.
+        """
+elif False:
+    LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs:
@@ -5870,6 +7794,19 @@ class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs:
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs:
     def __init__(__self__, *,
@@ -5908,6 +7845,19 @@ class LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs:
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[float]]
+        """
+        Maximum. May be a decimal number, e.g. `0.5`.
+        """
+        min: NotRequired[pulumi.Input[float]]
+        """
+        Minimum. May be a decimal number, e.g. `0.5`.
+        """
+elif False:
+    LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
@@ -5948,6 +7898,19 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class LaunchTemplateInstanceRequirementsVcpuCountArgsDict(TypedDict):
+        min: pulumi.Input[int]
+        """
+        Minimum.
+        """
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum.
+        """
+elif False:
+    LaunchTemplateInstanceRequirementsVcpuCountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateInstanceRequirementsVcpuCountArgs:
     def __init__(__self__, *,
@@ -5986,6 +7949,15 @@ class LaunchTemplateInstanceRequirementsVcpuCountArgs:
         pulumi.set(self, "max", value)
 
 
+if not MYPY:
+    class LaunchTemplateLicenseSpecificationArgsDict(TypedDict):
+        license_configuration_arn: pulumi.Input[str]
+        """
+        ARN of the license configuration.
+        """
+elif False:
+    LaunchTemplateLicenseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateLicenseSpecificationArgs:
     def __init__(__self__, *,
@@ -6007,6 +7979,15 @@ class LaunchTemplateLicenseSpecificationArgs:
     def license_configuration_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "license_configuration_arn", value)
 
+
+if not MYPY:
+    class LaunchTemplateMaintenanceOptionsArgsDict(TypedDict):
+        auto_recovery: NotRequired[pulumi.Input[str]]
+        """
+        Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+elif False:
+    LaunchTemplateMaintenanceOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateMaintenanceOptionsArgs:
@@ -6030,6 +8011,33 @@ class LaunchTemplateMaintenanceOptionsArgs:
     def auto_recovery(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_recovery", value)
 
+
+if not MYPY:
+    class LaunchTemplateMetadataOptionsArgsDict(TypedDict):
+        http_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        """
+        http_protocol_ipv6: NotRequired[pulumi.Input[str]]
+        """
+        Enables or disables the IPv6 endpoint for the instance metadata service. Can be `"enabled"` or `"disabled"`.
+        """
+        http_put_response_hop_limit: NotRequired[pulumi.Input[int]]
+        """
+        The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
+        """
+        http_tokens: NotRequired[pulumi.Input[str]]
+        """
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
+        """
+        instance_metadata_tags: NotRequired[pulumi.Input[str]]
+        """
+        Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"` or `"disabled"`.
+
+        For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
+        """
+elif False:
+    LaunchTemplateMetadataOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateMetadataOptionsArgs:
@@ -6122,6 +8130,15 @@ class LaunchTemplateMetadataOptionsArgs:
         pulumi.set(self, "instance_metadata_tags", value)
 
 
+if not MYPY:
+    class LaunchTemplateMonitoringArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If `true`, the launched EC2 instance will have detailed monitoring enabled.
+        """
+elif False:
+    LaunchTemplateMonitoringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateMonitoringArgs:
     def __init__(__self__, *,
@@ -6144,6 +8161,90 @@ class LaunchTemplateMonitoringArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class LaunchTemplateNetworkInterfaceArgsDict(TypedDict):
+        associate_carrier_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Associate a Carrier IP address with `eth0` for a new network interface.
+        Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface.
+        Boolean value, can be left unset.
+        """
+        associate_public_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Associate a public ip address with the network interface.
+        Boolean value, can be left unset.
+        """
+        delete_on_termination: NotRequired[pulumi.Input[str]]
+        """
+        Whether the network interface should be destroyed on instance termination.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the network interface.
+        """
+        device_index: NotRequired[pulumi.Input[int]]
+        """
+        The integer index of the network interface attachment.
+        """
+        interface_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of network interface. To create an Elastic Fabric Adapter (EFA), specify `efa`.
+        """
+        ipv4_address_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of secondary private IPv4 addresses to assign to a network interface. Conflicts with `ipv4_addresses`
+        """
+        ipv4_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
+        """
+        ipv4_prefix_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of IPv4 prefixes to be automatically assigned to the network interface. Conflicts with `ipv4_prefixes`
+        """
+        ipv4_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more IPv4 prefixes to be assigned to the network interface. Conflicts with `ipv4_prefix_count`
+        """
+        ipv6_address_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
+        """
+        ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+        """
+        ipv6_prefix_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of IPv6 prefixes to be automatically assigned to the network interface. Conflicts with `ipv6_prefixes`
+        """
+        ipv6_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more IPv6 prefixes to be assigned to the network interface. Conflicts with `ipv6_prefix_count`
+        """
+        network_card_index: NotRequired[pulumi.Input[int]]
+        """
+        The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+        """
+        network_interface_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the network interface to attach.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The primary private IPv4 address.
+        """
+        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of security group IDs to associate.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The VPC Subnet ID to associate.
+        """
+elif False:
+    LaunchTemplateNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LaunchTemplateNetworkInterfaceArgs:
@@ -6462,6 +8563,43 @@ class LaunchTemplateNetworkInterfaceArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class LaunchTemplatePlacementArgsDict(TypedDict):
+        affinity: NotRequired[pulumi.Input[str]]
+        """
+        The affinity setting for an instance on a Dedicated Host.
+        """
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        The Availability Zone for the instance.
+        """
+        group_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the placement group for the instance.
+        """
+        host_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Dedicated Host for the instance.
+        """
+        host_resource_group_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Host Resource Group in which to launch instances.
+        """
+        partition_number: NotRequired[pulumi.Input[int]]
+        """
+        The number of the partition the instance should launch in. Valid only if the placement group strategy is set to partition.
+        """
+        spread_domain: NotRequired[pulumi.Input[str]]
+        """
+        Reserved for future use.
+        """
+        tenancy: NotRequired[pulumi.Input[str]]
+        """
+        The tenancy of the instance (if the instance is running in a VPC). Can be `default`, `dedicated`, or `host`.
+        """
+elif False:
+    LaunchTemplatePlacementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplatePlacementArgs:
     def __init__(__self__, *,
@@ -6597,6 +8735,23 @@ class LaunchTemplatePlacementArgs:
         pulumi.set(self, "tenancy", value)
 
 
+if not MYPY:
+    class LaunchTemplatePrivateDnsNameOptionsArgsDict(TypedDict):
+        enable_resource_name_dns_a_record: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        hostname_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+elif False:
+    LaunchTemplatePrivateDnsNameOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplatePrivateDnsNameOptionsArgs:
     def __init__(__self__, *,
@@ -6652,6 +8807,19 @@ class LaunchTemplatePrivateDnsNameOptionsArgs:
         pulumi.set(self, "hostname_type", value)
 
 
+if not MYPY:
+    class LaunchTemplateTagSpecificationArgsDict(TypedDict):
+        resource_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of resource to tag.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of tags to assign to the resource.
+        """
+elif False:
+    LaunchTemplateTagSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LaunchTemplateTagSpecificationArgs:
     def __init__(__self__, *,
@@ -6691,6 +8859,19 @@ class LaunchTemplateTagSpecificationArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ManagedPrefixListEntryArgsDict(TypedDict):
+        cidr: pulumi.Input[str]
+        """
+        CIDR block of this entry.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
+        """
+elif False:
+    ManagedPrefixListEntryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedPrefixListEntryArgs:
     def __init__(__self__, *,
@@ -6728,6 +8909,51 @@ class ManagedPrefixListEntryArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class NetworkAclEgressArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action to take.
+        """
+        from_port: pulumi.Input[int]
+        """
+        The from port to match.
+        """
+        protocol: pulumi.Input[str]
+        """
+        The protocol to match. If using the -1 'all'
+        protocol, you must specify a from and to port of 0.
+        """
+        rule_no: pulumi.Input[int]
+        """
+        The rule number. Used for ordering.
+        """
+        to_port: pulumi.Input[int]
+        """
+        The to port to match.
+        """
+        cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block to match. This must be a
+        valid network mask.
+        """
+        icmp_code: NotRequired[pulumi.Input[int]]
+        """
+        The ICMP type code to be used. Default 0.
+
+        > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
+        """
+        icmp_type: NotRequired[pulumi.Input[int]]
+        """
+        The ICMP type to be used. Default 0.
+        """
+        ipv6_cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The IPv6 CIDR block.
+        """
+elif False:
+    NetworkAclEgressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkAclEgressArgs:
@@ -6883,6 +9109,51 @@ class NetworkAclEgressArgs:
         pulumi.set(self, "ipv6_cidr_block", value)
 
 
+if not MYPY:
+    class NetworkAclIngressArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action to take.
+        """
+        from_port: pulumi.Input[int]
+        """
+        The from port to match.
+        """
+        protocol: pulumi.Input[str]
+        """
+        The protocol to match. If using the -1 'all'
+        protocol, you must specify a from and to port of 0.
+        """
+        rule_no: pulumi.Input[int]
+        """
+        The rule number. Used for ordering.
+        """
+        to_port: pulumi.Input[int]
+        """
+        The to port to match.
+        """
+        cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block to match. This must be a
+        valid network mask.
+        """
+        icmp_code: NotRequired[pulumi.Input[int]]
+        """
+        The ICMP type code to be used. Default 0.
+
+        > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
+        """
+        icmp_type: NotRequired[pulumi.Input[int]]
+        """
+        The ICMP type to be used. Default 0.
+        """
+        ipv6_cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The IPv6 CIDR block.
+        """
+elif False:
+    NetworkAclIngressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkAclIngressArgs:
     def __init__(__self__, *,
@@ -7037,6 +9308,19 @@ class NetworkAclIngressArgs:
         pulumi.set(self, "ipv6_cidr_block", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisAlternatePathHintArgsDict(TypedDict):
+        component_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the component.
+        """
+        component_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the component.
+        """
+elif False:
+    NetworkInsightsAnalysisAlternatePathHintArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisAlternatePathHintArgs:
     def __init__(__self__, *,
@@ -7075,6 +9359,59 @@ class NetworkInsightsAnalysisAlternatePathHintArgs:
     def component_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "component_id", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationArgsDict(TypedDict):
+        acl_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArgsDict']]]]
+        acls: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArgsDict']]]]
+        address: NotRequired[pulumi.Input[str]]
+        addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        attached_tos: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArgsDict']]]]
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cidrs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        classic_load_balancer_listeners: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgsDict']]]]
+        components: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArgsDict']]]]
+        customer_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArgsDict']]]]
+        destination_vpcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArgsDict']]]]
+        destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArgsDict']]]]
+        direction: NotRequired[pulumi.Input[str]]
+        elastic_load_balancer_listeners: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgsDict']]]]
+        explanation_code: NotRequired[pulumi.Input[str]]
+        ingress_route_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArgsDict']]]]
+        internet_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArgsDict']]]]
+        load_balancer_arn: NotRequired[pulumi.Input[str]]
+        load_balancer_listener_port: NotRequired[pulumi.Input[int]]
+        load_balancer_target_group: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgsDict']]]]
+        load_balancer_target_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgsDict']]]]
+        load_balancer_target_port: NotRequired[pulumi.Input[int]]
+        missing_component: NotRequired[pulumi.Input[str]]
+        nat_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArgsDict']]]]
+        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArgsDict']]]]
+        packet_field: NotRequired[pulumi.Input[str]]
+        port: NotRequired[pulumi.Input[int]]
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArgsDict']]]]
+        prefix_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArgsDict']]]]
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        route_table_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArgsDict']]]]
+        route_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgsDict']]]]
+        security_group: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgsDict']]]]
+        security_group_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArgsDict']]]]
+        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgsDict']]]]
+        source_vpcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArgsDict']]]]
+        state: NotRequired[pulumi.Input[str]]
+        subnet_route_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArgsDict']]]]
+        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArgsDict']]]]
+        transit_gateway_attachments: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgsDict']]]]
+        transit_gateway_route_table_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgsDict']]]]
+        transit_gateway_route_tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgsDict']]]]
+        transit_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArgsDict']]]]
+        vpc_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArgsDict']]]]
+        vpc_peering_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgsDict']]]]
+        vpcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArgsDict']]]]
+        vpn_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArgsDict']]]]
+        vpn_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArgsDict']]]]
+elif False:
+    NetworkInsightsAnalysisExplanationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationArgs:
@@ -7657,6 +9994,20 @@ class NetworkInsightsAnalysisExplanationArgs:
         pulumi.set(self, "vpn_gateways", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationAclArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationAclArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationAclArgs:
     def __init__(__self__, *,
@@ -7707,6 +10058,17 @@ class NetworkInsightsAnalysisExplanationAclArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationAclRuleArgsDict(TypedDict):
+        cidr: NotRequired[pulumi.Input[str]]
+        egress: NotRequired[pulumi.Input[bool]]
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArgsDict']]]]
+        protocol: NotRequired[pulumi.Input[str]]
+        rule_action: NotRequired[pulumi.Input[str]]
+        rule_number: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisExplanationAclRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationAclRuleArgs:
@@ -7785,6 +10147,13 @@ class NetworkInsightsAnalysisExplanationAclRuleArgs:
         pulumi.set(self, "rule_number", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationAclRulePortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisExplanationAclRulePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationAclRulePortRangeArgs:
     def __init__(__self__, *,
@@ -7813,6 +10182,20 @@ class NetworkInsightsAnalysisExplanationAclRulePortRangeArgs:
     def to(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationAttachedToArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationAttachedToArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationAttachedToArgs:
@@ -7865,6 +10248,13 @@ class NetworkInsightsAnalysisExplanationAttachedToArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgsDict(TypedDict):
+        instance_port: NotRequired[pulumi.Input[int]]
+        load_balancer_port: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs:
     def __init__(__self__, *,
@@ -7893,6 +10283,20 @@ class NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs:
     def load_balancer_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "load_balancer_port", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationComponentArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationComponentArgs:
@@ -7945,6 +10349,20 @@ class NetworkInsightsAnalysisExplanationComponentArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationCustomerGatewayArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationCustomerGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationCustomerGatewayArgs:
     def __init__(__self__, *,
@@ -7995,6 +10413,20 @@ class NetworkInsightsAnalysisExplanationCustomerGatewayArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationDestinationArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationDestinationArgs:
@@ -8047,6 +10479,20 @@ class NetworkInsightsAnalysisExplanationDestinationArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationDestinationVpcArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationDestinationVpcArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationDestinationVpcArgs:
     def __init__(__self__, *,
@@ -8097,6 +10543,20 @@ class NetworkInsightsAnalysisExplanationDestinationVpcArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs:
@@ -8149,6 +10609,20 @@ class NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationIngressRouteTableArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationIngressRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationIngressRouteTableArgs:
     def __init__(__self__, *,
@@ -8199,6 +10673,20 @@ class NetworkInsightsAnalysisExplanationIngressRouteTableArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationInternetGatewayArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationInternetGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationInternetGatewayArgs:
@@ -8251,6 +10739,20 @@ class NetworkInsightsAnalysisExplanationInternetGatewayArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs:
     def __init__(__self__, *,
@@ -8301,6 +10803,20 @@ class NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationNatGatewayArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationNatGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationNatGatewayArgs:
@@ -8353,6 +10869,20 @@ class NetworkInsightsAnalysisExplanationNatGatewayArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationNetworkInterfaceArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationNetworkInterfaceArgs:
     def __init__(__self__, *,
@@ -8404,6 +10934,13 @@ class NetworkInsightsAnalysisExplanationNetworkInterfaceArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationPortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisExplanationPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationPortRangeArgs:
     def __init__(__self__, *,
@@ -8432,6 +10969,20 @@ class NetworkInsightsAnalysisExplanationPortRangeArgs:
     def to(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationPrefixListArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationPrefixListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationPrefixListArgs:
@@ -8484,6 +11035,20 @@ class NetworkInsightsAnalysisExplanationPrefixListArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationRouteTableArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationRouteTableArgs:
     def __init__(__self__, *,
@@ -8534,6 +11099,21 @@ class NetworkInsightsAnalysisExplanationRouteTableArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationRouteTableRouteArgsDict(TypedDict):
+        destination_cidr: NotRequired[pulumi.Input[str]]
+        destination_prefix_list_id: NotRequired[pulumi.Input[str]]
+        egress_only_internet_gateway_id: NotRequired[pulumi.Input[str]]
+        gateway_id: NotRequired[pulumi.Input[str]]
+        instance_id: NotRequired[pulumi.Input[str]]
+        nat_gateway_id: NotRequired[pulumi.Input[str]]
+        network_interface_id: NotRequired[pulumi.Input[str]]
+        origin: NotRequired[pulumi.Input[str]]
+        transit_gateway_id: NotRequired[pulumi.Input[str]]
+        vpc_peering_connection_id: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationRouteTableRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationRouteTableRouteArgs:
@@ -8660,6 +11240,20 @@ class NetworkInsightsAnalysisExplanationRouteTableRouteArgs:
         pulumi.set(self, "vpc_peering_connection_id", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationSecurityGroupArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationSecurityGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationSecurityGroupArgs:
     def __init__(__self__, *,
@@ -8710,6 +11304,17 @@ class NetworkInsightsAnalysisExplanationSecurityGroupArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationSecurityGroupRuleArgsDict(TypedDict):
+        cidr: NotRequired[pulumi.Input[str]]
+        direction: NotRequired[pulumi.Input[str]]
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgsDict']]]]
+        prefix_list_id: NotRequired[pulumi.Input[str]]
+        protocol: NotRequired[pulumi.Input[str]]
+        security_group_id: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationSecurityGroupRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs:
@@ -8788,6 +11393,13 @@ class NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs:
         pulumi.set(self, "security_group_id", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs:
     def __init__(__self__, *,
@@ -8816,6 +11428,20 @@ class NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs:
     def to(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationSourceVpcArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationSourceVpcArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationSourceVpcArgs:
@@ -8868,6 +11494,20 @@ class NetworkInsightsAnalysisExplanationSourceVpcArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationSubnetArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationSubnetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationSubnetArgs:
     def __init__(__self__, *,
@@ -8918,6 +11558,20 @@ class NetworkInsightsAnalysisExplanationSubnetArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationSubnetRouteTableArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationSubnetRouteTableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationSubnetRouteTableArgs:
@@ -8970,6 +11624,20 @@ class NetworkInsightsAnalysisExplanationSubnetRouteTableArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationTransitGatewayArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationTransitGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationTransitGatewayArgs:
     def __init__(__self__, *,
@@ -9020,6 +11688,20 @@ class NetworkInsightsAnalysisExplanationTransitGatewayArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs:
@@ -9072,6 +11754,20 @@ class NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs:
     def __init__(__self__, *,
@@ -9122,6 +11818,18 @@ class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgsDict(TypedDict):
+        attachment_id: NotRequired[pulumi.Input[str]]
+        destination_cidr: NotRequired[pulumi.Input[str]]
+        prefix_list_id: NotRequired[pulumi.Input[str]]
+        resource_id: NotRequired[pulumi.Input[str]]
+        resource_type: NotRequired[pulumi.Input[str]]
+        route_origin: NotRequired[pulumi.Input[str]]
+        state: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs:
@@ -9212,6 +11920,20 @@ class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationVpcArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationVpcArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationVpcArgs:
     def __init__(__self__, *,
@@ -9262,6 +11984,20 @@ class NetworkInsightsAnalysisExplanationVpcArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationVpcEndpointArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationVpcEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationVpcEndpointArgs:
@@ -9314,6 +12050,20 @@ class NetworkInsightsAnalysisExplanationVpcEndpointArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs:
     def __init__(__self__, *,
@@ -9364,6 +12114,20 @@ class NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationVpnConnectionArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationVpnConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationVpnConnectionArgs:
@@ -9416,6 +12180,20 @@ class NetworkInsightsAnalysisExplanationVpnConnectionArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisExplanationVpnGatewayArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisExplanationVpnGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationVpnGatewayArgs:
     def __init__(__self__, *,
@@ -9466,6 +12244,26 @@ class NetworkInsightsAnalysisExplanationVpnGatewayArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentArgsDict(TypedDict):
+        acl_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArgsDict']]]]
+        additional_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgsDict']]]]
+        attached_tos: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArgsDict']]]]
+        components: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArgsDict']]]]
+        destination_vpcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgsDict']]]]
+        inbound_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgsDict']]]]
+        outbound_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgsDict']]]]
+        route_table_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgsDict']]]]
+        security_group_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgsDict']]]]
+        sequence_number: NotRequired[pulumi.Input[int]]
+        source_vpcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArgsDict']]]]
+        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArgsDict']]]]
+        transit_gateway_route_table_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgsDict']]]]
+        transit_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgsDict']]]]
+        vpcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArgsDict']]]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentArgs:
@@ -9652,6 +12450,17 @@ class NetworkInsightsAnalysisForwardPathComponentArgs:
         pulumi.set(self, "vpcs", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentAclRuleArgsDict(TypedDict):
+        cidr: NotRequired[pulumi.Input[str]]
+        egress: NotRequired[pulumi.Input[bool]]
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgsDict']]]]
+        protocol: NotRequired[pulumi.Input[str]]
+        rule_action: NotRequired[pulumi.Input[str]]
+        rule_number: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentAclRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentAclRuleArgs:
     def __init__(__self__, *,
@@ -9729,6 +12538,13 @@ class NetworkInsightsAnalysisForwardPathComponentAclRuleArgs:
         pulumi.set(self, "rule_number", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs:
     def __init__(__self__, *,
@@ -9758,6 +12574,13 @@ class NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs:
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgsDict(TypedDict):
+        additional_detail_type: NotRequired[pulumi.Input[str]]
+        components: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgsDict']]]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs:
     def __init__(__self__, *,
@@ -9786,6 +12609,20 @@ class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs:
     def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs']]]]):
         pulumi.set(self, "components", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs:
@@ -9838,6 +12675,20 @@ class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentAttachedToArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentAttachedToArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentAttachedToArgs:
     def __init__(__self__, *,
@@ -9888,6 +12739,20 @@ class NetworkInsightsAnalysisForwardPathComponentAttachedToArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentComponentArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentComponentArgs:
@@ -9940,6 +12805,20 @@ class NetworkInsightsAnalysisForwardPathComponentComponentArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs:
     def __init__(__self__, *,
@@ -9990,6 +12869,16 @@ class NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgsDict(TypedDict):
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgsDict']]]]
+        protocol: NotRequired[pulumi.Input[str]]
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgsDict']]]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs:
@@ -10056,6 +12945,13 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs:
     def __init__(__self__, *,
@@ -10085,6 +12981,13 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRan
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs:
     def __init__(__self__, *,
@@ -10113,6 +13016,16 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArg
     def to(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgsDict(TypedDict):
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgsDict']]]]
+        protocol: NotRequired[pulumi.Input[str]]
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgsDict']]]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs:
@@ -10179,6 +13092,13 @@ class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs:
     def __init__(__self__, *,
@@ -10208,6 +13128,13 @@ class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRa
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs:
     def __init__(__self__, *,
@@ -10236,6 +13163,21 @@ class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeAr
     def to(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgsDict(TypedDict):
+        destination_cidr: NotRequired[pulumi.Input[str]]
+        destination_prefix_list_id: NotRequired[pulumi.Input[str]]
+        egress_only_internet_gateway_id: NotRequired[pulumi.Input[str]]
+        gateway_id: NotRequired[pulumi.Input[str]]
+        instance_id: NotRequired[pulumi.Input[str]]
+        nat_gateway_id: NotRequired[pulumi.Input[str]]
+        network_interface_id: NotRequired[pulumi.Input[str]]
+        origin: NotRequired[pulumi.Input[str]]
+        transit_gateway_id: NotRequired[pulumi.Input[str]]
+        vpc_peering_connection_id: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs:
@@ -10362,6 +13304,17 @@ class NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs:
         pulumi.set(self, "vpc_peering_connection_id", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgsDict(TypedDict):
+        cidr: NotRequired[pulumi.Input[str]]
+        direction: NotRequired[pulumi.Input[str]]
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgsDict']]]]
+        prefix_list_id: NotRequired[pulumi.Input[str]]
+        protocol: NotRequired[pulumi.Input[str]]
+        security_group_id: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs:
     def __init__(__self__, *,
@@ -10439,6 +13392,13 @@ class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs:
         pulumi.set(self, "security_group_id", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs:
     def __init__(__self__, *,
@@ -10467,6 +13427,20 @@ class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs:
     def to(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentSourceVpcArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentSourceVpcArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs:
@@ -10519,6 +13493,20 @@ class NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentSubnetArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentSubnetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentSubnetArgs:
     def __init__(__self__, *,
@@ -10570,6 +13558,20 @@ class NetworkInsightsAnalysisForwardPathComponentSubnetArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs:
     def __init__(__self__, *,
@@ -10620,6 +13622,18 @@ class NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgsDict(TypedDict):
+        attachment_id: NotRequired[pulumi.Input[str]]
+        destination_cidr: NotRequired[pulumi.Input[str]]
+        prefix_list_id: NotRequired[pulumi.Input[str]]
+        resource_id: NotRequired[pulumi.Input[str]]
+        resource_type: NotRequired[pulumi.Input[str]]
+        route_origin: NotRequired[pulumi.Input[str]]
+        state: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs:
@@ -10710,6 +13724,20 @@ class NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteAr
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisForwardPathComponentVpcArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisForwardPathComponentVpcArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentVpcArgs:
     def __init__(__self__, *,
@@ -10760,6 +13788,26 @@ class NetworkInsightsAnalysisForwardPathComponentVpcArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentArgsDict(TypedDict):
+        acl_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArgsDict']]]]
+        additional_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgsDict']]]]
+        attached_tos: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArgsDict']]]]
+        components: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArgsDict']]]]
+        destination_vpcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgsDict']]]]
+        inbound_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgsDict']]]]
+        outbound_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgsDict']]]]
+        route_table_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgsDict']]]]
+        security_group_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgsDict']]]]
+        sequence_number: NotRequired[pulumi.Input[int]]
+        source_vpcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArgsDict']]]]
+        subnets: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArgsDict']]]]
+        transit_gateway_route_table_routes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgsDict']]]]
+        transit_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgsDict']]]]
+        vpcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArgsDict']]]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentArgs:
@@ -10946,6 +13994,17 @@ class NetworkInsightsAnalysisReturnPathComponentArgs:
         pulumi.set(self, "vpcs", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentAclRuleArgsDict(TypedDict):
+        cidr: NotRequired[pulumi.Input[str]]
+        egress: NotRequired[pulumi.Input[bool]]
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgsDict']]]]
+        protocol: NotRequired[pulumi.Input[str]]
+        rule_action: NotRequired[pulumi.Input[str]]
+        rule_number: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentAclRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentAclRuleArgs:
     def __init__(__self__, *,
@@ -11023,6 +14082,13 @@ class NetworkInsightsAnalysisReturnPathComponentAclRuleArgs:
         pulumi.set(self, "rule_number", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs:
     def __init__(__self__, *,
@@ -11052,6 +14118,13 @@ class NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs:
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgsDict(TypedDict):
+        additional_detail_type: NotRequired[pulumi.Input[str]]
+        components: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgsDict']]]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs:
     def __init__(__self__, *,
@@ -11080,6 +14153,20 @@ class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs:
     def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs']]]]):
         pulumi.set(self, "components", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs:
@@ -11132,6 +14219,20 @@ class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentAttachedToArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentAttachedToArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentAttachedToArgs:
     def __init__(__self__, *,
@@ -11182,6 +14283,20 @@ class NetworkInsightsAnalysisReturnPathComponentAttachedToArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentComponentArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentComponentArgs:
@@ -11234,6 +14349,20 @@ class NetworkInsightsAnalysisReturnPathComponentComponentArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs:
     def __init__(__self__, *,
@@ -11284,6 +14413,16 @@ class NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgsDict(TypedDict):
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgsDict']]]]
+        protocol: NotRequired[pulumi.Input[str]]
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgsDict']]]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs:
@@ -11350,6 +14489,13 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs:
     def __init__(__self__, *,
@@ -11379,6 +14525,13 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRang
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs:
     def __init__(__self__, *,
@@ -11407,6 +14560,16 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs
     def to(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgsDict(TypedDict):
+        destination_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        destination_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgsDict']]]]
+        protocol: NotRequired[pulumi.Input[str]]
+        source_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        source_port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgsDict']]]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs:
@@ -11473,6 +14636,13 @@ class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs:
     def __init__(__self__, *,
@@ -11502,6 +14672,13 @@ class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRan
         pulumi.set(self, "to", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs:
     def __init__(__self__, *,
@@ -11530,6 +14707,21 @@ class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArg
     def to(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgsDict(TypedDict):
+        destination_cidr: NotRequired[pulumi.Input[str]]
+        destination_prefix_list_id: NotRequired[pulumi.Input[str]]
+        egress_only_internet_gateway_id: NotRequired[pulumi.Input[str]]
+        gateway_id: NotRequired[pulumi.Input[str]]
+        instance_id: NotRequired[pulumi.Input[str]]
+        nat_gateway_id: NotRequired[pulumi.Input[str]]
+        network_interface_id: NotRequired[pulumi.Input[str]]
+        origin: NotRequired[pulumi.Input[str]]
+        transit_gateway_id: NotRequired[pulumi.Input[str]]
+        vpc_peering_connection_id: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs:
@@ -11656,6 +14848,17 @@ class NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs:
         pulumi.set(self, "vpc_peering_connection_id", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgsDict(TypedDict):
+        cidr: NotRequired[pulumi.Input[str]]
+        direction: NotRequired[pulumi.Input[str]]
+        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgsDict']]]]
+        prefix_list_id: NotRequired[pulumi.Input[str]]
+        protocol: NotRequired[pulumi.Input[str]]
+        security_group_id: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs:
     def __init__(__self__, *,
@@ -11733,6 +14936,13 @@ class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs:
         pulumi.set(self, "security_group_id", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgsDict(TypedDict):
+        from_: NotRequired[pulumi.Input[int]]
+        to: NotRequired[pulumi.Input[int]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs:
     def __init__(__self__, *,
@@ -11761,6 +14971,20 @@ class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs:
     def to(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentSourceVpcArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentSourceVpcArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs:
@@ -11813,6 +15037,20 @@ class NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentSubnetArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentSubnetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentSubnetArgs:
     def __init__(__self__, *,
@@ -11864,6 +15102,20 @@ class NetworkInsightsAnalysisReturnPathComponentSubnetArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs:
     def __init__(__self__, *,
@@ -11914,6 +15166,18 @@ class NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgsDict(TypedDict):
+        attachment_id: NotRequired[pulumi.Input[str]]
+        destination_cidr: NotRequired[pulumi.Input[str]]
+        prefix_list_id: NotRequired[pulumi.Input[str]]
+        resource_id: NotRequired[pulumi.Input[str]]
+        resource_type: NotRequired[pulumi.Input[str]]
+        route_origin: NotRequired[pulumi.Input[str]]
+        state: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs:
@@ -12004,6 +15268,20 @@ class NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArg
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class NetworkInsightsAnalysisReturnPathComponentVpcArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Network Insights Analysis.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Network Insights Analysis.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInsightsAnalysisReturnPathComponentVpcArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentVpcArgs:
     def __init__(__self__, *,
@@ -12055,6 +15333,20 @@ class NetworkInsightsAnalysisReturnPathComponentVpcArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class NetworkInterfaceAttachmentArgsDict(TypedDict):
+        device_index: pulumi.Input[int]
+        """
+        Integer to define the devices index.
+        """
+        instance: pulumi.Input[str]
+        """
+        ID of the instance to attach to.
+        """
+        attachment_id: NotRequired[pulumi.Input[str]]
+elif False:
+    NetworkInterfaceAttachmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkInterfaceAttachmentArgs:
     def __init__(__self__, *,
@@ -12104,6 +15396,12 @@ class NetworkInterfaceAttachmentArgs:
         pulumi.set(self, "attachment_id", value)
 
 
+if not MYPY:
+    class PeeringConnectionOptionsAccepterArgsDict(TypedDict):
+        allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[bool]]
+elif False:
+    PeeringConnectionOptionsAccepterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PeeringConnectionOptionsAccepterArgs:
     def __init__(__self__, *,
@@ -12121,6 +15419,12 @@ class PeeringConnectionOptionsAccepterArgs:
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
 
 
+if not MYPY:
+    class PeeringConnectionOptionsRequesterArgsDict(TypedDict):
+        allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[bool]]
+elif False:
+    PeeringConnectionOptionsRequesterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PeeringConnectionOptionsRequesterArgs:
     def __init__(__self__, *,
@@ -12137,6 +15441,67 @@ class PeeringConnectionOptionsRequesterArgs:
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
 
+
+if not MYPY:
+    class RouteTableRouteArgsDict(TypedDict):
+        carrier_gateway_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        """
+        cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block of the route.
+        """
+        core_network_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of a core network.
+        """
+        destination_prefix_list_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of a managed prefix list destination of the route.
+
+        One of the following target arguments must be supplied:
+        """
+        egress_only_gateway_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a VPC Egress Only Internet Gateway.
+        """
+        gateway_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a VPC internet gateway, virtual private gateway, or `local`. `local` routes cannot be created but can be adopted or imported. See the example above.
+        """
+        ipv6_cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The Ipv6 CIDR block of the route.
+        """
+        local_gateway_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a Outpost local gateway.
+        """
+        nat_gateway_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a VPC NAT gateway.
+        """
+        network_interface_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of an EC2 network interface.
+        """
+        transit_gateway_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of an EC2 Transit Gateway.
+        """
+        vpc_endpoint_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a VPC Endpoint.
+        """
+        vpc_peering_connection_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of a VPC peering connection.
+
+        Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
+        """
+elif False:
+    RouteTableRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RouteTableRouteArgs:
@@ -12361,6 +15726,51 @@ class RouteTableRouteArgs:
         pulumi.set(self, "vpc_peering_connection_id", value)
 
 
+if not MYPY:
+    class SecurityGroupEgressArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        """
+        Start port (or ICMP type number if protocol is `icmp`)
+        """
+        protocol: pulumi.Input[str]
+        """
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument in the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+        """
+        to_port: pulumi.Input[int]
+        """
+        End range port (or ICMP code if protocol is `icmp`).
+
+        The following arguments are optional:
+
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the destination of the traffic.
+        """
+        cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of CIDR blocks.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of this egress rule.
+        """
+        ipv6_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IPv6 CIDR blocks.
+        """
+        prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Prefix List IDs.
+        """
+        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+        """
+        self: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the security group itself will be added as a source to this egress rule.
+        """
+elif False:
+    SecurityGroupEgressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityGroupEgressArgs:
     def __init__(__self__, *,
@@ -12517,6 +15927,51 @@ class SecurityGroupEgressArgs:
         pulumi.set(self, "self", value)
 
 
+if not MYPY:
+    class SecurityGroupIngressArgsDict(TypedDict):
+        from_port: pulumi.Input[int]
+        """
+        Start port (or ICMP type number if protocol is `icmp` or `icmpv6`).
+        """
+        protocol: pulumi.Input[str]
+        """
+        Protocol. If you select a protocol of `-1` (semantically equivalent to `all`, which is not a valid value here), you must specify a `from_port` and `to_port` equal to 0. The supported values are defined in the `IpProtocol` argument on the [IpPermission](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IpPermission.html) API reference.
+
+        The following arguments are optional:
+
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `security_groups` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        """
+        to_port: pulumi.Input[int]
+        """
+        End range port (or ICMP code if protocol is `icmp`).
+        """
+        cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of CIDR blocks.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of this ingress rule.
+        """
+        ipv6_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IPv6 CIDR blocks.
+        """
+        prefix_list_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Prefix List IDs.
+        """
+        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of security groups. A group name can be used relative to the default VPC. Otherwise, group ID.
+        """
+        self: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the security group itself will be added as a source to this ingress rule.
+        """
+elif False:
+    SecurityGroupIngressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityGroupIngressArgs:
     def __init__(__self__, *,
@@ -12672,6 +16127,37 @@ class SecurityGroupIngressArgs:
     def self(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "self", value)
 
+
+if not MYPY:
+    class SpotFleetRequestLaunchSpecificationArgsDict(TypedDict):
+        ami: pulumi.Input[str]
+        instance_type: pulumi.Input[str]
+        associate_public_ip_address: NotRequired[pulumi.Input[bool]]
+        availability_zone: NotRequired[pulumi.Input[str]]
+        ebs_block_devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgsDict']]]]
+        ebs_optimized: NotRequired[pulumi.Input[bool]]
+        ephemeral_block_devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgsDict']]]]
+        iam_instance_profile: NotRequired[pulumi.Input[str]]
+        iam_instance_profile_arn: NotRequired[pulumi.Input[str]]
+        key_name: NotRequired[pulumi.Input[str]]
+        monitoring: NotRequired[pulumi.Input[bool]]
+        placement_group: NotRequired[pulumi.Input[str]]
+        placement_tenancy: NotRequired[pulumi.Input[str]]
+        root_block_devices: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationRootBlockDeviceArgsDict']]]]
+        spot_price: NotRequired[pulumi.Input[str]]
+        """
+        The maximum bid price per unit hour.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        user_data: NotRequired[pulumi.Input[str]]
+        vpc_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        weighted_capacity: NotRequired[pulumi.Input[str]]
+elif False:
+    SpotFleetRequestLaunchSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotFleetRequestLaunchSpecificationArgs:
@@ -12926,6 +16412,20 @@ class SpotFleetRequestLaunchSpecificationArgs:
         pulumi.set(self, "weighted_capacity", value)
 
 
+if not MYPY:
+    class SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        snapshot_id: NotRequired[pulumi.Input[str]]
+        throughput: NotRequired[pulumi.Input[int]]
+        volume_size: NotRequired[pulumi.Input[int]]
+        volume_type: NotRequired[pulumi.Input[str]]
+elif False:
+    SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs:
     def __init__(__self__, *,
@@ -13038,6 +16538,13 @@ class SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        virtual_name: pulumi.Input[str]
+elif False:
+    SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs:
     def __init__(__self__, *,
@@ -13064,6 +16571,18 @@ class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs:
     def virtual_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_name", value)
 
+
+if not MYPY:
+    class SpotFleetRequestLaunchSpecificationRootBlockDeviceArgsDict(TypedDict):
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        throughput: NotRequired[pulumi.Input[int]]
+        volume_size: NotRequired[pulumi.Input[int]]
+        volume_type: NotRequired[pulumi.Input[str]]
+elif False:
+    SpotFleetRequestLaunchSpecificationRootBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs:
@@ -13154,6 +16673,19 @@ class SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigArgsDict(TypedDict):
+        launch_template_specification: pulumi.Input['SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgsDict']
+        """
+        Launch template specification. See Launch Template Specification below for more details.
+        """
+        overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArgsDict']]]]
+        """
+        One or more override configurations. See Overrides below for more details.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigArgs:
     def __init__(__self__, *,
@@ -13191,6 +16723,27 @@ class SpotFleetRequestLaunchTemplateConfigArgs:
     def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArgs']]]]):
         pulumi.set(self, "overrides", value)
 
+
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the launch template. Conflicts with `name`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the launch template. Conflicts with `id`.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+
+        **Note:** The specified launch template can specify only a subset of the
+        inputs of `ec2.LaunchTemplate`.  There are limitations on
+        what you can specify as spot fleet does not support all the attributes that are supported by autoscaling groups. [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#launch-templates-spot-fleet) is currently sparse, but at least `instance_initiated_shutdown_behavior` is confirmed unsupported.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
@@ -13254,6 +16807,39 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideArgsDict(TypedDict):
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        The availability zone in which to place the request.
+        """
+        instance_requirements: NotRequired[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict']]
+        """
+        The instance requirements. See below.
+        """
+        instance_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of instance to request.
+        """
+        priority: NotRequired[pulumi.Input[float]]
+        """
+        The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
+        """
+        spot_price: NotRequired[pulumi.Input[str]]
+        """
+        The maximum spot bid for this override request.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The subnet in which to launch the requested instance.
+        """
+        weighted_capacity: NotRequired[pulumi.Input[float]]
+        """
+        The capacity added to the fleet by a fulfilled request.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
@@ -13373,6 +16959,158 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
     def weighted_capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "weighted_capacity", value)
 
+
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(TypedDict):
+        accelerator_count: NotRequired[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgsDict']]
+        """
+        Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        """
+        accelerator_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of accelerator manufacturer names. Default is any manufacturer.
+
+        ```
+        Valid names:
+        * amazon-web-services
+        * amd
+        * nvidia
+        * xilinx
+        ```
+        """
+        accelerator_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of accelerator names. Default is any acclerator.
+
+        ```
+        Valid names:
+        * a100            - NVIDIA A100 GPUs
+        * v100            - NVIDIA V100 GPUs
+        * k80             - NVIDIA K80 GPUs
+        * t4              - NVIDIA T4 GPUs
+        * m60             - NVIDIA M60 GPUs
+        * radeon-pro-v520 - AMD Radeon Pro V520 GPUs
+        * vu9p            - Xilinx VU9P FPGAs
+        ```
+        """
+        accelerator_total_memory_mib: NotRequired[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict']]
+        """
+        Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        """
+        accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of accelerator types. Default is any accelerator type.
+
+        ```
+        Valid types:
+        * fpga
+        * gpu
+        * inference
+        ```
+        """
+        allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
+
+        > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
+        """
+        bare_metal: NotRequired[pulumi.Input[str]]
+        """
+        Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        """
+        baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]
+        """
+        Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        """
+        burstable_performance: NotRequired[pulumi.Input[str]]
+        """
+        Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        """
+        cpu_manufacturers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of CPU manufacturer names. Default is any manufacturer.
+
+        > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+
+        ```
+        Valid names:
+        * amazon-web-services
+        * amd
+        * intel
+        ```
+        """
+        excluded_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\\*), to exclude an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+
+        > **NOTE:** If you specify `excluded_instance_types`, you can't specify `allowed_instance_types`.
+        """
+        instance_generations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of instance generation names. Default is any generation.
+
+        ```
+        Valid names:
+        * current  - Recommended for best performance.
+        * previous - For existing applications optimized for older instance types.
+        ```
+        """
+        local_storage: NotRequired[pulumi.Input[str]]
+        """
+        Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+        """
+        local_storage_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of local storage type names. Default any storage type.
+
+        ```
+        Value names:
+        * hdd - hard disk drive
+        * ssd - solid state drive
+        ```
+        """
+        memory_gib_per_vcpu: NotRequired[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict']]
+        """
+        Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        """
+        memory_mib: NotRequired[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgsDict']]
+        """
+        Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        """
+        network_bandwidth_gbps: NotRequired[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict']]
+        """
+        Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        """
+        network_interface_count: NotRequired[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgsDict']]
+        """
+        Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        """
+        on_demand_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[int]]
+        """
+        The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
+        """
+        require_hibernate_support: NotRequired[pulumi.Input[bool]]
+        """
+        Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+        """
+        spot_max_price_percentage_over_lowest_price: NotRequired[pulumi.Input[int]]
+        """
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+
+        If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
+        """
+        total_local_storage_gb: NotRequired[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgsDict']]
+        """
+        Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        """
+        vcpu_count: NotRequired[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgsDict']]
+        """
+        Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
@@ -13859,6 +17597,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         pulumi.set(self, "vcpu_count", value)
 
 
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum. Set to `0` to exclude instance types with accelerators.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
     def __init__(__self__, *,
@@ -13897,6 +17648,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs:
@@ -13937,6 +17701,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
     def __init__(__self__, *,
@@ -13975,6 +17752,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEb
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[float]]
+        """
+        Maximum. May be a decimal number, e.g. `0.5`.
+        """
+        min: NotRequired[pulumi.Input[float]]
+        """
+        Minimum. May be a decimal number, e.g. `0.5`.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
@@ -14015,6 +17805,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
     def __init__(__self__, *,
@@ -14053,6 +17856,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibA
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[float]]
+        """
+        Maximum.
+        """
+        min: NotRequired[pulumi.Input[float]]
+        """
+        Minimum.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs:
@@ -14093,6 +17909,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBan
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs:
     def __init__(__self__, *,
@@ -14131,6 +17960,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInt
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
 
+
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[float]]
+        """
+        Maximum. May be a decimal number, e.g. `0.5`.
+        """
+        min: NotRequired[pulumi.Input[float]]
+        """
+        Minimum. May be a decimal number, e.g. `0.5`.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs:
@@ -14171,6 +18013,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgsDict(TypedDict):
+        max: NotRequired[pulumi.Input[int]]
+        """
+        Maximum.
+        """
+        min: NotRequired[pulumi.Input[int]]
+        """
+        Minimum.
+        """
+elif False:
+    SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
     def __init__(__self__, *,
@@ -14210,6 +18065,15 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountA
         pulumi.set(self, "min", value)
 
 
+if not MYPY:
+    class SpotFleetRequestSpotMaintenanceStrategiesArgsDict(TypedDict):
+        capacity_rebalance: NotRequired[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgsDict']]
+        """
+        Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        """
+elif False:
+    SpotFleetRequestSpotMaintenanceStrategiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotFleetRequestSpotMaintenanceStrategiesArgs:
     def __init__(__self__, *,
@@ -14233,6 +18097,15 @@ class SpotFleetRequestSpotMaintenanceStrategiesArgs:
         pulumi.set(self, "capacity_rebalance", value)
 
 
+if not MYPY:
+    class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgsDict(TypedDict):
+        replacement_strategy: NotRequired[pulumi.Input[str]]
+        """
+        The replacement strategy to use. Only available for spot fleets with `fleet_type` set to `maintain`. Valid values: `launch`.
+        """
+elif False:
+    SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs:
     def __init__(__self__, *,
@@ -14255,6 +18128,21 @@ class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs:
     def replacement_strategy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "replacement_strategy", value)
 
+
+if not MYPY:
+    class SpotInstanceRequestCapacityReservationSpecificationArgsDict(TypedDict):
+        capacity_reservation_preference: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
+        """
+        capacity_reservation_target: NotRequired[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgsDict']]
+        """
+        Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+
+        For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
+        """
+elif False:
+    SpotInstanceRequestCapacityReservationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotInstanceRequestCapacityReservationSpecificationArgs:
@@ -14299,6 +18187,19 @@ class SpotInstanceRequestCapacityReservationSpecificationArgs:
         pulumi.set(self, "capacity_reservation_target", value)
 
 
+if not MYPY:
+    class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgsDict(TypedDict):
+        capacity_reservation_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Capacity Reservation in which to run the instance.
+        """
+        capacity_reservation_resource_group_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+elif False:
+    SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs:
     def __init__(__self__, *,
@@ -14337,6 +18238,25 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
     def capacity_reservation_resource_group_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "capacity_reservation_resource_group_arn", value)
 
+
+if not MYPY:
+    class SpotInstanceRequestCpuOptionsArgsDict(TypedDict):
+        amd_sev_snp: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. Valid values are `enabled` and `disabled`.
+        """
+        core_count: NotRequired[pulumi.Input[int]]
+        """
+        Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
+        """
+        threads_per_core: NotRequired[pulumi.Input[int]]
+        """
+        If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
+
+        For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
+        """
+elif False:
+    SpotInstanceRequestCpuOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotInstanceRequestCpuOptionsArgs:
@@ -14397,6 +18317,15 @@ class SpotInstanceRequestCpuOptionsArgs:
         pulumi.set(self, "threads_per_core", value)
 
 
+if not MYPY:
+    class SpotInstanceRequestCreditSpecificationArgsDict(TypedDict):
+        cpu_credits: NotRequired[pulumi.Input[str]]
+        """
+        Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
+        """
+elif False:
+    SpotInstanceRequestCreditSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotInstanceRequestCreditSpecificationArgs:
     def __init__(__self__, *,
@@ -14419,6 +18348,58 @@ class SpotInstanceRequestCreditSpecificationArgs:
     def cpu_credits(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cpu_credits", value)
 
+
+if not MYPY:
+    class SpotInstanceRequestEbsBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        """
+        Name of the device to mount.
+        """
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the volume should be destroyed on instance termination. Defaults to `true`.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        """
+        snapshot_id: NotRequired[pulumi.Input[str]]
+        """
+        Snapshot ID to mount.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of tags to assign to the device.
+        """
+        tags_all: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
+        """
+        volume_id: NotRequired[pulumi.Input[str]]
+        volume_size: NotRequired[pulumi.Input[int]]
+        """
+        Size of the volume in gibibytes (GiB).
+        """
+        volume_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
+
+        > **NOTE:** Currently, changes to the `ebs_block_device` configuration of _existing_ resources cannot be automatically detected by this provider. To manage changes and attachments of an EBS block to an instance, use the `ebs.Volume` and `ec2.VolumeAttachment` resources instead. If you use `ebs_block_device` on an `ec2.Instance`, this provider will assume management over the full set of non-root EBS block devices for the instance, treating additional block devices as drift. For this reason, `ebs_block_device` cannot be mixed with external `ebs.Volume` and `ec2.VolumeAttachment` resources for a given instance.
+        """
+elif False:
+    SpotInstanceRequestEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotInstanceRequestEbsBlockDeviceArgs:
@@ -14618,6 +18599,17 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class SpotInstanceRequestEnclaveOptionsArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
+
+        For more information, see the documentation on [Nitro Enclaves](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html).
+        """
+elif False:
+    SpotInstanceRequestEnclaveOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotInstanceRequestEnclaveOptionsArgs:
     def __init__(__self__, *,
@@ -14644,6 +18636,25 @@ class SpotInstanceRequestEnclaveOptionsArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class SpotInstanceRequestEphemeralBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        """
+        Name of the block device to mount on the instance.
+        """
+        no_device: NotRequired[pulumi.Input[bool]]
+        """
+        Suppresses the specified device included in the AMI's block device mapping.
+        """
+        virtual_name: NotRequired[pulumi.Input[str]]
+        """
+        [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
+
+        Each AWS Instance type has a different set of Instance Store block devices available for attachment. AWS [publishes a list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes) of which ephemeral devices are available on each type. The devices are always identified by the `virtual_name` in the format `ephemeral{0..N}`.
+        """
+elif False:
+    SpotInstanceRequestEphemeralBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotInstanceRequestEphemeralBlockDeviceArgs:
@@ -14703,6 +18714,23 @@ class SpotInstanceRequestEphemeralBlockDeviceArgs:
         pulumi.set(self, "virtual_name", value)
 
 
+if not MYPY:
+    class SpotInstanceRequestLaunchTemplateArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the launch template. Conflicts with `name`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the launch template. Conflicts with `id`.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        """
+elif False:
+    SpotInstanceRequestLaunchTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotInstanceRequestLaunchTemplateArgs:
     def __init__(__self__, *,
@@ -14758,6 +18786,15 @@ class SpotInstanceRequestLaunchTemplateArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class SpotInstanceRequestMaintenanceOptionsArgsDict(TypedDict):
+        auto_recovery: NotRequired[pulumi.Input[str]]
+        """
+        Automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+elif False:
+    SpotInstanceRequestMaintenanceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotInstanceRequestMaintenanceOptionsArgs:
     def __init__(__self__, *,
@@ -14780,6 +18817,33 @@ class SpotInstanceRequestMaintenanceOptionsArgs:
     def auto_recovery(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_recovery", value)
 
+
+if not MYPY:
+    class SpotInstanceRequestMetadataOptionsArgsDict(TypedDict):
+        http_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+        """
+        http_protocol_ipv6: NotRequired[pulumi.Input[str]]
+        """
+        Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+        """
+        http_put_response_hop_limit: NotRequired[pulumi.Input[int]]
+        """
+        Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
+        """
+        http_tokens: NotRequired[pulumi.Input[str]]
+        """
+        Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
+        """
+        instance_metadata_tags: NotRequired[pulumi.Input[str]]
+        """
+        Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
+
+        For more information, see the documentation on the [Instance Metadata Service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
+        """
+elif False:
+    SpotInstanceRequestMetadataOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotInstanceRequestMetadataOptionsArgs:
@@ -14872,6 +18936,27 @@ class SpotInstanceRequestMetadataOptionsArgs:
         pulumi.set(self, "instance_metadata_tags", value)
 
 
+if not MYPY:
+    class SpotInstanceRequestNetworkInterfaceArgsDict(TypedDict):
+        device_index: pulumi.Input[int]
+        """
+        Integer index of the network interface attachment. Limited by instance type.
+        """
+        network_interface_id: pulumi.Input[str]
+        """
+        ID of the network interface to attach.
+        """
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+        """
+        network_card_index: NotRequired[pulumi.Input[int]]
+        """
+        Integer index of the network card. Limited by instance type. The default index is `0`.
+        """
+elif False:
+    SpotInstanceRequestNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotInstanceRequestNetworkInterfaceArgs:
     def __init__(__self__, *,
@@ -14941,6 +19026,23 @@ class SpotInstanceRequestNetworkInterfaceArgs:
         pulumi.set(self, "network_card_index", value)
 
 
+if not MYPY:
+    class SpotInstanceRequestPrivateDnsNameOptionsArgsDict(TypedDict):
+        enable_resource_name_dns_a_record: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        enable_resource_name_dns_aaaa_record: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        hostname_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+elif False:
+    SpotInstanceRequestPrivateDnsNameOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpotInstanceRequestPrivateDnsNameOptionsArgs:
     def __init__(__self__, *,
@@ -14995,6 +19097,51 @@ class SpotInstanceRequestPrivateDnsNameOptionsArgs:
     def hostname_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hostname_type", value)
 
+
+if not MYPY:
+    class SpotInstanceRequestRootBlockDeviceArgsDict(TypedDict):
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the volume should be destroyed on instance termination. Defaults to `true`.
+        """
+        device_name: NotRequired[pulumi.Input[str]]
+        encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of tags to assign to the device.
+        """
+        tags_all: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        throughput: NotRequired[pulumi.Input[int]]
+        """
+        Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
+        """
+        volume_id: NotRequired[pulumi.Input[str]]
+        volume_size: NotRequired[pulumi.Input[int]]
+        """
+        Size of the volume in gibibytes (GiB).
+        """
+        volume_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to the volume type that the AMI uses.
+
+        Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
+        """
+elif False:
+    SpotInstanceRequestRootBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpotInstanceRequestRootBlockDeviceArgs:
@@ -15175,6 +19322,19 @@ class SpotInstanceRequestRootBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class TrafficMirrorFilterRuleDestinationPortRangeArgsDict(TypedDict):
+        from_port: NotRequired[pulumi.Input[int]]
+        """
+        Starting port of the range
+        """
+        to_port: NotRequired[pulumi.Input[int]]
+        """
+        Ending port of the range
+        """
+elif False:
+    TrafficMirrorFilterRuleDestinationPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TrafficMirrorFilterRuleDestinationPortRangeArgs:
     def __init__(__self__, *,
@@ -15213,6 +19373,19 @@ class TrafficMirrorFilterRuleDestinationPortRangeArgs:
     def to_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "to_port", value)
 
+
+if not MYPY:
+    class TrafficMirrorFilterRuleSourcePortRangeArgsDict(TypedDict):
+        from_port: NotRequired[pulumi.Input[int]]
+        """
+        Starting port of the range
+        """
+        to_port: NotRequired[pulumi.Input[int]]
+        """
+        Ending port of the range
+        """
+elif False:
+    TrafficMirrorFilterRuleSourcePortRangeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TrafficMirrorFilterRuleSourcePortRangeArgs:
@@ -15253,6 +19426,19 @@ class TrafficMirrorFilterRuleSourcePortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
+if not MYPY:
+    class VpcEndpointDnsEntryArgsDict(TypedDict):
+        dns_name: NotRequired[pulumi.Input[str]]
+        """
+        The DNS name.
+        """
+        hosted_zone_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the private hosted zone.
+        """
+elif False:
+    VpcEndpointDnsEntryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpcEndpointDnsEntryArgs:
     def __init__(__self__, *,
@@ -15292,6 +19478,19 @@ class VpcEndpointDnsEntryArgs:
         pulumi.set(self, "hosted_zone_id", value)
 
 
+if not MYPY:
+    class VpcEndpointDnsOptionsArgsDict(TypedDict):
+        dns_record_ip_type: NotRequired[pulumi.Input[str]]
+        """
+        The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+        """
+        private_dns_only_for_inbound_resolver_endpoint: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint. Default is `false`. Can only be specified if private_dns_enabled is `true`.
+        """
+elif False:
+    VpcEndpointDnsOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpcEndpointDnsOptionsArgs:
     def __init__(__self__, *,
@@ -15330,6 +19529,27 @@ class VpcEndpointDnsOptionsArgs:
     def private_dns_only_for_inbound_resolver_endpoint(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "private_dns_only_for_inbound_resolver_endpoint", value)
 
+
+if not MYPY:
+    class VpcEndpointServicePrivateDnsNameConfigurationArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the record subdomain the service provider needs to create.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Endpoint service verification type, for example `TXT`.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value the service provider adds to the private DNS name domain record before verification.
+        """
+elif False:
+    VpcEndpointServicePrivateDnsNameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpcEndpointServicePrivateDnsNameConfigurationArgs:
@@ -15402,6 +19622,20 @@ class VpcEndpointServicePrivateDnsNameConfigurationArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class VpcEndpointSubnetConfigurationArgsDict(TypedDict):
+        ipv4: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+        """
+        ipv6: NotRequired[pulumi.Input[str]]
+        """
+        The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+elif False:
+    VpcEndpointSubnetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpcEndpointSubnetConfigurationArgs:
     def __init__(__self__, *,
@@ -15453,6 +19687,15 @@ class VpcEndpointSubnetConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class VpcIpamOperatingRegionArgsDict(TypedDict):
+        region_name: pulumi.Input[str]
+        """
+        The name of the Region you want to add to the IPAM.
+        """
+elif False:
+    VpcIpamOperatingRegionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpcIpamOperatingRegionArgs:
     def __init__(__self__, *,
@@ -15474,6 +19717,19 @@ class VpcIpamOperatingRegionArgs:
     def region_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "region_name", value)
 
+
+if not MYPY:
+    class VpcIpamPoolCidrCidrAuthorizationContextArgsDict(TypedDict):
+        message: NotRequired[pulumi.Input[str]]
+        """
+        The plain-text authorization message for the prefix and account.
+        """
+        signature: NotRequired[pulumi.Input[str]]
+        """
+        The signed authorization message for the prefix and account.
+        """
+elif False:
+    VpcIpamPoolCidrCidrAuthorizationContextArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpcIpamPoolCidrCidrAuthorizationContextArgs:
@@ -15514,6 +19770,15 @@ class VpcIpamPoolCidrCidrAuthorizationContextArgs:
         pulumi.set(self, "signature", value)
 
 
+if not MYPY:
+    class VpcIpamResourceDiscoveryOperatingRegionArgsDict(TypedDict):
+        region_name: pulumi.Input[str]
+        """
+        The name of the Region you want to add to the IPAM.
+        """
+elif False:
+    VpcIpamResourceDiscoveryOperatingRegionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpcIpamResourceDiscoveryOperatingRegionArgs:
     def __init__(__self__, *,
@@ -15536,6 +19801,12 @@ class VpcIpamResourceDiscoveryOperatingRegionArgs:
         pulumi.set(self, "region_name", value)
 
 
+if not MYPY:
+    class VpcPeeringConnectionAccepterArgsDict(TypedDict):
+        allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[bool]]
+elif False:
+    VpcPeeringConnectionAccepterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpcPeeringConnectionAccepterArgs:
     def __init__(__self__, *,
@@ -15552,6 +19823,16 @@ class VpcPeeringConnectionAccepterArgs:
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
 
+
+if not MYPY:
+    class VpcPeeringConnectionAccepterAccepterArgsDict(TypedDict):
+        allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether a local VPC can resolve public DNS hostnames to
+        private IP addresses when queried from instances in a peer VPC.
+        """
+elif False:
+    VpcPeeringConnectionAccepterAccepterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpcPeeringConnectionAccepterAccepterArgs:
@@ -15578,6 +19859,16 @@ class VpcPeeringConnectionAccepterAccepterArgs:
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
 
 
+if not MYPY:
+    class VpcPeeringConnectionAccepterRequesterArgsDict(TypedDict):
+        allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether a local VPC can resolve public DNS hostnames to
+        private IP addresses when queried from instances in a peer VPC.
+        """
+elif False:
+    VpcPeeringConnectionAccepterRequesterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpcPeeringConnectionAccepterRequesterArgs:
     def __init__(__self__, *,
@@ -15603,6 +19894,12 @@ class VpcPeeringConnectionAccepterRequesterArgs:
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
 
 
+if not MYPY:
+    class VpcPeeringConnectionRequesterArgsDict(TypedDict):
+        allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[bool]]
+elif False:
+    VpcPeeringConnectionRequesterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpcPeeringConnectionRequesterArgs:
     def __init__(__self__, *,
@@ -15619,6 +19916,23 @@ class VpcPeeringConnectionRequesterArgs:
     def allow_remote_vpc_dns_resolution(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_remote_vpc_dns_resolution", value)
 
+
+if not MYPY:
+    class VpnConnectionRouteArgsDict(TypedDict):
+        destination_cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR block associated with the local subnet of the customer data center.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        Indicates how the routes were provided.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The current state of the static route.
+        """
+elif False:
+    VpnConnectionRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnConnectionRouteArgs:
@@ -15675,6 +19989,15 @@ class VpnConnectionRouteArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class VpnConnectionTunnel1LogOptionsArgsDict(TypedDict):
+        cloudwatch_log_options: NotRequired[pulumi.Input['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgsDict']]
+        """
+        Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        """
+elif False:
+    VpnConnectionTunnel1LogOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpnConnectionTunnel1LogOptionsArgs:
     def __init__(__self__, *,
@@ -15697,6 +20020,23 @@ class VpnConnectionTunnel1LogOptionsArgs:
     def cloudwatch_log_options(self, value: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs']]):
         pulumi.set(self, "cloudwatch_log_options", value)
 
+
+if not MYPY:
+    class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgsDict(TypedDict):
+        log_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable or disable VPN tunnel logging feature. The default is `false`.
+        """
+        log_group_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        """
+        log_output_format: NotRequired[pulumi.Input[str]]
+        """
+        Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        """
+elif False:
+    VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
@@ -15753,6 +20093,15 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
         pulumi.set(self, "log_output_format", value)
 
 
+if not MYPY:
+    class VpnConnectionTunnel2LogOptionsArgsDict(TypedDict):
+        cloudwatch_log_options: NotRequired[pulumi.Input['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgsDict']]
+        """
+        Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        """
+elif False:
+    VpnConnectionTunnel2LogOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VpnConnectionTunnel2LogOptionsArgs:
     def __init__(__self__, *,
@@ -15775,6 +20124,23 @@ class VpnConnectionTunnel2LogOptionsArgs:
     def cloudwatch_log_options(self, value: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs']]):
         pulumi.set(self, "cloudwatch_log_options", value)
 
+
+if not MYPY:
+    class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgsDict(TypedDict):
+        log_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable or disable VPN tunnel logging feature. The default is `false`.
+        """
+        log_group_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        """
+        log_output_format: NotRequired[pulumi.Input[str]]
+        """
+        Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
+        """
+elif False:
+    VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
@@ -15830,6 +20196,35 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
     def log_output_format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_output_format", value)
 
+
+if not MYPY:
+    class VpnConnectionVgwTelemetryArgsDict(TypedDict):
+        accepted_route_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of accepted routes.
+        """
+        certificate_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+        """
+        last_status_change: NotRequired[pulumi.Input[str]]
+        """
+        The date and time of the last change in status.
+        """
+        outside_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The Internet-routable IP address of the virtual private gateway's outside interface.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The status of the VPN tunnel.
+        """
+        status_message: NotRequired[pulumi.Input[str]]
+        """
+        If an error occurs, a description of the error.
+        """
+elif False:
+    VpnConnectionVgwTelemetryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VpnConnectionVgwTelemetryArgs:
@@ -15934,6 +20329,16 @@ class VpnConnectionVgwTelemetryArgs:
         pulumi.set(self, "status_message", value)
 
 
+if not MYPY:
+    class GetAmiFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the AMI that was provided during image creation.
+        """
+        values: Sequence[str]
+elif False:
+    GetAmiFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetAmiFilterArgs:
     def __init__(__self__, *,
@@ -15967,6 +20372,13 @@ class GetAmiFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetAmiIdsFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetAmiIdsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetAmiIdsFilterArgs:
     def __init__(__self__, *,
@@ -15993,6 +20405,21 @@ class GetAmiIdsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetCoipPoolFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A COIP Pool will be selected if any one of the given values matches.
+        """
+elif False:
+    GetCoipPoolFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetCoipPoolFilterArgs:
@@ -16035,6 +20462,21 @@ class GetCoipPoolFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetCoipPoolsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A COIP Pool will be selected if any one of the given values matches.
+        """
+elif False:
+    GetCoipPoolsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetCoipPoolsFilterArgs:
     def __init__(__self__, *,
@@ -16076,6 +20518,13 @@ class GetCoipPoolsFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetCustomerGatewayFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetCustomerGatewayFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetCustomerGatewayFilterArgs:
     def __init__(__self__, *,
@@ -16102,6 +20551,19 @@ class GetCustomerGatewayFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetDedicatedHostFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
+        """
+elif False:
+    GetDedicatedHostFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetDedicatedHostFilterArgs:
@@ -16139,6 +20601,20 @@ class GetDedicatedHostFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetEipsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
+        """
+elif False:
+    GetEipsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetEipsFilterArgs:
@@ -16179,6 +20655,13 @@ class GetEipsFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetElasticIpFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetElasticIpFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetElasticIpFilterArgs:
     def __init__(__self__, *,
@@ -16206,6 +20689,13 @@ class GetElasticIpFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetInstanceFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetInstanceFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetInstanceFilterArgs:
     def __init__(__self__, *,
@@ -16232,6 +20722,19 @@ class GetInstanceFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetInstanceTypeOfferingFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetInstanceTypeOfferingFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetInstanceTypeOfferingFilterArgs:
@@ -16270,6 +20773,19 @@ class GetInstanceTypeOfferingFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetInstanceTypeOfferingsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetInstanceTypeOfferingsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetInstanceTypeOfferingsFilterArgs:
     def __init__(__self__, *,
@@ -16306,6 +20822,19 @@ class GetInstanceTypeOfferingsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetInstanceTypesFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetInstanceTypesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetInstanceTypesFilterArgs:
@@ -16344,6 +20873,13 @@ class GetInstanceTypesFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetInstancesFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetInstancesFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetInstancesFilterArgs:
     def __init__(__self__, *,
@@ -16370,6 +20906,21 @@ class GetInstancesFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetInternetGatewayFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        An Internet Gateway will be selected if any one of the given values matches.
+        """
+elif False:
+    GetInternetGatewayFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetInternetGatewayFilterArgs:
@@ -16412,6 +20963,19 @@ class GetInternetGatewayFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetKeyPairFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetKeyPairFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetKeyPairFilterArgs:
     def __init__(__self__, *,
@@ -16449,6 +21013,19 @@ class GetKeyPairFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetLaunchTemplateFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetLaunchTemplateFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetLaunchTemplateFilterArgs:
     def __init__(__self__, *,
@@ -16485,6 +21062,21 @@ class GetLaunchTemplateFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetLocalGatewayFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A Local Gateway will be selected if any one of the given values matches.
+        """
+elif False:
+    GetLocalGatewayFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetLocalGatewayFilterArgs:
@@ -16527,6 +21119,21 @@ class GetLocalGatewayFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetLocalGatewayRouteTableFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A local gateway route table will be selected if any one of the given values matches.
+        """
+elif False:
+    GetLocalGatewayRouteTableFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetLocalGatewayRouteTableFilterArgs:
     def __init__(__self__, *,
@@ -16567,6 +21174,21 @@ class GetLocalGatewayRouteTableFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetLocalGatewayRouteTablesFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A Local Gateway Route Table will be selected if any one of the given values matches.
+        """
+elif False:
+    GetLocalGatewayRouteTablesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetLocalGatewayRouteTablesFilterArgs:
@@ -16609,6 +21231,19 @@ class GetLocalGatewayRouteTablesFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetLocalGatewayVirtualInterfaceFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetLocalGatewayVirtualInterfaceFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetLocalGatewayVirtualInterfaceFilterArgs:
     def __init__(__self__, *,
@@ -16645,6 +21280,19 @@ class GetLocalGatewayVirtualInterfaceFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetLocalGatewayVirtualInterfaceGroupFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetLocalGatewayVirtualInterfaceGroupFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetLocalGatewayVirtualInterfaceGroupFilterArgs:
@@ -16683,6 +21331,19 @@ class GetLocalGatewayVirtualInterfaceGroupFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetLocalGatewayVirtualInterfaceGroupsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetLocalGatewayVirtualInterfaceGroupsFilterArgs:
     def __init__(__self__, *,
@@ -16719,6 +21380,21 @@ class GetLocalGatewayVirtualInterfaceGroupsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetLocalGatewaysFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A Local Gateway will be selected if any one of the given values matches.
+        """
+elif False:
+    GetLocalGatewaysFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetLocalGatewaysFilterArgs:
@@ -16761,6 +21437,19 @@ class GetLocalGatewaysFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetManagedPrefixListFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetManagedPrefixListFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetManagedPrefixListFilterArgs:
     def __init__(__self__, *,
@@ -16797,6 +21486,21 @@ class GetManagedPrefixListFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetManagedPrefixListsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A managed prefix list will be selected if any one of the given values matches.
+        """
+elif False:
+    GetManagedPrefixListsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetManagedPrefixListsFilterArgs:
@@ -16839,6 +21543,21 @@ class GetManagedPrefixListsFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetNatGatewayFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        An Nat Gateway will be selected if any one of the given values matches.
+        """
+elif False:
+    GetNatGatewayFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetNatGatewayFilterArgs:
     def __init__(__self__, *,
@@ -16879,6 +21598,21 @@ class GetNatGatewayFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetNatGatewaysFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A Nat Gateway will be selected if any one of the given values matches.
+        """
+elif False:
+    GetNatGatewaysFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetNatGatewaysFilterArgs:
@@ -16921,6 +21655,21 @@ class GetNatGatewaysFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetNetworkAclsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A VPC will be selected if any one of the given values matches.
+        """
+elif False:
+    GetNetworkAclsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetNetworkAclsFilterArgs:
     def __init__(__self__, *,
@@ -16962,6 +21711,19 @@ class GetNetworkAclsFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetNetworkInsightsAnalysisFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsAnalyses`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html) API Reference.
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetNetworkInsightsAnalysisFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetNetworkInsightsAnalysisFilterArgs:
     def __init__(__self__, *,
@@ -16998,6 +21760,19 @@ class GetNetworkInsightsAnalysisFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetNetworkInsightsPathFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the EC2 [`DescribeNetworkInsightsPaths`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html) API Reference.
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetNetworkInsightsPathFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetNetworkInsightsPathFilterArgs:
@@ -17036,6 +21811,13 @@ class GetNetworkInsightsPathFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetNetworkInterfaceFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetNetworkInterfaceFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetNetworkInterfaceFilterArgs:
     def __init__(__self__, *,
@@ -17062,6 +21844,20 @@ class GetNetworkInterfaceFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetNetworkInterfacesFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        """
+elif False:
+    GetNetworkInterfacesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetNetworkInterfacesFilterArgs:
@@ -17102,6 +21898,19 @@ class GetNetworkInterfacesFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetPrefixListFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetPrefixListFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetPrefixListFilterArgs:
     def __init__(__self__, *,
@@ -17138,6 +21947,19 @@ class GetPrefixListFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetPublicIpv4PoolsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field. Pool IDs will be selected if any one of the given values match.
+        """
+elif False:
+    GetPublicIpv4PoolsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetPublicIpv4PoolsFilterArgs:
@@ -17176,6 +21998,19 @@ class GetPublicIpv4PoolsFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetRouteTableFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
+        """
+elif False:
+    GetRouteTableFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRouteTableFilterArgs:
     def __init__(__self__, *,
@@ -17212,6 +22047,21 @@ class GetRouteTableFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetRouteTablesFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A Route Table will be selected if any one of the given values matches.
+        """
+elif False:
+    GetRouteTablesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRouteTablesFilterArgs:
@@ -17254,6 +22104,21 @@ class GetRouteTablesFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetSecurityGroupFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A Security Group will be selected if any one of the given values matches.
+        """
+elif False:
+    GetSecurityGroupFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSecurityGroupFilterArgs:
     def __init__(__self__, *,
@@ -17295,6 +22160,13 @@ class GetSecurityGroupFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetSecurityGroupsFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetSecurityGroupsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSecurityGroupsFilterArgs:
     def __init__(__self__, *,
@@ -17321,6 +22193,19 @@ class GetSecurityGroupsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetSpotPriceFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetSpotPriceFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSpotPriceFilterArgs:
@@ -17359,6 +22244,19 @@ class GetSpotPriceFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetSubnetFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
+        """
+elif False:
+    GetSubnetFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSubnetFilterArgs:
     def __init__(__self__, *,
@@ -17396,6 +22294,32 @@ class GetSubnetFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetSubnetsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+        For example, if matching against tag `Name`, use:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        selected = aws.ec2.get_subnets(filters=[{
+            "name": "tag:Name",
+            "values": [""],
+        }])
+        ```
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        Subnet IDs will be selected if any one of the given values match.
+        """
+elif False:
+    GetSubnetsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetSubnetsFilterArgs:
     def __init__(__self__, *,
@@ -17410,10 +22334,10 @@ class GetSubnetsFilterArgs:
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-                   name="tag:Name",
-                   values=[""],
-               )])
+               selected = aws.ec2.get_subnets(filters=[{
+                   "name": "tag:Name",
+                   "values": [""],
+               }])
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
@@ -17433,10 +22357,10 @@ class GetSubnetsFilterArgs:
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-            name="tag:Name",
-            values=[""],
-        )])
+        selected = aws.ec2.get_subnets(filters=[{
+            "name": "tag:Name",
+            "values": [""],
+        }])
         ```
         """
         return pulumi.get(self, "name")
@@ -17458,6 +22382,21 @@ class GetSubnetsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetTransitGatewayRouteTablesFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A Transit Gateway Route Table will be selected if any one of the given values matches.
+        """
+elif False:
+    GetTransitGatewayRouteTablesFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTransitGatewayRouteTablesFilterArgs:
@@ -17500,6 +22439,19 @@ class GetTransitGatewayRouteTablesFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetVpcDhcpOptionsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter.
+        """
+        values: Sequence[str]
+        """
+        Set of values for filtering.
+        """
+elif False:
+    GetVpcDhcpOptionsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetVpcDhcpOptionsFilterArgs:
     def __init__(__self__, *,
@@ -17536,6 +22488,21 @@ class GetVpcDhcpOptionsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetVpcEndpointFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A VPC Endpoint will be selected if any one of the given values matches.
+        """
+elif False:
+    GetVpcEndpointFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetVpcEndpointFilterArgs:
@@ -17578,6 +22545,19 @@ class GetVpcEndpointFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetVpcEndpointServiceFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetVpcEndpointServiceFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetVpcEndpointServiceFilterArgs:
     def __init__(__self__, *,
@@ -17614,6 +22594,21 @@ class GetVpcEndpointServiceFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetVpcFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A VPC will be selected if any one of the given values matches.
+        """
+elif False:
+    GetVpcFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetVpcFilterArgs:
@@ -17656,6 +22651,13 @@ class GetVpcFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetVpcIamPoolCidrsFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetVpcIamPoolCidrsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetVpcIamPoolCidrsFilterArgs:
     def __init__(__self__, *,
@@ -17682,6 +22684,19 @@ class GetVpcIamPoolCidrsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetVpcIamPoolFilterArgsDict(TypedDict):
+        name: str
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
+        values: Sequence[str]
+        """
+        The filter values. Filter values are case-sensitive.
+        """
+elif False:
+    GetVpcIamPoolFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetVpcIamPoolFilterArgs:
@@ -17720,6 +22735,19 @@ class GetVpcIamPoolFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetVpcIamPoolsFilterArgsDict(TypedDict):
+        name: str
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
+        values: Sequence[str]
+        """
+        The filter values. Filter values are case-sensitive.
+        """
+elif False:
+    GetVpcIamPoolsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetVpcIamPoolsFilterArgs:
     def __init__(__self__, *,
@@ -17757,6 +22785,13 @@ class GetVpcIamPoolsFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetVpcIpamPoolCidrsFilterArgsDict(TypedDict):
+        name: str
+        values: Sequence[str]
+elif False:
+    GetVpcIpamPoolCidrsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetVpcIpamPoolCidrsFilterArgs:
     def __init__(__self__, *,
@@ -17783,6 +22818,19 @@ class GetVpcIpamPoolCidrsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetVpcIpamPoolFilterArgsDict(TypedDict):
+        name: str
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
+        values: Sequence[str]
+        """
+        The filter values. Filter values are case-sensitive.
+        """
+elif False:
+    GetVpcIpamPoolFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetVpcIpamPoolFilterArgs:
@@ -17821,6 +22869,19 @@ class GetVpcIpamPoolFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetVpcIpamPoolsFilterArgsDict(TypedDict):
+        name: str
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
+        values: Sequence[str]
+        """
+        The filter values. Filter values are case-sensitive.
+        """
+elif False:
+    GetVpcIpamPoolsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetVpcIpamPoolsFilterArgs:
     def __init__(__self__, *,
@@ -17857,6 +22918,21 @@ class GetVpcIpamPoolsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetVpcPeeringConnectionFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A VPC Peering Connection will be selected if any one of the given values matches.
+        """
+elif False:
+    GetVpcPeeringConnectionFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetVpcPeeringConnectionFilterArgs:
@@ -17899,6 +22975,21 @@ class GetVpcPeeringConnectionFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetVpcPeeringConnectionsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A VPC Peering Connection will be selected if any one of the given values matches.
+        """
+elif False:
+    GetVpcPeeringConnectionsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetVpcPeeringConnectionsFilterArgs:
     def __init__(__self__, *,
@@ -17940,6 +23031,21 @@ class GetVpcPeeringConnectionsFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetVpcsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A VPC will be selected if any one of the given values matches.
+        """
+elif False:
+    GetVpcsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetVpcsFilterArgs:
     def __init__(__self__, *,
@@ -17980,6 +23086,21 @@ class GetVpcsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetVpnGatewayFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A VPN Gateway will be selected if any one of the given values matches.
+        """
+elif False:
+    GetVpnGatewayFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetVpnGatewayFilterArgs:

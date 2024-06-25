@@ -4,20 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'BrokerConfigurationArgs',
+    'BrokerConfigurationArgsDict',
     'BrokerEncryptionOptionsArgs',
+    'BrokerEncryptionOptionsArgsDict',
     'BrokerInstanceArgs',
+    'BrokerInstanceArgsDict',
     'BrokerLdapServerMetadataArgs',
+    'BrokerLdapServerMetadataArgsDict',
     'BrokerLogsArgs',
+    'BrokerLogsArgsDict',
     'BrokerMaintenanceWindowStartTimeArgs',
+    'BrokerMaintenanceWindowStartTimeArgsDict',
     'BrokerUserArgs',
+    'BrokerUserArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BrokerConfigurationArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The Configuration ID.
+        """
+        revision: NotRequired[pulumi.Input[int]]
+        """
+        Revision of the Configuration.
+        """
+elif False:
+    BrokerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BrokerConfigurationArgs:
@@ -58,6 +85,19 @@ class BrokerConfigurationArgs:
         pulumi.set(self, "revision", value)
 
 
+if not MYPY:
+    class BrokerEncryptionOptionsArgsDict(TypedDict):
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
+        """
+        use_aws_owned_key: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS-managed CMK aliased to `aws/mq` in your account.
+        """
+elif False:
+    BrokerEncryptionOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BrokerEncryptionOptionsArgs:
     def __init__(__self__, *,
@@ -96,6 +136,31 @@ class BrokerEncryptionOptionsArgs:
     def use_aws_owned_key(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_aws_owned_key", value)
 
+
+if not MYPY:
+    class BrokerInstanceArgsDict(TypedDict):
+        console_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+        """
+        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
+        * For `ActiveMQ`:
+        * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
+        * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
+        * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
+        * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
+        * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
+        * For `RabbitMQ`:
+        * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        IP Address of the broker.
+        """
+elif False:
+    BrokerInstanceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BrokerInstanceArgs:
@@ -167,6 +232,55 @@ class BrokerInstanceArgs:
     def ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_address", value)
 
+
+if not MYPY:
+    class BrokerLdapServerMetadataArgsDict(TypedDict):
+        hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of a fully qualified domain name of the LDAP server and an optional failover server.
+        """
+        role_base: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified name of the directory to search for a user’s groups.
+        """
+        role_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+        """
+        role_search_matching: NotRequired[pulumi.Input[str]]
+        """
+        Search criteria for groups.
+        """
+        role_search_subtree: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the directory search scope is the entire sub-tree.
+        """
+        service_account_password: NotRequired[pulumi.Input[str]]
+        """
+        Service account password.
+        """
+        service_account_username: NotRequired[pulumi.Input[str]]
+        """
+        Service account username.
+        """
+        user_base: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified name of the directory where you want to search for users.
+        """
+        user_role_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the LDAP attribute for the user group membership.
+        """
+        user_search_matching: NotRequired[pulumi.Input[str]]
+        """
+        Search criteria for users.
+        """
+        user_search_subtree: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the directory search scope is the entire sub-tree.
+        """
+elif False:
+    BrokerLdapServerMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BrokerLdapServerMetadataArgs:
@@ -351,6 +465,19 @@ class BrokerLdapServerMetadataArgs:
         pulumi.set(self, "user_search_subtree", value)
 
 
+if not MYPY:
+    class BrokerLogsArgsDict(TypedDict):
+        audit: NotRequired[pulumi.Input[bool]]
+        """
+        Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+        """
+        general: NotRequired[pulumi.Input[bool]]
+        """
+        Enables general logging via CloudWatch. Defaults to `false`.
+        """
+elif False:
+    BrokerLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BrokerLogsArgs:
     def __init__(__self__, *,
@@ -389,6 +516,23 @@ class BrokerLogsArgs:
     def general(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "general", value)
 
+
+if not MYPY:
+    class BrokerMaintenanceWindowStartTimeArgsDict(TypedDict):
+        day_of_week: pulumi.Input[str]
+        """
+        Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+        """
+        time_of_day: pulumi.Input[str]
+        """
+        Time, in 24-hour format, e.g., `02:00`.
+        """
+        time_zone: pulumi.Input[str]
+        """
+        Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
+        """
+elif False:
+    BrokerMaintenanceWindowStartTimeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BrokerMaintenanceWindowStartTimeArgs:
@@ -441,6 +585,33 @@ class BrokerMaintenanceWindowStartTimeArgs:
     def time_zone(self, value: pulumi.Input[str]):
         pulumi.set(self, "time_zone", value)
 
+
+if not MYPY:
+    class BrokerUserArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+        """
+        username: pulumi.Input[str]
+        """
+        Username of the user.
+
+        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+        """
+        console_access: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
+        """
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
+        """
+        replication_user: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to set set replication user. Defaults to `false`.
+        """
+elif False:
+    BrokerUserArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BrokerUserArgs:

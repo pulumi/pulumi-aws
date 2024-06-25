@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -291,10 +296,10 @@ class FlowDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  flow_definition_name: Optional[pulumi.Input[str]] = None,
-                 human_loop_activation_config: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopActivationConfigArgs']]] = None,
-                 human_loop_config: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopConfigArgs']]] = None,
-                 human_loop_request_source: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopRequestSourceArgs']]] = None,
-                 output_config: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionOutputConfigArgs']]] = None,
+                 human_loop_activation_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
+                 human_loop_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
+                 human_loop_request_source: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
+                 output_config: Optional[pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -312,17 +317,17 @@ class FlowDefinition(pulumi.CustomResource):
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=example_aws_sagemaker_workteam["arn"],
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
-            ))
+            human_loop_config={
+                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
+                "taskAvailabilityLifetimeInSeconds": 1,
+                "taskCount": 1,
+                "taskDescription": "example",
+                "taskTitle": "example",
+                "workteamArn": example_aws_sagemaker_workteam["arn"],
+            },
+            output_config={
+                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+            })
         ```
 
         ### Public Workteam Usage
@@ -334,23 +339,23 @@ class FlowDefinition(pulumi.CustomResource):
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
-                public_workforce_task_price=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs(
-                    amount_in_usd=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs(
-                        cents=1,
-                        tenth_fractions_of_a_cent=2,
-                    ),
-                ),
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
-            ))
+            human_loop_config={
+                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
+                "taskAvailabilityLifetimeInSeconds": 1,
+                "taskCount": 1,
+                "taskDescription": "example",
+                "taskTitle": "example",
+                "workteamArn": f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
+                "publicWorkforceTaskPrice": {
+                    "amountInUsd": {
+                        "cents": 1,
+                        "tenthFractionsOfACent": 2,
+                    },
+                },
+            },
+            output_config={
+                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+            })
         ```
 
         ### Human Loop Activation Config Usage
@@ -362,20 +367,20 @@ class FlowDefinition(pulumi.CustomResource):
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=example_aws_sagemaker_workteam["arn"],
-            ),
-            human_loop_request_source=aws.sagemaker.FlowDefinitionHumanLoopRequestSourceArgs(
-                aws_managed_human_loop_request_source="AWS/Textract/AnalyzeDocument/Forms/V1",
-            ),
-            human_loop_activation_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigArgs(
-                human_loop_activation_conditions_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs(
-                    human_loop_activation_conditions=\"\"\"        {
+            human_loop_config={
+                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
+                "taskAvailabilityLifetimeInSeconds": 1,
+                "taskCount": 1,
+                "taskDescription": "example",
+                "taskTitle": "example",
+                "workteamArn": example_aws_sagemaker_workteam["arn"],
+            },
+            human_loop_request_source={
+                "awsManagedHumanLoopRequestSource": "AWS/Textract/AnalyzeDocument/Forms/V1",
+            },
+            human_loop_activation_config={
+                "humanLoopActivationConditionsConfig": {
+                    "humanLoopActivationConditions": \"\"\"        {
         \\x09\\x09\\x09"Conditions": [
         \\x09\\x09\\x09  {
         \\x09\\x09\\x09\\x09"ConditionType": "Sampling",
@@ -386,11 +391,11 @@ class FlowDefinition(pulumi.CustomResource):
         \\x09\\x09\\x09]
         \\x09\\x09}
         \"\"\",
-                ),
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
-            ))
+                },
+            },
+            output_config={
+                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+            })
         ```
 
         ## Import
@@ -404,10 +409,10 @@ class FlowDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] flow_definition_name: The name of your flow definition.
-        :param pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopActivationConfigArgs']] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
-        :param pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopConfigArgs']] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-        :param pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopRequestSourceArgs']] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-        :param pulumi.Input[pulumi.InputType['FlowDefinitionOutputConfigArgs']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
+        :param pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -431,17 +436,17 @@ class FlowDefinition(pulumi.CustomResource):
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=example_aws_sagemaker_workteam["arn"],
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
-            ))
+            human_loop_config={
+                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
+                "taskAvailabilityLifetimeInSeconds": 1,
+                "taskCount": 1,
+                "taskDescription": "example",
+                "taskTitle": "example",
+                "workteamArn": example_aws_sagemaker_workteam["arn"],
+            },
+            output_config={
+                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+            })
         ```
 
         ### Public Workteam Usage
@@ -453,23 +458,23 @@ class FlowDefinition(pulumi.CustomResource):
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
-                public_workforce_task_price=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs(
-                    amount_in_usd=aws.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs(
-                        cents=1,
-                        tenth_fractions_of_a_cent=2,
-                    ),
-                ),
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
-            ))
+            human_loop_config={
+                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
+                "taskAvailabilityLifetimeInSeconds": 1,
+                "taskCount": 1,
+                "taskDescription": "example",
+                "taskTitle": "example",
+                "workteamArn": f"arn:aws:sagemaker:{current['name']}:394669845002:workteam/public-crowd/default",
+                "publicWorkforceTaskPrice": {
+                    "amountInUsd": {
+                        "cents": 1,
+                        "tenthFractionsOfACent": 2,
+                    },
+                },
+            },
+            output_config={
+                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+            })
         ```
 
         ### Human Loop Activation Config Usage
@@ -481,20 +486,20 @@ class FlowDefinition(pulumi.CustomResource):
         example = aws.sagemaker.FlowDefinition("example",
             flow_definition_name="example",
             role_arn=example_aws_iam_role["arn"],
-            human_loop_config=aws.sagemaker.FlowDefinitionHumanLoopConfigArgs(
-                human_task_ui_arn=example_aws_sagemaker_human_task_ui["arn"],
-                task_availability_lifetime_in_seconds=1,
-                task_count=1,
-                task_description="example",
-                task_title="example",
-                workteam_arn=example_aws_sagemaker_workteam["arn"],
-            ),
-            human_loop_request_source=aws.sagemaker.FlowDefinitionHumanLoopRequestSourceArgs(
-                aws_managed_human_loop_request_source="AWS/Textract/AnalyzeDocument/Forms/V1",
-            ),
-            human_loop_activation_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigArgs(
-                human_loop_activation_conditions_config=aws.sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs(
-                    human_loop_activation_conditions=\"\"\"        {
+            human_loop_config={
+                "humanTaskUiArn": example_aws_sagemaker_human_task_ui["arn"],
+                "taskAvailabilityLifetimeInSeconds": 1,
+                "taskCount": 1,
+                "taskDescription": "example",
+                "taskTitle": "example",
+                "workteamArn": example_aws_sagemaker_workteam["arn"],
+            },
+            human_loop_request_source={
+                "awsManagedHumanLoopRequestSource": "AWS/Textract/AnalyzeDocument/Forms/V1",
+            },
+            human_loop_activation_config={
+                "humanLoopActivationConditionsConfig": {
+                    "humanLoopActivationConditions": \"\"\"        {
         \\x09\\x09\\x09"Conditions": [
         \\x09\\x09\\x09  {
         \\x09\\x09\\x09\\x09"ConditionType": "Sampling",
@@ -505,11 +510,11 @@ class FlowDefinition(pulumi.CustomResource):
         \\x09\\x09\\x09]
         \\x09\\x09}
         \"\"\",
-                ),
-            ),
-            output_config=aws.sagemaker.FlowDefinitionOutputConfigArgs(
-                s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
-            ))
+                },
+            },
+            output_config={
+                "s3OutputPath": f"s3://{example_aws_s3_bucket['bucket']}/",
+            })
         ```
 
         ## Import
@@ -536,10 +541,10 @@ class FlowDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  flow_definition_name: Optional[pulumi.Input[str]] = None,
-                 human_loop_activation_config: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopActivationConfigArgs']]] = None,
-                 human_loop_config: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopConfigArgs']]] = None,
-                 human_loop_request_source: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopRequestSourceArgs']]] = None,
-                 output_config: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionOutputConfigArgs']]] = None,
+                 human_loop_activation_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
+                 human_loop_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
+                 human_loop_request_source: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
+                 output_config: Optional[pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -580,10 +585,10 @@ class FlowDefinition(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             flow_definition_name: Optional[pulumi.Input[str]] = None,
-            human_loop_activation_config: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopActivationConfigArgs']]] = None,
-            human_loop_config: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopConfigArgs']]] = None,
-            human_loop_request_source: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopRequestSourceArgs']]] = None,
-            output_config: Optional[pulumi.Input[pulumi.InputType['FlowDefinitionOutputConfigArgs']]] = None,
+            human_loop_activation_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']]] = None,
+            human_loop_config: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']]] = None,
+            human_loop_request_source: Optional[pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']]] = None,
+            output_config: Optional[pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'FlowDefinition':
@@ -596,10 +601,10 @@ class FlowDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
         :param pulumi.Input[str] flow_definition_name: The name of your flow definition.
-        :param pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopActivationConfigArgs']] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
-        :param pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopConfigArgs']] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
-        :param pulumi.Input[pulumi.InputType['FlowDefinitionHumanLoopRequestSourceArgs']] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
-        :param pulumi.Input[pulumi.InputType['FlowDefinitionOutputConfigArgs']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopActivationConfigArgs', 'FlowDefinitionHumanLoopActivationConfigArgsDict']] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopConfigArgs', 'FlowDefinitionHumanLoopConfigArgsDict']] human_loop_config: An object containing information about the tasks the human reviewers will perform. See Human Loop Config details below.
+        :param pulumi.Input[Union['FlowDefinitionHumanLoopRequestSourceArgs', 'FlowDefinitionHumanLoopRequestSourceArgsDict']] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
+        :param pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

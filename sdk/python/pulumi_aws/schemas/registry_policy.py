@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
@@ -108,19 +113,19 @@ class RegistryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="example",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["109876543210"],
-            )],
-            actions=["schemas:*"],
-            resources=[
+        example = aws.iam.get_policy_document(statements=[{
+            "sid": "example",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["109876543210"],
+            }],
+            "actions": ["schemas:*"],
+            "resources": [
                 "arn:aws:schemas:us-east-1:012345678901:registry/example",
                 "arn:aws:schemas:us-east-1:012345678901:schema/example*",
             ],
-        )])
+        }])
         example_registry_policy = aws.schemas.RegistryPolicy("example",
             registry_name="example",
             policy=example.json)
@@ -156,19 +161,19 @@ class RegistryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="example",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["109876543210"],
-            )],
-            actions=["schemas:*"],
-            resources=[
+        example = aws.iam.get_policy_document(statements=[{
+            "sid": "example",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["109876543210"],
+            }],
+            "actions": ["schemas:*"],
+            "resources": [
                 "arn:aws:schemas:us-east-1:012345678901:registry/example",
                 "arn:aws:schemas:us-east-1:012345678901:schema/example*",
             ],
-        )])
+        }])
         example_registry_policy = aws.schemas.RegistryPolicy("example",
             registry_name="example",
             policy=example.json)

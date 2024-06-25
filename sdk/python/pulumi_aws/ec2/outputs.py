@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -22098,10 +22103,10 @@ class GetSubnetsFilterResult(dict):
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-                   name="tag:Name",
-                   values=[""],
-               )])
+               selected = aws.ec2.get_subnets(filters=[{
+                   "name": "tag:Name",
+                   "values": [""],
+               }])
                ```
         :param Sequence[str] values: Set of values that are accepted for the given field.
                Subnet IDs will be selected if any one of the given values match.
@@ -22121,10 +22126,10 @@ class GetSubnetsFilterResult(dict):
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
-            name="tag:Name",
-            values=[""],
-        )])
+        selected = aws.ec2.get_subnets(filters=[{
+            "name": "tag:Name",
+            "values": [""],
+        }])
         ```
         """
         return pulumi.get(self, "name")

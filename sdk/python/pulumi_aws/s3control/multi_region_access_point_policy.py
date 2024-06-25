@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -130,7 +135,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 details: Optional[pulumi.Input[pulumi.InputType['MultiRegionAccessPointPolicyDetailsArgs']]] = None,
+                 details: Optional[pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource to manage an S3 Multi-Region Access Point access control policy.
@@ -148,7 +153,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[pulumi.InputType['MultiRegionAccessPointPolicyDetailsArgs']] details: A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        :param pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']] details: A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
         """
         ...
     @overload
@@ -185,7 +190,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 details: Optional[pulumi.Input[pulumi.InputType['MultiRegionAccessPointPolicyDetailsArgs']]] = None,
+                 details: Optional[pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -212,7 +217,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
-            details: Optional[pulumi.Input[pulumi.InputType['MultiRegionAccessPointPolicyDetailsArgs']]] = None,
+            details: Optional[pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']]] = None,
             established: Optional[pulumi.Input[str]] = None,
             proposed: Optional[pulumi.Input[str]] = None) -> 'MultiRegionAccessPointPolicy':
         """
@@ -223,7 +228,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[pulumi.InputType['MultiRegionAccessPointPolicyDetailsArgs']] details: A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
+        :param pulumi.Input[Union['MultiRegionAccessPointPolicyDetailsArgs', 'MultiRegionAccessPointPolicyDetailsArgsDict']] details: A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
         :param pulumi.Input[str] established: The last established policy for the Multi-Region Access Point.
         :param pulumi.Input[str] proposed: The proposed policy for the Multi-Region Access Point.
         """

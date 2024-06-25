@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -214,7 +219,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamResourceDiscoveryOperatingRegionArgs']]]]] = None,
+                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -231,9 +236,9 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         current = aws.get_region()
         main = aws.ec2.VpcIpamResourceDiscovery("main",
             description="My IPAM Resource Discovery",
-            operating_regions=[aws.ec2.VpcIpamResourceDiscoveryOperatingRegionArgs(
-                region_name=current.name,
-            )],
+            operating_regions=[{
+                "regionName": current.name,
+            }],
             tags={
                 "Test": "Main",
             })
@@ -250,7 +255,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the IPAM Resource Discovery.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamResourceDiscoveryOperatingRegionArgs']]]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -273,9 +278,9 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         current = aws.get_region()
         main = aws.ec2.VpcIpamResourceDiscovery("main",
             description="My IPAM Resource Discovery",
-            operating_regions=[aws.ec2.VpcIpamResourceDiscoveryOperatingRegionArgs(
-                region_name=current.name,
-            )],
+            operating_regions=[{
+                "regionName": current.name,
+            }],
             tags={
                 "Test": "Main",
             })
@@ -305,7 +310,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamResourceDiscoveryOperatingRegionArgs']]]]] = None,
+                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -340,7 +345,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             ipam_resource_discovery_region: Optional[pulumi.Input[str]] = None,
             is_default: Optional[pulumi.Input[bool]] = None,
-            operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamResourceDiscoveryOperatingRegionArgs']]]]] = None,
+            operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VpcIpamResourceDiscovery':
@@ -355,7 +360,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the IPAM Resource Discovery.
         :param pulumi.Input[str] ipam_resource_discovery_region: The home region of the Resource Discovery
         :param pulumi.Input[bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamResourceDiscoveryOperatingRegionArgs']]]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
         :param pulumi.Input[str] owner_id: The account ID for the account that manages the Resource Discovery
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

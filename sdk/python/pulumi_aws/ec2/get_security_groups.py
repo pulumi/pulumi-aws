@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -100,7 +105,7 @@ class AwaitableGetSecurityGroupsResult(GetSecurityGroupsResult):
             vpc_ids=self.vpc_ids)
 
 
-def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']]] = None,
+def get_security_groups(filters: Optional[Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']]] = None,
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupsResult:
     """
@@ -123,19 +128,19 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
     import pulumi_aws as aws
 
     test = aws.ec2.get_security_groups(filters=[
-        aws.ec2.GetSecurityGroupsFilterArgs(
-            name="group-name",
-            values=["*nodes*"],
-        ),
-        aws.ec2.GetSecurityGroupsFilterArgs(
-            name="vpc-id",
-            values=[vpc_id],
-        ),
+        {
+            "name": "group-name",
+            "values": ["*nodes*"],
+        },
+        {
+            "name": "vpc-id",
+            "values": [vpc_id],
+        },
     ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+    :param Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match for desired security groups.
     """
     __args__ = dict()
@@ -154,7 +159,7 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
 
 
 @_utilities.lift_output_func(get_security_groups)
-def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']]]]] = None,
+def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']]]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupsResult]:
     """
@@ -177,19 +182,19 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
     import pulumi_aws as aws
 
     test = aws.ec2.get_security_groups(filters=[
-        aws.ec2.GetSecurityGroupsFilterArgs(
-            name="group-name",
-            values=["*nodes*"],
-        ),
-        aws.ec2.GetSecurityGroupsFilterArgs(
-            name="vpc-id",
-            values=[vpc_id],
-        ),
+        {
+            "name": "group-name",
+            "values": ["*nodes*"],
+        },
+        {
+            "name": "vpc-id",
+            "values": [vpc_id],
+        },
     ])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+    :param Sequence[Union['GetSecurityGroupsFilterArgs', 'GetSecurityGroupsFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match for desired security groups.
     """
     ...

@@ -4,20 +4,63 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ExportExportArgs',
+    'ExportExportArgsDict',
     'ExportExportDataQueryArgs',
+    'ExportExportDataQueryArgsDict',
     'ExportExportDestinationConfigurationArgs',
+    'ExportExportDestinationConfigurationArgsDict',
     'ExportExportDestinationConfigurationS3DestinationArgs',
+    'ExportExportDestinationConfigurationS3DestinationArgsDict',
     'ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs',
+    'ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgsDict',
     'ExportExportRefreshCadenceArgs',
+    'ExportExportRefreshCadenceArgsDict',
     'ExportTimeoutsArgs',
+    'ExportTimeoutsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ExportExportArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of this specific data export.
+        """
+        data_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDataQueryArgsDict']]]]
+        """
+        Data query for this specific data export. See the `data_query` argument reference below.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for this specific data export.
+        """
+        destination_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgsDict']]]]
+        """
+        Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
+        """
+        export_arn: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) for this export.
+        """
+        refresh_cadences: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportRefreshCadenceArgsDict']]]]
+        """
+        Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
+        """
+elif False:
+    ExportExportArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportExportArgs:
@@ -121,6 +164,19 @@ class ExportExportArgs:
         pulumi.set(self, "refresh_cadences", value)
 
 
+if not MYPY:
+    class ExportExportDataQueryArgsDict(TypedDict):
+        query_statement: pulumi.Input[str]
+        """
+        Query statement.
+        """
+        table_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Mapping[str, Any]]]]]
+        """
+        Table configuration.
+        """
+elif False:
+    ExportExportDataQueryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExportExportDataQueryArgs:
     def __init__(__self__, *,
@@ -159,6 +215,15 @@ class ExportExportDataQueryArgs:
         pulumi.set(self, "table_configurations", value)
 
 
+if not MYPY:
+    class ExportExportDestinationConfigurationArgsDict(TypedDict):
+        s3_destinations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgsDict']]]]
+        """
+        Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
+        """
+elif False:
+    ExportExportDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExportExportDestinationConfigurationArgs:
     def __init__(__self__, *,
@@ -181,6 +246,27 @@ class ExportExportDestinationConfigurationArgs:
     def s3_destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]]):
         pulumi.set(self, "s3_destinations", value)
 
+
+if not MYPY:
+    class ExportExportDestinationConfigurationS3DestinationArgsDict(TypedDict):
+        s3_bucket: pulumi.Input[str]
+        """
+        Name of the Amazon S3 bucket used as the destination of a data export file.
+        """
+        s3_prefix: pulumi.Input[str]
+        """
+        S3 path prefix you want prepended to the name of your data export.
+        """
+        s3_region: pulumi.Input[str]
+        """
+        S3 bucket region.
+        """
+        s3_output_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgsDict']]]]
+        """
+        Output configuration for the data export. See the `s3_output_configurations` argument reference below.
+        """
+elif False:
+    ExportExportDestinationConfigurationS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportExportDestinationConfigurationS3DestinationArgs:
@@ -250,6 +336,27 @@ class ExportExportDestinationConfigurationS3DestinationArgs:
         pulumi.set(self, "s3_output_configurations", value)
 
 
+if not MYPY:
+    class ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgsDict(TypedDict):
+        compression: pulumi.Input[str]
+        """
+        Compression type for the data export. Valid values `GZIP`, `PARQUET`.
+        """
+        format: pulumi.Input[str]
+        """
+        File format for the data export. Valid values `TEXT_OR_CSV` or `PARQUET`.
+        """
+        output_type: pulumi.Input[str]
+        """
+        Output type for the data export. Valid value `CUSTOM`.
+        """
+        overwrite: pulumi.Input[str]
+        """
+        The rule to follow when generating a version of the data export file. You have the choice to overwrite the previous version or to be delivered in addition to the previous versions. Overwriting exports can save on Amazon S3 storage costs. Creating new export versions allows you to track the changes in cost and usage data over time. Valid values `CREATE_NEW_REPORT` or `OVERWRITE_REPORT`.
+        """
+elif False:
+    ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs:
     def __init__(__self__, *,
@@ -317,6 +424,15 @@ class ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs
         pulumi.set(self, "overwrite", value)
 
 
+if not MYPY:
+    class ExportExportRefreshCadenceArgsDict(TypedDict):
+        frequency: pulumi.Input[str]
+        """
+        Frequency that data exports are updated. The export refreshes each time the source data updates, up to three times daily. Valid values `SYNCHRONOUS`.
+        """
+elif False:
+    ExportExportRefreshCadenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ExportExportRefreshCadenceArgs:
     def __init__(__self__, *,
@@ -338,6 +454,19 @@ class ExportExportRefreshCadenceArgs:
     def frequency(self, value: pulumi.Input[str]):
         pulumi.set(self, "frequency", value)
 
+
+if not MYPY:
+    class ExportTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    ExportTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExportTimeoutsArgs:

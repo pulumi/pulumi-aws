@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['VpcIpamScopeArgs', 'VpcIpamScope']
@@ -235,9 +240,9 @@ class VpcIpamScope(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
+        example = aws.ec2.VpcIpam("example", operating_regions=[{
+            "regionName": current.name,
+        }])
         example_vpc_ipam_scope = aws.ec2.VpcIpamScope("example",
             ipam_id=example.id,
             description="Another Scope")
@@ -275,9 +280,9 @@ class VpcIpamScope(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
+        example = aws.ec2.VpcIpam("example", operating_regions=[{
+            "regionName": current.name,
+        }])
         example_vpc_ipam_scope = aws.ec2.VpcIpamScope("example",
             ipam_id=example.id,
             description="Another Scope")

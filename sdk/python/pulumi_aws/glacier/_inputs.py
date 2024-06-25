@@ -4,14 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'VaultNotificationArgs',
+    'VaultNotificationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class VaultNotificationArgsDict(TypedDict):
+        events: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+        """
+        sns_topic: pulumi.Input[str]
+        """
+        The SNS Topic ARN.
+        """
+elif False:
+    VaultNotificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VaultNotificationArgs:

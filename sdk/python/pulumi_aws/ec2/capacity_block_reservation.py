@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -383,7 +388,7 @@ class CapacityBlockReservation(pulumi.CustomResource):
                  capacity_block_offering_id: Optional[pulumi.Input[str]] = None,
                  instance_platform: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['CapacityBlockReservationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Provides an EC2 Capacity Block Reservation. This allows you to purchase capacity block for your Amazon EC2 instances in a specific Availability Zone for machine learning (ML) Workloads.
@@ -429,7 +434,7 @@ class CapacityBlockReservation(pulumi.CustomResource):
                  capacity_block_offering_id: Optional[pulumi.Input[str]] = None,
                  instance_platform: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['CapacityBlockReservationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -488,7 +493,7 @@ class CapacityBlockReservation(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tenancy: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['CapacityBlockReservationTimeoutsArgs']]] = None) -> 'CapacityBlockReservation':
+            timeouts: Optional[pulumi.Input[Union['CapacityBlockReservationTimeoutsArgs', 'CapacityBlockReservationTimeoutsArgsDict']]] = None) -> 'CapacityBlockReservation':
         """
         Get an existing CapacityBlockReservation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

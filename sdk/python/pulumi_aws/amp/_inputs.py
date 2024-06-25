@@ -4,19 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ScraperDestinationArgs',
+    'ScraperDestinationArgsDict',
     'ScraperDestinationAmpArgs',
+    'ScraperDestinationAmpArgsDict',
     'ScraperSourceArgs',
+    'ScraperSourceArgsDict',
     'ScraperSourceEksArgs',
+    'ScraperSourceEksArgsDict',
     'ScraperTimeoutsArgs',
+    'ScraperTimeoutsArgsDict',
     'WorkspaceLoggingConfigurationArgs',
+    'WorkspaceLoggingConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ScraperDestinationArgsDict(TypedDict):
+        amp: NotRequired[pulumi.Input['ScraperDestinationAmpArgsDict']]
+        """
+        Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+        """
+elif False:
+    ScraperDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScraperDestinationArgs:
@@ -41,6 +63,15 @@ class ScraperDestinationArgs:
         pulumi.set(self, "amp", value)
 
 
+if not MYPY:
+    class ScraperDestinationAmpArgsDict(TypedDict):
+        workspace_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the prometheus workspace.
+        """
+elif False:
+    ScraperDestinationAmpArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScraperDestinationAmpArgs:
     def __init__(__self__, *,
@@ -62,6 +93,15 @@ class ScraperDestinationAmpArgs:
     def workspace_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_arn", value)
 
+
+if not MYPY:
+    class ScraperSourceArgsDict(TypedDict):
+        eks: NotRequired[pulumi.Input['ScraperSourceEksArgsDict']]
+        """
+        Configuration block for an EKS cluster source. See `eks`.
+        """
+elif False:
+    ScraperSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScraperSourceArgs:
@@ -85,6 +125,20 @@ class ScraperSourceArgs:
     def eks(self, value: Optional[pulumi.Input['ScraperSourceEksArgs']]):
         pulumi.set(self, "eks", value)
 
+
+if not MYPY:
+    class ScraperSourceEksArgsDict(TypedDict):
+        cluster_arn: pulumi.Input[str]
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of subnet IDs. Must be in at least two different availability zones.
+        """
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of the security group IDs for the Amazon EKS cluster VPC configuration.
+        """
+elif False:
+    ScraperSourceEksArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScraperSourceEksArgs:
@@ -135,6 +189,19 @@ class ScraperSourceEksArgs:
         pulumi.set(self, "security_group_ids", value)
 
 
+if not MYPY:
+    class ScraperTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    ScraperTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScraperTimeoutsArgs:
     def __init__(__self__, *,
@@ -173,6 +240,15 @@ class ScraperTimeoutsArgs:
     def delete(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delete", value)
 
+
+if not MYPY:
+    class WorkspaceLoggingConfigurationArgsDict(TypedDict):
+        log_group_arn: pulumi.Input[str]
+        """
+        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
+        """
+elif False:
+    WorkspaceLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceLoggingConfigurationArgs:

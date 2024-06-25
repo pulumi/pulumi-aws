@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -151,7 +156,7 @@ class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
             vpc_owner_id=self.vpc_owner_id)
 
 
-def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttachmentFilterArgs']]] = None,
+def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']]] = None,
                        id: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcAttachmentResult:
@@ -166,10 +171,10 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_vpc_attachment(filters=[aws.ec2transitgateway.GetVpcAttachmentFilterArgs(
-        name="vpc-id",
-        values=["vpc-12345678"],
-    )])
+    example = aws.ec2transitgateway.get_vpc_attachment(filters=[{
+        "name": "vpc-id",
+        "values": ["vpc-12345678"],
+    }])
     ```
 
     ### By Identifier
@@ -182,7 +187,7 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway VPC Attachment.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
     """
@@ -207,7 +212,7 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
 
 
 @_utilities.lift_output_func(get_vpc_attachment)
-def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcAttachmentFilterArgs']]]]] = None,
+def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']]]]] = None,
                               id: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcAttachmentResult]:
@@ -222,10 +227,10 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_vpc_attachment(filters=[aws.ec2transitgateway.GetVpcAttachmentFilterArgs(
-        name="vpc-id",
-        values=["vpc-12345678"],
-    )])
+    example = aws.ec2transitgateway.get_vpc_attachment(filters=[{
+        "name": "vpc-id",
+        "values": ["vpc-12345678"],
+    }])
     ```
 
     ### By Identifier
@@ -238,7 +243,7 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway VPC Attachment.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
     """

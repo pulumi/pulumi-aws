@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -78,11 +83,11 @@ def get_default_tags(id: Optional[str] = None,
     import pulumi_aws as aws
 
     example = aws.get_default_tags()
-    example_group = aws.autoscaling.Group("example", tags=[aws.autoscaling.GroupTagArgs(
-        key=entry["key"],
-        value=entry["value"],
-        propagate_at_launch=True,
-    ) for entry in [{"key": k, "value": v} for k, v in example.tags]])
+    example_group = aws.autoscaling.Group("example", tags=[{
+        "key": entry["key"],
+        "value": entry["value"],
+        "propagateAtLaunch": True,
+    } for entry in [{"key": k, "value": v} for k, v in example.tags]])
     ```
     """
     __args__ = dict()
@@ -121,11 +126,11 @@ def get_default_tags_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi_aws as aws
 
     example = aws.get_default_tags()
-    example_group = aws.autoscaling.Group("example", tags=[aws.autoscaling.GroupTagArgs(
-        key=entry["key"],
-        value=entry["value"],
-        propagate_at_launch=True,
-    ) for entry in [{"key": k, "value": v} for k, v in example.tags]])
+    example_group = aws.autoscaling.Group("example", tags=[{
+        "key": entry["key"],
+        "value": entry["value"],
+        "propagateAtLaunch": True,
+    } for entry in [{"key": k, "value": v} for k, v in example.tags]])
     ```
     """
     ...

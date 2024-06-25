@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -289,7 +294,7 @@ class SlotType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_version: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]]] = None,
+                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -307,20 +312,20 @@ class SlotType(pulumi.CustomResource):
             create_version=True,
             description="Types of flowers to order",
             enumeration_values=[
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
+                {
+                    "synonyms": [
                         "Lirium",
                         "Martagon",
                     ],
-                    value="lilies",
-                ),
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
+                    "value": "lilies",
+                },
+                {
+                    "synonyms": [
                         "Eduardoregelia",
                         "Podonix",
                     ],
-                    value="tulips",
-                ),
+                    "value": "tulips",
+                },
             ],
             name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
@@ -339,7 +344,7 @@ class SlotType(pulumi.CustomResource):
         :param pulumi.Input[bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
                update. Defaults to `false`.
         :param pulumi.Input[str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.
@@ -369,20 +374,20 @@ class SlotType(pulumi.CustomResource):
             create_version=True,
             description="Types of flowers to order",
             enumeration_values=[
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
+                {
+                    "synonyms": [
                         "Lirium",
                         "Martagon",
                     ],
-                    value="lilies",
-                ),
-                aws.lex.SlotTypeEnumerationValueArgs(
-                    synonyms=[
+                    "value": "lilies",
+                },
+                {
+                    "synonyms": [
                         "Eduardoregelia",
                         "Podonix",
                     ],
-                    value="tulips",
-                ),
+                    "value": "tulips",
+                },
             ],
             name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
@@ -413,7 +418,7 @@ class SlotType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_version: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]]] = None,
+                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -450,7 +455,7 @@ class SlotType(pulumi.CustomResource):
             create_version: Optional[pulumi.Input[bool]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]]] = None,
+            enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
             last_updated_date: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             value_selection_strategy: Optional[pulumi.Input[str]] = None,
@@ -468,7 +473,7 @@ class SlotType(pulumi.CustomResource):
                update. Defaults to `false`.
         :param pulumi.Input[str] created_date: The date when the slot type version was created.
         :param pulumi.Input[str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.

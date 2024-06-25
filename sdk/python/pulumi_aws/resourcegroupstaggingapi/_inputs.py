@@ -4,14 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GetResourcesTagFilterArgs',
+    'GetResourcesTagFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GetResourcesTagFilterArgsDict(TypedDict):
+        key: str
+        """
+        One part of a key-value pair that makes up a tag.
+        """
+        values: NotRequired[Sequence[str]]
+        """
+        Optional part of a key-value pair that make up a tag.
+        """
+elif False:
+    GetResourcesTagFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetResourcesTagFilterArgs:

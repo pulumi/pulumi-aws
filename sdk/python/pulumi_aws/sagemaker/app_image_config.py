@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -230,9 +235,9 @@ class AppImageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
-                 code_editor_app_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigCodeEditorAppImageConfigArgs']]] = None,
-                 jupyter_lab_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabImageConfigArgs']]] = None,
-                 kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
+                 code_editor_app_image_config: Optional[pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
+                 jupyter_lab_image_config: Optional[pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
+                 kernel_gateway_image_config: Optional[pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -251,9 +256,9 @@ class AppImageConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input[pulumi.InputType['AppImageConfigCodeEditorAppImageConfigArgs']] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
-        :param pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabImageConfigArgs']] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
-        :param pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -291,9 +296,9 @@ class AppImageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
-                 code_editor_app_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigCodeEditorAppImageConfigArgs']]] = None,
-                 jupyter_lab_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabImageConfigArgs']]] = None,
-                 kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
+                 code_editor_app_image_config: Optional[pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
+                 jupyter_lab_image_config: Optional[pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
+                 kernel_gateway_image_config: Optional[pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -325,9 +330,9 @@ class AppImageConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_image_config_name: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            code_editor_app_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigCodeEditorAppImageConfigArgs']]] = None,
-            jupyter_lab_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabImageConfigArgs']]] = None,
-            kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
+            code_editor_app_image_config: Optional[pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']]] = None,
+            jupyter_lab_image_config: Optional[pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']]] = None,
+            kernel_gateway_image_config: Optional[pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'AppImageConfig':
         """
@@ -339,9 +344,9 @@ class AppImageConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-        :param pulumi.Input[pulumi.InputType['AppImageConfigCodeEditorAppImageConfigArgs']] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
-        :param pulumi.Input[pulumi.InputType['AppImageConfigJupyterLabImageConfigArgs']] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
-        :param pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+        :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

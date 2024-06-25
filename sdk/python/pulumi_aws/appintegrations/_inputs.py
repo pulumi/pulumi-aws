@@ -4,14 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DataIntegrationScheduleConfigArgs',
+    'DataIntegrationScheduleConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataIntegrationScheduleConfigArgsDict(TypedDict):
+        first_execution_from: pulumi.Input[str]
+        """
+        The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+        """
+        object: pulumi.Input[str]
+        """
+        The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+        """
+        schedule_expression: pulumi.Input[str]
+        """
+        How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
+        """
+elif False:
+    DataIntegrationScheduleConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataIntegrationScheduleConfigArgs:

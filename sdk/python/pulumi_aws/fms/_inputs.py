@@ -4,21 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'PolicyExcludeMapArgs',
+    'PolicyExcludeMapArgsDict',
     'PolicyIncludeMapArgs',
+    'PolicyIncludeMapArgsDict',
     'PolicySecurityServicePolicyDataArgs',
+    'PolicySecurityServicePolicyDataArgsDict',
     'PolicySecurityServicePolicyDataPolicyOptionArgs',
+    'PolicySecurityServicePolicyDataPolicyOptionArgsDict',
     'PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs',
+    'PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict',
     'PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs',
+    'PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict',
     'ResourceSetResourceSetArgs',
+    'ResourceSetResourceSetArgsDict',
     'ResourceSetTimeoutsArgs',
+    'ResourceSetTimeoutsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PolicyExcludeMapArgsDict(TypedDict):
+        accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+        """
+        orgunits: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+
+        You can specify inclusions or exclusions, but not both. If you specify an `include_map`, AWS Firewall Manager applies the policy to all accounts specified by the `include_map`, and does not evaluate any `exclude_map` specifications. If you do not specify an `include_map`, then Firewall Manager applies the policy to all accounts except for those specified by the `exclude_map`.
+        """
+elif False:
+    PolicyExcludeMapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyExcludeMapArgs:
@@ -63,6 +93,21 @@ class PolicyExcludeMapArgs:
         pulumi.set(self, "orgunits", value)
 
 
+if not MYPY:
+    class PolicyIncludeMapArgsDict(TypedDict):
+        accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+        """
+        orgunits: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+
+        You can specify inclusions or exclusions, but not both. If you specify an `include_map`, AWS Firewall Manager applies the policy to all accounts specified by the `include_map`, and does not evaluate any `exclude_map` specifications. If you do not specify an `include_map`, then Firewall Manager applies the policy to all accounts except for those specified by the `exclude_map`.
+        """
+elif False:
+    PolicyIncludeMapArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyIncludeMapArgs:
     def __init__(__self__, *,
@@ -105,6 +150,23 @@ class PolicyIncludeMapArgs:
     def orgunits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "orgunits", value)
 
+
+if not MYPY:
+    class PolicySecurityServicePolicyDataArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
+        """
+        managed_service_data: NotRequired[pulumi.Input[str]]
+        """
+        Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
+        """
+        policy_option: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgsDict']]
+        """
+        Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+        """
+elif False:
+    PolicySecurityServicePolicyDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataArgs:
@@ -160,6 +222,16 @@ class PolicySecurityServicePolicyDataArgs:
         pulumi.set(self, "policy_option", value)
 
 
+if not MYPY:
+    class PolicySecurityServicePolicyDataPolicyOptionArgsDict(TypedDict):
+        network_firewall_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict']]
+        """
+        Defines the deployment model to use for the firewall policy. Documented below.
+        """
+        third_party_firewall_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict']]
+elif False:
+    PolicySecurityServicePolicyDataPolicyOptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionArgs:
     def __init__(__self__, *,
@@ -195,6 +267,15 @@ class PolicySecurityServicePolicyDataPolicyOptionArgs:
         pulumi.set(self, "third_party_firewall_policy", value)
 
 
+if not MYPY:
+    class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict(TypedDict):
+        firewall_deployment_model: NotRequired[pulumi.Input[str]]
+        """
+        Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+        """
+elif False:
+    PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs:
     def __init__(__self__, *,
@@ -218,6 +299,15 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs:
         pulumi.set(self, "firewall_deployment_model", value)
 
 
+if not MYPY:
+    class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict(TypedDict):
+        firewall_deployment_model: NotRequired[pulumi.Input[str]]
+        """
+        Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+        """
+elif False:
+    PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs:
     def __init__(__self__, *,
@@ -240,6 +330,36 @@ class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs:
     def firewall_deployment_model(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "firewall_deployment_model", value)
 
+
+if not MYPY:
+    class ResourceSetResourceSetArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the resource set.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
+        """
+        last_update_time: NotRequired[pulumi.Input[str]]
+        """
+        Last time that the reosurce set was changed.
+        """
+        resource_set_status: NotRequired[pulumi.Input[str]]
+        """
+        Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but theyy can't edit or delete the resource set.)
+        """
+        resource_type_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+        """
+        update_token: NotRequired[pulumi.Input[str]]
+elif False:
+    ResourceSetResourceSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceSetResourceSetArgs:
@@ -354,6 +474,23 @@ class ResourceSetResourceSetArgs:
     def update_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update_token", value)
 
+
+if not MYPY:
+    class ResourceSetTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    ResourceSetTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceSetTimeoutsArgs:

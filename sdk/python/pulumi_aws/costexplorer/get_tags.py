@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -103,11 +108,11 @@ class AwaitableGetTagsResult(GetTagsResult):
             time_period=self.time_period)
 
 
-def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
+def get_tags(filter: Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict']] = None,
              search_string: Optional[str] = None,
-             sort_bies: Optional[Sequence[pulumi.InputType['GetTagsSortByArgs']]] = None,
+             sort_bies: Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']]] = None,
              tag_key: Optional[str] = None,
-             time_period: Optional[pulumi.InputType['GetTagsTimePeriodArgs']] = None,
+             time_period: Optional[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict']] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagsResult:
     """
     Provides the available cost allocation tag keys and tag values for a specified period.
@@ -118,18 +123,18 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArgs(
-        start="2021-01-01",
-        end="2022-12-01",
-    ))
+    test = aws.costexplorer.get_tags(time_period={
+        "start": "2021-01-01",
+        "end": "2022-12-01",
+    })
     ```
 
 
-    :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
+    :param Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
     :param str search_string: Value that you want to search for.
-    :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
+    :param Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
     :param str tag_key: Key of the tag that you want to return values for.
-    :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
+    :param Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
            
            The following arguments are optional:
     """
@@ -153,11 +158,11 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
 
 
 @_utilities.lift_output_func(get_tags)
-def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['GetTagsFilterArgs']]]] = None,
+def get_tags_output(filter: Optional[pulumi.Input[Optional[Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict']]]] = None,
                     search_string: Optional[pulumi.Input[Optional[str]]] = None,
-                    sort_bies: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTagsSortByArgs']]]]] = None,
+                    sort_bies: Optional[pulumi.Input[Optional[Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']]]]] = None,
                     tag_key: Optional[pulumi.Input[Optional[str]]] = None,
-                    time_period: Optional[pulumi.Input[pulumi.InputType['GetTagsTimePeriodArgs']]] = None,
+                    time_period: Optional[pulumi.Input[Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict']]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagsResult]:
     """
     Provides the available cost allocation tag keys and tag values for a specified period.
@@ -168,18 +173,18 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArgs(
-        start="2021-01-01",
-        end="2022-12-01",
-    ))
+    test = aws.costexplorer.get_tags(time_period={
+        "start": "2021-01-01",
+        "end": "2022-12-01",
+    })
     ```
 
 
-    :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
+    :param Union['GetTagsFilterArgs', 'GetTagsFilterArgsDict'] filter: Configuration block for the `Expression` object used to categorize costs. See `filter` block below for details.
     :param str search_string: Value that you want to search for.
-    :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
+    :param Sequence[Union['GetTagsSortByArgs', 'GetTagsSortByArgsDict']] sort_bies: Configuration block for the value by which you want to sort the data. `sort_by` block below for details.
     :param str tag_key: Key of the tag that you want to return values for.
-    :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
+    :param Union['GetTagsTimePeriodArgs', 'GetTagsTimePeriodArgsDict'] time_period: Configuration block for the start and end dates for retrieving the dimension values. See `time_period` block below for details.
            
            The following arguments are optional:
     """

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -311,7 +316,7 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']]] = None,
+                 canary_settings: Optional[pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
                  stage_description: Optional[pulumi.Input[str]] = None,
@@ -344,7 +349,7 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        :param pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
         :param pulumi.Input[str] description: Description of the deployment
         :param pulumi.Input[str] rest_api: REST API identifier.
         :param pulumi.Input[str] stage_description: Description to set on the stage managed by the `stage_name` argument.
@@ -396,7 +401,7 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']]] = None,
+                 canary_settings: Optional[pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
                  stage_description: Optional[pulumi.Input[str]] = None,
@@ -434,7 +439,7 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            canary_settings: Optional[pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']]] = None,
+            canary_settings: Optional[pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             execution_arn: Optional[pulumi.Input[str]] = None,
@@ -451,7 +456,7 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeploymentCanarySettingsArgs']] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
+        :param pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment. See `canary_settings below.
         :param pulumi.Input[str] created_date: Creation date of the deployment
         :param pulumi.Input[str] description: Description of the deployment
         :param pulumi.Input[str] execution_arn: Execution ARN to be used in `lambda_permission`'s `source_arn`

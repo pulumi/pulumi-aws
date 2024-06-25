@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ProxyProtocolPolicyArgs', 'ProxyProtocolPolicy']
@@ -118,18 +123,18 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
             name="test-lb",
             availability_zones=["us-east-1a"],
             listeners=[
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=25,
-                    instance_protocol="tcp",
-                    lb_port=25,
-                    lb_protocol="tcp",
-                ),
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=587,
-                    instance_protocol="tcp",
-                    lb_port=587,
-                    lb_protocol="tcp",
-                ),
+                {
+                    "instancePort": 25,
+                    "instanceProtocol": "tcp",
+                    "lbPort": 25,
+                    "lbProtocol": "tcp",
+                },
+                {
+                    "instancePort": 587,
+                    "instanceProtocol": "tcp",
+                    "lbPort": 587,
+                    "lbProtocol": "tcp",
+                },
             ])
         smtp = aws.ec2.ProxyProtocolPolicy("smtp",
             load_balancer=lb.name,
@@ -165,18 +170,18 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
             name="test-lb",
             availability_zones=["us-east-1a"],
             listeners=[
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=25,
-                    instance_protocol="tcp",
-                    lb_port=25,
-                    lb_protocol="tcp",
-                ),
-                aws.elb.LoadBalancerListenerArgs(
-                    instance_port=587,
-                    instance_protocol="tcp",
-                    lb_port=587,
-                    lb_protocol="tcp",
-                ),
+                {
+                    "instancePort": 25,
+                    "instanceProtocol": "tcp",
+                    "lbPort": 25,
+                    "lbProtocol": "tcp",
+                },
+                {
+                    "instancePort": 587,
+                    "instanceProtocol": "tcp",
+                    "lbPort": 587,
+                    "lbProtocol": "tcp",
+                },
             ])
         smtp = aws.ec2.ProxyProtocolPolicy("smtp",
             load_balancer=lb.name,

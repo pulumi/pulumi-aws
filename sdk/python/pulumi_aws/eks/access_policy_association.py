@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -190,7 +195,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_scope: Optional[pulumi.Input[pulumi.InputType['AccessPolicyAssociationAccessScopeArgs']]] = None,
+                 access_scope: Optional[pulumi.Input[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  policy_arn: Optional[pulumi.Input[str]] = None,
                  principal_arn: Optional[pulumi.Input[str]] = None,
@@ -208,10 +213,10 @@ class AccessPolicyAssociation(pulumi.CustomResource):
             cluster_name=example_aws_eks_cluster["name"],
             policy_arn="arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
             principal_arn=example_aws_iam_user["arn"],
-            access_scope=aws.eks.AccessPolicyAssociationAccessScopeArgs(
-                type="namespace",
-                namespaces=["example-namespace"],
-            ))
+            access_scope={
+                "type": "namespace",
+                "namespaces": ["example-namespace"],
+            })
         ```
 
         ## Import
@@ -224,7 +229,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccessPolicyAssociationAccessScopeArgs']] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
+        :param pulumi.Input[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
@@ -248,10 +253,10 @@ class AccessPolicyAssociation(pulumi.CustomResource):
             cluster_name=example_aws_eks_cluster["name"],
             policy_arn="arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy",
             principal_arn=example_aws_iam_user["arn"],
-            access_scope=aws.eks.AccessPolicyAssociationAccessScopeArgs(
-                type="namespace",
-                namespaces=["example-namespace"],
-            ))
+            access_scope={
+                "type": "namespace",
+                "namespaces": ["example-namespace"],
+            })
         ```
 
         ## Import
@@ -277,7 +282,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_scope: Optional[pulumi.Input[pulumi.InputType['AccessPolicyAssociationAccessScopeArgs']]] = None,
+                 access_scope: Optional[pulumi.Input[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  policy_arn: Optional[pulumi.Input[str]] = None,
                  principal_arn: Optional[pulumi.Input[str]] = None,
@@ -314,7 +319,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_scope: Optional[pulumi.Input[pulumi.InputType['AccessPolicyAssociationAccessScopeArgs']]] = None,
+            access_scope: Optional[pulumi.Input[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']]] = None,
             associated_at: Optional[pulumi.Input[str]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             modified_at: Optional[pulumi.Input[str]] = None,
@@ -327,7 +332,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccessPolicyAssociationAccessScopeArgs']] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
+        :param pulumi.Input[Union['AccessPolicyAssociationAccessScopeArgs', 'AccessPolicyAssociationAccessScopeArgsDict']] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[str] associated_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was associated.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.

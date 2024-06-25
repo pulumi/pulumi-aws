@@ -4,25 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DirectoryConfigServiceAccountCredentialsArgs',
+    'DirectoryConfigServiceAccountCredentialsArgsDict',
     'FleetComputeCapacityArgs',
+    'FleetComputeCapacityArgsDict',
     'FleetDomainJoinInfoArgs',
+    'FleetDomainJoinInfoArgsDict',
     'FleetVpcConfigArgs',
+    'FleetVpcConfigArgsDict',
     'ImageBuilderAccessEndpointArgs',
+    'ImageBuilderAccessEndpointArgsDict',
     'ImageBuilderDomainJoinInfoArgs',
+    'ImageBuilderDomainJoinInfoArgsDict',
     'ImageBuilderVpcConfigArgs',
+    'ImageBuilderVpcConfigArgsDict',
     'StackAccessEndpointArgs',
+    'StackAccessEndpointArgsDict',
     'StackApplicationSettingsArgs',
+    'StackApplicationSettingsArgsDict',
     'StackStorageConnectorArgs',
+    'StackStorageConnectorArgsDict',
     'StackStreamingExperienceSettingsArgs',
+    'StackStreamingExperienceSettingsArgsDict',
     'StackUserSettingArgs',
+    'StackUserSettingArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DirectoryConfigServiceAccountCredentialsArgsDict(TypedDict):
+        account_name: pulumi.Input[str]
+        """
+        User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+        """
+        account_password: pulumi.Input[str]
+        """
+        Password for the account.
+        """
+elif False:
+    DirectoryConfigServiceAccountCredentialsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DirectoryConfigServiceAccountCredentialsArgs:
@@ -60,6 +92,31 @@ class DirectoryConfigServiceAccountCredentialsArgs:
     def account_password(self, value: pulumi.Input[str]):
         pulumi.set(self, "account_password", value)
 
+
+if not MYPY:
+    class FleetComputeCapacityArgsDict(TypedDict):
+        available: NotRequired[pulumi.Input[int]]
+        """
+        Number of currently available instances that can be used to stream sessions.
+        """
+        desired_instances: NotRequired[pulumi.Input[int]]
+        """
+        Desired number of streaming instances.
+        """
+        desired_sessions: NotRequired[pulumi.Input[int]]
+        """
+        Desired number of user sessions for a multi-session fleet. This is not allowed for single-session fleets.
+        """
+        in_use: NotRequired[pulumi.Input[int]]
+        """
+        Number of instances in use for streaming.
+        """
+        running: NotRequired[pulumi.Input[int]]
+        """
+        Total number of simultaneous streaming instances that are running.
+        """
+elif False:
+    FleetComputeCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetComputeCapacityArgs:
@@ -148,6 +205,19 @@ class FleetComputeCapacityArgs:
         pulumi.set(self, "running", value)
 
 
+if not MYPY:
+    class FleetDomainJoinInfoArgsDict(TypedDict):
+        directory_name: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified name of the directory (for example, corp.example.com).
+        """
+        organizational_unit_distinguished_name: NotRequired[pulumi.Input[str]]
+        """
+        Distinguished name of the organizational unit for computer accounts.
+        """
+elif False:
+    FleetDomainJoinInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FleetDomainJoinInfoArgs:
     def __init__(__self__, *,
@@ -186,6 +256,19 @@ class FleetDomainJoinInfoArgs:
     def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "organizational_unit_distinguished_name", value)
 
+
+if not MYPY:
+    class FleetVpcConfigArgsDict(TypedDict):
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Identifiers of the security groups for the fleet or image builder.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+        """
+elif False:
+    FleetVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetVpcConfigArgs:
@@ -226,6 +309,19 @@ class FleetVpcConfigArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
+if not MYPY:
+    class ImageBuilderAccessEndpointArgsDict(TypedDict):
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
+        """
+        vpce_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier (ID) of the interface VPC endpoint.
+        """
+elif False:
+    ImageBuilderAccessEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageBuilderAccessEndpointArgs:
     def __init__(__self__, *,
@@ -263,6 +359,19 @@ class ImageBuilderAccessEndpointArgs:
     def vpce_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpce_id", value)
 
+
+if not MYPY:
+    class ImageBuilderDomainJoinInfoArgsDict(TypedDict):
+        directory_name: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified name of the directory (for example, corp.example.com).
+        """
+        organizational_unit_distinguished_name: NotRequired[pulumi.Input[str]]
+        """
+        Distinguished name of the organizational unit for computer accounts.
+        """
+elif False:
+    ImageBuilderDomainJoinInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ImageBuilderDomainJoinInfoArgs:
@@ -303,6 +412,19 @@ class ImageBuilderDomainJoinInfoArgs:
         pulumi.set(self, "organizational_unit_distinguished_name", value)
 
 
+if not MYPY:
+    class ImageBuilderVpcConfigArgsDict(TypedDict):
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Identifiers of the security groups for the image builder or image builder.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Identifier of the subnet to which a network interface is attached from the image builder instance.
+        """
+elif False:
+    ImageBuilderVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ImageBuilderVpcConfigArgs:
     def __init__(__self__, *,
@@ -341,6 +463,20 @@ class ImageBuilderVpcConfigArgs:
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
 
+
+if not MYPY:
+    class StackAccessEndpointArgsDict(TypedDict):
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the interface endpoint.
+        See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
+        """
+        vpce_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the VPC in which the interface endpoint is used.
+        """
+elif False:
+    StackAccessEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StackAccessEndpointArgs:
@@ -381,6 +517,21 @@ class StackAccessEndpointArgs:
     def vpce_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpce_id", value)
 
+
+if not MYPY:
+    class StackApplicationSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Whether application settings should be persisted.
+        """
+        settings_group: NotRequired[pulumi.Input[str]]
+        """
+        Name of the settings group.
+        Required when `enabled` is `true`.
+        Can be up to 100 characters.
+        """
+elif False:
+    StackApplicationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StackApplicationSettingsArgs:
@@ -423,6 +574,24 @@ class StackApplicationSettingsArgs:
     def settings_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "settings_group", value)
 
+
+if not MYPY:
+    class StackStorageConnectorArgsDict(TypedDict):
+        connector_type: pulumi.Input[str]
+        """
+        Type of storage connector.
+        Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
+        """
+        domains: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Names of the domains for the account.
+        """
+        resource_identifier: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the storage connector.
+        """
+elif False:
+    StackStorageConnectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StackStorageConnectorArgs:
@@ -480,6 +649,16 @@ class StackStorageConnectorArgs:
         pulumi.set(self, "resource_identifier", value)
 
 
+if not MYPY:
+    class StackStreamingExperienceSettingsArgsDict(TypedDict):
+        preferred_protocol: NotRequired[pulumi.Input[str]]
+        """
+        The preferred protocol that you want to use while streaming your application.
+        Valid values are `TCP` and `UDP`.
+        """
+elif False:
+    StackStreamingExperienceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StackStreamingExperienceSettingsArgs:
     def __init__(__self__, *,
@@ -504,6 +683,21 @@ class StackStreamingExperienceSettingsArgs:
     def preferred_protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "preferred_protocol", value)
 
+
+if not MYPY:
+    class StackUserSettingArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Action that is enabled or disabled.
+        Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
+        """
+        permission: pulumi.Input[str]
+        """
+        Whether the action is enabled or disabled.
+        Valid values are `ENABLED` or `DISABLED`.
+        """
+elif False:
+    StackUserSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StackUserSettingArgs:

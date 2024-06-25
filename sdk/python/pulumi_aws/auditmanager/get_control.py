@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -124,7 +129,7 @@ class AwaitableGetControlResult(GetControlResult):
             type=self.type)
 
 
-def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['GetControlControlMappingSourceArgs']]] = None,
+def get_control(control_mapping_sources: Optional[Sequence[Union['GetControlControlMappingSourceArgs', 'GetControlControlMappingSourceArgsDict']]] = None,
                 name: Optional[str] = None,
                 type: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControlResult:
@@ -156,18 +161,18 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
     example_framework = aws.auditmanager.Framework("example",
         name="example",
         control_sets=[
-            aws.auditmanager.FrameworkControlSetArgs(
-                name="example",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=example.id,
-                )],
-            ),
-            aws.auditmanager.FrameworkControlSetArgs(
-                name="example2",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=example2.id,
-                )],
-            ),
+            {
+                "name": "example",
+                "controls": [{
+                    "id": example.id,
+                }],
+            },
+            {
+                "name": "example2",
+                "controls": [{
+                    "id": example2.id,
+                }],
+            },
         ])
     ```
 
@@ -196,7 +201,7 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
 
 
 @_utilities.lift_output_func(get_control)
-def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetControlControlMappingSourceArgs']]]]] = None,
+def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[Sequence[Union['GetControlControlMappingSourceArgs', 'GetControlControlMappingSourceArgsDict']]]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        type: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControlResult]:
@@ -228,18 +233,18 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
     example_framework = aws.auditmanager.Framework("example",
         name="example",
         control_sets=[
-            aws.auditmanager.FrameworkControlSetArgs(
-                name="example",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=example.id,
-                )],
-            ),
-            aws.auditmanager.FrameworkControlSetArgs(
-                name="example2",
-                controls=[aws.auditmanager.FrameworkControlSetControlArgs(
-                    id=example2.id,
-                )],
-            ),
+            {
+                "name": "example",
+                "controls": [{
+                    "id": example.id,
+                }],
+            },
+            {
+                "name": "example2",
+                "controls": [{
+                    "id": example2.id,
+                }],
+            },
         ])
     ```
 

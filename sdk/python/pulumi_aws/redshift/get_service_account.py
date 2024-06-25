@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -85,26 +90,26 @@ def get_service_account(region: Optional[str] = None,
         bucket="tf-redshift-logging-test-bucket",
         force_destroy=True)
     allow_audit_logging = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Put bucket policy needed for audit logging",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:PutObject"],
-            resources=[f"{arn}/*"],
-        ),
-        aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Get bucket policy needed for audit logging",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:GetBucketAcl"],
-            resources=bucket_aws_s3_bucket["arn"],
-        ),
+        {
+            "sid": "Put bucket policy needed for audit logging",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": ["s3:PutObject"],
+            "resources": [f"{arn}/*"],
+        },
+        {
+            "sid": "Get bucket policy needed for audit logging",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": ["s3:GetBucketAcl"],
+            "resources": bucket_aws_s3_bucket["arn"],
+        },
     ]))
     allow_audit_logging_bucket_policy = aws.s3.BucketPolicy("allow_audit_logging",
         bucket=bucket.id,
@@ -147,26 +152,26 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
         bucket="tf-redshift-logging-test-bucket",
         force_destroy=True)
     allow_audit_logging = bucket.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Put bucket policy needed for audit logging",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:PutObject"],
-            resources=[f"{arn}/*"],
-        ),
-        aws.iam.GetPolicyDocumentStatementArgs(
-            sid="Get bucket policy needed for audit logging",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=[main.arn],
-            )],
-            actions=["s3:GetBucketAcl"],
-            resources=bucket_aws_s3_bucket["arn"],
-        ),
+        {
+            "sid": "Put bucket policy needed for audit logging",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": ["s3:PutObject"],
+            "resources": [f"{arn}/*"],
+        },
+        {
+            "sid": "Get bucket policy needed for audit logging",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [main.arn],
+            }],
+            "actions": ["s3:GetBucketAcl"],
+            "resources": bucket_aws_s3_bucket["arn"],
+        },
     ]))
     allow_audit_logging_bucket_policy = aws.s3.BucketPolicy("allow_audit_logging",
         bucket=bucket.id,

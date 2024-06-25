@@ -4,24 +4,87 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'PolicyStepScalingPolicyConfigurationArgs',
+    'PolicyStepScalingPolicyConfigurationArgsDict',
     'PolicyStepScalingPolicyConfigurationStepAdjustmentArgs',
+    'PolicyStepScalingPolicyConfigurationStepAdjustmentArgsDict',
     'PolicyTargetTrackingScalingPolicyConfigurationArgs',
+    'PolicyTargetTrackingScalingPolicyConfigurationArgsDict',
     'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs',
+    'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgsDict',
     'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs',
+    'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgsDict',
     'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs',
+    'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgsDict',
     'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs',
+    'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgsDict',
     'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs',
+    'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgsDict',
     'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs',
+    'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgsDict',
     'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs',
+    'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgsDict',
     'ScheduledActionScalableTargetActionArgs',
+    'ScheduledActionScalableTargetActionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PolicyStepScalingPolicyConfigurationArgsDict(TypedDict):
+        adjustment_type: NotRequired[pulumi.Input[str]]
+        """
+        Whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
+        """
+        cooldown: NotRequired[pulumi.Input[int]]
+        """
+        Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        """
+        metric_aggregation_type: NotRequired[pulumi.Input[str]]
+        """
+        Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
+        """
+        min_adjustment_magnitude: NotRequired[pulumi.Input[int]]
+        """
+        Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
+        """
+        step_adjustments: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgsDict']]]]
+        """
+        Set of adjustments that manage scaling. These have the following structure:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
+            "stepAdjustments": [
+                {
+                    "metricIntervalLowerBound": "1",
+                    "metricIntervalUpperBound": "2",
+                    "scalingAdjustment": -1,
+                },
+                {
+                    "metricIntervalLowerBound": "2",
+                    "metricIntervalUpperBound": "3",
+                    "scalingAdjustment": 1,
+                },
+            ],
+        })
+        ```
+        """
+elif False:
+    PolicyStepScalingPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyStepScalingPolicyConfigurationArgs:
@@ -42,20 +105,20 @@ class PolicyStepScalingPolicyConfigurationArgs:
                import pulumi
                import pulumi_aws as aws
                
-               ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-                   step_adjustments=[
-                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                           metric_interval_lower_bound="1",
-                           metric_interval_upper_bound="2",
-                           scaling_adjustment=-1,
-                       ),
-                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                           metric_interval_lower_bound="2",
-                           metric_interval_upper_bound="3",
-                           scaling_adjustment=1,
-                       ),
+               ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
+                   "stepAdjustments": [
+                       {
+                           "metricIntervalLowerBound": "1",
+                           "metricIntervalUpperBound": "2",
+                           "scalingAdjustment": -1,
+                       },
+                       {
+                           "metricIntervalLowerBound": "2",
+                           "metricIntervalUpperBound": "3",
+                           "scalingAdjustment": 1,
+                       },
                    ],
-               ))
+               })
                ```
         """
         if adjustment_type is not None:
@@ -127,20 +190,20 @@ class PolicyStepScalingPolicyConfigurationArgs:
         import pulumi
         import pulumi_aws as aws
 
-        ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
-            step_adjustments=[
-                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                    metric_interval_lower_bound="1",
-                    metric_interval_upper_bound="2",
-                    scaling_adjustment=-1,
-                ),
-                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
-                    metric_interval_lower_bound="2",
-                    metric_interval_upper_bound="3",
-                    scaling_adjustment=1,
-                ),
+        ecs_policy = aws.appautoscaling.Policy("ecs_policy", step_scaling_policy_configuration={
+            "stepAdjustments": [
+                {
+                    "metricIntervalLowerBound": "1",
+                    "metricIntervalUpperBound": "2",
+                    "scalingAdjustment": -1,
+                },
+                {
+                    "metricIntervalLowerBound": "2",
+                    "metricIntervalUpperBound": "3",
+                    "scalingAdjustment": 1,
+                },
             ],
-        ))
+        })
         ```
         """
         return pulumi.get(self, "step_adjustments")
@@ -149,6 +212,14 @@ class PolicyStepScalingPolicyConfigurationArgs:
     def step_adjustments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs']]]]):
         pulumi.set(self, "step_adjustments", value)
 
+
+if not MYPY:
+    class PolicyStepScalingPolicyConfigurationStepAdjustmentArgsDict(TypedDict):
+        scaling_adjustment: pulumi.Input[int]
+        metric_interval_lower_bound: NotRequired[pulumi.Input[str]]
+        metric_interval_upper_bound: NotRequired[pulumi.Input[str]]
+elif False:
+    PolicyStepScalingPolicyConfigurationStepAdjustmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
@@ -189,6 +260,35 @@ class PolicyStepScalingPolicyConfigurationStepAdjustmentArgs:
     def metric_interval_upper_bound(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "metric_interval_upper_bound", value)
 
+
+if not MYPY:
+    class PolicyTargetTrackingScalingPolicyConfigurationArgsDict(TypedDict):
+        target_value: pulumi.Input[float]
+        """
+        Target value for the metric.
+        """
+        customized_metric_specification: NotRequired[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgsDict']]
+        """
+        Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+        """
+        disable_scale_in: NotRequired[pulumi.Input[bool]]
+        """
+        Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
+        """
+        predefined_metric_specification: NotRequired[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgsDict']]
+        """
+        Predefined metric. See supported fields below.
+        """
+        scale_in_cooldown: NotRequired[pulumi.Input[int]]
+        """
+        Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
+        """
+        scale_out_cooldown: NotRequired[pulumi.Input[int]]
+        """
+        Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
+        """
+elif False:
+    PolicyTargetTrackingScalingPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyTargetTrackingScalingPolicyConfigurationArgs:
@@ -291,6 +391,35 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
     def scale_out_cooldown(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "scale_out_cooldown", value)
 
+
+if not MYPY:
+    class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgsDict(TypedDict):
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgsDict']]]]
+        """
+        Dimensions of the metric.
+        """
+        metric_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the metric.
+        """
+        metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgsDict']]]]
+        """
+        Metrics to include, as a metric data query.
+        """
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        Namespace of the metric.
+        """
+        statistic: NotRequired[pulumi.Input[str]]
+        """
+        Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        Unit of the metrics to return.
+        """
+elif False:
+    PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs:
@@ -395,6 +524,19 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the dimension.
+        """
+        value: pulumi.Input[str]
+        """
+        Value of the dimension.
+        """
+elif False:
+    PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs:
     def __init__(__self__, *,
@@ -431,6 +573,31 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Short name for the metric used in target tracking scaling policy.
+        """
+        expression: NotRequired[pulumi.Input[str]]
+        """
+        Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Human-readable label for this metric or expression.
+        """
+        metric_stat: NotRequired[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgsDict']]
+        """
+        Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        """
+        return_data: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
+        """
+elif False:
+    PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs:
@@ -518,6 +685,23 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         pulumi.set(self, "return_data", value)
 
 
+if not MYPY:
+    class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgsDict(TypedDict):
+        metric: pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgsDict']
+        """
+        Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        """
+        stat: pulumi.Input[str]
+        """
+        Statistic of the metrics to return.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        Unit of the metrics to return.
+        """
+elif False:
+    PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs:
     def __init__(__self__, *,
@@ -570,6 +754,23 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgsDict(TypedDict):
+        metric_name: pulumi.Input[str]
+        """
+        Name of the metric.
+        """
+        namespace: pulumi.Input[str]
+        """
+        Namespace of the metric.
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgsDict']]]]
+        """
+        Dimensions of the metric.
+        """
+elif False:
+    PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs:
@@ -624,6 +825,19 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         pulumi.set(self, "dimensions", value)
 
 
+if not MYPY:
+    class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the dimension.
+        """
+        value: pulumi.Input[str]
+        """
+        Value of the dimension.
+        """
+elif False:
+    PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs:
     def __init__(__self__, *,
@@ -660,6 +874,19 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgsDict(TypedDict):
+        predefined_metric_type: pulumi.Input[str]
+        """
+        Metric type.
+        """
+        resource_label: NotRequired[pulumi.Input[str]]
+        """
+        Reserved for future use if the `predefined_metric_type` is not `ALBRequestCountPerTarget`. If the `predefined_metric_type` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
+        """
+elif False:
+    PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs:
@@ -698,6 +925,13 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
     def resource_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_label", value)
 
+
+if not MYPY:
+    class ScheduledActionScalableTargetActionArgsDict(TypedDict):
+        max_capacity: NotRequired[pulumi.Input[int]]
+        min_capacity: NotRequired[pulumi.Input[int]]
+elif False:
+    ScheduledActionScalableTargetActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledActionScalableTargetActionArgs:

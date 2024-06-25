@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -65,7 +70,7 @@ class AwaitableGetSupportedInstanceTypesResult(GetSupportedInstanceTypesResult):
 
 
 def get_supported_instance_types(release_label: Optional[str] = None,
-                                 supported_instance_types: Optional[Sequence[pulumi.InputType['GetSupportedInstanceTypesSupportedInstanceTypeArgs']]] = None,
+                                 supported_instance_types: Optional[Sequence[Union['GetSupportedInstanceTypesSupportedInstanceTypeArgs', 'GetSupportedInstanceTypesSupportedInstanceTypeArgsDict']]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSupportedInstanceTypesResult:
     """
     Data source for managing AWS EMR Supported Instance Types.
@@ -94,14 +99,14 @@ def get_supported_instance_types(release_label: Optional[str] = None,
     test = aws.emr.get_supported_instance_types(release_label=release_label)
     test_cluster = aws.emr.Cluster("test",
         release_label=release_label,
-        master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
-            instance_type=instance_type,
-        ))
+        master_instance_group={
+            "instanceType": instance_type,
+        })
     ```
 
 
     :param str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-    :param Sequence[pulumi.InputType['GetSupportedInstanceTypesSupportedInstanceTypeArgs']] supported_instance_types: List of supported instance types. See `supported_instance_types` below.
+    :param Sequence[Union['GetSupportedInstanceTypesSupportedInstanceTypeArgs', 'GetSupportedInstanceTypesSupportedInstanceTypeArgsDict']] supported_instance_types: List of supported instance types. See `supported_instance_types` below.
     """
     __args__ = dict()
     __args__['releaseLabel'] = release_label
@@ -117,7 +122,7 @@ def get_supported_instance_types(release_label: Optional[str] = None,
 
 @_utilities.lift_output_func(get_supported_instance_types)
 def get_supported_instance_types_output(release_label: Optional[pulumi.Input[str]] = None,
-                                        supported_instance_types: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSupportedInstanceTypesSupportedInstanceTypeArgs']]]]] = None,
+                                        supported_instance_types: Optional[pulumi.Input[Optional[Sequence[Union['GetSupportedInstanceTypesSupportedInstanceTypeArgs', 'GetSupportedInstanceTypesSupportedInstanceTypeArgsDict']]]]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSupportedInstanceTypesResult]:
     """
     Data source for managing AWS EMR Supported Instance Types.
@@ -146,13 +151,13 @@ def get_supported_instance_types_output(release_label: Optional[pulumi.Input[str
     test = aws.emr.get_supported_instance_types(release_label=release_label)
     test_cluster = aws.emr.Cluster("test",
         release_label=release_label,
-        master_instance_group=aws.emr.ClusterMasterInstanceGroupArgs(
-            instance_type=instance_type,
-        ))
+        master_instance_group={
+            "instanceType": instance_type,
+        })
     ```
 
 
     :param str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-    :param Sequence[pulumi.InputType['GetSupportedInstanceTypesSupportedInstanceTypeArgs']] supported_instance_types: List of supported instance types. See `supported_instance_types` below.
+    :param Sequence[Union['GetSupportedInstanceTypesSupportedInstanceTypeArgs', 'GetSupportedInstanceTypesSupportedInstanceTypeArgsDict']] supported_instance_types: List of supported instance types. See `supported_instance_types` below.
     """
     ...

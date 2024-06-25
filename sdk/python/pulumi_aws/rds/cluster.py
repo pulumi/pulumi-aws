@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -1922,10 +1927,10 @@ class Cluster(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
-                 restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']]] = None,
-                 s3_import: Optional[pulumi.Input[pulumi.InputType['ClusterS3ImportArgs']]] = None,
-                 scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']]] = None,
-                 serverlessv2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterServerlessv2ScalingConfigurationArgs']]] = None,
+                 restore_to_point_in_time: Optional[pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
+                 s3_import: Optional[pulumi.Input[Union['ClusterS3ImportArgs', 'ClusterS3ImportArgsDict']]] = None,
+                 scaling_configuration: Optional[pulumi.Input[Union['ClusterScalingConfigurationArgs', 'ClusterScalingConfigurationArgsDict']]] = None,
+                 serverlessv2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessv2ScalingConfigurationArgs', 'ClusterServerlessv2ScalingConfigurationArgsDict']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
@@ -2061,10 +2066,10 @@ class Cluster(pulumi.CustomResource):
             master_username="test",
             master_password="must_be_eight_characters",
             storage_encrypted=True,
-            serverlessv2_scaling_configuration=aws.rds.ClusterServerlessv2ScalingConfigurationArgs(
-                max_capacity=1,
-                min_capacity=0.5,
-            ))
+            serverlessv2_scaling_configuration={
+                "maxCapacity": 1,
+                "minCapacity": 0.5,
+            })
         example_cluster_instance = aws.rds.ClusterInstance("example",
             cluster_identifier=example.id,
             instance_class="db.serverless",
@@ -2185,9 +2190,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-        :param pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
-        :param pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
-        :param pulumi.Input[pulumi.InputType['ClusterServerlessv2ScalingConfigurationArgs']] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+        :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
+        :param pulumi.Input[Union['ClusterScalingConfigurationArgs', 'ClusterScalingConfigurationArgsDict']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        :param pulumi.Input[Union['ClusterServerlessv2ScalingConfigurationArgs', 'ClusterServerlessv2ScalingConfigurationArgsDict']] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.
@@ -2329,10 +2334,10 @@ class Cluster(pulumi.CustomResource):
             master_username="test",
             master_password="must_be_eight_characters",
             storage_encrypted=True,
-            serverlessv2_scaling_configuration=aws.rds.ClusterServerlessv2ScalingConfigurationArgs(
-                max_capacity=1,
-                min_capacity=0.5,
-            ))
+            serverlessv2_scaling_configuration={
+                "maxCapacity": 1,
+                "minCapacity": 0.5,
+            })
         example_cluster_instance = aws.rds.ClusterInstance("example",
             cluster_identifier=example.id,
             instance_class="db.serverless",
@@ -2460,10 +2465,10 @@ class Cluster(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[str]] = None,
-                 restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']]] = None,
-                 s3_import: Optional[pulumi.Input[pulumi.InputType['ClusterS3ImportArgs']]] = None,
-                 scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']]] = None,
-                 serverlessv2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterServerlessv2ScalingConfigurationArgs']]] = None,
+                 restore_to_point_in_time: Optional[pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
+                 s3_import: Optional[pulumi.Input[Union['ClusterS3ImportArgs', 'ClusterS3ImportArgsDict']]] = None,
+                 scaling_configuration: Optional[pulumi.Input[Union['ClusterScalingConfigurationArgs', 'ClusterScalingConfigurationArgsDict']]] = None,
+                 serverlessv2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessv2ScalingConfigurationArgs', 'ClusterServerlessv2ScalingConfigurationArgsDict']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  source_region: Optional[pulumi.Input[str]] = None,
@@ -2596,7 +2601,7 @@ class Cluster(pulumi.CustomResource):
             manage_master_user_password: Optional[pulumi.Input[bool]] = None,
             master_password: Optional[pulumi.Input[str]] = None,
             master_user_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
-            master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterMasterUserSecretArgs']]]]] = None,
+            master_user_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]]] = None,
             master_username: Optional[pulumi.Input[str]] = None,
             network_type: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
@@ -2604,10 +2609,10 @@ class Cluster(pulumi.CustomResource):
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
             reader_endpoint: Optional[pulumi.Input[str]] = None,
             replication_source_identifier: Optional[pulumi.Input[str]] = None,
-            restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']]] = None,
-            s3_import: Optional[pulumi.Input[pulumi.InputType['ClusterS3ImportArgs']]] = None,
-            scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']]] = None,
-            serverlessv2_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterServerlessv2ScalingConfigurationArgs']]] = None,
+            restore_to_point_in_time: Optional[pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']]] = None,
+            s3_import: Optional[pulumi.Input[Union['ClusterS3ImportArgs', 'ClusterS3ImportArgsDict']]] = None,
+            scaling_configuration: Optional[pulumi.Input[Union['ClusterScalingConfigurationArgs', 'ClusterScalingConfigurationArgsDict']]] = None,
+            serverlessv2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessv2ScalingConfigurationArgs', 'ClusterServerlessv2ScalingConfigurationArgsDict']]] = None,
             skip_final_snapshot: Optional[pulumi.Input[bool]] = None,
             snapshot_identifier: Optional[pulumi.Input[str]] = None,
             source_region: Optional[pulumi.Input[str]] = None,
@@ -2670,7 +2675,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `master_password` is provided.
         :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). Cannot be set if `manage_master_user_password` is set to `true`.
         :param pulumi.Input[str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterMasterUserSecretArgs']]]] master_user_secrets: Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterMasterUserSecretArgs', 'ClusterMasterUserSecretArgsDict']]]] master_user_secrets: Block that specifies the master user secret. Only available when `manage_master_user_password` is set to true. Documented below.
         :param pulumi.Input[str] master_username: Username for the master DB user. Please refer to the [RDS Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints). This argument does not support in-place updates and cannot be changed during a restore from snapshot.
         :param pulumi.Input[str] network_type: Network type of the cluster. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[int] port: Port on which the DB accepts connections
@@ -2679,9 +2684,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] reader_endpoint: Read-only endpoint for the Aurora cluster, automatically
                load-balanced across replicas
         :param pulumi.Input[str] replication_source_identifier: ARN of a source DB cluster or DB instance if this DB cluster is to be created as a Read Replica. If DB Cluster is part of a Global Cluster, use the `lifecycle` configuration block `ignore_changes` argument to prevent this provider from showing differences for this argument instead of configuring this value.
-        :param pulumi.Input[pulumi.InputType['ClusterRestoreToPointInTimeArgs']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
-        :param pulumi.Input[pulumi.InputType['ClusterScalingConfigurationArgs']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
-        :param pulumi.Input[pulumi.InputType['ClusterServerlessv2ScalingConfigurationArgs']] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
+        :param pulumi.Input[Union['ClusterRestoreToPointInTimeArgs', 'ClusterRestoreToPointInTimeArgsDict']] restore_to_point_in_time: Nested attribute for [point in time restore](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-pitr.html). More details below.
+        :param pulumi.Input[Union['ClusterScalingConfigurationArgs', 'ClusterScalingConfigurationArgsDict']] scaling_configuration: Nested attribute with scaling properties. Only valid when `engine_mode` is set to `serverless`. More details below.
+        :param pulumi.Input[Union['ClusterServerlessv2ScalingConfigurationArgs', 'ClusterServerlessv2ScalingConfigurationArgsDict']] serverlessv2_scaling_configuration: Nested attribute with scaling properties for ServerlessV2. Only valid when `engine_mode` is set to `provisioned`. More details below.
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot. Conflicts with `global_cluster_identifier`. Clusters cannot be restored from snapshot **and** joined to an existing global cluster in a single operation. See the [AWS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-getting-started.html#aurora-global-database.use-snapshot) or the Global Cluster Restored From Snapshot example for instructions on building a global cluster starting with a snapshot.
         :param pulumi.Input[str] source_region: The source region for an encrypted replica DB cluster.

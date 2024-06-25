@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['CertificateAuthorityCertificateArgs', 'CertificateAuthorityCertificate']
@@ -143,23 +148,23 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             type="ROOT",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ))
+            certificate_authority_configuration={
+                "keyAlgorithm": "RSA_4096",
+                "signingAlgorithm": "SHA512WITHRSA",
+                "subject": {
+                    "commonName": "example.com",
+                },
+            })
         current = aws.get_partition()
         example_certificate = aws.acmpca.Certificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate_signing_request=example_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
-                type="YEARS",
-                value="1",
-            ))
+            validity={
+                "type": "YEARS",
+                "value": "1",
+            })
         example = aws.acmpca.CertificateAuthorityCertificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate=example_certificate.certificate,
@@ -176,13 +181,13 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinate",
             type="SUBORDINATE",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_2048",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="sub.example.com",
-                ),
-            ))
+            certificate_authority_configuration={
+                "keyAlgorithm": "RSA_2048",
+                "signingAlgorithm": "SHA512WITHRSA",
+                "subject": {
+                    "commonName": "sub.example.com",
+                },
+            })
         root = aws.acmpca.CertificateAuthority("root")
         current = aws.get_partition()
         subordinate_certificate = aws.acmpca.Certificate("subordinate",
@@ -190,10 +195,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
             certificate_signing_request=subordinate_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
-                type="YEARS",
-                value="1",
-            ))
+            validity={
+                "type": "YEARS",
+                "value": "1",
+            })
         subordinate = aws.acmpca.CertificateAuthorityCertificate("subordinate",
             certificate_authority_arn=subordinate_certificate_authority.arn,
             certificate=subordinate_certificate.certificate,
@@ -227,23 +232,23 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             type="ROOT",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_4096",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="example.com",
-                ),
-            ))
+            certificate_authority_configuration={
+                "keyAlgorithm": "RSA_4096",
+                "signingAlgorithm": "SHA512WITHRSA",
+                "subject": {
+                    "commonName": "example.com",
+                },
+            })
         current = aws.get_partition()
         example_certificate = aws.acmpca.Certificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate_signing_request=example_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
-                type="YEARS",
-                value="1",
-            ))
+            validity={
+                "type": "YEARS",
+                "value": "1",
+            })
         example = aws.acmpca.CertificateAuthorityCertificate("example",
             certificate_authority_arn=example_certificate_authority.arn,
             certificate=example_certificate.certificate,
@@ -260,13 +265,13 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinate",
             type="SUBORDINATE",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
-                key_algorithm="RSA_2048",
-                signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
-                    common_name="sub.example.com",
-                ),
-            ))
+            certificate_authority_configuration={
+                "keyAlgorithm": "RSA_2048",
+                "signingAlgorithm": "SHA512WITHRSA",
+                "subject": {
+                    "commonName": "sub.example.com",
+                },
+            })
         root = aws.acmpca.CertificateAuthority("root")
         current = aws.get_partition()
         subordinate_certificate = aws.acmpca.Certificate("subordinate",
@@ -274,10 +279,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
             certificate_signing_request=subordinate_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
-                type="YEARS",
-                value="1",
-            ))
+            validity={
+                "type": "YEARS",
+                "value": "1",
+            })
         subordinate = aws.acmpca.CertificateAuthorityCertificate("subordinate",
             certificate_authority_arn=subordinate_certificate_authority.arn,
             certificate=subordinate_certificate.certificate,

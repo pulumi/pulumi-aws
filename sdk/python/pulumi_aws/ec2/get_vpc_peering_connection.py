@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -220,7 +225,7 @@ class AwaitableGetVpcPeeringConnectionResult(GetVpcPeeringConnectionResult):
 
 
 def get_vpc_peering_connection(cidr_block: Optional[str] = None,
-                               filters: Optional[Sequence[pulumi.InputType['GetVpcPeeringConnectionFilterArgs']]] = None,
+                               filters: Optional[Sequence[Union['GetVpcPeeringConnectionFilterArgs', 'GetVpcPeeringConnectionFilterArgsDict']]] = None,
                                id: Optional[str] = None,
                                owner_id: Optional[str] = None,
                                peer_cidr_block: Optional[str] = None,
@@ -256,7 +261,7 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
 
 
     :param str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param Sequence[pulumi.InputType['GetVpcPeeringConnectionFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcPeeringConnectionFilterArgs', 'GetVpcPeeringConnectionFilterArgsDict']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPC Peering Connection to retrieve.
     :param str owner_id: AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param str peer_cidr_block: Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
@@ -311,7 +316,7 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
 
 @_utilities.lift_output_func(get_vpc_peering_connection)
 def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
-                                      filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcPeeringConnectionFilterArgs']]]]] = None,
+                                      filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcPeeringConnectionFilterArgs', 'GetVpcPeeringConnectionFilterArgsDict']]]]] = None,
                                       id: Optional[pulumi.Input[Optional[str]]] = None,
                                       owner_id: Optional[pulumi.Input[Optional[str]]] = None,
                                       peer_cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
@@ -347,7 +352,7 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
 
 
     :param str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
-    :param Sequence[pulumi.InputType['GetVpcPeeringConnectionFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcPeeringConnectionFilterArgs', 'GetVpcPeeringConnectionFilterArgsDict']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPC Peering Connection to retrieve.
     :param str owner_id: AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param str peer_cidr_block: Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.

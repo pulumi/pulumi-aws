@@ -4,17 +4,54 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DirectoryConnectSettingsArgs',
+    'DirectoryConnectSettingsArgsDict',
     'DirectoryVpcSettingsArgs',
+    'DirectoryVpcSettingsArgsDict',
     'ServiceRegionVpcSettingsArgs',
+    'ServiceRegionVpcSettingsArgsDict',
     'SharedDirectoryTargetArgs',
+    'SharedDirectoryTargetArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DirectoryConnectSettingsArgsDict(TypedDict):
+        customer_dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The DNS IP addresses of the domain to connect to.
+        """
+        customer_username: pulumi.Input[str]
+        """
+        The username corresponding to the password provided.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
+        """
+        vpc_id: pulumi.Input[str]
+        """
+        The identifier of the VPC that the directory is in.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        connect_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The IP addresses of the AD Connector servers.
+        """
+elif False:
+    DirectoryConnectSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DirectoryConnectSettingsArgs:
@@ -111,6 +148,20 @@ class DirectoryConnectSettingsArgs:
         pulumi.set(self, "connect_ips", value)
 
 
+if not MYPY:
+    class DirectoryVpcSettingsArgsDict(TypedDict):
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The identifiers of the subnets for the directory servers (2 subnets in 2 different AZs).
+        """
+        vpc_id: pulumi.Input[str]
+        """
+        The identifier of the VPC that the directory is in.
+        """
+        availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DirectoryVpcSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DirectoryVpcSettingsArgs:
     def __init__(__self__, *,
@@ -160,6 +211,19 @@ class DirectoryVpcSettingsArgs:
         pulumi.set(self, "availability_zones", value)
 
 
+if not MYPY:
+    class ServiceRegionVpcSettingsArgsDict(TypedDict):
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The identifiers of the subnets for the directory servers.
+        """
+        vpc_id: pulumi.Input[str]
+        """
+        The identifier of the VPC in which to create the directory.
+        """
+elif False:
+    ServiceRegionVpcSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceRegionVpcSettingsArgs:
     def __init__(__self__, *,
@@ -196,6 +260,19 @@ class ServiceRegionVpcSettingsArgs:
     def vpc_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpc_id", value)
 
+
+if not MYPY:
+    class SharedDirectoryTargetArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Identifier of the directory consumer account.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+        """
+elif False:
+    SharedDirectoryTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SharedDirectoryTargetArgs:

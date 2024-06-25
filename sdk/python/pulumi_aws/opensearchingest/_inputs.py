@@ -4,19 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'PipelineBufferOptionsArgs',
+    'PipelineBufferOptionsArgsDict',
     'PipelineEncryptionAtRestOptionsArgs',
+    'PipelineEncryptionAtRestOptionsArgsDict',
     'PipelineLogPublishingOptionsArgs',
+    'PipelineLogPublishingOptionsArgsDict',
     'PipelineLogPublishingOptionsCloudwatchLogDestinationArgs',
+    'PipelineLogPublishingOptionsCloudwatchLogDestinationArgsDict',
     'PipelineTimeoutsArgs',
+    'PipelineTimeoutsArgsDict',
     'PipelineVpcOptionsArgs',
+    'PipelineVpcOptionsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PipelineBufferOptionsArgsDict(TypedDict):
+        persistent_buffer_enabled: pulumi.Input[bool]
+        """
+        Whether persistent buffering should be enabled.
+        """
+elif False:
+    PipelineBufferOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineBufferOptionsArgs:
@@ -40,6 +62,15 @@ class PipelineBufferOptionsArgs:
         pulumi.set(self, "persistent_buffer_enabled", value)
 
 
+if not MYPY:
+    class PipelineEncryptionAtRestOptionsArgsDict(TypedDict):
+        kms_key_arn: pulumi.Input[str]
+        """
+        The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default, data is encrypted using an AWS owned key.
+        """
+elif False:
+    PipelineEncryptionAtRestOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipelineEncryptionAtRestOptionsArgs:
     def __init__(__self__, *,
@@ -61,6 +92,19 @@ class PipelineEncryptionAtRestOptionsArgs:
     def kms_key_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "kms_key_arn", value)
 
+
+if not MYPY:
+    class PipelineLogPublishingOptionsArgsDict(TypedDict):
+        cloudwatch_log_destination: NotRequired[pulumi.Input['PipelineLogPublishingOptionsCloudwatchLogDestinationArgsDict']]
+        """
+        The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
+        """
+        is_logging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether logs should be published.
+        """
+elif False:
+    PipelineLogPublishingOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineLogPublishingOptionsArgs:
@@ -101,6 +145,15 @@ class PipelineLogPublishingOptionsArgs:
         pulumi.set(self, "is_logging_enabled", value)
 
 
+if not MYPY:
+    class PipelineLogPublishingOptionsCloudwatchLogDestinationArgsDict(TypedDict):
+        log_group: pulumi.Input[str]
+        """
+        The name of the CloudWatch Logs group to send pipeline logs to. You can specify an existing log group or create a new one. For example, /aws/OpenSearchService/IngestionService/my-pipeline.
+        """
+elif False:
+    PipelineLogPublishingOptionsCloudwatchLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PipelineLogPublishingOptionsCloudwatchLogDestinationArgs:
     def __init__(__self__, *,
@@ -122,6 +175,23 @@ class PipelineLogPublishingOptionsCloudwatchLogDestinationArgs:
     def log_group(self, value: pulumi.Input[str]):
         pulumi.set(self, "log_group", value)
 
+
+if not MYPY:
+    class PipelineTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    PipelineTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineTimeoutsArgs:
@@ -177,6 +247,19 @@ class PipelineTimeoutsArgs:
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
 
+
+if not MYPY:
+    class PipelineVpcOptionsArgsDict(TypedDict):
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of subnet IDs associated with the VPC endpoint.
+        """
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of security groups associated with the VPC endpoint.
+        """
+elif False:
+    PipelineVpcOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PipelineVpcOptionsArgs:

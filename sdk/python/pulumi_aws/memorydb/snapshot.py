@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -380,7 +385,7 @@ class Snapshot(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            cluster_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnapshotClusterConfigurationArgs']]]]] = None,
+            cluster_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SnapshotClusterConfigurationArgs', 'SnapshotClusterConfigurationArgsDict']]]]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -396,7 +401,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the snapshot.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnapshotClusterConfigurationArgs']]]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SnapshotClusterConfigurationArgs', 'SnapshotClusterConfigurationArgsDict']]]] cluster_configurations: The configuration of the cluster from which the snapshot was taken.
         :param pulumi.Input[str] cluster_name: Name of the MemoryDB cluster to take a snapshot of.
         :param pulumi.Input[str] kms_key_arn: ARN of the KMS key used to encrypt the snapshot at rest.
         :param pulumi.Input[str] name: Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.

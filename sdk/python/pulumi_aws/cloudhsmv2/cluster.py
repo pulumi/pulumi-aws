@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -370,7 +375,7 @@ class Cluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cluster_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterCertificateArgs']]]]] = None,
+            cluster_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterCertificateArgs', 'ClusterClusterCertificateArgsDict']]]]] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
             cluster_state: Optional[pulumi.Input[str]] = None,
             hsm_type: Optional[pulumi.Input[str]] = None,
@@ -387,7 +392,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterCertificateArgs']]]] cluster_certificates: The list of cluster certificates.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterCertificateArgs', 'ClusterClusterCertificateArgsDict']]]] cluster_certificates: The list of cluster certificates.
         :param pulumi.Input[str] cluster_id: The id of the CloudHSM cluster.
         :param pulumi.Input[str] cluster_state: The state of the CloudHSM cluster.
         :param pulumi.Input[str] hsm_type: The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.

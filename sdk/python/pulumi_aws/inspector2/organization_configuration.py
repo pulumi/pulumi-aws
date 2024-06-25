@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -81,7 +86,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationAutoEnableArgs']]] = None,
+                 auto_enable: Optional[pulumi.Input[Union['OrganizationConfigurationAutoEnableArgs', 'OrganizationConfigurationAutoEnableArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Inspector Organization Configuration.
@@ -98,17 +103,17 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector2.OrganizationConfiguration("example", auto_enable=aws.inspector2.OrganizationConfigurationAutoEnableArgs(
-            ec2=True,
-            ecr=False,
-            lambda_=True,
-            lambda_code=True,
-        ))
+        example = aws.inspector2.OrganizationConfiguration("example", auto_enable={
+            "ec2": True,
+            "ecr": False,
+            "lambda": True,
+            "lambdaCode": True,
+        })
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OrganizationConfigurationAutoEnableArgs']] auto_enable: Configuration block for auto enabling. See below.
+        :param pulumi.Input[Union['OrganizationConfigurationAutoEnableArgs', 'OrganizationConfigurationAutoEnableArgsDict']] auto_enable: Configuration block for auto enabling. See below.
         """
         ...
     @overload
@@ -131,12 +136,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.inspector2.OrganizationConfiguration("example", auto_enable=aws.inspector2.OrganizationConfigurationAutoEnableArgs(
-            ec2=True,
-            ecr=False,
-            lambda_=True,
-            lambda_code=True,
-        ))
+        example = aws.inspector2.OrganizationConfiguration("example", auto_enable={
+            "ec2": True,
+            "ecr": False,
+            "lambda": True,
+            "lambdaCode": True,
+        })
         ```
 
         :param str resource_name: The name of the resource.
@@ -154,7 +159,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_enable: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationAutoEnableArgs']]] = None,
+                 auto_enable: Optional[pulumi.Input[Union['OrganizationConfigurationAutoEnableArgs', 'OrganizationConfigurationAutoEnableArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -178,7 +183,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_enable: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationAutoEnableArgs']]] = None,
+            auto_enable: Optional[pulumi.Input[Union['OrganizationConfigurationAutoEnableArgs', 'OrganizationConfigurationAutoEnableArgsDict']]] = None,
             max_account_limit_reached: Optional[pulumi.Input[bool]] = None) -> 'OrganizationConfiguration':
         """
         Get an existing OrganizationConfiguration resource's state with the given name, id, and optional extra
@@ -187,7 +192,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OrganizationConfigurationAutoEnableArgs']] auto_enable: Configuration block for auto enabling. See below.
+        :param pulumi.Input[Union['OrganizationConfigurationAutoEnableArgs', 'OrganizationConfigurationAutoEnableArgsDict']] auto_enable: Configuration block for auto enabling. See below.
         :param pulumi.Input[bool] max_account_limit_reached: Whether your configuration reached the max account limit.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

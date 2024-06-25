@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -711,12 +716,12 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token: Optional[pulumi.Input[str]] = None,
-                 auto_branch_creation_config: Optional[pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']]] = None,
+                 auto_branch_creation_config: Optional[pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']]] = None,
                  auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]]] = None,
+                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_branch_creation: Optional[pulumi.Input[bool]] = None,
                  enable_basic_auth: Optional[pulumi.Input[bool]] = None,
@@ -761,11 +766,11 @@ class App(pulumi.CustomResource):
             paths:
               - node_modules/**/*
         \"\"\",
-            custom_rules=[aws.amplify.AppCustomRuleArgs(
-                source="/<*>",
-                status="404",
-                target="/index.html",
-            )],
+            custom_rules=[{
+                "source": "/<*>",
+                "status": "404",
+                "target": "/index.html",
+            }],
             environment_variables={
                 "ENV": "test",
             })
@@ -800,9 +805,9 @@ class App(pulumi.CustomResource):
                 "*",
                 "*/**",
             ],
-            auto_branch_creation_config=aws.amplify.AppAutoBranchCreationConfigArgs(
-                enable_auto_build=True,
-            ))
+            auto_branch_creation_config={
+                "enableAutoBuild": True,
+            })
         ```
 
         ### Basic Authorization
@@ -827,16 +832,16 @@ class App(pulumi.CustomResource):
         example = aws.amplify.App("example",
             name="example",
             custom_rules=[
-                aws.amplify.AppCustomRuleArgs(
-                    source="/api/<*>",
-                    status="200",
-                    target="https://api.example.com/api/<*>",
-                ),
-                aws.amplify.AppCustomRuleArgs(
-                    source="</^[^.]+$|\\\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
-                    status="200",
-                    target="/index.html",
-                ),
+                {
+                    "source": "/api/<*>",
+                    "status": "200",
+                    "target": "https://api.example.com/api/<*>",
+                },
+                {
+                    "source": "</^[^.]+$|\\\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
+                    "status": "200",
+                    "target": "/index.html",
+                },
             ])
         ```
 
@@ -889,12 +894,12 @@ class App(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_token: Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
-        :param pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        :param pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
         :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         :param pulumi.Input[str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
         :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
@@ -945,11 +950,11 @@ class App(pulumi.CustomResource):
             paths:
               - node_modules/**/*
         \"\"\",
-            custom_rules=[aws.amplify.AppCustomRuleArgs(
-                source="/<*>",
-                status="404",
-                target="/index.html",
-            )],
+            custom_rules=[{
+                "source": "/<*>",
+                "status": "404",
+                "target": "/index.html",
+            }],
             environment_variables={
                 "ENV": "test",
             })
@@ -984,9 +989,9 @@ class App(pulumi.CustomResource):
                 "*",
                 "*/**",
             ],
-            auto_branch_creation_config=aws.amplify.AppAutoBranchCreationConfigArgs(
-                enable_auto_build=True,
-            ))
+            auto_branch_creation_config={
+                "enableAutoBuild": True,
+            })
         ```
 
         ### Basic Authorization
@@ -1011,16 +1016,16 @@ class App(pulumi.CustomResource):
         example = aws.amplify.App("example",
             name="example",
             custom_rules=[
-                aws.amplify.AppCustomRuleArgs(
-                    source="/api/<*>",
-                    status="200",
-                    target="https://api.example.com/api/<*>",
-                ),
-                aws.amplify.AppCustomRuleArgs(
-                    source="</^[^.]+$|\\\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
-                    status="200",
-                    target="/index.html",
-                ),
+                {
+                    "source": "/api/<*>",
+                    "status": "200",
+                    "target": "https://api.example.com/api/<*>",
+                },
+                {
+                    "source": "</^[^.]+$|\\\\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>",
+                    "status": "200",
+                    "target": "/index.html",
+                },
             ])
         ```
 
@@ -1086,12 +1091,12 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_token: Optional[pulumi.Input[str]] = None,
-                 auto_branch_creation_config: Optional[pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']]] = None,
+                 auto_branch_creation_config: Optional[pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']]] = None,
                  auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
                  custom_headers: Optional[pulumi.Input[str]] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]]] = None,
+                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_auto_branch_creation: Optional[pulumi.Input[bool]] = None,
                  enable_basic_auth: Optional[pulumi.Input[bool]] = None,
@@ -1150,12 +1155,12 @@ class App(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_token: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            auto_branch_creation_config: Optional[pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']]] = None,
+            auto_branch_creation_config: Optional[pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']]] = None,
             auto_branch_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             basic_auth_credentials: Optional[pulumi.Input[str]] = None,
             build_spec: Optional[pulumi.Input[str]] = None,
             custom_headers: Optional[pulumi.Input[str]] = None,
-            custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]]] = None,
+            custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]]] = None,
             default_domain: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enable_auto_branch_creation: Optional[pulumi.Input[bool]] = None,
@@ -1167,7 +1172,7 @@ class App(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             oauth_token: Optional[pulumi.Input[str]] = None,
             platform: Optional[pulumi.Input[str]] = None,
-            production_branches: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppProductionBranchArgs']]]]] = None,
+            production_branches: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppProductionBranchArgs', 'AppProductionBranchArgsDict']]]]] = None,
             repository: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'App':
@@ -1180,12 +1185,12 @@ class App(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_token: Personal access token for a third-party source control system for an Amplify app. This token must have write access to the relevant repo to create a webhook and a read-only deploy key for the Amplify project. The token is not stored, so after applying this attribute can be removed and the setup token deleted.
         :param pulumi.Input[str] arn: ARN of the Amplify app.
-        :param pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
+        :param pulumi.Input[Union['AppAutoBranchCreationConfigArgs', 'AppAutoBranchCreationConfigArgsDict']] auto_branch_creation_config: Automated branch creation configuration for an Amplify app. An `auto_branch_creation_config` block is documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: Automated branch creation glob patterns for an Amplify app.
         :param pulumi.Input[str] basic_auth_credentials: Credentials for basic authorization for an Amplify app.
         :param pulumi.Input[str] build_spec: The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
         :param pulumi.Input[str] custom_headers: The [custom HTTP headers](https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html) for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppCustomRuleArgs', 'AppCustomRuleArgsDict']]]] custom_rules: Custom rewrite and redirect rules for an Amplify app. A `custom_rule` block is documented below.
         :param pulumi.Input[str] default_domain: Default domain for the Amplify app.
         :param pulumi.Input[str] description: Description for an Amplify app.
         :param pulumi.Input[bool] enable_auto_branch_creation: Enables automated branch creation for an Amplify app.
@@ -1197,7 +1202,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name for an Amplify app.
         :param pulumi.Input[str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         :param pulumi.Input[str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppProductionBranchArgs']]]] production_branches: Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppProductionBranchArgs', 'AppProductionBranchArgsDict']]]] production_branches: Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
         :param pulumi.Input[str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

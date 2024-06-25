@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['PermissionArgs', 'Permission']
@@ -533,14 +538,14 @@ class Permission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.cloudwatch.LogGroup("default", name="/default")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["lambda.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["lambda.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         default_role = aws.iam.Role("default",
             name="iam_for_lambda_called_from_cloudwatch_logs",
             assume_role_policy=assume_role.json)
@@ -727,14 +732,14 @@ class Permission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.cloudwatch.LogGroup("default", name="/default")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["lambda.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["lambda.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         default_role = aws.iam.Role("default",
             name="iam_for_lambda_called_from_cloudwatch_logs",
             assume_role_policy=assume_role.json)

@@ -4,58 +4,117 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DataRepositoryAssociationS3Args',
+    'DataRepositoryAssociationS3ArgsDict',
     'DataRepositoryAssociationS3AutoExportPolicyArgs',
+    'DataRepositoryAssociationS3AutoExportPolicyArgsDict',
     'DataRepositoryAssociationS3AutoImportPolicyArgs',
+    'DataRepositoryAssociationS3AutoImportPolicyArgsDict',
     'FileCacheDataRepositoryAssociationArgs',
+    'FileCacheDataRepositoryAssociationArgsDict',
     'FileCacheDataRepositoryAssociationNfArgs',
+    'FileCacheDataRepositoryAssociationNfArgsDict',
     'FileCacheLustreConfigurationArgs',
+    'FileCacheLustreConfigurationArgsDict',
     'FileCacheLustreConfigurationLogConfigurationArgs',
+    'FileCacheLustreConfigurationLogConfigurationArgsDict',
     'FileCacheLustreConfigurationMetadataConfigurationArgs',
+    'FileCacheLustreConfigurationMetadataConfigurationArgsDict',
     'LustreFileSystemLogConfigurationArgs',
+    'LustreFileSystemLogConfigurationArgsDict',
     'LustreFileSystemMetadataConfigurationArgs',
+    'LustreFileSystemMetadataConfigurationArgsDict',
     'LustreFileSystemRootSquashConfigurationArgs',
+    'LustreFileSystemRootSquashConfigurationArgsDict',
     'OntapFileSystemDiskIopsConfigurationArgs',
+    'OntapFileSystemDiskIopsConfigurationArgsDict',
     'OntapFileSystemEndpointArgs',
+    'OntapFileSystemEndpointArgsDict',
     'OntapFileSystemEndpointInterclusterArgs',
+    'OntapFileSystemEndpointInterclusterArgsDict',
     'OntapFileSystemEndpointManagementArgs',
+    'OntapFileSystemEndpointManagementArgsDict',
     'OntapStorageVirtualMachineActiveDirectoryConfigurationArgs',
+    'OntapStorageVirtualMachineActiveDirectoryConfigurationArgsDict',
     'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs',
+    'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgsDict',
     'OntapStorageVirtualMachineEndpointArgs',
+    'OntapStorageVirtualMachineEndpointArgsDict',
     'OntapStorageVirtualMachineEndpointIscsiArgs',
+    'OntapStorageVirtualMachineEndpointIscsiArgsDict',
     'OntapStorageVirtualMachineEndpointManagementArgs',
+    'OntapStorageVirtualMachineEndpointManagementArgsDict',
     'OntapStorageVirtualMachineEndpointNfArgs',
+    'OntapStorageVirtualMachineEndpointNfArgsDict',
     'OntapStorageVirtualMachineEndpointSmbArgs',
+    'OntapStorageVirtualMachineEndpointSmbArgsDict',
     'OntapVolumeAggregateConfigurationArgs',
+    'OntapVolumeAggregateConfigurationArgsDict',
     'OntapVolumeSnaplockConfigurationArgs',
+    'OntapVolumeSnaplockConfigurationArgsDict',
     'OntapVolumeSnaplockConfigurationAutocommitPeriodArgs',
+    'OntapVolumeSnaplockConfigurationAutocommitPeriodArgsDict',
     'OntapVolumeSnaplockConfigurationRetentionPeriodArgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodArgsDict',
     'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgsDict',
     'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgsDict',
     'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgsDict',
     'OntapVolumeTieringPolicyArgs',
+    'OntapVolumeTieringPolicyArgsDict',
     'OpenZfsFileSystemDiskIopsConfigurationArgs',
+    'OpenZfsFileSystemDiskIopsConfigurationArgsDict',
     'OpenZfsFileSystemRootVolumeConfigurationArgs',
+    'OpenZfsFileSystemRootVolumeConfigurationArgsDict',
     'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs',
+    'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgsDict',
     'OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs',
+    'OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgsDict',
     'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs',
+    'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgsDict',
     'OpenZfsVolumeNfsExportsArgs',
+    'OpenZfsVolumeNfsExportsArgsDict',
     'OpenZfsVolumeNfsExportsClientConfigurationArgs',
+    'OpenZfsVolumeNfsExportsClientConfigurationArgsDict',
     'OpenZfsVolumeOriginSnapshotArgs',
+    'OpenZfsVolumeOriginSnapshotArgsDict',
     'OpenZfsVolumeUserAndGroupQuotaArgs',
+    'OpenZfsVolumeUserAndGroupQuotaArgsDict',
     'WindowsFileSystemAuditLogConfigurationArgs',
+    'WindowsFileSystemAuditLogConfigurationArgsDict',
     'WindowsFileSystemDiskIopsConfigurationArgs',
+    'WindowsFileSystemDiskIopsConfigurationArgsDict',
     'WindowsFileSystemSelfManagedActiveDirectoryArgs',
+    'WindowsFileSystemSelfManagedActiveDirectoryArgsDict',
     'GetOntapStorageVirtualMachineFilterArgs',
+    'GetOntapStorageVirtualMachineFilterArgsDict',
     'GetOntapStorageVirtualMachinesFilterArgs',
+    'GetOntapStorageVirtualMachinesFilterArgsDict',
     'GetOpenZfsSnapshotFilterArgs',
+    'GetOpenZfsSnapshotFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DataRepositoryAssociationS3ArgsDict(TypedDict):
+        auto_export_policy: NotRequired[pulumi.Input['DataRepositoryAssociationS3AutoExportPolicyArgsDict']]
+        auto_import_policy: NotRequired[pulumi.Input['DataRepositoryAssociationS3AutoImportPolicyArgsDict']]
+elif False:
+    DataRepositoryAssociationS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataRepositoryAssociationS3Args:
@@ -86,6 +145,12 @@ class DataRepositoryAssociationS3Args:
         pulumi.set(self, "auto_import_policy", value)
 
 
+if not MYPY:
+    class DataRepositoryAssociationS3AutoExportPolicyArgsDict(TypedDict):
+        events: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DataRepositoryAssociationS3AutoExportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataRepositoryAssociationS3AutoExportPolicyArgs:
     def __init__(__self__, *,
@@ -103,6 +168,12 @@ class DataRepositoryAssociationS3AutoExportPolicyArgs:
         pulumi.set(self, "events", value)
 
 
+if not MYPY:
+    class DataRepositoryAssociationS3AutoImportPolicyArgsDict(TypedDict):
+        events: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DataRepositoryAssociationS3AutoImportPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataRepositoryAssociationS3AutoImportPolicyArgs:
     def __init__(__self__, *,
@@ -119,6 +190,40 @@ class DataRepositoryAssociationS3AutoImportPolicyArgs:
     def events(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "events", value)
 
+
+if not MYPY:
+    class FileCacheDataRepositoryAssociationArgsDict(TypedDict):
+        data_repository_path: pulumi.Input[str]
+        """
+        The path to the S3 or NFS data repository that links to the cache.
+        """
+        file_cache_path: pulumi.Input[str]
+        """
+        A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
+        """
+        association_id: NotRequired[pulumi.Input[str]]
+        data_repository_subdirectories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
+        """
+        file_cache_id: NotRequired[pulumi.Input[str]]
+        """
+        The system-generated, unique ID of the cache.
+        """
+        file_system_id: NotRequired[pulumi.Input[str]]
+        file_system_path: NotRequired[pulumi.Input[str]]
+        imported_file_chunk_size: NotRequired[pulumi.Input[int]]
+        nfs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgsDict']]]]
+        """
+        (Optional) See the `nfs` configuration block.
+        """
+        resource_arn: NotRequired[pulumi.Input[str]]
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+elif False:
+    FileCacheDataRepositoryAssociationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FileCacheDataRepositoryAssociationArgs:
@@ -281,6 +386,19 @@ class FileCacheDataRepositoryAssociationArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class FileCacheDataRepositoryAssociationNfArgsDict(TypedDict):
+        version: pulumi.Input[str]
+        """
+        The version of the NFS (Network File System) protocol of the NFS data repository. The only supported value is NFS3, which indicates that the data repository must support the NFSv3 protocol. The only supported value is `NFS3`.
+        """
+        dns_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of up to 2 IP addresses of DNS servers used to resolve the NFS file system domain name. The provided IP addresses can either be the IP addresses of a DNS forwarder or resolver that the customer manages and runs inside the customer VPC, or the IP addresses of the on-premises DNS servers.
+        """
+elif False:
+    FileCacheDataRepositoryAssociationNfArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FileCacheDataRepositoryAssociationNfArgs:
     def __init__(__self__, *,
@@ -318,6 +436,29 @@ class FileCacheDataRepositoryAssociationNfArgs:
     def dns_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "dns_ips", value)
 
+
+if not MYPY:
+    class FileCacheLustreConfigurationArgsDict(TypedDict):
+        deployment_type: pulumi.Input[str]
+        """
+        Specifies the cache deployment type. The only supported value is `CACHE_1`.
+        """
+        metadata_configurations: pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArgsDict']]]
+        """
+        The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        """
+        per_unit_storage_throughput: pulumi.Input[int]
+        """
+        Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
+        """
+        log_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgsDict']]]]
+        mount_name: NotRequired[pulumi.Input[str]]
+        weekly_maintenance_start_time: NotRequired[pulumi.Input[str]]
+        """
+        A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
+        """
+elif False:
+    FileCacheLustreConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FileCacheLustreConfigurationArgs:
@@ -411,6 +552,13 @@ class FileCacheLustreConfigurationArgs:
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
+if not MYPY:
+    class FileCacheLustreConfigurationLogConfigurationArgsDict(TypedDict):
+        destination: NotRequired[pulumi.Input[str]]
+        level: NotRequired[pulumi.Input[str]]
+elif False:
+    FileCacheLustreConfigurationLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FileCacheLustreConfigurationLogConfigurationArgs:
     def __init__(__self__, *,
@@ -440,6 +588,15 @@ class FileCacheLustreConfigurationLogConfigurationArgs:
         pulumi.set(self, "level", value)
 
 
+if not MYPY:
+    class FileCacheLustreConfigurationMetadataConfigurationArgsDict(TypedDict):
+        storage_capacity: pulumi.Input[int]
+        """
+        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
+        """
+elif False:
+    FileCacheLustreConfigurationMetadataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FileCacheLustreConfigurationMetadataConfigurationArgs:
     def __init__(__self__, *,
@@ -461,6 +618,19 @@ class FileCacheLustreConfigurationMetadataConfigurationArgs:
     def storage_capacity(self, value: pulumi.Input[int]):
         pulumi.set(self, "storage_capacity", value)
 
+
+if not MYPY:
+    class LustreFileSystemLogConfigurationArgsDict(TypedDict):
+        destination: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+        """
+        level: NotRequired[pulumi.Input[str]]
+        """
+        Sets which data repository events are logged by Amazon FSx. Valid values are `WARN_ONLY`, `FAILURE_ONLY`, `ERROR_ONLY`, `WARN_ERROR` and `DISABLED`. Default value is `DISABLED`.
+        """
+elif False:
+    LustreFileSystemLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LustreFileSystemLogConfigurationArgs:
@@ -500,6 +670,21 @@ class LustreFileSystemLogConfigurationArgs:
     def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
 
+
+if not MYPY:
+    class LustreFileSystemMetadataConfigurationArgsDict(TypedDict):
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        Amount of IOPS provisioned for metadata. This parameter should only be used when the mode is set to `USER_PROVISIONED`. Valid Values are `1500`,`3000`,`6000` and `12000` through `192000` in increments of `12000`.
+
+        !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+        """
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`.
+        """
+elif False:
+    LustreFileSystemMetadataConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LustreFileSystemMetadataConfigurationArgs:
@@ -544,6 +729,19 @@ class LustreFileSystemMetadataConfigurationArgs:
         pulumi.set(self, "mode", value)
 
 
+if not MYPY:
+    class LustreFileSystemRootSquashConfigurationArgsDict(TypedDict):
+        no_squash_nids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        When root squash is enabled, you can optionally specify an array of NIDs of clients for which root squash does not apply. A client NID is a Lustre Network Identifier used to uniquely identify a client. You can specify the NID as either a single address or a range of addresses: 1. A single address is described in standard Lustre NID format by specifying the client’s IP address followed by the Lustre network ID (for example, 10.0.1.6@tcp). 2. An address range is described using a dash to separate the range (for example, 10.0.[2-10].[1-255]@tcp).
+        """
+        root_squash: NotRequired[pulumi.Input[str]]
+        """
+        You enable root squash by setting a user ID (UID) and group ID (GID) for the file system in the format UID:GID (for example, 365534:65534). The UID and GID values can range from 0 to 4294967294.
+        """
+elif False:
+    LustreFileSystemRootSquashConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LustreFileSystemRootSquashConfigurationArgs:
     def __init__(__self__, *,
@@ -582,6 +780,19 @@ class LustreFileSystemRootSquashConfigurationArgs:
     def root_squash(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "root_squash", value)
 
+
+if not MYPY:
+    class OntapFileSystemDiskIopsConfigurationArgsDict(TypedDict):
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        The total number of SSD IOPS provisioned for the file system.
+        """
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+elif False:
+    OntapFileSystemDiskIopsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OntapFileSystemDiskIopsConfigurationArgs:
@@ -622,6 +833,19 @@ class OntapFileSystemDiskIopsConfigurationArgs:
         pulumi.set(self, "mode", value)
 
 
+if not MYPY:
+    class OntapFileSystemEndpointArgsDict(TypedDict):
+        interclusters: NotRequired[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArgsDict']]]]
+        """
+        An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        """
+        managements: NotRequired[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArgsDict']]]]
+        """
+        An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        """
+elif False:
+    OntapFileSystemEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OntapFileSystemEndpointArgs:
     def __init__(__self__, *,
@@ -660,6 +884,19 @@ class OntapFileSystemEndpointArgs:
     def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArgs']]]]):
         pulumi.set(self, "managements", value)
 
+
+if not MYPY:
+    class OntapFileSystemEndpointInterclusterArgsDict(TypedDict):
+        dns_name: NotRequired[pulumi.Input[str]]
+        """
+        The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IP addresses of the file system endpoint.
+        """
+elif False:
+    OntapFileSystemEndpointInterclusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OntapFileSystemEndpointInterclusterArgs:
@@ -700,6 +937,19 @@ class OntapFileSystemEndpointInterclusterArgs:
         pulumi.set(self, "ip_addresses", value)
 
 
+if not MYPY:
+    class OntapFileSystemEndpointManagementArgsDict(TypedDict):
+        dns_name: NotRequired[pulumi.Input[str]]
+        """
+        The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IP addresses of the file system endpoint.
+        """
+elif False:
+    OntapFileSystemEndpointManagementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OntapFileSystemEndpointManagementArgs:
     def __init__(__self__, *,
@@ -739,6 +989,16 @@ class OntapFileSystemEndpointManagementArgs:
         pulumi.set(self, "ip_addresses", value)
 
 
+if not MYPY:
+    class OntapStorageVirtualMachineActiveDirectoryConfigurationArgsDict(TypedDict):
+        netbios_name: NotRequired[pulumi.Input[str]]
+        """
+        The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
+        """
+        self_managed_active_directory_configuration: NotRequired[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgsDict']]
+elif False:
+    OntapStorageVirtualMachineActiveDirectoryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs:
     def __init__(__self__, *,
@@ -773,6 +1033,17 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs:
     def self_managed_active_directory_configuration(self, value: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs']]):
         pulumi.set(self, "self_managed_active_directory_configuration", value)
 
+
+if not MYPY:
+    class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgsDict(TypedDict):
+        dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]]
+        domain_name: pulumi.Input[str]
+        password: pulumi.Input[str]
+        username: pulumi.Input[str]
+        file_system_administrators_group: NotRequired[pulumi.Input[str]]
+        organizational_unit_distinguished_name: NotRequired[pulumi.Input[str]]
+elif False:
+    OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs:
@@ -847,6 +1118,27 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
         pulumi.set(self, "organizational_unit_distinguished_name", value)
 
 
+if not MYPY:
+    class OntapStorageVirtualMachineEndpointArgsDict(TypedDict):
+        iscsis: NotRequired[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgsDict']]]]
+        """
+        An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        """
+        managements: NotRequired[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArgsDict']]]]
+        """
+        An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        """
+        nfs: NotRequired[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArgsDict']]]]
+        """
+        An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        """
+        smbs: NotRequired[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArgsDict']]]]
+        """
+        An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        """
+elif False:
+    OntapStorageVirtualMachineEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OntapStorageVirtualMachineEndpointArgs:
     def __init__(__self__, *,
@@ -918,6 +1210,19 @@ class OntapStorageVirtualMachineEndpointArgs:
         pulumi.set(self, "smbs", value)
 
 
+if not MYPY:
+    class OntapStorageVirtualMachineEndpointIscsiArgsDict(TypedDict):
+        dns_name: NotRequired[pulumi.Input[str]]
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
+elif False:
+    OntapStorageVirtualMachineEndpointIscsiArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OntapStorageVirtualMachineEndpointIscsiArgs:
     def __init__(__self__, *,
@@ -956,6 +1261,19 @@ class OntapStorageVirtualMachineEndpointIscsiArgs:
     def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
+
+if not MYPY:
+    class OntapStorageVirtualMachineEndpointManagementArgsDict(TypedDict):
+        dns_name: NotRequired[pulumi.Input[str]]
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
+elif False:
+    OntapStorageVirtualMachineEndpointManagementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OntapStorageVirtualMachineEndpointManagementArgs:
@@ -996,6 +1314,19 @@ class OntapStorageVirtualMachineEndpointManagementArgs:
         pulumi.set(self, "ip_addresses", value)
 
 
+if not MYPY:
+    class OntapStorageVirtualMachineEndpointNfArgsDict(TypedDict):
+        dns_name: NotRequired[pulumi.Input[str]]
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
+elif False:
+    OntapStorageVirtualMachineEndpointNfArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OntapStorageVirtualMachineEndpointNfArgs:
     def __init__(__self__, *,
@@ -1035,6 +1366,19 @@ class OntapStorageVirtualMachineEndpointNfArgs:
         pulumi.set(self, "ip_addresses", value)
 
 
+if not MYPY:
+    class OntapStorageVirtualMachineEndpointSmbArgsDict(TypedDict):
+        dns_name: NotRequired[pulumi.Input[str]]
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
+elif False:
+    OntapStorageVirtualMachineEndpointSmbArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OntapStorageVirtualMachineEndpointSmbArgs:
     def __init__(__self__, *,
@@ -1073,6 +1417,23 @@ class OntapStorageVirtualMachineEndpointSmbArgs:
     def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
+
+if not MYPY:
+    class OntapVolumeAggregateConfigurationArgsDict(TypedDict):
+        aggregates: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Used to specify the names of the aggregates on which the volume will be created. Each aggregate needs to be in the format aggrX where X is the number of the aggregate.
+        """
+        constituents_per_aggregate: NotRequired[pulumi.Input[int]]
+        """
+        Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. the default value is `8`.
+        """
+        total_constituents: NotRequired[pulumi.Input[int]]
+        """
+        The total amount of constituents for a `FLEXGROUP` volume. This would equal constituents_per_aggregate x aggregates.
+        """
+elif False:
+    OntapVolumeAggregateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OntapVolumeAggregateConfigurationArgs:
@@ -1128,6 +1489,35 @@ class OntapVolumeAggregateConfigurationArgs:
     def total_constituents(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "total_constituents", value)
 
+
+if not MYPY:
+    class OntapVolumeSnaplockConfigurationArgsDict(TypedDict):
+        snaplock_type: pulumi.Input[str]
+        """
+        Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
+        """
+        audit_log_volume: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
+        """
+        autocommit_period: NotRequired[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgsDict']]
+        """
+        The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+        """
+        privileged_delete: NotRequired[pulumi.Input[str]]
+        """
+        Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
+        """
+        retention_period: NotRequired[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgsDict']]
+        """
+        The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+        """
+        volume_append_mode_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
+        """
+elif False:
+    OntapVolumeSnaplockConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OntapVolumeSnaplockConfigurationArgs:
@@ -1231,6 +1621,19 @@ class OntapVolumeSnaplockConfigurationArgs:
         pulumi.set(self, "volume_append_mode_enabled", value)
 
 
+if not MYPY:
+    class OntapVolumeSnaplockConfigurationAutocommitPeriodArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. Valid values: `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`, `NONE`.
+        """
+        value: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+elif False:
+    OntapVolumeSnaplockConfigurationAutocommitPeriodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs:
     def __init__(__self__, *,
@@ -1269,6 +1672,14 @@ class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs:
     def value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OntapVolumeSnaplockConfigurationRetentionPeriodArgsDict(TypedDict):
+        default_retention: NotRequired[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgsDict']]
+        maximum_retention: NotRequired[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgsDict']]
+        minimum_retention: NotRequired[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgsDict']]
+elif False:
+    OntapVolumeSnaplockConfigurationRetentionPeriodArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OntapVolumeSnaplockConfigurationRetentionPeriodArgs:
@@ -1311,6 +1722,13 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodArgs:
         pulumi.set(self, "minimum_retention", value)
 
 
+if not MYPY:
+    class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[int]]
+elif False:
+    OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs:
     def __init__(__self__, *,
@@ -1339,6 +1757,13 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs:
     def value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[int]]
+elif False:
+    OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs:
@@ -1369,6 +1794,13 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input[int]]
+elif False:
+    OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs:
     def __init__(__self__, *,
@@ -1397,6 +1829,19 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs:
     def value(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OntapVolumeTieringPolicyArgsDict(TypedDict):
+        cooling_period: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with `AUTO` and `SNAPSHOT_ONLY` tiering policies only. Valid values are whole numbers between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+        """
+elif False:
+    OntapVolumeTieringPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OntapVolumeTieringPolicyArgs:
@@ -1437,6 +1882,19 @@ class OntapVolumeTieringPolicyArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class OpenZfsFileSystemDiskIopsConfigurationArgsDict(TypedDict):
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        The total number of SSD IOPS provisioned for the file system.
+        """
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+elif False:
+    OpenZfsFileSystemDiskIopsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenZfsFileSystemDiskIopsConfigurationArgs:
     def __init__(__self__, *,
@@ -1475,6 +1933,35 @@ class OpenZfsFileSystemDiskIopsConfigurationArgs:
     def mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class OpenZfsFileSystemRootVolumeConfigurationArgsDict(TypedDict):
+        copy_tags_to_snapshots: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
+        """
+        data_compression_type: NotRequired[pulumi.Input[str]]
+        """
+        Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        """
+        nfs_exports: NotRequired[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgsDict']]
+        """
+        NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        """
+        read_only: NotRequired[pulumi.Input[bool]]
+        """
+        specifies whether the volume is read-only. Default is false.
+        """
+        record_size_kib: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        """
+        user_and_group_quotas: NotRequired[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgsDict']]]]
+        """
+        Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        """
+elif False:
+    OpenZfsFileSystemRootVolumeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenZfsFileSystemRootVolumeConfigurationArgs:
@@ -1579,6 +2066,15 @@ class OpenZfsFileSystemRootVolumeConfigurationArgs:
         pulumi.set(self, "user_and_group_quotas", value)
 
 
+if not MYPY:
+    class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgsDict(TypedDict):
+        client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgsDict']]]
+        """
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        """
+elif False:
+    OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs:
     def __init__(__self__, *,
@@ -1600,6 +2096,19 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs:
     def client_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]]):
         pulumi.set(self, "client_configurations", value)
 
+
+if not MYPY:
+    class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgsDict(TypedDict):
+        clients: pulumi.Input[str]
+        """
+        A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        """
+        options: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
+elif False:
+    OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs:
@@ -1637,6 +2146,23 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs:
     def options(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "options", value)
 
+
+if not MYPY:
+    class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgsDict(TypedDict):
+        id: pulumi.Input[int]
+        """
+        The ID of the user or group. Valid values between `0` and `2147483647`
+        """
+        storage_capacity_quota_gib: pulumi.Input[int]
+        """
+        The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        """
+        type: pulumi.Input[str]
+        """
+        A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        """
+elif False:
+    OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs:
@@ -1690,6 +2216,15 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class OpenZfsVolumeNfsExportsArgsDict(TypedDict):
+        client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgsDict']]]
+        """
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See `client_configurations` Block below for details.
+        """
+elif False:
+    OpenZfsVolumeNfsExportsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenZfsVolumeNfsExportsArgs:
     def __init__(__self__, *,
@@ -1711,6 +2246,19 @@ class OpenZfsVolumeNfsExportsArgs:
     def client_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]]):
         pulumi.set(self, "client_configurations", value)
 
+
+if not MYPY:
+    class OpenZfsVolumeNfsExportsClientConfigurationArgsDict(TypedDict):
+        clients: pulumi.Input[str]
+        """
+        A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
+        """
+        options: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        """
+elif False:
+    OpenZfsVolumeNfsExportsClientConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenZfsVolumeNfsExportsClientConfigurationArgs:
@@ -1749,6 +2297,19 @@ class OpenZfsVolumeNfsExportsClientConfigurationArgs:
         pulumi.set(self, "options", value)
 
 
+if not MYPY:
+    class OpenZfsVolumeOriginSnapshotArgsDict(TypedDict):
+        copy_strategy: pulumi.Input[str]
+        """
+        Specifies the strategy used when copying data from the snapshot to the new volume. Valid values are `CLONE`, `FULL_COPY`, `INCREMENTAL_COPY`.
+        """
+        snapshot_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the origin snapshot.
+        """
+elif False:
+    OpenZfsVolumeOriginSnapshotArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OpenZfsVolumeOriginSnapshotArgs:
     def __init__(__self__, *,
@@ -1785,6 +2346,21 @@ class OpenZfsVolumeOriginSnapshotArgs:
     def snapshot_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "snapshot_arn", value)
 
+
+if not MYPY:
+    class OpenZfsVolumeUserAndGroupQuotaArgsDict(TypedDict):
+        id: pulumi.Input[int]
+        """
+        The ID of the user or group. Valid values between `0` and `2147483647`
+        """
+        storage_capacity_quota_gib: pulumi.Input[int]
+        """
+        The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        * `Type` - (Required) - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        """
+        type: pulumi.Input[str]
+elif False:
+    OpenZfsVolumeUserAndGroupQuotaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OpenZfsVolumeUserAndGroupQuotaArgs:
@@ -1835,6 +2411,23 @@ class OpenZfsVolumeUserAndGroupQuotaArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class WindowsFileSystemAuditLogConfigurationArgsDict(TypedDict):
+        audit_log_destination: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+        """
+        file_access_audit_log_level: NotRequired[pulumi.Input[str]]
+        """
+        Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+        """
+        file_share_access_audit_log_level: NotRequired[pulumi.Input[str]]
+        """
+        Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+        """
+elif False:
+    WindowsFileSystemAuditLogConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFileSystemAuditLogConfigurationArgs:
@@ -1891,6 +2484,19 @@ class WindowsFileSystemAuditLogConfigurationArgs:
         pulumi.set(self, "file_share_access_audit_log_level", value)
 
 
+if not MYPY:
+    class WindowsFileSystemDiskIopsConfigurationArgsDict(TypedDict):
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        The total number of SSD IOPS provisioned for the file system.
+        """
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+elif False:
+    WindowsFileSystemDiskIopsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFileSystemDiskIopsConfigurationArgs:
     def __init__(__self__, *,
@@ -1929,6 +2535,35 @@ class WindowsFileSystemDiskIopsConfigurationArgs:
     def mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class WindowsFileSystemSelfManagedActiveDirectoryArgsDict(TypedDict):
+        dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
+        """
+        domain_name: pulumi.Input[str]
+        """
+        The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        """
+        password: pulumi.Input[str]
+        """
+        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        """
+        username: pulumi.Input[str]
+        """
+        The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        """
+        file_system_administrators_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        """
+        organizational_unit_distinguished_name: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        """
+elif False:
+    WindowsFileSystemSelfManagedActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFileSystemSelfManagedActiveDirectoryArgs:
@@ -2029,6 +2664,19 @@ class WindowsFileSystemSelfManagedActiveDirectoryArgs:
         pulumi.set(self, "organizational_unit_distinguished_name", value)
 
 
+if not MYPY:
+    class GetOntapStorageVirtualMachineFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+        """
+elif False:
+    GetOntapStorageVirtualMachineFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetOntapStorageVirtualMachineFilterArgs:
     def __init__(__self__, *,
@@ -2066,6 +2714,19 @@ class GetOntapStorageVirtualMachineFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetOntapStorageVirtualMachinesFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/fsx/latest/APIReference/API_StorageVirtualMachineFilter.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field. An SVM will be selected if any one of the given values matches.
+        """
+elif False:
+    GetOntapStorageVirtualMachinesFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetOntapStorageVirtualMachinesFilterArgs:
     def __init__(__self__, *,
@@ -2102,6 +2763,16 @@ class GetOntapStorageVirtualMachinesFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetOpenZfsSnapshotFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the snapshot.
+        """
+        values: Sequence[str]
+elif False:
+    GetOpenZfsSnapshotFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetOpenZfsSnapshotFilterArgs:

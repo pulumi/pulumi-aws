@@ -4,23 +4,69 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ApiCorsConfigurationArgs',
+    'ApiCorsConfigurationArgsDict',
     'AuthorizerJwtConfigurationArgs',
+    'AuthorizerJwtConfigurationArgsDict',
     'DomainNameDomainNameConfigurationArgs',
+    'DomainNameDomainNameConfigurationArgsDict',
     'DomainNameMutualTlsAuthenticationArgs',
+    'DomainNameMutualTlsAuthenticationArgsDict',
     'IntegrationResponseParameterArgs',
+    'IntegrationResponseParameterArgsDict',
     'IntegrationTlsConfigArgs',
+    'IntegrationTlsConfigArgsDict',
     'RouteRequestParameterArgs',
+    'RouteRequestParameterArgsDict',
     'StageAccessLogSettingsArgs',
+    'StageAccessLogSettingsArgsDict',
     'StageDefaultRouteSettingsArgs',
+    'StageDefaultRouteSettingsArgsDict',
     'StageRouteSettingArgs',
+    'StageRouteSettingArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApiCorsConfigurationArgsDict(TypedDict):
+        allow_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Whether credentials are included in the CORS request.
+        """
+        allow_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of allowed HTTP headers.
+        """
+        allow_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of allowed HTTP methods.
+        """
+        allow_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of allowed origins.
+        """
+        expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of exposed HTTP headers.
+        """
+        max_age: NotRequired[pulumi.Input[int]]
+        """
+        Number of seconds that the browser should cache preflight request results.
+        """
+elif False:
+    ApiCorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApiCorsConfigurationArgs:
@@ -125,6 +171,19 @@ class ApiCorsConfigurationArgs:
         pulumi.set(self, "max_age", value)
 
 
+if not MYPY:
+    class AuthorizerJwtConfigurationArgsDict(TypedDict):
+        audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
+        """
+elif False:
+    AuthorizerJwtConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AuthorizerJwtConfigurationArgs:
     def __init__(__self__, *,
@@ -163,6 +222,35 @@ class AuthorizerJwtConfigurationArgs:
     def issuer(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "issuer", value)
 
+
+if not MYPY:
+    class DomainNameDomainNameConfigurationArgsDict(TypedDict):
+        certificate_arn: pulumi.Input[str]
+        """
+        ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Endpoint type. Valid values: `REGIONAL`.
+        """
+        security_policy: pulumi.Input[str]
+        """
+        Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+        """
+        hosted_zone_id: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Route 53 Hosted Zone ID of the endpoint.
+        """
+        ownership_verification_certificate_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+        """
+        target_domain_name: NotRequired[pulumi.Input[str]]
+        """
+        Target domain name.
+        """
+elif False:
+    DomainNameDomainNameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainNameDomainNameConfigurationArgs:
@@ -264,6 +352,19 @@ class DomainNameDomainNameConfigurationArgs:
         pulumi.set(self, "target_domain_name", value)
 
 
+if not MYPY:
+    class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
+        truststore_uri: pulumi.Input[str]
+        """
+        Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+        """
+        truststore_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+        """
+elif False:
+    DomainNameMutualTlsAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DomainNameMutualTlsAuthenticationArgs:
     def __init__(__self__, *,
@@ -301,6 +402,20 @@ class DomainNameMutualTlsAuthenticationArgs:
     def truststore_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "truststore_version", value)
 
+
+if not MYPY:
+    class IntegrationResponseParameterArgsDict(TypedDict):
+        mappings: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+        See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+        """
+        status_code: pulumi.Input[str]
+        """
+        HTTP status code in the range 200-599.
+        """
+elif False:
+    IntegrationResponseParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationResponseParameterArgs:
@@ -341,6 +456,15 @@ class IntegrationResponseParameterArgs:
         pulumi.set(self, "status_code", value)
 
 
+if not MYPY:
+    class IntegrationTlsConfigArgsDict(TypedDict):
+        server_name_to_verify: NotRequired[pulumi.Input[str]]
+        """
+        If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+        """
+elif False:
+    IntegrationTlsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationTlsConfigArgs:
     def __init__(__self__, *,
@@ -363,6 +487,19 @@ class IntegrationTlsConfigArgs:
     def server_name_to_verify(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "server_name_to_verify", value)
 
+
+if not MYPY:
+    class RouteRequestParameterArgsDict(TypedDict):
+        request_parameter_key: pulumi.Input[str]
+        """
+        Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
+        """
+        required: pulumi.Input[bool]
+        """
+        Boolean whether or not the parameter is required.
+        """
+elif False:
+    RouteRequestParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RouteRequestParameterArgs:
@@ -401,6 +538,19 @@ class RouteRequestParameterArgs:
         pulumi.set(self, "required", value)
 
 
+if not MYPY:
+    class StageAccessLogSettingsArgsDict(TypedDict):
+        destination_arn: pulumi.Input[str]
+        """
+        ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+        """
+        format: pulumi.Input[str]
+        """
+        Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
+        """
+elif False:
+    StageAccessLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StageAccessLogSettingsArgs:
     def __init__(__self__, *,
@@ -437,6 +587,33 @@ class StageAccessLogSettingsArgs:
     def format(self, value: pulumi.Input[str]):
         pulumi.set(self, "format", value)
 
+
+if not MYPY:
+    class StageDefaultRouteSettingsArgsDict(TypedDict):
+        data_trace_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        Defaults to `false`. Supported only for WebSocket APIs.
+        """
+        detailed_metrics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether detailed metrics are enabled for the default route. Defaults to `false`.
+        """
+        logging_level: NotRequired[pulumi.Input[str]]
+        """
+        Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+        """
+        throttling_burst_limit: NotRequired[pulumi.Input[int]]
+        """
+        Throttling burst limit for the default route.
+        """
+        throttling_rate_limit: NotRequired[pulumi.Input[float]]
+        """
+        Throttling rate limit for the default route.
+        """
+elif False:
+    StageDefaultRouteSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StageDefaultRouteSettingsArgs:
@@ -528,6 +705,37 @@ class StageDefaultRouteSettingsArgs:
     def throttling_rate_limit(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "throttling_rate_limit", value)
 
+
+if not MYPY:
+    class StageRouteSettingArgsDict(TypedDict):
+        route_key: pulumi.Input[str]
+        """
+        Route key.
+        """
+        data_trace_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        Defaults to `false`. Supported only for WebSocket APIs.
+        """
+        detailed_metrics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether detailed metrics are enabled for the route. Defaults to `false`.
+        """
+        logging_level: NotRequired[pulumi.Input[str]]
+        """
+        Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+        Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+        """
+        throttling_burst_limit: NotRequired[pulumi.Input[int]]
+        """
+        Throttling burst limit for the route.
+        """
+        throttling_rate_limit: NotRequired[pulumi.Input[float]]
+        """
+        Throttling rate limit for the route.
+        """
+elif False:
+    StageRouteSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StageRouteSettingArgs:

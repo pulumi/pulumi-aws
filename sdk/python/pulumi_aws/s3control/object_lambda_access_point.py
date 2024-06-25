@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -162,7 +167,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ObjectLambdaAccessPointConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['ObjectLambdaAccessPointConfigurationArgs', 'ObjectLambdaAccessPointConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -181,17 +186,17 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
             name="example")
         example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("example",
             name="example",
-            configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
-                supporting_access_point=example_access_point.arn,
-                transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
-                    actions=["GetObject"],
-                    content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
-                        aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                            function_arn=example_aws_lambda_function["arn"],
-                        ),
-                    ),
-                )],
-            ))
+            configuration={
+                "supportingAccessPoint": example_access_point.arn,
+                "transformationConfigurations": [{
+                    "actions": ["GetObject"],
+                    "contentTransformation": {
+                        "awsLambda": {
+                            "functionArn": example_aws_lambda_function["arn"],
+                        },
+                    },
+                }],
+            })
         ```
 
         ## Import
@@ -205,7 +210,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        :param pulumi.Input[pulumi.InputType['ObjectLambdaAccessPointConfigurationArgs']] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        :param pulumi.Input[Union['ObjectLambdaAccessPointConfigurationArgs', 'ObjectLambdaAccessPointConfigurationArgsDict']] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         :param pulumi.Input[str] name: The name for this Object Lambda Access Point.
         """
         ...
@@ -230,17 +235,17 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
             name="example")
         example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("example",
             name="example",
-            configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
-                supporting_access_point=example_access_point.arn,
-                transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
-                    actions=["GetObject"],
-                    content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
-                        aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
-                            function_arn=example_aws_lambda_function["arn"],
-                        ),
-                    ),
-                )],
-            ))
+            configuration={
+                "supportingAccessPoint": example_access_point.arn,
+                "transformationConfigurations": [{
+                    "actions": ["GetObject"],
+                    "contentTransformation": {
+                        "awsLambda": {
+                            "functionArn": example_aws_lambda_function["arn"],
+                        },
+                    },
+                }],
+            })
         ```
 
         ## Import
@@ -267,7 +272,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ObjectLambdaAccessPointConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['ObjectLambdaAccessPointConfigurationArgs', 'ObjectLambdaAccessPointConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -298,7 +303,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[str]] = None,
             alias: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['ObjectLambdaAccessPointConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[Union['ObjectLambdaAccessPointConfigurationArgs', 'ObjectLambdaAccessPointConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ObjectLambdaAccessPoint':
         """
         Get an existing ObjectLambdaAccessPoint resource's state with the given name, id, and optional extra
@@ -310,7 +315,7 @@ class ObjectLambdaAccessPoint(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[str] alias: Alias for the S3 Object Lambda Access Point.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Object Lambda Access Point.
-        :param pulumi.Input[pulumi.InputType['ObjectLambdaAccessPointConfigurationArgs']] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
+        :param pulumi.Input[Union['ObjectLambdaAccessPointConfigurationArgs', 'ObjectLambdaAccessPointConfigurationArgsDict']] configuration: A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         :param pulumi.Input[str] name: The name for this Object Lambda Access Point.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

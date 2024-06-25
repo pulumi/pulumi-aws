@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -1100,7 +1105,7 @@ class Cluster(pulumi.CustomResource):
             acl_name: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-            cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterEndpointArgs']]]]] = None,
+            cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterClusterEndpointArgs', 'ClusterClusterEndpointArgsDict']]]]] = None,
             data_tiering: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             engine_patch_version: Optional[pulumi.Input[str]] = None,
@@ -1116,7 +1121,7 @@ class Cluster(pulumi.CustomResource):
             parameter_group_name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            shards: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterShardArgs']]]]] = None,
+            shards: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterShardArgs', 'ClusterShardArgsDict']]]]] = None,
             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_name: Optional[pulumi.Input[str]] = None,
             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -1153,7 +1158,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterShardArgs']]]] shards: Set of shards in this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterShardArgs', 'ClusterShardArgsDict']]]] shards: Set of shards in this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.

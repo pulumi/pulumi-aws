@@ -4,15 +4,33 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ChannelHlsIngestArgs',
+    'ChannelHlsIngestArgsDict',
     'ChannelHlsIngestIngestEndpointArgs',
+    'ChannelHlsIngestIngestEndpointArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ChannelHlsIngestArgsDict(TypedDict):
+        ingest_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgsDict']]]]
+        """
+        A list of the ingest endpoints
+        """
+elif False:
+    ChannelHlsIngestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ChannelHlsIngestArgs:
@@ -36,6 +54,23 @@ class ChannelHlsIngestArgs:
     def ingest_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]):
         pulumi.set(self, "ingest_endpoints", value)
 
+
+if not MYPY:
+    class ChannelHlsIngestIngestEndpointArgsDict(TypedDict):
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The username
+        """
+elif False:
+    ChannelHlsIngestIngestEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ChannelHlsIngestIngestEndpointArgs:

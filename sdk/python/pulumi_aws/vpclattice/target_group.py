@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -221,7 +226,7 @@ class TargetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -240,11 +245,11 @@ class TargetGroup(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroup("example",
             name="example",
             type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=example_aws_vpc["id"],
-                port=443,
-                protocol="HTTPS",
-            ))
+            config={
+                "vpcIdentifier": example_aws_vpc["id"],
+                "port": 443,
+                "protocol": "HTTPS",
+            })
         ```
 
         ### Basic usage with Health check
@@ -256,27 +261,27 @@ class TargetGroup(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroup("example",
             name="example",
             type="IP",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=example_aws_vpc["id"],
-                ip_address_type="IPV4",
-                port=443,
-                protocol="HTTPS",
-                protocol_version="HTTP1",
-                health_check=aws.vpclattice.TargetGroupConfigHealthCheckArgs(
-                    enabled=True,
-                    health_check_interval_seconds=20,
-                    health_check_timeout_seconds=10,
-                    healthy_threshold_count=7,
-                    unhealthy_threshold_count=3,
-                    matcher=aws.vpclattice.TargetGroupConfigHealthCheckMatcherArgs(
-                        value="200-299",
-                    ),
-                    path="/instance",
-                    port=80,
-                    protocol="HTTP",
-                    protocol_version="HTTP1",
-                ),
-            ))
+            config={
+                "vpcIdentifier": example_aws_vpc["id"],
+                "ipAddressType": "IPV4",
+                "port": 443,
+                "protocol": "HTTPS",
+                "protocolVersion": "HTTP1",
+                "healthCheck": {
+                    "enabled": True,
+                    "healthCheckIntervalSeconds": 20,
+                    "healthCheckTimeoutSeconds": 10,
+                    "healthyThresholdCount": 7,
+                    "unhealthyThresholdCount": 3,
+                    "matcher": {
+                        "value": "200-299",
+                    },
+                    "path": "/instance",
+                    "port": 80,
+                    "protocol": "HTTP",
+                    "protocolVersion": "HTTP1",
+                },
+            })
         ```
 
         ### ALB
@@ -290,12 +295,12 @@ class TargetGroup(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroup("example",
             name="example",
             type="ALB",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=example_aws_vpc["id"],
-                port=443,
-                protocol="HTTPS",
-                protocol_version="HTTP1",
-            ))
+            config={
+                "vpcIdentifier": example_aws_vpc["id"],
+                "port": 443,
+                "protocol": "HTTPS",
+                "protocolVersion": "HTTP1",
+            })
         ```
 
         ### Lambda
@@ -321,7 +326,7 @@ class TargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']] config: The target group configuration.
+        :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: The target group configuration.
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of target group. Valid Values are `IP` | `LAMBDA` | `INSTANCE` | `ALB`
@@ -348,11 +353,11 @@ class TargetGroup(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroup("example",
             name="example",
             type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=example_aws_vpc["id"],
-                port=443,
-                protocol="HTTPS",
-            ))
+            config={
+                "vpcIdentifier": example_aws_vpc["id"],
+                "port": 443,
+                "protocol": "HTTPS",
+            })
         ```
 
         ### Basic usage with Health check
@@ -364,27 +369,27 @@ class TargetGroup(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroup("example",
             name="example",
             type="IP",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=example_aws_vpc["id"],
-                ip_address_type="IPV4",
-                port=443,
-                protocol="HTTPS",
-                protocol_version="HTTP1",
-                health_check=aws.vpclattice.TargetGroupConfigHealthCheckArgs(
-                    enabled=True,
-                    health_check_interval_seconds=20,
-                    health_check_timeout_seconds=10,
-                    healthy_threshold_count=7,
-                    unhealthy_threshold_count=3,
-                    matcher=aws.vpclattice.TargetGroupConfigHealthCheckMatcherArgs(
-                        value="200-299",
-                    ),
-                    path="/instance",
-                    port=80,
-                    protocol="HTTP",
-                    protocol_version="HTTP1",
-                ),
-            ))
+            config={
+                "vpcIdentifier": example_aws_vpc["id"],
+                "ipAddressType": "IPV4",
+                "port": 443,
+                "protocol": "HTTPS",
+                "protocolVersion": "HTTP1",
+                "healthCheck": {
+                    "enabled": True,
+                    "healthCheckIntervalSeconds": 20,
+                    "healthCheckTimeoutSeconds": 10,
+                    "healthyThresholdCount": 7,
+                    "unhealthyThresholdCount": 3,
+                    "matcher": {
+                        "value": "200-299",
+                    },
+                    "path": "/instance",
+                    "port": 80,
+                    "protocol": "HTTP",
+                    "protocolVersion": "HTTP1",
+                },
+            })
         ```
 
         ### ALB
@@ -398,12 +403,12 @@ class TargetGroup(pulumi.CustomResource):
         example = aws.vpclattice.TargetGroup("example",
             name="example",
             type="ALB",
-            config=aws.vpclattice.TargetGroupConfigArgs(
-                vpc_identifier=example_aws_vpc["id"],
-                port=443,
-                protocol="HTTPS",
-                protocol_version="HTTP1",
-            ))
+            config={
+                "vpcIdentifier": example_aws_vpc["id"],
+                "port": 443,
+                "protocol": "HTTPS",
+                "protocolVersion": "HTTP1",
+            })
         ```
 
         ### Lambda
@@ -442,7 +447,7 @@ class TargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']]] = None,
+                 config: Optional[pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -475,7 +480,7 @@ class TargetGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            config: Optional[pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']]] = None,
+            config: Optional[pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -489,7 +494,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the target group.
-        :param pulumi.Input[pulumi.InputType['TargetGroupConfigArgs']] config: The target group configuration.
+        :param pulumi.Input[Union['TargetGroupConfigArgs', 'TargetGroupConfigArgsDict']] config: The target group configuration.
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[str] status: Status of the target group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -4,69 +4,149 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CompositeAlarmActionsSuppressorArgs',
+    'CompositeAlarmActionsSuppressorArgsDict',
     'EventConnectionAuthParametersArgs',
+    'EventConnectionAuthParametersArgsDict',
     'EventConnectionAuthParametersApiKeyArgs',
+    'EventConnectionAuthParametersApiKeyArgsDict',
     'EventConnectionAuthParametersBasicArgs',
+    'EventConnectionAuthParametersBasicArgsDict',
     'EventConnectionAuthParametersInvocationHttpParametersArgs',
+    'EventConnectionAuthParametersInvocationHttpParametersArgsDict',
     'EventConnectionAuthParametersInvocationHttpParametersBodyArgs',
+    'EventConnectionAuthParametersInvocationHttpParametersBodyArgsDict',
     'EventConnectionAuthParametersInvocationHttpParametersHeaderArgs',
+    'EventConnectionAuthParametersInvocationHttpParametersHeaderArgsDict',
     'EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs',
+    'EventConnectionAuthParametersInvocationHttpParametersQueryStringArgsDict',
     'EventConnectionAuthParametersOauthArgs',
+    'EventConnectionAuthParametersOauthArgsDict',
     'EventConnectionAuthParametersOauthClientParametersArgs',
+    'EventConnectionAuthParametersOauthClientParametersArgsDict',
     'EventConnectionAuthParametersOauthOauthHttpParametersArgs',
+    'EventConnectionAuthParametersOauthOauthHttpParametersArgsDict',
     'EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs',
+    'EventConnectionAuthParametersOauthOauthHttpParametersBodyArgsDict',
     'EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs',
+    'EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict',
     'EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs',
+    'EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict',
     'EventEndpointEventBusArgs',
+    'EventEndpointEventBusArgsDict',
     'EventEndpointReplicationConfigArgs',
+    'EventEndpointReplicationConfigArgsDict',
     'EventEndpointRoutingConfigArgs',
+    'EventEndpointRoutingConfigArgsDict',
     'EventEndpointRoutingConfigFailoverConfigArgs',
+    'EventEndpointRoutingConfigFailoverConfigArgsDict',
     'EventEndpointRoutingConfigFailoverConfigPrimaryArgs',
+    'EventEndpointRoutingConfigFailoverConfigPrimaryArgsDict',
     'EventEndpointRoutingConfigFailoverConfigSecondaryArgs',
+    'EventEndpointRoutingConfigFailoverConfigSecondaryArgsDict',
     'EventPermissionConditionArgs',
+    'EventPermissionConditionArgsDict',
     'EventTargetBatchTargetArgs',
+    'EventTargetBatchTargetArgsDict',
     'EventTargetDeadLetterConfigArgs',
+    'EventTargetDeadLetterConfigArgsDict',
     'EventTargetEcsTargetArgs',
+    'EventTargetEcsTargetArgsDict',
     'EventTargetEcsTargetCapacityProviderStrategyArgs',
+    'EventTargetEcsTargetCapacityProviderStrategyArgsDict',
     'EventTargetEcsTargetNetworkConfigurationArgs',
+    'EventTargetEcsTargetNetworkConfigurationArgsDict',
     'EventTargetEcsTargetOrderedPlacementStrategyArgs',
+    'EventTargetEcsTargetOrderedPlacementStrategyArgsDict',
     'EventTargetEcsTargetPlacementConstraintArgs',
+    'EventTargetEcsTargetPlacementConstraintArgsDict',
     'EventTargetHttpTargetArgs',
+    'EventTargetHttpTargetArgsDict',
     'EventTargetInputTransformerArgs',
+    'EventTargetInputTransformerArgsDict',
     'EventTargetKinesisTargetArgs',
+    'EventTargetKinesisTargetArgsDict',
     'EventTargetRedshiftTargetArgs',
+    'EventTargetRedshiftTargetArgsDict',
     'EventTargetRetryPolicyArgs',
+    'EventTargetRetryPolicyArgsDict',
     'EventTargetRunCommandTargetArgs',
+    'EventTargetRunCommandTargetArgsDict',
     'EventTargetSagemakerPipelineTargetArgs',
+    'EventTargetSagemakerPipelineTargetArgsDict',
     'EventTargetSagemakerPipelineTargetPipelineParameterListArgs',
+    'EventTargetSagemakerPipelineTargetPipelineParameterListArgsDict',
     'EventTargetSqsTargetArgs',
+    'EventTargetSqsTargetArgsDict',
     'InternetMonitorHealthEventsConfigArgs',
+    'InternetMonitorHealthEventsConfigArgsDict',
     'InternetMonitorInternetMeasurementsLogDeliveryArgs',
+    'InternetMonitorInternetMeasurementsLogDeliveryArgsDict',
     'InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs',
+    'InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict',
     'LogMetricFilterMetricTransformationArgs',
+    'LogMetricFilterMetricTransformationArgsDict',
     'MetricAlarmMetricQueryArgs',
+    'MetricAlarmMetricQueryArgsDict',
     'MetricAlarmMetricQueryMetricArgs',
+    'MetricAlarmMetricQueryMetricArgsDict',
     'MetricStreamExcludeFilterArgs',
+    'MetricStreamExcludeFilterArgsDict',
     'MetricStreamIncludeFilterArgs',
+    'MetricStreamIncludeFilterArgsDict',
     'MetricStreamStatisticsConfigurationArgs',
+    'MetricStreamStatisticsConfigurationArgsDict',
     'MetricStreamStatisticsConfigurationIncludeMetricArgs',
+    'MetricStreamStatisticsConfigurationIncludeMetricArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementArgs',
+    'GetLogDataProtectionPolicyDocumentStatementArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementOperationArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationAuditArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args',
+    'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3ArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgsDict',
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs',
+    'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CompositeAlarmActionsSuppressorArgsDict(TypedDict):
+        alarm: pulumi.Input[str]
+        """
+        Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        """
+        extension_period: pulumi.Input[int]
+        """
+        The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+        wait_period: pulumi.Input[int]
+        """
+        The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+        """
+elif False:
+    CompositeAlarmActionsSuppressorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CompositeAlarmActionsSuppressorArgs:
@@ -119,6 +199,27 @@ class CompositeAlarmActionsSuppressorArgs:
     def wait_period(self, value: pulumi.Input[int]):
         pulumi.set(self, "wait_period", value)
 
+
+if not MYPY:
+    class EventConnectionAuthParametersArgsDict(TypedDict):
+        api_key: NotRequired[pulumi.Input['EventConnectionAuthParametersApiKeyArgsDict']]
+        """
+        Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+        """
+        basic: NotRequired[pulumi.Input['EventConnectionAuthParametersBasicArgsDict']]
+        """
+        Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+        """
+        invocation_http_parameters: NotRequired[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgsDict']]
+        """
+        Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        """
+        oauth: NotRequired[pulumi.Input['EventConnectionAuthParametersOauthArgsDict']]
+        """
+        Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+        """
+elif False:
+    EventConnectionAuthParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventConnectionAuthParametersArgs:
@@ -191,6 +292,19 @@ class EventConnectionAuthParametersArgs:
         pulumi.set(self, "oauth", value)
 
 
+if not MYPY:
+    class EventConnectionAuthParametersApiKeyArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Header Name.
+        """
+        value: pulumi.Input[str]
+        """
+        Header Value. Created and stored in AWS Secrets Manager.
+        """
+elif False:
+    EventConnectionAuthParametersApiKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventConnectionAuthParametersApiKeyArgs:
     def __init__(__self__, *,
@@ -228,6 +342,19 @@ class EventConnectionAuthParametersApiKeyArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventConnectionAuthParametersBasicArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        A password for the authorization. Created and stored in AWS Secrets Manager.
+        """
+        username: pulumi.Input[str]
+        """
+        A username for the authorization.
+        """
+elif False:
+    EventConnectionAuthParametersBasicArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventConnectionAuthParametersBasicArgs:
     def __init__(__self__, *,
@@ -264,6 +391,23 @@ class EventConnectionAuthParametersBasicArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class EventConnectionAuthParametersInvocationHttpParametersArgsDict(TypedDict):
+        bodies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersBodyArgsDict']]]]
+        """
+        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersHeaderArgsDict']]]]
+        """
+        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        query_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgsDict']]]]
+        """
+        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+elif False:
+    EventConnectionAuthParametersInvocationHttpParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventConnectionAuthParametersInvocationHttpParametersArgs:
@@ -320,6 +464,23 @@ class EventConnectionAuthParametersInvocationHttpParametersArgs:
         pulumi.set(self, "query_strings", value)
 
 
+if not MYPY:
+    class EventConnectionAuthParametersInvocationHttpParametersBodyArgsDict(TypedDict):
+        is_value_secret: NotRequired[pulumi.Input[bool]]
+        """
+        Specified whether the value is secret.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The key for the parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+        """
+elif False:
+    EventConnectionAuthParametersInvocationHttpParametersBodyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventConnectionAuthParametersInvocationHttpParametersBodyArgs:
     def __init__(__self__, *,
@@ -374,6 +535,23 @@ class EventConnectionAuthParametersInvocationHttpParametersBodyArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventConnectionAuthParametersInvocationHttpParametersHeaderArgsDict(TypedDict):
+        is_value_secret: NotRequired[pulumi.Input[bool]]
+        """
+        Specified whether the value is secret.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The key for the parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+        """
+elif False:
+    EventConnectionAuthParametersInvocationHttpParametersHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventConnectionAuthParametersInvocationHttpParametersHeaderArgs:
@@ -430,6 +608,23 @@ class EventConnectionAuthParametersInvocationHttpParametersHeaderArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgsDict(TypedDict):
+        is_value_secret: NotRequired[pulumi.Input[bool]]
+        """
+        Specified whether the value is secret.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The key for the parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+        """
+elif False:
+    EventConnectionAuthParametersInvocationHttpParametersQueryStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs:
     def __init__(__self__, *,
@@ -484,6 +679,27 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventConnectionAuthParametersOauthArgsDict(TypedDict):
+        authorization_endpoint: pulumi.Input[str]
+        """
+        The URL to the authorization endpoint.
+        """
+        http_method: pulumi.Input[str]
+        """
+        A password for the authorization. Created and stored in AWS Secrets Manager.
+        """
+        oauth_http_parameters: pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgsDict']
+        """
+        OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        """
+        client_parameters: NotRequired[pulumi.Input['EventConnectionAuthParametersOauthClientParametersArgsDict']]
+        """
+        Contains the client parameters for OAuth authorization. Contains the following two parameters.
+        """
+elif False:
+    EventConnectionAuthParametersOauthArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventConnectionAuthParametersOauthArgs:
@@ -553,6 +769,19 @@ class EventConnectionAuthParametersOauthArgs:
         pulumi.set(self, "client_parameters", value)
 
 
+if not MYPY:
+    class EventConnectionAuthParametersOauthClientParametersArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+        """
+elif False:
+    EventConnectionAuthParametersOauthClientParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventConnectionAuthParametersOauthClientParametersArgs:
     def __init__(__self__, *,
@@ -589,6 +818,23 @@ class EventConnectionAuthParametersOauthClientParametersArgs:
     def client_secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_secret", value)
 
+
+if not MYPY:
+    class EventConnectionAuthParametersOauthOauthHttpParametersArgsDict(TypedDict):
+        bodies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgsDict']]]]
+        """
+        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict']]]]
+        """
+        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        query_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict']]]]
+        """
+        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+elif False:
+    EventConnectionAuthParametersOauthOauthHttpParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventConnectionAuthParametersOauthOauthHttpParametersArgs:
@@ -645,6 +891,23 @@ class EventConnectionAuthParametersOauthOauthHttpParametersArgs:
         pulumi.set(self, "query_strings", value)
 
 
+if not MYPY:
+    class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgsDict(TypedDict):
+        is_value_secret: NotRequired[pulumi.Input[bool]]
+        """
+        Specified whether the value is secret.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The key for the parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+        """
+elif False:
+    EventConnectionAuthParametersOauthOauthHttpParametersBodyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs:
     def __init__(__self__, *,
@@ -699,6 +962,23 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict(TypedDict):
+        is_value_secret: NotRequired[pulumi.Input[bool]]
+        """
+        Specified whether the value is secret.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The key for the parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+        """
+elif False:
+    EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs:
@@ -755,6 +1035,23 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict(TypedDict):
+        is_value_secret: NotRequired[pulumi.Input[bool]]
+        """
+        Specified whether the value is secret.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The key for the parameter.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+        """
+elif False:
+    EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
     def __init__(__self__, *,
@@ -810,6 +1107,15 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventEndpointEventBusArgsDict(TypedDict):
+        event_bus_arn: pulumi.Input[str]
+        """
+        The ARN of the event bus the endpoint is associated with.
+        """
+elif False:
+    EventEndpointEventBusArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventEndpointEventBusArgs:
     def __init__(__self__, *,
@@ -831,6 +1137,15 @@ class EventEndpointEventBusArgs:
     def event_bus_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "event_bus_arn", value)
 
+
+if not MYPY:
+    class EventEndpointReplicationConfigArgsDict(TypedDict):
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
+        """
+elif False:
+    EventEndpointReplicationConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventEndpointReplicationConfigArgs:
@@ -855,6 +1170,15 @@ class EventEndpointReplicationConfigArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class EventEndpointRoutingConfigArgsDict(TypedDict):
+        failover_config: pulumi.Input['EventEndpointRoutingConfigFailoverConfigArgsDict']
+        """
+        Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+        """
+elif False:
+    EventEndpointRoutingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventEndpointRoutingConfigArgs:
     def __init__(__self__, *,
@@ -876,6 +1200,19 @@ class EventEndpointRoutingConfigArgs:
     def failover_config(self, value: pulumi.Input['EventEndpointRoutingConfigFailoverConfigArgs']):
         pulumi.set(self, "failover_config", value)
 
+
+if not MYPY:
+    class EventEndpointRoutingConfigFailoverConfigArgsDict(TypedDict):
+        primary: pulumi.Input['EventEndpointRoutingConfigFailoverConfigPrimaryArgsDict']
+        """
+        Parameters used for the primary Region. Documented below.
+        """
+        secondary: pulumi.Input['EventEndpointRoutingConfigFailoverConfigSecondaryArgsDict']
+        """
+        Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+        """
+elif False:
+    EventEndpointRoutingConfigFailoverConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventEndpointRoutingConfigFailoverConfigArgs:
@@ -914,6 +1251,15 @@ class EventEndpointRoutingConfigFailoverConfigArgs:
         pulumi.set(self, "secondary", value)
 
 
+if not MYPY:
+    class EventEndpointRoutingConfigFailoverConfigPrimaryArgsDict(TypedDict):
+        health_check: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the health check used by the endpoint to determine whether failover is triggered.
+        """
+elif False:
+    EventEndpointRoutingConfigFailoverConfigPrimaryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventEndpointRoutingConfigFailoverConfigPrimaryArgs:
     def __init__(__self__, *,
@@ -937,6 +1283,15 @@ class EventEndpointRoutingConfigFailoverConfigPrimaryArgs:
         pulumi.set(self, "health_check", value)
 
 
+if not MYPY:
+    class EventEndpointRoutingConfigFailoverConfigSecondaryArgsDict(TypedDict):
+        route: NotRequired[pulumi.Input[str]]
+        """
+        The name of the secondary Region.
+        """
+elif False:
+    EventEndpointRoutingConfigFailoverConfigSecondaryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventEndpointRoutingConfigFailoverConfigSecondaryArgs:
     def __init__(__self__, *,
@@ -959,6 +1314,23 @@ class EventEndpointRoutingConfigFailoverConfigSecondaryArgs:
     def route(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "route", value)
 
+
+if not MYPY:
+    class EventPermissionConditionArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Key for the condition. Valid values: `aws:PrincipalOrgID`.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of condition. Value values: `StringEquals`.
+        """
+        value: pulumi.Input[str]
+        """
+        Value for the key.
+        """
+elif False:
+    EventPermissionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventPermissionConditionArgs:
@@ -1011,6 +1383,27 @@ class EventPermissionConditionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EventTargetBatchTargetArgsDict(TypedDict):
+        job_definition: pulumi.Input[str]
+        """
+        The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+        """
+        job_name: pulumi.Input[str]
+        """
+        The name to use for this execution of the job, if the target is an AWS Batch job.
+        """
+        array_size: NotRequired[pulumi.Input[int]]
+        """
+        The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+        """
+        job_attempts: NotRequired[pulumi.Input[int]]
+        """
+        The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
+        """
+elif False:
+    EventTargetBatchTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventTargetBatchTargetArgs:
@@ -1081,6 +1474,15 @@ class EventTargetBatchTargetArgs:
         pulumi.set(self, "job_attempts", value)
 
 
+if not MYPY:
+    class EventTargetDeadLetterConfigArgsDict(TypedDict):
+        arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the SQS queue specified as the target for the dead-letter queue.
+        """
+elif False:
+    EventTargetDeadLetterConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventTargetDeadLetterConfigArgs:
     def __init__(__self__, *,
@@ -1103,6 +1505,63 @@ class EventTargetDeadLetterConfigArgs:
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
 
+
+if not MYPY:
+    class EventTargetEcsTargetArgsDict(TypedDict):
+        task_definition_arn: pulumi.Input[str]
+        """
+        The ARN of the task definition to use if the event target is an Amazon ECS cluster.
+        """
+        capacity_provider_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgsDict']]]]
+        """
+        The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+        """
+        enable_ecs_managed_tags: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to enable Amazon ECS managed tags for the task.
+        """
+        enable_execute_command: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+        """
+        group: NotRequired[pulumi.Input[str]]
+        """
+        Specifies an ECS task group for the task. The maximum length is 255 characters.
+        """
+        launch_type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
+        """
+        network_configuration: NotRequired[pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgsDict']]
+        """
+        Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+        """
+        ordered_placement_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetOrderedPlacementStrategyArgsDict']]]]
+        """
+        An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+        """
+        placement_constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgsDict']]]]
+        """
+        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+        """
+        platform_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        """
+        propagate_tags: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of tags to assign to ecs resources.
+        """
+        task_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of tasks to create based on the TaskDefinition. Defaults to `1`.
+        """
+elif False:
+    EventTargetEcsTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventTargetEcsTargetArgs:
@@ -1318,6 +1777,23 @@ class EventTargetEcsTargetArgs:
         pulumi.set(self, "task_count", value)
 
 
+if not MYPY:
+    class EventTargetEcsTargetCapacityProviderStrategyArgsDict(TypedDict):
+        capacity_provider: pulumi.Input[str]
+        """
+        Short name of the capacity provider.
+        """
+        base: NotRequired[pulumi.Input[int]]
+        """
+        The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+        """
+        weight: NotRequired[pulumi.Input[int]]
+        """
+        The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+        """
+elif False:
+    EventTargetEcsTargetCapacityProviderStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventTargetEcsTargetCapacityProviderStrategyArgs:
     def __init__(__self__, *,
@@ -1371,6 +1847,25 @@ class EventTargetEcsTargetCapacityProviderStrategyArgs:
     def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
 
+
+if not MYPY:
+    class EventTargetEcsTargetNetworkConfigurationArgsDict(TypedDict):
+        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The subnets associated with the task or service.
+        """
+        assign_public_ip: NotRequired[pulumi.Input[bool]]
+        """
+        Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+
+        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
+        """
+        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+        """
+elif False:
+    EventTargetEcsTargetNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventTargetEcsTargetNetworkConfigurationArgs:
@@ -1430,6 +1925,19 @@ class EventTargetEcsTargetNetworkConfigurationArgs:
         pulumi.set(self, "security_groups", value)
 
 
+if not MYPY:
+    class EventTargetEcsTargetOrderedPlacementStrategyArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
+        """
+        field: NotRequired[pulumi.Input[str]]
+        """
+        The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+        """
+elif False:
+    EventTargetEcsTargetOrderedPlacementStrategyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventTargetEcsTargetOrderedPlacementStrategyArgs:
     def __init__(__self__, *,
@@ -1468,6 +1976,19 @@ class EventTargetEcsTargetOrderedPlacementStrategyArgs:
         pulumi.set(self, "field", value)
 
 
+if not MYPY:
+    class EventTargetEcsTargetPlacementConstraintArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+        """
+        expression: NotRequired[pulumi.Input[str]]
+        """
+        Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        """
+elif False:
+    EventTargetEcsTargetPlacementConstraintArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventTargetEcsTargetPlacementConstraintArgs:
     def __init__(__self__, *,
@@ -1505,6 +2026,23 @@ class EventTargetEcsTargetPlacementConstraintArgs:
     def expression(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expression", value)
 
+
+if not MYPY:
+    class EventTargetHttpTargetArgsDict(TypedDict):
+        header_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Enables you to specify HTTP headers to add to the request.
+        """
+        path_parameter_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
+        """
+        query_string_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Represents keys/values of query string parameters that are appended to the invoked endpoint.
+        """
+elif False:
+    EventTargetHttpTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventTargetHttpTargetArgs:
@@ -1561,6 +2099,22 @@ class EventTargetHttpTargetArgs:
         pulumi.set(self, "query_string_parameters", value)
 
 
+if not MYPY:
+    class EventTargetInputTransformerArgsDict(TypedDict):
+        input_template: pulumi.Input[str]
+        """
+        Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
+        """
+        input_paths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key value pairs specified in the form of JSONPath (for example, time = $.time)
+        * You can have as many as 100 key-value pairs.
+        * You must use JSON dot notation, not bracket notation.
+        * The keys can't start with "AWS".
+        """
+elif False:
+    EventTargetInputTransformerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventTargetInputTransformerArgs:
     def __init__(__self__, *,
@@ -1605,6 +2159,15 @@ class EventTargetInputTransformerArgs:
         pulumi.set(self, "input_paths", value)
 
 
+if not MYPY:
+    class EventTargetKinesisTargetArgsDict(TypedDict):
+        partition_key_path: NotRequired[pulumi.Input[str]]
+        """
+        The JSON path to be extracted from the event and used as the partition key.
+        """
+elif False:
+    EventTargetKinesisTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventTargetKinesisTargetArgs:
     def __init__(__self__, *,
@@ -1627,6 +2190,35 @@ class EventTargetKinesisTargetArgs:
     def partition_key_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "partition_key_path", value)
 
+
+if not MYPY:
+    class EventTargetRedshiftTargetArgsDict(TypedDict):
+        database: pulumi.Input[str]
+        """
+        The name of the database.
+        """
+        db_user: NotRequired[pulumi.Input[str]]
+        """
+        The database user name.
+        """
+        secrets_manager_arn: NotRequired[pulumi.Input[str]]
+        """
+        The name or ARN of the secret that enables access to the database.
+        """
+        sql: NotRequired[pulumi.Input[str]]
+        """
+        The SQL statement text to run.
+        """
+        statement_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the SQL statement.
+        """
+        with_event: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        """
+elif False:
+    EventTargetRedshiftTargetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventTargetRedshiftTargetArgs:
@@ -1730,6 +2322,19 @@ class EventTargetRedshiftTargetArgs:
         pulumi.set(self, "with_event", value)
 
 
+if not MYPY:
+    class EventTargetRetryPolicyArgsDict(TypedDict):
+        maximum_event_age_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The age in seconds to continue to make retry attempts.
+        """
+        maximum_retry_attempts: NotRequired[pulumi.Input[int]]
+        """
+        maximum number of retry attempts to make before the request fails
+        """
+elif False:
+    EventTargetRetryPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventTargetRetryPolicyArgs:
     def __init__(__self__, *,
@@ -1769,6 +2374,19 @@ class EventTargetRetryPolicyArgs:
         pulumi.set(self, "maximum_retry_attempts", value)
 
 
+if not MYPY:
+    class EventTargetRunCommandTargetArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Can be either `tag:tag-key` or `InstanceIds`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
+        """
+elif False:
+    EventTargetRunCommandTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventTargetRunCommandTargetArgs:
     def __init__(__self__, *,
@@ -1806,6 +2424,15 @@ class EventTargetRunCommandTargetArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class EventTargetSagemakerPipelineTargetArgsDict(TypedDict):
+        pipeline_parameter_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgsDict']]]]
+        """
+        List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        """
+elif False:
+    EventTargetSagemakerPipelineTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventTargetSagemakerPipelineTargetArgs:
     def __init__(__self__, *,
@@ -1828,6 +2455,19 @@ class EventTargetSagemakerPipelineTargetArgs:
     def pipeline_parameter_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgs']]]]):
         pulumi.set(self, "pipeline_parameter_lists", value)
 
+
+if not MYPY:
+    class EventTargetSagemakerPipelineTargetPipelineParameterListArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+        value: pulumi.Input[str]
+        """
+        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        """
+elif False:
+    EventTargetSagemakerPipelineTargetPipelineParameterListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventTargetSagemakerPipelineTargetPipelineParameterListArgs:
@@ -1866,6 +2506,15 @@ class EventTargetSagemakerPipelineTargetPipelineParameterListArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EventTargetSqsTargetArgsDict(TypedDict):
+        message_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The FIFO message group ID to use as the target.
+        """
+elif False:
+    EventTargetSqsTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventTargetSqsTargetArgs:
     def __init__(__self__, *,
@@ -1888,6 +2537,19 @@ class EventTargetSqsTargetArgs:
     def message_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message_group_id", value)
 
+
+if not MYPY:
+    class InternetMonitorHealthEventsConfigArgsDict(TypedDict):
+        availability_score_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The health event threshold percentage set for availability scores.
+        """
+        performance_score_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The health event threshold percentage set for performance scores.
+        """
+elif False:
+    InternetMonitorHealthEventsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InternetMonitorHealthEventsConfigArgs:
@@ -1928,6 +2590,12 @@ class InternetMonitorHealthEventsConfigArgs:
         pulumi.set(self, "performance_score_threshold", value)
 
 
+if not MYPY:
+    class InternetMonitorInternetMeasurementsLogDeliveryArgsDict(TypedDict):
+        s3_config: NotRequired[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict']]
+elif False:
+    InternetMonitorInternetMeasurementsLogDeliveryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InternetMonitorInternetMeasurementsLogDeliveryArgs:
     def __init__(__self__, *,
@@ -1944,6 +2612,14 @@ class InternetMonitorInternetMeasurementsLogDeliveryArgs:
     def s3_config(self, value: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs']]):
         pulumi.set(self, "s3_config", value)
 
+
+if not MYPY:
+    class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        bucket_prefix: NotRequired[pulumi.Input[str]]
+        log_delivery_status: NotRequired[pulumi.Input[str]]
+elif False:
+    InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs:
@@ -1984,6 +2660,35 @@ class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs:
     def log_delivery_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_delivery_status", value)
 
+
+if not MYPY:
+    class LogMetricFilterMetricTransformationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
+        """
+        namespace: pulumi.Input[str]
+        """
+        The destination namespace of the CloudWatch metric.
+        """
+        value: pulumi.Input[str]
+        """
+        What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
+        """
+        default_value: NotRequired[pulumi.Input[str]]
+        """
+        The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
+        """
+        dimensions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        The unit to assign to the metric. If you omit this, the unit is set as `None`.
+        """
+elif False:
+    LogMetricFilterMetricTransformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogMetricFilterMetricTransformationArgs:
@@ -2084,6 +2789,43 @@ class LogMetricFilterMetricTransformationArgs:
     def unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "unit", value)
 
+
+if not MYPY:
+    class MetricAlarmMetricQueryArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
+        """
+        account_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the account where the metrics are located, if this is a cross-account alarm.
+        """
+        expression: NotRequired[pulumi.Input[str]]
+        """
+        The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
+        """
+        metric: NotRequired[pulumi.Input['MetricAlarmMetricQueryMetricArgsDict']]
+        """
+        The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+        """
+        period: NotRequired[pulumi.Input[int]]
+        """
+        Granularity in seconds of returned data points.
+        For metrics with regular resolution, valid values are any multiple of `60`.
+        For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        """
+        return_data: NotRequired[pulumi.Input[bool]]
+        """
+        Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+
+        > **NOTE:**  You must specify either `metric` or `expression`. Not both.
+        """
+elif False:
+    MetricAlarmMetricQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricAlarmMetricQueryArgs:
@@ -2211,6 +2953,40 @@ class MetricAlarmMetricQueryArgs:
         pulumi.set(self, "return_data", value)
 
 
+if not MYPY:
+    class MetricAlarmMetricQueryMetricArgsDict(TypedDict):
+        metric_name: pulumi.Input[str]
+        """
+        The name for this metric.
+        See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+        """
+        period: pulumi.Input[int]
+        """
+        Granularity in seconds of returned data points.
+        For metrics with regular resolution, valid values are any multiple of `60`.
+        For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
+        """
+        stat: pulumi.Input[str]
+        """
+        The statistic to apply to this metric.
+        See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
+        """
+        dimensions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+        """
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+        See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        The unit for this metric.
+        """
+elif False:
+    MetricAlarmMetricQueryMetricArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricAlarmMetricQueryMetricArgs:
     def __init__(__self__, *,
@@ -2321,6 +3097,19 @@ class MetricAlarmMetricQueryMetricArgs:
         pulumi.set(self, "unit", value)
 
 
+if not MYPY:
+    class MetricStreamExcludeFilterArgsDict(TypedDict):
+        namespace: pulumi.Input[str]
+        """
+        Name of the metric namespace in the filter.
+        """
+        metric_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array that defines the metrics you want to exclude for this metric namespace
+        """
+elif False:
+    MetricStreamExcludeFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricStreamExcludeFilterArgs:
     def __init__(__self__, *,
@@ -2358,6 +3147,19 @@ class MetricStreamExcludeFilterArgs:
     def metric_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "metric_names", value)
 
+
+if not MYPY:
+    class MetricStreamIncludeFilterArgsDict(TypedDict):
+        namespace: pulumi.Input[str]
+        """
+        Name of the metric namespace in the filter.
+        """
+        metric_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array that defines the metrics you want to include for this metric namespace
+        """
+elif False:
+    MetricStreamIncludeFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricStreamIncludeFilterArgs:
@@ -2397,6 +3199,13 @@ class MetricStreamIncludeFilterArgs:
         pulumi.set(self, "metric_names", value)
 
 
+if not MYPY:
+    class MetricStreamStatisticsConfigurationArgsDict(TypedDict):
+        additional_statistics: pulumi.Input[Sequence[pulumi.Input[str]]]
+        include_metrics: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgsDict']]]
+elif False:
+    MetricStreamStatisticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricStreamStatisticsConfigurationArgs:
     def __init__(__self__, *,
@@ -2424,6 +3233,13 @@ class MetricStreamStatisticsConfigurationArgs:
         pulumi.set(self, "include_metrics", value)
 
 
+if not MYPY:
+    class MetricStreamStatisticsConfigurationIncludeMetricArgsDict(TypedDict):
+        metric_name: pulumi.Input[str]
+        namespace: pulumi.Input[str]
+elif False:
+    MetricStreamStatisticsConfigurationIncludeMetricArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricStreamStatisticsConfigurationIncludeMetricArgs:
     def __init__(__self__, *,
@@ -2450,6 +3266,23 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
     def namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "namespace", value)
 
+
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentStatementArgsDict(TypedDict):
+        data_identifiers: Sequence[str]
+        """
+        Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
+        """
+        operation: 'GetLogDataProtectionPolicyDocumentStatementOperationArgsDict'
+        """
+        Configures the data protection operation applied by this statement.
+        """
+        sid: NotRequired[str]
+        """
+        Name of this statement.
+        """
+elif False:
+    GetLogDataProtectionPolicyDocumentStatementArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementArgs:
@@ -2504,6 +3337,21 @@ class GetLogDataProtectionPolicyDocumentStatementArgs:
         pulumi.set(self, "sid", value)
 
 
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentStatementOperationArgsDict(TypedDict):
+        audit: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditArgsDict']
+        """
+        Configures the detection of sensitive data.
+        """
+        deidentify: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgsDict']
+        """
+        Configures the masking of sensitive data.
+
+        > Every policy statement must specify exactly one operation.
+        """
+elif False:
+    GetLogDataProtectionPolicyDocumentStatementOperationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationArgs:
     def __init__(__self__, *,
@@ -2547,6 +3395,15 @@ class GetLogDataProtectionPolicyDocumentStatementOperationArgs:
         pulumi.set(self, "deidentify", value)
 
 
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgsDict(TypedDict):
+        findings_destination: 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgsDict'
+        """
+        Configures destinations to send audit findings to.
+        """
+elif False:
+    GetLogDataProtectionPolicyDocumentStatementOperationAuditArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs:
     def __init__(__self__, *,
@@ -2568,6 +3425,23 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs:
     def findings_destination(self, value: 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs'):
         pulumi.set(self, "findings_destination", value)
 
+
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgsDict(TypedDict):
+        cloudwatch_logs: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgsDict']
+        """
+        Configures CloudWatch Logs as a findings destination.
+        """
+        firehose: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgsDict']
+        """
+        Configures Kinesis Firehose as a findings destination.
+        """
+        s3: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3ArgsDict']
+        """
+        Configures S3 as a findings destination.
+        """
+elif False:
+    GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs:
@@ -2624,6 +3498,15 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         pulumi.set(self, "s3", value)
 
 
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgsDict(TypedDict):
+        log_group: str
+        """
+        Name of the CloudWatch Log Group to send findings to.
+        """
+elif False:
+    GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs:
     def __init__(__self__, *,
@@ -2645,6 +3528,15 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
     def log_group(self, value: str):
         pulumi.set(self, "log_group", value)
 
+
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgsDict(TypedDict):
+        delivery_stream: str
+        """
+        Name of the Kinesis Firehose Delivery Stream to send findings to.
+        """
+elif False:
+    GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs:
@@ -2668,6 +3560,15 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         pulumi.set(self, "delivery_stream", value)
 
 
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3ArgsDict(TypedDict):
+        bucket: str
+        """
+        Name of the S3 Bucket to send findings to.
+        """
+elif False:
+    GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args:
     def __init__(__self__, *,
@@ -2690,6 +3591,15 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         pulumi.set(self, "bucket", value)
 
 
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgsDict(TypedDict):
+        mask_config: 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict'
+        """
+        An empty object that configures masking.
+        """
+elif False:
+    GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs:
     def __init__(__self__, *,
@@ -2711,6 +3621,12 @@ class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs:
     def mask_config(self, value: 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs'):
         pulumi.set(self, "mask_config", value)
 
+
+if not MYPY:
+    class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict(TypedDict):
+        pass
+elif False:
+    GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs:

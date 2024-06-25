@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -408,11 +413,11 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_user_id: Optional[pulumi.Input[str]] = None,
                  hierarchy_group_id: Optional[pulumi.Input[str]] = None,
-                 identity_info: Optional[pulumi.Input[pulumi.InputType['UserIdentityInfoArgs']]] = None,
+                 identity_info: Optional[pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 phone_config: Optional[pulumi.Input[pulumi.InputType['UserPhoneConfigArgs']]] = None,
+                 phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
                  routing_profile_id: Optional[pulumi.Input[str]] = None,
                  security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -435,14 +440,14 @@ class User(pulumi.CustomResource):
             password="Password123",
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+            identity_info={
+                "firstName": "example",
+                "lastName": "example2",
+            },
+            phone_config={
+                "afterContactWorkTimeLimit": 0,
+                "phoneType": "SOFT_PHONE",
+            })
         ```
 
         ### With hierarchy_group_id
@@ -458,14 +463,14 @@ class User(pulumi.CustomResource):
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             hierarchy_group_id=example_aws_connect_user_hierarchy_group["hierarchyGroupId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+            identity_info={
+                "firstName": "example",
+                "lastName": "example2",
+            },
+            phone_config={
+                "afterContactWorkTimeLimit": 0,
+                "phoneType": "SOFT_PHONE",
+            })
         ```
 
         ### With identity_info filled
@@ -480,15 +485,15 @@ class User(pulumi.CustomResource):
             password="Password123",
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                email="example@example.com",
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+            identity_info={
+                "email": "example@example.com",
+                "firstName": "example",
+                "lastName": "example2",
+            },
+            phone_config={
+                "afterContactWorkTimeLimit": 0,
+                "phoneType": "SOFT_PHONE",
+            })
         ```
 
         ### With phone_config phone type as desk phone
@@ -503,10 +508,10 @@ class User(pulumi.CustomResource):
             password="Password123",
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+            phone_config={
+                "afterContactWorkTimeLimit": 0,
+                "phoneType": "SOFT_PHONE",
+            })
         ```
 
         ### With multiple Security profile ids specified in security_profile_ids
@@ -524,12 +529,12 @@ class User(pulumi.CustomResource):
                 example_aws_connect_security_profile["securityProfileId"],
                 example2["securityProfileId"],
             ],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                auto_accept=False,
-                desk_phone_number="+112345678912",
-                phone_type="DESK_PHONE",
-            ))
+            phone_config={
+                "afterContactWorkTimeLimit": 0,
+                "autoAccept": False,
+                "deskPhoneNumber": "+112345678912",
+                "phoneType": "DESK_PHONE",
+            })
         ```
 
         ## Import
@@ -544,11 +549,11 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] directory_user_id: The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         :param pulumi.Input[str] hierarchy_group_id: The identifier of the hierarchy group for the user.
-        :param pulumi.Input[pulumi.InputType['UserIdentityInfoArgs']] identity_info: A block that contains information about the identity of the user. Documented below.
+        :param pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']] identity_info: A block that contains information about the identity of the user. Documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
         :param pulumi.Input[str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        :param pulumi.Input[pulumi.InputType['UserPhoneConfigArgs']] phone_config: A block that contains information about the phone settings for the user. Documented below.
+        :param pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']] phone_config: A block that contains information about the phone settings for the user. Documented below.
         :param pulumi.Input[str] routing_profile_id: The identifier of the routing profile for the user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the user. If configured with a provider
@@ -578,14 +583,14 @@ class User(pulumi.CustomResource):
             password="Password123",
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+            identity_info={
+                "firstName": "example",
+                "lastName": "example2",
+            },
+            phone_config={
+                "afterContactWorkTimeLimit": 0,
+                "phoneType": "SOFT_PHONE",
+            })
         ```
 
         ### With hierarchy_group_id
@@ -601,14 +606,14 @@ class User(pulumi.CustomResource):
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             hierarchy_group_id=example_aws_connect_user_hierarchy_group["hierarchyGroupId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+            identity_info={
+                "firstName": "example",
+                "lastName": "example2",
+            },
+            phone_config={
+                "afterContactWorkTimeLimit": 0,
+                "phoneType": "SOFT_PHONE",
+            })
         ```
 
         ### With identity_info filled
@@ -623,15 +628,15 @@ class User(pulumi.CustomResource):
             password="Password123",
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                email="example@example.com",
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+            identity_info={
+                "email": "example@example.com",
+                "firstName": "example",
+                "lastName": "example2",
+            },
+            phone_config={
+                "afterContactWorkTimeLimit": 0,
+                "phoneType": "SOFT_PHONE",
+            })
         ```
 
         ### With phone_config phone type as desk phone
@@ -646,10 +651,10 @@ class User(pulumi.CustomResource):
             password="Password123",
             routing_profile_id=example_aws_connect_routing_profile["routingProfileId"],
             security_profile_ids=[example_aws_connect_security_profile["securityProfileId"]],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
+            phone_config={
+                "afterContactWorkTimeLimit": 0,
+                "phoneType": "SOFT_PHONE",
+            })
         ```
 
         ### With multiple Security profile ids specified in security_profile_ids
@@ -667,12 +672,12 @@ class User(pulumi.CustomResource):
                 example_aws_connect_security_profile["securityProfileId"],
                 example2["securityProfileId"],
             ],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                auto_accept=False,
-                desk_phone_number="+112345678912",
-                phone_type="DESK_PHONE",
-            ))
+            phone_config={
+                "afterContactWorkTimeLimit": 0,
+                "autoAccept": False,
+                "deskPhoneNumber": "+112345678912",
+                "phoneType": "DESK_PHONE",
+            })
         ```
 
         ## Import
@@ -700,11 +705,11 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_user_id: Optional[pulumi.Input[str]] = None,
                  hierarchy_group_id: Optional[pulumi.Input[str]] = None,
-                 identity_info: Optional[pulumi.Input[pulumi.InputType['UserIdentityInfoArgs']]] = None,
+                 identity_info: Optional[pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 phone_config: Optional[pulumi.Input[pulumi.InputType['UserPhoneConfigArgs']]] = None,
+                 phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
                  routing_profile_id: Optional[pulumi.Input[str]] = None,
                  security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -753,11 +758,11 @@ class User(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             directory_user_id: Optional[pulumi.Input[str]] = None,
             hierarchy_group_id: Optional[pulumi.Input[str]] = None,
-            identity_info: Optional[pulumi.Input[pulumi.InputType['UserIdentityInfoArgs']]] = None,
+            identity_info: Optional[pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']]] = None,
             instance_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
-            phone_config: Optional[pulumi.Input[pulumi.InputType['UserPhoneConfigArgs']]] = None,
+            phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
             routing_profile_id: Optional[pulumi.Input[str]] = None,
             security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -773,11 +778,11 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the user.
         :param pulumi.Input[str] directory_user_id: The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         :param pulumi.Input[str] hierarchy_group_id: The identifier of the hierarchy group for the user.
-        :param pulumi.Input[pulumi.InputType['UserIdentityInfoArgs']] identity_info: A block that contains information about the identity of the user. Documented below.
+        :param pulumi.Input[Union['UserIdentityInfoArgs', 'UserIdentityInfoArgsDict']] identity_info: A block that contains information about the identity of the user. Documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
         :param pulumi.Input[str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        :param pulumi.Input[pulumi.InputType['UserPhoneConfigArgs']] phone_config: A block that contains information about the phone settings for the user. Documented below.
+        :param pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']] phone_config: A block that contains information about the phone settings for the user. Documented below.
         :param pulumi.Input[str] routing_profile_id: The identifier of the routing profile for the user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the user. If configured with a provider

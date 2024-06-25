@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -195,7 +200,7 @@ class Host(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  provider_endpoint: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
-                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['HostVpcConfigurationArgs']]] = None,
+                 vpc_configuration: Optional[pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Provides a CodeStar Host.
@@ -227,7 +232,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the host to be created. The name must be unique in the calling AWS account.
         :param pulumi.Input[str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured.
-        :param pulumi.Input[pulumi.InputType['HostVpcConfigurationArgs']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+        :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         ...
     @overload
@@ -278,7 +283,7 @@ class Host(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  provider_endpoint: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
-                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['HostVpcConfigurationArgs']]] = None,
+                 vpc_configuration: Optional[pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -313,7 +318,7 @@ class Host(pulumi.CustomResource):
             provider_endpoint: Optional[pulumi.Input[str]] = None,
             provider_type: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
-            vpc_configuration: Optional[pulumi.Input[pulumi.InputType['HostVpcConfigurationArgs']]] = None) -> 'Host':
+            vpc_configuration: Optional[pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']]] = None) -> 'Host':
         """
         Get an existing Host resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -326,7 +331,7 @@ class Host(pulumi.CustomResource):
         :param pulumi.Input[str] provider_endpoint: The endpoint of the infrastructure to be represented by the host after it is created.
         :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured.
         :param pulumi.Input[str] status: The CodeStar Host status. Possible values are `PENDING`, `AVAILABLE`, `VPC_CONFIG_DELETING`, `VPC_CONFIG_INITIALIZING`, and `VPC_CONFIG_FAILED_INITIALIZATION`.
-        :param pulumi.Input[pulumi.InputType['HostVpcConfigurationArgs']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
+        :param pulumi.Input[Union['HostVpcConfigurationArgs', 'HostVpcConfigurationArgsDict']] vpc_configuration: The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

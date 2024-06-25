@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -160,7 +165,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]] = None,
+                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict']]]]] = None,
                  auto_enable: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -181,15 +186,15 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
             detector_id=example.id,
             name="EKS_RUNTIME_MONITORING",
             auto_enable="ALL",
-            additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
-                name="EKS_ADDON_MANAGEMENT",
-                auto_enable="NEW",
-            )])
+            additional_configurations=[{
+                "name": "EKS_ADDON_MANAGEMENT",
+                "autoEnable": "NEW",
+            }])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict']]]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         :param pulumi.Input[str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
@@ -216,10 +221,10 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
             detector_id=example.id,
             name="EKS_RUNTIME_MONITORING",
             auto_enable="ALL",
-            additional_configurations=[aws.guardduty.OrganizationConfigurationFeatureAdditionalConfigurationArgs(
-                name="EKS_ADDON_MANAGEMENT",
-                auto_enable="NEW",
-            )])
+            additional_configurations=[{
+                "name": "EKS_ADDON_MANAGEMENT",
+                "autoEnable": "NEW",
+            }])
         ```
 
         :param str resource_name: The name of the resource.
@@ -237,7 +242,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]] = None,
+                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict']]]]] = None,
                  auto_enable: Optional[pulumi.Input[str]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -268,7 +273,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]]] = None,
+            additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict']]]]] = None,
             auto_enable: Optional[pulumi.Input[str]] = None,
             detector_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'OrganizationConfigurationFeature':
@@ -279,7 +284,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict']]]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         :param pulumi.Input[str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.

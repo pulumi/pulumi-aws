@@ -4,24 +4,70 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DocumentClassifierInputDataConfigArgs',
+    'DocumentClassifierInputDataConfigArgsDict',
     'DocumentClassifierInputDataConfigAugmentedManifestArgs',
+    'DocumentClassifierInputDataConfigAugmentedManifestArgsDict',
     'DocumentClassifierOutputDataConfigArgs',
+    'DocumentClassifierOutputDataConfigArgsDict',
     'DocumentClassifierVpcConfigArgs',
+    'DocumentClassifierVpcConfigArgsDict',
     'EntityRecognizerInputDataConfigArgs',
+    'EntityRecognizerInputDataConfigArgsDict',
     'EntityRecognizerInputDataConfigAnnotationsArgs',
+    'EntityRecognizerInputDataConfigAnnotationsArgsDict',
     'EntityRecognizerInputDataConfigAugmentedManifestArgs',
+    'EntityRecognizerInputDataConfigAugmentedManifestArgsDict',
     'EntityRecognizerInputDataConfigDocumentsArgs',
+    'EntityRecognizerInputDataConfigDocumentsArgsDict',
     'EntityRecognizerInputDataConfigEntityListArgs',
+    'EntityRecognizerInputDataConfigEntityListArgsDict',
     'EntityRecognizerInputDataConfigEntityTypeArgs',
+    'EntityRecognizerInputDataConfigEntityTypeArgsDict',
     'EntityRecognizerVpcConfigArgs',
+    'EntityRecognizerVpcConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DocumentClassifierInputDataConfigArgsDict(TypedDict):
+        augmented_manifests: NotRequired[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgsDict']]]]
+        """
+        List of training datasets produced by Amazon SageMaker Ground Truth.
+        Used if `data_format` is `AUGMENTED_MANIFEST`.
+        See the `augmented_manifests` Configuration Block section below.
+        """
+        data_format: NotRequired[pulumi.Input[str]]
+        """
+        The format for the training data.
+        One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+        """
+        label_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        Delimiter between labels when training a multi-label classifier.
+        Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+        Default is `|`.
+        """
+        s3_uri: NotRequired[pulumi.Input[str]]
+        """
+        Location of training documents.
+        Used if `data_format` is `COMPREHEND_CSV`.
+        """
+        test_s3_uri: NotRequired[pulumi.Input[str]]
+elif False:
+    DocumentClassifierInputDataConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DocumentClassifierInputDataConfigArgs:
@@ -117,6 +163,37 @@ class DocumentClassifierInputDataConfigArgs:
     def test_s3_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "test_s3_uri", value)
 
+
+if not MYPY:
+    class DocumentClassifierInputDataConfigAugmentedManifestArgsDict(TypedDict):
+        attribute_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The JSON attribute that contains the annotations for the training documents.
+        """
+        s3_uri: pulumi.Input[str]
+        """
+        Location of augmented manifest file.
+        """
+        annotation_data_s3_uri: NotRequired[pulumi.Input[str]]
+        """
+        Location of annotation files.
+        """
+        document_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of augmented manifest.
+        One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
+        """
+        source_documents_s3_uri: NotRequired[pulumi.Input[str]]
+        """
+        Location of source PDF files.
+        """
+        split: NotRequired[pulumi.Input[str]]
+        """
+        Purpose of data in augmented manifest.
+        One of `TRAIN` or `TEST`.
+        """
+elif False:
+    DocumentClassifierInputDataConfigAugmentedManifestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DocumentClassifierInputDataConfigAugmentedManifestArgs:
@@ -223,6 +300,25 @@ class DocumentClassifierInputDataConfigAugmentedManifestArgs:
         pulumi.set(self, "split", value)
 
 
+if not MYPY:
+    class DocumentClassifierOutputDataConfigArgsDict(TypedDict):
+        s3_uri: pulumi.Input[str]
+        """
+        Destination path for the output documents.
+        The full path to the output file will be returned in `output_s3_uri`.
+        """
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        KMS Key used to encrypt the output documents.
+        Can be a KMS Key ID, a KMS Key ARN, a KMS Alias name, or a KMS Alias ARN.
+        """
+        output_s3_uri: NotRequired[pulumi.Input[str]]
+        """
+        Full path for the output documents.
+        """
+elif False:
+    DocumentClassifierOutputDataConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DocumentClassifierOutputDataConfigArgs:
     def __init__(__self__, *,
@@ -281,6 +377,19 @@ class DocumentClassifierOutputDataConfigArgs:
         pulumi.set(self, "output_s3_uri", value)
 
 
+if not MYPY:
+    class DocumentClassifierVpcConfigArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of security group IDs.
+        """
+        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of VPC subnets.
+        """
+elif False:
+    DocumentClassifierVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DocumentClassifierVpcConfigArgs:
     def __init__(__self__, *,
@@ -317,6 +426,46 @@ class DocumentClassifierVpcConfigArgs:
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
 
+
+if not MYPY:
+    class EntityRecognizerInputDataConfigArgsDict(TypedDict):
+        entity_types: pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigEntityTypeArgsDict']]]
+        """
+        Set of entity types to be recognized.
+        Has a maximum of 25 items.
+        See the `entity_types` Configuration Block section below.
+        """
+        annotations: NotRequired[pulumi.Input['EntityRecognizerInputDataConfigAnnotationsArgsDict']]
+        """
+        Specifies location of the document annotation data.
+        See the `annotations` Configuration Block section below.
+        One of `annotations` or `entity_list` is required.
+        """
+        augmented_manifests: NotRequired[pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgsDict']]]]
+        """
+        List of training datasets produced by Amazon SageMaker Ground Truth.
+        Used if `data_format` is `AUGMENTED_MANIFEST`.
+        See the `augmented_manifests` Configuration Block section below.
+        """
+        data_format: NotRequired[pulumi.Input[str]]
+        """
+        The format for the training data.
+        One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
+        """
+        documents: NotRequired[pulumi.Input['EntityRecognizerInputDataConfigDocumentsArgsDict']]
+        """
+        Specifies a collection of training documents.
+        Used if `data_format` is `COMPREHEND_CSV`.
+        See the `documents` Configuration Block section below.
+        """
+        entity_list: NotRequired[pulumi.Input['EntityRecognizerInputDataConfigEntityListArgsDict']]
+        """
+        Specifies location of the entity list data.
+        See the `entity_list` Configuration Block section below.
+        One of `entity_list` or `annotations` is required.
+        """
+elif False:
+    EntityRecognizerInputDataConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntityRecognizerInputDataConfigArgs:
@@ -442,6 +591,16 @@ class EntityRecognizerInputDataConfigArgs:
         pulumi.set(self, "entity_list", value)
 
 
+if not MYPY:
+    class EntityRecognizerInputDataConfigAnnotationsArgsDict(TypedDict):
+        s3_uri: pulumi.Input[str]
+        """
+        Location of training annotations.
+        """
+        test_s3_uri: NotRequired[pulumi.Input[str]]
+elif False:
+    EntityRecognizerInputDataConfigAnnotationsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EntityRecognizerInputDataConfigAnnotationsArgs:
     def __init__(__self__, *,
@@ -475,6 +634,37 @@ class EntityRecognizerInputDataConfigAnnotationsArgs:
     def test_s3_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "test_s3_uri", value)
 
+
+if not MYPY:
+    class EntityRecognizerInputDataConfigAugmentedManifestArgsDict(TypedDict):
+        attribute_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The JSON attribute that contains the annotations for the training documents.
+        """
+        s3_uri: pulumi.Input[str]
+        """
+        Location of augmented manifest file.
+        """
+        annotation_data_s3_uri: NotRequired[pulumi.Input[str]]
+        """
+        Location of annotation files.
+        """
+        document_type: NotRequired[pulumi.Input[str]]
+        """
+        Type of augmented manifest.
+        One of `PLAIN_TEXT_DOCUMENT` or `SEMI_STRUCTURED_DOCUMENT`.
+        """
+        source_documents_s3_uri: NotRequired[pulumi.Input[str]]
+        """
+        Location of source PDF files.
+        """
+        split: NotRequired[pulumi.Input[str]]
+        """
+        Purpose of data in augmented manifest.
+        One of `TRAIN` or `TEST`.
+        """
+elif False:
+    EntityRecognizerInputDataConfigAugmentedManifestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntityRecognizerInputDataConfigAugmentedManifestArgs:
@@ -581,6 +771,21 @@ class EntityRecognizerInputDataConfigAugmentedManifestArgs:
         pulumi.set(self, "split", value)
 
 
+if not MYPY:
+    class EntityRecognizerInputDataConfigDocumentsArgsDict(TypedDict):
+        s3_uri: pulumi.Input[str]
+        """
+        Location of training documents.
+        """
+        input_format: NotRequired[pulumi.Input[str]]
+        """
+        Specifies how the input files should be processed.
+        One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
+        """
+        test_s3_uri: NotRequired[pulumi.Input[str]]
+elif False:
+    EntityRecognizerInputDataConfigDocumentsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EntityRecognizerInputDataConfigDocumentsArgs:
     def __init__(__self__, *,
@@ -633,6 +838,15 @@ class EntityRecognizerInputDataConfigDocumentsArgs:
         pulumi.set(self, "test_s3_uri", value)
 
 
+if not MYPY:
+    class EntityRecognizerInputDataConfigEntityListArgsDict(TypedDict):
+        s3_uri: pulumi.Input[str]
+        """
+        Location of entity list.
+        """
+elif False:
+    EntityRecognizerInputDataConfigEntityListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EntityRecognizerInputDataConfigEntityListArgs:
     def __init__(__self__, *,
@@ -654,6 +868,16 @@ class EntityRecognizerInputDataConfigEntityListArgs:
     def s3_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_uri", value)
 
+
+if not MYPY:
+    class EntityRecognizerInputDataConfigEntityTypeArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        An entity type to be matched by the Entity Recognizer.
+        Cannot contain a newline (`\\n`), carriage return (`\\r`), or tab (`\\t`).
+        """
+elif False:
+    EntityRecognizerInputDataConfigEntityTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntityRecognizerInputDataConfigEntityTypeArgs:
@@ -678,6 +902,19 @@ class EntityRecognizerInputDataConfigEntityTypeArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class EntityRecognizerVpcConfigArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of security group IDs.
+        """
+        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of VPC subnets.
+        """
+elif False:
+    EntityRecognizerVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EntityRecognizerVpcConfigArgs:

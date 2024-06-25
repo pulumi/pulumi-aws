@@ -4,20 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'FileSystemAssociationCacheAttributesArgs',
+    'FileSystemAssociationCacheAttributesArgsDict',
     'GatewayGatewayNetworkInterfaceArgs',
+    'GatewayGatewayNetworkInterfaceArgsDict',
     'GatewayMaintenanceStartTimeArgs',
+    'GatewayMaintenanceStartTimeArgsDict',
     'GatewaySmbActiveDirectorySettingsArgs',
+    'GatewaySmbActiveDirectorySettingsArgsDict',
     'NfsFileShareCacheAttributesArgs',
+    'NfsFileShareCacheAttributesArgsDict',
     'NfsFileShareNfsFileShareDefaultsArgs',
+    'NfsFileShareNfsFileShareDefaultsArgsDict',
     'SmbFileShareCacheAttributesArgs',
+    'SmbFileShareCacheAttributesArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FileSystemAssociationCacheAttributesArgsDict(TypedDict):
+        cache_stale_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Refreshes a file share's cache by using Time To Live (TTL).
+        TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+        to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
+        """
+elif False:
+    FileSystemAssociationCacheAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FileSystemAssociationCacheAttributesArgs:
@@ -46,6 +71,15 @@ class FileSystemAssociationCacheAttributesArgs:
         pulumi.set(self, "cache_stale_timeout_in_seconds", value)
 
 
+if not MYPY:
+    class GatewayGatewayNetworkInterfaceArgsDict(TypedDict):
+        ipv4_address: NotRequired[pulumi.Input[str]]
+        """
+        The Internet Protocol version 4 (IPv4) address of the interface.
+        """
+elif False:
+    GatewayGatewayNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GatewayGatewayNetworkInterfaceArgs:
     def __init__(__self__, *,
@@ -68,6 +102,27 @@ class GatewayGatewayNetworkInterfaceArgs:
     def ipv4_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv4_address", value)
 
+
+if not MYPY:
+    class GatewayMaintenanceStartTimeArgsDict(TypedDict):
+        hour_of_day: pulumi.Input[int]
+        """
+        The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+        """
+        day_of_month: NotRequired[pulumi.Input[str]]
+        """
+        The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+        """
+        day_of_week: NotRequired[pulumi.Input[str]]
+        """
+        The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+        """
+        minute_of_hour: NotRequired[pulumi.Input[int]]
+        """
+        The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+        """
+elif False:
+    GatewayMaintenanceStartTimeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewayMaintenanceStartTimeArgs:
@@ -138,6 +193,38 @@ class GatewayMaintenanceStartTimeArgs:
     def minute_of_hour(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "minute_of_hour", value)
 
+
+if not MYPY:
+    class GatewaySmbActiveDirectorySettingsArgsDict(TypedDict):
+        domain_name: pulumi.Input[str]
+        """
+        The name of the domain that you want the gateway to join.
+        """
+        password: pulumi.Input[str]
+        """
+        The password of the user who has permission to add the gateway to the Active Directory domain.
+        """
+        username: pulumi.Input[str]
+        """
+        The user name of user who has permission to add the gateway to the Active Directory domain.
+        """
+        active_directory_status: NotRequired[pulumi.Input[str]]
+        domain_controllers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of IPv4 addresses, NetBIOS names, or host names of your domain server.
+        If you need to specify the port number include it after the colon (“:”). For example, `mydc.mydomain.com:389`.
+        """
+        organizational_unit: NotRequired[pulumi.Input[str]]
+        """
+        The organizational unit (OU) is a container in an Active Directory that can hold users, groups,
+        computers, and other OUs and this parameter specifies the OU that the gateway will join within the AD domain.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the time in seconds, in which the JoinDomain operation must complete. The default is `20` seconds.
+        """
+elif False:
+    GatewaySmbActiveDirectorySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GatewaySmbActiveDirectorySettingsArgs:
@@ -255,6 +342,17 @@ class GatewaySmbActiveDirectorySettingsArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
+if not MYPY:
+    class NfsFileShareCacheAttributesArgsDict(TypedDict):
+        cache_stale_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Refreshes a file share's cache by using Time To Live (TTL).
+        TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+        to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+        """
+elif False:
+    NfsFileShareCacheAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NfsFileShareCacheAttributesArgs:
     def __init__(__self__, *,
@@ -281,6 +379,27 @@ class NfsFileShareCacheAttributesArgs:
     def cache_stale_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cache_stale_timeout_in_seconds", value)
 
+
+if not MYPY:
+    class NfsFileShareNfsFileShareDefaultsArgsDict(TypedDict):
+        directory_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Unix directory mode in the string form "nnnn". Defaults to `"0777"`.
+        """
+        file_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Unix file mode in the string form "nnnn". Defaults to `"0666"`.
+        """
+        group_id: NotRequired[pulumi.Input[str]]
+        """
+        The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+        """
+        owner_id: NotRequired[pulumi.Input[str]]
+        """
+        The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
+        """
+elif False:
+    NfsFileShareNfsFileShareDefaultsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NfsFileShareNfsFileShareDefaultsArgs:
@@ -352,6 +471,17 @@ class NfsFileShareNfsFileShareDefaultsArgs:
     def owner_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "owner_id", value)
 
+
+if not MYPY:
+    class SmbFileShareCacheAttributesArgsDict(TypedDict):
+        cache_stale_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Refreshes a file share's cache by using Time To Live (TTL).
+        TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+        to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
+        """
+elif False:
+    SmbFileShareCacheAttributesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SmbFileShareCacheAttributesArgs:

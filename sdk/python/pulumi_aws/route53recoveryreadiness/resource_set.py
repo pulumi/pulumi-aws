@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -207,7 +212,7 @@ class ResourceSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
                  resource_set_type: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -222,9 +227,9 @@ class ResourceSet(pulumi.CustomResource):
         example = aws.route53recoveryreadiness.ResourceSet("example",
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
-            resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=example_aws_cloudwatch_metric_alarm["arn"],
-            )])
+            resources=[{
+                "resourceArn": example_aws_cloudwatch_metric_alarm["arn"],
+            }])
         ```
 
         ## Import
@@ -239,7 +244,7 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]] resources: List of resources to add to this resource set. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict']]]] resources: List of resources to add to this resource set. See below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -262,9 +267,9 @@ class ResourceSet(pulumi.CustomResource):
         example = aws.route53recoveryreadiness.ResourceSet("example",
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
-            resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
-                resource_arn=example_aws_cloudwatch_metric_alarm["arn"],
-            )])
+            resources=[{
+                "resourceArn": example_aws_cloudwatch_metric_alarm["arn"],
+            }])
         ```
 
         ## Import
@@ -292,7 +297,7 @@ class ResourceSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
                  resource_set_type: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -328,7 +333,7 @@ class ResourceSet(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             resource_set_name: Optional[pulumi.Input[str]] = None,
             resource_set_type: Optional[pulumi.Input[str]] = None,
-            resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]]] = None,
+            resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ResourceSet':
         """
@@ -342,7 +347,7 @@ class ResourceSet(pulumi.CustomResource):
                * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]] resources: List of resources to add to this resource set. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceArgs', 'ResourceSetResourceArgsDict']]]] resources: List of resources to add to this resource set. See below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -181,7 +186,7 @@ class Project(pulumi.CustomResource):
                  auto_update: Optional[pulumi.Input[str]] = None,
                  feature: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ProjectTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Rekognition Project.
@@ -261,7 +266,7 @@ class Project(pulumi.CustomResource):
                  auto_update: Optional[pulumi.Input[str]] = None,
                  feature: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ProjectTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -290,7 +295,7 @@ class Project(pulumi.CustomResource):
             auto_update: Optional[pulumi.Input[str]] = None,
             feature: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ProjectTimeoutsArgs']]] = None) -> 'Project':
+            timeouts: Optional[pulumi.Input[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None) -> 'Project':
         """
         Get an existing Project resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

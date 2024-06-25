@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -251,8 +256,8 @@ class AwaitableGetUserResult(GetUserResult):
             user_type=self.user_type)
 
 
-def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateIdentifierArgs']] = None,
-             filter: Optional[pulumi.InputType['GetUserFilterArgs']] = None,
+def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']] = None,
+             filter: Optional[Union['GetUserFilterArgs', 'GetUserFilterArgsDict']] = None,
              identity_store_id: Optional[str] = None,
              user_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
@@ -267,18 +272,18 @@ def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateId
 
     example = aws.ssoadmin.get_instances()
     example_get_user = aws.identitystore.get_user(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier=aws.identitystore.GetUserAlternateIdentifierArgs(
-            unique_attribute=aws.identitystore.GetUserAlternateIdentifierUniqueAttributeArgs(
-                attribute_path="UserName",
-                attribute_value="ExampleUser",
-            ),
-        ))
+        alternate_identifier={
+            "uniqueAttribute": {
+                "attributePath": "UserName",
+                "attributeValue": "ExampleUser",
+            },
+        })
     pulumi.export("userId", example_get_user.user_id)
     ```
 
 
-    :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param pulumi.InputType['GetUserFilterArgs'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
+    :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+    :param Union['GetUserFilterArgs', 'GetUserFilterArgsDict'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
@@ -317,8 +322,8 @@ def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateId
 
 
 @_utilities.lift_output_func(get_user)
-def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi.InputType['GetUserAlternateIdentifierArgs']]]] = None,
-                    filter: Optional[pulumi.Input[Optional[pulumi.InputType['GetUserFilterArgs']]]] = None,
+def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']]]] = None,
+                    filter: Optional[pulumi.Input[Optional[Union['GetUserFilterArgs', 'GetUserFilterArgsDict']]]] = None,
                     identity_store_id: Optional[pulumi.Input[str]] = None,
                     user_id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
@@ -333,18 +338,18 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi.
 
     example = aws.ssoadmin.get_instances()
     example_get_user = aws.identitystore.get_user(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier=aws.identitystore.GetUserAlternateIdentifierArgs(
-            unique_attribute=aws.identitystore.GetUserAlternateIdentifierUniqueAttributeArgs(
-                attribute_path="UserName",
-                attribute_value="ExampleUser",
-            ),
-        ))
+        alternate_identifier={
+            "uniqueAttribute": {
+                "attributePath": "UserName",
+                "attributeValue": "ExampleUser",
+            },
+        })
     pulumi.export("userId", example_get_user.user_id)
     ```
 
 
-    :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param pulumi.InputType['GetUserFilterArgs'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
+    :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
+    :param Union['GetUserFilterArgs', 'GetUserFilterArgsDict'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
     :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:

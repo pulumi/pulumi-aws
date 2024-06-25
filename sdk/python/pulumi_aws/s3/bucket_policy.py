@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['BucketPolicyArgs', 'BucketPolicy']
@@ -111,20 +116,20 @@ class BucketPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketV2("example", bucket="my-tf-test-bucket")
-        allow_access_from_another_account = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
+        allow_access_from_another_account = aws.iam.get_policy_document_output(statements=[{
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["123456789012"],
+            }],
+            "actions": [
                 "s3:GetObject",
                 "s3:ListBucket",
             ],
-            resources=[
+            "resources": [
                 example.arn,
                 example.arn.apply(lambda arn: f"{arn}/*"),
             ],
-        )])
+        }])
         allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allow_access_from_another_account",
             bucket=example.id,
             policy=allow_access_from_another_account.json)
@@ -163,20 +168,20 @@ class BucketPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketV2("example", bucket="my-tf-test-bucket")
-        allow_access_from_another_account = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
+        allow_access_from_another_account = aws.iam.get_policy_document_output(statements=[{
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["123456789012"],
+            }],
+            "actions": [
                 "s3:GetObject",
                 "s3:ListBucket",
             ],
-            resources=[
+            "resources": [
                 example.arn,
                 example.arn.apply(lambda arn: f"{arn}/*"),
             ],
-        )])
+        }])
         allow_access_from_another_account_bucket_policy = aws.s3.BucketPolicy("allow_access_from_another_account",
             bucket=example.id,
             policy=allow_access_from_another_account.json)

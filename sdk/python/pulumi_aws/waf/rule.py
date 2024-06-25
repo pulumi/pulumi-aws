@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -199,7 +204,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -213,18 +218,18 @@ class Rule(pulumi.CustomResource):
 
         ipset = aws.waf.IpSet("ipset",
             name="tfIPSet",
-            ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-                type="IPV4",
-                value="192.0.7.0/24",
-            )])
+            ip_set_descriptors=[{
+                "type": "IPV4",
+                "value": "192.0.7.0/24",
+            }])
         wafrule = aws.waf.Rule("wafrule",
             name="tfWAFRule",
             metric_name="tfWAFRule",
-            predicates=[aws.waf.RulePredicateArgs(
-                data_id=ipset.id,
-                negated=False,
-                type="IPMatch",
-            )],
+            predicates=[{
+                "dataId": ipset.id,
+                "negated": False,
+                "type": "IPMatch",
+            }],
             opts = pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 
@@ -240,7 +245,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -260,18 +265,18 @@ class Rule(pulumi.CustomResource):
 
         ipset = aws.waf.IpSet("ipset",
             name="tfIPSet",
-            ip_set_descriptors=[aws.waf.IpSetIpSetDescriptorArgs(
-                type="IPV4",
-                value="192.0.7.0/24",
-            )])
+            ip_set_descriptors=[{
+                "type": "IPV4",
+                "value": "192.0.7.0/24",
+            }])
         wafrule = aws.waf.Rule("wafrule",
             name="tfWAFRule",
             metric_name="tfWAFRule",
-            predicates=[aws.waf.RulePredicateArgs(
-                data_id=ipset.id,
-                negated=False,
-                type="IPMatch",
-            )],
+            predicates=[{
+                "dataId": ipset.id,
+                "negated": False,
+                "type": "IPMatch",
+            }],
             opts = pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 
@@ -300,7 +305,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -332,7 +337,7 @@ class Rule(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             metric_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]]] = None,
+            predicates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Rule':
         """
@@ -345,7 +350,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the WAF rule.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RulePredicateArgs', 'RulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

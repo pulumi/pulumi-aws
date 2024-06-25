@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['RepositoryPolicyArgs', 'RepositoryPolicy']
@@ -127,14 +132,14 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_repository = aws.ecrpublic.Repository("example", repository_name="example")
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="new policy",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
+        example = aws.iam.get_policy_document(statements=[{
+            "sid": "new policy",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["123456789012"],
+            }],
+            "actions": [
                 "ecr:GetDownloadUrlForLayer",
                 "ecr:BatchGetImage",
                 "ecr:BatchCheckLayerAvailability",
@@ -150,7 +155,7 @@ class RepositoryPolicy(pulumi.CustomResource):
                 "ecr:SetRepositoryPolicy",
                 "ecr:DeleteRepositoryPolicy",
             ],
-        )])
+        }])
         example_repository_policy = aws.ecrpublic.RepositoryPolicy("example",
             repository_name=example_repository.repository_name,
             policy=example.json)
@@ -189,14 +194,14 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_repository = aws.ecrpublic.Repository("example", repository_name="example")
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="new policy",
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-            actions=[
+        example = aws.iam.get_policy_document(statements=[{
+            "sid": "new policy",
+            "effect": "Allow",
+            "principals": [{
+                "type": "AWS",
+                "identifiers": ["123456789012"],
+            }],
+            "actions": [
                 "ecr:GetDownloadUrlForLayer",
                 "ecr:BatchGetImage",
                 "ecr:BatchCheckLayerAvailability",
@@ -212,7 +217,7 @@ class RepositoryPolicy(pulumi.CustomResource):
                 "ecr:SetRepositoryPolicy",
                 "ecr:DeleteRepositoryPolicy",
             ],
-        )])
+        }])
         example_repository_policy = aws.ecrpublic.RepositoryPolicy("example",
             repository_name=example_repository.repository_name,
             policy=example.json)

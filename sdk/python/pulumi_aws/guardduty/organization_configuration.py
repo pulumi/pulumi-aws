@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -171,7 +176,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: Optional[pulumi.Input[bool]] = None,
                  auto_enable_organization_members: Optional[pulumi.Input[str]] = None,
-                 datasources: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']]] = None,
+                 datasources: Optional[pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -189,23 +194,23 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_organization_configuration = aws.guardduty.OrganizationConfiguration("example",
             auto_enable_organization_members="ALL",
             detector_id=example.id,
-            datasources=aws.guardduty.OrganizationConfigurationDatasourcesArgs(
-                s3_logs=aws.guardduty.OrganizationConfigurationDatasourcesS3LogsArgs(
-                    auto_enable=True,
-                ),
-                kubernetes=aws.guardduty.OrganizationConfigurationDatasourcesKubernetesArgs(
-                    audit_logs=aws.guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs(
-                        enable=True,
-                    ),
-                ),
-                malware_protection=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionArgs(
-                    scan_ec2_instance_with_findings=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
-                        ebs_volumes=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
-                            auto_enable=True,
-                        ),
-                    ),
-                ),
-            ))
+            datasources={
+                "s3Logs": {
+                    "autoEnable": True,
+                },
+                "kubernetes": {
+                    "auditLogs": {
+                        "enable": True,
+                    },
+                },
+                "malwareProtection": {
+                    "scanEc2InstanceWithFindings": {
+                        "ebsVolumes": {
+                            "autoEnable": True,
+                        },
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -220,7 +225,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_enable: *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         :param pulumi.Input[str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
-        :param pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']] datasources: Configuration for the collected datasources.
+        :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']] datasources: Configuration for the collected datasources.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         """
         ...
@@ -244,23 +249,23 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_organization_configuration = aws.guardduty.OrganizationConfiguration("example",
             auto_enable_organization_members="ALL",
             detector_id=example.id,
-            datasources=aws.guardduty.OrganizationConfigurationDatasourcesArgs(
-                s3_logs=aws.guardduty.OrganizationConfigurationDatasourcesS3LogsArgs(
-                    auto_enable=True,
-                ),
-                kubernetes=aws.guardduty.OrganizationConfigurationDatasourcesKubernetesArgs(
-                    audit_logs=aws.guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs(
-                        enable=True,
-                    ),
-                ),
-                malware_protection=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionArgs(
-                    scan_ec2_instance_with_findings=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
-                        ebs_volumes=aws.guardduty.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
-                            auto_enable=True,
-                        ),
-                    ),
-                ),
-            ))
+            datasources={
+                "s3Logs": {
+                    "autoEnable": True,
+                },
+                "kubernetes": {
+                    "auditLogs": {
+                        "enable": True,
+                    },
+                },
+                "malwareProtection": {
+                    "scanEc2InstanceWithFindings": {
+                        "ebsVolumes": {
+                            "autoEnable": True,
+                        },
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -288,7 +293,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: Optional[pulumi.Input[bool]] = None,
                  auto_enable_organization_members: Optional[pulumi.Input[str]] = None,
-                 datasources: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']]] = None,
+                 datasources: Optional[pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -317,7 +322,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_enable: Optional[pulumi.Input[bool]] = None,
             auto_enable_organization_members: Optional[pulumi.Input[str]] = None,
-            datasources: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']]] = None,
+            datasources: Optional[pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']]] = None,
             detector_id: Optional[pulumi.Input[str]] = None) -> 'OrganizationConfiguration':
         """
         Get an existing OrganizationConfiguration resource's state with the given name, id, and optional extra
@@ -328,7 +333,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_enable: *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         :param pulumi.Input[str] auto_enable_organization_members: Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
-        :param pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']] datasources: Configuration for the collected datasources.
+        :param pulumi.Input[Union['OrganizationConfigurationDatasourcesArgs', 'OrganizationConfigurationDatasourcesArgsDict']] datasources: Configuration for the collected datasources.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

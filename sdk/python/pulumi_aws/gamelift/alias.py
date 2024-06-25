@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -199,7 +204,7 @@ class Alias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_strategy: Optional[pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']]] = None,
+                 routing_strategy: Optional[pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -214,10 +219,10 @@ class Alias(pulumi.CustomResource):
         example = aws.gamelift.Alias("example",
             name="example-alias",
             description="Example Description",
-            routing_strategy=aws.gamelift.AliasRoutingStrategyArgs(
-                message="Example Message",
-                type="TERMINAL",
-            ))
+            routing_strategy={
+                "message": "Example Message",
+                "type": "TERMINAL",
+            })
         ```
 
         ## Import
@@ -232,7 +237,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name of the alias.
-        :param pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
+        :param pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -253,10 +258,10 @@ class Alias(pulumi.CustomResource):
         example = aws.gamelift.Alias("example",
             name="example-alias",
             description="Example Description",
-            routing_strategy=aws.gamelift.AliasRoutingStrategyArgs(
-                message="Example Message",
-                type="TERMINAL",
-            ))
+            routing_strategy={
+                "message": "Example Message",
+                "type": "TERMINAL",
+            })
         ```
 
         ## Import
@@ -284,7 +289,7 @@ class Alias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_strategy: Optional[pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']]] = None,
+                 routing_strategy: Optional[pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -316,7 +321,7 @@ class Alias(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            routing_strategy: Optional[pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']]] = None,
+            routing_strategy: Optional[pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Alias':
         """
@@ -329,7 +334,7 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Alias ARN.
         :param pulumi.Input[str] description: Description of the alias.
         :param pulumi.Input[str] name: Name of the alias.
-        :param pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
+        :param pulumi.Input[Union['AliasRoutingStrategyArgs', 'AliasRoutingStrategyArgsDict']] routing_strategy: Specifies the fleet and/or routing type to use for the alias.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

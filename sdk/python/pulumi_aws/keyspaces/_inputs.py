@@ -4,24 +4,59 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'TableCapacitySpecificationArgs',
+    'TableCapacitySpecificationArgsDict',
     'TableClientSideTimestampsArgs',
+    'TableClientSideTimestampsArgsDict',
     'TableCommentArgs',
+    'TableCommentArgsDict',
     'TableEncryptionSpecificationArgs',
+    'TableEncryptionSpecificationArgsDict',
     'TablePointInTimeRecoveryArgs',
+    'TablePointInTimeRecoveryArgsDict',
     'TableSchemaDefinitionArgs',
+    'TableSchemaDefinitionArgsDict',
     'TableSchemaDefinitionClusteringKeyArgs',
+    'TableSchemaDefinitionClusteringKeyArgsDict',
     'TableSchemaDefinitionColumnArgs',
+    'TableSchemaDefinitionColumnArgsDict',
     'TableSchemaDefinitionPartitionKeyArgs',
+    'TableSchemaDefinitionPartitionKeyArgsDict',
     'TableSchemaDefinitionStaticColumnArgs',
+    'TableSchemaDefinitionStaticColumnArgsDict',
     'TableTtlArgs',
+    'TableTtlArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class TableCapacitySpecificationArgsDict(TypedDict):
+        read_capacity_units: NotRequired[pulumi.Input[int]]
+        """
+        The throughput capacity specified for read operations defined in read capacity units (RCUs).
+        """
+        throughput_mode: NotRequired[pulumi.Input[str]]
+        """
+        The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
+        """
+        write_capacity_units: NotRequired[pulumi.Input[int]]
+        """
+        The throughput capacity specified for write operations defined in write capacity units (WCUs).
+        """
+elif False:
+    TableCapacitySpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableCapacitySpecificationArgs:
@@ -78,6 +113,15 @@ class TableCapacitySpecificationArgs:
         pulumi.set(self, "write_capacity_units", value)
 
 
+if not MYPY:
+    class TableClientSideTimestampsArgsDict(TypedDict):
+        status: pulumi.Input[str]
+        """
+        Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
+        """
+elif False:
+    TableClientSideTimestampsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableClientSideTimestampsArgs:
     def __init__(__self__, *,
@@ -99,6 +143,15 @@ class TableClientSideTimestampsArgs:
     def status(self, value: pulumi.Input[str]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class TableCommentArgsDict(TypedDict):
+        message: NotRequired[pulumi.Input[str]]
+        """
+        A description of the table.
+        """
+elif False:
+    TableCommentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableCommentArgs:
@@ -122,6 +175,19 @@ class TableCommentArgs:
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
 
+
+if not MYPY:
+    class TableEncryptionSpecificationArgsDict(TypedDict):
+        kms_key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the customer managed KMS key.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
+        """
+elif False:
+    TableEncryptionSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableEncryptionSpecificationArgs:
@@ -162,6 +228,15 @@ class TableEncryptionSpecificationArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class TablePointInTimeRecoveryArgsDict(TypedDict):
+        status: NotRequired[pulumi.Input[str]]
+        """
+        Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
+        """
+elif False:
+    TablePointInTimeRecoveryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TablePointInTimeRecoveryArgs:
     def __init__(__self__, *,
@@ -184,6 +259,27 @@ class TablePointInTimeRecoveryArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class TableSchemaDefinitionArgsDict(TypedDict):
+        columns: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgsDict']]]
+        """
+        The regular columns of the table.
+        """
+        partition_keys: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgsDict']]]
+        """
+        The columns that are part of the partition key of the table .
+        """
+        clustering_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgsDict']]]]
+        """
+        The columns that are part of the clustering key of the table.
+        """
+        static_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgsDict']]]]
+        """
+        The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+        """
+elif False:
+    TableSchemaDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableSchemaDefinitionArgs:
@@ -254,6 +350,19 @@ class TableSchemaDefinitionArgs:
         pulumi.set(self, "static_columns", value)
 
 
+if not MYPY:
+    class TableSchemaDefinitionClusteringKeyArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the clustering key column.
+        """
+        order_by: pulumi.Input[str]
+        """
+        The order modifier. Valid values: `ASC`, `DESC`.
+        """
+elif False:
+    TableSchemaDefinitionClusteringKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableSchemaDefinitionClusteringKeyArgs:
     def __init__(__self__, *,
@@ -290,6 +399,19 @@ class TableSchemaDefinitionClusteringKeyArgs:
     def order_by(self, value: pulumi.Input[str]):
         pulumi.set(self, "order_by", value)
 
+
+if not MYPY:
+    class TableSchemaDefinitionColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        type: pulumi.Input[str]
+        """
+        The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
+        """
+elif False:
+    TableSchemaDefinitionColumnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableSchemaDefinitionColumnArgs:
@@ -328,6 +450,15 @@ class TableSchemaDefinitionColumnArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class TableSchemaDefinitionPartitionKeyArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the partition key column.
+        """
+elif False:
+    TableSchemaDefinitionPartitionKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableSchemaDefinitionPartitionKeyArgs:
     def __init__(__self__, *,
@@ -350,6 +481,15 @@ class TableSchemaDefinitionPartitionKeyArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class TableSchemaDefinitionStaticColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the static column.
+        """
+elif False:
+    TableSchemaDefinitionStaticColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableSchemaDefinitionStaticColumnArgs:
     def __init__(__self__, *,
@@ -371,6 +511,15 @@ class TableSchemaDefinitionStaticColumnArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TableTtlArgsDict(TypedDict):
+        status: pulumi.Input[str]
+        """
+        Valid values: `ENABLED`.
+        """
+elif False:
+    TableTtlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableTtlArgs:

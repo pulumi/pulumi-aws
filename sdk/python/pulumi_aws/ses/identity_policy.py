@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['IdentityPolicyArgs', 'IdentityPolicy']
@@ -140,17 +145,17 @@ class IdentityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
-        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
+        example = aws.iam.get_policy_document_output(statements=[{
+            "actions": [
                 "SES:SendEmail",
                 "SES:SendRawEmail",
             ],
-            resources=[example_domain_identity.arn],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
+            "resources": [example_domain_identity.arn],
+            "principals": [{
+                "identifiers": ["*"],
+                "type": "AWS",
+            }],
+        }])
         example_identity_policy = aws.ses.IdentityPolicy("example",
             identity=example_domain_identity.arn,
             name="example",
@@ -187,17 +192,17 @@ class IdentityPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
-        example = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=[
+        example = aws.iam.get_policy_document_output(statements=[{
+            "actions": [
                 "SES:SendEmail",
                 "SES:SendRawEmail",
             ],
-            resources=[example_domain_identity.arn],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
+            "resources": [example_domain_identity.arn],
+            "principals": [{
+                "identifiers": ["*"],
+                "type": "AWS",
+            }],
+        }])
         example_identity_policy = aws.ses.IdentityPolicy("example",
             identity=example_domain_identity.arn,
             name="example",

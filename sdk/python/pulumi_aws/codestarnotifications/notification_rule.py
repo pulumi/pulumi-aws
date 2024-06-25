@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -301,7 +306,7 @@ class NotificationRule(pulumi.CustomResource):
                  resource: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a CodeStar Notifications Rule.
@@ -314,14 +319,14 @@ class NotificationRule(pulumi.CustomResource):
 
         code = aws.codecommit.Repository("code", repository_name="example-code-repo")
         notif = aws.sns.Topic("notif", name="notification")
-        notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sns:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["codestar-notifications.amazonaws.com"],
-            )],
-            resources=[arn],
-        )]))
+        notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+            "actions": ["sns:Publish"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["codestar-notifications.amazonaws.com"],
+            }],
+            "resources": [arn],
+        }]))
         default = aws.sns.TopicPolicy("default",
             arn=notif.arn,
             policy=notif_access.json)
@@ -330,9 +335,9 @@ class NotificationRule(pulumi.CustomResource):
             event_type_ids=["codecommit-repository-comments-on-commits"],
             name="example-code-repo-commits",
             resource=code.arn,
-            targets=[aws.codestarnotifications.NotificationRuleTargetArgs(
-                address=notif.arn,
-            )])
+            targets=[{
+                "address": notif.arn,
+            }])
         ```
 
         ## Import
@@ -352,7 +357,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         ...
     @overload
@@ -371,14 +376,14 @@ class NotificationRule(pulumi.CustomResource):
 
         code = aws.codecommit.Repository("code", repository_name="example-code-repo")
         notif = aws.sns.Topic("notif", name="notification")
-        notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sns:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["codestar-notifications.amazonaws.com"],
-            )],
-            resources=[arn],
-        )]))
+        notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+            "actions": ["sns:Publish"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["codestar-notifications.amazonaws.com"],
+            }],
+            "resources": [arn],
+        }]))
         default = aws.sns.TopicPolicy("default",
             arn=notif.arn,
             policy=notif_access.json)
@@ -387,9 +392,9 @@ class NotificationRule(pulumi.CustomResource):
             event_type_ids=["codecommit-repository-comments-on-commits"],
             name="example-code-repo-commits",
             resource=code.arn,
-            targets=[aws.codestarnotifications.NotificationRuleTargetArgs(
-                address=notif.arn,
-            )])
+            targets=[{
+                "address": notif.arn,
+            }])
         ```
 
         ## Import
@@ -421,7 +426,7 @@ class NotificationRule(pulumi.CustomResource):
                  resource: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -464,7 +469,7 @@ class NotificationRule(pulumi.CustomResource):
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None) -> 'NotificationRule':
+            targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None) -> 'NotificationRule':
         """
         Get an existing NotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -481,7 +486,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

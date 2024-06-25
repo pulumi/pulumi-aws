@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -82,7 +87,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Provides an Elastic Container Registry Replication Configuration.
@@ -95,14 +100,14 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
-            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
-                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                    region=example.names[0],
-                    registry_id=current.account_id,
-                )],
-            )],
-        ))
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration={
+            "rules": [{
+                "destinations": [{
+                    "region": example.names[0],
+                    "registryId": current.account_id,
+                }],
+            }],
+        })
         ```
 
         ## Multiple Region Usage
@@ -113,20 +118,20 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
-            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
-                destinations=[
-                    aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                        region=example.names[0],
-                        registry_id=current.account_id,
-                    ),
-                    aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                        region=example.names[1],
-                        registry_id=current.account_id,
-                    ),
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration={
+            "rules": [{
+                "destinations": [
+                    {
+                        "region": example.names[0],
+                        "registryId": current.account_id,
+                    },
+                    {
+                        "region": example.names[1],
+                        "registryId": current.account_id,
+                    },
                 ],
-            )],
-        ))
+            }],
+        })
         ```
 
         ## Repository Filter Usage
@@ -137,18 +142,18 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
-            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
-                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                    region=example.names[0],
-                    registry_id=current.account_id,
-                )],
-                repository_filters=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs(
-                    filter="prod-microservice",
-                    filter_type="PREFIX_MATCH",
-                )],
-            )],
-        ))
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration={
+            "rules": [{
+                "destinations": [{
+                    "region": example.names[0],
+                    "registryId": current.account_id,
+                }],
+                "repositoryFilters": [{
+                    "filter": "prod-microservice",
+                    "filterType": "PREFIX_MATCH",
+                }],
+            }],
+        })
         ```
 
         ## Import
@@ -161,7 +166,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
+        :param pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         ...
     @overload
@@ -180,14 +185,14 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
-            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
-                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                    region=example.names[0],
-                    registry_id=current.account_id,
-                )],
-            )],
-        ))
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration={
+            "rules": [{
+                "destinations": [{
+                    "region": example.names[0],
+                    "registryId": current.account_id,
+                }],
+            }],
+        })
         ```
 
         ## Multiple Region Usage
@@ -198,20 +203,20 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
-            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
-                destinations=[
-                    aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                        region=example.names[0],
-                        registry_id=current.account_id,
-                    ),
-                    aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                        region=example.names[1],
-                        registry_id=current.account_id,
-                    ),
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration={
+            "rules": [{
+                "destinations": [
+                    {
+                        "region": example.names[0],
+                        "registryId": current.account_id,
+                    },
+                    {
+                        "region": example.names[1],
+                        "registryId": current.account_id,
+                    },
                 ],
-            )],
-        ))
+            }],
+        })
         ```
 
         ## Repository Filter Usage
@@ -222,18 +227,18 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.get_regions()
-        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration=aws.ecr.ReplicationConfigurationReplicationConfigurationArgs(
-            rules=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleArgs(
-                destinations=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs(
-                    region=example.names[0],
-                    registry_id=current.account_id,
-                )],
-                repository_filters=[aws.ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs(
-                    filter="prod-microservice",
-                    filter_type="PREFIX_MATCH",
-                )],
-            )],
-        ))
+        example_replication_configuration = aws.ecr.ReplicationConfiguration("example", replication_configuration={
+            "rules": [{
+                "destinations": [{
+                    "region": example.names[0],
+                    "registryId": current.account_id,
+                }],
+                "repositoryFilters": [{
+                    "filter": "prod-microservice",
+                    "filterType": "PREFIX_MATCH",
+                }],
+            }],
+        })
         ```
 
         ## Import
@@ -259,7 +264,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']]] = None,
+                 replication_configuration: Optional[pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -282,7 +287,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             registry_id: Optional[pulumi.Input[str]] = None,
-            replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']]] = None) -> 'ReplicationConfiguration':
+            replication_configuration: Optional[pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']]] = None) -> 'ReplicationConfiguration':
         """
         Get an existing ReplicationConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -291,7 +296,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] registry_id: The registry ID where the replication configuration was created.
-        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
+        :param pulumi.Input[Union['ReplicationConfigurationReplicationConfigurationArgs', 'ReplicationConfigurationReplicationConfigurationArgsDict']] replication_configuration: Replication configuration for a registry. See Replication Configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

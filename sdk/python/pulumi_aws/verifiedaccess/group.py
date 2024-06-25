@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -315,7 +320,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
-                 sse_configuration: Optional[pulumi.Input[pulumi.InputType['GroupSseConfigurationArgs']]] = None,
+                 sse_configuration: Optional[pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -337,7 +342,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the verified access group.
         :param pulumi.Input[str] policy_document: The policy document that is associated with this resource.
-        :param pulumi.Input[pulumi.InputType['GroupSseConfigurationArgs']] sse_configuration: Configuration block to use KMS keys for server-side encryption.
+        :param pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']] sse_configuration: Configuration block to use KMS keys for server-side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] verifiedaccess_instance_id: The id of the verified access instance this group is associated with.
                
@@ -380,7 +385,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[pulumi.Input[str]] = None,
-                 sse_configuration: Optional[pulumi.Input[pulumi.InputType['GroupSseConfigurationArgs']]] = None,
+                 sse_configuration: Optional[pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  verifiedaccess_instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -422,7 +427,7 @@ class Group(pulumi.CustomResource):
             last_updated_time: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             policy_document: Optional[pulumi.Input[str]] = None,
-            sse_configuration: Optional[pulumi.Input[pulumi.InputType['GroupSseConfigurationArgs']]] = None,
+            sse_configuration: Optional[pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             verifiedaccess_group_arn: Optional[pulumi.Input[str]] = None,
@@ -441,7 +446,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] last_updated_time: Timestamp when the access group was last updated.
         :param pulumi.Input[str] owner: AWS account number owning this resource.
         :param pulumi.Input[str] policy_document: The policy document that is associated with this resource.
-        :param pulumi.Input[pulumi.InputType['GroupSseConfigurationArgs']] sse_configuration: Configuration block to use KMS keys for server-side encryption.
+        :param pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict']] sse_configuration: Configuration block to use KMS keys for server-side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] verifiedaccess_group_arn: ARN of this verified acess group.
         :param pulumi.Input[str] verifiedaccess_group_id: ID of this verified access group.

@@ -4,14 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GetVoicesVoiceArgs',
+    'GetVoicesVoiceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GetVoicesVoiceArgsDict(TypedDict):
+        additional_language_codes: Sequence[str]
+        """
+        Additional codes for languages available for the specified voice in addition to its default language.
+        """
+        gender: str
+        """
+        Gender of the voice.
+        """
+        id: str
+        """
+        Amazon Polly assigned voice ID.
+        """
+        language_code: str
+        """
+        Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
+        """
+        language_name: str
+        """
+        Human readable name of the language in English.
+        """
+        name: str
+        """
+        Name of the voice.
+        """
+        supported_engines: Sequence[str]
+        """
+        Specifies which engines are supported by a given voice.
+        """
+elif False:
+    GetVoicesVoiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetVoicesVoiceArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -66,7 +71,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_config: Optional[pulumi.Input[pulumi.InputType['InvocationLoggingConfigurationLoggingConfigArgs']]] = None,
+                 logging_config: Optional[pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
                  __props__=None):
         """
         Manages Bedrock model invocation logging configuration.
@@ -85,7 +90,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InvocationLoggingConfigurationLoggingConfigArgs']] logging_config: The logging configuration values to set.
+        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']] logging_config: The logging configuration values to set.
         """
         ...
     @overload
@@ -123,7 +128,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_config: Optional[pulumi.Input[pulumi.InputType['InvocationLoggingConfigurationLoggingConfigArgs']]] = None,
+                 logging_config: Optional[pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -144,7 +149,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            logging_config: Optional[pulumi.Input[pulumi.InputType['InvocationLoggingConfigurationLoggingConfigArgs']]] = None) -> 'InvocationLoggingConfiguration':
+            logging_config: Optional[pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']]] = None) -> 'InvocationLoggingConfiguration':
         """
         Get an existing InvocationLoggingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -152,7 +157,7 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InvocationLoggingConfigurationLoggingConfigArgs']] logging_config: The logging configuration values to set.
+        :param pulumi.Input[Union['InvocationLoggingConfigurationLoggingConfigArgs', 'InvocationLoggingConfigurationLoggingConfigArgsDict']] logging_config: The logging configuration values to set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['UserArgs', 'User']
@@ -516,21 +521,21 @@ class User(pulumi.CustomResource):
         example = aws.cognito.UserPool("example",
             name="mypool",
             schemas=[
-                aws.cognito.UserPoolSchemaArgs(
-                    name="example",
-                    attribute_data_type="Boolean",
-                    mutable=False,
-                    required=False,
-                    developer_only_attribute=False,
-                ),
-                aws.cognito.UserPoolSchemaArgs(
-                    name="foo",
-                    attribute_data_type="String",
-                    mutable=False,
-                    required=False,
-                    developer_only_attribute=False,
-                    string_attribute_constraints=aws.cognito.UserPoolSchemaStringAttributeConstraintsArgs(),
-                ),
+                {
+                    "name": "example",
+                    "attributeDataType": "Boolean",
+                    "mutable": False,
+                    "required": False,
+                    "developerOnlyAttribute": False,
+                },
+                {
+                    "name": "foo",
+                    "attributeDataType": "String",
+                    "mutable": False,
+                    "required": False,
+                    "developerOnlyAttribute": False,
+                    "stringAttributeConstraints": {},
+                },
             ])
         example_user = aws.cognito.User("example",
             user_pool_id=example.id,
@@ -601,21 +606,21 @@ class User(pulumi.CustomResource):
         example = aws.cognito.UserPool("example",
             name="mypool",
             schemas=[
-                aws.cognito.UserPoolSchemaArgs(
-                    name="example",
-                    attribute_data_type="Boolean",
-                    mutable=False,
-                    required=False,
-                    developer_only_attribute=False,
-                ),
-                aws.cognito.UserPoolSchemaArgs(
-                    name="foo",
-                    attribute_data_type="String",
-                    mutable=False,
-                    required=False,
-                    developer_only_attribute=False,
-                    string_attribute_constraints=aws.cognito.UserPoolSchemaStringAttributeConstraintsArgs(),
-                ),
+                {
+                    "name": "example",
+                    "attributeDataType": "Boolean",
+                    "mutable": False,
+                    "required": False,
+                    "developerOnlyAttribute": False,
+                },
+                {
+                    "name": "foo",
+                    "attributeDataType": "String",
+                    "mutable": False,
+                    "required": False,
+                    "developerOnlyAttribute": False,
+                    "stringAttributeConstraints": {},
+                },
             ])
         example_user = aws.cognito.User("example",
             user_pool_id=example.id,

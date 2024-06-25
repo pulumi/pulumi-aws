@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -144,7 +149,7 @@ class Insight(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['InsightFiltersArgs']]] = None,
+                 filters: Optional[pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']]] = None,
                  group_by_attribute: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -161,18 +166,18 @@ class Insight(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
-            filters=aws.securityhub.InsightFiltersArgs(
-                aws_account_ids=[
-                    aws.securityhub.InsightFiltersAwsAccountIdArgs(
-                        comparison="EQUALS",
-                        value="1234567890",
-                    ),
-                    aws.securityhub.InsightFiltersAwsAccountIdArgs(
-                        comparison="EQUALS",
-                        value="09876543210",
-                    ),
+            filters={
+                "awsAccountIds": [
+                    {
+                        "comparison": "EQUALS",
+                        "value": "1234567890",
+                    },
+                    {
+                        "comparison": "EQUALS",
+                        "value": "09876543210",
+                    },
                 ],
-            ),
+            },
             group_by_attribute="AwsAccountId",
             name="example-insight",
             opts = pulumi.ResourceOptions(depends_on=[example]))
@@ -186,14 +191,14 @@ class Insight(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
-            filters=aws.securityhub.InsightFiltersArgs(
-                created_ats=[aws.securityhub.InsightFiltersCreatedAtArgs(
-                    date_range=aws.securityhub.InsightFiltersCreatedAtDateRangeArgs(
-                        unit="DAYS",
-                        value=5,
-                    ),
-                )],
-            ),
+            filters={
+                "createdAts": [{
+                    "dateRange": {
+                        "unit": "DAYS",
+                        "value": 5,
+                    },
+                }],
+            },
             group_by_attribute="CreatedAt",
             name="example-insight",
             opts = pulumi.ResourceOptions(depends_on=[example]))
@@ -207,11 +212,11 @@ class Insight(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
-            filters=aws.securityhub.InsightFiltersArgs(
-                network_destination_ipv4s=[aws.securityhub.InsightFiltersNetworkDestinationIpv4Args(
-                    cidr="10.0.0.0/16",
-                )],
-            ),
+            filters={
+                "networkDestinationIpv4s": [{
+                    "cidr": "10.0.0.0/16",
+                }],
+            },
             group_by_attribute="NetworkDestinationIpV4",
             name="example-insight",
             opts = pulumi.ResourceOptions(depends_on=[example]))
@@ -225,11 +230,11 @@ class Insight(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
-            filters=aws.securityhub.InsightFiltersArgs(
-                confidences=[aws.securityhub.InsightFiltersConfidenceArgs(
-                    gte="80",
-                )],
-            ),
+            filters={
+                "confidences": [{
+                    "gte": "80",
+                }],
+            },
             group_by_attribute="Confidence",
             name="example-insight",
             opts = pulumi.ResourceOptions(depends_on=[example]))
@@ -243,13 +248,13 @@ class Insight(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
-            filters=aws.securityhub.InsightFiltersArgs(
-                resource_tags=[aws.securityhub.InsightFiltersResourceTagArgs(
-                    comparison="EQUALS",
-                    key="Environment",
-                    value="Production",
-                )],
-            ),
+            filters={
+                "resourceTags": [{
+                    "comparison": "EQUALS",
+                    "key": "Environment",
+                    "value": "Production",
+                }],
+            },
             group_by_attribute="ResourceTags",
             name="example-insight",
             opts = pulumi.ResourceOptions(depends_on=[example]))
@@ -265,7 +270,7 @@ class Insight(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InsightFiltersArgs']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+        :param pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[str] name: The name of the custom insight.
         """
@@ -288,18 +293,18 @@ class Insight(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
-            filters=aws.securityhub.InsightFiltersArgs(
-                aws_account_ids=[
-                    aws.securityhub.InsightFiltersAwsAccountIdArgs(
-                        comparison="EQUALS",
-                        value="1234567890",
-                    ),
-                    aws.securityhub.InsightFiltersAwsAccountIdArgs(
-                        comparison="EQUALS",
-                        value="09876543210",
-                    ),
+            filters={
+                "awsAccountIds": [
+                    {
+                        "comparison": "EQUALS",
+                        "value": "1234567890",
+                    },
+                    {
+                        "comparison": "EQUALS",
+                        "value": "09876543210",
+                    },
                 ],
-            ),
+            },
             group_by_attribute="AwsAccountId",
             name="example-insight",
             opts = pulumi.ResourceOptions(depends_on=[example]))
@@ -313,14 +318,14 @@ class Insight(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
-            filters=aws.securityhub.InsightFiltersArgs(
-                created_ats=[aws.securityhub.InsightFiltersCreatedAtArgs(
-                    date_range=aws.securityhub.InsightFiltersCreatedAtDateRangeArgs(
-                        unit="DAYS",
-                        value=5,
-                    ),
-                )],
-            ),
+            filters={
+                "createdAts": [{
+                    "dateRange": {
+                        "unit": "DAYS",
+                        "value": 5,
+                    },
+                }],
+            },
             group_by_attribute="CreatedAt",
             name="example-insight",
             opts = pulumi.ResourceOptions(depends_on=[example]))
@@ -334,11 +339,11 @@ class Insight(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
-            filters=aws.securityhub.InsightFiltersArgs(
-                network_destination_ipv4s=[aws.securityhub.InsightFiltersNetworkDestinationIpv4Args(
-                    cidr="10.0.0.0/16",
-                )],
-            ),
+            filters={
+                "networkDestinationIpv4s": [{
+                    "cidr": "10.0.0.0/16",
+                }],
+            },
             group_by_attribute="NetworkDestinationIpV4",
             name="example-insight",
             opts = pulumi.ResourceOptions(depends_on=[example]))
@@ -352,11 +357,11 @@ class Insight(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
-            filters=aws.securityhub.InsightFiltersArgs(
-                confidences=[aws.securityhub.InsightFiltersConfidenceArgs(
-                    gte="80",
-                )],
-            ),
+            filters={
+                "confidences": [{
+                    "gte": "80",
+                }],
+            },
             group_by_attribute="Confidence",
             name="example-insight",
             opts = pulumi.ResourceOptions(depends_on=[example]))
@@ -370,13 +375,13 @@ class Insight(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         example_insight = aws.securityhub.Insight("example",
-            filters=aws.securityhub.InsightFiltersArgs(
-                resource_tags=[aws.securityhub.InsightFiltersResourceTagArgs(
-                    comparison="EQUALS",
-                    key="Environment",
-                    value="Production",
-                )],
-            ),
+            filters={
+                "resourceTags": [{
+                    "comparison": "EQUALS",
+                    "key": "Environment",
+                    "value": "Production",
+                }],
+            },
             group_by_attribute="ResourceTags",
             name="example-insight",
             opts = pulumi.ResourceOptions(depends_on=[example]))
@@ -405,7 +410,7 @@ class Insight(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['InsightFiltersArgs']]] = None,
+                 filters: Optional[pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']]] = None,
                  group_by_attribute: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -436,7 +441,7 @@ class Insight(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            filters: Optional[pulumi.Input[pulumi.InputType['InsightFiltersArgs']]] = None,
+            filters: Optional[pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']]] = None,
             group_by_attribute: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Insight':
         """
@@ -447,7 +452,7 @@ class Insight(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the insight.
-        :param pulumi.Input[pulumi.InputType['InsightFiltersArgs']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+        :param pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[str] name: The name of the custom insight.
         """

@@ -4,21 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ApplicationDefinitionArgs',
+    'ApplicationDefinitionArgsDict',
     'ApplicationTimeoutsArgs',
+    'ApplicationTimeoutsArgsDict',
     'DeploymentTimeoutsArgs',
+    'DeploymentTimeoutsArgsDict',
     'EnvironmentHighAvailabilityConfigArgs',
+    'EnvironmentHighAvailabilityConfigArgsDict',
     'EnvironmentStorageConfigurationArgs',
+    'EnvironmentStorageConfigurationArgsDict',
     'EnvironmentStorageConfigurationEfsArgs',
+    'EnvironmentStorageConfigurationEfsArgsDict',
     'EnvironmentStorageConfigurationFsxArgs',
+    'EnvironmentStorageConfigurationFsxArgsDict',
     'EnvironmentTimeoutsArgs',
+    'EnvironmentTimeoutsArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationDefinitionArgsDict(TypedDict):
+        content: NotRequired[pulumi.Input[str]]
+        """
+        JSON application definition. Either this or `s3_location` must be specified.
+        """
+        s3_location: NotRequired[pulumi.Input[str]]
+        """
+        Location of the application definition in S3. Either this or `content` must be specified.
+        """
+elif False:
+    ApplicationDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationDefinitionArgs:
@@ -58,6 +86,23 @@ class ApplicationDefinitionArgs:
     def s3_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_location", value)
 
+
+if not MYPY:
+    class ApplicationTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    ApplicationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationTimeoutsArgs:
@@ -114,6 +159,23 @@ class ApplicationTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
+if not MYPY:
+    class DeploymentTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    DeploymentTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentTimeoutsArgs:
     def __init__(__self__, *,
@@ -169,6 +231,15 @@ class DeploymentTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
+if not MYPY:
+    class EnvironmentHighAvailabilityConfigArgsDict(TypedDict):
+        desired_capacity: pulumi.Input[int]
+        """
+        Desired number of instances for the Environment.
+        """
+elif False:
+    EnvironmentHighAvailabilityConfigArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentHighAvailabilityConfigArgs:
     def __init__(__self__, *,
@@ -190,6 +261,13 @@ class EnvironmentHighAvailabilityConfigArgs:
     def desired_capacity(self, value: pulumi.Input[int]):
         pulumi.set(self, "desired_capacity", value)
 
+
+if not MYPY:
+    class EnvironmentStorageConfigurationArgsDict(TypedDict):
+        efs: NotRequired[pulumi.Input['EnvironmentStorageConfigurationEfsArgsDict']]
+        fsx: NotRequired[pulumi.Input['EnvironmentStorageConfigurationFsxArgsDict']]
+elif False:
+    EnvironmentStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentStorageConfigurationArgs:
@@ -219,6 +297,19 @@ class EnvironmentStorageConfigurationArgs:
     def fsx(self, value: Optional[pulumi.Input['EnvironmentStorageConfigurationFsxArgs']]):
         pulumi.set(self, "fsx", value)
 
+
+if not MYPY:
+    class EnvironmentStorageConfigurationEfsArgsDict(TypedDict):
+        file_system_id: pulumi.Input[str]
+        """
+        Id of the EFS filesystem to mount.
+        """
+        mount_point: pulumi.Input[str]
+        """
+        Path to mount the filesystem on, must start with `/m2/mount/`.
+        """
+elif False:
+    EnvironmentStorageConfigurationEfsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentStorageConfigurationEfsArgs:
@@ -257,6 +348,19 @@ class EnvironmentStorageConfigurationEfsArgs:
         pulumi.set(self, "mount_point", value)
 
 
+if not MYPY:
+    class EnvironmentStorageConfigurationFsxArgsDict(TypedDict):
+        file_system_id: pulumi.Input[str]
+        """
+        Id of the FSX filesystem to mount.
+        """
+        mount_point: pulumi.Input[str]
+        """
+        Path to mount the filesystem on, must start with `/m2/mount/`.
+        """
+elif False:
+    EnvironmentStorageConfigurationFsxArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentStorageConfigurationFsxArgs:
     def __init__(__self__, *,
@@ -293,6 +397,23 @@ class EnvironmentStorageConfigurationFsxArgs:
     def mount_point(self, value: pulumi.Input[str]):
         pulumi.set(self, "mount_point", value)
 
+
+if not MYPY:
+    class EnvironmentTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    EnvironmentTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentTimeoutsArgs:

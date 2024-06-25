@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -257,11 +262,11 @@ class EventEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 event_buses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEndpointEventBusArgs']]]]] = None,
+                 event_buses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventEndpointEventBusArgs', 'EventEndpointEventBusArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 replication_config: Optional[pulumi.Input[pulumi.InputType['EventEndpointReplicationConfigArgs']]] = None,
+                 replication_config: Optional[pulumi.Input[Union['EventEndpointReplicationConfigArgs', 'EventEndpointReplicationConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 routing_config: Optional[pulumi.Input[pulumi.InputType['EventEndpointRoutingConfigArgs']]] = None,
+                 routing_config: Optional[pulumi.Input[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource to create an EventBridge Global Endpoint.
@@ -278,26 +283,26 @@ class EventEndpoint(pulumi.CustomResource):
             name="global-endpoint",
             role_arn=replication["arn"],
             event_buses=[
-                aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=primary["arn"],
-                ),
-                aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=secondary["arn"],
-                ),
+                {
+                    "eventBusArn": primary["arn"],
+                },
+                {
+                    "eventBusArn": secondary["arn"],
+                },
             ],
-            replication_config=aws.cloudwatch.EventEndpointReplicationConfigArgs(
-                state="DISABLED",
-            ),
-            routing_config=aws.cloudwatch.EventEndpointRoutingConfigArgs(
-                failover_config=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs(
-                    primary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs(
-                        health_check=primary_aws_route53_health_check["arn"],
-                    ),
-                    secondary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs(
-                        route="us-east-2",
-                    ),
-                ),
-            ))
+            replication_config={
+                "state": "DISABLED",
+            },
+            routing_config={
+                "failoverConfig": {
+                    "primary": {
+                        "healthCheck": primary_aws_route53_health_check["arn"],
+                    },
+                    "secondary": {
+                        "route": "us-east-2",
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -311,11 +316,11 @@ class EventEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the global endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEndpointEventBusArgs']]]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventEndpointEventBusArgs', 'EventEndpointEventBusArgsDict']]]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
         :param pulumi.Input[str] name: The name of the global endpoint.
-        :param pulumi.Input[pulumi.InputType['EventEndpointReplicationConfigArgs']] replication_config: Parameters used for replication. Documented below.
+        :param pulumi.Input[Union['EventEndpointReplicationConfigArgs', 'EventEndpointReplicationConfigArgsDict']] replication_config: Parameters used for replication. Documented below.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role used for replication between event buses.
-        :param pulumi.Input[pulumi.InputType['EventEndpointRoutingConfigArgs']] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
+        :param pulumi.Input[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict']] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
         """
         ...
     @overload
@@ -338,26 +343,26 @@ class EventEndpoint(pulumi.CustomResource):
             name="global-endpoint",
             role_arn=replication["arn"],
             event_buses=[
-                aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=primary["arn"],
-                ),
-                aws.cloudwatch.EventEndpointEventBusArgs(
-                    event_bus_arn=secondary["arn"],
-                ),
+                {
+                    "eventBusArn": primary["arn"],
+                },
+                {
+                    "eventBusArn": secondary["arn"],
+                },
             ],
-            replication_config=aws.cloudwatch.EventEndpointReplicationConfigArgs(
-                state="DISABLED",
-            ),
-            routing_config=aws.cloudwatch.EventEndpointRoutingConfigArgs(
-                failover_config=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs(
-                    primary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs(
-                        health_check=primary_aws_route53_health_check["arn"],
-                    ),
-                    secondary=aws.cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs(
-                        route="us-east-2",
-                    ),
-                ),
-            ))
+            replication_config={
+                "state": "DISABLED",
+            },
+            routing_config={
+                "failoverConfig": {
+                    "primary": {
+                        "healthCheck": primary_aws_route53_health_check["arn"],
+                    },
+                    "secondary": {
+                        "route": "us-east-2",
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -384,11 +389,11 @@ class EventEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 event_buses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEndpointEventBusArgs']]]]] = None,
+                 event_buses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventEndpointEventBusArgs', 'EventEndpointEventBusArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 replication_config: Optional[pulumi.Input[pulumi.InputType['EventEndpointReplicationConfigArgs']]] = None,
+                 replication_config: Optional[pulumi.Input[Union['EventEndpointReplicationConfigArgs', 'EventEndpointReplicationConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 routing_config: Optional[pulumi.Input[pulumi.InputType['EventEndpointRoutingConfigArgs']]] = None,
+                 routing_config: Optional[pulumi.Input[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -423,11 +428,11 @@ class EventEndpoint(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             endpoint_url: Optional[pulumi.Input[str]] = None,
-            event_buses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEndpointEventBusArgs']]]]] = None,
+            event_buses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventEndpointEventBusArgs', 'EventEndpointEventBusArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            replication_config: Optional[pulumi.Input[pulumi.InputType['EventEndpointReplicationConfigArgs']]] = None,
+            replication_config: Optional[pulumi.Input[Union['EventEndpointReplicationConfigArgs', 'EventEndpointReplicationConfigArgsDict']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            routing_config: Optional[pulumi.Input[pulumi.InputType['EventEndpointRoutingConfigArgs']]] = None) -> 'EventEndpoint':
+            routing_config: Optional[pulumi.Input[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict']]] = None) -> 'EventEndpoint':
         """
         Get an existing EventEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -438,11 +443,11 @@ class EventEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the endpoint that was created.
         :param pulumi.Input[str] description: A description of the global endpoint.
         :param pulumi.Input[str] endpoint_url: The URL of the endpoint that was created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventEndpointEventBusArgs']]]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventEndpointEventBusArgs', 'EventEndpointEventBusArgsDict']]]] event_buses: The event buses to use. The names of the event buses must be identical in each Region. Exactly two event buses are required. Documented below.
         :param pulumi.Input[str] name: The name of the global endpoint.
-        :param pulumi.Input[pulumi.InputType['EventEndpointReplicationConfigArgs']] replication_config: Parameters used for replication. Documented below.
+        :param pulumi.Input[Union['EventEndpointReplicationConfigArgs', 'EventEndpointReplicationConfigArgsDict']] replication_config: Parameters used for replication. Documented below.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role used for replication between event buses.
-        :param pulumi.Input[pulumi.InputType['EventEndpointRoutingConfigArgs']] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
+        :param pulumi.Input[Union['EventEndpointRoutingConfigArgs', 'EventEndpointRoutingConfigArgsDict']] routing_config: Parameters used for routing, including the health check and secondary Region. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -4,21 +4,60 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ReplicationSetRegionArgs',
+    'ReplicationSetRegionArgsDict',
     'ResponsePlanActionArgs',
+    'ResponsePlanActionArgsDict',
     'ResponsePlanActionSsmAutomationArgs',
+    'ResponsePlanActionSsmAutomationArgsDict',
     'ResponsePlanActionSsmAutomationParameterArgs',
+    'ResponsePlanActionSsmAutomationParameterArgsDict',
     'ResponsePlanIncidentTemplateArgs',
+    'ResponsePlanIncidentTemplateArgsDict',
     'ResponsePlanIncidentTemplateNotificationTargetArgs',
+    'ResponsePlanIncidentTemplateNotificationTargetArgsDict',
     'ResponsePlanIntegrationArgs',
+    'ResponsePlanIntegrationArgsDict',
     'ResponsePlanIntegrationPagerdutyArgs',
+    'ResponsePlanIntegrationPagerdutyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ReplicationSetRegionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Region, such as `ap-southeast-2`.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+
+        The following arguments are optional:
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The current status of the Region.
+        * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
+        """
+        status_message: NotRequired[pulumi.Input[str]]
+        """
+        More information about the status of a Region.
+        """
+elif False:
+    ReplicationSetRegionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ReplicationSetRegionArgs:
@@ -96,6 +135,12 @@ class ReplicationSetRegionArgs:
         pulumi.set(self, "status_message", value)
 
 
+if not MYPY:
+    class ResponsePlanActionArgsDict(TypedDict):
+        ssm_automations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgsDict']]]]
+elif False:
+    ResponsePlanActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponsePlanActionArgs:
     def __init__(__self__, *,
@@ -112,6 +157,17 @@ class ResponsePlanActionArgs:
     def ssm_automations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]]]):
         pulumi.set(self, "ssm_automations", value)
 
+
+if not MYPY:
+    class ResponsePlanActionSsmAutomationArgsDict(TypedDict):
+        document_name: pulumi.Input[str]
+        role_arn: pulumi.Input[str]
+        document_version: NotRequired[pulumi.Input[str]]
+        dynamic_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgsDict']]]]
+        target_account: NotRequired[pulumi.Input[str]]
+elif False:
+    ResponsePlanActionSsmAutomationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlanActionSsmAutomationArgs:
@@ -188,6 +244,16 @@ class ResponsePlanActionSsmAutomationArgs:
         pulumi.set(self, "target_account", value)
 
 
+if not MYPY:
+    class ResponsePlanActionSsmAutomationParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the response plan.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    ResponsePlanActionSsmAutomationParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponsePlanActionSsmAutomationParameterArgs:
     def __init__(__self__, *,
@@ -220,6 +286,35 @@ class ResponsePlanActionSsmAutomationParameterArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ResponsePlanIncidentTemplateArgsDict(TypedDict):
+        impact: pulumi.Input[int]
+        """
+        The impact value of a generated incident. The following values are supported:
+        """
+        title: pulumi.Input[str]
+        """
+        The title of a generated incident.
+        """
+        dedupe_string: NotRequired[pulumi.Input[str]]
+        """
+        A string used to stop Incident Manager from creating multiple incident records for the same incident.
+        """
+        incident_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
+        """
+        notification_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgsDict']]]]
+        """
+        The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+        """
+        summary: NotRequired[pulumi.Input[str]]
+        """
+        The summary of an incident.
+        """
+elif False:
+    ResponsePlanIncidentTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlanIncidentTemplateArgs:
@@ -322,6 +417,17 @@ class ResponsePlanIncidentTemplateArgs:
         pulumi.set(self, "summary", value)
 
 
+if not MYPY:
+    class ResponsePlanIncidentTemplateNotificationTargetArgsDict(TypedDict):
+        sns_topic_arn: pulumi.Input[str]
+        """
+        The ARN of the Amazon SNS topic.
+
+        The following arguments are optional:
+        """
+elif False:
+    ResponsePlanIncidentTemplateNotificationTargetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponsePlanIncidentTemplateNotificationTargetArgs:
     def __init__(__self__, *,
@@ -348,6 +454,12 @@ class ResponsePlanIncidentTemplateNotificationTargetArgs:
         pulumi.set(self, "sns_topic_arn", value)
 
 
+if not MYPY:
+    class ResponsePlanIntegrationArgsDict(TypedDict):
+        pagerduties: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgsDict']]]]
+elif False:
+    ResponsePlanIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResponsePlanIntegrationArgs:
     def __init__(__self__, *,
@@ -364,6 +476,17 @@ class ResponsePlanIntegrationArgs:
     def pagerduties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]]]):
         pulumi.set(self, "pagerduties", value)
 
+
+if not MYPY:
+    class ResponsePlanIntegrationPagerdutyArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the response plan.
+        """
+        secret_id: pulumi.Input[str]
+        service_id: pulumi.Input[str]
+elif False:
+    ResponsePlanIntegrationPagerdutyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResponsePlanIntegrationPagerdutyArgs:

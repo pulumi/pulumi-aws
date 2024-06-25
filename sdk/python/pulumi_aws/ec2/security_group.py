@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -347,8 +352,8 @@ class SecurityGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]]] = None,
-                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
@@ -409,13 +414,13 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            cidr_blocks=["0.0.0.0/0"],
-            ipv6_cidr_blocks=["::/0"],
-        )])
+        example = aws.ec2.SecurityGroup("example", egress=[{
+            "fromPort": 0,
+            "toPort": 0,
+            "protocol": "-1",
+            "cidrBlocks": ["0.0.0.0/0"],
+            "ipv6CidrBlocks": ["::/0"],
+        }])
         ```
 
         ### Usage With Prefix List IDs
@@ -430,12 +435,12 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
-        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-        )])
+        example = aws.ec2.SecurityGroup("example", egress=[{
+            "fromPort": 0,
+            "toPort": 0,
+            "protocol": "-1",
+            "prefixListIds": [my_endpoint.prefix_list_id],
+        }])
         ```
 
         You can also find a specific Prefix List using the `ec2_get_prefix_list` data source.
@@ -527,8 +532,8 @@ class SecurityGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         :param pulumi.Input[str] name: Name of the security group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[bool] revoke_rules_on_delete: Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
@@ -595,13 +600,13 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            cidr_blocks=["0.0.0.0/0"],
-            ipv6_cidr_blocks=["::/0"],
-        )])
+        example = aws.ec2.SecurityGroup("example", egress=[{
+            "fromPort": 0,
+            "toPort": 0,
+            "protocol": "-1",
+            "cidrBlocks": ["0.0.0.0/0"],
+            "ipv6CidrBlocks": ["::/0"],
+        }])
         ```
 
         ### Usage With Prefix List IDs
@@ -616,12 +621,12 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_endpoint = aws.ec2.VpcEndpoint("my_endpoint")
-        example = aws.ec2.SecurityGroup("example", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            prefix_list_ids=[my_endpoint.prefix_list_id],
-        )])
+        example = aws.ec2.SecurityGroup("example", egress=[{
+            "fromPort": 0,
+            "toPort": 0,
+            "protocol": "-1",
+            "prefixListIds": [my_endpoint.prefix_list_id],
+        }])
         ```
 
         You can also find a specific Prefix List using the `ec2_get_prefix_list` data source.
@@ -726,8 +731,8 @@ class SecurityGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]]] = None,
-                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  revoke_rules_on_delete: Optional[pulumi.Input[bool]] = None,
@@ -767,8 +772,8 @@ class SecurityGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]]] = None,
-            ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]]] = None,
+            egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]]] = None,
+            ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
@@ -785,8 +790,8 @@ class SecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the security group.
         :param pulumi.Input[str] description: Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupEgressArgs']]]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecurityGroupIngressArgs']]]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupEgressArgs', 'SecurityGroupEgressArgsDict']]]] egress: Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityGroupIngressArgs', 'SecurityGroupIngressArgsDict']]]] ingress: Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         :param pulumi.Input[str] name: Name of the security group. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] owner_id: Owner ID.

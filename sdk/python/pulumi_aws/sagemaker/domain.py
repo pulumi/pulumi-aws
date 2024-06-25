@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -540,12 +545,12 @@ class Domain(pulumi.CustomResource):
                  app_network_access_type: Optional[pulumi.Input[str]] = None,
                  app_security_group_management: Optional[pulumi.Input[str]] = None,
                  auth_mode: Optional[pulumi.Input[str]] = None,
-                 default_space_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']]] = None,
-                 default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']]] = None,
+                 default_space_settings: Optional[pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
+                 default_user_settings: Optional[pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']]] = None,
+                 domain_settings: Optional[pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 retention_policy: Optional[pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']]] = None,
+                 retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -561,13 +566,13 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["sagemaker.amazonaws.com"],
-            )],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["sagemaker.amazonaws.com"],
+            }],
+        }])
         example_role = aws.iam.Role("example",
             name="example",
             path="/",
@@ -577,9 +582,9 @@ class Domain(pulumi.CustomResource):
             auth_mode="IAM",
             vpc_id=example_aws_vpc["id"],
             subnet_ids=[example_aws_subnet["id"]],
-            default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
-                execution_role=example_role.arn,
-            ))
+            default_user_settings={
+                "executionRole": example_role.arn,
+            })
         ```
 
         ## Import
@@ -595,12 +600,12 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
         :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        :param pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']] default_space_settings: The default space settings. See `default_space_settings` Block below.
-        :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See `default_user_settings` Block below.
+        :param pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']] default_space_settings: The default space settings. See `default_space_settings` Block below.
+        :param pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']] default_user_settings: The default user settings. See `default_user_settings` Block below.
         :param pulumi.Input[str] domain_name: The domain name.
-        :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain settings. See `domain_settings` Block below.
+        :param pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        :param pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+        :param pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -624,13 +629,13 @@ class Domain(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["sagemaker.amazonaws.com"],
-            )],
-        )])
+        example = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["sagemaker.amazonaws.com"],
+            }],
+        }])
         example_role = aws.iam.Role("example",
             name="example",
             path="/",
@@ -640,9 +645,9 @@ class Domain(pulumi.CustomResource):
             auth_mode="IAM",
             vpc_id=example_aws_vpc["id"],
             subnet_ids=[example_aws_subnet["id"]],
-            default_user_settings=aws.sagemaker.DomainDefaultUserSettingsArgs(
-                execution_role=example_role.arn,
-            ))
+            default_user_settings={
+                "executionRole": example_role.arn,
+            })
         ```
 
         ## Import
@@ -671,12 +676,12 @@ class Domain(pulumi.CustomResource):
                  app_network_access_type: Optional[pulumi.Input[str]] = None,
                  app_security_group_management: Optional[pulumi.Input[str]] = None,
                  auth_mode: Optional[pulumi.Input[str]] = None,
-                 default_space_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']]] = None,
-                 default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']]] = None,
+                 default_space_settings: Optional[pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
+                 default_user_settings: Optional[pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']]] = None,
+                 domain_settings: Optional[pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 retention_policy: Optional[pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']]] = None,
+                 retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -732,13 +737,13 @@ class Domain(pulumi.CustomResource):
             app_security_group_management: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             auth_mode: Optional[pulumi.Input[str]] = None,
-            default_space_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']]] = None,
-            default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']]] = None,
+            default_space_settings: Optional[pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
+            default_user_settings: Optional[pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
-            domain_settings: Optional[pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']]] = None,
+            domain_settings: Optional[pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
             home_efs_file_system_id: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
-            retention_policy: Optional[pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']]] = None,
+            retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
             security_group_id_for_domain_boundary: Optional[pulumi.Input[str]] = None,
             single_sign_on_application_arn: Optional[pulumi.Input[str]] = None,
             single_sign_on_managed_application_instance_id: Optional[pulumi.Input[str]] = None,
@@ -758,13 +763,13 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
         :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-        :param pulumi.Input[pulumi.InputType['DomainDefaultSpaceSettingsArgs']] default_space_settings: The default space settings. See `default_space_settings` Block below.
-        :param pulumi.Input[pulumi.InputType['DomainDefaultUserSettingsArgs']] default_user_settings: The default user settings. See `default_user_settings` Block below.
+        :param pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']] default_space_settings: The default space settings. See `default_space_settings` Block below.
+        :param pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']] default_user_settings: The default user settings. See `default_user_settings` Block below.
         :param pulumi.Input[str] domain_name: The domain name.
-        :param pulumi.Input[pulumi.InputType['DomainDomainSettingsArgs']] domain_settings: The domain settings. See `domain_settings` Block below.
+        :param pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-        :param pulumi.Input[pulumi.InputType['DomainRetentionPolicyArgs']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
+        :param pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         :param pulumi.Input[str] single_sign_on_application_arn: The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
         :param pulumi.Input[str] single_sign_on_managed_application_instance_id: The SSO managed application instance ID.

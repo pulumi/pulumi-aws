@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['Disk_attachmentArgs', 'Disk_attachment']
@@ -139,10 +144,10 @@ class Disk_attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         test = aws.lightsail.Disk("test",
             name="test-disk",
             size_in_gb=8,
@@ -188,10 +193,10 @@ class Disk_attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
+            filters=[{
+                "name": "opt-in-status",
+                "values": ["opt-in-not-required"],
+            }])
         test = aws.lightsail.Disk("test",
             name="test-disk",
             size_in_gb=8,

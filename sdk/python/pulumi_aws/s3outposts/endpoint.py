@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -380,7 +385,7 @@ class Endpoint(pulumi.CustomResource):
             cidr_block: Optional[pulumi.Input[str]] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]]] = None,
+            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]]] = None,
             outpost_id: Optional[pulumi.Input[str]] = None,
             security_group_id: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None) -> 'Endpoint':
@@ -396,7 +401,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] cidr_block: VPC CIDR block of the endpoint.
         :param pulumi.Input[str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[str] subnet_id: Identifier of the EC2 Subnet.

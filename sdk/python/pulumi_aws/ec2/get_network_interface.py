@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -265,7 +270,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             vpc_id=self.vpc_id)
 
 
-def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']]] = None,
+def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']]] = None,
                           id: Optional[str] = None,
                           tags: Optional[Mapping[str, str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
@@ -282,7 +287,7 @@ def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetwor
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
+    :param Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
     :param str id: Identifier for the network interface.
     :param Mapping[str, str] tags: Any tags assigned to the network interface.
     """
@@ -317,7 +322,7 @@ def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetwor
 
 
 @_utilities.lift_output_func(get_network_interface)
-def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']]]]] = None,
+def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']]]]] = None,
                                  id: Optional[pulumi.Input[Optional[str]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
@@ -334,7 +339,7 @@ def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequenc
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
+    :param Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
     :param str id: Identifier for the network interface.
     :param Mapping[str, str] tags: Any tags assigned to the network interface.
     """

@@ -4,176 +4,359 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AutomationRuleActionArgs',
+    'AutomationRuleActionArgsDict',
     'AutomationRuleActionFindingFieldsUpdateArgs',
+    'AutomationRuleActionFindingFieldsUpdateArgsDict',
     'AutomationRuleActionFindingFieldsUpdateNoteArgs',
+    'AutomationRuleActionFindingFieldsUpdateNoteArgsDict',
     'AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs',
+    'AutomationRuleActionFindingFieldsUpdateRelatedFindingArgsDict',
     'AutomationRuleActionFindingFieldsUpdateSeverityArgs',
+    'AutomationRuleActionFindingFieldsUpdateSeverityArgsDict',
     'AutomationRuleActionFindingFieldsUpdateWorkflowArgs',
+    'AutomationRuleActionFindingFieldsUpdateWorkflowArgsDict',
     'AutomationRuleCriteriaArgs',
+    'AutomationRuleCriteriaArgsDict',
     'AutomationRuleCriteriaAwsAccountIdArgs',
+    'AutomationRuleCriteriaAwsAccountIdArgsDict',
     'AutomationRuleCriteriaAwsAccountNameArgs',
+    'AutomationRuleCriteriaAwsAccountNameArgsDict',
     'AutomationRuleCriteriaCompanyNameArgs',
+    'AutomationRuleCriteriaCompanyNameArgsDict',
     'AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs',
+    'AutomationRuleCriteriaComplianceAssociatedStandardsIdArgsDict',
     'AutomationRuleCriteriaComplianceSecurityControlIdArgs',
+    'AutomationRuleCriteriaComplianceSecurityControlIdArgsDict',
     'AutomationRuleCriteriaComplianceStatusArgs',
+    'AutomationRuleCriteriaComplianceStatusArgsDict',
     'AutomationRuleCriteriaConfidenceArgs',
+    'AutomationRuleCriteriaConfidenceArgsDict',
     'AutomationRuleCriteriaCreatedAtArgs',
+    'AutomationRuleCriteriaCreatedAtArgsDict',
     'AutomationRuleCriteriaCreatedAtDateRangeArgs',
+    'AutomationRuleCriteriaCreatedAtDateRangeArgsDict',
     'AutomationRuleCriteriaCriticalityArgs',
+    'AutomationRuleCriteriaCriticalityArgsDict',
     'AutomationRuleCriteriaDescriptionArgs',
+    'AutomationRuleCriteriaDescriptionArgsDict',
     'AutomationRuleCriteriaFirstObservedAtArgs',
+    'AutomationRuleCriteriaFirstObservedAtArgsDict',
     'AutomationRuleCriteriaFirstObservedAtDateRangeArgs',
+    'AutomationRuleCriteriaFirstObservedAtDateRangeArgsDict',
     'AutomationRuleCriteriaGeneratorIdArgs',
+    'AutomationRuleCriteriaGeneratorIdArgsDict',
     'AutomationRuleCriteriaIdArgs',
+    'AutomationRuleCriteriaIdArgsDict',
     'AutomationRuleCriteriaLastObservedAtArgs',
+    'AutomationRuleCriteriaLastObservedAtArgsDict',
     'AutomationRuleCriteriaLastObservedAtDateRangeArgs',
+    'AutomationRuleCriteriaLastObservedAtDateRangeArgsDict',
     'AutomationRuleCriteriaNoteTextArgs',
+    'AutomationRuleCriteriaNoteTextArgsDict',
     'AutomationRuleCriteriaNoteUpdatedAtArgs',
+    'AutomationRuleCriteriaNoteUpdatedAtArgsDict',
     'AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs',
+    'AutomationRuleCriteriaNoteUpdatedAtDateRangeArgsDict',
     'AutomationRuleCriteriaNoteUpdatedByArgs',
+    'AutomationRuleCriteriaNoteUpdatedByArgsDict',
     'AutomationRuleCriteriaProductArnArgs',
+    'AutomationRuleCriteriaProductArnArgsDict',
     'AutomationRuleCriteriaProductNameArgs',
+    'AutomationRuleCriteriaProductNameArgsDict',
     'AutomationRuleCriteriaRecordStateArgs',
+    'AutomationRuleCriteriaRecordStateArgsDict',
     'AutomationRuleCriteriaRelatedFindingsIdArgs',
+    'AutomationRuleCriteriaRelatedFindingsIdArgsDict',
     'AutomationRuleCriteriaRelatedFindingsProductArnArgs',
+    'AutomationRuleCriteriaRelatedFindingsProductArnArgsDict',
     'AutomationRuleCriteriaResourceApplicationArnArgs',
+    'AutomationRuleCriteriaResourceApplicationArnArgsDict',
     'AutomationRuleCriteriaResourceApplicationNameArgs',
+    'AutomationRuleCriteriaResourceApplicationNameArgsDict',
     'AutomationRuleCriteriaResourceDetailsOtherArgs',
+    'AutomationRuleCriteriaResourceDetailsOtherArgsDict',
     'AutomationRuleCriteriaResourceIdArgs',
+    'AutomationRuleCriteriaResourceIdArgsDict',
     'AutomationRuleCriteriaResourcePartitionArgs',
+    'AutomationRuleCriteriaResourcePartitionArgsDict',
     'AutomationRuleCriteriaResourceRegionArgs',
+    'AutomationRuleCriteriaResourceRegionArgsDict',
     'AutomationRuleCriteriaResourceTagArgs',
+    'AutomationRuleCriteriaResourceTagArgsDict',
     'AutomationRuleCriteriaResourceTypeArgs',
+    'AutomationRuleCriteriaResourceTypeArgsDict',
     'AutomationRuleCriteriaSeverityLabelArgs',
+    'AutomationRuleCriteriaSeverityLabelArgsDict',
     'AutomationRuleCriteriaSourceUrlArgs',
+    'AutomationRuleCriteriaSourceUrlArgsDict',
     'AutomationRuleCriteriaTitleArgs',
+    'AutomationRuleCriteriaTitleArgsDict',
     'AutomationRuleCriteriaTypeArgs',
+    'AutomationRuleCriteriaTypeArgsDict',
     'AutomationRuleCriteriaUpdatedAtArgs',
+    'AutomationRuleCriteriaUpdatedAtArgsDict',
     'AutomationRuleCriteriaUpdatedAtDateRangeArgs',
+    'AutomationRuleCriteriaUpdatedAtDateRangeArgsDict',
     'AutomationRuleCriteriaUserDefinedFieldArgs',
+    'AutomationRuleCriteriaUserDefinedFieldArgsDict',
     'AutomationRuleCriteriaVerificationStateArgs',
+    'AutomationRuleCriteriaVerificationStateArgsDict',
     'AutomationRuleCriteriaWorkflowStatusArgs',
+    'AutomationRuleCriteriaWorkflowStatusArgsDict',
     'ConfigurationPolicyConfigurationPolicyArgs',
+    'ConfigurationPolicyConfigurationPolicyArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgsDict',
     'InsightFiltersArgs',
+    'InsightFiltersArgsDict',
     'InsightFiltersAwsAccountIdArgs',
+    'InsightFiltersAwsAccountIdArgsDict',
     'InsightFiltersCompanyNameArgs',
+    'InsightFiltersCompanyNameArgsDict',
     'InsightFiltersComplianceStatusArgs',
+    'InsightFiltersComplianceStatusArgsDict',
     'InsightFiltersConfidenceArgs',
+    'InsightFiltersConfidenceArgsDict',
     'InsightFiltersCreatedAtArgs',
+    'InsightFiltersCreatedAtArgsDict',
     'InsightFiltersCreatedAtDateRangeArgs',
+    'InsightFiltersCreatedAtDateRangeArgsDict',
     'InsightFiltersCriticalityArgs',
+    'InsightFiltersCriticalityArgsDict',
     'InsightFiltersDescriptionArgs',
+    'InsightFiltersDescriptionArgsDict',
     'InsightFiltersFindingProviderFieldsConfidenceArgs',
+    'InsightFiltersFindingProviderFieldsConfidenceArgsDict',
     'InsightFiltersFindingProviderFieldsCriticalityArgs',
+    'InsightFiltersFindingProviderFieldsCriticalityArgsDict',
     'InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs',
+    'InsightFiltersFindingProviderFieldsRelatedFindingsIdArgsDict',
     'InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs',
+    'InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgsDict',
     'InsightFiltersFindingProviderFieldsSeverityLabelArgs',
+    'InsightFiltersFindingProviderFieldsSeverityLabelArgsDict',
     'InsightFiltersFindingProviderFieldsSeverityOriginalArgs',
+    'InsightFiltersFindingProviderFieldsSeverityOriginalArgsDict',
     'InsightFiltersFindingProviderFieldsTypeArgs',
+    'InsightFiltersFindingProviderFieldsTypeArgsDict',
     'InsightFiltersFirstObservedAtArgs',
+    'InsightFiltersFirstObservedAtArgsDict',
     'InsightFiltersFirstObservedAtDateRangeArgs',
+    'InsightFiltersFirstObservedAtDateRangeArgsDict',
     'InsightFiltersGeneratorIdArgs',
+    'InsightFiltersGeneratorIdArgsDict',
     'InsightFiltersIdArgs',
+    'InsightFiltersIdArgsDict',
     'InsightFiltersKeywordArgs',
+    'InsightFiltersKeywordArgsDict',
     'InsightFiltersLastObservedAtArgs',
+    'InsightFiltersLastObservedAtArgsDict',
     'InsightFiltersLastObservedAtDateRangeArgs',
+    'InsightFiltersLastObservedAtDateRangeArgsDict',
     'InsightFiltersMalwareNameArgs',
+    'InsightFiltersMalwareNameArgsDict',
     'InsightFiltersMalwarePathArgs',
+    'InsightFiltersMalwarePathArgsDict',
     'InsightFiltersMalwareStateArgs',
+    'InsightFiltersMalwareStateArgsDict',
     'InsightFiltersMalwareTypeArgs',
+    'InsightFiltersMalwareTypeArgsDict',
     'InsightFiltersNetworkDestinationDomainArgs',
+    'InsightFiltersNetworkDestinationDomainArgsDict',
     'InsightFiltersNetworkDestinationIpv4Args',
+    'InsightFiltersNetworkDestinationIpv4ArgsDict',
     'InsightFiltersNetworkDestinationIpv6Args',
+    'InsightFiltersNetworkDestinationIpv6ArgsDict',
     'InsightFiltersNetworkDestinationPortArgs',
+    'InsightFiltersNetworkDestinationPortArgsDict',
     'InsightFiltersNetworkDirectionArgs',
+    'InsightFiltersNetworkDirectionArgsDict',
     'InsightFiltersNetworkProtocolArgs',
+    'InsightFiltersNetworkProtocolArgsDict',
     'InsightFiltersNetworkSourceDomainArgs',
+    'InsightFiltersNetworkSourceDomainArgsDict',
     'InsightFiltersNetworkSourceIpv4Args',
+    'InsightFiltersNetworkSourceIpv4ArgsDict',
     'InsightFiltersNetworkSourceIpv6Args',
+    'InsightFiltersNetworkSourceIpv6ArgsDict',
     'InsightFiltersNetworkSourceMacArgs',
+    'InsightFiltersNetworkSourceMacArgsDict',
     'InsightFiltersNetworkSourcePortArgs',
+    'InsightFiltersNetworkSourcePortArgsDict',
     'InsightFiltersNoteTextArgs',
+    'InsightFiltersNoteTextArgsDict',
     'InsightFiltersNoteUpdatedAtArgs',
+    'InsightFiltersNoteUpdatedAtArgsDict',
     'InsightFiltersNoteUpdatedAtDateRangeArgs',
+    'InsightFiltersNoteUpdatedAtDateRangeArgsDict',
     'InsightFiltersNoteUpdatedByArgs',
+    'InsightFiltersNoteUpdatedByArgsDict',
     'InsightFiltersProcessLaunchedAtArgs',
+    'InsightFiltersProcessLaunchedAtArgsDict',
     'InsightFiltersProcessLaunchedAtDateRangeArgs',
+    'InsightFiltersProcessLaunchedAtDateRangeArgsDict',
     'InsightFiltersProcessNameArgs',
+    'InsightFiltersProcessNameArgsDict',
     'InsightFiltersProcessParentPidArgs',
+    'InsightFiltersProcessParentPidArgsDict',
     'InsightFiltersProcessPathArgs',
+    'InsightFiltersProcessPathArgsDict',
     'InsightFiltersProcessPidArgs',
+    'InsightFiltersProcessPidArgsDict',
     'InsightFiltersProcessTerminatedAtArgs',
+    'InsightFiltersProcessTerminatedAtArgsDict',
     'InsightFiltersProcessTerminatedAtDateRangeArgs',
+    'InsightFiltersProcessTerminatedAtDateRangeArgsDict',
     'InsightFiltersProductArnArgs',
+    'InsightFiltersProductArnArgsDict',
     'InsightFiltersProductFieldArgs',
+    'InsightFiltersProductFieldArgsDict',
     'InsightFiltersProductNameArgs',
+    'InsightFiltersProductNameArgsDict',
     'InsightFiltersRecommendationTextArgs',
+    'InsightFiltersRecommendationTextArgsDict',
     'InsightFiltersRecordStateArgs',
+    'InsightFiltersRecordStateArgsDict',
     'InsightFiltersRelatedFindingsIdArgs',
+    'InsightFiltersRelatedFindingsIdArgsDict',
     'InsightFiltersRelatedFindingsProductArnArgs',
+    'InsightFiltersRelatedFindingsProductArnArgsDict',
     'InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs',
+    'InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgsDict',
     'InsightFiltersResourceAwsEc2InstanceImageIdArgs',
+    'InsightFiltersResourceAwsEc2InstanceImageIdArgsDict',
     'InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs',
+    'InsightFiltersResourceAwsEc2InstanceIpv4AddressArgsDict',
     'InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs',
+    'InsightFiltersResourceAwsEc2InstanceIpv6AddressArgsDict',
     'InsightFiltersResourceAwsEc2InstanceKeyNameArgs',
+    'InsightFiltersResourceAwsEc2InstanceKeyNameArgsDict',
     'InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs',
+    'InsightFiltersResourceAwsEc2InstanceLaunchedAtArgsDict',
     'InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs',
+    'InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgsDict',
     'InsightFiltersResourceAwsEc2InstanceSubnetIdArgs',
+    'InsightFiltersResourceAwsEc2InstanceSubnetIdArgsDict',
     'InsightFiltersResourceAwsEc2InstanceTypeArgs',
+    'InsightFiltersResourceAwsEc2InstanceTypeArgsDict',
     'InsightFiltersResourceAwsEc2InstanceVpcIdArgs',
+    'InsightFiltersResourceAwsEc2InstanceVpcIdArgsDict',
     'InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs',
+    'InsightFiltersResourceAwsIamAccessKeyCreatedAtArgsDict',
     'InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs',
+    'InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgsDict',
     'InsightFiltersResourceAwsIamAccessKeyStatusArgs',
+    'InsightFiltersResourceAwsIamAccessKeyStatusArgsDict',
     'InsightFiltersResourceAwsIamAccessKeyUserNameArgs',
+    'InsightFiltersResourceAwsIamAccessKeyUserNameArgsDict',
     'InsightFiltersResourceAwsS3BucketOwnerIdArgs',
+    'InsightFiltersResourceAwsS3BucketOwnerIdArgsDict',
     'InsightFiltersResourceAwsS3BucketOwnerNameArgs',
+    'InsightFiltersResourceAwsS3BucketOwnerNameArgsDict',
     'InsightFiltersResourceContainerImageIdArgs',
+    'InsightFiltersResourceContainerImageIdArgsDict',
     'InsightFiltersResourceContainerImageNameArgs',
+    'InsightFiltersResourceContainerImageNameArgsDict',
     'InsightFiltersResourceContainerLaunchedAtArgs',
+    'InsightFiltersResourceContainerLaunchedAtArgsDict',
     'InsightFiltersResourceContainerLaunchedAtDateRangeArgs',
+    'InsightFiltersResourceContainerLaunchedAtDateRangeArgsDict',
     'InsightFiltersResourceContainerNameArgs',
+    'InsightFiltersResourceContainerNameArgsDict',
     'InsightFiltersResourceDetailsOtherArgs',
+    'InsightFiltersResourceDetailsOtherArgsDict',
     'InsightFiltersResourceIdArgs',
+    'InsightFiltersResourceIdArgsDict',
     'InsightFiltersResourcePartitionArgs',
+    'InsightFiltersResourcePartitionArgsDict',
     'InsightFiltersResourceRegionArgs',
+    'InsightFiltersResourceRegionArgsDict',
     'InsightFiltersResourceTagArgs',
+    'InsightFiltersResourceTagArgsDict',
     'InsightFiltersResourceTypeArgs',
+    'InsightFiltersResourceTypeArgsDict',
     'InsightFiltersSeverityLabelArgs',
+    'InsightFiltersSeverityLabelArgsDict',
     'InsightFiltersSourceUrlArgs',
+    'InsightFiltersSourceUrlArgsDict',
     'InsightFiltersThreatIntelIndicatorCategoryArgs',
+    'InsightFiltersThreatIntelIndicatorCategoryArgsDict',
     'InsightFiltersThreatIntelIndicatorLastObservedAtArgs',
+    'InsightFiltersThreatIntelIndicatorLastObservedAtArgsDict',
     'InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs',
+    'InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgsDict',
     'InsightFiltersThreatIntelIndicatorSourceArgs',
+    'InsightFiltersThreatIntelIndicatorSourceArgsDict',
     'InsightFiltersThreatIntelIndicatorSourceUrlArgs',
+    'InsightFiltersThreatIntelIndicatorSourceUrlArgsDict',
     'InsightFiltersThreatIntelIndicatorTypeArgs',
+    'InsightFiltersThreatIntelIndicatorTypeArgsDict',
     'InsightFiltersThreatIntelIndicatorValueArgs',
+    'InsightFiltersThreatIntelIndicatorValueArgsDict',
     'InsightFiltersTitleArgs',
+    'InsightFiltersTitleArgsDict',
     'InsightFiltersTypeArgs',
+    'InsightFiltersTypeArgsDict',
     'InsightFiltersUpdatedAtArgs',
+    'InsightFiltersUpdatedAtArgsDict',
     'InsightFiltersUpdatedAtDateRangeArgs',
+    'InsightFiltersUpdatedAtDateRangeArgsDict',
     'InsightFiltersUserDefinedValueArgs',
+    'InsightFiltersUserDefinedValueArgsDict',
     'InsightFiltersVerificationStateArgs',
+    'InsightFiltersVerificationStateArgsDict',
     'InsightFiltersWorkflowStatusArgs',
+    'InsightFiltersWorkflowStatusArgsDict',
     'OrganizationConfigurationOrganizationConfigurationArgs',
+    'OrganizationConfigurationOrganizationConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AutomationRuleActionArgsDict(TypedDict):
+        finding_fields_update: NotRequired[pulumi.Input['AutomationRuleActionFindingFieldsUpdateArgsDict']]
+        """
+        A block that specifies that the automation rule action is an update to a finding field.  Documented below.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier.
+        """
+elif False:
+    AutomationRuleActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleActionArgs:
@@ -213,6 +396,47 @@ class AutomationRuleActionArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class AutomationRuleActionFindingFieldsUpdateArgsDict(TypedDict):
+        confidence: NotRequired[pulumi.Input[int]]
+        """
+        The rule action updates the `Confidence` field of a finding.
+        """
+        criticality: NotRequired[pulumi.Input[int]]
+        """
+        The rule action updates the `Criticality` field of a finding.
+        """
+        note: NotRequired[pulumi.Input['AutomationRuleActionFindingFieldsUpdateNoteArgsDict']]
+        """
+        A resource block that updates the note. Documented below.
+        """
+        related_findings: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgsDict']]]]
+        """
+        A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
+        """
+        severity: NotRequired[pulumi.Input['AutomationRuleActionFindingFieldsUpdateSeverityArgsDict']]
+        """
+        A resource block that updates to the severity information for a finding. Documented below.
+        """
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The rule action updates the `Types` field of a finding.
+        """
+        user_defined_fields: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The rule action updates the `UserDefinedFields` field of a finding.
+        """
+        verification_state: NotRequired[pulumi.Input[str]]
+        """
+        The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
+        """
+        workflow: NotRequired[pulumi.Input['AutomationRuleActionFindingFieldsUpdateWorkflowArgsDict']]
+        """
+        A resource block that is used to update information about the investigation into the finding. Documented below.
+        """
+elif False:
+    AutomationRuleActionFindingFieldsUpdateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleActionFindingFieldsUpdateArgs:
@@ -365,6 +589,19 @@ class AutomationRuleActionFindingFieldsUpdateArgs:
         pulumi.set(self, "workflow", value)
 
 
+if not MYPY:
+    class AutomationRuleActionFindingFieldsUpdateNoteArgsDict(TypedDict):
+        text: pulumi.Input[str]
+        """
+        The updated note text.
+        """
+        updated_by: pulumi.Input[str]
+        """
+        The principal that updated the note.
+        """
+elif False:
+    AutomationRuleActionFindingFieldsUpdateNoteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleActionFindingFieldsUpdateNoteArgs:
     def __init__(__self__, *,
@@ -402,6 +639,19 @@ class AutomationRuleActionFindingFieldsUpdateNoteArgs:
         pulumi.set(self, "updated_by", value)
 
 
+if not MYPY:
+    class AutomationRuleActionFindingFieldsUpdateRelatedFindingArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The product-generated identifier for a related finding.
+        """
+        product_arn: pulumi.Input[str]
+        """
+        The ARN of the product that generated a related finding.
+        """
+elif False:
+    AutomationRuleActionFindingFieldsUpdateRelatedFindingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs:
     def __init__(__self__, *,
@@ -438,6 +688,19 @@ class AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs:
     def product_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "product_arn", value)
 
+
+if not MYPY:
+    class AutomationRuleActionFindingFieldsUpdateSeverityArgsDict(TypedDict):
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The severity value of the finding. The allowed values are the following `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH` and `CRITICAL`.
+        """
+        product: NotRequired[pulumi.Input[float]]
+        """
+        The native severity as defined by the AWS service or integrated partner product that generated the finding.
+        """
+elif False:
+    AutomationRuleActionFindingFieldsUpdateSeverityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleActionFindingFieldsUpdateSeverityArgs:
@@ -478,6 +741,15 @@ class AutomationRuleActionFindingFieldsUpdateSeverityArgs:
         pulumi.set(self, "product", value)
 
 
+if not MYPY:
+    class AutomationRuleActionFindingFieldsUpdateWorkflowArgsDict(TypedDict):
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The status of the investigation into the finding. The allowed values are the following `NEW`, `NOTIFIED`, `RESOLVED` and `SUPPRESSED`.
+        """
+elif False:
+    AutomationRuleActionFindingFieldsUpdateWorkflowArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleActionFindingFieldsUpdateWorkflowArgs:
     def __init__(__self__, *,
@@ -500,6 +772,163 @@ class AutomationRuleActionFindingFieldsUpdateWorkflowArgs:
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaArgsDict(TypedDict):
+        aws_account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgsDict']]]]
+        """
+        The AWS account ID in which a finding was generated. Documented below.
+        """
+        aws_account_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgsDict']]]]
+        """
+        The name of the AWS account in which a finding was generated. Documented below.
+        """
+        company_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgsDict']]]]
+        """
+        The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
+        """
+        compliance_associated_standards_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgsDict']]]]
+        """
+        The unique identifier of a standard in which a control is enabled. Documented below.
+        """
+        compliance_security_control_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgsDict']]]]
+        """
+        The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
+        """
+        compliance_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgsDict']]]]
+        """
+        The result of a security check. This field is only used for findings generated from controls. Documented below.
+        """
+        confidences: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgsDict']]]]
+        """
+        The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
+        """
+        created_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgsDict']]]]
+        """
+        A timestamp that indicates when this finding record was created. Documented below.
+        """
+        criticalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgsDict']]]]
+        """
+        The level of importance that is assigned to the resources that are associated with a finding. Documented below.
+        """
+        descriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgsDict']]]]
+        """
+        A finding's description. Documented below.
+        """
+        first_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgsDict']]]]
+        """
+        A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
+        """
+        generator_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgsDict']]]]
+        """
+        The identifier for the solution-specific component that generated a finding. Documented below.
+        """
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgsDict']]]]
+        """
+        The product-specific identifier for a finding. Documented below.
+        """
+        last_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgsDict']]]]
+        """
+        A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
+        """
+        note_texts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgsDict']]]]
+        """
+        The text of a user-defined note that's added to a finding. Documented below.
+        """
+        note_updated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgsDict']]]]
+        """
+        The timestamp of when the note was updated. Documented below.
+        """
+        note_updated_bies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgsDict']]]]
+        """
+        The principal that created a note. Documented below.
+        """
+        product_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgsDict']]]]
+        """
+        The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+        """
+        product_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgsDict']]]]
+        """
+        Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
+        """
+        record_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgsDict']]]]
+        """
+        Provides the current state of a finding. Documented below.
+        """
+        related_findings_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgsDict']]]]
+        """
+        The product-generated identifier for a related finding.  Documented below.
+        """
+        related_findings_product_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgsDict']]]]
+        """
+        The ARN for the product that generated a related finding. Documented below.
+        """
+        resource_application_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgsDict']]]]
+        """
+        The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+        """
+        resource_application_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgsDict']]]]
+        """
+        The name of the application that is related to a finding. Documented below.
+        """
+        resource_details_others: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgsDict']]]]
+        """
+        Custom fields and values about the resource that a finding pertains to. Documented below.
+        """
+        resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgsDict']]]]
+        """
+        The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+        """
+        resource_partitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgsDict']]]]
+        """
+        The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
+        """
+        resource_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgsDict']]]]
+        """
+        The AWS Region where the resource that a finding pertains to is located. Documented below.
+        """
+        resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgsDict']]]]
+        """
+        A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
+        """
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgsDict']]]]
+        """
+        The type of resource that the finding pertains to. Documented below.
+        """
+        severity_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgsDict']]]]
+        """
+        The severity value of the finding. Documented below.
+        """
+        source_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgsDict']]]]
+        """
+        Provides a URL that links to a page about the current finding in the finding product. Documented below.
+        """
+        titles: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgsDict']]]]
+        """
+        A finding's title. Documented below.
+        """
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgsDict']]]]
+        """
+        One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
+        """
+        updated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgsDict']]]]
+        """
+        A timestamp that indicates when the finding record was most recently updated. Documented below.
+        """
+        user_defined_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgsDict']]]]
+        """
+        A list of user-defined name and value string pairs added to a finding. Documented below.
+        """
+        verification_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgsDict']]]]
+        """
+        Provides the veracity of a finding. Documented below.
+        """
+        workflow_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgsDict']]]]
+        """
+        Provides information about the status of the investigation into a finding. Documented below.
+        """
+elif False:
+    AutomationRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaArgs:
@@ -1116,6 +1545,13 @@ class AutomationRuleCriteriaArgs:
         pulumi.set(self, "workflow_statuses", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaAwsAccountIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaAwsAccountIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaAwsAccountIdArgs:
     def __init__(__self__, *,
@@ -1142,6 +1578,13 @@ class AutomationRuleCriteriaAwsAccountIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaAwsAccountNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaAwsAccountNameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaAwsAccountNameArgs:
@@ -1170,6 +1613,13 @@ class AutomationRuleCriteriaAwsAccountNameArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaCompanyNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaCompanyNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaCompanyNameArgs:
     def __init__(__self__, *,
@@ -1196,6 +1646,13 @@ class AutomationRuleCriteriaCompanyNameArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaComplianceAssociatedStandardsIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaComplianceAssociatedStandardsIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs:
@@ -1224,6 +1681,13 @@ class AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaComplianceSecurityControlIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaComplianceSecurityControlIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaComplianceSecurityControlIdArgs:
     def __init__(__self__, *,
@@ -1251,6 +1715,13 @@ class AutomationRuleCriteriaComplianceSecurityControlIdArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaComplianceStatusArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaComplianceStatusArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaComplianceStatusArgs:
     def __init__(__self__, *,
@@ -1277,6 +1748,16 @@ class AutomationRuleCriteriaComplianceStatusArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaConfidenceArgsDict(TypedDict):
+        eq: NotRequired[pulumi.Input[float]]
+        gt: NotRequired[pulumi.Input[float]]
+        gte: NotRequired[pulumi.Input[float]]
+        lt: NotRequired[pulumi.Input[float]]
+        lte: NotRequired[pulumi.Input[float]]
+elif False:
+    AutomationRuleCriteriaConfidenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaConfidenceArgs:
@@ -1343,6 +1824,14 @@ class AutomationRuleCriteriaConfidenceArgs:
         pulumi.set(self, "lte", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaCreatedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['AutomationRuleCriteriaCreatedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    AutomationRuleCriteriaCreatedAtArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaCreatedAtArgs:
     def __init__(__self__, *,
@@ -1384,6 +1873,19 @@ class AutomationRuleCriteriaCreatedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaCreatedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    AutomationRuleCriteriaCreatedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaCreatedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -1420,6 +1922,16 @@ class AutomationRuleCriteriaCreatedAtDateRangeArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaCriticalityArgsDict(TypedDict):
+        eq: NotRequired[pulumi.Input[float]]
+        gt: NotRequired[pulumi.Input[float]]
+        gte: NotRequired[pulumi.Input[float]]
+        lt: NotRequired[pulumi.Input[float]]
+        lte: NotRequired[pulumi.Input[float]]
+elif False:
+    AutomationRuleCriteriaCriticalityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaCriticalityArgs:
@@ -1486,6 +1998,13 @@ class AutomationRuleCriteriaCriticalityArgs:
         pulumi.set(self, "lte", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaDescriptionArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaDescriptionArgs:
     def __init__(__self__, *,
@@ -1512,6 +2031,14 @@ class AutomationRuleCriteriaDescriptionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaFirstObservedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['AutomationRuleCriteriaFirstObservedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    AutomationRuleCriteriaFirstObservedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaFirstObservedAtArgs:
@@ -1554,6 +2081,19 @@ class AutomationRuleCriteriaFirstObservedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaFirstObservedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    AutomationRuleCriteriaFirstObservedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaFirstObservedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -1591,6 +2131,13 @@ class AutomationRuleCriteriaFirstObservedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaGeneratorIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaGeneratorIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaGeneratorIdArgs:
     def __init__(__self__, *,
@@ -1618,6 +2165,13 @@ class AutomationRuleCriteriaGeneratorIdArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaIdArgs:
     def __init__(__self__, *,
@@ -1644,6 +2198,14 @@ class AutomationRuleCriteriaIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaLastObservedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['AutomationRuleCriteriaLastObservedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    AutomationRuleCriteriaLastObservedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaLastObservedAtArgs:
@@ -1686,6 +2248,19 @@ class AutomationRuleCriteriaLastObservedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaLastObservedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    AutomationRuleCriteriaLastObservedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaLastObservedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -1723,6 +2298,13 @@ class AutomationRuleCriteriaLastObservedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaNoteTextArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaNoteTextArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaNoteTextArgs:
     def __init__(__self__, *,
@@ -1749,6 +2331,14 @@ class AutomationRuleCriteriaNoteTextArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaNoteUpdatedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    AutomationRuleCriteriaNoteUpdatedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaNoteUpdatedAtArgs:
@@ -1791,6 +2381,19 @@ class AutomationRuleCriteriaNoteUpdatedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaNoteUpdatedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    AutomationRuleCriteriaNoteUpdatedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -1828,6 +2431,13 @@ class AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaNoteUpdatedByArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaNoteUpdatedByArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaNoteUpdatedByArgs:
     def __init__(__self__, *,
@@ -1854,6 +2464,13 @@ class AutomationRuleCriteriaNoteUpdatedByArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaProductArnArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaProductArnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaProductArnArgs:
@@ -1882,6 +2499,13 @@ class AutomationRuleCriteriaProductArnArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaProductNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaProductNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaProductNameArgs:
     def __init__(__self__, *,
@@ -1908,6 +2532,13 @@ class AutomationRuleCriteriaProductNameArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaRecordStateArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaRecordStateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaRecordStateArgs:
@@ -1936,6 +2567,13 @@ class AutomationRuleCriteriaRecordStateArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaRelatedFindingsIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaRelatedFindingsIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaRelatedFindingsIdArgs:
     def __init__(__self__, *,
@@ -1962,6 +2600,13 @@ class AutomationRuleCriteriaRelatedFindingsIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaRelatedFindingsProductArnArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaRelatedFindingsProductArnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaRelatedFindingsProductArnArgs:
@@ -1990,6 +2635,13 @@ class AutomationRuleCriteriaRelatedFindingsProductArnArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaResourceApplicationArnArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaResourceApplicationArnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaResourceApplicationArnArgs:
     def __init__(__self__, *,
@@ -2017,6 +2669,13 @@ class AutomationRuleCriteriaResourceApplicationArnArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaResourceApplicationNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaResourceApplicationNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaResourceApplicationNameArgs:
     def __init__(__self__, *,
@@ -2043,6 +2702,14 @@ class AutomationRuleCriteriaResourceApplicationNameArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaResourceDetailsOtherArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        key: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaResourceDetailsOtherArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaResourceDetailsOtherArgs:
@@ -2082,6 +2749,13 @@ class AutomationRuleCriteriaResourceDetailsOtherArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaResourceIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaResourceIdArgs:
     def __init__(__self__, *,
@@ -2108,6 +2782,13 @@ class AutomationRuleCriteriaResourceIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaResourcePartitionArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaResourcePartitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaResourcePartitionArgs:
@@ -2136,6 +2817,13 @@ class AutomationRuleCriteriaResourcePartitionArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaResourceRegionArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaResourceRegionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaResourceRegionArgs:
     def __init__(__self__, *,
@@ -2162,6 +2850,14 @@ class AutomationRuleCriteriaResourceRegionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaResourceTagArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        key: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaResourceTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaResourceTagArgs:
@@ -2201,6 +2897,13 @@ class AutomationRuleCriteriaResourceTagArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaResourceTypeArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaResourceTypeArgs:
     def __init__(__self__, *,
@@ -2227,6 +2930,13 @@ class AutomationRuleCriteriaResourceTypeArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaSeverityLabelArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaSeverityLabelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaSeverityLabelArgs:
@@ -2255,6 +2965,13 @@ class AutomationRuleCriteriaSeverityLabelArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaSourceUrlArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaSourceUrlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaSourceUrlArgs:
     def __init__(__self__, *,
@@ -2281,6 +2998,13 @@ class AutomationRuleCriteriaSourceUrlArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaTitleArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaTitleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaTitleArgs:
@@ -2309,6 +3033,13 @@ class AutomationRuleCriteriaTitleArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaTypeArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaTypeArgs:
     def __init__(__self__, *,
@@ -2335,6 +3066,14 @@ class AutomationRuleCriteriaTypeArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaUpdatedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['AutomationRuleCriteriaUpdatedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    AutomationRuleCriteriaUpdatedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaUpdatedAtArgs:
@@ -2377,6 +3116,19 @@ class AutomationRuleCriteriaUpdatedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaUpdatedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    AutomationRuleCriteriaUpdatedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaUpdatedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -2413,6 +3165,14 @@ class AutomationRuleCriteriaUpdatedAtDateRangeArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AutomationRuleCriteriaUserDefinedFieldArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        key: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaUserDefinedFieldArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationRuleCriteriaUserDefinedFieldArgs:
@@ -2452,6 +3212,13 @@ class AutomationRuleCriteriaUserDefinedFieldArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaVerificationStateArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaVerificationStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaVerificationStateArgs:
     def __init__(__self__, *,
@@ -2479,6 +3246,13 @@ class AutomationRuleCriteriaVerificationStateArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class AutomationRuleCriteriaWorkflowStatusArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AutomationRuleCriteriaWorkflowStatusArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationRuleCriteriaWorkflowStatusArgs:
     def __init__(__self__, *,
@@ -2505,6 +3279,23 @@ class AutomationRuleCriteriaWorkflowStatusArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicyArgsDict(TypedDict):
+        service_enabled: pulumi.Input[bool]
+        """
+        Indicates whether Security Hub is enabled in the policy.
+        """
+        enabled_standard_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
+        """
+        security_controls_configuration: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgsDict']]
+        """
+        Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+        """
+elif False:
+    ConfigurationPolicyConfigurationPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicyArgs:
@@ -2559,6 +3350,23 @@ class ConfigurationPolicyConfigurationPolicyArgs:
     def security_controls_configuration(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']]):
         pulumi.set(self, "security_controls_configuration", value)
 
+
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgsDict(TypedDict):
+        disabled_control_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
+        """
+        enabled_control_identifiers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
+        """
+        security_control_custom_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgsDict']]]]
+        """
+        A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+        """
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs:
@@ -2615,6 +3423,19 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs:
         pulumi.set(self, "security_control_custom_parameters", value)
 
 
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgsDict(TypedDict):
+        parameters: pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgsDict']]]
+        """
+        An object that specifies parameter values for a control in a configuration policy. See below.
+        """
+        security_control_id: pulumi.Input[str]
+        """
+        The ID of the security control. For more information see the [Security Hub controls reference] documentation.
+        """
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs:
     def __init__(__self__, *,
@@ -2651,6 +3472,51 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
     def security_control_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "security_control_id", value)
 
+
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
+        """
+        value_type: pulumi.Input[str]
+        """
+        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
+        """
+        bool: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgsDict']]
+        """
+        The bool `value` for a Boolean-typed Security Hub Control Parameter.
+        """
+        double: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgsDict']]
+        """
+        The float `value` for a Double-typed Security Hub Control Parameter.
+        """
+        enum: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgsDict']]
+        """
+        The string `value` for a Enum-typed Security Hub Control Parameter.
+        """
+        enum_list: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgsDict']]
+        """
+        The string list `value` for a EnumList-typed Security Hub Control Parameter.
+        """
+        int: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgsDict']]
+        """
+        The int `value` for a Int-typed Security Hub Control Parameter.
+        """
+        int_list: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgsDict']]
+        """
+        The int list `value` for a IntList-typed Security Hub Control Parameter.
+        """
+        string: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgsDict']]
+        """
+        The string `value` for a String-typed Security Hub Control Parameter.
+        """
+        string_list: NotRequired[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgsDict']]
+        """
+        The string list `value` for a StringList-typed Security Hub Control Parameter.
+        """
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs:
@@ -2817,6 +3683,12 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
         pulumi.set(self, "string_list", value)
 
 
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgsDict(TypedDict):
+        value: pulumi.Input[bool]
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs:
     def __init__(__self__, *,
@@ -2832,6 +3704,12 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
     def value(self, value: pulumi.Input[bool]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgsDict(TypedDict):
+        value: pulumi.Input[float]
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs:
@@ -2849,6 +3727,12 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs:
     def __init__(__self__, *,
@@ -2864,6 +3748,12 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgsDict(TypedDict):
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs:
@@ -2881,6 +3771,12 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgsDict(TypedDict):
+        value: pulumi.Input[int]
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs:
     def __init__(__self__, *,
@@ -2896,6 +3792,12 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgsDict(TypedDict):
+        values: pulumi.Input[Sequence[pulumi.Input[int]]]
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs:
@@ -2913,6 +3815,12 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgsDict(TypedDict):
+        value: pulumi.Input[str]
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs:
     def __init__(__self__, *,
@@ -2929,6 +3837,12 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgsDict(TypedDict):
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs:
     def __init__(__self__, *,
@@ -2944,6 +3858,363 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class InsightFiltersArgsDict(TypedDict):
+        aws_account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgsDict']]]]
+        """
+        AWS account ID that a finding is generated in. See String_Filter below for more details.
+        """
+        company_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCompanyNameArgsDict']]]]
+        """
+        The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
+        """
+        compliance_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgsDict']]]]
+        """
+        Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
+        """
+        confidences: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersConfidenceArgsDict']]]]
+        """
+        A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
+        """
+        created_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCreatedAtArgsDict']]]]
+        """
+        An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
+        """
+        criticalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersCriticalityArgsDict']]]]
+        """
+        The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
+        """
+        descriptions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersDescriptionArgsDict']]]]
+        """
+        A finding's description. See String Filter below for more details.
+        """
+        finding_provider_fields_confidences: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgsDict']]]]
+        """
+        The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
+        """
+        finding_provider_fields_criticalities: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgsDict']]]]
+        """
+        The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
+        """
+        finding_provider_fields_related_findings_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgsDict']]]]
+        """
+        The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
+        """
+        finding_provider_fields_related_findings_product_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgsDict']]]]
+        """
+        The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
+        """
+        finding_provider_fields_severity_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgsDict']]]]
+        """
+        The finding provider value for the severity label. See String Filter below for more details.
+        """
+        finding_provider_fields_severity_originals: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgsDict']]]]
+        """
+        The finding provider's original value for the severity. See String Filter below for more details.
+        """
+        finding_provider_fields_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgsDict']]]]
+        """
+        One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
+        """
+        first_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgsDict']]]]
+        """
+        An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
+        """
+        generator_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgsDict']]]]
+        """
+        The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
+        """
+        ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersIdArgsDict']]]]
+        """
+        The security findings provider-specific identifier for a finding. See String Filter below for more details.
+        """
+        keywords: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersKeywordArgsDict']]]]
+        """
+        A keyword for a finding. See Keyword Filter below for more details.
+        """
+        last_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgsDict']]]]
+        """
+        An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
+        """
+        malware_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareNameArgsDict']]]]
+        """
+        The name of the malware that was observed. See String Filter below for more details.
+        """
+        malware_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwarePathArgsDict']]]]
+        """
+        The filesystem path of the malware that was observed. See String Filter below for more details.
+        """
+        malware_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareStateArgsDict']]]]
+        """
+        The state of the malware that was observed. See String Filter below for more details.
+        """
+        malware_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgsDict']]]]
+        """
+        The type of the malware that was observed. See String Filter below for more details.
+        """
+        network_destination_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgsDict']]]]
+        """
+        The destination domain of network-related information about a finding. See String Filter below for more details.
+        """
+        network_destination_ipv4s: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4ArgsDict']]]]
+        """
+        The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        """
+        network_destination_ipv6s: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6ArgsDict']]]]
+        """
+        The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        """
+        network_destination_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgsDict']]]]
+        """
+        The destination port of network-related information about a finding. See Number Filter below for more details.
+        """
+        network_directions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgsDict']]]]
+        """
+        Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
+        """
+        network_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgsDict']]]]
+        """
+        The protocol of network-related information about a finding. See String Filter below for more details.
+        """
+        network_source_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgsDict']]]]
+        """
+        The source domain of network-related information about a finding. See String Filter below for more details.
+        """
+        network_source_ipv4s: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4ArgsDict']]]]
+        """
+        The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
+        """
+        network_source_ipv6s: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6ArgsDict']]]]
+        """
+        The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
+        """
+        network_source_macs: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgsDict']]]]
+        """
+        The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
+        """
+        network_source_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgsDict']]]]
+        """
+        The source port of network-related information about a finding. See Number Filter below for more details.
+        """
+        note_texts: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteTextArgsDict']]]]
+        """
+        The text of a note. See String Filter below for more details.
+        """
+        note_updated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgsDict']]]]
+        """
+        The timestamp of when the note was updated. See Date Filter below for more details.
+        """
+        note_updated_bies: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgsDict']]]]
+        """
+        The principal that created a note. See String Filter below for more details.
+        """
+        process_launched_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgsDict']]]]
+        """
+        The date/time that the process was launched. See Date Filter below for more details.
+        """
+        process_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessNameArgsDict']]]]
+        """
+        The name of the process. See String Filter below for more details.
+        """
+        process_parent_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgsDict']]]]
+        """
+        The parent process ID. See Number Filter below for more details.
+        """
+        process_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPathArgsDict']]]]
+        """
+        The path to the process executable. See String Filter below for more details.
+        """
+        process_pids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessPidArgsDict']]]]
+        """
+        The process ID. See Number Filter below for more details.
+        """
+        process_terminated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgsDict']]]]
+        """
+        The date/time that the process was terminated. See Date Filter below for more details.
+        """
+        product_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductArnArgsDict']]]]
+        """
+        The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
+        """
+        product_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductFieldArgsDict']]]]
+        """
+        A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
+        """
+        product_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersProductNameArgsDict']]]]
+        """
+        The name of the solution (product) that generates findings. See String Filter below for more details.
+        """
+        recommendation_texts: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgsDict']]]]
+        """
+        The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
+        """
+        record_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRecordStateArgsDict']]]]
+        """
+        The updated record state for the finding. See String Filter below for more details.
+        """
+        related_findings_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgsDict']]]]
+        """
+        The solution-generated identifier for a related finding. See String Filter below for more details.
+        """
+        related_findings_product_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgsDict']]]]
+        """
+        The ARN of the solution that generated a related finding. See String Filter below for more details.
+        """
+        resource_aws_ec2_instance_iam_instance_profile_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgsDict']]]]
+        """
+        The IAM profile ARN of the instance. See String Filter below for more details.
+        """
+        resource_aws_ec2_instance_image_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgsDict']]]]
+        """
+        The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+        """
+        resource_aws_ec2_instance_ipv4_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgsDict']]]]
+        """
+        The IPv4 addresses associated with the instance. See Ip Filter below for more details.
+        """
+        resource_aws_ec2_instance_ipv6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgsDict']]]]
+        """
+        The IPv6 addresses associated with the instance. See Ip Filter below for more details.
+        """
+        resource_aws_ec2_instance_key_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgsDict']]]]
+        """
+        The key name associated with the instance. See String Filter below for more details.
+        """
+        resource_aws_ec2_instance_launched_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgsDict']]]]
+        """
+        The date and time the instance was launched. See Date Filter below for more details.
+        """
+        resource_aws_ec2_instance_subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgsDict']]]]
+        """
+        The identifier of the subnet that the instance was launched in. See String Filter below for more details.
+        """
+        resource_aws_ec2_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgsDict']]]]
+        """
+        The instance type of the instance. See String Filter below for more details.
+        """
+        resource_aws_ec2_instance_vpc_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgsDict']]]]
+        """
+        The identifier of the VPC that the instance was launched in. See String Filter below for more details.
+        """
+        resource_aws_iam_access_key_created_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgsDict']]]]
+        """
+        The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
+        """
+        resource_aws_iam_access_key_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgsDict']]]]
+        """
+        The status of the IAM access key related to a finding. See String Filter below for more details.
+        """
+        resource_aws_iam_access_key_user_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgsDict']]]]
+        """
+        The user associated with the IAM access key related to a finding. See String Filter below for more details.
+        """
+        resource_aws_s3_bucket_owner_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgsDict']]]]
+        """
+        The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
+        """
+        resource_aws_s3_bucket_owner_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgsDict']]]]
+        """
+        The display name of the owner of the S3 bucket. See String Filter below for more details.
+        """
+        resource_container_image_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgsDict']]]]
+        """
+        The identifier of the image related to a finding. See String Filter below for more details.
+        """
+        resource_container_image_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgsDict']]]]
+        """
+        The name of the image related to a finding. See String Filter below for more details.
+        """
+        resource_container_launched_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgsDict']]]]
+        """
+        The date/time that the container was started. See Date Filter below for more details.
+        """
+        resource_container_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgsDict']]]]
+        """
+        The name of the container related to a finding. See String Filter below for more details.
+        """
+        resource_details_others: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgsDict']]]]
+        """
+        The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
+        """
+        resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceIdArgsDict']]]]
+        """
+        The canonical identifier for the given resource type. See String Filter below for more details.
+        """
+        resource_partitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgsDict']]]]
+        """
+        The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
+        """
+        resource_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceRegionArgsDict']]]]
+        """
+        The canonical AWS external Region name where this resource is located. See String Filter below for more details.
+        """
+        resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTagArgsDict']]]]
+        """
+        A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
+        """
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersResourceTypeArgsDict']]]]
+        """
+        Specifies the type of the resource that details are provided for. See String Filter below for more details.
+        """
+        severity_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgsDict']]]]
+        """
+        The label of a finding's severity. See String Filter below for more details.
+        """
+        source_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersSourceUrlArgsDict']]]]
+        """
+        A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
+        """
+        threat_intel_indicator_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgsDict']]]]
+        """
+        The category of a threat intelligence indicator. See String Filter below for more details.
+        """
+        threat_intel_indicator_last_observed_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgsDict']]]]
+        """
+        The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
+        """
+        threat_intel_indicator_source_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgsDict']]]]
+        """
+        The URL for more details from the source of the threat intelligence. See String Filter below for more details.
+        """
+        threat_intel_indicator_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgsDict']]]]
+        """
+        The source of the threat intelligence. See String Filter below for more details.
+        """
+        threat_intel_indicator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgsDict']]]]
+        """
+        The type of a threat intelligence indicator. See String Filter below for more details.
+        """
+        threat_intel_indicator_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgsDict']]]]
+        """
+        The value of a threat intelligence indicator. See String Filter below for more details.
+        """
+        titles: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTitleArgsDict']]]]
+        """
+        A finding's title. See String Filter below for more details.
+        """
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersTypeArgsDict']]]]
+        """
+        A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
+        """
+        updated_ats: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgsDict']]]]
+        """
+        An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
+        """
+        user_defined_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgsDict']]]]
+        """
+        A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
+        """
+        verification_states: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersVerificationStateArgsDict']]]]
+        """
+        The veracity of a finding. See String Filter below for more details.
+        """
+        workflow_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgsDict']]]]
+        """
+        The status of the investigation into a finding. See Workflow Status Filter below for more details.
+        """
+elif False:
+    InsightFiltersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersArgs:
@@ -4360,6 +5631,13 @@ class InsightFiltersArgs:
         pulumi.set(self, "workflow_statuses", value)
 
 
+if not MYPY:
+    class InsightFiltersAwsAccountIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersAwsAccountIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersAwsAccountIdArgs:
     def __init__(__self__, *,
@@ -4386,6 +5664,13 @@ class InsightFiltersAwsAccountIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersCompanyNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersCompanyNameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersCompanyNameArgs:
@@ -4414,6 +5699,13 @@ class InsightFiltersCompanyNameArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersComplianceStatusArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersComplianceStatusArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersComplianceStatusArgs:
     def __init__(__self__, *,
@@ -4440,6 +5732,14 @@ class InsightFiltersComplianceStatusArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersConfidenceArgsDict(TypedDict):
+        eq: NotRequired[pulumi.Input[str]]
+        gte: NotRequired[pulumi.Input[str]]
+        lte: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersConfidenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersConfidenceArgs:
@@ -4482,6 +5782,14 @@ class InsightFiltersConfidenceArgs:
         pulumi.set(self, "lte", value)
 
 
+if not MYPY:
+    class InsightFiltersCreatedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersCreatedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersCreatedAtArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersCreatedAtArgs:
     def __init__(__self__, *,
@@ -4523,6 +5831,19 @@ class InsightFiltersCreatedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersCreatedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersCreatedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersCreatedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -4559,6 +5880,14 @@ class InsightFiltersCreatedAtDateRangeArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersCriticalityArgsDict(TypedDict):
+        eq: NotRequired[pulumi.Input[str]]
+        gte: NotRequired[pulumi.Input[str]]
+        lte: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersCriticalityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersCriticalityArgs:
@@ -4601,6 +5930,13 @@ class InsightFiltersCriticalityArgs:
         pulumi.set(self, "lte", value)
 
 
+if not MYPY:
+    class InsightFiltersDescriptionArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersDescriptionArgs:
     def __init__(__self__, *,
@@ -4627,6 +5963,14 @@ class InsightFiltersDescriptionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersFindingProviderFieldsConfidenceArgsDict(TypedDict):
+        eq: NotRequired[pulumi.Input[str]]
+        gte: NotRequired[pulumi.Input[str]]
+        lte: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersFindingProviderFieldsConfidenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersFindingProviderFieldsConfidenceArgs:
@@ -4669,6 +6013,14 @@ class InsightFiltersFindingProviderFieldsConfidenceArgs:
         pulumi.set(self, "lte", value)
 
 
+if not MYPY:
+    class InsightFiltersFindingProviderFieldsCriticalityArgsDict(TypedDict):
+        eq: NotRequired[pulumi.Input[str]]
+        gte: NotRequired[pulumi.Input[str]]
+        lte: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersFindingProviderFieldsCriticalityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersFindingProviderFieldsCriticalityArgs:
     def __init__(__self__, *,
@@ -4710,6 +6062,13 @@ class InsightFiltersFindingProviderFieldsCriticalityArgs:
         pulumi.set(self, "lte", value)
 
 
+if not MYPY:
+    class InsightFiltersFindingProviderFieldsRelatedFindingsIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersFindingProviderFieldsRelatedFindingsIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs:
     def __init__(__self__, *,
@@ -4736,6 +6095,13 @@ class InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs:
@@ -4764,6 +6130,13 @@ class InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersFindingProviderFieldsSeverityLabelArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersFindingProviderFieldsSeverityLabelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersFindingProviderFieldsSeverityLabelArgs:
     def __init__(__self__, *,
@@ -4790,6 +6163,13 @@ class InsightFiltersFindingProviderFieldsSeverityLabelArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersFindingProviderFieldsSeverityOriginalArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersFindingProviderFieldsSeverityOriginalArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersFindingProviderFieldsSeverityOriginalArgs:
@@ -4818,6 +6198,13 @@ class InsightFiltersFindingProviderFieldsSeverityOriginalArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersFindingProviderFieldsTypeArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersFindingProviderFieldsTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersFindingProviderFieldsTypeArgs:
     def __init__(__self__, *,
@@ -4844,6 +6231,14 @@ class InsightFiltersFindingProviderFieldsTypeArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersFirstObservedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersFirstObservedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersFirstObservedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersFirstObservedAtArgs:
@@ -4886,6 +6281,19 @@ class InsightFiltersFirstObservedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersFirstObservedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersFirstObservedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersFirstObservedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -4923,6 +6331,13 @@ class InsightFiltersFirstObservedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersGeneratorIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersGeneratorIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersGeneratorIdArgs:
     def __init__(__self__, *,
@@ -4949,6 +6364,13 @@ class InsightFiltersGeneratorIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersIdArgs:
@@ -4977,6 +6399,15 @@ class InsightFiltersIdArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersKeywordArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        """
+        A value for the keyword.
+        """
+elif False:
+    InsightFiltersKeywordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersKeywordArgs:
     def __init__(__self__, *,
@@ -4998,6 +6429,14 @@ class InsightFiltersKeywordArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersLastObservedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersLastObservedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersLastObservedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersLastObservedAtArgs:
@@ -5040,6 +6479,19 @@ class InsightFiltersLastObservedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersLastObservedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersLastObservedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersLastObservedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -5077,6 +6529,13 @@ class InsightFiltersLastObservedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersMalwareNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersMalwareNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersMalwareNameArgs:
     def __init__(__self__, *,
@@ -5103,6 +6562,13 @@ class InsightFiltersMalwareNameArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersMalwarePathArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersMalwarePathArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersMalwarePathArgs:
@@ -5131,6 +6597,13 @@ class InsightFiltersMalwarePathArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersMalwareStateArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersMalwareStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersMalwareStateArgs:
     def __init__(__self__, *,
@@ -5157,6 +6630,13 @@ class InsightFiltersMalwareStateArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersMalwareTypeArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersMalwareTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersMalwareTypeArgs:
@@ -5185,6 +6665,13 @@ class InsightFiltersMalwareTypeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersNetworkDestinationDomainArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersNetworkDestinationDomainArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersNetworkDestinationDomainArgs:
     def __init__(__self__, *,
@@ -5212,6 +6699,12 @@ class InsightFiltersNetworkDestinationDomainArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersNetworkDestinationIpv4ArgsDict(TypedDict):
+        cidr: pulumi.Input[str]
+elif False:
+    InsightFiltersNetworkDestinationIpv4ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersNetworkDestinationIpv4Args:
     def __init__(__self__, *,
@@ -5228,6 +6721,12 @@ class InsightFiltersNetworkDestinationIpv4Args:
         pulumi.set(self, "cidr", value)
 
 
+if not MYPY:
+    class InsightFiltersNetworkDestinationIpv6ArgsDict(TypedDict):
+        cidr: pulumi.Input[str]
+elif False:
+    InsightFiltersNetworkDestinationIpv6ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersNetworkDestinationIpv6Args:
     def __init__(__self__, *,
@@ -5243,6 +6742,14 @@ class InsightFiltersNetworkDestinationIpv6Args:
     def cidr(self, value: pulumi.Input[str]):
         pulumi.set(self, "cidr", value)
 
+
+if not MYPY:
+    class InsightFiltersNetworkDestinationPortArgsDict(TypedDict):
+        eq: NotRequired[pulumi.Input[str]]
+        gte: NotRequired[pulumi.Input[str]]
+        lte: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersNetworkDestinationPortArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersNetworkDestinationPortArgs:
@@ -5285,6 +6792,13 @@ class InsightFiltersNetworkDestinationPortArgs:
         pulumi.set(self, "lte", value)
 
 
+if not MYPY:
+    class InsightFiltersNetworkDirectionArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersNetworkDirectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersNetworkDirectionArgs:
     def __init__(__self__, *,
@@ -5311,6 +6825,13 @@ class InsightFiltersNetworkDirectionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersNetworkProtocolArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersNetworkProtocolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersNetworkProtocolArgs:
@@ -5339,6 +6860,13 @@ class InsightFiltersNetworkProtocolArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersNetworkSourceDomainArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersNetworkSourceDomainArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersNetworkSourceDomainArgs:
     def __init__(__self__, *,
@@ -5366,6 +6894,12 @@ class InsightFiltersNetworkSourceDomainArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersNetworkSourceIpv4ArgsDict(TypedDict):
+        cidr: pulumi.Input[str]
+elif False:
+    InsightFiltersNetworkSourceIpv4ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersNetworkSourceIpv4Args:
     def __init__(__self__, *,
@@ -5382,6 +6916,12 @@ class InsightFiltersNetworkSourceIpv4Args:
         pulumi.set(self, "cidr", value)
 
 
+if not MYPY:
+    class InsightFiltersNetworkSourceIpv6ArgsDict(TypedDict):
+        cidr: pulumi.Input[str]
+elif False:
+    InsightFiltersNetworkSourceIpv6ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersNetworkSourceIpv6Args:
     def __init__(__self__, *,
@@ -5397,6 +6937,13 @@ class InsightFiltersNetworkSourceIpv6Args:
     def cidr(self, value: pulumi.Input[str]):
         pulumi.set(self, "cidr", value)
 
+
+if not MYPY:
+    class InsightFiltersNetworkSourceMacArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersNetworkSourceMacArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersNetworkSourceMacArgs:
@@ -5424,6 +6971,14 @@ class InsightFiltersNetworkSourceMacArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersNetworkSourcePortArgsDict(TypedDict):
+        eq: NotRequired[pulumi.Input[str]]
+        gte: NotRequired[pulumi.Input[str]]
+        lte: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersNetworkSourcePortArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersNetworkSourcePortArgs:
@@ -5466,6 +7021,13 @@ class InsightFiltersNetworkSourcePortArgs:
         pulumi.set(self, "lte", value)
 
 
+if not MYPY:
+    class InsightFiltersNoteTextArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersNoteTextArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersNoteTextArgs:
     def __init__(__self__, *,
@@ -5492,6 +7054,14 @@ class InsightFiltersNoteTextArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersNoteUpdatedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersNoteUpdatedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersNoteUpdatedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersNoteUpdatedAtArgs:
@@ -5534,6 +7104,19 @@ class InsightFiltersNoteUpdatedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersNoteUpdatedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersNoteUpdatedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersNoteUpdatedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -5571,6 +7154,13 @@ class InsightFiltersNoteUpdatedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersNoteUpdatedByArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersNoteUpdatedByArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersNoteUpdatedByArgs:
     def __init__(__self__, *,
@@ -5597,6 +7187,14 @@ class InsightFiltersNoteUpdatedByArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersProcessLaunchedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersProcessLaunchedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersProcessLaunchedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersProcessLaunchedAtArgs:
@@ -5639,6 +7237,19 @@ class InsightFiltersProcessLaunchedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersProcessLaunchedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersProcessLaunchedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersProcessLaunchedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -5676,6 +7287,13 @@ class InsightFiltersProcessLaunchedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersProcessNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersProcessNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersProcessNameArgs:
     def __init__(__self__, *,
@@ -5702,6 +7320,14 @@ class InsightFiltersProcessNameArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersProcessParentPidArgsDict(TypedDict):
+        eq: NotRequired[pulumi.Input[str]]
+        gte: NotRequired[pulumi.Input[str]]
+        lte: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersProcessParentPidArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersProcessParentPidArgs:
@@ -5744,6 +7370,13 @@ class InsightFiltersProcessParentPidArgs:
         pulumi.set(self, "lte", value)
 
 
+if not MYPY:
+    class InsightFiltersProcessPathArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersProcessPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersProcessPathArgs:
     def __init__(__self__, *,
@@ -5770,6 +7403,14 @@ class InsightFiltersProcessPathArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersProcessPidArgsDict(TypedDict):
+        eq: NotRequired[pulumi.Input[str]]
+        gte: NotRequired[pulumi.Input[str]]
+        lte: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersProcessPidArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersProcessPidArgs:
@@ -5812,6 +7453,14 @@ class InsightFiltersProcessPidArgs:
         pulumi.set(self, "lte", value)
 
 
+if not MYPY:
+    class InsightFiltersProcessTerminatedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersProcessTerminatedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersProcessTerminatedAtArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersProcessTerminatedAtArgs:
     def __init__(__self__, *,
@@ -5853,6 +7502,19 @@ class InsightFiltersProcessTerminatedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersProcessTerminatedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersProcessTerminatedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersProcessTerminatedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -5890,6 +7552,13 @@ class InsightFiltersProcessTerminatedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersProductArnArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersProductArnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersProductArnArgs:
     def __init__(__self__, *,
@@ -5916,6 +7585,14 @@ class InsightFiltersProductArnArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersProductFieldArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        key: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersProductFieldArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersProductFieldArgs:
@@ -5955,6 +7632,13 @@ class InsightFiltersProductFieldArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersProductNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersProductNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersProductNameArgs:
     def __init__(__self__, *,
@@ -5981,6 +7665,13 @@ class InsightFiltersProductNameArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersRecommendationTextArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersRecommendationTextArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersRecommendationTextArgs:
@@ -6009,6 +7700,13 @@ class InsightFiltersRecommendationTextArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersRecordStateArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersRecordStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersRecordStateArgs:
     def __init__(__self__, *,
@@ -6035,6 +7733,13 @@ class InsightFiltersRecordStateArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersRelatedFindingsIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersRelatedFindingsIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersRelatedFindingsIdArgs:
@@ -6063,6 +7768,13 @@ class InsightFiltersRelatedFindingsIdArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersRelatedFindingsProductArnArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersRelatedFindingsProductArnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersRelatedFindingsProductArnArgs:
     def __init__(__self__, *,
@@ -6089,6 +7801,13 @@ class InsightFiltersRelatedFindingsProductArnArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs:
@@ -6117,6 +7836,13 @@ class InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceAwsEc2InstanceImageIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsEc2InstanceImageIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceImageIdArgs:
     def __init__(__self__, *,
@@ -6144,6 +7870,12 @@ class InsightFiltersResourceAwsEc2InstanceImageIdArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceAwsEc2InstanceIpv4AddressArgsDict(TypedDict):
+        cidr: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsEc2InstanceIpv4AddressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs:
     def __init__(__self__, *,
@@ -6160,6 +7892,12 @@ class InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs:
         pulumi.set(self, "cidr", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceAwsEc2InstanceIpv6AddressArgsDict(TypedDict):
+        cidr: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsEc2InstanceIpv6AddressArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs:
     def __init__(__self__, *,
@@ -6175,6 +7913,13 @@ class InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs:
     def cidr(self, value: pulumi.Input[str]):
         pulumi.set(self, "cidr", value)
 
+
+if not MYPY:
+    class InsightFiltersResourceAwsEc2InstanceKeyNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsEc2InstanceKeyNameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceKeyNameArgs:
@@ -6202,6 +7947,14 @@ class InsightFiltersResourceAwsEc2InstanceKeyNameArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersResourceAwsEc2InstanceLaunchedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs:
@@ -6244,6 +7997,19 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -6281,6 +8047,13 @@ class InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceAwsEc2InstanceSubnetIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsEc2InstanceSubnetIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceSubnetIdArgs:
     def __init__(__self__, *,
@@ -6307,6 +8080,13 @@ class InsightFiltersResourceAwsEc2InstanceSubnetIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersResourceAwsEc2InstanceTypeArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsEc2InstanceTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceTypeArgs:
@@ -6335,6 +8115,13 @@ class InsightFiltersResourceAwsEc2InstanceTypeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceAwsEc2InstanceVpcIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsEc2InstanceVpcIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceAwsEc2InstanceVpcIdArgs:
     def __init__(__self__, *,
@@ -6361,6 +8148,14 @@ class InsightFiltersResourceAwsEc2InstanceVpcIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersResourceAwsIamAccessKeyCreatedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs:
@@ -6403,6 +8198,19 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -6440,6 +8248,13 @@ class InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceAwsIamAccessKeyStatusArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsIamAccessKeyStatusArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceAwsIamAccessKeyStatusArgs:
     def __init__(__self__, *,
@@ -6466,6 +8281,13 @@ class InsightFiltersResourceAwsIamAccessKeyStatusArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersResourceAwsIamAccessKeyUserNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsIamAccessKeyUserNameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourceAwsIamAccessKeyUserNameArgs:
@@ -6494,6 +8316,13 @@ class InsightFiltersResourceAwsIamAccessKeyUserNameArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceAwsS3BucketOwnerIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsS3BucketOwnerIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceAwsS3BucketOwnerIdArgs:
     def __init__(__self__, *,
@@ -6520,6 +8349,13 @@ class InsightFiltersResourceAwsS3BucketOwnerIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersResourceAwsS3BucketOwnerNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceAwsS3BucketOwnerNameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourceAwsS3BucketOwnerNameArgs:
@@ -6548,6 +8384,13 @@ class InsightFiltersResourceAwsS3BucketOwnerNameArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceContainerImageIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceContainerImageIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceContainerImageIdArgs:
     def __init__(__self__, *,
@@ -6575,6 +8418,13 @@ class InsightFiltersResourceContainerImageIdArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceContainerImageNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceContainerImageNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceContainerImageNameArgs:
     def __init__(__self__, *,
@@ -6601,6 +8451,14 @@ class InsightFiltersResourceContainerImageNameArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersResourceContainerLaunchedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersResourceContainerLaunchedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersResourceContainerLaunchedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourceContainerLaunchedAtArgs:
@@ -6643,6 +8501,19 @@ class InsightFiltersResourceContainerLaunchedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceContainerLaunchedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersResourceContainerLaunchedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceContainerLaunchedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -6680,6 +8551,13 @@ class InsightFiltersResourceContainerLaunchedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceContainerNameArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceContainerNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceContainerNameArgs:
     def __init__(__self__, *,
@@ -6706,6 +8584,14 @@ class InsightFiltersResourceContainerNameArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersResourceDetailsOtherArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        key: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceDetailsOtherArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourceDetailsOtherArgs:
@@ -6745,6 +8631,13 @@ class InsightFiltersResourceDetailsOtherArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceIdArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceIdArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceIdArgs:
     def __init__(__self__, *,
@@ -6771,6 +8664,13 @@ class InsightFiltersResourceIdArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersResourcePartitionArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourcePartitionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourcePartitionArgs:
@@ -6799,6 +8699,13 @@ class InsightFiltersResourcePartitionArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceRegionArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceRegionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceRegionArgs:
     def __init__(__self__, *,
@@ -6825,6 +8732,14 @@ class InsightFiltersResourceRegionArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersResourceTagArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        key: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersResourceTagArgs:
@@ -6864,6 +8779,13 @@ class InsightFiltersResourceTagArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersResourceTypeArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersResourceTypeArgs:
     def __init__(__self__, *,
@@ -6890,6 +8812,13 @@ class InsightFiltersResourceTypeArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersSeverityLabelArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersSeverityLabelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersSeverityLabelArgs:
@@ -6918,6 +8847,13 @@ class InsightFiltersSeverityLabelArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersSourceUrlArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersSourceUrlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersSourceUrlArgs:
     def __init__(__self__, *,
@@ -6945,6 +8881,13 @@ class InsightFiltersSourceUrlArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersThreatIntelIndicatorCategoryArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersThreatIntelIndicatorCategoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersThreatIntelIndicatorCategoryArgs:
     def __init__(__self__, *,
@@ -6971,6 +8914,14 @@ class InsightFiltersThreatIntelIndicatorCategoryArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersThreatIntelIndicatorLastObservedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersThreatIntelIndicatorLastObservedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersThreatIntelIndicatorLastObservedAtArgs:
@@ -7013,6 +8964,19 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -7050,6 +9014,13 @@ class InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersThreatIntelIndicatorSourceArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersThreatIntelIndicatorSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersThreatIntelIndicatorSourceArgs:
     def __init__(__self__, *,
@@ -7076,6 +9047,13 @@ class InsightFiltersThreatIntelIndicatorSourceArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersThreatIntelIndicatorSourceUrlArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersThreatIntelIndicatorSourceUrlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersThreatIntelIndicatorSourceUrlArgs:
@@ -7104,6 +9082,13 @@ class InsightFiltersThreatIntelIndicatorSourceUrlArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersThreatIntelIndicatorTypeArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersThreatIntelIndicatorTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersThreatIntelIndicatorTypeArgs:
     def __init__(__self__, *,
@@ -7130,6 +9115,13 @@ class InsightFiltersThreatIntelIndicatorTypeArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersThreatIntelIndicatorValueArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersThreatIntelIndicatorValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersThreatIntelIndicatorValueArgs:
@@ -7158,6 +9150,13 @@ class InsightFiltersThreatIntelIndicatorValueArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersTitleArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersTitleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersTitleArgs:
     def __init__(__self__, *,
@@ -7185,6 +9184,13 @@ class InsightFiltersTitleArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersTypeArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersTypeArgs:
     def __init__(__self__, *,
@@ -7211,6 +9217,14 @@ class InsightFiltersTypeArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersUpdatedAtArgsDict(TypedDict):
+        date_range: NotRequired[pulumi.Input['InsightFiltersUpdatedAtDateRangeArgsDict']]
+        end: NotRequired[pulumi.Input[str]]
+        start: NotRequired[pulumi.Input[str]]
+elif False:
+    InsightFiltersUpdatedAtArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersUpdatedAtArgs:
@@ -7253,6 +9267,19 @@ class InsightFiltersUpdatedAtArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class InsightFiltersUpdatedAtDateRangeArgsDict(TypedDict):
+        unit: pulumi.Input[str]
+        """
+        A date range unit for the date filter. Valid values: `DAYS`.
+        """
+        value: pulumi.Input[int]
+        """
+        A date range value for the date filter, provided as an Integer.
+        """
+elif False:
+    InsightFiltersUpdatedAtDateRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersUpdatedAtDateRangeArgs:
     def __init__(__self__, *,
@@ -7289,6 +9316,14 @@ class InsightFiltersUpdatedAtDateRangeArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class InsightFiltersUserDefinedValueArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        key: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersUserDefinedValueArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InsightFiltersUserDefinedValueArgs:
@@ -7328,6 +9363,13 @@ class InsightFiltersUserDefinedValueArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersVerificationStateArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersVerificationStateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersVerificationStateArgs:
     def __init__(__self__, *,
@@ -7355,6 +9397,13 @@ class InsightFiltersVerificationStateArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class InsightFiltersWorkflowStatusArgsDict(TypedDict):
+        comparison: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    InsightFiltersWorkflowStatusArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InsightFiltersWorkflowStatusArgs:
     def __init__(__self__, *,
@@ -7381,6 +9430,15 @@ class InsightFiltersWorkflowStatusArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class OrganizationConfigurationOrganizationConfigurationArgsDict(TypedDict):
+        configuration_type: pulumi.Input[str]
+        """
+        Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+        """
+elif False:
+    OrganizationConfigurationOrganizationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrganizationConfigurationOrganizationConfigurationArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -88,7 +93,7 @@ class AwaitableGetEipsResult(GetEipsResult):
             tags=self.tags)
 
 
-def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] = None,
+def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']]] = None,
              tags: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEipsResult:
     """
@@ -110,7 +115,7 @@ def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] 
     ```
 
 
-    :param Sequence[pulumi.InputType['GetEipsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
     __args__ = dict()
@@ -128,7 +133,7 @@ def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] 
 
 
 @_utilities.lift_output_func(get_eips)
-def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]]]] = None,
+def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']]]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEipsResult]:
     """
@@ -150,7 +155,7 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
     ```
 
 
-    :param Sequence[pulumi.InputType['GetEipsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
     ...

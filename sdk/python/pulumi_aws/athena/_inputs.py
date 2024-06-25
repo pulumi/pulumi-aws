@@ -4,20 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DatabaseAclConfigurationArgs',
+    'DatabaseAclConfigurationArgsDict',
     'DatabaseEncryptionConfigurationArgs',
+    'DatabaseEncryptionConfigurationArgsDict',
     'WorkgroupConfigurationArgs',
+    'WorkgroupConfigurationArgsDict',
     'WorkgroupConfigurationEngineVersionArgs',
+    'WorkgroupConfigurationEngineVersionArgsDict',
     'WorkgroupConfigurationResultConfigurationArgs',
+    'WorkgroupConfigurationResultConfigurationArgsDict',
     'WorkgroupConfigurationResultConfigurationAclConfigurationArgs',
+    'WorkgroupConfigurationResultConfigurationAclConfigurationArgsDict',
     'WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs',
+    'WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatabaseAclConfigurationArgsDict(TypedDict):
+        s3_acl_option: pulumi.Input[str]
+        """
+        Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+
+        > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `force_destroy` on the bucket too in order to avoid any problems when destroying the bucket.
+        """
+elif False:
+    DatabaseAclConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseAclConfigurationArgs:
@@ -44,6 +69,19 @@ class DatabaseAclConfigurationArgs:
     def s3_acl_option(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_acl_option", value)
 
+
+if not MYPY:
+    class DatabaseEncryptionConfigurationArgsDict(TypedDict):
+        encryption_option: pulumi.Input[str]
+        """
+        Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+        """
+        kms_key: NotRequired[pulumi.Input[str]]
+        """
+        KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+        """
+elif False:
+    DatabaseEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseEncryptionConfigurationArgs:
@@ -82,6 +120,39 @@ class DatabaseEncryptionConfigurationArgs:
     def kms_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key", value)
 
+
+if not MYPY:
+    class WorkgroupConfigurationArgsDict(TypedDict):
+        bytes_scanned_cutoff_per_query: NotRequired[pulumi.Input[int]]
+        """
+        Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
+        """
+        enforce_workgroup_configuration: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
+        """
+        engine_version: NotRequired[pulumi.Input['WorkgroupConfigurationEngineVersionArgsDict']]
+        """
+        Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
+        """
+        execution_role: NotRequired[pulumi.Input[str]]
+        """
+        Role used in a notebook session for accessing the user's resources.
+        """
+        publish_cloudwatch_metrics_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
+        """
+        requester_pays_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+        """
+        result_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationResultConfigurationArgsDict']]
+        """
+        Configuration block with result settings. See Result Configuration below.
+        """
+elif False:
+    WorkgroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkgroupConfigurationArgs:
@@ -202,6 +273,19 @@ class WorkgroupConfigurationArgs:
         pulumi.set(self, "result_configuration", value)
 
 
+if not MYPY:
+    class WorkgroupConfigurationEngineVersionArgsDict(TypedDict):
+        effective_engine_version: NotRequired[pulumi.Input[str]]
+        """
+        The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
+        """
+        selected_engine_version: NotRequired[pulumi.Input[str]]
+        """
+        Requested engine version. Defaults to `AUTO`.
+        """
+elif False:
+    WorkgroupConfigurationEngineVersionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkgroupConfigurationEngineVersionArgs:
     def __init__(__self__, *,
@@ -240,6 +324,27 @@ class WorkgroupConfigurationEngineVersionArgs:
     def selected_engine_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "selected_engine_version", value)
 
+
+if not MYPY:
+    class WorkgroupConfigurationResultConfigurationArgsDict(TypedDict):
+        acl_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationResultConfigurationAclConfigurationArgsDict']]
+        """
+        That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        """
+        encryption_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict']]
+        """
+        Configuration block with encryption settings. See Encryption Configuration below.
+        """
+        expected_bucket_owner: NotRequired[pulumi.Input[str]]
+        """
+        AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+        """
+        output_location: NotRequired[pulumi.Input[str]]
+        """
+        Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+        """
+elif False:
+    WorkgroupConfigurationResultConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkgroupConfigurationResultConfigurationArgs:
@@ -312,6 +417,15 @@ class WorkgroupConfigurationResultConfigurationArgs:
         pulumi.set(self, "output_location", value)
 
 
+if not MYPY:
+    class WorkgroupConfigurationResultConfigurationAclConfigurationArgsDict(TypedDict):
+        s3_acl_option: pulumi.Input[str]
+        """
+        Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+        """
+elif False:
+    WorkgroupConfigurationResultConfigurationAclConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkgroupConfigurationResultConfigurationAclConfigurationArgs:
     def __init__(__self__, *,
@@ -333,6 +447,19 @@ class WorkgroupConfigurationResultConfigurationAclConfigurationArgs:
     def s3_acl_option(self, value: pulumi.Input[str]):
         pulumi.set(self, "s3_acl_option", value)
 
+
+if not MYPY:
+    class WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict(TypedDict):
+        encryption_option: NotRequired[pulumi.Input[str]]
+        """
+        Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
+        """
+elif False:
+    WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs:

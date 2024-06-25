@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -121,7 +126,7 @@ class AwaitableGetInstancesResult(GetInstancesResult):
             public_ips=self.public_ips)
 
 
-def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]] = None,
+def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]] = None,
                   instance_state_names: Optional[Sequence[str]] = None,
                   instance_tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
@@ -143,10 +148,10 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     test = aws.ec2.get_instances(instance_tags={
             "Role": "HardWorker",
         },
-        filters=[aws.ec2.GetInstancesFilterArgs(
-            name="instance.group-id",
-            values=["sg-12345678"],
-        )],
+        filters=[{
+            "name": "instance.group-id",
+            "values": ["sg-12345678"],
+        }],
         instance_state_names=[
             "running",
             "stopped",
@@ -157,7 +162,7 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param Sequence[str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
@@ -183,7 +188,7 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
 
 
 @_utilities.lift_output_func(get_instances)
-def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]]]] = None,
+def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
                          instance_state_names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          instance_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
@@ -205,10 +210,10 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     test = aws.ec2.get_instances(instance_tags={
             "Role": "HardWorker",
         },
-        filters=[aws.ec2.GetInstancesFilterArgs(
-            name="instance.group-id",
-            values=["sg-12345678"],
-        )],
+        filters=[{
+            "name": "instance.group-id",
+            "values": ["sg-12345678"],
+        }],
         instance_state_names=[
             "running",
             "stopped",
@@ -219,7 +224,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param Sequence[str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.

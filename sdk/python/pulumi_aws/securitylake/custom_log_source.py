@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -201,7 +206,7 @@ class CustomLogSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['CustomLogSourceConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
                  event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_name: Optional[pulumi.Input[str]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
@@ -223,15 +228,15 @@ class CustomLogSource(pulumi.CustomResource):
             source_name="example-name",
             source_version="1.0",
             event_classes=["FILE_ACTIVITY"],
-            configuration=aws.securitylake.CustomLogSourceConfigurationArgs(
-                crawler_configuration=aws.securitylake.CustomLogSourceConfigurationCrawlerConfigurationArgs(
-                    role_arn=custom_log["arn"],
-                ),
-                provider_identity=aws.securitylake.CustomLogSourceConfigurationProviderIdentityArgs(
-                    external_id="example-id",
-                    principal="123456789012",
-                ),
-            ),
+            configuration={
+                "crawlerConfiguration": {
+                    "roleArn": custom_log["arn"],
+                },
+                "providerIdentity": {
+                    "externalId": "example-id",
+                    "principal": "123456789012",
+                },
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -245,7 +250,7 @@ class CustomLogSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomLogSourceConfigurationArgs']] configuration: The configuration for the third-party custom source.
+        :param pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         :param pulumi.Input[str] source_name: Specify the name for a third-party custom source.
                This must be a Regionally unique value.
@@ -275,15 +280,15 @@ class CustomLogSource(pulumi.CustomResource):
             source_name="example-name",
             source_version="1.0",
             event_classes=["FILE_ACTIVITY"],
-            configuration=aws.securitylake.CustomLogSourceConfigurationArgs(
-                crawler_configuration=aws.securitylake.CustomLogSourceConfigurationCrawlerConfigurationArgs(
-                    role_arn=custom_log["arn"],
-                ),
-                provider_identity=aws.securitylake.CustomLogSourceConfigurationProviderIdentityArgs(
-                    external_id="example-id",
-                    principal="123456789012",
-                ),
-            ),
+            configuration={
+                "crawlerConfiguration": {
+                    "roleArn": custom_log["arn"],
+                },
+                "providerIdentity": {
+                    "externalId": "example-id",
+                    "principal": "123456789012",
+                },
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -310,7 +315,7 @@ class CustomLogSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['CustomLogSourceConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
                  event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  source_name: Optional[pulumi.Input[str]] = None,
                  source_version: Optional[pulumi.Input[str]] = None,
@@ -341,10 +346,10 @@ class CustomLogSource(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLogSourceAttributeArgs']]]]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['CustomLogSourceConfigurationArgs']]] = None,
+            attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceAttributeArgs', 'CustomLogSourceAttributeArgsDict']]]]] = None,
+            configuration: Optional[pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
             event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            provider_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLogSourceProviderDetailArgs']]]]] = None,
+            provider_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict']]]]] = None,
             source_name: Optional[pulumi.Input[str]] = None,
             source_version: Optional[pulumi.Input[str]] = None) -> 'CustomLogSource':
         """
@@ -354,10 +359,10 @@ class CustomLogSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLogSourceAttributeArgs']]]] attributes: The attributes of a third-party custom source.
-        :param pulumi.Input[pulumi.InputType['CustomLogSourceConfigurationArgs']] configuration: The configuration for the third-party custom source.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceAttributeArgs', 'CustomLogSourceAttributeArgsDict']]]] attributes: The attributes of a third-party custom source.
+        :param pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomLogSourceProviderDetailArgs']]]] provider_details: The details of the log provider for a third-party custom source.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict']]]] provider_details: The details of the log provider for a third-party custom source.
         :param pulumi.Input[str] source_name: Specify the name for a third-party custom source.
                This must be a Regionally unique value.
                Has a maximum length of 20.

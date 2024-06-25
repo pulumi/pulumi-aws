@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -262,7 +267,7 @@ class Workgroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -280,17 +285,17 @@ class Workgroup(pulumi.CustomResource):
 
         example = aws.athena.Workgroup("example",
             name="example",
-            configuration=aws.athena.WorkgroupConfigurationArgs(
-                enforce_workgroup_configuration=True,
-                publish_cloudwatch_metrics_enabled=True,
-                result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                    output_location=f"s3://{example_aws_s3_bucket['bucket']}/output/",
-                    encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                        encryption_option="SSE_KMS",
-                        kms_key_arn=example_aws_kms_key["arn"],
-                    ),
-                ),
-            ))
+            configuration={
+                "enforceWorkgroupConfiguration": True,
+                "publishCloudwatchMetricsEnabled": True,
+                "resultConfiguration": {
+                    "outputLocation": f"s3://{example_aws_s3_bucket['bucket']}/output/",
+                    "encryptionConfiguration": {
+                        "encryptionOption": "SSE_KMS",
+                        "kmsKeyArn": example_aws_kms_key["arn"],
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -303,7 +308,7 @@ class Workgroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']] configuration: Configuration block with various settings for the workgroup. Documented below.
+        :param pulumi.Input[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[str] description: Description of the workgroup.
         :param pulumi.Input[bool] force_destroy: Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[str] name: Name of the workgroup.
@@ -327,17 +332,17 @@ class Workgroup(pulumi.CustomResource):
 
         example = aws.athena.Workgroup("example",
             name="example",
-            configuration=aws.athena.WorkgroupConfigurationArgs(
-                enforce_workgroup_configuration=True,
-                publish_cloudwatch_metrics_enabled=True,
-                result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                    output_location=f"s3://{example_aws_s3_bucket['bucket']}/output/",
-                    encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
-                        encryption_option="SSE_KMS",
-                        kms_key_arn=example_aws_kms_key["arn"],
-                    ),
-                ),
-            ))
+            configuration={
+                "enforceWorkgroupConfiguration": True,
+                "publishCloudwatchMetricsEnabled": True,
+                "resultConfiguration": {
+                    "outputLocation": f"s3://{example_aws_s3_bucket['bucket']}/output/",
+                    "encryptionConfiguration": {
+                        "encryptionOption": "SSE_KMS",
+                        "kmsKeyArn": example_aws_kms_key["arn"],
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -363,7 +368,7 @@ class Workgroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -397,7 +402,7 @@ class Workgroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -412,7 +417,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the workgroup
-        :param pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']] configuration: Configuration block with various settings for the workgroup. Documented below.
+        :param pulumi.Input[Union['WorkgroupConfigurationArgs', 'WorkgroupConfigurationArgsDict']] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[str] description: Description of the workgroup.
         :param pulumi.Input[bool] force_destroy: Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[str] name: Name of the workgroup.

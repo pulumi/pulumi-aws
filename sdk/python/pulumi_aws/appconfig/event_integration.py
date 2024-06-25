@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -229,7 +234,7 @@ class EventIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 event_filter: Optional[pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']]] = None,
+                 event_filter: Optional[pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']]] = None,
                  eventbridge_bus: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -247,9 +252,9 @@ class EventIntegration(pulumi.CustomResource):
             name="example-name",
             description="Example Description",
             eventbridge_bus="default",
-            event_filter=aws.appconfig.EventIntegrationEventFilterArgs(
-                source="aws.partner/examplepartner.com",
-            ),
+            event_filter={
+                "source": "aws.partner/examplepartner.com",
+            },
             tags={
                 "Name": "Example Event Integration",
             })
@@ -266,7 +271,7 @@ class EventIntegration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the Event Integration.
-        :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        :param pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[str] eventbridge_bus: EventBridge bus.
         :param pulumi.Input[str] name: Name of the Event Integration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -290,9 +295,9 @@ class EventIntegration(pulumi.CustomResource):
             name="example-name",
             description="Example Description",
             eventbridge_bus="default",
-            event_filter=aws.appconfig.EventIntegrationEventFilterArgs(
-                source="aws.partner/examplepartner.com",
-            ),
+            event_filter={
+                "source": "aws.partner/examplepartner.com",
+            },
             tags={
                 "Name": "Example Event Integration",
             })
@@ -322,7 +327,7 @@ class EventIntegration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 event_filter: Optional[pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']]] = None,
+                 event_filter: Optional[pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']]] = None,
                  eventbridge_bus: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -358,7 +363,7 @@ class EventIntegration(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            event_filter: Optional[pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']]] = None,
+            event_filter: Optional[pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']]] = None,
             eventbridge_bus: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -372,7 +377,7 @@ class EventIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Event Integration.
         :param pulumi.Input[str] description: Description of the Event Integration.
-        :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
+        :param pulumi.Input[Union['EventIntegrationEventFilterArgs', 'EventIntegrationEventFilterArgsDict']] event_filter: Block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[str] eventbridge_bus: EventBridge bus.
         :param pulumi.Input[str] name: Name of the Event Integration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

@@ -4,14 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GetProductFilterArgs',
+    'GetProductFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GetProductFilterArgsDict(TypedDict):
+        field: str
+        """
+        Product attribute name that you want to filter on.
+        """
+        value: str
+        """
+        Product attribute value that you want to filter on.
+        """
+elif False:
+    GetProductFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetProductFilterArgs:

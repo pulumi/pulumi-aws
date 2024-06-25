@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['PodIdentityAssociationArgs', 'PodIdentityAssociation']
@@ -273,17 +278,17 @@ class PodIdentityAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pods.eks.amazonaws.com"],
-            )],
-            actions=[
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["pods.eks.amazonaws.com"],
+            }],
+            "actions": [
                 "sts:AssumeRole",
                 "sts:TagSession",
             ],
-        )])
+        }])
         example = aws.iam.Role("example",
             name="eks-pod-identity-example",
             assume_role_policy=assume_role.json)
@@ -340,17 +345,17 @@ class PodIdentityAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["pods.eks.amazonaws.com"],
-            )],
-            actions=[
+        assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["pods.eks.amazonaws.com"],
+            }],
+            "actions": [
                 "sts:AssumeRole",
                 "sts:TagSession",
             ],
-        )])
+        }])
         example = aws.iam.Role("example",
             name="eks-pod-identity-example",
             assume_role_policy=assume_role.json)

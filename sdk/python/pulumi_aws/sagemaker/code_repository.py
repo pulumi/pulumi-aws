@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -165,7 +170,7 @@ class CodeRepository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: Optional[pulumi.Input[str]] = None,
-                 git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
+                 git_config: Optional[pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -181,9 +186,9 @@ class CodeRepository(pulumi.CustomResource):
 
         example = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
-                repository_url="https://github.com/github/docs.git",
-            ))
+            git_config={
+                "repositoryUrl": "https://github.com/github/docs.git",
+            })
         ```
 
         ### Example with Secret
@@ -202,10 +207,10 @@ class CodeRepository(pulumi.CustomResource):
             }))
         example_code_repository = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
-                repository_url="https://github.com/github/docs.git",
-                secret_arn=example.arn,
-            ),
+            git_config={
+                "repositoryUrl": "https://github.com/github/docs.git",
+                "secretArn": example.arn,
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_secret_version]))
         ```
 
@@ -220,7 +225,7 @@ class CodeRepository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
-        :param pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']] git_config: Specifies details about the repository. see Git Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -242,9 +247,9 @@ class CodeRepository(pulumi.CustomResource):
 
         example = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
-                repository_url="https://github.com/github/docs.git",
-            ))
+            git_config={
+                "repositoryUrl": "https://github.com/github/docs.git",
+            })
         ```
 
         ### Example with Secret
@@ -263,10 +268,10 @@ class CodeRepository(pulumi.CustomResource):
             }))
         example_code_repository = aws.sagemaker.CodeRepository("example",
             code_repository_name="example",
-            git_config=aws.sagemaker.CodeRepositoryGitConfigArgs(
-                repository_url="https://github.com/github/docs.git",
-                secret_arn=example.arn,
-            ),
+            git_config={
+                "repositoryUrl": "https://github.com/github/docs.git",
+                "secretArn": example.arn,
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_secret_version]))
         ```
 
@@ -294,7 +299,7 @@ class CodeRepository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: Optional[pulumi.Input[str]] = None,
-                 git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
+                 git_config: Optional[pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -326,7 +331,7 @@ class CodeRepository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             code_repository_name: Optional[pulumi.Input[str]] = None,
-            git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
+            git_config: Optional[pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CodeRepository':
         """
@@ -338,7 +343,7 @@ class CodeRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
         :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
-        :param pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']] git_config: Specifies details about the repository. see Git Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

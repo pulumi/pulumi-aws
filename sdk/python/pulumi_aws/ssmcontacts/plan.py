@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -97,7 +102,7 @@ class Plan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_id: Optional[pulumi.Input[str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SSM Contact Plan.
@@ -112,9 +117,9 @@ class Plan(pulumi.CustomResource):
 
         example = aws.ssmcontacts.Plan("example",
             contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
+            stages=[{
+                "durationInMinutes": 1,
+            }])
         ```
 
         ### Usage with SSM Contact
@@ -128,9 +133,9 @@ class Plan(pulumi.CustomResource):
             type="PERSONAL")
         plan = aws.ssmcontacts.Plan("plan",
             contact_id=contact.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
+            stages=[{
+                "durationInMinutes": 1,
+            }])
         ```
 
         ### Usage With All Fields
@@ -150,29 +155,29 @@ class Plan(pulumi.CustomResource):
             type="PERSONAL")
         test = aws.ssmcontacts.Plan("test",
             contact_id=escalation_plan.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=0,
-                targets=[
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=False,
-                            contact_id=contact_one.arn,
-                        ),
-                    ),
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=True,
-                            contact_id=contact_two.arn,
-                        ),
-                    ),
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        channel_target_info=aws.ssmcontacts.PlanStageTargetChannelTargetInfoArgs(
-                            retry_interval_in_minutes=2,
-                            contact_channel_id=channel["arn"],
-                        ),
-                    ),
+            stages=[{
+                "durationInMinutes": 0,
+                "targets": [
+                    {
+                        "contactTargetInfo": {
+                            "isEssential": False,
+                            "contactId": contact_one.arn,
+                        },
+                    },
+                    {
+                        "contactTargetInfo": {
+                            "isEssential": True,
+                            "contactId": contact_two.arn,
+                        },
+                    },
+                    {
+                        "channelTargetInfo": {
+                            "retryIntervalInMinutes": 2,
+                            "contactChannelId": channel["arn"],
+                        },
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -186,7 +191,7 @@ class Plan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         ...
     @overload
@@ -207,9 +212,9 @@ class Plan(pulumi.CustomResource):
 
         example = aws.ssmcontacts.Plan("example",
             contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
+            stages=[{
+                "durationInMinutes": 1,
+            }])
         ```
 
         ### Usage with SSM Contact
@@ -223,9 +228,9 @@ class Plan(pulumi.CustomResource):
             type="PERSONAL")
         plan = aws.ssmcontacts.Plan("plan",
             contact_id=contact.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=1,
-            )])
+            stages=[{
+                "durationInMinutes": 1,
+            }])
         ```
 
         ### Usage With All Fields
@@ -245,29 +250,29 @@ class Plan(pulumi.CustomResource):
             type="PERSONAL")
         test = aws.ssmcontacts.Plan("test",
             contact_id=escalation_plan.arn,
-            stages=[aws.ssmcontacts.PlanStageArgs(
-                duration_in_minutes=0,
-                targets=[
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=False,
-                            contact_id=contact_one.arn,
-                        ),
-                    ),
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        contact_target_info=aws.ssmcontacts.PlanStageTargetContactTargetInfoArgs(
-                            is_essential=True,
-                            contact_id=contact_two.arn,
-                        ),
-                    ),
-                    aws.ssmcontacts.PlanStageTargetArgs(
-                        channel_target_info=aws.ssmcontacts.PlanStageTargetChannelTargetInfoArgs(
-                            retry_interval_in_minutes=2,
-                            contact_channel_id=channel["arn"],
-                        ),
-                    ),
+            stages=[{
+                "durationInMinutes": 0,
+                "targets": [
+                    {
+                        "contactTargetInfo": {
+                            "isEssential": False,
+                            "contactId": contact_one.arn,
+                        },
+                    },
+                    {
+                        "contactTargetInfo": {
+                            "isEssential": True,
+                            "contactId": contact_two.arn,
+                        },
+                    },
+                    {
+                        "channelTargetInfo": {
+                            "retryIntervalInMinutes": 2,
+                            "contactChannelId": channel["arn"],
+                        },
+                    },
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -294,7 +299,7 @@ class Plan(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_id: Optional[pulumi.Input[str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -321,7 +326,7 @@ class Plan(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             contact_id: Optional[pulumi.Input[str]] = None,
-            stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]]] = None) -> 'Plan':
+            stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]]] = None) -> 'Plan':
         """
         Get an existing Plan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -330,7 +335,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanStageArgs', 'PlanStageArgsDict']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

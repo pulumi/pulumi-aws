@@ -4,26 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'EventSourcesConfigEventSourceArgs',
+    'EventSourcesConfigEventSourceArgsDict',
     'EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs',
+    'EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgsDict',
     'NotificationChannelFiltersArgs',
+    'NotificationChannelFiltersArgsDict',
     'NotificationChannelSnsArgs',
+    'NotificationChannelSnsArgsDict',
     'ResourceCollectionCloudformationArgs',
+    'ResourceCollectionCloudformationArgsDict',
     'ResourceCollectionTagsArgs',
+    'ResourceCollectionTagsArgsDict',
     'ServiceIntegrationKmsServerSideEncryptionArgs',
+    'ServiceIntegrationKmsServerSideEncryptionArgsDict',
     'ServiceIntegrationLogsAnomalyDetectionArgs',
+    'ServiceIntegrationLogsAnomalyDetectionArgsDict',
     'ServiceIntegrationOpsCenterArgs',
+    'ServiceIntegrationOpsCenterArgsDict',
     'GetNotificationChannelFilterArgs',
+    'GetNotificationChannelFilterArgsDict',
     'GetNotificationChannelSnArgs',
+    'GetNotificationChannelSnArgsDict',
     'GetResourceCollectionCloudformationArgs',
+    'GetResourceCollectionCloudformationArgsDict',
     'GetResourceCollectionTagArgs',
+    'GetResourceCollectionTagArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EventSourcesConfigEventSourceArgsDict(TypedDict):
+        amazon_code_guru_profilers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgsDict']]]]
+        """
+        Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
+        """
+elif False:
+    EventSourcesConfigEventSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EventSourcesConfigEventSourceArgs:
@@ -48,6 +77,15 @@ class EventSourcesConfigEventSourceArgs:
         pulumi.set(self, "amazon_code_guru_profilers", value)
 
 
+if not MYPY:
+    class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgsDict(TypedDict):
+        status: pulumi.Input[str]
+        """
+        Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
+        """
+elif False:
+    EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs:
     def __init__(__self__, *,
@@ -69,6 +107,19 @@ class EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs:
     def status(self, value: pulumi.Input[str]):
         pulumi.set(self, "status", value)
 
+
+if not MYPY:
+    class NotificationChannelFiltersArgsDict(TypedDict):
+        message_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Events to receive notifications for. Valid values are `NEW_INSIGHT`, `CLOSED_INSIGHT`, `NEW_ASSOCIATION`, `SEVERITY_UPGRADED`, and `NEW_RECOMMENDATION`.
+        """
+        severities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Severity levels to receive notifications for. Valid values are `LOW`, `MEDIUM`, and `HIGH`.
+        """
+elif False:
+    NotificationChannelFiltersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NotificationChannelFiltersArgs:
@@ -109,6 +160,15 @@ class NotificationChannelFiltersArgs:
         pulumi.set(self, "severities", value)
 
 
+if not MYPY:
+    class NotificationChannelSnsArgsDict(TypedDict):
+        topic_arn: pulumi.Input[str]
+        """
+        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        """
+elif False:
+    NotificationChannelSnsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NotificationChannelSnsArgs:
     def __init__(__self__, *,
@@ -131,6 +191,15 @@ class NotificationChannelSnsArgs:
         pulumi.set(self, "topic_arn", value)
 
 
+if not MYPY:
+    class ResourceCollectionCloudformationArgsDict(TypedDict):
+        stack_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+        """
+elif False:
+    ResourceCollectionCloudformationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ResourceCollectionCloudformationArgs:
     def __init__(__self__, *,
@@ -152,6 +221,19 @@ class ResourceCollectionCloudformationArgs:
     def stack_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "stack_names", value)
 
+
+if not MYPY:
+    class ResourceCollectionTagsArgsDict(TypedDict):
+        app_boundary_key: pulumi.Input[str]
+        """
+        An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
+        """
+        tag_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `app_boundary_key` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
+        """
+elif False:
+    ResourceCollectionTagsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceCollectionTagsArgs:
@@ -189,6 +271,23 @@ class ResourceCollectionTagsArgs:
     def tag_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "tag_values", value)
 
+
+if not MYPY:
+    class ServiceIntegrationKmsServerSideEncryptionArgsDict(TypedDict):
+        kms_key_id: NotRequired[pulumi.Input[str]]
+        """
+        KMS key ID. This value can be a key ID, key ARN, alias name, or alias ARN.
+        """
+        opt_in_status: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether KMS integration is enabled. Valid values are `DISABLED` and `ENABLED`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of KMS key used. Valid values are `CUSTOMER_MANAGED_KEY` and `AWS_OWNED_KMS_KEY`.
+        """
+elif False:
+    ServiceIntegrationKmsServerSideEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceIntegrationKmsServerSideEncryptionArgs:
@@ -245,6 +344,15 @@ class ServiceIntegrationKmsServerSideEncryptionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ServiceIntegrationLogsAnomalyDetectionArgsDict(TypedDict):
+        opt_in_status: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups. Valid values are `DISABLED` and `ENABLED`.
+        """
+elif False:
+    ServiceIntegrationLogsAnomalyDetectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceIntegrationLogsAnomalyDetectionArgs:
     def __init__(__self__, *,
@@ -268,6 +376,15 @@ class ServiceIntegrationLogsAnomalyDetectionArgs:
         pulumi.set(self, "opt_in_status", value)
 
 
+if not MYPY:
+    class ServiceIntegrationOpsCenterArgsDict(TypedDict):
+        opt_in_status: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if DevOps Guru is enabled to create an AWS Systems Manager OpsItem for each created insight. Valid values are `DISABLED` and `ENABLED`.
+        """
+elif False:
+    ServiceIntegrationOpsCenterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceIntegrationOpsCenterArgs:
     def __init__(__self__, *,
@@ -290,6 +407,19 @@ class ServiceIntegrationOpsCenterArgs:
     def opt_in_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "opt_in_status", value)
 
+
+if not MYPY:
+    class GetNotificationChannelFilterArgsDict(TypedDict):
+        message_types: Sequence[str]
+        """
+        Events to receive notifications for.
+        """
+        severities: Sequence[str]
+        """
+        Severity levels to receive notifications for.
+        """
+elif False:
+    GetNotificationChannelFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetNotificationChannelFilterArgs:
@@ -328,6 +458,15 @@ class GetNotificationChannelFilterArgs:
         pulumi.set(self, "severities", value)
 
 
+if not MYPY:
+    class GetNotificationChannelSnArgsDict(TypedDict):
+        topic_arn: str
+        """
+        Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        """
+elif False:
+    GetNotificationChannelSnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetNotificationChannelSnArgs:
     def __init__(__self__, *,
@@ -350,6 +489,15 @@ class GetNotificationChannelSnArgs:
         pulumi.set(self, "topic_arn", value)
 
 
+if not MYPY:
+    class GetResourceCollectionCloudformationArgsDict(TypedDict):
+        stack_names: Sequence[str]
+        """
+        Array of the names of the AWS CloudFormation stacks.
+        """
+elif False:
+    GetResourceCollectionCloudformationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetResourceCollectionCloudformationArgs:
     def __init__(__self__, *,
@@ -371,6 +519,19 @@ class GetResourceCollectionCloudformationArgs:
     def stack_names(self, value: Sequence[str]):
         pulumi.set(self, "stack_names", value)
 
+
+if not MYPY:
+    class GetResourceCollectionTagArgsDict(TypedDict):
+        app_boundary_key: str
+        """
+        An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes.
+        """
+        tag_values: Sequence[str]
+        """
+        Array of tag values.
+        """
+elif False:
+    GetResourceCollectionTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetResourceCollectionTagArgs:

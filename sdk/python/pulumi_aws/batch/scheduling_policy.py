@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -158,7 +163,7 @@ class SchedulingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fair_share_policy: Optional[pulumi.Input[pulumi.InputType['SchedulingPolicyFairSharePolicyArgs']]] = None,
+                 fair_share_policy: Optional[pulumi.Input[Union['SchedulingPolicyFairSharePolicyArgs', 'SchedulingPolicyFairSharePolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -173,20 +178,20 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         example = aws.batch.SchedulingPolicy("example",
             name="example",
-            fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
-                compute_reservation=1,
-                share_decay_seconds=3600,
-                share_distributions=[
-                    aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                        share_identifier="A1*",
-                        weight_factor=0.1,
-                    ),
-                    aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                        share_identifier="A2",
-                        weight_factor=0.2,
-                    ),
+            fair_share_policy={
+                "computeReservation": 1,
+                "shareDecaySeconds": 3600,
+                "shareDistributions": [
+                    {
+                        "shareIdentifier": "A1*",
+                        "weightFactor": 0.1,
+                    },
+                    {
+                        "shareIdentifier": "A2",
+                        "weightFactor": 0.2,
+                    },
                 ],
-            ),
+            },
             tags={
                 "Name": "Example Batch Scheduling Policy",
             })
@@ -222,20 +227,20 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         example = aws.batch.SchedulingPolicy("example",
             name="example",
-            fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
-                compute_reservation=1,
-                share_decay_seconds=3600,
-                share_distributions=[
-                    aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                        share_identifier="A1*",
-                        weight_factor=0.1,
-                    ),
-                    aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
-                        share_identifier="A2",
-                        weight_factor=0.2,
-                    ),
+            fair_share_policy={
+                "computeReservation": 1,
+                "shareDecaySeconds": 3600,
+                "shareDistributions": [
+                    {
+                        "shareIdentifier": "A1*",
+                        "weightFactor": 0.1,
+                    },
+                    {
+                        "shareIdentifier": "A2",
+                        "weightFactor": 0.2,
+                    },
                 ],
-            ),
+            },
             tags={
                 "Name": "Example Batch Scheduling Policy",
             })
@@ -264,7 +269,7 @@ class SchedulingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fair_share_policy: Optional[pulumi.Input[pulumi.InputType['SchedulingPolicyFairSharePolicyArgs']]] = None,
+                 fair_share_policy: Optional[pulumi.Input[Union['SchedulingPolicyFairSharePolicyArgs', 'SchedulingPolicyFairSharePolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -292,7 +297,7 @@ class SchedulingPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            fair_share_policy: Optional[pulumi.Input[pulumi.InputType['SchedulingPolicyFairSharePolicyArgs']]] = None,
+            fair_share_policy: Optional[pulumi.Input[Union['SchedulingPolicyFairSharePolicyArgs', 'SchedulingPolicyFairSharePolicyArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SchedulingPolicy':

@@ -4,20 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ClusterClusterEndpointArgs',
+    'ClusterClusterEndpointArgsDict',
     'ClusterShardArgs',
+    'ClusterShardArgsDict',
     'ClusterShardNodeArgs',
+    'ClusterShardNodeArgsDict',
     'ClusterShardNodeEndpointArgs',
+    'ClusterShardNodeEndpointArgsDict',
     'ParameterGroupParameterArgs',
+    'ParameterGroupParameterArgsDict',
     'SnapshotClusterConfigurationArgs',
+    'SnapshotClusterConfigurationArgsDict',
     'UserAuthenticationModeArgs',
+    'UserAuthenticationModeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterClusterEndpointArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        DNS hostname of the node.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        """
+elif False:
+    ClusterClusterEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterClusterEndpointArgs:
@@ -57,6 +84,27 @@ class ClusterClusterEndpointArgs:
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class ClusterShardArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
+        nodes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArgsDict']]]]
+        """
+        Set of nodes in this shard.
+        """
+        num_nodes: NotRequired[pulumi.Input[int]]
+        """
+        Number of individual nodes in this shard.
+        """
+        slots: NotRequired[pulumi.Input[str]]
+        """
+        Keyspace for this shard. Example: `0-16383`.
+        """
+elif False:
+    ClusterShardArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterShardArgs:
@@ -129,6 +177,24 @@ class ClusterShardArgs:
         pulumi.set(self, "slots", value)
 
 
+if not MYPY:
+    class ClusterShardNodeArgsDict(TypedDict):
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        The Availability Zone in which the node resides.
+        """
+        create_time: NotRequired[pulumi.Input[str]]
+        """
+        The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+        """
+        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeEndpointArgsDict']]]]
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
+elif False:
+    ClusterShardNodeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterShardNodeArgs:
     def __init__(__self__, *,
@@ -196,6 +262,19 @@ class ClusterShardNodeArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ClusterShardNodeEndpointArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        DNS hostname of the node.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        """
+elif False:
+    ClusterShardNodeEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterShardNodeEndpointArgs:
     def __init__(__self__, *,
@@ -235,6 +314,19 @@ class ClusterShardNodeEndpointArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class ParameterGroupParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the parameter.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the parameter.
+        """
+elif False:
+    ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParameterGroupParameterArgs:
     def __init__(__self__, *,
@@ -271,6 +363,63 @@ class ParameterGroupParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SnapshotClusterConfigurationArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Description for the cluster.
+        """
+        engine_version: NotRequired[pulumi.Input[str]]
+        """
+        Version number of the Redis engine used by the cluster.
+        """
+        maintenance_window: NotRequired[pulumi.Input[str]]
+        """
+        The weekly time range during which maintenance on the cluster is performed.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the snapshot. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        """
+        node_type: NotRequired[pulumi.Input[str]]
+        """
+        Compute and memory capacity of the nodes in the cluster.
+        """
+        num_shards: NotRequired[pulumi.Input[int]]
+        """
+        Number of shards in the cluster.
+        """
+        parameter_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the parameter group associated with the cluster.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Port number on which the cluster accepts connections.
+        """
+        snapshot_retention_limit: NotRequired[pulumi.Input[int]]
+        """
+        Number of days for which MemoryDB retains automatic snapshots before deleting them.
+        """
+        snapshot_window: NotRequired[pulumi.Input[str]]
+        """
+        The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+        """
+        subnet_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the subnet group used by the cluster.
+        """
+        topic_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of the SNS topic to which cluster notifications are sent.
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+        """
+        The VPC in which the cluster exists.
+        """
+elif False:
+    SnapshotClusterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SnapshotClusterConfigurationArgs:
@@ -486,6 +635,23 @@ class SnapshotClusterConfigurationArgs:
     def vpc_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_id", value)
 
+
+if not MYPY:
+    class UserAuthenticationModeArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the authentication type. Valid values are: `password` or `iam`.
+        """
+        password_count: NotRequired[pulumi.Input[int]]
+        """
+        Number of passwords belonging to the user if `type` is set to `password`.
+        """
+        passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Set of passwords used for authentication if `type` is set to `password`. You can create up to two passwords for each user.
+        """
+elif False:
+    UserAuthenticationModeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserAuthenticationModeArgs:

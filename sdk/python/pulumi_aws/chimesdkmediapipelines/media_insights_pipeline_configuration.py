@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -224,9 +229,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaInsightsPipelineConfigurationElementArgs']]]]] = None,
+                 elements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 real_time_alert_configuration: Optional[pulumi.Input[pulumi.InputType['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]] = None,
+                 real_time_alert_configuration: Optional[pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
                  resource_access_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -245,14 +250,14 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         example = aws.kinesis.Stream("example",
             name="example",
             shard_count=2)
-        media_pipelines_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["mediapipelines.chime.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        media_pipelines_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["mediapipelines.chime.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         call_analytics_role = aws.iam.Role("call_analytics_role",
             name="CallAnalyticsRole",
             assume_role_policy=media_pipelines_assume_role.json)
@@ -260,18 +265,18 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             name="MyBasicConfiguration",
             resource_access_role_arn=call_analytics_role.arn,
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="AmazonTranscribeCallAnalyticsProcessor",
-                    amazon_transcribe_call_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs(
-                        language_code="en-US",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=example.arn,
-                    ),
-                ),
+                {
+                    "type": "AmazonTranscribeCallAnalyticsProcessor",
+                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
+                        "languageCode": "en-US",
+                    },
+                },
+                {
+                    "type": "KinesisDataStreamSink",
+                    "kinesisDataStreamSinkConfiguration": {
+                        "insightsTarget": example.arn,
+                    },
+                },
             ],
             tags={
                 "Key1": "Value1",
@@ -287,14 +292,14 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        transcribe_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["transcribe.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        transcribe_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["transcribe.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         post_call_role = aws.iam.Role("post_call_role",
             name="PostCallAccessRole",
             assume_role_policy=transcribe_assume_role.json)
@@ -302,37 +307,37 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             name="MyCallAnalyticsConfiguration",
             resource_access_role_arn=example_aws_iam_role["arn"],
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="AmazonTranscribeCallAnalyticsProcessor",
-                    amazon_transcribe_call_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs(
-                        call_analytics_stream_categories=[
+                {
+                    "type": "AmazonTranscribeCallAnalyticsProcessor",
+                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
+                        "callAnalyticsStreamCategories": [
                             "category_1",
                             "category_2",
                         ],
-                        content_redaction_type="PII",
-                        enable_partial_results_stabilization=True,
-                        filter_partial_results=True,
-                        language_code="en-US",
-                        language_model_name="MyLanguageModel",
-                        partial_results_stability="high",
-                        pii_entity_types="ADDRESS,BANK_ACCOUNT_NUMBER",
-                        post_call_analytics_settings=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs(
-                            content_redaction_output="redacted",
-                            data_access_role_arn=post_call_role.arn,
-                            output_encryption_kms_key_id="MyKmsKeyId",
-                            output_location="s3://MyBucket",
-                        ),
-                        vocabulary_filter_method="mask",
-                        vocabulary_filter_name="MyVocabularyFilter",
-                        vocabulary_name="MyVocabulary",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=example["arn"],
-                    ),
-                ),
+                        "contentRedactionType": "PII",
+                        "enablePartialResultsStabilization": True,
+                        "filterPartialResults": True,
+                        "languageCode": "en-US",
+                        "languageModelName": "MyLanguageModel",
+                        "partialResultsStability": "high",
+                        "piiEntityTypes": "ADDRESS,BANK_ACCOUNT_NUMBER",
+                        "postCallAnalyticsSettings": {
+                            "contentRedactionOutput": "redacted",
+                            "dataAccessRoleArn": post_call_role.arn,
+                            "outputEncryptionKmsKeyId": "MyKmsKeyId",
+                            "outputLocation": "s3://MyBucket",
+                        },
+                        "vocabularyFilterMethod": "mask",
+                        "vocabularyFilterName": "MyVocabularyFilter",
+                        "vocabularyName": "MyVocabulary",
+                    },
+                },
+                {
+                    "type": "KinesisDataStreamSink",
+                    "kinesisDataStreamSinkConfiguration": {
+                        "insightsTarget": example["arn"],
+                    },
+                },
             ])
         ```
 
@@ -346,49 +351,49 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             name="MyRealTimeAlertConfiguration",
             resource_access_role_arn=call_analytics_role["arn"],
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="AmazonTranscribeCallAnalyticsProcessor",
-                    amazon_transcribe_call_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs(
-                        language_code="en-US",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=example["arn"],
-                    ),
-                ),
+                {
+                    "type": "AmazonTranscribeCallAnalyticsProcessor",
+                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
+                        "languageCode": "en-US",
+                    },
+                },
+                {
+                    "type": "KinesisDataStreamSink",
+                    "kinesisDataStreamSinkConfiguration": {
+                        "insightsTarget": example["arn"],
+                    },
+                },
             ],
-            real_time_alert_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs(
-                disabled=False,
-                rules=[
-                    aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs(
-                        type="IssueDetection",
-                        issue_detection_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs(
-                            rule_name="MyIssueDetectionRule",
-                        ),
-                    ),
-                    aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs(
-                        type="KeywordMatch",
-                        keyword_match_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs(
-                            keywords=[
+            real_time_alert_configuration={
+                "disabled": False,
+                "rules": [
+                    {
+                        "type": "IssueDetection",
+                        "issueDetectionConfiguration": {
+                            "ruleName": "MyIssueDetectionRule",
+                        },
+                    },
+                    {
+                        "type": "KeywordMatch",
+                        "keywordMatchConfiguration": {
+                            "keywords": [
                                 "keyword1",
                                 "keyword2",
                             ],
-                            negate=False,
-                            rule_name="MyKeywordMatchRule",
-                        ),
-                    ),
-                    aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs(
-                        type="Sentiment",
-                        sentiment_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs(
-                            rule_name="MySentimentRule",
-                            sentiment_type="NEGATIVE",
-                            time_period=60,
-                        ),
-                    ),
+                            "negate": False,
+                            "ruleName": "MyKeywordMatchRule",
+                        },
+                    },
+                    {
+                        "type": "Sentiment",
+                        "sentimentConfiguration": {
+                            "ruleName": "MySentimentRule",
+                            "sentimentType": "NEGATIVE",
+                            "timePeriod": 60,
+                        },
+                    },
                 ],
-            ))
+            })
         ```
 
         ### Transcribe processor usage
@@ -401,28 +406,28 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             name="MyTranscribeConfiguration",
             resource_access_role_arn=example_aws_iam_role["arn"],
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="AmazonTranscribeProcessor",
-                    amazon_transcribe_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs(
-                        content_identification_type="PII",
-                        enable_partial_results_stabilization=True,
-                        filter_partial_results=True,
-                        language_code="en-US",
-                        language_model_name="MyLanguageModel",
-                        partial_results_stability="high",
-                        pii_entity_types="ADDRESS,BANK_ACCOUNT_NUMBER",
-                        show_speaker_label=True,
-                        vocabulary_filter_method="mask",
-                        vocabulary_filter_name="MyVocabularyFilter",
-                        vocabulary_name="MyVocabulary",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=example["arn"],
-                    ),
-                ),
+                {
+                    "type": "AmazonTranscribeProcessor",
+                    "amazonTranscribeProcessorConfiguration": {
+                        "contentIdentificationType": "PII",
+                        "enablePartialResultsStabilization": True,
+                        "filterPartialResults": True,
+                        "languageCode": "en-US",
+                        "languageModelName": "MyLanguageModel",
+                        "partialResultsStability": "high",
+                        "piiEntityTypes": "ADDRESS,BANK_ACCOUNT_NUMBER",
+                        "showSpeakerLabel": True,
+                        "vocabularyFilterMethod": "mask",
+                        "vocabularyFilterName": "MyVocabularyFilter",
+                        "vocabularyName": "MyVocabulary",
+                    },
+                },
+                {
+                    "type": "KinesisDataStreamSink",
+                    "kinesisDataStreamSinkConfiguration": {
+                        "insightsTarget": example["arn"],
+                    },
+                },
             ])
         ```
 
@@ -436,37 +441,37 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             name="MyVoiceAnalyticsConfiguration",
             resource_access_role_arn=example["arn"],
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="VoiceAnalyticsProcessor",
-                    voice_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs(
-                        speaker_search_status="Enabled",
-                        voice_tone_analysis_status="Enabled",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="LambdaFunctionSink",
-                    lambda_function_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs(
-                        insights_target="arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="SnsTopicSink",
-                    sns_topic_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs(
-                        insights_target="arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="SqsQueueSink",
-                    sqs_queue_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs(
-                        insights_target="arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=test["arn"],
-                    ),
-                ),
+                {
+                    "type": "VoiceAnalyticsProcessor",
+                    "voiceAnalyticsProcessorConfiguration": {
+                        "speakerSearchStatus": "Enabled",
+                        "voiceToneAnalysisStatus": "Enabled",
+                    },
+                },
+                {
+                    "type": "LambdaFunctionSink",
+                    "lambdaFunctionSinkConfiguration": {
+                        "insightsTarget": "arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
+                    },
+                },
+                {
+                    "type": "SnsTopicSink",
+                    "snsTopicSinkConfiguration": {
+                        "insightsTarget": "arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
+                    },
+                },
+                {
+                    "type": "SqsQueueSink",
+                    "sqsQueueSinkConfiguration": {
+                        "insightsTarget": "arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
+                    },
+                },
+                {
+                    "type": "KinesisDataStreamSink",
+                    "kinesisDataStreamSinkConfiguration": {
+                        "insightsTarget": test["arn"],
+                    },
+                },
             ])
         ```
 
@@ -479,12 +484,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
             name="MyS3RecordingConfiguration",
             resource_access_role_arn=example["arn"],
-            elements=[aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                type="S3RecordingSink",
-                s3_recording_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs(
-                    destination="arn:aws:s3:::MyBucket",
-                ),
-            )])
+            elements=[{
+                "type": "S3RecordingSink",
+                "s3RecordingSinkConfiguration": {
+                    "destination": "arn:aws:s3:::MyBucket",
+                },
+            }])
         ```
 
         ## Import
@@ -497,9 +502,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaInsightsPipelineConfigurationElementArgs']]]] elements: Collection of processors and sinks to transform media and deliver data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]] elements: Collection of processors and sinks to transform media and deliver data.
         :param pulumi.Input[str] name: Configuration name.
-        :param pulumi.Input[pulumi.InputType['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
+        :param pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         :param pulumi.Input[str] resource_access_role_arn: ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the resource.
         """
@@ -524,14 +529,14 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         example = aws.kinesis.Stream("example",
             name="example",
             shard_count=2)
-        media_pipelines_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["mediapipelines.chime.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        media_pipelines_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["mediapipelines.chime.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         call_analytics_role = aws.iam.Role("call_analytics_role",
             name="CallAnalyticsRole",
             assume_role_policy=media_pipelines_assume_role.json)
@@ -539,18 +544,18 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             name="MyBasicConfiguration",
             resource_access_role_arn=call_analytics_role.arn,
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="AmazonTranscribeCallAnalyticsProcessor",
-                    amazon_transcribe_call_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs(
-                        language_code="en-US",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=example.arn,
-                    ),
-                ),
+                {
+                    "type": "AmazonTranscribeCallAnalyticsProcessor",
+                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
+                        "languageCode": "en-US",
+                    },
+                },
+                {
+                    "type": "KinesisDataStreamSink",
+                    "kinesisDataStreamSinkConfiguration": {
+                        "insightsTarget": example.arn,
+                    },
+                },
             ],
             tags={
                 "Key1": "Value1",
@@ -566,14 +571,14 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        transcribe_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["transcribe.amazonaws.com"],
-            )],
-            actions=["sts:AssumeRole"],
-        )])
+        transcribe_assume_role = aws.iam.get_policy_document(statements=[{
+            "effect": "Allow",
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["transcribe.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
+        }])
         post_call_role = aws.iam.Role("post_call_role",
             name="PostCallAccessRole",
             assume_role_policy=transcribe_assume_role.json)
@@ -581,37 +586,37 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             name="MyCallAnalyticsConfiguration",
             resource_access_role_arn=example_aws_iam_role["arn"],
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="AmazonTranscribeCallAnalyticsProcessor",
-                    amazon_transcribe_call_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs(
-                        call_analytics_stream_categories=[
+                {
+                    "type": "AmazonTranscribeCallAnalyticsProcessor",
+                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
+                        "callAnalyticsStreamCategories": [
                             "category_1",
                             "category_2",
                         ],
-                        content_redaction_type="PII",
-                        enable_partial_results_stabilization=True,
-                        filter_partial_results=True,
-                        language_code="en-US",
-                        language_model_name="MyLanguageModel",
-                        partial_results_stability="high",
-                        pii_entity_types="ADDRESS,BANK_ACCOUNT_NUMBER",
-                        post_call_analytics_settings=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs(
-                            content_redaction_output="redacted",
-                            data_access_role_arn=post_call_role.arn,
-                            output_encryption_kms_key_id="MyKmsKeyId",
-                            output_location="s3://MyBucket",
-                        ),
-                        vocabulary_filter_method="mask",
-                        vocabulary_filter_name="MyVocabularyFilter",
-                        vocabulary_name="MyVocabulary",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=example["arn"],
-                    ),
-                ),
+                        "contentRedactionType": "PII",
+                        "enablePartialResultsStabilization": True,
+                        "filterPartialResults": True,
+                        "languageCode": "en-US",
+                        "languageModelName": "MyLanguageModel",
+                        "partialResultsStability": "high",
+                        "piiEntityTypes": "ADDRESS,BANK_ACCOUNT_NUMBER",
+                        "postCallAnalyticsSettings": {
+                            "contentRedactionOutput": "redacted",
+                            "dataAccessRoleArn": post_call_role.arn,
+                            "outputEncryptionKmsKeyId": "MyKmsKeyId",
+                            "outputLocation": "s3://MyBucket",
+                        },
+                        "vocabularyFilterMethod": "mask",
+                        "vocabularyFilterName": "MyVocabularyFilter",
+                        "vocabularyName": "MyVocabulary",
+                    },
+                },
+                {
+                    "type": "KinesisDataStreamSink",
+                    "kinesisDataStreamSinkConfiguration": {
+                        "insightsTarget": example["arn"],
+                    },
+                },
             ])
         ```
 
@@ -625,49 +630,49 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             name="MyRealTimeAlertConfiguration",
             resource_access_role_arn=call_analytics_role["arn"],
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="AmazonTranscribeCallAnalyticsProcessor",
-                    amazon_transcribe_call_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs(
-                        language_code="en-US",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=example["arn"],
-                    ),
-                ),
+                {
+                    "type": "AmazonTranscribeCallAnalyticsProcessor",
+                    "amazonTranscribeCallAnalyticsProcessorConfiguration": {
+                        "languageCode": "en-US",
+                    },
+                },
+                {
+                    "type": "KinesisDataStreamSink",
+                    "kinesisDataStreamSinkConfiguration": {
+                        "insightsTarget": example["arn"],
+                    },
+                },
             ],
-            real_time_alert_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs(
-                disabled=False,
-                rules=[
-                    aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs(
-                        type="IssueDetection",
-                        issue_detection_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs(
-                            rule_name="MyIssueDetectionRule",
-                        ),
-                    ),
-                    aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs(
-                        type="KeywordMatch",
-                        keyword_match_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs(
-                            keywords=[
+            real_time_alert_configuration={
+                "disabled": False,
+                "rules": [
+                    {
+                        "type": "IssueDetection",
+                        "issueDetectionConfiguration": {
+                            "ruleName": "MyIssueDetectionRule",
+                        },
+                    },
+                    {
+                        "type": "KeywordMatch",
+                        "keywordMatchConfiguration": {
+                            "keywords": [
                                 "keyword1",
                                 "keyword2",
                             ],
-                            negate=False,
-                            rule_name="MyKeywordMatchRule",
-                        ),
-                    ),
-                    aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs(
-                        type="Sentiment",
-                        sentiment_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs(
-                            rule_name="MySentimentRule",
-                            sentiment_type="NEGATIVE",
-                            time_period=60,
-                        ),
-                    ),
+                            "negate": False,
+                            "ruleName": "MyKeywordMatchRule",
+                        },
+                    },
+                    {
+                        "type": "Sentiment",
+                        "sentimentConfiguration": {
+                            "ruleName": "MySentimentRule",
+                            "sentimentType": "NEGATIVE",
+                            "timePeriod": 60,
+                        },
+                    },
                 ],
-            ))
+            })
         ```
 
         ### Transcribe processor usage
@@ -680,28 +685,28 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             name="MyTranscribeConfiguration",
             resource_access_role_arn=example_aws_iam_role["arn"],
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="AmazonTranscribeProcessor",
-                    amazon_transcribe_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs(
-                        content_identification_type="PII",
-                        enable_partial_results_stabilization=True,
-                        filter_partial_results=True,
-                        language_code="en-US",
-                        language_model_name="MyLanguageModel",
-                        partial_results_stability="high",
-                        pii_entity_types="ADDRESS,BANK_ACCOUNT_NUMBER",
-                        show_speaker_label=True,
-                        vocabulary_filter_method="mask",
-                        vocabulary_filter_name="MyVocabularyFilter",
-                        vocabulary_name="MyVocabulary",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=example["arn"],
-                    ),
-                ),
+                {
+                    "type": "AmazonTranscribeProcessor",
+                    "amazonTranscribeProcessorConfiguration": {
+                        "contentIdentificationType": "PII",
+                        "enablePartialResultsStabilization": True,
+                        "filterPartialResults": True,
+                        "languageCode": "en-US",
+                        "languageModelName": "MyLanguageModel",
+                        "partialResultsStability": "high",
+                        "piiEntityTypes": "ADDRESS,BANK_ACCOUNT_NUMBER",
+                        "showSpeakerLabel": True,
+                        "vocabularyFilterMethod": "mask",
+                        "vocabularyFilterName": "MyVocabularyFilter",
+                        "vocabularyName": "MyVocabulary",
+                    },
+                },
+                {
+                    "type": "KinesisDataStreamSink",
+                    "kinesisDataStreamSinkConfiguration": {
+                        "insightsTarget": example["arn"],
+                    },
+                },
             ])
         ```
 
@@ -715,37 +720,37 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             name="MyVoiceAnalyticsConfiguration",
             resource_access_role_arn=example["arn"],
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="VoiceAnalyticsProcessor",
-                    voice_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs(
-                        speaker_search_status="Enabled",
-                        voice_tone_analysis_status="Enabled",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="LambdaFunctionSink",
-                    lambda_function_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs(
-                        insights_target="arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="SnsTopicSink",
-                    sns_topic_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs(
-                        insights_target="arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="SqsQueueSink",
-                    sqs_queue_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs(
-                        insights_target="arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
-                    ),
-                ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                    type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
-                        insights_target=test["arn"],
-                    ),
-                ),
+                {
+                    "type": "VoiceAnalyticsProcessor",
+                    "voiceAnalyticsProcessorConfiguration": {
+                        "speakerSearchStatus": "Enabled",
+                        "voiceToneAnalysisStatus": "Enabled",
+                    },
+                },
+                {
+                    "type": "LambdaFunctionSink",
+                    "lambdaFunctionSinkConfiguration": {
+                        "insightsTarget": "arn:aws:lambda:us-west-2:1111111111:function:MyFunction",
+                    },
+                },
+                {
+                    "type": "SnsTopicSink",
+                    "snsTopicSinkConfiguration": {
+                        "insightsTarget": "arn:aws:sns:us-west-2:1111111111:topic/MyTopic",
+                    },
+                },
+                {
+                    "type": "SqsQueueSink",
+                    "sqsQueueSinkConfiguration": {
+                        "insightsTarget": "arn:aws:sqs:us-west-2:1111111111:queue/MyQueue",
+                    },
+                },
+                {
+                    "type": "KinesisDataStreamSink",
+                    "kinesisDataStreamSinkConfiguration": {
+                        "insightsTarget": test["arn"],
+                    },
+                },
             ])
         ```
 
@@ -758,12 +763,12 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         my_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("my_configuration",
             name="MyS3RecordingConfiguration",
             resource_access_role_arn=example["arn"],
-            elements=[aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
-                type="S3RecordingSink",
-                s3_recording_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs(
-                    destination="arn:aws:s3:::MyBucket",
-                ),
-            )])
+            elements=[{
+                "type": "S3RecordingSink",
+                "s3RecordingSinkConfiguration": {
+                    "destination": "arn:aws:s3:::MyBucket",
+                },
+            }])
         ```
 
         ## Import
@@ -789,9 +794,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaInsightsPipelineConfigurationElementArgs']]]]] = None,
+                 elements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 real_time_alert_configuration: Optional[pulumi.Input[pulumi.InputType['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]] = None,
+                 real_time_alert_configuration: Optional[pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
                  resource_access_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -825,9 +830,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            elements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaInsightsPipelineConfigurationElementArgs']]]]] = None,
+            elements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            real_time_alert_configuration: Optional[pulumi.Input[pulumi.InputType['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']]] = None,
+            real_time_alert_configuration: Optional[pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
             resource_access_role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'MediaInsightsPipelineConfiguration':
@@ -839,9 +844,9 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Media Insights Pipeline Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MediaInsightsPipelineConfigurationElementArgs']]]] elements: Collection of processors and sinks to transform media and deliver data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]] elements: Collection of processors and sinks to transform media and deliver data.
         :param pulumi.Input[str] name: Configuration name.
-        :param pulumi.Input[pulumi.InputType['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs']] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
+        :param pulumi.Input[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']] real_time_alert_configuration: Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         :param pulumi.Input[str] resource_access_role_arn: ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the resource.
         """

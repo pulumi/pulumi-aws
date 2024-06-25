@@ -4,23 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'SigningJobDestinationArgs',
+    'SigningJobDestinationArgsDict',
     'SigningJobDestinationS3Args',
+    'SigningJobDestinationS3ArgsDict',
     'SigningJobRevocationRecordArgs',
+    'SigningJobRevocationRecordArgsDict',
     'SigningJobSignedObjectArgs',
+    'SigningJobSignedObjectArgsDict',
     'SigningJobSignedObjectS3Args',
+    'SigningJobSignedObjectS3ArgsDict',
     'SigningJobSourceArgs',
+    'SigningJobSourceArgsDict',
     'SigningJobSourceS3Args',
+    'SigningJobSourceS3ArgsDict',
     'SigningProfileRevocationRecordArgs',
+    'SigningProfileRevocationRecordArgsDict',
     'SigningProfileSignatureValidityPeriodArgs',
+    'SigningProfileSignatureValidityPeriodArgsDict',
     'SigningProfileSigningMaterialArgs',
+    'SigningProfileSigningMaterialArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SigningJobDestinationArgsDict(TypedDict):
+        s3: pulumi.Input['SigningJobDestinationS3ArgsDict']
+        """
+        A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        """
+elif False:
+    SigningJobDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SigningJobDestinationArgs:
@@ -43,6 +69,13 @@ class SigningJobDestinationArgs:
     def s3(self, value: pulumi.Input['SigningJobDestinationS3Args']):
         pulumi.set(self, "s3", value)
 
+
+if not MYPY:
+    class SigningJobDestinationS3ArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        prefix: NotRequired[pulumi.Input[str]]
+elif False:
+    SigningJobDestinationS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SigningJobDestinationS3Args:
@@ -71,6 +104,14 @@ class SigningJobDestinationS3Args:
     def prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "prefix", value)
 
+
+if not MYPY:
+    class SigningJobRevocationRecordArgsDict(TypedDict):
+        reason: NotRequired[pulumi.Input[str]]
+        revoked_at: NotRequired[pulumi.Input[str]]
+        revoked_by: NotRequired[pulumi.Input[str]]
+elif False:
+    SigningJobRevocationRecordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SigningJobRevocationRecordArgs:
@@ -113,6 +154,12 @@ class SigningJobRevocationRecordArgs:
         pulumi.set(self, "revoked_by", value)
 
 
+if not MYPY:
+    class SigningJobSignedObjectArgsDict(TypedDict):
+        s3s: NotRequired[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3ArgsDict']]]]
+elif False:
+    SigningJobSignedObjectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SigningJobSignedObjectArgs:
     def __init__(__self__, *,
@@ -129,6 +176,13 @@ class SigningJobSignedObjectArgs:
     def s3s(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]):
         pulumi.set(self, "s3s", value)
 
+
+if not MYPY:
+    class SigningJobSignedObjectS3ArgsDict(TypedDict):
+        bucket: NotRequired[pulumi.Input[str]]
+        key: NotRequired[pulumi.Input[str]]
+elif False:
+    SigningJobSignedObjectS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SigningJobSignedObjectS3Args:
@@ -159,6 +213,15 @@ class SigningJobSignedObjectS3Args:
         pulumi.set(self, "key", value)
 
 
+if not MYPY:
+    class SigningJobSourceArgsDict(TypedDict):
+        s3: pulumi.Input['SigningJobSourceS3ArgsDict']
+        """
+        A configuration block describing the S3 Source object: See S3 Source below for details.
+        """
+elif False:
+    SigningJobSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SigningJobSourceArgs:
     def __init__(__self__, *,
@@ -180,6 +243,14 @@ class SigningJobSourceArgs:
     def s3(self, value: pulumi.Input['SigningJobSourceS3Args']):
         pulumi.set(self, "s3", value)
 
+
+if not MYPY:
+    class SigningJobSourceS3ArgsDict(TypedDict):
+        bucket: pulumi.Input[str]
+        key: pulumi.Input[str]
+        version: pulumi.Input[str]
+elif False:
+    SigningJobSourceS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SigningJobSourceS3Args:
@@ -218,6 +289,23 @@ class SigningJobSourceS3Args:
     def version(self, value: pulumi.Input[str]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class SigningProfileRevocationRecordArgsDict(TypedDict):
+        revocation_effective_from: NotRequired[pulumi.Input[str]]
+        """
+        The time when revocation becomes effective.
+        """
+        revoked_at: NotRequired[pulumi.Input[str]]
+        """
+        The time when the signing profile was revoked.
+        """
+        revoked_by: NotRequired[pulumi.Input[str]]
+        """
+        The identity of the revoker.
+        """
+elif False:
+    SigningProfileRevocationRecordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SigningProfileRevocationRecordArgs:
@@ -274,6 +362,19 @@ class SigningProfileRevocationRecordArgs:
         pulumi.set(self, "revoked_by", value)
 
 
+if not MYPY:
+    class SigningProfileSignatureValidityPeriodArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+        """
+        value: pulumi.Input[int]
+        """
+        The numerical value of the time unit for signature validity.
+        """
+elif False:
+    SigningProfileSignatureValidityPeriodArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SigningProfileSignatureValidityPeriodArgs:
     def __init__(__self__, *,
@@ -310,6 +411,15 @@ class SigningProfileSignatureValidityPeriodArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SigningProfileSigningMaterialArgsDict(TypedDict):
+        certificate_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+        """
+elif False:
+    SigningProfileSigningMaterialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SigningProfileSigningMaterialArgs:

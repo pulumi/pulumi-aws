@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -154,7 +159,7 @@ class AwaitableGetKeyPairResult(GetKeyPairResult):
             tags=self.tags)
 
 
-def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterArgs']]] = None,
+def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']]] = None,
                  include_public_key: Optional[bool] = None,
                  key_name: Optional[str] = None,
                  key_pair_id: Optional[str] = None,
@@ -173,17 +178,17 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
 
     example = aws.ec2.get_key_pair(key_name="test",
         include_public_key=True,
-        filters=[aws.ec2.GetKeyPairFilterArgs(
-            name="tag:Component",
-            values=["web"],
-        )])
+        filters=[{
+            "name": "tag:Component",
+            "values": ["web"],
+        }])
     pulumi.export("fingerprint", example.fingerprint)
     pulumi.export("name", example.key_name)
     pulumi.export("id", example.id)
     ```
 
 
-    :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']] filters: Custom filter block as described below.
     :param bool include_public_key: Whether to include the public key material in the response.
     :param str key_name: Key Pair name.
     :param str key_pair_id: Key Pair ID.
@@ -213,7 +218,7 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
 
 
 @_utilities.lift_output_func(get_key_pair)
-def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKeyPairFilterArgs']]]]] = None,
+def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']]]]] = None,
                         include_public_key: Optional[pulumi.Input[Optional[bool]]] = None,
                         key_name: Optional[pulumi.Input[Optional[str]]] = None,
                         key_pair_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -232,17 +237,17 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     example = aws.ec2.get_key_pair(key_name="test",
         include_public_key=True,
-        filters=[aws.ec2.GetKeyPairFilterArgs(
-            name="tag:Component",
-            values=["web"],
-        )])
+        filters=[{
+            "name": "tag:Component",
+            "values": ["web"],
+        }])
     pulumi.export("fingerprint", example.fingerprint)
     pulumi.export("name", example.key_name)
     pulumi.export("id", example.id)
     ```
 
 
-    :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']] filters: Custom filter block as described below.
     :param bool include_public_key: Whether to include the public key material in the response.
     :param str key_name: Key Pair name.
     :param str key_pair_id: Key Pair ID.

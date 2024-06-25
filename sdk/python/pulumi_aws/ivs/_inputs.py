@@ -4,16 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'RecordingConfigurationDestinationConfigurationArgs',
+    'RecordingConfigurationDestinationConfigurationArgsDict',
     'RecordingConfigurationDestinationConfigurationS3Args',
+    'RecordingConfigurationDestinationConfigurationS3ArgsDict',
     'RecordingConfigurationThumbnailConfigurationArgs',
+    'RecordingConfigurationThumbnailConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class RecordingConfigurationDestinationConfigurationArgsDict(TypedDict):
+        s3: pulumi.Input['RecordingConfigurationDestinationConfigurationS3ArgsDict']
+        """
+        S3 destination configuration where recorded videos will be stored.
+        """
+elif False:
+    RecordingConfigurationDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecordingConfigurationDestinationConfigurationArgs:
@@ -36,6 +55,17 @@ class RecordingConfigurationDestinationConfigurationArgs:
     def s3(self, value: pulumi.Input['RecordingConfigurationDestinationConfigurationS3Args']):
         pulumi.set(self, "s3", value)
 
+
+if not MYPY:
+    class RecordingConfigurationDestinationConfigurationS3ArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        """
+        S3 bucket name where recorded videos will be stored.
+
+        The following arguments are optional:
+        """
+elif False:
+    RecordingConfigurationDestinationConfigurationS3ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecordingConfigurationDestinationConfigurationS3Args:
@@ -62,6 +92,19 @@ class RecordingConfigurationDestinationConfigurationS3Args:
     def bucket_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket_name", value)
 
+
+if not MYPY:
+    class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
+        recording_mode: NotRequired[pulumi.Input[str]]
+        """
+        Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
+        """
+        target_interval_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The targeted thumbnail-generation interval in seconds.
+        """
+elif False:
+    RecordingConfigurationThumbnailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RecordingConfigurationThumbnailConfigurationArgs:

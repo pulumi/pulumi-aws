@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -122,7 +127,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_bucket: Optional[pulumi.Input[str]] = None,
                  role_arn_association_id: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessLogBucketAssociationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['DrtAccessLogBucketAssociationTimeoutsArgs', 'DrtAccessLogBucketAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Shield DRT Access Log Bucket Association.
@@ -204,7 +209,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_bucket: Optional[pulumi.Input[str]] = None,
                  role_arn_association_id: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessLogBucketAssociationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['DrtAccessLogBucketAssociationTimeoutsArgs', 'DrtAccessLogBucketAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -233,7 +238,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             log_bucket: Optional[pulumi.Input[str]] = None,
             role_arn_association_id: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessLogBucketAssociationTimeoutsArgs']]] = None) -> 'DrtAccessLogBucketAssociation':
+            timeouts: Optional[pulumi.Input[Union['DrtAccessLogBucketAssociationTimeoutsArgs', 'DrtAccessLogBucketAssociationTimeoutsArgsDict']]] = None) -> 'DrtAccessLogBucketAssociation':
         """
         Get an existing DrtAccessLogBucketAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

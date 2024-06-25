@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -1248,11 +1253,11 @@ class Instance(pulumi.CustomResource):
                  created_at: Optional[pulumi.Input[str]] = None,
                  delete_ebs: Optional[pulumi.Input[bool]] = None,
                  delete_eip: Optional[pulumi.Input[bool]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEbsBlockDeviceArgs']]]]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  ecs_cluster_arn: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEphemeralBlockDeviceArgs']]]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  infrastructure_class: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
@@ -1260,7 +1265,7 @@ class Instance(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  layer_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os: Optional[pulumi.Input[str]] = None,
-                 root_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']]]]] = None,
+                 root_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceRootBlockDeviceArgs', 'InstanceRootBlockDeviceArgsDict']]]]] = None,
                  root_device_type: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ssh_key_name: Optional[pulumi.Input[str]] = None,
@@ -1350,11 +1355,11 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] created_at: Time that the instance was created.
         :param pulumi.Input[bool] delete_ebs: Whether to delete EBS volume on deletion. Default is `true`.
         :param pulumi.Input[bool] delete_eip: Whether to delete the Elastic IP on deletion.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEbsBlockDeviceArgs']]]] ebs_block_devices: Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]] ebs_block_devices: Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
         :param pulumi.Input[bool] ebs_optimized: Whether the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[str] ecs_cluster_arn: ECS cluster's ARN for container instances.
         :param pulumi.Input[str] elastic_ip: Instance Elastic IP address.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
         :param pulumi.Input[str] hostname: Instance's host name.
         :param pulumi.Input[str] infrastructure_class: For registered instances, infrastructure class: ec2 or on-premises.
         :param pulumi.Input[bool] install_updates_on_boot: Controls where to install OS and package updates when the instance boots.  Default is `true`.
@@ -1362,7 +1367,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: Type of instance to start.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layer_ids: List of the layers the instance will belong to.
         :param pulumi.Input[str] os: Name of operating system that will be installed.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']]]] root_block_devices: Configuration block for the root block device of the instance. See Block Devices below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceRootBlockDeviceArgs', 'InstanceRootBlockDeviceArgsDict']]]] root_block_devices: Configuration block for the root block device of the instance. See Block Devices below.
         :param pulumi.Input[str] root_device_type: Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Associated security groups.
         :param pulumi.Input[str] ssh_key_name: Name of the SSH keypair that instances will have by default.
@@ -1473,11 +1478,11 @@ class Instance(pulumi.CustomResource):
                  created_at: Optional[pulumi.Input[str]] = None,
                  delete_ebs: Optional[pulumi.Input[bool]] = None,
                  delete_eip: Optional[pulumi.Input[bool]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEbsBlockDeviceArgs']]]]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
                  ecs_cluster_arn: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEphemeralBlockDeviceArgs']]]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
                  infrastructure_class: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
@@ -1485,7 +1490,7 @@ class Instance(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  layer_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os: Optional[pulumi.Input[str]] = None,
-                 root_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']]]]] = None,
+                 root_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceRootBlockDeviceArgs', 'InstanceRootBlockDeviceArgsDict']]]]] = None,
                  root_device_type: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ssh_key_name: Optional[pulumi.Input[str]] = None,
@@ -1571,12 +1576,12 @@ class Instance(pulumi.CustomResource):
             created_at: Optional[pulumi.Input[str]] = None,
             delete_ebs: Optional[pulumi.Input[bool]] = None,
             delete_eip: Optional[pulumi.Input[bool]] = None,
-            ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEbsBlockDeviceArgs']]]]] = None,
+            ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]]] = None,
             ebs_optimized: Optional[pulumi.Input[bool]] = None,
             ec2_instance_id: Optional[pulumi.Input[str]] = None,
             ecs_cluster_arn: Optional[pulumi.Input[str]] = None,
             elastic_ip: Optional[pulumi.Input[str]] = None,
-            ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEphemeralBlockDeviceArgs']]]]] = None,
+            ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
             infrastructure_class: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
@@ -1595,7 +1600,7 @@ class Instance(pulumi.CustomResource):
             reported_os_family: Optional[pulumi.Input[str]] = None,
             reported_os_name: Optional[pulumi.Input[str]] = None,
             reported_os_version: Optional[pulumi.Input[str]] = None,
-            root_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']]]]] = None,
+            root_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceRootBlockDeviceArgs', 'InstanceRootBlockDeviceArgsDict']]]]] = None,
             root_device_type: Optional[pulumi.Input[str]] = None,
             root_device_volume_id: Optional[pulumi.Input[str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1623,12 +1628,12 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] created_at: Time that the instance was created.
         :param pulumi.Input[bool] delete_ebs: Whether to delete EBS volume on deletion. Default is `true`.
         :param pulumi.Input[bool] delete_eip: Whether to delete the Elastic IP on deletion.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEbsBlockDeviceArgs']]]] ebs_block_devices: Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEbsBlockDeviceArgs', 'InstanceEbsBlockDeviceArgsDict']]]] ebs_block_devices: Configuration block for additional EBS block devices to attach to the instance. See Block Devices below.
         :param pulumi.Input[bool] ebs_optimized: Whether the launched EC2 instance will be EBS-optimized.
         :param pulumi.Input[str] ec2_instance_id: EC2 instance ID.
         :param pulumi.Input[str] ecs_cluster_arn: ECS cluster's ARN for container instances.
         :param pulumi.Input[str] elastic_ip: Instance Elastic IP address.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceEphemeralBlockDeviceArgs', 'InstanceEphemeralBlockDeviceArgsDict']]]] ephemeral_block_devices: Configuration block for ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below.
         :param pulumi.Input[str] hostname: Instance's host name.
         :param pulumi.Input[str] infrastructure_class: For registered instances, infrastructure class: ec2 or on-premises.
         :param pulumi.Input[bool] install_updates_on_boot: Controls where to install OS and package updates when the instance boots.  Default is `true`.
@@ -1647,7 +1652,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] reported_os_family: For registered instances, the reported operating system family.
         :param pulumi.Input[str] reported_os_name: For registered instances, the reported operating system name.
         :param pulumi.Input[str] reported_os_version: For registered instances, the reported operating system version.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']]]] root_block_devices: Configuration block for the root block device of the instance. See Block Devices below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceRootBlockDeviceArgs', 'InstanceRootBlockDeviceArgsDict']]]] root_block_devices: Configuration block for the root block device of the instance. See Block Devices below.
         :param pulumi.Input[str] root_device_type: Name of the type of root device instances will have by default. Valid values are `ebs` or `instance-store`.
         :param pulumi.Input[str] root_device_volume_id: Root device volume ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Associated security groups.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -76,7 +81,7 @@ class AwaitableGetLocalGatewaysResult(GetLocalGatewaysResult):
             tags=self.tags)
 
 
-def get_local_gateways(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']]] = None,
+def get_local_gateways(filters: Optional[Sequence[Union['GetLocalGatewaysFilterArgs', 'GetLocalGatewaysFilterArgsDict']]] = None,
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewaysResult:
     """
@@ -97,7 +102,7 @@ def get_local_gateways(filters: Optional[Sequence[pulumi.InputType['GetLocalGate
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetLocalGatewaysFilterArgs', 'GetLocalGatewaysFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -118,7 +123,7 @@ def get_local_gateways(filters: Optional[Sequence[pulumi.InputType['GetLocalGate
 
 
 @_utilities.lift_output_func(get_local_gateways)
-def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']]]]] = None,
+def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewaysFilterArgs', 'GetLocalGatewaysFilterArgsDict']]]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewaysResult]:
     """
@@ -139,7 +144,7 @@ def get_local_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     ```
 
 
-    :param Sequence[pulumi.InputType['GetLocalGatewaysFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetLocalGatewaysFilterArgs', 'GetLocalGatewaysFilterArgsDict']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

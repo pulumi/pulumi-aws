@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -161,7 +166,7 @@ class BucketAclV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_policy: Optional[pulumi.Input[pulumi.InputType['BucketAclV2AccessControlPolicyArgs']]] = None,
+                 access_control_policy: Optional[pulumi.Input[Union['BucketAclV2AccessControlPolicyArgs', 'BucketAclV2AccessControlPolicyArgsDict']]] = None,
                  acl: Optional[pulumi.Input[str]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
@@ -184,9 +189,9 @@ class BucketAclV2(pulumi.CustomResource):
         example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
-            rule=aws.s3.BucketOwnershipControlsRuleArgs(
-                object_ownership="BucketOwnerPreferred",
-            ))
+            rule={
+                "objectOwnership": "BucketOwnerPreferred",
+            })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="private",
@@ -205,9 +210,9 @@ class BucketAclV2(pulumi.CustomResource):
         example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
-            rule=aws.s3.BucketOwnershipControlsRuleArgs(
-                object_ownership="BucketOwnerPreferred",
-            ))
+            rule={
+                "objectOwnership": "BucketOwnerPreferred",
+            })
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
             bucket=example.id,
             block_public_acls=False,
@@ -233,32 +238,32 @@ class BucketAclV2(pulumi.CustomResource):
         example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
-            rule=aws.s3.BucketOwnershipControlsRuleArgs(
-                object_ownership="BucketOwnerPreferred",
-            ))
+            rule={
+                "objectOwnership": "BucketOwnerPreferred",
+            })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
-            access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
-                grants=[
-                    aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
-                        grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
-                            id=current.id,
-                            type="CanonicalUser",
-                        ),
-                        permission="READ",
-                    ),
-                    aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
-                        grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
-                            type="Group",
-                            uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
-                        ),
-                        permission="READ_ACP",
-                    ),
+            access_control_policy={
+                "grants": [
+                    {
+                        "grantee": {
+                            "id": current.id,
+                            "type": "CanonicalUser",
+                        },
+                        "permission": "READ",
+                    },
+                    {
+                        "grantee": {
+                            "type": "Group",
+                            "uri": "http://acs.amazonaws.com/groups/s3/LogDelivery",
+                        },
+                        "permission": "READ_ACP",
+                    },
                 ],
-                owner=aws.s3.BucketAclV2AccessControlPolicyOwnerArgs(
-                    id=current.id,
-                ),
-            ),
+                "owner": {
+                    "id": current.id,
+                },
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
 
@@ -298,7 +303,7 @@ class BucketAclV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BucketAclV2AccessControlPolicyArgs']] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
+        :param pulumi.Input[Union['BucketAclV2AccessControlPolicyArgs', 'BucketAclV2AccessControlPolicyArgsDict']] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
         :param pulumi.Input[str] acl: Canned ACL to apply to the bucket.
         :param pulumi.Input[str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
@@ -327,9 +332,9 @@ class BucketAclV2(pulumi.CustomResource):
         example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
-            rule=aws.s3.BucketOwnershipControlsRuleArgs(
-                object_ownership="BucketOwnerPreferred",
-            ))
+            rule={
+                "objectOwnership": "BucketOwnerPreferred",
+            })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
             acl="private",
@@ -348,9 +353,9 @@ class BucketAclV2(pulumi.CustomResource):
         example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
-            rule=aws.s3.BucketOwnershipControlsRuleArgs(
-                object_ownership="BucketOwnerPreferred",
-            ))
+            rule={
+                "objectOwnership": "BucketOwnerPreferred",
+            })
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
             bucket=example.id,
             block_public_acls=False,
@@ -376,32 +381,32 @@ class BucketAclV2(pulumi.CustomResource):
         example = aws.s3.BucketV2("example", bucket="my-tf-example-bucket")
         example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
             bucket=example.id,
-            rule=aws.s3.BucketOwnershipControlsRuleArgs(
-                object_ownership="BucketOwnerPreferred",
-            ))
+            rule={
+                "objectOwnership": "BucketOwnerPreferred",
+            })
         example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
             bucket=example.id,
-            access_control_policy=aws.s3.BucketAclV2AccessControlPolicyArgs(
-                grants=[
-                    aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
-                        grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
-                            id=current.id,
-                            type="CanonicalUser",
-                        ),
-                        permission="READ",
-                    ),
-                    aws.s3.BucketAclV2AccessControlPolicyGrantArgs(
-                        grantee=aws.s3.BucketAclV2AccessControlPolicyGrantGranteeArgs(
-                            type="Group",
-                            uri="http://acs.amazonaws.com/groups/s3/LogDelivery",
-                        ),
-                        permission="READ_ACP",
-                    ),
+            access_control_policy={
+                "grants": [
+                    {
+                        "grantee": {
+                            "id": current.id,
+                            "type": "CanonicalUser",
+                        },
+                        "permission": "READ",
+                    },
+                    {
+                        "grantee": {
+                            "type": "Group",
+                            "uri": "http://acs.amazonaws.com/groups/s3/LogDelivery",
+                        },
+                        "permission": "READ_ACP",
+                    },
                 ],
-                owner=aws.s3.BucketAclV2AccessControlPolicyOwnerArgs(
-                    id=current.id,
-                ),
-            ),
+                "owner": {
+                    "id": current.id,
+                },
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_ownership_controls]))
         ```
 
@@ -454,7 +459,7 @@ class BucketAclV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_control_policy: Optional[pulumi.Input[pulumi.InputType['BucketAclV2AccessControlPolicyArgs']]] = None,
+                 access_control_policy: Optional[pulumi.Input[Union['BucketAclV2AccessControlPolicyArgs', 'BucketAclV2AccessControlPolicyArgsDict']]] = None,
                  acl: Optional[pulumi.Input[str]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
@@ -483,7 +488,7 @@ class BucketAclV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_control_policy: Optional[pulumi.Input[pulumi.InputType['BucketAclV2AccessControlPolicyArgs']]] = None,
+            access_control_policy: Optional[pulumi.Input[Union['BucketAclV2AccessControlPolicyArgs', 'BucketAclV2AccessControlPolicyArgsDict']]] = None,
             acl: Optional[pulumi.Input[str]] = None,
             bucket: Optional[pulumi.Input[str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[str]] = None) -> 'BucketAclV2':
@@ -494,7 +499,7 @@ class BucketAclV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BucketAclV2AccessControlPolicyArgs']] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
+        :param pulumi.Input[Union['BucketAclV2AccessControlPolicyArgs', 'BucketAclV2AccessControlPolicyArgsDict']] access_control_policy: Configuration block that sets the ACL permissions for an object per grantee. See below.
         :param pulumi.Input[str] acl: Canned ACL to apply to the bucket.
         :param pulumi.Input[str] bucket: Bucket to which to apply the ACL.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.

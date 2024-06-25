@@ -4,16 +4,38 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ClusterNodeArgs',
+    'ClusterNodeArgsDict',
     'ClusterServerSideEncryptionArgs',
+    'ClusterServerSideEncryptionArgsDict',
     'ParameterGroupParameterArgs',
+    'ParameterGroupParameterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterNodeArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        availability_zone: NotRequired[pulumi.Input[str]]
+        id: NotRequired[pulumi.Input[str]]
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port used by the configuration endpoint
+        """
+elif False:
+    ClusterNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterNodeArgs:
@@ -74,6 +96,15 @@ class ClusterNodeArgs:
         pulumi.set(self, "port", value)
 
 
+if not MYPY:
+    class ClusterServerSideEncryptionArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable encryption at rest. Defaults to `false`.
+        """
+elif False:
+    ClusterServerSideEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterServerSideEncryptionArgs:
     def __init__(__self__, *,
@@ -96,6 +127,19 @@ class ClusterServerSideEncryptionArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ParameterGroupParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the parameter.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the parameter.
+        """
+elif False:
+    ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ParameterGroupParameterArgs:

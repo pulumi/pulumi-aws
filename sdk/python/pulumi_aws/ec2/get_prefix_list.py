@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -88,7 +93,7 @@ class AwaitableGetPrefixListResult(GetPrefixListResult):
             prefix_list_id=self.prefix_list_id)
 
 
-def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFilterArgs']]] = None,
+def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']]] = None,
                     name: Optional[str] = None,
                     prefix_list_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixListResult:
@@ -131,14 +136,14 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_prefix_list(filters=[aws.ec2.GetPrefixListFilterArgs(
-        name="prefix-list-id",
-        values=["pl-68a54001"],
-    )])
+    test = aws.ec2.get_prefix_list(filters=[{
+        "name": "prefix-list-id",
+        "values": ["pl-68a54001"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str name: Name of the prefix list to select.
     :param str prefix_list_id: ID of the prefix list to select.
     """
@@ -158,7 +163,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
 
 
 @_utilities.lift_output_func(get_prefix_list)
-def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPrefixListFilterArgs']]]]] = None,
+def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']]]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
                            prefix_list_id: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixListResult]:
@@ -201,14 +206,14 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_prefix_list(filters=[aws.ec2.GetPrefixListFilterArgs(
-        name="prefix-list-id",
-        values=["pl-68a54001"],
-    )])
+    test = aws.ec2.get_prefix_list(filters=[{
+        "name": "prefix-list-id",
+        "values": ["pl-68a54001"],
+    }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param str name: Name of the prefix list to select.
     :param str prefix_list_id: ID of the prefix list to select.
     """

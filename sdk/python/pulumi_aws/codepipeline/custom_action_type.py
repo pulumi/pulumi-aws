@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -290,11 +295,11 @@ class CustomActionType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArgs']]]]] = None,
-                 input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArgs']]] = None,
-                 output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArgs']]] = None,
+                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]]] = None,
+                 input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
+                 output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -309,14 +314,14 @@ class CustomActionType(pulumi.CustomResource):
 
         example = aws.codepipeline.CustomActionType("example",
             category="Build",
-            input_artifact_details=aws.codepipeline.CustomActionTypeInputArtifactDetailsArgs(
-                maximum_count=1,
-                minimum_count=0,
-            ),
-            output_artifact_details=aws.codepipeline.CustomActionTypeOutputArtifactDetailsArgs(
-                maximum_count=1,
-                minimum_count=0,
-            ),
+            input_artifact_details={
+                "maximumCount": 1,
+                "minimumCount": 0,
+            },
+            output_artifact_details={
+                "maximumCount": 1,
+                "minimumCount": 0,
+            },
             provider_name="example",
             version="1")
         ```
@@ -332,7 +337,7 @@ class CustomActionType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArgs']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
         """
         ...
     @overload
@@ -351,14 +356,14 @@ class CustomActionType(pulumi.CustomResource):
 
         example = aws.codepipeline.CustomActionType("example",
             category="Build",
-            input_artifact_details=aws.codepipeline.CustomActionTypeInputArtifactDetailsArgs(
-                maximum_count=1,
-                minimum_count=0,
-            ),
-            output_artifact_details=aws.codepipeline.CustomActionTypeOutputArtifactDetailsArgs(
-                maximum_count=1,
-                minimum_count=0,
-            ),
+            input_artifact_details={
+                "maximumCount": 1,
+                "minimumCount": 0,
+            },
+            output_artifact_details={
+                "maximumCount": 1,
+                "minimumCount": 0,
+            },
             provider_name="example",
             version="1")
         ```
@@ -387,11 +392,11 @@ class CustomActionType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArgs']]]]] = None,
-                 input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArgs']]] = None,
-                 output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArgs']]] = None,
+                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]]] = None,
+                 input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
+                 output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -436,12 +441,12 @@ class CustomActionType(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             category: Optional[pulumi.Input[str]] = None,
-            configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArgs']]]]] = None,
-            input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArgs']]] = None,
-            output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArgs']]] = None,
+            configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]]] = None,
+            input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
+            output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             provider_name: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']]] = None,
+            settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'CustomActionType':
@@ -454,7 +459,7 @@ class CustomActionType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The action ARN.
         :param pulumi.Input[str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArgs']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
         :param pulumi.Input[str] owner: The creator of the action being called.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

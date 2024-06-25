@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -464,7 +469,7 @@ class Role(pulumi.CustomResource):
                  assume_role_policy: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_detach_policies: Optional[pulumi.Input[bool]] = None,
-                 inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleInlinePolicyArgs']]]]] = None,
+                 inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_session_duration: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -515,13 +520,13 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        instance_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-        )])
+        instance_assume_role_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["ec2.amazonaws.com"],
+            }],
+        }])
         instance = aws.iam.Role("instance",
             name="instance_role",
             path="/system/",
@@ -537,17 +542,17 @@ class Role(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        inline_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["ec2:DescribeAccountAttributes"],
-            resources=["*"],
-        )])
+        inline_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["ec2:DescribeAccountAttributes"],
+            "resources": ["*"],
+        }])
         example = aws.iam.Role("example",
             name="yak_role",
             assume_role_policy=instance_assume_role_policy["json"],
             inline_policies=[
-                aws.iam.RoleInlinePolicyArgs(
-                    name="my_inline_policy",
-                    policy=json.dumps({
+                {
+                    "name": "my_inline_policy",
+                    "policy": json.dumps({
                         "Version": "2012-10-17",
                         "Statement": [{
                             "Action": ["ec2:Describe*"],
@@ -555,11 +560,11 @@ class Role(pulumi.CustomResource):
                             "Resource": "*",
                         }],
                     }),
-                ),
-                aws.iam.RoleInlinePolicyArgs(
-                    name="policy-8675309",
-                    policy=inline_policy.json,
-                ),
+                },
+                {
+                    "name": "policy-8675309",
+                    "policy": inline_policy.json,
+                },
             ])
         ```
 
@@ -572,7 +577,7 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            inline_policies=[aws.iam.RoleInlinePolicyArgs()],
+            inline_policies=[{}],
             name="yak_role",
             assume_role_policy=instance_assume_role_policy["json"])
         ```
@@ -650,7 +655,7 @@ class Role(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the role.
         :param pulumi.Input[bool] force_detach_policies: Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleInlinePolicyArgs']]]] inline_policies: Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]] inline_policies: Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
         :param pulumi.Input[int] max_session_duration: Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         :param pulumi.Input[str] name: Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         :param pulumi.Input[str] name_prefix: Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
@@ -706,13 +711,13 @@ class Role(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        instance_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["ec2.amazonaws.com"],
-            )],
-        )])
+        instance_assume_role_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["sts:AssumeRole"],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["ec2.amazonaws.com"],
+            }],
+        }])
         instance = aws.iam.Role("instance",
             name="instance_role",
             path="/system/",
@@ -728,17 +733,17 @@ class Role(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        inline_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["ec2:DescribeAccountAttributes"],
-            resources=["*"],
-        )])
+        inline_policy = aws.iam.get_policy_document(statements=[{
+            "actions": ["ec2:DescribeAccountAttributes"],
+            "resources": ["*"],
+        }])
         example = aws.iam.Role("example",
             name="yak_role",
             assume_role_policy=instance_assume_role_policy["json"],
             inline_policies=[
-                aws.iam.RoleInlinePolicyArgs(
-                    name="my_inline_policy",
-                    policy=json.dumps({
+                {
+                    "name": "my_inline_policy",
+                    "policy": json.dumps({
                         "Version": "2012-10-17",
                         "Statement": [{
                             "Action": ["ec2:Describe*"],
@@ -746,11 +751,11 @@ class Role(pulumi.CustomResource):
                             "Resource": "*",
                         }],
                     }),
-                ),
-                aws.iam.RoleInlinePolicyArgs(
-                    name="policy-8675309",
-                    policy=inline_policy.json,
-                ),
+                },
+                {
+                    "name": "policy-8675309",
+                    "policy": inline_policy.json,
+                },
             ])
         ```
 
@@ -763,7 +768,7 @@ class Role(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.Role("example",
-            inline_policies=[aws.iam.RoleInlinePolicyArgs()],
+            inline_policies=[{}],
             name="yak_role",
             assume_role_policy=instance_assume_role_policy["json"])
         ```
@@ -850,7 +855,7 @@ class Role(pulumi.CustomResource):
                  assume_role_policy: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_detach_policies: Optional[pulumi.Input[bool]] = None,
-                 inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleInlinePolicyArgs']]]]] = None,
+                 inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]]] = None,
                  managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_session_duration: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -899,7 +904,7 @@ class Role(pulumi.CustomResource):
             create_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             force_detach_policies: Optional[pulumi.Input[bool]] = None,
-            inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleInlinePolicyArgs']]]]] = None,
+            inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]]] = None,
             managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             max_session_duration: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -925,7 +930,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] create_date: Creation date of the IAM role.
         :param pulumi.Input[str] description: Description of the role.
         :param pulumi.Input[bool] force_detach_policies: Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoleInlinePolicyArgs']]]] inline_policies: Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]] inline_policies: Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inline_policy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
         :param pulumi.Input[int] max_session_duration: Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
         :param pulumi.Input[str] name: Friendly name of the role. If omitted, the provider will assign a random, unique name. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
         :param pulumi.Input[str] name_prefix: Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.

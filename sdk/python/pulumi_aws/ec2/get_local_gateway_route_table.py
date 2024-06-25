@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -100,7 +105,7 @@ class AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
             tags=self.tags)
 
 
-def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayRouteTableFilterArgs']]] = None,
+def get_local_gateway_route_table(filters: Optional[Sequence[Union['GetLocalGatewayRouteTableFilterArgs', 'GetLocalGatewayRouteTableFilterArgsDict']]] = None,
                                   local_gateway_id: Optional[str] = None,
                                   local_gateway_route_table_id: Optional[str] = None,
                                   outpost_arn: Optional[str] = None,
@@ -158,7 +163,7 @@ def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['G
 
 
 @_utilities.lift_output_func(get_local_gateway_route_table)
-def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewayRouteTableFilterArgs']]]]] = None,
+def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLocalGatewayRouteTableFilterArgs', 'GetLocalGatewayRouteTableFilterArgsDict']]]]] = None,
                                          local_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          local_gateway_route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          outpost_arn: Optional[pulumi.Input[Optional[str]]] = None,

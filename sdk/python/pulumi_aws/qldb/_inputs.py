@@ -4,14 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'StreamKinesisConfigurationArgs',
+    'StreamKinesisConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class StreamKinesisConfigurationArgsDict(TypedDict):
+        stream_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+        """
+        aggregation_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+        """
+elif False:
+    StreamKinesisConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamKinesisConfigurationArgs:

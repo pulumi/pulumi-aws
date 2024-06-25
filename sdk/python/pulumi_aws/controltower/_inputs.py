@@ -4,14 +4,31 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'LandingZoneDriftStatusArgs',
+    'LandingZoneDriftStatusArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LandingZoneDriftStatusArgsDict(TypedDict):
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The drift status of the landing zone.
+        """
+elif False:
+    LandingZoneDriftStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LandingZoneDriftStatusArgs:

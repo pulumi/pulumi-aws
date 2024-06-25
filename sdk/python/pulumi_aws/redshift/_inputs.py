@@ -4,25 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ClusterClusterNodeArgs',
+    'ClusterClusterNodeArgsDict',
     'ClusterLoggingArgs',
+    'ClusterLoggingArgsDict',
     'ClusterSnapshotCopyArgs',
+    'ClusterSnapshotCopyArgsDict',
     'EndpointAccessVpcEndpointArgs',
+    'EndpointAccessVpcEndpointArgsDict',
     'EndpointAccessVpcEndpointNetworkInterfaceArgs',
+    'EndpointAccessVpcEndpointNetworkInterfaceArgsDict',
     'ParameterGroupParameterArgs',
+    'ParameterGroupParameterArgsDict',
     'ScheduledActionTargetActionArgs',
+    'ScheduledActionTargetActionArgsDict',
     'ScheduledActionTargetActionPauseClusterArgs',
+    'ScheduledActionTargetActionPauseClusterArgsDict',
     'ScheduledActionTargetActionResizeClusterArgs',
+    'ScheduledActionTargetActionResizeClusterArgsDict',
     'ScheduledActionTargetActionResumeClusterArgs',
+    'ScheduledActionTargetActionResumeClusterArgsDict',
     'GetDataSharesDataShareArgs',
+    'GetDataSharesDataShareArgsDict',
     'GetProducerDataSharesDataShareArgs',
+    'GetProducerDataSharesDataShareArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterClusterNodeArgsDict(TypedDict):
+        node_role: NotRequired[pulumi.Input[str]]
+        """
+        Whether the node is a leader node or a compute node
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The private IP address of a node within a cluster
+        """
+        public_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The public IP address of a node within a cluster
+        """
+elif False:
+    ClusterClusterNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterClusterNodeArgs:
@@ -78,6 +114,32 @@ class ClusterClusterNodeArgs:
     def public_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "public_ip_address", value)
 
+
+if not MYPY:
+    class ClusterLoggingArgsDict(TypedDict):
+        enable: pulumi.Input[bool]
+        """
+        Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
+        """
+        bucket_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
+        For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+        """
+        log_destination_type: NotRequired[pulumi.Input[str]]
+        """
+        The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+        """
+        log_exports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
+        """
+        s3_key_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix applied to the log file names.
+        """
+elif False:
+    ClusterLoggingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterLoggingArgs:
@@ -167,6 +229,23 @@ class ClusterLoggingArgs:
         pulumi.set(self, "s3_key_prefix", value)
 
 
+if not MYPY:
+    class ClusterSnapshotCopyArgsDict(TypedDict):
+        destination_region: pulumi.Input[str]
+        """
+        The destination region that you want to copy snapshots to.
+        """
+        grant_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+        """
+        retention_period: NotRequired[pulumi.Input[int]]
+        """
+        The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
+        """
+elif False:
+    ClusterSnapshotCopyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterSnapshotCopyArgs:
     def __init__(__self__, *,
@@ -220,6 +299,23 @@ class ClusterSnapshotCopyArgs:
     def retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_period", value)
 
+
+if not MYPY:
+    class EndpointAccessVpcEndpointArgsDict(TypedDict):
+        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgsDict']]]]
+        """
+        One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+        """
+        vpc_endpoint_id: NotRequired[pulumi.Input[str]]
+        """
+        The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+        """
+        The VPC identifier that the endpoint is associated.
+        """
+elif False:
+    EndpointAccessVpcEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointAccessVpcEndpointArgs:
@@ -275,6 +371,27 @@ class EndpointAccessVpcEndpointArgs:
     def vpc_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_id", value)
 
+
+if not MYPY:
+    class EndpointAccessVpcEndpointNetworkInterfaceArgsDict(TypedDict):
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        The Availability Zone.
+        """
+        network_interface_id: NotRequired[pulumi.Input[str]]
+        """
+        The network interface identifier.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address of the network interface within the subnet.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The subnet identifier.
+        """
+elif False:
+    EndpointAccessVpcEndpointNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointAccessVpcEndpointNetworkInterfaceArgs:
@@ -347,6 +464,19 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class ParameterGroupParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Redshift parameter.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the Redshift parameter.
+        """
+elif False:
+    ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ParameterGroupParameterArgs:
     def __init__(__self__, *,
@@ -383,6 +513,23 @@ class ParameterGroupParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ScheduledActionTargetActionArgsDict(TypedDict):
+        pause_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionPauseClusterArgsDict']]
+        """
+        An action that runs a `PauseCluster` API operation. Documented below.
+        """
+        resize_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionResizeClusterArgsDict']]
+        """
+        An action that runs a `ResizeCluster` API operation. Documented below.
+        """
+        resume_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionResumeClusterArgsDict']]
+        """
+        An action that runs a `ResumeCluster` API operation. Documented below.
+        """
+elif False:
+    ScheduledActionTargetActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledActionTargetActionArgs:
@@ -439,6 +586,15 @@ class ScheduledActionTargetActionArgs:
         pulumi.set(self, "resume_cluster", value)
 
 
+if not MYPY:
+    class ScheduledActionTargetActionPauseClusterArgsDict(TypedDict):
+        cluster_identifier: pulumi.Input[str]
+        """
+        The identifier of the cluster to be paused.
+        """
+elif False:
+    ScheduledActionTargetActionPauseClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledActionTargetActionPauseClusterArgs:
     def __init__(__self__, *,
@@ -460,6 +616,31 @@ class ScheduledActionTargetActionPauseClusterArgs:
     def cluster_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "cluster_identifier", value)
 
+
+if not MYPY:
+    class ScheduledActionTargetActionResizeClusterArgsDict(TypedDict):
+        cluster_identifier: pulumi.Input[str]
+        """
+        The unique identifier for the cluster to resize.
+        """
+        classic: NotRequired[pulumi.Input[bool]]
+        """
+        A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+        """
+        cluster_type: NotRequired[pulumi.Input[str]]
+        """
+        The new cluster type for the specified cluster.
+        """
+        node_type: NotRequired[pulumi.Input[str]]
+        """
+        The new node type for the nodes you are adding.
+        """
+        number_of_nodes: NotRequired[pulumi.Input[int]]
+        """
+        The new number of nodes for the cluster.
+        """
+elif False:
+    ScheduledActionTargetActionResizeClusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledActionTargetActionResizeClusterArgs:
@@ -547,6 +728,15 @@ class ScheduledActionTargetActionResizeClusterArgs:
         pulumi.set(self, "number_of_nodes", value)
 
 
+if not MYPY:
+    class ScheduledActionTargetActionResumeClusterArgsDict(TypedDict):
+        cluster_identifier: pulumi.Input[str]
+        """
+        The identifier of the cluster to be resumed.
+        """
+elif False:
+    ScheduledActionTargetActionResumeClusterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledActionTargetActionResumeClusterArgs:
     def __init__(__self__, *,
@@ -568,6 +758,23 @@ class ScheduledActionTargetActionResumeClusterArgs:
     def cluster_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "cluster_identifier", value)
 
+
+if not MYPY:
+    class GetDataSharesDataShareArgsDict(TypedDict):
+        data_share_arn: str
+        """
+        ARN (Amazon Resource Name) of the data share.
+        """
+        managed_by: str
+        """
+        Identifier of a datashare to show its managing entity.
+        """
+        producer_arn: str
+        """
+        ARN (Amazon Resource Name) of the producer.
+        """
+elif False:
+    GetDataSharesDataShareArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetDataSharesDataShareArgs:
@@ -620,6 +827,25 @@ class GetDataSharesDataShareArgs:
     def producer_arn(self, value: str):
         pulumi.set(self, "producer_arn", value)
 
+
+if not MYPY:
+    class GetProducerDataSharesDataShareArgsDict(TypedDict):
+        data_share_arn: str
+        """
+        ARN (Amazon Resource Name) of the data share.
+        """
+        managed_by: str
+        """
+        Identifier of a datashare to show its managing entity.
+        """
+        producer_arn: str
+        """
+        Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+
+        The following arguments are optional:
+        """
+elif False:
+    GetProducerDataSharesDataShareArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetProducerDataSharesDataShareArgs:

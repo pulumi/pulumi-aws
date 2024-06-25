@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -205,7 +210,7 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_region: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[pulumi.InputType['SdkvoiceSipMediaApplicationEndpointsArgs']]] = None,
+                 endpoints: Optional[pulumi.Input[Union['SdkvoiceSipMediaApplicationEndpointsArgs', 'SdkvoiceSipMediaApplicationEndpointsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -223,9 +228,9 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
         example = aws.chime.SdkvoiceSipMediaApplication("example",
             aws_region="us-east-1",
             name="example-sip-media-application",
-            endpoints=aws.chime.SdkvoiceSipMediaApplicationEndpointsArgs(
-                lambda_arn=test["arn"],
-            ))
+            endpoints={
+                "lambdaArn": test["arn"],
+            })
         ```
 
         ## Import
@@ -239,7 +244,7 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_region: The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
-        :param pulumi.Input[pulumi.InputType['SdkvoiceSipMediaApplicationEndpointsArgs']] endpoints: List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+        :param pulumi.Input[Union['SdkvoiceSipMediaApplicationEndpointsArgs', 'SdkvoiceSipMediaApplicationEndpointsArgsDict']] endpoints: List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
         :param pulumi.Input[str] name: The name of the AWS Chime SDK Voice Sip Media Application.
                
                The following arguments are optional:
@@ -265,9 +270,9 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
         example = aws.chime.SdkvoiceSipMediaApplication("example",
             aws_region="us-east-1",
             name="example-sip-media-application",
-            endpoints=aws.chime.SdkvoiceSipMediaApplicationEndpointsArgs(
-                lambda_arn=test["arn"],
-            ))
+            endpoints={
+                "lambdaArn": test["arn"],
+            })
         ```
 
         ## Import
@@ -294,7 +299,7 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_region: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[pulumi.InputType['SdkvoiceSipMediaApplicationEndpointsArgs']]] = None,
+                 endpoints: Optional[pulumi.Input[Union['SdkvoiceSipMediaApplicationEndpointsArgs', 'SdkvoiceSipMediaApplicationEndpointsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -328,7 +333,7 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             aws_region: Optional[pulumi.Input[str]] = None,
-            endpoints: Optional[pulumi.Input[pulumi.InputType['SdkvoiceSipMediaApplicationEndpointsArgs']]] = None,
+            endpoints: Optional[pulumi.Input[Union['SdkvoiceSipMediaApplicationEndpointsArgs', 'SdkvoiceSipMediaApplicationEndpointsArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SdkvoiceSipMediaApplication':
@@ -341,7 +346,7 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN (Amazon Resource Name) of the AWS Chime SDK Voice Sip Media Application
         :param pulumi.Input[str] aws_region: The AWS Region in which the AWS Chime SDK Voice Sip Media Application is created.
-        :param pulumi.Input[pulumi.InputType['SdkvoiceSipMediaApplicationEndpointsArgs']] endpoints: List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
+        :param pulumi.Input[Union['SdkvoiceSipMediaApplicationEndpointsArgs', 'SdkvoiceSipMediaApplicationEndpointsArgsDict']] endpoints: List of endpoints (Lambda Amazon Resource Names) specified for the SIP media application. Currently, only one endpoint is supported. See `endpoints`.
         :param pulumi.Input[str] name: The name of the AWS Chime SDK Voice Sip Media Application.
                
                The following arguments are optional:

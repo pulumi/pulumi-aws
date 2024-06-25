@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['AccessPointPolicyArgs', 'AccessPointPolicy']
@@ -129,12 +134,12 @@ class AccessPointPolicy(pulumi.CustomResource):
         example_access_point = aws.s3.AccessPoint("example",
             bucket=example.id,
             name="example",
-            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
-                block_public_acls=True,
-                block_public_policy=False,
-                ignore_public_acls=True,
-                restrict_public_buckets=False,
-            ))
+            public_access_block_configuration={
+                "blockPublicAcls": True,
+                "blockPublicPolicy": False,
+                "ignorePublicAcls": True,
+                "restrictPublicBuckets": False,
+            })
         example_access_point_policy = aws.s3control.AccessPointPolicy("example",
             access_point_arn=example_access_point.arn,
             policy=pulumi.Output.json_dumps({
@@ -185,12 +190,12 @@ class AccessPointPolicy(pulumi.CustomResource):
         example_access_point = aws.s3.AccessPoint("example",
             bucket=example.id,
             name="example",
-            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
-                block_public_acls=True,
-                block_public_policy=False,
-                ignore_public_acls=True,
-                restrict_public_buckets=False,
-            ))
+            public_access_block_configuration={
+                "blockPublicAcls": True,
+                "blockPublicPolicy": False,
+                "ignorePublicAcls": True,
+                "restrictPublicBuckets": False,
+            })
         example_access_point_policy = aws.s3control.AccessPointPolicy("example",
             access_point_arn=example_access_point.arn,
             policy=pulumi.Output.json_dumps({

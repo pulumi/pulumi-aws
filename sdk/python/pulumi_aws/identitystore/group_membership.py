@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['GroupMembershipArgs', 'GroupMembership']
@@ -159,10 +164,10 @@ class GroupMembership(pulumi.CustomResource):
             identity_store_id=example.identity_store_ids[0],
             display_name="John Doe",
             user_name="john.doe@example.com",
-            name=aws.identitystore.UserNameArgs(
-                family_name="Doe",
-                given_name="John",
-            ))
+            name={
+                "familyName": "Doe",
+                "givenName": "John",
+            })
         example_group = aws.identitystore.Group("example",
             identity_store_id=example.identity_store_ids[0],
             display_name="MyGroup",
@@ -207,10 +212,10 @@ class GroupMembership(pulumi.CustomResource):
             identity_store_id=example.identity_store_ids[0],
             display_name="John Doe",
             user_name="john.doe@example.com",
-            name=aws.identitystore.UserNameArgs(
-                family_name="Doe",
-                given_name="John",
-            ))
+            name={
+                "familyName": "Doe",
+                "givenName": "John",
+            })
         example_group = aws.identitystore.Group("example",
             identity_store_id=example.identity_store_ids[0],
             display_name="MyGroup",

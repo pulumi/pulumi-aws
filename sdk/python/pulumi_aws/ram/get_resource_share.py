@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -142,7 +147,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             tags=self.tags)
 
 
-def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceShareFilterArgs']]] = None,
+def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']]] = None,
                        name: Optional[str] = None,
                        resource_owner: Optional[str] = None,
                        resource_share_status: Optional[str] = None,
@@ -168,14 +173,14 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
     import pulumi_aws as aws
 
     tag_filter = aws.ram.get_resource_share(resource_owner="SELF",
-        filters=[aws.ram.GetResourceShareFilterArgs(
-            name="NameOfTag",
-            values=["exampleNameTagValue"],
-        )])
+        filters=[{
+            "name": "NameOfTag",
+            "values": ["exampleNameTagValue"],
+        }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: Name of the resource share to retrieve.
     :param str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
     :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
@@ -204,7 +209,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
 
 
 @_utilities.lift_output_func(get_resource_share)
-def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetResourceShareFilterArgs']]]]] = None,
+def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']]]]] = None,
                               name: Optional[pulumi.Input[Optional[str]]] = None,
                               resource_owner: Optional[pulumi.Input[str]] = None,
                               resource_share_status: Optional[pulumi.Input[Optional[str]]] = None,
@@ -230,14 +235,14 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi_aws as aws
 
     tag_filter = aws.ram.get_resource_share(resource_owner="SELF",
-        filters=[aws.ram.GetResourceShareFilterArgs(
-            name="NameOfTag",
-            values=["exampleNameTagValue"],
-        )])
+        filters=[{
+            "name": "NameOfTag",
+            "values": ["exampleNameTagValue"],
+        }])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param Sequence[Union['GetResourceShareFilterArgs', 'GetResourceShareFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: Name of the resource share to retrieve.
     :param str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
     :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.

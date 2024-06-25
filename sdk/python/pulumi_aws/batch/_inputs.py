@@ -4,37 +4,141 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ComputeEnvironmentComputeResourcesArgs',
+    'ComputeEnvironmentComputeResourcesArgsDict',
     'ComputeEnvironmentComputeResourcesEc2ConfigurationArgs',
+    'ComputeEnvironmentComputeResourcesEc2ConfigurationArgsDict',
     'ComputeEnvironmentComputeResourcesLaunchTemplateArgs',
+    'ComputeEnvironmentComputeResourcesLaunchTemplateArgsDict',
     'ComputeEnvironmentEksConfigurationArgs',
+    'ComputeEnvironmentEksConfigurationArgsDict',
     'ComputeEnvironmentUpdatePolicyArgs',
+    'ComputeEnvironmentUpdatePolicyArgsDict',
     'JobDefinitionEksPropertiesArgs',
+    'JobDefinitionEksPropertiesArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesArgs',
+    'JobDefinitionEksPropertiesPodPropertiesArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesContainersArgs',
+    'JobDefinitionEksPropertiesPodPropertiesContainersArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs',
+    'JobDefinitionEksPropertiesPodPropertiesContainersEnvArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs',
+    'JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs',
+    'JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs',
+    'JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesMetadataArgs',
+    'JobDefinitionEksPropertiesPodPropertiesMetadataArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesVolumeArgs',
+    'JobDefinitionEksPropertiesPodPropertiesVolumeArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs',
+    'JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs',
+    'JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict',
     'JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs',
+    'JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict',
     'JobDefinitionRetryStrategyArgs',
+    'JobDefinitionRetryStrategyArgsDict',
     'JobDefinitionRetryStrategyEvaluateOnExitArgs',
+    'JobDefinitionRetryStrategyEvaluateOnExitArgsDict',
     'JobDefinitionTimeoutArgs',
+    'JobDefinitionTimeoutArgsDict',
     'JobQueueComputeEnvironmentOrderArgs',
+    'JobQueueComputeEnvironmentOrderArgsDict',
     'JobQueueTimeoutsArgs',
+    'JobQueueTimeoutsArgsDict',
     'SchedulingPolicyFairSharePolicyArgs',
+    'SchedulingPolicyFairSharePolicyArgsDict',
     'SchedulingPolicyFairSharePolicyShareDistributionArgs',
+    'SchedulingPolicyFairSharePolicyShareDistributionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ComputeEnvironmentComputeResourcesArgsDict(TypedDict):
+        max_vcpus: pulumi.Input[int]
+        """
+        The maximum number of EC2 vCPUs that an environment can reach.
+        """
+        subnets: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of VPC subnets into which the compute resources are launched.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
+        """
+        allocation_strategy: NotRequired[pulumi.Input[str]]
+        """
+        The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        bid_percentage: NotRequired[pulumi.Input[int]]
+        """
+        Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        desired_vcpus: NotRequired[pulumi.Input[int]]
+        """
+        The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        ec2_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentComputeResourcesEc2ConfigurationArgsDict']]]]
+        """
+        Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        """
+        ec2_key_pair: NotRequired[pulumi.Input[str]]
+        """
+        The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        image_id: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
+        """
+        instance_role: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        launch_template: NotRequired[pulumi.Input['ComputeEnvironmentComputeResourcesLaunchTemplateArgsDict']]
+        """
+        The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        min_vcpus: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        placement_group: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon EC2 placement group to associate with your compute resources.
+        """
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
+        """
+        spot_iam_fleet_role: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        """
+elif False:
+    ComputeEnvironmentComputeResourcesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeEnvironmentComputeResourcesArgs:
@@ -312,6 +416,19 @@ class ComputeEnvironmentComputeResourcesArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class ComputeEnvironmentComputeResourcesEc2ConfigurationArgsDict(TypedDict):
+        image_id_override: NotRequired[pulumi.Input[str]]
+        """
+        The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
+        """
+        image_type: NotRequired[pulumi.Input[str]]
+        """
+        The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+        """
+elif False:
+    ComputeEnvironmentComputeResourcesEc2ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs:
     def __init__(__self__, *,
@@ -350,6 +467,23 @@ class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs:
     def image_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image_type", value)
 
+
+if not MYPY:
+    class ComputeEnvironmentComputeResourcesLaunchTemplateArgsDict(TypedDict):
+        launch_template_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
+        """
+        launch_template_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the launch template.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version number of the launch template. Default: The default version of the launch template.
+        """
+elif False:
+    ComputeEnvironmentComputeResourcesLaunchTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeEnvironmentComputeResourcesLaunchTemplateArgs:
@@ -406,6 +540,19 @@ class ComputeEnvironmentComputeResourcesLaunchTemplateArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class ComputeEnvironmentEksConfigurationArgsDict(TypedDict):
+        eks_cluster_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        """
+        kubernetes_namespace: pulumi.Input[str]
+        """
+        The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
+        """
+elif False:
+    ComputeEnvironmentEksConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeEnvironmentEksConfigurationArgs:
     def __init__(__self__, *,
@@ -442,6 +589,19 @@ class ComputeEnvironmentEksConfigurationArgs:
     def kubernetes_namespace(self, value: pulumi.Input[str]):
         pulumi.set(self, "kubernetes_namespace", value)
 
+
+if not MYPY:
+    class ComputeEnvironmentUpdatePolicyArgsDict(TypedDict):
+        job_execution_timeout_minutes: pulumi.Input[int]
+        """
+        Specifies the job timeout (in minutes) when the compute environment infrastructure is updated.
+        """
+        terminate_jobs_on_update: pulumi.Input[bool]
+        """
+        Specifies whether jobs are automatically terminated when the computer environment infrastructure is updated.
+        """
+elif False:
+    ComputeEnvironmentUpdatePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeEnvironmentUpdatePolicyArgs:
@@ -480,6 +640,15 @@ class ComputeEnvironmentUpdatePolicyArgs:
         pulumi.set(self, "terminate_jobs_on_update", value)
 
 
+if not MYPY:
+    class JobDefinitionEksPropertiesArgsDict(TypedDict):
+        pod_properties: pulumi.Input['JobDefinitionEksPropertiesPodPropertiesArgsDict']
+        """
+        The properties for the Kubernetes pod resources of a job. See `pod_properties` below.
+        """
+elif False:
+    JobDefinitionEksPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksPropertiesArgs:
     def __init__(__self__, *,
@@ -501,6 +670,35 @@ class JobDefinitionEksPropertiesArgs:
     def pod_properties(self, value: pulumi.Input['JobDefinitionEksPropertiesPodPropertiesArgs']):
         pulumi.set(self, "pod_properties", value)
 
+
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesArgsDict(TypedDict):
+        containers: pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersArgsDict']
+        """
+        The properties of the container that's used on the Amazon EKS pod. See containers below.
+        """
+        dns_policy: NotRequired[pulumi.Input[str]]
+        """
+        The DNS policy for the pod. The default value is `ClusterFirst`. If the `host_network` argument is not specified, the default is `ClusterFirstWithHostNet`. `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see Pod's DNS policy in the Kubernetes documentation.
+        """
+        host_network: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+        """
+        metadata: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesMetadataArgsDict']]
+        """
+        Metadata about the Kubernetes pod.
+        """
+        service_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the service account that's used to run the pod.
+        """
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgsDict']]]]
+        """
+        Specifies the volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
+        """
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesArgs:
@@ -603,6 +801,47 @@ class JobDefinitionEksPropertiesPodPropertiesArgs:
     def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
 
+
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesContainersArgsDict(TypedDict):
+        image: pulumi.Input[str]
+        """
+        The Docker image used to start the container.
+        """
+        args: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of arguments to the entrypoint. If this isn't specified, the CMD of the container image is used. This corresponds to the args member in the Entrypoint portion of the Pod in Kubernetes. Environment variable references are expanded using the container's environment.
+        """
+        commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
+        """
+        envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersEnvArgsDict']]]]
+        """
+        The environment variables to pass to a container. See EKS Environment below.
+        """
+        image_pull_policy: NotRequired[pulumi.Input[str]]
+        """
+        The image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
+        """
+        resources: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgsDict']]
+        """
+        The type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
+        """
+        security_context: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgsDict']]
+        """
+        The security context for a job.
+        """
+        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgsDict']]]]
+        """
+        The volume mounts for the container.
+        """
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesContainersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
@@ -754,6 +993,16 @@ class JobDefinitionEksPropertiesPodPropertiesContainersArgs:
         pulumi.set(self, "volume_mounts", value)
 
 
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the job definition.
+        """
+        value: pulumi.Input[str]
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesContainersEnvArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs:
     def __init__(__self__, *,
@@ -787,6 +1036,13 @@ class JobDefinitionEksPropertiesPodPropertiesContainersEnvArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgsDict(TypedDict):
+        limits: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        requests: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs:
     def __init__(__self__, *,
@@ -815,6 +1071,16 @@ class JobDefinitionEksPropertiesPodPropertiesContainersResourcesArgs:
     def requests(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "requests", value)
 
+
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgsDict(TypedDict):
+        privileged: NotRequired[pulumi.Input[bool]]
+        read_only_root_file_system: NotRequired[pulumi.Input[bool]]
+        run_as_group: NotRequired[pulumi.Input[int]]
+        run_as_non_root: NotRequired[pulumi.Input[bool]]
+        run_as_user: NotRequired[pulumi.Input[int]]
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs:
@@ -881,6 +1147,17 @@ class JobDefinitionEksPropertiesPodPropertiesContainersSecurityContextArgs:
         pulumi.set(self, "run_as_user", value)
 
 
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgsDict(TypedDict):
+        mount_path: pulumi.Input[str]
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the job definition.
+        """
+        read_only: NotRequired[pulumi.Input[bool]]
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs:
     def __init__(__self__, *,
@@ -926,6 +1203,12 @@ class JobDefinitionEksPropertiesPodPropertiesContainersVolumeMountArgs:
         pulumi.set(self, "read_only", value)
 
 
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesMetadataArgsDict(TypedDict):
+        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesMetadataArgs:
     def __init__(__self__, *,
@@ -942,6 +1225,18 @@ class JobDefinitionEksPropertiesPodPropertiesMetadataArgs:
     def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
 
+
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesVolumeArgsDict(TypedDict):
+        empty_dir: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgsDict']]
+        host_path: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict']]
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the job definition.
+        """
+        secret: NotRequired[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict']]
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesVolumeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
@@ -1002,6 +1297,13 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgsDict(TypedDict):
+        size_limit: pulumi.Input[str]
+        medium: NotRequired[pulumi.Input[str]]
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs:
     def __init__(__self__, *,
@@ -1030,6 +1332,12 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs:
         pulumi.set(self, "medium", value)
 
 
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict(TypedDict):
+        path: pulumi.Input[str]
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs:
     def __init__(__self__, *,
@@ -1045,6 +1353,13 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs:
     def path(self, value: pulumi.Input[str]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict(TypedDict):
+        secret_name: pulumi.Input[str]
+        optional: NotRequired[pulumi.Input[bool]]
+elif False:
+    JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs:
@@ -1073,6 +1388,19 @@ class JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs:
     def optional(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "optional", value)
 
+
+if not MYPY:
+    class JobDefinitionRetryStrategyArgsDict(TypedDict):
+        attempts: NotRequired[pulumi.Input[int]]
+        """
+        The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
+        """
+        evaluate_on_exits: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgsDict']]]]
+        """
+        The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+        """
+elif False:
+    JobDefinitionRetryStrategyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionRetryStrategyArgs:
@@ -1112,6 +1440,27 @@ class JobDefinitionRetryStrategyArgs:
     def evaluate_on_exits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgs']]]]):
         pulumi.set(self, "evaluate_on_exits", value)
 
+
+if not MYPY:
+    class JobDefinitionRetryStrategyEvaluateOnExitArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `retry`, `exit`.
+        """
+        on_exit_code: NotRequired[pulumi.Input[str]]
+        """
+        A glob pattern to match against the decimal representation of the exit code returned for a job.
+        """
+        on_reason: NotRequired[pulumi.Input[str]]
+        """
+        A glob pattern to match against the reason returned for a job.
+        """
+        on_status_reason: NotRequired[pulumi.Input[str]]
+        """
+        A glob pattern to match against the status reason returned for a job.
+        """
+elif False:
+    JobDefinitionRetryStrategyEvaluateOnExitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobDefinitionRetryStrategyEvaluateOnExitArgs:
@@ -1183,6 +1532,15 @@ class JobDefinitionRetryStrategyEvaluateOnExitArgs:
         pulumi.set(self, "on_status_reason", value)
 
 
+if not MYPY:
+    class JobDefinitionTimeoutArgsDict(TypedDict):
+        attempt_duration_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
+        """
+elif False:
+    JobDefinitionTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobDefinitionTimeoutArgs:
     def __init__(__self__, *,
@@ -1205,6 +1563,19 @@ class JobDefinitionTimeoutArgs:
     def attempt_duration_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "attempt_duration_seconds", value)
 
+
+if not MYPY:
+    class JobQueueComputeEnvironmentOrderArgsDict(TypedDict):
+        compute_environment: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the compute environment.
+        """
+        order: pulumi.Input[int]
+        """
+        The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+        """
+elif False:
+    JobQueueComputeEnvironmentOrderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobQueueComputeEnvironmentOrderArgs:
@@ -1242,6 +1613,23 @@ class JobQueueComputeEnvironmentOrderArgs:
     def order(self, value: pulumi.Input[int]):
         pulumi.set(self, "order", value)
 
+
+if not MYPY:
+    class JobQueueTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        update: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    JobQueueTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobQueueTimeoutsArgs:
@@ -1298,6 +1686,14 @@ class JobQueueTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
+if not MYPY:
+    class SchedulingPolicyFairSharePolicyArgsDict(TypedDict):
+        compute_reservation: NotRequired[pulumi.Input[int]]
+        share_decay_seconds: NotRequired[pulumi.Input[int]]
+        share_distributions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgsDict']]]]
+elif False:
+    SchedulingPolicyFairSharePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SchedulingPolicyFairSharePolicyArgs:
     def __init__(__self__, *,
@@ -1338,6 +1734,19 @@ class SchedulingPolicyFairSharePolicyArgs:
     def share_distributions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]]]):
         pulumi.set(self, "share_distributions", value)
 
+
+if not MYPY:
+    class SchedulingPolicyFairSharePolicyShareDistributionArgsDict(TypedDict):
+        share_identifier: pulumi.Input[str]
+        """
+        A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+        """
+        weight_factor: NotRequired[pulumi.Input[float]]
+        """
+        The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
+        """
+elif False:
+    SchedulingPolicyFairSharePolicyShareDistributionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SchedulingPolicyFairSharePolicyShareDistributionArgs:

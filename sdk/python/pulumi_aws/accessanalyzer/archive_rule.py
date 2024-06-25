@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -128,7 +133,7 @@ class ArchiveRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -146,18 +151,18 @@ class ArchiveRule(pulumi.CustomResource):
             analyzer_name="example-analyzer",
             rule_name="example-rule",
             filters=[
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="condition.aws:UserId",
-                    eqs=["userid"],
-                ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="error",
-                    exists="true",
-                ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="isPublic",
-                    eqs=["false"],
-                ),
+                {
+                    "criteria": "condition.aws:UserId",
+                    "eqs": ["userid"],
+                },
+                {
+                    "criteria": "error",
+                    "exists": "true",
+                },
+                {
+                    "criteria": "isPublic",
+                    "eqs": ["false"],
+                },
             ])
         ```
 
@@ -172,7 +177,7 @@ class ArchiveRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Analyzer name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArgs']]]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[str] rule_name: Rule name.
         """
         ...
@@ -196,18 +201,18 @@ class ArchiveRule(pulumi.CustomResource):
             analyzer_name="example-analyzer",
             rule_name="example-rule",
             filters=[
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="condition.aws:UserId",
-                    eqs=["userid"],
-                ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="error",
-                    exists="true",
-                ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
-                    criteria="isPublic",
-                    eqs=["false"],
-                ),
+                {
+                    "criteria": "condition.aws:UserId",
+                    "eqs": ["userid"],
+                },
+                {
+                    "criteria": "error",
+                    "exists": "true",
+                },
+                {
+                    "criteria": "isPublic",
+                    "eqs": ["false"],
+                },
             ])
         ```
 
@@ -235,7 +240,7 @@ class ArchiveRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -266,7 +271,7 @@ class ArchiveRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             analyzer_name: Optional[pulumi.Input[str]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]]] = None,
             rule_name: Optional[pulumi.Input[str]] = None) -> 'ArchiveRule':
         """
         Get an existing ArchiveRule resource's state with the given name, id, and optional extra
@@ -276,7 +281,7 @@ class ArchiveRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Analyzer name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArgs']]]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[str] rule_name: Rule name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -4,16 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GroupConfigurationArgs',
+    'GroupConfigurationArgsDict',
     'GroupConfigurationParameterArgs',
+    'GroupConfigurationParameterArgsDict',
     'GroupResourceQueryArgs',
+    'GroupResourceQueryArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GroupConfigurationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of group configuration item.
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgsDict']]]]
+        """
+        A collection of parameters for this group configuration item. See below for details.
+        """
+elif False:
+    GroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupConfigurationArgs:
@@ -53,6 +76,19 @@ class GroupConfigurationArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class GroupConfigurationParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the group configuration parameter.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The value or values to be used for the specified parameter.
+        """
+elif False:
+    GroupConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroupConfigurationParameterArgs:
     def __init__(__self__, *,
@@ -89,6 +125,19 @@ class GroupConfigurationParameterArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GroupResourceQueryArgsDict(TypedDict):
+        query: pulumi.Input[str]
+        """
+        The resource query as a JSON string.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
+        """
+elif False:
+    GroupResourceQueryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupResourceQueryArgs:

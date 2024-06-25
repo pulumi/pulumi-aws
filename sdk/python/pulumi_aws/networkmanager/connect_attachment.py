@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -360,7 +365,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  edge_location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']]] = None,
+                 options: Optional[pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -383,9 +388,9 @@ class ConnectAttachment(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transport_attachment_id=example.id,
             edge_location=example.edge_location,
-            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
-                protocol="GRE",
-            ))
+            options={
+                "protocol": "GRE",
+            })
         ```
 
         ### Usage with attachment accepter
@@ -405,9 +410,9 @@ class ConnectAttachment(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transport_attachment_id=example.id,
             edge_location=example.edge_location,
-            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
-                protocol="GRE",
-            ),
+            options={
+                "protocol": "GRE",
+            },
             opts = pulumi.ResourceOptions(depends_on=[test]))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
@@ -426,7 +431,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Options block. See options for more information.
+        :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']] options: Options block. See options for more information.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -457,9 +462,9 @@ class ConnectAttachment(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transport_attachment_id=example.id,
             edge_location=example.edge_location,
-            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
-                protocol="GRE",
-            ))
+            options={
+                "protocol": "GRE",
+            })
         ```
 
         ### Usage with attachment accepter
@@ -479,9 +484,9 @@ class ConnectAttachment(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transport_attachment_id=example.id,
             edge_location=example.edge_location,
-            options=aws.networkmanager.ConnectAttachmentOptionsArgs(
-                protocol="GRE",
-            ),
+            options={
+                "protocol": "GRE",
+            },
             opts = pulumi.ResourceOptions(depends_on=[test]))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
@@ -513,7 +518,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  edge_location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']]] = None,
+                 options: Optional[pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -565,7 +570,7 @@ class ConnectAttachment(pulumi.CustomResource):
             core_network_arn: Optional[pulumi.Input[str]] = None,
             core_network_id: Optional[pulumi.Input[str]] = None,
             edge_location: Optional[pulumi.Input[str]] = None,
-            options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']]] = None,
+            options: Optional[pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
             owner_account_id: Optional[pulumi.Input[str]] = None,
             resource_arn: Optional[pulumi.Input[str]] = None,
             segment_name: Optional[pulumi.Input[str]] = None,
@@ -586,7 +591,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_arn: The ARN of a core network.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Options block. See options for more information.
+        :param pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']] options: Options block. See options for more information.
                
                The following arguments are optional:
         :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.

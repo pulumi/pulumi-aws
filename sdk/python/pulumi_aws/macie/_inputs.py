@@ -4,15 +4,33 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'FindingsFilterFindingCriteriaArgs',
+    'FindingsFilterFindingCriteriaArgsDict',
     'FindingsFilterFindingCriteriaCriterionArgs',
+    'FindingsFilterFindingCriteriaCriterionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FindingsFilterFindingCriteriaArgsDict(TypedDict):
+        criterions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgsDict']]]]
+        """
+        A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+        """
+elif False:
+    FindingsFilterFindingCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FindingsFilterFindingCriteriaArgs:
@@ -36,6 +54,43 @@ class FindingsFilterFindingCriteriaArgs:
     def criterions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]]]):
         pulumi.set(self, "criterions", value)
 
+
+if not MYPY:
+    class FindingsFilterFindingCriteriaCriterionArgsDict(TypedDict):
+        field: pulumi.Input[str]
+        """
+        The name of the field to be evaluated.
+        """
+        eq_exact_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
+        """
+        eqs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        """
+        gt: NotRequired[pulumi.Input[str]]
+        """
+        The value for the property is greater than the specified value.
+        """
+        gte: NotRequired[pulumi.Input[str]]
+        """
+        The value for the property is greater than or equal to the specified value.
+        """
+        lt: NotRequired[pulumi.Input[str]]
+        """
+        The value for the property is less than the specified value.
+        """
+        lte: NotRequired[pulumi.Input[str]]
+        """
+        The value for the property is less than or equal to the specified value.
+        """
+        neqs: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
+        """
+elif False:
+    FindingsFilterFindingCriteriaCriterionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FindingsFilterFindingCriteriaCriterionArgs:

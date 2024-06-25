@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['InstanceTrustProviderAttachmentArgs', 'InstanceTrustProviderAttachment']
@@ -111,9 +116,9 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
             device_trust_provider_type="jamf",
             policy_reference_name="example",
             trust_provider_type="device",
-            device_options=aws.verifiedaccess.TrustProviderDeviceOptionsArgs(
-                tenant_id="example",
-            ))
+            device_options={
+                "tenantId": "example",
+            })
         example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("example",
             verifiedaccess_instance_id=example.id,
             verifiedaccess_trust_provider_id=example_trust_provider.id)
@@ -152,9 +157,9 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
             device_trust_provider_type="jamf",
             policy_reference_name="example",
             trust_provider_type="device",
-            device_options=aws.verifiedaccess.TrustProviderDeviceOptionsArgs(
-                tenant_id="example",
-            ))
+            device_options={
+                "tenantId": "example",
+            })
         example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("example",
             verifiedaccess_instance_id=example.id,
             verifiedaccess_trust_provider_id=example_trust_provider.id)

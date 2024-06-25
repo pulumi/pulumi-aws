@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -99,7 +104,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]] = None,
+                 sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides a WAF SQL Injection Match Set Resource
@@ -112,12 +117,12 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
         sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sql_injection_match_set",
             name="tf-sql_injection_match_set",
-            sql_injection_match_tuples=[aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
-                text_transformation="URL_DECODE",
-                field_to_match=aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
-                    type="QUERY_STRING",
-                ),
-            )])
+            sql_injection_match_tuples=[{
+                "textTransformation": "URL_DECODE",
+                "fieldToMatch": {
+                    "type": "QUERY_STRING",
+                },
+            }])
         ```
 
         ## Import
@@ -131,7 +136,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the SQL Injection Match Set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         ...
     @overload
@@ -150,12 +155,12 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
 
         sql_injection_match_set = aws.waf.SqlInjectionMatchSet("sql_injection_match_set",
             name="tf-sql_injection_match_set",
-            sql_injection_match_tuples=[aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs(
-                text_transformation="URL_DECODE",
-                field_to_match=aws.waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs(
-                    type="QUERY_STRING",
-                ),
-            )])
+            sql_injection_match_tuples=[{
+                "textTransformation": "URL_DECODE",
+                "fieldToMatch": {
+                    "type": "QUERY_STRING",
+                },
+            }])
         ```
 
         ## Import
@@ -182,7 +187,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]] = None,
+                 sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,7 +210,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]]] = None) -> 'SqlInjectionMatchSet':
+            sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]]] = None) -> 'SqlInjectionMatchSet':
         """
         Get an existing SqlInjectionMatchSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -214,7 +219,7 @@ class SqlInjectionMatchSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name or description of the SQL Injection Match Set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlInjectionMatchSetSqlInjectionMatchTupleArgs', 'SqlInjectionMatchSetSqlInjectionMatchTupleArgsDict']]]] sql_injection_match_tuples: The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

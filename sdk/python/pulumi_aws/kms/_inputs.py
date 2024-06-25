@@ -4,16 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GrantConstraintArgs',
+    'GrantConstraintArgsDict',
     'GetSecretSecretArgs',
+    'GetSecretSecretArgsDict',
     'GetSecretsSecretArgs',
+    'GetSecretsSecretArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GrantConstraintArgsDict(TypedDict):
+        encryption_context_equals: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
+        """
+        encryption_context_subset: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
+        """
+elif False:
+    GrantConstraintArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrantConstraintArgs:
@@ -53,6 +76,15 @@ class GrantConstraintArgs:
     def encryption_context_subset(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "encryption_context_subset", value)
 
+
+if not MYPY:
+    class GetSecretSecretArgsDict(TypedDict):
+        name: str
+        payload: str
+        context: NotRequired[Mapping[str, str]]
+        grant_tokens: NotRequired[Sequence[str]]
+elif False:
+    GetSecretSecretArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSecretSecretArgs:
@@ -104,6 +136,38 @@ class GetSecretSecretArgs:
     def grant_tokens(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "grant_tokens", value)
 
+
+if not MYPY:
+    class GetSecretsSecretArgsDict(TypedDict):
+        name: str
+        """
+        Name to export this secret under in the attributes.
+        """
+        payload: str
+        """
+        Base64 encoded payload, as returned from a KMS encrypt operation.
+        """
+        context: NotRequired[Mapping[str, str]]
+        """
+        An optional mapping that makes up the Encryption Context for the secret.
+        """
+        encryption_algorithm: NotRequired[str]
+        """
+        The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+        """
+        grant_tokens: NotRequired[Sequence[str]]
+        """
+        An optional list of Grant Tokens for the secret.
+        """
+        key_id: NotRequired[str]
+        """
+        Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+
+        For more information on `context` and `grant_tokens` see the [KMS
+        Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+        """
+elif False:
+    GetSecretsSecretArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetSecretsSecretArgs:

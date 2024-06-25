@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -79,7 +84,7 @@ class AwaitableGetProducerDataSharesResult(GetProducerDataSharesResult):
             status=self.status)
 
 
-def get_producer_data_shares(data_shares: Optional[Sequence[pulumi.InputType['GetProducerDataSharesDataShareArgs']]] = None,
+def get_producer_data_shares(data_shares: Optional[Sequence[Union['GetProducerDataSharesDataShareArgs', 'GetProducerDataSharesDataShareArgsDict']]] = None,
                              producer_arn: Optional[str] = None,
                              status: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProducerDataSharesResult:
@@ -98,7 +103,7 @@ def get_producer_data_shares(data_shares: Optional[Sequence[pulumi.InputType['Ge
     ```
 
 
-    :param Sequence[pulumi.InputType['GetProducerDataSharesDataShareArgs']] data_shares: An array of all data shares in the producer. See `data_shares` below.
+    :param Sequence[Union['GetProducerDataSharesDataShareArgs', 'GetProducerDataSharesDataShareArgsDict']] data_shares: An array of all data shares in the producer. See `data_shares` below.
     :param str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
            
            The following arguments are optional:
@@ -119,7 +124,7 @@ def get_producer_data_shares(data_shares: Optional[Sequence[pulumi.InputType['Ge
 
 
 @_utilities.lift_output_func(get_producer_data_shares)
-def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetProducerDataSharesDataShareArgs']]]]] = None,
+def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[Union['GetProducerDataSharesDataShareArgs', 'GetProducerDataSharesDataShareArgsDict']]]]] = None,
                                     producer_arn: Optional[pulumi.Input[str]] = None,
                                     status: Optional[pulumi.Input[Optional[str]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProducerDataSharesResult]:
@@ -138,7 +143,7 @@ def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[
     ```
 
 
-    :param Sequence[pulumi.InputType['GetProducerDataSharesDataShareArgs']] data_shares: An array of all data shares in the producer. See `data_shares` below.
+    :param Sequence[Union['GetProducerDataSharesDataShareArgs', 'GetProducerDataSharesDataShareArgsDict']] data_shares: An array of all data shares in the producer. See `data_shares` below.
     :param str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
            
            The following arguments are optional:

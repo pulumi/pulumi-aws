@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -91,7 +96,7 @@ class AwaitableGetPipelineDefinitionResult(GetPipelineDefinitionResult):
             pipeline_objects=self.pipeline_objects)
 
 
-def get_pipeline_definition(parameter_values: Optional[Sequence[pulumi.InputType['GetPipelineDefinitionParameterValueArgs']]] = None,
+def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']]] = None,
                             pipeline_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineDefinitionResult:
     """
@@ -107,7 +112,7 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[pulumi.InputType
     ```
 
 
-    :param Sequence[pulumi.InputType['GetPipelineDefinitionParameterValueArgs']] parameter_values: Parameter values used in the pipeline definition. See below
+    :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']] parameter_values: Parameter values used in the pipeline definition. See below
     :param str pipeline_id: ID of the pipeline.
     """
     __args__ = dict()
@@ -125,7 +130,7 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[pulumi.InputType
 
 
 @_utilities.lift_output_func(get_pipeline_definition)
-def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPipelineDefinitionParameterValueArgs']]]]] = None,
+def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']]]]] = None,
                                    pipeline_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineDefinitionResult]:
     """
@@ -141,7 +146,7 @@ def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optio
     ```
 
 
-    :param Sequence[pulumi.InputType['GetPipelineDefinitionParameterValueArgs']] parameter_values: Parameter values used in the pipeline definition. See below
+    :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']] parameter_values: Parameter values used in the pipeline definition. See below
     :param str pipeline_id: ID of the pipeline.
     """
     ...

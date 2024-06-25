@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['InstanceStateArgs', 'InstanceState']
@@ -151,14 +156,14 @@ class InstanceState(pulumi.CustomResource):
 
         ubuntu = aws.ec2.get_ami(most_recent=True,
             filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
+                {
+                    "name": "name",
+                    "values": ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
+                },
+                {
+                    "name": "virtualization-type",
+                    "values": ["hvm"],
+                },
             ],
             owners=["099720109477"])
         test = aws.ec2.Instance("test",
@@ -207,14 +212,14 @@ class InstanceState(pulumi.CustomResource):
 
         ubuntu = aws.ec2.get_ami(most_recent=True,
             filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="virtualization-type",
-                    values=["hvm"],
-                ),
+                {
+                    "name": "name",
+                    "values": ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
+                },
+                {
+                    "name": "virtualization-type",
+                    "values": ["hvm"],
+                },
             ],
             owners=["099720109477"])
         test = aws.ec2.Instance("test",

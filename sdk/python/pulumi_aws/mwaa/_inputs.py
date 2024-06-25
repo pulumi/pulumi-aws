@@ -4,22 +4,52 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'EnvironmentLastUpdatedArgs',
+    'EnvironmentLastUpdatedArgsDict',
     'EnvironmentLastUpdatedErrorArgs',
+    'EnvironmentLastUpdatedErrorArgsDict',
     'EnvironmentLoggingConfigurationArgs',
+    'EnvironmentLoggingConfigurationArgsDict',
     'EnvironmentLoggingConfigurationDagProcessingLogsArgs',
+    'EnvironmentLoggingConfigurationDagProcessingLogsArgsDict',
     'EnvironmentLoggingConfigurationSchedulerLogsArgs',
+    'EnvironmentLoggingConfigurationSchedulerLogsArgsDict',
     'EnvironmentLoggingConfigurationTaskLogsArgs',
+    'EnvironmentLoggingConfigurationTaskLogsArgsDict',
     'EnvironmentLoggingConfigurationWebserverLogsArgs',
+    'EnvironmentLoggingConfigurationWebserverLogsArgsDict',
     'EnvironmentLoggingConfigurationWorkerLogsArgs',
+    'EnvironmentLoggingConfigurationWorkerLogsArgsDict',
     'EnvironmentNetworkConfigurationArgs',
+    'EnvironmentNetworkConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EnvironmentLastUpdatedArgsDict(TypedDict):
+        created_at: NotRequired[pulumi.Input[str]]
+        """
+        The Created At date of the MWAA Environment
+        """
+        errors: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArgsDict']]]]
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The status of the Amazon MWAA Environment
+        """
+elif False:
+    EnvironmentLastUpdatedArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentLastUpdatedArgs:
@@ -72,6 +102,13 @@ class EnvironmentLastUpdatedArgs:
         pulumi.set(self, "status", value)
 
 
+if not MYPY:
+    class EnvironmentLastUpdatedErrorArgsDict(TypedDict):
+        error_code: NotRequired[pulumi.Input[str]]
+        error_message: NotRequired[pulumi.Input[str]]
+elif False:
+    EnvironmentLastUpdatedErrorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentLastUpdatedErrorArgs:
     def __init__(__self__, *,
@@ -100,6 +137,31 @@ class EnvironmentLastUpdatedErrorArgs:
     def error_message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "error_message", value)
 
+
+if not MYPY:
+    class EnvironmentLoggingConfigurationArgsDict(TypedDict):
+        dag_processing_logs: NotRequired[pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArgsDict']]
+        """
+        (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+        """
+        scheduler_logs: NotRequired[pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArgsDict']]
+        """
+        Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+        """
+        task_logs: NotRequired[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgsDict']]
+        """
+        Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+        """
+        webserver_logs: NotRequired[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgsDict']]
+        """
+        Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+        """
+        worker_logs: NotRequired[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgsDict']]
+        """
+        Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+        """
+elif False:
+    EnvironmentLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentLoggingConfigurationArgs:
@@ -188,6 +250,14 @@ class EnvironmentLoggingConfigurationArgs:
         pulumi.set(self, "worker_logs", value)
 
 
+if not MYPY:
+    class EnvironmentLoggingConfigurationDagProcessingLogsArgsDict(TypedDict):
+        cloud_watch_log_group_arn: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_level: NotRequired[pulumi.Input[str]]
+elif False:
+    EnvironmentLoggingConfigurationDagProcessingLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentLoggingConfigurationDagProcessingLogsArgs:
     def __init__(__self__, *,
@@ -228,6 +298,14 @@ class EnvironmentLoggingConfigurationDagProcessingLogsArgs:
     def log_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_level", value)
 
+
+if not MYPY:
+    class EnvironmentLoggingConfigurationSchedulerLogsArgsDict(TypedDict):
+        cloud_watch_log_group_arn: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_level: NotRequired[pulumi.Input[str]]
+elif False:
+    EnvironmentLoggingConfigurationSchedulerLogsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentLoggingConfigurationSchedulerLogsArgs:
@@ -270,6 +348,14 @@ class EnvironmentLoggingConfigurationSchedulerLogsArgs:
         pulumi.set(self, "log_level", value)
 
 
+if not MYPY:
+    class EnvironmentLoggingConfigurationTaskLogsArgsDict(TypedDict):
+        cloud_watch_log_group_arn: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_level: NotRequired[pulumi.Input[str]]
+elif False:
+    EnvironmentLoggingConfigurationTaskLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentLoggingConfigurationTaskLogsArgs:
     def __init__(__self__, *,
@@ -310,6 +396,14 @@ class EnvironmentLoggingConfigurationTaskLogsArgs:
     def log_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_level", value)
 
+
+if not MYPY:
+    class EnvironmentLoggingConfigurationWebserverLogsArgsDict(TypedDict):
+        cloud_watch_log_group_arn: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_level: NotRequired[pulumi.Input[str]]
+elif False:
+    EnvironmentLoggingConfigurationWebserverLogsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentLoggingConfigurationWebserverLogsArgs:
@@ -352,6 +446,14 @@ class EnvironmentLoggingConfigurationWebserverLogsArgs:
         pulumi.set(self, "log_level", value)
 
 
+if not MYPY:
+    class EnvironmentLoggingConfigurationWorkerLogsArgsDict(TypedDict):
+        cloud_watch_log_group_arn: NotRequired[pulumi.Input[str]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_level: NotRequired[pulumi.Input[str]]
+elif False:
+    EnvironmentLoggingConfigurationWorkerLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentLoggingConfigurationWorkerLogsArgs:
     def __init__(__self__, *,
@@ -392,6 +494,19 @@ class EnvironmentLoggingConfigurationWorkerLogsArgs:
     def log_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_level", value)
 
+
+if not MYPY:
+    class EnvironmentNetworkConfigurationArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The private subnet IDs in which the environment should be created. MWAA requires two subnets.
+        """
+elif False:
+    EnvironmentNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentNetworkConfigurationArgs:

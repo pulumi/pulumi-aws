@@ -4,26 +4,71 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'JobTemplateJobTemplateDataArgs',
+    'JobTemplateJobTemplateDataArgsDict',
     'JobTemplateJobTemplateDataConfigurationOverridesArgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesArgsDict',
     'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgsDict',
     'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgsDict',
     'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgsDict',
     'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgsDict',
     'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgsDict',
     'JobTemplateJobTemplateDataJobDriverArgs',
+    'JobTemplateJobTemplateDataJobDriverArgsDict',
     'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs',
+    'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgsDict',
     'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs',
+    'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgsDict',
     'VirtualClusterContainerProviderArgs',
+    'VirtualClusterContainerProviderArgsDict',
     'VirtualClusterContainerProviderInfoArgs',
+    'VirtualClusterContainerProviderInfoArgsDict',
     'VirtualClusterContainerProviderInfoEksInfoArgs',
+    'VirtualClusterContainerProviderInfoEksInfoArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class JobTemplateJobTemplateDataArgsDict(TypedDict):
+        execution_role_arn: pulumi.Input[str]
+        """
+        The execution role ARN of the job run.
+        """
+        job_driver: pulumi.Input['JobTemplateJobTemplateDataJobDriverArgsDict']
+        """
+        Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
+        """
+        release_label: pulumi.Input[str]
+        """
+        The release version of Amazon EMR.
+        """
+        configuration_overrides: NotRequired[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesArgsDict']]
+        """
+        The configuration settings that are used to override defaults configuration.
+        """
+        job_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The tags assigned to jobs started using the job template.
+        """
+elif False:
+    JobTemplateJobTemplateDataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobTemplateJobTemplateDataArgs:
@@ -109,6 +154,19 @@ class JobTemplateJobTemplateDataArgs:
         pulumi.set(self, "job_tags", value)
 
 
+if not MYPY:
+    class JobTemplateJobTemplateDataConfigurationOverridesArgsDict(TypedDict):
+        application_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgsDict']]]]
+        """
+        The configurations for the application running by the job run.
+        """
+        monitoring_configuration: NotRequired[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgsDict']]
+        """
+        The configurations for monitoring.
+        """
+elif False:
+    JobTemplateJobTemplateDataConfigurationOverridesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobTemplateJobTemplateDataConfigurationOverridesArgs:
     def __init__(__self__, *,
@@ -147,6 +205,23 @@ class JobTemplateJobTemplateDataConfigurationOverridesArgs:
     def monitoring_configuration(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs']]):
         pulumi.set(self, "monitoring_configuration", value)
 
+
+if not MYPY:
+    class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgsDict(TypedDict):
+        classification: pulumi.Input[str]
+        """
+        The classification within a configuration.
+        """
+        configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgsDict']]]]
+        """
+        A list of additional configurations to apply within a configuration object.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A set of properties specified within a configuration classification.
+        """
+elif False:
+    JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs:
@@ -202,6 +277,13 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationAr
         pulumi.set(self, "properties", value)
 
 
+if not MYPY:
+    class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgsDict(TypedDict):
+        classification: NotRequired[pulumi.Input[str]]
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+elif False:
+    JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs:
     def __init__(__self__, *,
@@ -230,6 +312,23 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "properties", value)
 
+
+if not MYPY:
+    class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgsDict(TypedDict):
+        cloud_watch_monitoring_configuration: NotRequired[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgsDict']]
+        """
+        Monitoring configurations for CloudWatch.
+        """
+        persistent_app_ui: NotRequired[pulumi.Input[str]]
+        """
+        Monitoring configurations for the persistent application UI.
+        """
+        s3_monitoring_configuration: NotRequired[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgsDict']]
+        """
+        Amazon S3 configuration for monitoring log publishing.
+        """
+elif False:
+    JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs:
@@ -286,6 +385,19 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArg
         pulumi.set(self, "s3_monitoring_configuration", value)
 
 
+if not MYPY:
+    class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgsDict(TypedDict):
+        log_group_name: pulumi.Input[str]
+        """
+        The name of the log group for log publishing.
+        """
+        log_stream_name_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The specified name prefix for log streams.
+        """
+elif False:
+    JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs:
     def __init__(__self__, *,
@@ -324,6 +436,15 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationClo
         pulumi.set(self, "log_stream_name_prefix", value)
 
 
+if not MYPY:
+    class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgsDict(TypedDict):
+        log_uri: pulumi.Input[str]
+        """
+        Amazon S3 destination URI for log publishing.
+        """
+elif False:
+    JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs:
     def __init__(__self__, *,
@@ -345,6 +466,19 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3M
     def log_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "log_uri", value)
 
+
+if not MYPY:
+    class JobTemplateJobTemplateDataJobDriverArgsDict(TypedDict):
+        spark_sql_job_driver: NotRequired[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgsDict']]
+        """
+        The job driver for job type.
+        """
+        spark_submit_job_driver: NotRequired[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgsDict']]
+        """
+        The job driver parameters specified for spark submit.
+        """
+elif False:
+    JobTemplateJobTemplateDataJobDriverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobTemplateJobTemplateDataJobDriverArgs:
@@ -385,6 +519,19 @@ class JobTemplateJobTemplateDataJobDriverArgs:
         pulumi.set(self, "spark_submit_job_driver", value)
 
 
+if not MYPY:
+    class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgsDict(TypedDict):
+        entry_point: NotRequired[pulumi.Input[str]]
+        """
+        The SQL file to be executed.
+        """
+        spark_sql_parameters: NotRequired[pulumi.Input[str]]
+        """
+        The Spark parameters to be included in the Spark SQL command.
+        """
+elif False:
+    JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs:
     def __init__(__self__, *,
@@ -423,6 +570,23 @@ class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs:
     def spark_sql_parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "spark_sql_parameters", value)
 
+
+if not MYPY:
+    class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgsDict(TypedDict):
+        entry_point: pulumi.Input[str]
+        """
+        The entry point of job application.
+        """
+        entry_point_arguments: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The arguments for job application.
+        """
+        spark_submit_parameters: NotRequired[pulumi.Input[str]]
+        """
+        The Spark submit parameters that are used for job runs.
+        """
+elif False:
+    JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs:
@@ -478,6 +642,23 @@ class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs:
         pulumi.set(self, "spark_submit_parameters", value)
 
 
+if not MYPY:
+    class VirtualClusterContainerProviderArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The name of the container provider that is running your EMR Containers cluster
+        """
+        info: pulumi.Input['VirtualClusterContainerProviderInfoArgsDict']
+        """
+        Nested list containing information about the configuration of the container provider
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the container provider
+        """
+elif False:
+    VirtualClusterContainerProviderArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualClusterContainerProviderArgs:
     def __init__(__self__, *,
@@ -530,6 +711,15 @@ class VirtualClusterContainerProviderArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class VirtualClusterContainerProviderInfoArgsDict(TypedDict):
+        eks_info: pulumi.Input['VirtualClusterContainerProviderInfoEksInfoArgsDict']
+        """
+        Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
+        """
+elif False:
+    VirtualClusterContainerProviderInfoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualClusterContainerProviderInfoArgs:
     def __init__(__self__, *,
@@ -551,6 +741,15 @@ class VirtualClusterContainerProviderInfoArgs:
     def eks_info(self, value: pulumi.Input['VirtualClusterContainerProviderInfoEksInfoArgs']):
         pulumi.set(self, "eks_info", value)
 
+
+if not MYPY:
+    class VirtualClusterContainerProviderInfoEksInfoArgsDict(TypedDict):
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        The namespace where the EMR Containers cluster is running
+        """
+elif False:
+    VirtualClusterContainerProviderInfoEksInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualClusterContainerProviderInfoEksInfoArgs:

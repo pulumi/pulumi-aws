@@ -4,19 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CanaryArtifactConfigArgs',
+    'CanaryArtifactConfigArgsDict',
     'CanaryArtifactConfigS3EncryptionArgs',
+    'CanaryArtifactConfigS3EncryptionArgsDict',
     'CanaryRunConfigArgs',
+    'CanaryRunConfigArgsDict',
     'CanaryScheduleArgs',
+    'CanaryScheduleArgsDict',
     'CanaryTimelineArgs',
+    'CanaryTimelineArgsDict',
     'CanaryVpcConfigArgs',
+    'CanaryVpcConfigArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CanaryArtifactConfigArgsDict(TypedDict):
+        s3_encryption: NotRequired[pulumi.Input['CanaryArtifactConfigS3EncryptionArgsDict']]
+        """
+        Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+        """
+elif False:
+    CanaryArtifactConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CanaryArtifactConfigArgs:
@@ -40,6 +62,19 @@ class CanaryArtifactConfigArgs:
     def s3_encryption(self, value: Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArgs']]):
         pulumi.set(self, "s3_encryption", value)
 
+
+if not MYPY:
+    class CanaryArtifactConfigS3EncryptionArgsDict(TypedDict):
+        encryption_mode: NotRequired[pulumi.Input[str]]
+        """
+        The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
+        """
+elif False:
+    CanaryArtifactConfigS3EncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CanaryArtifactConfigS3EncryptionArgs:
@@ -79,6 +114,27 @@ class CanaryArtifactConfigS3EncryptionArgs:
     def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_arn", value)
 
+
+if not MYPY:
+    class CanaryRunConfigArgsDict(TypedDict):
+        active_tracing: NotRequired[pulumi.Input[bool]]
+        """
+        Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
+        """
+        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+        """
+        memory_in_mb: NotRequired[pulumi.Input[int]]
+        """
+        Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
+        """
+elif False:
+    CanaryRunConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CanaryRunConfigArgs:
@@ -151,6 +207,19 @@ class CanaryRunConfigArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
+if not MYPY:
+    class CanaryScheduleArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
+        """
+        duration_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
+        """
+elif False:
+    CanaryScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CanaryScheduleArgs:
     def __init__(__self__, *,
@@ -188,6 +257,27 @@ class CanaryScheduleArgs:
     def duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "duration_in_seconds", value)
 
+
+if not MYPY:
+    class CanaryTimelineArgsDict(TypedDict):
+        created: NotRequired[pulumi.Input[str]]
+        """
+        Date and time the canary was created.
+        """
+        last_modified: NotRequired[pulumi.Input[str]]
+        """
+        Date and time the canary was most recently modified.
+        """
+        last_started: NotRequired[pulumi.Input[str]]
+        """
+        Date and time that the canary's most recent run started.
+        """
+        last_stopped: NotRequired[pulumi.Input[str]]
+        """
+        Date and time that the canary's most recent run ended.
+        """
+elif False:
+    CanaryTimelineArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CanaryTimelineArgs:
@@ -259,6 +349,23 @@ class CanaryTimelineArgs:
     def last_stopped(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_stopped", value)
 
+
+if not MYPY:
+    class CanaryVpcConfigArgsDict(TypedDict):
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IDs of the security groups for this canary.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IDs of the subnets where this canary is to run.
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the VPC where this canary is to run.
+        """
+elif False:
+    CanaryVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CanaryVpcConfigArgs:

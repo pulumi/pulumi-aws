@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['TableReplicaInitArgs', 'TableReplica']
@@ -262,10 +267,10 @@ class TableReplica(pulumi.CustomResource):
             billing_mode="PAY_PER_REQUEST",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="BrodoBaggins",
-                type="S",
-            )])
+            attributes=[{
+                "name": "BrodoBaggins",
+                "type": "S",
+            }])
         example_table_replica = aws.dynamodb.TableReplica("example",
             global_table_arn=example.arn,
             tags={
@@ -321,10 +326,10 @@ class TableReplica(pulumi.CustomResource):
             billing_mode="PAY_PER_REQUEST",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
-            attributes=[aws.dynamodb.TableAttributeArgs(
-                name="BrodoBaggins",
-                type="S",
-            )])
+            attributes=[{
+                "name": "BrodoBaggins",
+                "type": "S",
+            }])
         example_table_replica = aws.dynamodb.TableReplica("example",
             global_table_arn=example.arn,
             tags={

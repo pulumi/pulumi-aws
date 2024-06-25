@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -332,7 +337,7 @@ class Connection(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None,
+                 physical_connection_requirements: Optional[pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -385,11 +390,11 @@ class Connection(pulumi.CustomResource):
                 "USERNAME": "exampleusername",
             },
             name="example",
-            physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
-                availability_zone=example_aws_subnet["availabilityZone"],
-                security_group_id_lists=[example_aws_security_group["id"]],
-                subnet_id=example_aws_subnet["id"],
-            ))
+            physical_connection_requirements={
+                "availabilityZone": example_aws_subnet["availabilityZone"],
+                "securityGroupIdLists": [example_aws_security_group["id"]],
+                "subnetId": example_aws_subnet["id"],
+            })
         ```
 
         ### Connection using a custom connector
@@ -444,7 +449,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -503,11 +508,11 @@ class Connection(pulumi.CustomResource):
                 "USERNAME": "exampleusername",
             },
             name="example",
-            physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
-                availability_zone=example_aws_subnet["availabilityZone"],
-                security_group_id_lists=[example_aws_security_group["id"]],
-                subnet_id=example_aws_subnet["id"],
-            ))
+            physical_connection_requirements={
+                "availabilityZone": example_aws_subnet["availabilityZone"],
+                "securityGroupIdLists": [example_aws_security_group["id"]],
+                "subnetId": example_aws_subnet["id"],
+            })
         ```
 
         ### Connection using a custom connector
@@ -575,7 +580,7 @@ class Connection(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None,
+                 physical_connection_requirements: Optional[pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -615,7 +620,7 @@ class Connection(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None,
+            physical_connection_requirements: Optional[pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Connection':
         """
@@ -632,7 +637,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[Union['ConnectionPhysicalConnectionRequirementsArgs', 'ConnectionPhysicalConnectionRequirementsArgsDict']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

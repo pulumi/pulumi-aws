@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -146,9 +151,9 @@ class ResourceSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceSetArgs']]]]] = None,
+                 resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ResourceSetTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ResourceSetTimeoutsArgs', 'ResourceSetTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS FMS (Firewall Manager) Resource Set.
@@ -161,10 +166,10 @@ class ResourceSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fms.ResourceSet("example", resource_sets=[aws.fms.ResourceSetResourceSetArgs(
-            name="testing",
-            resource_type_lists=["AWS::NetworkFirewall::Firewall"],
-        )])
+        example = aws.fms.ResourceSet("example", resource_sets=[{
+            "name": "testing",
+            "resourceTypeLists": ["AWS::NetworkFirewall::Firewall"],
+        }])
         ```
 
         ## Import
@@ -177,7 +182,7 @@ class ResourceSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceSetArgs']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
         ...
     @overload
@@ -196,10 +201,10 @@ class ResourceSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fms.ResourceSet("example", resource_sets=[aws.fms.ResourceSetResourceSetArgs(
-            name="testing",
-            resource_type_lists=["AWS::NetworkFirewall::Firewall"],
-        )])
+        example = aws.fms.ResourceSet("example", resource_sets=[{
+            "name": "testing",
+            "resourceTypeLists": ["AWS::NetworkFirewall::Firewall"],
+        }])
         ```
 
         ## Import
@@ -225,9 +230,9 @@ class ResourceSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceSetArgs']]]]] = None,
+                 resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ResourceSetTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['ResourceSetTimeoutsArgs', 'ResourceSetTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,10 +258,10 @@ class ResourceSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceSetArgs']]]]] = None,
+            resource_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ResourceSetTimeoutsArgs']]] = None) -> 'ResourceSet':
+            timeouts: Optional[pulumi.Input[Union['ResourceSetTimeoutsArgs', 'ResourceSetTimeoutsArgsDict']]] = None) -> 'ResourceSet':
         """
         Get an existing ResourceSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -265,7 +270,7 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Resource Set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceSetArgs']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceSetResourceSetArgs', 'ResourceSetResourceSetArgsDict']]]] resource_sets: Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
@@ -93,11 +98,11 @@ def get_partition(id: Optional[str] = None,
     import pulumi_aws as aws
 
     current = aws.get_partition()
-    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        sid="1",
-        actions=["s3:ListBucket"],
-        resources=[f"arn:{current.partition}:s3:::my-bucket"],
-    )])
+    s3_policy = aws.iam.get_policy_document(statements=[{
+        "sid": "1",
+        "actions": ["s3:ListBucket"],
+        "resources": [f"arn:{current.partition}:s3:::my-bucket"],
+    }])
     ```
 
 
@@ -129,11 +134,11 @@ def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi_aws as aws
 
     current = aws.get_partition()
-    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-        sid="1",
-        actions=["s3:ListBucket"],
-        resources=[f"arn:{current.partition}:s3:::my-bucket"],
-    )])
+    s3_policy = aws.iam.get_policy_document(statements=[{
+        "sid": "1",
+        "actions": ["s3:ListBucket"],
+        "resources": [f"arn:{current.partition}:s3:::my-bucket"],
+    }])
     ```
 
 

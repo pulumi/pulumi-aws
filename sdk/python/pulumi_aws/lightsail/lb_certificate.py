@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -346,7 +351,7 @@ class LbCertificate(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
-            domain_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LbCertificateDomainValidationRecordArgs']]]]] = None,
+            domain_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LbCertificateDomainValidationRecordArgs', 'LbCertificateDomainValidationRecordArgsDict']]]]] = None,
             lb_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

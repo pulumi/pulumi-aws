@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -261,7 +266,7 @@ class ManagedPrefixList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: Optional[pulumi.Input[str]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedPrefixListEntryArgs']]]]] = None,
+                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
                  max_entries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -294,14 +299,14 @@ class ManagedPrefixList(pulumi.CustomResource):
             address_family="IPv4",
             max_entries=5,
             entries=[
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=example_aws_vpc["cidrBlock"],
-                    description="Primary",
-                ),
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=example_aws_vpc_ipv4_cidr_block_association["cidrBlock"],
-                    description="Secondary",
-                ),
+                {
+                    "cidr": example_aws_vpc["cidrBlock"],
+                    "description": "Primary",
+                },
+                {
+                    "cidr": example_aws_vpc_ipv4_cidr_block_association["cidrBlock"],
+                    "description": "Secondary",
+                },
             ],
             tags={
                 "Env": "live",
@@ -319,7 +324,7 @@ class ManagedPrefixList(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedPrefixListEntryArgs']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         :param pulumi.Input[int] max_entries: Maximum number of entries that this prefix list can contain.
         :param pulumi.Input[str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -358,14 +363,14 @@ class ManagedPrefixList(pulumi.CustomResource):
             address_family="IPv4",
             max_entries=5,
             entries=[
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=example_aws_vpc["cidrBlock"],
-                    description="Primary",
-                ),
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=example_aws_vpc_ipv4_cidr_block_association["cidrBlock"],
-                    description="Secondary",
-                ),
+                {
+                    "cidr": example_aws_vpc["cidrBlock"],
+                    "description": "Primary",
+                },
+                {
+                    "cidr": example_aws_vpc_ipv4_cidr_block_association["cidrBlock"],
+                    "description": "Secondary",
+                },
             ],
             tags={
                 "Env": "live",
@@ -396,7 +401,7 @@ class ManagedPrefixList(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_family: Optional[pulumi.Input[str]] = None,
-                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedPrefixListEntryArgs']]]]] = None,
+                 entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
                  max_entries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -434,7 +439,7 @@ class ManagedPrefixList(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             address_family: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedPrefixListEntryArgs']]]]] = None,
+            entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]]] = None,
             max_entries: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
@@ -450,7 +455,7 @@ class ManagedPrefixList(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_family: Address family (`IPv4` or `IPv6`) of this prefix list.
         :param pulumi.Input[str] arn: ARN of the prefix list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedPrefixListEntryArgs']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedPrefixListEntryArgs', 'ManagedPrefixListEntryArgsDict']]]] entries: Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         :param pulumi.Input[int] max_entries: Maximum number of entries that this prefix list can contain.
         :param pulumi.Input[str] name: Name of this resource. The name must not start with `com.amazonaws`.
         :param pulumi.Input[str] owner_id: ID of the AWS account that owns this prefix list.

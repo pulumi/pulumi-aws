@@ -4,19 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ConfigurationProfileValidatorArgs',
+    'ConfigurationProfileValidatorArgsDict',
     'EnvironmentMonitorArgs',
+    'EnvironmentMonitorArgsDict',
     'EventIntegrationEventFilterArgs',
+    'EventIntegrationEventFilterArgsDict',
     'ExtensionActionPointArgs',
+    'ExtensionActionPointArgsDict',
     'ExtensionActionPointActionArgs',
+    'ExtensionActionPointActionArgsDict',
     'ExtensionParameterArgs',
+    'ExtensionParameterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationProfileValidatorArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+        """
+        content: NotRequired[pulumi.Input[str]]
+        """
+        Either the JSON Schema content or the ARN of an AWS Lambda function.
+        """
+elif False:
+    ConfigurationProfileValidatorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationProfileValidatorArgs:
@@ -56,6 +82,19 @@ class ConfigurationProfileValidatorArgs:
         pulumi.set(self, "content", value)
 
 
+if not MYPY:
+    class EnvironmentMonitorArgsDict(TypedDict):
+        alarm_arn: pulumi.Input[str]
+        """
+        ARN of the Amazon CloudWatch alarm.
+        """
+        alarm_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
+        """
+elif False:
+    EnvironmentMonitorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentMonitorArgs:
     def __init__(__self__, *,
@@ -94,6 +133,15 @@ class EnvironmentMonitorArgs:
         pulumi.set(self, "alarm_role_arn", value)
 
 
+if not MYPY:
+    class EventIntegrationEventFilterArgsDict(TypedDict):
+        source: pulumi.Input[str]
+        """
+        Source of the events.
+        """
+elif False:
+    EventIntegrationEventFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EventIntegrationEventFilterArgs:
     def __init__(__self__, *,
@@ -115,6 +163,19 @@ class EventIntegrationEventFilterArgs:
     def source(self, value: pulumi.Input[str]):
         pulumi.set(self, "source", value)
 
+
+if not MYPY:
+    class ExtensionActionPointArgsDict(TypedDict):
+        actions: pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgsDict']]]
+        """
+        An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+        """
+        point: pulumi.Input[str]
+        """
+        The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+        """
+elif False:
+    ExtensionActionPointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionActionPointArgs:
@@ -152,6 +213,27 @@ class ExtensionActionPointArgs:
     def point(self, value: pulumi.Input[str]):
         pulumi.set(self, "point", value)
 
+
+if not MYPY:
+    class ExtensionActionPointActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The action name.
+        """
+        role_arn: pulumi.Input[str]
+        """
+        An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        """
+        uri: pulumi.Input[str]
+        """
+        The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Information about the action.
+        """
+elif False:
+    ExtensionActionPointActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionActionPointActionArgs:
@@ -220,6 +302,23 @@ class ExtensionActionPointActionArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class ExtensionParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The parameter name.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Information about the parameter.
+        """
+        required: NotRequired[pulumi.Input[bool]]
+        """
+        Determines if a parameter value must be specified in the extension association.
+        """
+elif False:
+    ExtensionParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ExtensionParameterArgs:

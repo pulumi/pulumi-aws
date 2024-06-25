@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['MulticastDomainArgs', 'MulticastDomain']
@@ -262,14 +267,14 @@ class MulticastDomain(pulumi.CustomResource):
         amazon_linux = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["amzn-ami-hvm-*-x86_64-gp2"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="owner-alias",
-                    values=["amazon"],
-                ),
+                {
+                    "name": "name",
+                    "values": ["amzn-ami-hvm-*-x86_64-gp2"],
+                },
+                {
+                    "name": "owner-alias",
+                    "values": ["amazon"],
+                },
             ])
         vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
         vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")
@@ -376,14 +381,14 @@ class MulticastDomain(pulumi.CustomResource):
         amazon_linux = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["amzn-ami-hvm-*-x86_64-gp2"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="owner-alias",
-                    values=["amazon"],
-                ),
+                {
+                    "name": "name",
+                    "values": ["amzn-ami-hvm-*-x86_64-gp2"],
+                },
+                {
+                    "name": "owner-alias",
+                    "values": ["amazon"],
+                },
             ])
         vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
         vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -201,7 +206,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_config: Optional[pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']]] = None,
+                 destination_config: Optional[pulumi.Input[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict']]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -222,14 +227,14 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
             function_name=example_aws_lambda_alias["functionName"],
-            destination_config=aws.lambda_.FunctionEventInvokeConfigDestinationConfigArgs(
-                on_failure=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnFailureArgs(
-                    destination=example_aws_sqs_queue["arn"],
-                ),
-                on_success=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs(
-                    destination=example_aws_sns_topic["arn"],
-                ),
-            ))
+            destination_config={
+                "onFailure": {
+                    "destination": example_aws_sqs_queue["arn"],
+                },
+                "onSuccess": {
+                    "destination": example_aws_sns_topic["arn"],
+                },
+            })
         ```
 
         ### Error Handling Configuration
@@ -310,7 +315,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']] destination_config: Configuration block with destination configuration. See below for details.
+        :param pulumi.Input[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict']] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
                
                The following arguments are optional:
@@ -339,14 +344,14 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
             function_name=example_aws_lambda_alias["functionName"],
-            destination_config=aws.lambda_.FunctionEventInvokeConfigDestinationConfigArgs(
-                on_failure=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnFailureArgs(
-                    destination=example_aws_sqs_queue["arn"],
-                ),
-                on_success=aws.lambda_.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs(
-                    destination=example_aws_sns_topic["arn"],
-                ),
-            ))
+            destination_config={
+                "onFailure": {
+                    "destination": example_aws_sqs_queue["arn"],
+                },
+                "onSuccess": {
+                    "destination": example_aws_sns_topic["arn"],
+                },
+            })
         ```
 
         ### Error Handling Configuration
@@ -440,7 +445,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_config: Optional[pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']]] = None,
+                 destination_config: Optional[pulumi.Input[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict']]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -471,7 +476,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_config: Optional[pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']]] = None,
+            destination_config: Optional[pulumi.Input[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict']]] = None,
             function_name: Optional[pulumi.Input[str]] = None,
             maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
             maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -483,7 +488,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FunctionEventInvokeConfigDestinationConfigArgs']] destination_config: Configuration block with destination configuration. See below for details.
+        :param pulumi.Input[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict']] destination_config: Configuration block with destination configuration. See below for details.
         :param pulumi.Input[str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
                
                The following arguments are optional:

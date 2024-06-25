@@ -4,14 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'OrganizationConfigurationAutoEnableArgs',
+    'OrganizationConfigurationAutoEnableArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class OrganizationConfigurationAutoEnableArgsDict(TypedDict):
+        ec2: pulumi.Input[bool]
+        """
+        Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
+        """
+        ecr: pulumi.Input[bool]
+        """
+        Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
+        """
+        lambda_: NotRequired[pulumi.Input[bool]]
+        """
+        Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+        """
+        lambda_code: NotRequired[pulumi.Input[bool]]
+        """
+        Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+        """
+elif False:
+    OrganizationConfigurationAutoEnableArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrganizationConfigurationAutoEnableArgs:

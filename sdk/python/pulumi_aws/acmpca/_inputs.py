@@ -4,19 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CertificateAuthorityCertificateAuthorityConfigurationArgs',
+    'CertificateAuthorityCertificateAuthorityConfigurationArgsDict',
     'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs',
+    'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgsDict',
     'CertificateAuthorityRevocationConfigurationArgs',
+    'CertificateAuthorityRevocationConfigurationArgsDict',
     'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs',
+    'CertificateAuthorityRevocationConfigurationCrlConfigurationArgsDict',
     'CertificateAuthorityRevocationConfigurationOcspConfigurationArgs',
+    'CertificateAuthorityRevocationConfigurationOcspConfigurationArgsDict',
     'CertificateValidityArgs',
+    'CertificateValidityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CertificateAuthorityCertificateAuthorityConfigurationArgsDict(TypedDict):
+        key_algorithm: pulumi.Input[str]
+        """
+        Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+        """
+        signing_algorithm: pulumi.Input[str]
+        """
+        Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
+        """
+        subject: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationSubjectArgsDict']
+        """
+        Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
+        """
+elif False:
+    CertificateAuthorityCertificateAuthorityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateAuthorityCertificateAuthorityConfigurationArgs:
@@ -69,6 +99,63 @@ class CertificateAuthorityCertificateAuthorityConfigurationArgs:
     def subject(self, value: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs']):
         pulumi.set(self, "subject", value)
 
+
+if not MYPY:
+    class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgsDict(TypedDict):
+        common_name: NotRequired[pulumi.Input[str]]
+        """
+        Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
+        """
+        country: NotRequired[pulumi.Input[str]]
+        """
+        Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
+        """
+        distinguished_name_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
+        """
+        generation_qualifier: NotRequired[pulumi.Input[str]]
+        """
+        Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
+        """
+        given_name: NotRequired[pulumi.Input[str]]
+        """
+        First name. Must be less than or equal to 16 characters in length.
+        """
+        initials: NotRequired[pulumi.Input[str]]
+        """
+        Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
+        """
+        locality: NotRequired[pulumi.Input[str]]
+        """
+        Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
+        """
+        organization: NotRequired[pulumi.Input[str]]
+        """
+        Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+        """
+        organizational_unit: NotRequired[pulumi.Input[str]]
+        """
+        Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
+        """
+        pseudonym: NotRequired[pulumi.Input[str]]
+        """
+        Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
+        """
+        surname: NotRequired[pulumi.Input[str]]
+        """
+        Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
+        """
+elif False:
+    CertificateAuthorityCertificateAuthorityConfigurationSubjectArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
@@ -285,6 +372,20 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
         pulumi.set(self, "title", value)
 
 
+if not MYPY:
+    class CertificateAuthorityRevocationConfigurationArgsDict(TypedDict):
+        crl_configuration: NotRequired[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgsDict']]
+        """
+        Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
+        """
+        ocsp_configuration: NotRequired[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgsDict']]
+        """
+        Nested argument containing configuration of
+        the custom OCSP responder endpoint. Defined below.
+        """
+elif False:
+    CertificateAuthorityRevocationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationArgs:
     def __init__(__self__, *,
@@ -325,6 +426,31 @@ class CertificateAuthorityRevocationConfigurationArgs:
     def ocsp_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]):
         pulumi.set(self, "ocsp_configuration", value)
 
+
+if not MYPY:
+    class CertificateAuthorityRevocationConfigurationCrlConfigurationArgsDict(TypedDict):
+        custom_cname: NotRequired[pulumi.Input[str]]
+        """
+        Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        """
+        expiration_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Number of days until a certificate expires. Must be between 1 and 5000.
+        """
+        s3_bucket_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
+        """
+        s3_object_acl: NotRequired[pulumi.Input[str]]
+        """
+        Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
+        """
+elif False:
+    CertificateAuthorityRevocationConfigurationCrlConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
@@ -413,6 +539,19 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
         pulumi.set(self, "s3_object_acl", value)
 
 
+if not MYPY:
+    class CertificateAuthorityRevocationConfigurationOcspConfigurationArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Boolean value that specifies whether a custom OCSP responder is enabled.
+        """
+        ocsp_custom_cname: NotRequired[pulumi.Input[str]]
+        """
+        CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        """
+elif False:
+    CertificateAuthorityRevocationConfigurationOcspConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs:
     def __init__(__self__, *,
@@ -450,6 +589,19 @@ class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs:
     def ocsp_custom_cname(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ocsp_custom_cname", value)
 
+
+if not MYPY:
+    class CertificateValidityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
+        """
+        value: pulumi.Input[str]
+        """
+        If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
+        """
+elif False:
+    CertificateValidityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateValidityArgs:

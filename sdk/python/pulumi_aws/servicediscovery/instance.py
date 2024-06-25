@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['InstanceArgs', 'Instance']
@@ -148,17 +153,17 @@ class Instance(pulumi.CustomResource):
             vpc=example.id)
         example_service = aws.servicediscovery.Service("example",
             name="example",
-            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_private_dns_namespace.id,
-                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
-                    ttl=10,
-                    type="A",
-                )],
-                routing_policy="MULTIVALUE",
-            ),
-            health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
-                failure_threshold=1,
-            ))
+            dns_config={
+                "namespaceId": example_private_dns_namespace.id,
+                "dnsRecords": [{
+                    "ttl": 10,
+                    "type": "A",
+                }],
+                "routingPolicy": "MULTIVALUE",
+            },
+            health_check_custom_config={
+                "failureThreshold": 1,
+            })
         example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,
@@ -225,17 +230,17 @@ class Instance(pulumi.CustomResource):
             vpc=example.id)
         example_service = aws.servicediscovery.Service("example",
             name="example",
-            dns_config=aws.servicediscovery.ServiceDnsConfigArgs(
-                namespace_id=example_private_dns_namespace.id,
-                dns_records=[aws.servicediscovery.ServiceDnsConfigDnsRecordArgs(
-                    ttl=10,
-                    type="A",
-                )],
-                routing_policy="MULTIVALUE",
-            ),
-            health_check_custom_config=aws.servicediscovery.ServiceHealthCheckCustomConfigArgs(
-                failure_threshold=1,
-            ))
+            dns_config={
+                "namespaceId": example_private_dns_namespace.id,
+                "dnsRecords": [{
+                    "ttl": 10,
+                    "type": "A",
+                }],
+                "routingPolicy": "MULTIVALUE",
+            },
+            health_check_custom_config={
+                "failureThreshold": 1,
+            })
         example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,

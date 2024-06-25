@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -323,7 +328,7 @@ class Statement(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  db_user: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatementParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
@@ -443,7 +448,7 @@ class Statement(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  db_user: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatementParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
@@ -484,7 +489,7 @@ class Statement(pulumi.CustomResource):
             cluster_identifier: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             db_user: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatementParameterArgs']]]]] = None,
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StatementParameterArgs', 'StatementParameterArgsDict']]]]] = None,
             secret_arn: Optional[pulumi.Input[str]] = None,
             sql: Optional[pulumi.Input[str]] = None,
             statement_name: Optional[pulumi.Input[str]] = None,

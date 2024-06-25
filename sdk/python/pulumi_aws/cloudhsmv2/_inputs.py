@@ -4,14 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ClusterClusterCertificateArgs',
+    'ClusterClusterCertificateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterClusterCertificateArgsDict(TypedDict):
+        aws_hardware_certificate: NotRequired[pulumi.Input[str]]
+        """
+        The HSM hardware certificate issued (signed) by AWS CloudHSM.
+        """
+        cluster_certificate: NotRequired[pulumi.Input[str]]
+        """
+        The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+        """
+        cluster_csr: NotRequired[pulumi.Input[str]]
+        """
+        The certificate signing request (CSR). Available only in `UNINITIALIZED` state after an HSM instance is added to the cluster.
+        """
+        hsm_certificate: NotRequired[pulumi.Input[str]]
+        """
+        The HSM certificate issued (signed) by the HSM hardware.
+        """
+        manufacturer_hardware_certificate: NotRequired[pulumi.Input[str]]
+        """
+        The HSM hardware certificate issued (signed) by the hardware manufacturer.
+        """
+elif False:
+    ClusterClusterCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterClusterCertificateArgs:

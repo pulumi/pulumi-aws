@@ -4,29 +4,65 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'InstanceConnectEndpointTimeoutsArgs',
+    'InstanceConnectEndpointTimeoutsArgsDict',
     'GetAttachmentFilterArgs',
+    'GetAttachmentFilterArgsDict',
     'GetAttachmentsFilterArgs',
+    'GetAttachmentsFilterArgsDict',
     'GetConnectFilterArgs',
+    'GetConnectFilterArgsDict',
     'GetConnectPeerFilterArgs',
+    'GetConnectPeerFilterArgsDict',
     'GetDirectConnectGatewayAttachmentFilterArgs',
+    'GetDirectConnectGatewayAttachmentFilterArgsDict',
     'GetMulticastDomainFilterArgs',
+    'GetMulticastDomainFilterArgsDict',
     'GetPeeringAttachmentFilterArgs',
+    'GetPeeringAttachmentFilterArgsDict',
     'GetRouteTableAssociationsFilterArgs',
+    'GetRouteTableAssociationsFilterArgsDict',
     'GetRouteTableFilterArgs',
+    'GetRouteTableFilterArgsDict',
     'GetRouteTablePropagationsFilterArgs',
+    'GetRouteTablePropagationsFilterArgsDict',
     'GetRouteTableRoutesFilterArgs',
+    'GetRouteTableRoutesFilterArgsDict',
     'GetTransitGatewayFilterArgs',
+    'GetTransitGatewayFilterArgsDict',
     'GetVpcAttachmentFilterArgs',
+    'GetVpcAttachmentFilterArgsDict',
     'GetVpcAttachmentsFilterArgs',
+    'GetVpcAttachmentsFilterArgsDict',
     'GetVpnAttachmentFilterArgs',
+    'GetVpnAttachmentFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class InstanceConnectEndpointTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        delete: NotRequired[pulumi.Input[str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+elif False:
+    InstanceConnectEndpointTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceConnectEndpointTimeoutsArgs:
@@ -67,6 +103,19 @@ class InstanceConnectEndpointTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
+if not MYPY:
+    class GetAttachmentFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetAttachmentFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetAttachmentFilterArgs:
     def __init__(__self__, *,
@@ -103,6 +152,19 @@ class GetAttachmentFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetAttachmentsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetAttachmentsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetAttachmentsFilterArgs:
@@ -141,6 +203,19 @@ class GetAttachmentsFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetConnectFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetConnectFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetConnectFilterArgs:
     def __init__(__self__, *,
@@ -177,6 +252,19 @@ class GetConnectFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetConnectPeerFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetConnectPeerFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetConnectPeerFilterArgs:
@@ -215,6 +303,19 @@ class GetConnectPeerFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetDirectConnectGatewayAttachmentFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetDirectConnectGatewayAttachmentFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetDirectConnectGatewayAttachmentFilterArgs:
     def __init__(__self__, *,
@@ -252,6 +353,19 @@ class GetDirectConnectGatewayAttachmentFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetMulticastDomainFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
+        """
+elif False:
+    GetMulticastDomainFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetMulticastDomainFilterArgs:
     def __init__(__self__, *,
@@ -288,6 +402,21 @@ class GetMulticastDomainFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetPeeringAttachmentFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
+        """
+elif False:
+    GetPeeringAttachmentFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetPeeringAttachmentFilterArgs:
@@ -330,6 +459,21 @@ class GetPeeringAttachmentFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetRouteTableAssociationsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A Transit Gateway Route Table will be selected if any one of the given values matches.
+        """
+elif False:
+    GetRouteTableAssociationsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRouteTableAssociationsFilterArgs:
     def __init__(__self__, *,
@@ -371,6 +515,19 @@ class GetRouteTableAssociationsFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetRouteTableFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetRouteTableFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRouteTableFilterArgs:
     def __init__(__self__, *,
@@ -407,6 +564,21 @@ class GetRouteTableFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetRouteTablePropagationsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTablePropagations.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        A Transit Gateway Route Table will be selected if any one of the given values matches.
+        """
+elif False:
+    GetRouteTablePropagationsFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetRouteTablePropagationsFilterArgs:
@@ -449,6 +621,20 @@ class GetRouteTablePropagationsFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetRouteTableRoutesFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given field.
+        """
+elif False:
+    GetRouteTableRoutesFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetRouteTableRoutesFilterArgs:
     def __init__(__self__, *,
@@ -488,6 +674,19 @@ class GetRouteTableRoutesFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetTransitGatewayFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetTransitGatewayFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetTransitGatewayFilterArgs:
     def __init__(__self__, *,
@@ -524,6 +723,19 @@ class GetTransitGatewayFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetVpcAttachmentFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter.
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetVpcAttachmentFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetVpcAttachmentFilterArgs:
@@ -562,6 +774,19 @@ class GetVpcAttachmentFilterArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class GetVpcAttachmentsFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
+        """
+        values: Sequence[str]
+        """
+        List of one or more values for the filter.
+        """
+elif False:
+    GetVpcAttachmentsFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetVpcAttachmentsFilterArgs:
     def __init__(__self__, *,
@@ -598,6 +823,19 @@ class GetVpcAttachmentsFilterArgs:
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class GetVpnAttachmentFilterArgsDict(TypedDict):
+        name: str
+        """
+        Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+        """
+        values: Sequence[str]
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+elif False:
+    GetVpnAttachmentFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetVpnAttachmentFilterArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
@@ -110,9 +115,9 @@ class ResourcePolicy(pulumi.CustomResource):
         example = aws.codebuild.ReportGroup("example",
             name="example",
             type="TEST",
-            export_config=aws.codebuild.ReportGroupExportConfigArgs(
-                type="NO_EXPORT",
-            ))
+            export_config={
+                "type": "NO_EXPORT",
+            })
         current = aws.get_partition()
         current_get_caller_identity = aws.get_caller_identity()
         example_resource_policy = aws.codebuild.ResourcePolicy("example",
@@ -169,9 +174,9 @@ class ResourcePolicy(pulumi.CustomResource):
         example = aws.codebuild.ReportGroup("example",
             name="example",
             type="TEST",
-            export_config=aws.codebuild.ReportGroupExportConfigArgs(
-                type="NO_EXPORT",
-            ))
+            export_config={
+                "type": "NO_EXPORT",
+            })
         current = aws.get_partition()
         current_get_caller_identity = aws.get_caller_identity()
         example_resource_policy = aws.codebuild.ResourcePolicy("example",

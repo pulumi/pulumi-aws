@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -118,7 +123,7 @@ class AwaitableGetPeeringAttachmentResult(GetPeeringAttachmentResult):
             transit_gateway_id=self.transit_gateway_id)
 
 
-def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeringAttachmentFilterArgs']]] = None,
+def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']]] = None,
                            id: Optional[str] = None,
                            tags: Optional[Mapping[str, str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringAttachmentResult:
@@ -133,10 +138,10 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_peering_attachment(filters=[aws.ec2transitgateway.GetPeeringAttachmentFilterArgs(
-        name="transit-gateway-attachment-id",
-        values=["tgw-attach-12345678"],
-    )])
+    example = aws.ec2transitgateway.get_peering_attachment(filters=[{
+        "name": "transit-gateway-attachment-id",
+        "values": ["tgw-attach-12345678"],
+    }])
     ```
 
     ### By Identifier
@@ -149,7 +154,7 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
     ```
 
 
-    :param Sequence[pulumi.InputType['GetPeeringAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Peering Attachment.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
@@ -176,7 +181,7 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
 
 
 @_utilities.lift_output_func(get_peering_attachment)
-def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPeeringAttachmentFilterArgs']]]]] = None,
+def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']]]]] = None,
                                   id: Optional[pulumi.Input[Optional[str]]] = None,
                                   tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringAttachmentResult]:
@@ -191,10 +196,10 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_peering_attachment(filters=[aws.ec2transitgateway.GetPeeringAttachmentFilterArgs(
-        name="transit-gateway-attachment-id",
-        values=["tgw-attach-12345678"],
-    )])
+    example = aws.ec2transitgateway.get_peering_attachment(filters=[{
+        "name": "transit-gateway-attachment-id",
+        "values": ["tgw-attach-12345678"],
+    }])
     ```
 
     ### By Identifier
@@ -207,7 +212,7 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
     ```
 
 
-    :param Sequence[pulumi.InputType['GetPeeringAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Peering Attachment.
     :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.

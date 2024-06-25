@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -115,7 +120,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
             transit_gateway_id=self.transit_gateway_id)
 
 
-def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFilterArgs']]] = None,
+def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]] = None,
                     id: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableResult:
@@ -131,14 +136,14 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_route_table(filters=[
-        aws.ec2transitgateway.GetRouteTableFilterArgs(
-            name="default-association-route-table",
-            values=["true"],
-        ),
-        aws.ec2transitgateway.GetRouteTableFilterArgs(
-            name="transit-gateway-id",
-            values=["tgw-12345678"],
-        ),
+        {
+            "name": "default-association-route-table",
+            "values": ["true"],
+        },
+        {
+            "name": "transit-gateway-id",
+            "values": ["tgw-12345678"],
+        },
     ])
     ```
 
@@ -152,7 +157,7 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Route Table.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Route Table
     """
@@ -174,7 +179,7 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
 
 
 @_utilities.lift_output_func(get_route_table)
-def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRouteTableFilterArgs']]]]] = None,
+def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
@@ -190,14 +195,14 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_route_table(filters=[
-        aws.ec2transitgateway.GetRouteTableFilterArgs(
-            name="default-association-route-table",
-            values=["true"],
-        ),
-        aws.ec2transitgateway.GetRouteTableFilterArgs(
-            name="transit-gateway-id",
-            values=["tgw-12345678"],
-        ),
+        {
+            "name": "default-association-route-table",
+            "values": ["true"],
+        },
+        {
+            "name": "transit-gateway-id",
+            "values": ["tgw-12345678"],
+        },
     ])
     ```
 
@@ -211,7 +216,7 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Route Table.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Route Table
     """

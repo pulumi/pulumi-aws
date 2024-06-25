@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -90,7 +95,7 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessRoleArnAssociationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['DrtAccessRoleArnAssociationTimeoutsArgs', 'DrtAccessRoleArnAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
         Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks.
@@ -198,7 +203,7 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessRoleArnAssociationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[Union['DrtAccessRoleArnAssociationTimeoutsArgs', 'DrtAccessRoleArnAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -223,7 +228,7 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessRoleArnAssociationTimeoutsArgs']]] = None) -> 'DrtAccessRoleArnAssociation':
+            timeouts: Optional[pulumi.Input[Union['DrtAccessRoleArnAssociationTimeoutsArgs', 'DrtAccessRoleArnAssociationTimeoutsArgsDict']]] = None) -> 'DrtAccessRoleArnAssociation':
         """
         Get an existing DrtAccessRoleArnAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

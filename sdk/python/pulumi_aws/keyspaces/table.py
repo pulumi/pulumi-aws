@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -427,17 +432,17 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_specification: Optional[pulumi.Input[pulumi.InputType['TableCapacitySpecificationArgs']]] = None,
-                 client_side_timestamps: Optional[pulumi.Input[pulumi.InputType['TableClientSideTimestampsArgs']]] = None,
-                 comment: Optional[pulumi.Input[pulumi.InputType['TableCommentArgs']]] = None,
+                 capacity_specification: Optional[pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']]] = None,
+                 client_side_timestamps: Optional[pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']]] = None,
+                 comment: Optional[pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict']]] = None,
                  default_time_to_live: Optional[pulumi.Input[int]] = None,
-                 encryption_specification: Optional[pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']]] = None,
+                 encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
-                 point_in_time_recovery: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']]] = None,
-                 schema_definition: Optional[pulumi.Input[pulumi.InputType['TableSchemaDefinitionArgs']]] = None,
+                 point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
+                 schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ttl: Optional[pulumi.Input[pulumi.InputType['TableTtlArgs']]] = None,
+                 ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
                  __props__=None):
         """
         Provides a Keyspaces Table.
@@ -453,15 +458,15 @@ class Table(pulumi.CustomResource):
         example = aws.keyspaces.Table("example",
             keyspace_name=example_aws_keyspaces_keyspace["name"],
             table_name="my_table",
-            schema_definition=aws.keyspaces.TableSchemaDefinitionArgs(
-                columns=[aws.keyspaces.TableSchemaDefinitionColumnArgs(
-                    name="Message",
-                    type="ASCII",
-                )],
-                partition_keys=[aws.keyspaces.TableSchemaDefinitionPartitionKeyArgs(
-                    name="Message",
-                )],
-            ))
+            schema_definition={
+                "columns": [{
+                    "name": "Message",
+                    "type": "ASCII",
+                }],
+                "partitionKeys": [{
+                    "name": "Message",
+                }],
+            })
         ```
 
         ## Import
@@ -474,19 +479,19 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TableCapacitySpecificationArgs']] capacity_specification: Specifies the read/write throughput capacity mode for the table.
-        :param pulumi.Input[pulumi.InputType['TableClientSideTimestampsArgs']] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled.
-        :param pulumi.Input[pulumi.InputType['TableCommentArgs']] comment: A description of the table.
+        :param pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']] capacity_specification: Specifies the read/write throughput capacity mode for the table.
+        :param pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled.
+        :param pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict']] comment: A description of the table.
         :param pulumi.Input[int] default_time_to_live: The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
-        :param pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+        :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         :param pulumi.Input[str] keyspace_name: The name of the keyspace that the table is going to be created in.
-        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
-        :param pulumi.Input[pulumi.InputType['TableSchemaDefinitionArgs']] schema_definition: Describes the schema of the table.
+        :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        :param pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']] schema_definition: Describes the schema of the table.
         :param pulumi.Input[str] table_name: The name of the table.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        :param pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         """
         ...
     @overload
@@ -508,15 +513,15 @@ class Table(pulumi.CustomResource):
         example = aws.keyspaces.Table("example",
             keyspace_name=example_aws_keyspaces_keyspace["name"],
             table_name="my_table",
-            schema_definition=aws.keyspaces.TableSchemaDefinitionArgs(
-                columns=[aws.keyspaces.TableSchemaDefinitionColumnArgs(
-                    name="Message",
-                    type="ASCII",
-                )],
-                partition_keys=[aws.keyspaces.TableSchemaDefinitionPartitionKeyArgs(
-                    name="Message",
-                )],
-            ))
+            schema_definition={
+                "columns": [{
+                    "name": "Message",
+                    "type": "ASCII",
+                }],
+                "partitionKeys": [{
+                    "name": "Message",
+                }],
+            })
         ```
 
         ## Import
@@ -542,17 +547,17 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_specification: Optional[pulumi.Input[pulumi.InputType['TableCapacitySpecificationArgs']]] = None,
-                 client_side_timestamps: Optional[pulumi.Input[pulumi.InputType['TableClientSideTimestampsArgs']]] = None,
-                 comment: Optional[pulumi.Input[pulumi.InputType['TableCommentArgs']]] = None,
+                 capacity_specification: Optional[pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']]] = None,
+                 client_side_timestamps: Optional[pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']]] = None,
+                 comment: Optional[pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict']]] = None,
                  default_time_to_live: Optional[pulumi.Input[int]] = None,
-                 encryption_specification: Optional[pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']]] = None,
+                 encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
-                 point_in_time_recovery: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']]] = None,
-                 schema_definition: Optional[pulumi.Input[pulumi.InputType['TableSchemaDefinitionArgs']]] = None,
+                 point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
+                 schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ttl: Optional[pulumi.Input[pulumi.InputType['TableTtlArgs']]] = None,
+                 ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -592,18 +597,18 @@ class Table(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            capacity_specification: Optional[pulumi.Input[pulumi.InputType['TableCapacitySpecificationArgs']]] = None,
-            client_side_timestamps: Optional[pulumi.Input[pulumi.InputType['TableClientSideTimestampsArgs']]] = None,
-            comment: Optional[pulumi.Input[pulumi.InputType['TableCommentArgs']]] = None,
+            capacity_specification: Optional[pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']]] = None,
+            client_side_timestamps: Optional[pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']]] = None,
+            comment: Optional[pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict']]] = None,
             default_time_to_live: Optional[pulumi.Input[int]] = None,
-            encryption_specification: Optional[pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']]] = None,
+            encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
             keyspace_name: Optional[pulumi.Input[str]] = None,
-            point_in_time_recovery: Optional[pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']]] = None,
-            schema_definition: Optional[pulumi.Input[pulumi.InputType['TableSchemaDefinitionArgs']]] = None,
+            point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
+            schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
             table_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            ttl: Optional[pulumi.Input[pulumi.InputType['TableTtlArgs']]] = None) -> 'Table':
+            ttl: Optional[pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -612,20 +617,20 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the table.
-        :param pulumi.Input[pulumi.InputType['TableCapacitySpecificationArgs']] capacity_specification: Specifies the read/write throughput capacity mode for the table.
-        :param pulumi.Input[pulumi.InputType['TableClientSideTimestampsArgs']] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled.
-        :param pulumi.Input[pulumi.InputType['TableCommentArgs']] comment: A description of the table.
+        :param pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict']] capacity_specification: Specifies the read/write throughput capacity mode for the table.
+        :param pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict']] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled.
+        :param pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict']] comment: A description of the table.
         :param pulumi.Input[int] default_time_to_live: The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
-        :param pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+        :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         :param pulumi.Input[str] keyspace_name: The name of the keyspace that the table is going to be created in.
-        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
-        :param pulumi.Input[pulumi.InputType['TableSchemaDefinitionArgs']] schema_definition: Describes the schema of the table.
+        :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        :param pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']] schema_definition: Describes the schema of the table.
         :param pulumi.Input[str] table_name: The name of the table.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        :param pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

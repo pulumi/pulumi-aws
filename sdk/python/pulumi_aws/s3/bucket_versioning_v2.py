@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -163,7 +168,7 @@ class BucketVersioningV2(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  mfa: Optional[pulumi.Input[str]] = None,
-                 versioning_configuration: Optional[pulumi.Input[pulumi.InputType['BucketVersioningV2VersioningConfigurationArgs']]] = None,
+                 versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Provides a resource for controlling versioning on an S3 bucket.
@@ -190,9 +195,9 @@ class BucketVersioningV2(pulumi.CustomResource):
             acl="private")
         versioning_example = aws.s3.BucketVersioningV2("versioning_example",
             bucket=example.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
+            versioning_configuration={
+                "status": "Enabled",
+            })
         ```
 
         ### With Versioning Disabled
@@ -207,9 +212,9 @@ class BucketVersioningV2(pulumi.CustomResource):
             acl="private")
         versioning_example = aws.s3.BucketVersioningV2("versioning_example",
             bucket=example.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Disabled",
-            ))
+            versioning_configuration={
+                "status": "Disabled",
+            })
         ```
 
         ### Object Dependency On Versioning
@@ -227,9 +232,9 @@ class BucketVersioningV2(pulumi.CustomResource):
         example = aws.s3.BucketV2("example", bucket="yotto")
         example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
             bucket=example.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
+            versioning_configuration={
+                "status": "Enabled",
+            })
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example_bucket_versioning_v2.id,
             key="droeloe",
@@ -258,7 +263,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: Name of the S3 bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-        :param pulumi.Input[pulumi.InputType['BucketVersioningV2VersioningConfigurationArgs']] versioning_configuration: Configuration block for the versioning parameters. See below.
+        :param pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         ...
     @overload
@@ -291,9 +296,9 @@ class BucketVersioningV2(pulumi.CustomResource):
             acl="private")
         versioning_example = aws.s3.BucketVersioningV2("versioning_example",
             bucket=example.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
+            versioning_configuration={
+                "status": "Enabled",
+            })
         ```
 
         ### With Versioning Disabled
@@ -308,9 +313,9 @@ class BucketVersioningV2(pulumi.CustomResource):
             acl="private")
         versioning_example = aws.s3.BucketVersioningV2("versioning_example",
             bucket=example.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Disabled",
-            ))
+            versioning_configuration={
+                "status": "Disabled",
+            })
         ```
 
         ### Object Dependency On Versioning
@@ -328,9 +333,9 @@ class BucketVersioningV2(pulumi.CustomResource):
         example = aws.s3.BucketV2("example", bucket="yotto")
         example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
             bucket=example.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
-                status="Enabled",
-            ))
+            versioning_configuration={
+                "status": "Enabled",
+            })
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example_bucket_versioning_v2.id,
             key="droeloe",
@@ -372,7 +377,7 @@ class BucketVersioningV2(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  mfa: Optional[pulumi.Input[str]] = None,
-                 versioning_configuration: Optional[pulumi.Input[pulumi.InputType['BucketVersioningV2VersioningConfigurationArgs']]] = None,
+                 versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -403,7 +408,7 @@ class BucketVersioningV2(pulumi.CustomResource):
             bucket: Optional[pulumi.Input[str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
             mfa: Optional[pulumi.Input[str]] = None,
-            versioning_configuration: Optional[pulumi.Input[pulumi.InputType['BucketVersioningV2VersioningConfigurationArgs']]] = None) -> 'BucketVersioningV2':
+            versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None) -> 'BucketVersioningV2':
         """
         Get an existing BucketVersioningV2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -414,7 +419,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: Name of the S3 bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-        :param pulumi.Input[pulumi.InputType['BucketVersioningV2VersioningConfigurationArgs']] versioning_configuration: Configuration block for the versioning parameters. See below.
+        :param pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

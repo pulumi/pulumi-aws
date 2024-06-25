@@ -4,14 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'HostVpcConfigurationArgs',
+    'HostVpcConfigurationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class HostVpcConfigurationArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+        """
+        vpc_id: pulumi.Input[str]
+        """
+        The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+        """
+        tls_certificate: NotRequired[pulumi.Input[str]]
+        """
+        The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+        """
+elif False:
+    HostVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HostVpcConfigurationArgs:

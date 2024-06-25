@@ -4,15 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'FleetIdentityProviderArgs',
+    'FleetIdentityProviderArgsDict',
     'FleetNetworkArgs',
+    'FleetNetworkArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FleetIdentityProviderArgsDict(TypedDict):
+        saml_metadata: pulumi.Input[str]
+        """
+        The SAML metadata document provided by the customer’s identity provider.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of identity provider.
+        """
+elif False:
+    FleetIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetIdentityProviderArgs:
@@ -50,6 +72,27 @@ class FleetIdentityProviderArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FleetNetworkArgsDict(TypedDict):
+        security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of security group IDs associated with access to the provided subnets.
+
+        **identity_provider** requires the following:
+
+        > **NOTE:** `identity_provider` cannot be removed without force recreating.
+        """
+        subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of subnet IDs used for X-ENI connections from Amazon WorkLink rendering containers.
+        """
+        vpc_id: pulumi.Input[str]
+        """
+        The VPC ID with connectivity to associated websites.
+        """
+elif False:
+    FleetNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FleetNetworkArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
@@ -77,16 +82,16 @@ def get_subscribed_rule_group(metric_name: Optional[str] = None,
     by_name = aws.waf.get_subscribed_rule_group(name="F5 Bot Detection Signatures For AWS WAF")
     by_metric_name = aws.waf.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
     acl = aws.waf.WebAcl("acl", rules=[
-        aws.waf.WebAclRuleArgs(
-            priority=1,
-            rule_id=by_name.id,
-            type="GROUP",
-        ),
-        aws.waf.WebAclRuleArgs(
-            priority=2,
-            rule_id=by_metric_name.id,
-            type="GROUP",
-        ),
+        {
+            "priority": 1,
+            "ruleId": by_name.id,
+            "type": "GROUP",
+        },
+        {
+            "priority": 2,
+            "ruleId": by_metric_name.id,
+            "type": "GROUP",
+        },
     ])
     ```
 
@@ -122,16 +127,16 @@ def get_subscribed_rule_group_output(metric_name: Optional[pulumi.Input[Optional
     by_name = aws.waf.get_subscribed_rule_group(name="F5 Bot Detection Signatures For AWS WAF")
     by_metric_name = aws.waf.get_subscribed_rule_group(metric_name="F5BotDetectionSignatures")
     acl = aws.waf.WebAcl("acl", rules=[
-        aws.waf.WebAclRuleArgs(
-            priority=1,
-            rule_id=by_name.id,
-            type="GROUP",
-        ),
-        aws.waf.WebAclRuleArgs(
-            priority=2,
-            rule_id=by_metric_name.id,
-            type="GROUP",
-        ),
+        {
+            "priority": 1,
+            "ruleId": by_name.id,
+            "type": "GROUP",
+        },
+        {
+            "priority": 2,
+            "ruleId": by_metric_name.id,
+            "type": "GROUP",
+        },
     ])
     ```
 

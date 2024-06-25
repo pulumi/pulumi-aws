@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -236,7 +241,7 @@ class AwaitableGetTableResult(GetTableResult):
 
 
 def get_table(name: Optional[str] = None,
-              server_side_encryption: Optional[pulumi.InputType['GetTableServerSideEncryptionArgs']] = None,
+              server_side_encryption: Optional[Union['GetTableServerSideEncryptionArgs', 'GetTableServerSideEncryptionArgsDict']] = None,
               tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
@@ -288,7 +293,7 @@ def get_table(name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_table)
 def get_table_output(name: Optional[pulumi.Input[str]] = None,
-                     server_side_encryption: Optional[pulumi.Input[Optional[pulumi.InputType['GetTableServerSideEncryptionArgs']]]] = None,
+                     server_side_encryption: Optional[pulumi.Input[Optional[Union['GetTableServerSideEncryptionArgs', 'GetTableServerSideEncryptionArgsDict']]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
     """

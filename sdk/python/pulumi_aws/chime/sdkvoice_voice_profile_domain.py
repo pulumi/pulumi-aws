@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -187,7 +192,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs']]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -206,9 +211,9 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("example",
             name="ExampleVoiceProfileDomain",
-            server_side_encryption_configuration=aws.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs(
-                kms_key_arn=example.arn,
-            ),
+            server_side_encryption_configuration={
+                "kmsKeyArn": example.arn,
+            },
             description="My Voice Profile Domain",
             tags={
                 "key1": "value1",
@@ -227,7 +232,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of Voice Profile Domain.
         :param pulumi.Input[str] name: Name of Voice Profile Domain.
-        :param pulumi.Input[pulumi.InputType['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: Configuration for server side encryption.
+        :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Configuration for server side encryption.
         """
         ...
     @overload
@@ -251,9 +256,9 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_sdkvoice_voice_profile_domain = aws.chime.SdkvoiceVoiceProfileDomain("example",
             name="ExampleVoiceProfileDomain",
-            server_side_encryption_configuration=aws.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs(
-                kms_key_arn=example.arn,
-            ),
+            server_side_encryption_configuration={
+                "kmsKeyArn": example.arn,
+            },
             description="My Voice Profile Domain",
             tags={
                 "key1": "value1",
@@ -285,7 +290,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs']]] = None,
+                 server_side_encryption_configuration: Optional[pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -317,7 +322,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs']]] = None,
+            server_side_encryption_configuration: Optional[pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'SdkvoiceVoiceProfileDomain':
         """
@@ -330,7 +335,7 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the Voice Profile Domain.
         :param pulumi.Input[str] description: Description of Voice Profile Domain.
         :param pulumi.Input[str] name: Name of Voice Profile Domain.
-        :param pulumi.Input[pulumi.InputType['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: Configuration for server side encryption.
+        :param pulumi.Input[Union['SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs', 'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Configuration for server side encryption.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

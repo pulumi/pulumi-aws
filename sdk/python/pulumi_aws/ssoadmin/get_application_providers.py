@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -58,7 +63,7 @@ class AwaitableGetApplicationProvidersResult(GetApplicationProvidersResult):
             id=self.id)
 
 
-def get_application_providers(application_providers: Optional[Sequence[pulumi.InputType['GetApplicationProvidersApplicationProviderArgs']]] = None,
+def get_application_providers(application_providers: Optional[Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationProvidersResult:
     """
     Data source for managing AWS SSO Admin Application Providers.
@@ -75,7 +80,7 @@ def get_application_providers(application_providers: Optional[Sequence[pulumi.In
     ```
 
 
-    :param Sequence[pulumi.InputType['GetApplicationProvidersApplicationProviderArgs']] application_providers: A list of application providers available in the current region. See `application_providers` below.
+    :param Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']] application_providers: A list of application providers available in the current region. See `application_providers` below.
     """
     __args__ = dict()
     __args__['applicationProviders'] = application_providers
@@ -88,7 +93,7 @@ def get_application_providers(application_providers: Optional[Sequence[pulumi.In
 
 
 @_utilities.lift_output_func(get_application_providers)
-def get_application_providers_output(application_providers: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetApplicationProvidersApplicationProviderArgs']]]]] = None,
+def get_application_providers_output(application_providers: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']]]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationProvidersResult]:
     """
     Data source for managing AWS SSO Admin Application Providers.
@@ -105,6 +110,6 @@ def get_application_providers_output(application_providers: Optional[pulumi.Inpu
     ```
 
 
-    :param Sequence[pulumi.InputType['GetApplicationProvidersApplicationProviderArgs']] application_providers: A list of application providers available in the current region. See `application_providers` below.
+    :param Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']] application_providers: A list of application providers available in the current region. See `application_providers` below.
     """
     ...

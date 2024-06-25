@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -212,10 +217,10 @@ class ServerlessCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_authentication: Optional[pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']]] = None,
+                 client_authentication: Optional[pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]]] = None,
+                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an Amazon MSK Serverless cluster.
@@ -230,17 +235,17 @@ class ServerlessCluster(pulumi.CustomResource):
 
         example = aws.msk.ServerlessCluster("example",
             cluster_name="Example",
-            vpc_configs=[aws.msk.ServerlessClusterVpcConfigArgs(
-                subnet_ids=[__item["id"] for __item in example_aws_subnet],
-                security_group_ids=[example_aws_security_group["id"]],
-            )],
-            client_authentication=aws.msk.ServerlessClusterClientAuthenticationArgs(
-                sasl=aws.msk.ServerlessClusterClientAuthenticationSaslArgs(
-                    iam=aws.msk.ServerlessClusterClientAuthenticationSaslIamArgs(
-                        enabled=True,
-                    ),
-                ),
-            ))
+            vpc_configs=[{
+                "subnetIds": [__item["id"] for __item in example_aws_subnet],
+                "securityGroupIds": [example_aws_security_group["id"]],
+            }],
+            client_authentication={
+                "sasl": {
+                    "iam": {
+                        "enabled": True,
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -253,10 +258,10 @@ class ServerlessCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']] client_authentication: Specifies client authentication information for the serverless cluster. See below.
+        :param pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[str] cluster_name: The name of the serverless cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]] vpc_configs: VPC configuration information. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]] vpc_configs: VPC configuration information. See below.
         """
         ...
     @overload
@@ -277,17 +282,17 @@ class ServerlessCluster(pulumi.CustomResource):
 
         example = aws.msk.ServerlessCluster("example",
             cluster_name="Example",
-            vpc_configs=[aws.msk.ServerlessClusterVpcConfigArgs(
-                subnet_ids=[__item["id"] for __item in example_aws_subnet],
-                security_group_ids=[example_aws_security_group["id"]],
-            )],
-            client_authentication=aws.msk.ServerlessClusterClientAuthenticationArgs(
-                sasl=aws.msk.ServerlessClusterClientAuthenticationSaslArgs(
-                    iam=aws.msk.ServerlessClusterClientAuthenticationSaslIamArgs(
-                        enabled=True,
-                    ),
-                ),
-            ))
+            vpc_configs=[{
+                "subnetIds": [__item["id"] for __item in example_aws_subnet],
+                "securityGroupIds": [example_aws_security_group["id"]],
+            }],
+            client_authentication={
+                "sasl": {
+                    "iam": {
+                        "enabled": True,
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -313,10 +318,10 @@ class ServerlessCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_authentication: Optional[pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']]] = None,
+                 client_authentication: Optional[pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]]] = None,
+                 vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -348,12 +353,12 @@ class ServerlessCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            client_authentication: Optional[pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']]] = None,
+            client_authentication: Optional[pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
             cluster_uuid: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]]] = None) -> 'ServerlessCluster':
+            vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]]] = None) -> 'ServerlessCluster':
         """
         Get an existing ServerlessCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -362,12 +367,12 @@ class ServerlessCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the serverless cluster.
-        :param pulumi.Input[pulumi.InputType['ServerlessClusterClientAuthenticationArgs']] client_authentication: Specifies client authentication information for the serverless cluster. See below.
+        :param pulumi.Input[Union['ServerlessClusterClientAuthenticationArgs', 'ServerlessClusterClientAuthenticationArgsDict']] client_authentication: Specifies client authentication information for the serverless cluster. See below.
         :param pulumi.Input[str] cluster_name: The name of the serverless cluster.
         :param pulumi.Input[str] cluster_uuid: UUID of the serverless cluster, for use in IAM policies.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerlessClusterVpcConfigArgs']]]] vpc_configs: VPC configuration information. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessClusterVpcConfigArgs', 'ServerlessClusterVpcConfigArgsDict']]]] vpc_configs: VPC configuration information. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

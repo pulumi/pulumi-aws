@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -218,7 +223,7 @@ class RouteTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -255,14 +260,14 @@ class RouteTable(pulumi.CustomResource):
         example = aws.ec2.RouteTable("example",
             vpc_id=example_aws_vpc["id"],
             routes=[
-                aws.ec2.RouteTableRouteArgs(
-                    cidr_block="10.0.1.0/24",
-                    gateway_id=example_aws_internet_gateway["id"],
-                ),
-                aws.ec2.RouteTableRouteArgs(
-                    ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=example_aws_egress_only_internet_gateway["id"],
-                ),
+                {
+                    "cidrBlock": "10.0.1.0/24",
+                    "gatewayId": example_aws_internet_gateway["id"],
+                },
+                {
+                    "ipv6CidrBlock": "::/0",
+                    "egressOnlyGatewayId": example_aws_egress_only_internet_gateway["id"],
+                },
             ],
             tags={
                 "Name": "example",
@@ -296,10 +301,10 @@ class RouteTable(pulumi.CustomResource):
         test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
         test_route_table = aws.ec2.RouteTable("test",
             vpc_id=test.id,
-            routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block="10.1.0.0/16",
-                gateway_id="local",
-            )])
+            routes=[{
+                "cidrBlock": "10.1.0.0/16",
+                "gatewayId": "local",
+            }])
         ```
 
         Next, update the target of the route:
@@ -315,10 +320,10 @@ class RouteTable(pulumi.CustomResource):
         test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
         test_route_table = aws.ec2.RouteTable("test",
             vpc_id=test.id,
-            routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block=test.cidr_block,
-                network_interface_id=test_network_interface.id,
-            )])
+            routes=[{
+                "cidrBlock": test.cidr_block,
+                "networkInterfaceId": test_network_interface.id,
+            }])
         ```
 
         The target could then be updated again back to `local`.
@@ -334,7 +339,7 @@ class RouteTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of route objects. Their keys are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]] routes: A list of route objects. Their keys are documented below.
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The VPC ID.
@@ -378,14 +383,14 @@ class RouteTable(pulumi.CustomResource):
         example = aws.ec2.RouteTable("example",
             vpc_id=example_aws_vpc["id"],
             routes=[
-                aws.ec2.RouteTableRouteArgs(
-                    cidr_block="10.0.1.0/24",
-                    gateway_id=example_aws_internet_gateway["id"],
-                ),
-                aws.ec2.RouteTableRouteArgs(
-                    ipv6_cidr_block="::/0",
-                    egress_only_gateway_id=example_aws_egress_only_internet_gateway["id"],
-                ),
+                {
+                    "cidrBlock": "10.0.1.0/24",
+                    "gatewayId": example_aws_internet_gateway["id"],
+                },
+                {
+                    "ipv6CidrBlock": "::/0",
+                    "egressOnlyGatewayId": example_aws_egress_only_internet_gateway["id"],
+                },
             ],
             tags={
                 "Name": "example",
@@ -419,10 +424,10 @@ class RouteTable(pulumi.CustomResource):
         test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
         test_route_table = aws.ec2.RouteTable("test",
             vpc_id=test.id,
-            routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block="10.1.0.0/16",
-                gateway_id="local",
-            )])
+            routes=[{
+                "cidrBlock": "10.1.0.0/16",
+                "gatewayId": "local",
+            }])
         ```
 
         Next, update the target of the route:
@@ -438,10 +443,10 @@ class RouteTable(pulumi.CustomResource):
         test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
         test_route_table = aws.ec2.RouteTable("test",
             vpc_id=test.id,
-            routes=[aws.ec2.RouteTableRouteArgs(
-                cidr_block=test.cidr_block,
-                network_interface_id=test_network_interface.id,
-            )])
+            routes=[{
+                "cidrBlock": test.cidr_block,
+                "networkInterfaceId": test_network_interface.id,
+            }])
         ```
 
         The target could then be updated again back to `local`.
@@ -470,7 +475,7 @@ class RouteTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -504,7 +509,7 @@ class RouteTable(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]]] = None,
+            routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'RouteTable':
@@ -518,7 +523,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the route table.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] propagating_vgws: A list of virtual gateways for propagation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteTableRouteArgs']]]] routes: A list of route objects. Their keys are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]] routes: A list of route objects. Their keys are documented below.
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

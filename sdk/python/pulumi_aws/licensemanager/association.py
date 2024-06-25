@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['AssociationArgs', 'Association']
@@ -110,10 +115,10 @@ class Association(pulumi.CustomResource):
 
         example = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-vpc-nat*"],
-            )])
+            filters=[{
+                "name": "name",
+                "values": ["amzn-ami-vpc-nat*"],
+            }])
         example_instance = aws.ec2.Instance("example",
             ami=example.id,
             instance_type=aws.ec2.InstanceType.T2_MICRO)
@@ -157,10 +162,10 @@ class Association(pulumi.CustomResource):
 
         example = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-vpc-nat*"],
-            )])
+            filters=[{
+                "name": "name",
+                "values": ["amzn-ami-vpc-nat*"],
+            }])
         example_instance = aws.ec2.Instance("example",
             ami=example.id,
             instance_type=aws.ec2.InstanceType.T2_MICRO)

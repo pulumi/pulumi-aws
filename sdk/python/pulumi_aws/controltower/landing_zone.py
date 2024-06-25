@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -285,7 +290,7 @@ class LandingZone(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            drift_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LandingZoneDriftStatusArgs']]]]] = None,
+            drift_statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LandingZoneDriftStatusArgs', 'LandingZoneDriftStatusArgsDict']]]]] = None,
             latest_available_version: Optional[pulumi.Input[str]] = None,
             manifest_json: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -299,7 +304,7 @@ class LandingZone(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the landing zone.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LandingZoneDriftStatusArgs']]]] drift_statuses: The drift status summary of the landing zone.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LandingZoneDriftStatusArgs', 'LandingZoneDriftStatusArgsDict']]]] drift_statuses: The drift status summary of the landing zone.
         :param pulumi.Input[str] latest_available_version: The latest available version of the landing zone.
         :param pulumi.Input[str] manifest_json: The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

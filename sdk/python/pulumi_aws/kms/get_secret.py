@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -55,7 +60,7 @@ class AwaitableGetSecretResult(GetSecretResult):
             secrets=self.secrets)
 
 
-def get_secret(secrets: Optional[Sequence[pulumi.InputType['GetSecretSecretArgs']]] = None,
+def get_secret(secrets: Optional[Sequence[Union['GetSecretSecretArgs', 'GetSecretSecretArgsDict']]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     Use this data source to access information about an existing resource.
@@ -71,7 +76,7 @@ def get_secret(secrets: Optional[Sequence[pulumi.InputType['GetSecretSecretArgs'
 
 
 @_utilities.lift_output_func(get_secret)
-def get_secret_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType['GetSecretSecretArgs']]]] = None,
+def get_secret_output(secrets: Optional[pulumi.Input[Sequence[Union['GetSecretSecretArgs', 'GetSecretSecretArgsDict']]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
     Use this data source to access information about an existing resource.

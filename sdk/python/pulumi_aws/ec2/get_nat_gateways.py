@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -85,7 +90,7 @@ class AwaitableGetNatGatewaysResult(GetNatGatewaysResult):
             vpc_id=self.vpc_id)
 
 
-def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']]] = None,
+def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']]] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      vpc_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewaysResult:
@@ -101,15 +106,15 @@ def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGateways
     import pulumi_aws as aws
 
     ngws = aws.ec2.get_nat_gateways(vpc_id=vpc_id,
-        filters=[aws.ec2.GetNatGatewaysFilterArgs(
-            name="state",
-            values=["available"],
-        )])
+        filters=[{
+            "name": "state",
+            "values": ["available"],
+        }])
     ngw = [aws.ec2.get_nat_gateway(id=ngws.ids[__index]) for __index in range(len(ngws.ids))]
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
            
@@ -133,7 +138,7 @@ def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGateways
 
 
 @_utilities.lift_output_func(get_nat_gateways)
-def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']]]]] = None,
+def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']]]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewaysResult]:
@@ -149,15 +154,15 @@ def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi_aws as aws
 
     ngws = aws.ec2.get_nat_gateways(vpc_id=vpc_id,
-        filters=[aws.ec2.GetNatGatewaysFilterArgs(
-            name="state",
-            values=["available"],
-        )])
+        filters=[{
+            "name": "state",
+            "values": ["available"],
+        }])
     ngw = [aws.ec2.get_nat_gateway(id=ngws.ids[__index]) for __index in range(len(ngws.ids))]
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
            

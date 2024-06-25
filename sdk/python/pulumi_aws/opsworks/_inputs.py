@@ -4,86 +4,195 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ApplicationAppSourceArgs',
+    'ApplicationAppSourceArgsDict',
     'ApplicationEnvironmentArgs',
+    'ApplicationEnvironmentArgsDict',
     'ApplicationSslConfigurationArgs',
+    'ApplicationSslConfigurationArgsDict',
     'CustomLayerCloudwatchConfigurationArgs',
+    'CustomLayerCloudwatchConfigurationArgsDict',
     'CustomLayerCloudwatchConfigurationLogStreamArgs',
+    'CustomLayerCloudwatchConfigurationLogStreamArgsDict',
     'CustomLayerEbsVolumeArgs',
+    'CustomLayerEbsVolumeArgsDict',
     'CustomLayerLoadBasedAutoScalingArgs',
+    'CustomLayerLoadBasedAutoScalingArgsDict',
     'CustomLayerLoadBasedAutoScalingDownscalingArgs',
+    'CustomLayerLoadBasedAutoScalingDownscalingArgsDict',
     'CustomLayerLoadBasedAutoScalingUpscalingArgs',
+    'CustomLayerLoadBasedAutoScalingUpscalingArgsDict',
     'EcsClusterLayerCloudwatchConfigurationArgs',
+    'EcsClusterLayerCloudwatchConfigurationArgsDict',
     'EcsClusterLayerCloudwatchConfigurationLogStreamArgs',
+    'EcsClusterLayerCloudwatchConfigurationLogStreamArgsDict',
     'EcsClusterLayerEbsVolumeArgs',
+    'EcsClusterLayerEbsVolumeArgsDict',
     'EcsClusterLayerLoadBasedAutoScalingArgs',
+    'EcsClusterLayerLoadBasedAutoScalingArgsDict',
     'EcsClusterLayerLoadBasedAutoScalingDownscalingArgs',
+    'EcsClusterLayerLoadBasedAutoScalingDownscalingArgsDict',
     'EcsClusterLayerLoadBasedAutoScalingUpscalingArgs',
+    'EcsClusterLayerLoadBasedAutoScalingUpscalingArgsDict',
     'GangliaLayerCloudwatchConfigurationArgs',
+    'GangliaLayerCloudwatchConfigurationArgsDict',
     'GangliaLayerCloudwatchConfigurationLogStreamArgs',
+    'GangliaLayerCloudwatchConfigurationLogStreamArgsDict',
     'GangliaLayerEbsVolumeArgs',
+    'GangliaLayerEbsVolumeArgsDict',
     'GangliaLayerLoadBasedAutoScalingArgs',
+    'GangliaLayerLoadBasedAutoScalingArgsDict',
     'GangliaLayerLoadBasedAutoScalingDownscalingArgs',
+    'GangliaLayerLoadBasedAutoScalingDownscalingArgsDict',
     'GangliaLayerLoadBasedAutoScalingUpscalingArgs',
+    'GangliaLayerLoadBasedAutoScalingUpscalingArgsDict',
     'HaproxyLayerCloudwatchConfigurationArgs',
+    'HaproxyLayerCloudwatchConfigurationArgsDict',
     'HaproxyLayerCloudwatchConfigurationLogStreamArgs',
+    'HaproxyLayerCloudwatchConfigurationLogStreamArgsDict',
     'HaproxyLayerEbsVolumeArgs',
+    'HaproxyLayerEbsVolumeArgsDict',
     'HaproxyLayerLoadBasedAutoScalingArgs',
+    'HaproxyLayerLoadBasedAutoScalingArgsDict',
     'HaproxyLayerLoadBasedAutoScalingDownscalingArgs',
+    'HaproxyLayerLoadBasedAutoScalingDownscalingArgsDict',
     'HaproxyLayerLoadBasedAutoScalingUpscalingArgs',
+    'HaproxyLayerLoadBasedAutoScalingUpscalingArgsDict',
     'InstanceEbsBlockDeviceArgs',
+    'InstanceEbsBlockDeviceArgsDict',
     'InstanceEphemeralBlockDeviceArgs',
+    'InstanceEphemeralBlockDeviceArgsDict',
     'InstanceRootBlockDeviceArgs',
+    'InstanceRootBlockDeviceArgsDict',
     'JavaAppLayerCloudwatchConfigurationArgs',
+    'JavaAppLayerCloudwatchConfigurationArgsDict',
     'JavaAppLayerCloudwatchConfigurationLogStreamArgs',
+    'JavaAppLayerCloudwatchConfigurationLogStreamArgsDict',
     'JavaAppLayerEbsVolumeArgs',
+    'JavaAppLayerEbsVolumeArgsDict',
     'JavaAppLayerLoadBasedAutoScalingArgs',
+    'JavaAppLayerLoadBasedAutoScalingArgsDict',
     'JavaAppLayerLoadBasedAutoScalingDownscalingArgs',
+    'JavaAppLayerLoadBasedAutoScalingDownscalingArgsDict',
     'JavaAppLayerLoadBasedAutoScalingUpscalingArgs',
+    'JavaAppLayerLoadBasedAutoScalingUpscalingArgsDict',
     'MemcachedLayerCloudwatchConfigurationArgs',
+    'MemcachedLayerCloudwatchConfigurationArgsDict',
     'MemcachedLayerCloudwatchConfigurationLogStreamArgs',
+    'MemcachedLayerCloudwatchConfigurationLogStreamArgsDict',
     'MemcachedLayerEbsVolumeArgs',
+    'MemcachedLayerEbsVolumeArgsDict',
     'MemcachedLayerLoadBasedAutoScalingArgs',
+    'MemcachedLayerLoadBasedAutoScalingArgsDict',
     'MemcachedLayerLoadBasedAutoScalingDownscalingArgs',
+    'MemcachedLayerLoadBasedAutoScalingDownscalingArgsDict',
     'MemcachedLayerLoadBasedAutoScalingUpscalingArgs',
+    'MemcachedLayerLoadBasedAutoScalingUpscalingArgsDict',
     'MysqlLayerCloudwatchConfigurationArgs',
+    'MysqlLayerCloudwatchConfigurationArgsDict',
     'MysqlLayerCloudwatchConfigurationLogStreamArgs',
+    'MysqlLayerCloudwatchConfigurationLogStreamArgsDict',
     'MysqlLayerEbsVolumeArgs',
+    'MysqlLayerEbsVolumeArgsDict',
     'MysqlLayerLoadBasedAutoScalingArgs',
+    'MysqlLayerLoadBasedAutoScalingArgsDict',
     'MysqlLayerLoadBasedAutoScalingDownscalingArgs',
+    'MysqlLayerLoadBasedAutoScalingDownscalingArgsDict',
     'MysqlLayerLoadBasedAutoScalingUpscalingArgs',
+    'MysqlLayerLoadBasedAutoScalingUpscalingArgsDict',
     'NodejsAppLayerCloudwatchConfigurationArgs',
+    'NodejsAppLayerCloudwatchConfigurationArgsDict',
     'NodejsAppLayerCloudwatchConfigurationLogStreamArgs',
+    'NodejsAppLayerCloudwatchConfigurationLogStreamArgsDict',
     'NodejsAppLayerEbsVolumeArgs',
+    'NodejsAppLayerEbsVolumeArgsDict',
     'NodejsAppLayerLoadBasedAutoScalingArgs',
+    'NodejsAppLayerLoadBasedAutoScalingArgsDict',
     'NodejsAppLayerLoadBasedAutoScalingDownscalingArgs',
+    'NodejsAppLayerLoadBasedAutoScalingDownscalingArgsDict',
     'NodejsAppLayerLoadBasedAutoScalingUpscalingArgs',
+    'NodejsAppLayerLoadBasedAutoScalingUpscalingArgsDict',
     'PhpAppLayerCloudwatchConfigurationArgs',
+    'PhpAppLayerCloudwatchConfigurationArgsDict',
     'PhpAppLayerCloudwatchConfigurationLogStreamArgs',
+    'PhpAppLayerCloudwatchConfigurationLogStreamArgsDict',
     'PhpAppLayerEbsVolumeArgs',
+    'PhpAppLayerEbsVolumeArgsDict',
     'PhpAppLayerLoadBasedAutoScalingArgs',
+    'PhpAppLayerLoadBasedAutoScalingArgsDict',
     'PhpAppLayerLoadBasedAutoScalingDownscalingArgs',
+    'PhpAppLayerLoadBasedAutoScalingDownscalingArgsDict',
     'PhpAppLayerLoadBasedAutoScalingUpscalingArgs',
+    'PhpAppLayerLoadBasedAutoScalingUpscalingArgsDict',
     'RailsAppLayerCloudwatchConfigurationArgs',
+    'RailsAppLayerCloudwatchConfigurationArgsDict',
     'RailsAppLayerCloudwatchConfigurationLogStreamArgs',
+    'RailsAppLayerCloudwatchConfigurationLogStreamArgsDict',
     'RailsAppLayerEbsVolumeArgs',
+    'RailsAppLayerEbsVolumeArgsDict',
     'RailsAppLayerLoadBasedAutoScalingArgs',
+    'RailsAppLayerLoadBasedAutoScalingArgsDict',
     'RailsAppLayerLoadBasedAutoScalingDownscalingArgs',
+    'RailsAppLayerLoadBasedAutoScalingDownscalingArgsDict',
     'RailsAppLayerLoadBasedAutoScalingUpscalingArgs',
+    'RailsAppLayerLoadBasedAutoScalingUpscalingArgsDict',
     'StackCustomCookbooksSourceArgs',
+    'StackCustomCookbooksSourceArgsDict',
     'StaticWebLayerCloudwatchConfigurationArgs',
+    'StaticWebLayerCloudwatchConfigurationArgsDict',
     'StaticWebLayerCloudwatchConfigurationLogStreamArgs',
+    'StaticWebLayerCloudwatchConfigurationLogStreamArgsDict',
     'StaticWebLayerEbsVolumeArgs',
+    'StaticWebLayerEbsVolumeArgsDict',
     'StaticWebLayerLoadBasedAutoScalingArgs',
+    'StaticWebLayerLoadBasedAutoScalingArgsDict',
     'StaticWebLayerLoadBasedAutoScalingDownscalingArgs',
+    'StaticWebLayerLoadBasedAutoScalingDownscalingArgsDict',
     'StaticWebLayerLoadBasedAutoScalingUpscalingArgs',
+    'StaticWebLayerLoadBasedAutoScalingUpscalingArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationAppSourceArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of source to use. For example, "archive".
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        """
+        revision: NotRequired[pulumi.Input[str]]
+        """
+        For sources that are version-aware, the revision to use.
+        """
+        ssh_key: NotRequired[pulumi.Input[str]]
+        """
+        SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL where the app resource can be found.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Username to use when authenticating to the source.
+        """
+elif False:
+    ApplicationAppSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationAppSourceArgs:
@@ -187,6 +296,23 @@ class ApplicationAppSourceArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class ApplicationEnvironmentArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Variable name.
+        """
+        value: pulumi.Input[str]
+        """
+        Variable value.
+        """
+        secure: NotRequired[pulumi.Input[bool]]
+        """
+        Set visibility of the variable value to `true` or `false`.
+        """
+elif False:
+    ApplicationEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ApplicationEnvironmentArgs:
     def __init__(__self__, *,
@@ -239,6 +365,23 @@ class ApplicationEnvironmentArgs:
     def secure(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "secure", value)
 
+
+if not MYPY:
+    class ApplicationSslConfigurationArgsDict(TypedDict):
+        certificate: pulumi.Input[str]
+        """
+        The contents of the certificate's domain.crt file.
+        """
+        private_key: pulumi.Input[str]
+        """
+        The private key; the contents of the certificate's domain.key file.
+        """
+        chain: NotRequired[pulumi.Input[str]]
+        """
+        Can be used to specify an intermediate certificate authority key or client authentication.
+        """
+elif False:
+    ApplicationSslConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationSslConfigurationArgs:
@@ -293,6 +436,16 @@ class ApplicationSslConfigurationArgs:
         pulumi.set(self, "chain", value)
 
 
+if not MYPY:
+    class CustomLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+        """
+        A block the specifies how an opsworks logs look like. See Log Streams.
+        """
+elif False:
+    CustomLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -327,6 +480,55 @@ class CustomLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class CustomLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        """
+        Specifies log files that you want to push to CloudWatch Logs. File can point to a specific file or multiple files (by using wild card characters such as /var/log/system.log*).
+        """
+        log_group_name: pulumi.Input[str]
+        """
+        Specifies the destination log group. A log group is created automatically if it doesn't already exist.
+        """
+        batch_count: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the max number of log events in a batch, up to `10000`. The default value is `1000`.
+        """
+        batch_size: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum size of log events in a batch, in bytes, up to `1048576` bytes. The default value is `32768` bytes.
+        """
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the time duration for the batching of log events. The minimum value is `5000` and default value is `5000`.
+        """
+        datetime_format: NotRequired[pulumi.Input[str]]
+        """
+        Specifies how the timestamp is extracted from logs. For more information, see the CloudWatch Logs Agent Reference (https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AgentReference.html).
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the encoding of the log file so that the file can be read correctly. The default is `utf_8`.
+        """
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the range of lines for identifying a file. The valid values are one number, or two dash-delimited numbers, such as `1`, `2-5`. The default value is `1`.
+        """
+        initial_position: NotRequired[pulumi.Input[str]]
+        """
+        Specifies where to start to read data (`start_of_file` or `end_of_file`). The default is `start_of_file`.
+        """
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the pattern for identifying the start of a log message.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the time zone of log event time stamps.
+        """
+elif False:
+    CustomLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomLayerCloudwatchConfigurationLogStreamArgs:
@@ -509,6 +711,39 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class CustomLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Encrypt the volume.
+        """
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    CustomLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -625,6 +860,14 @@ class CustomLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class CustomLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    CustomLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -665,6 +908,39 @@ class CustomLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class CustomLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+        """
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+        """
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of instances to add or remove when the load exceeds a threshold.
+        """
+        load_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The load threshold. A value of -1 disables the threshold.
+        """
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+        """
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+        """
+elif False:
+    CustomLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CustomLayerLoadBasedAutoScalingDownscalingArgs:
@@ -785,6 +1061,39 @@ class CustomLayerLoadBasedAutoScalingDownscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class CustomLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Custom Cloudwatch auto scaling alarms, to be used as thresholds. This parameter takes a list of up to five alarm names, which are case sensitive and must be in the same region as the stack.
+        """
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The CPU utilization threshold, as a percent of the available CPU. A value of -1 disables the threshold.
+        """
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time (in minutes) after a scaling event occurs that AWS OpsWorks Stacks should ignore metrics and suppress additional scaling events.
+        """
+        instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of instances to add or remove when the load exceeds a threshold.
+        """
+        load_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The load threshold. A value of -1 disables the threshold.
+        """
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        """
+        The memory utilization threshold, as a percent of the available memory. A value of -1 disables the threshold.
+        """
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time, in minutes, that the load must exceed a threshold before more instances are added or removed.
+        """
+elif False:
+    CustomLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomLayerLoadBasedAutoScalingUpscalingArgs:
     def __init__(__self__, *,
@@ -904,6 +1213,13 @@ class CustomLayerLoadBasedAutoScalingUpscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class EcsClusterLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+elif False:
+    EcsClusterLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EcsClusterLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -932,6 +1248,22 @@ class EcsClusterLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class EcsClusterLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        log_group_name: pulumi.Input[str]
+        batch_count: NotRequired[pulumi.Input[int]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        datetime_format: NotRequired[pulumi.Input[str]]
+        encoding: NotRequired[pulumi.Input[str]]
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        initial_position: NotRequired[pulumi.Input[str]]
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        time_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    EcsClusterLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EcsClusterLayerCloudwatchConfigurationLogStreamArgs:
@@ -1068,6 +1400,36 @@ class EcsClusterLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class EcsClusterLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    EcsClusterLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EcsClusterLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -1180,6 +1542,14 @@ class EcsClusterLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class EcsClusterLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    EcsClusterLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EcsClusterLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -1220,6 +1590,18 @@ class EcsClusterLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class EcsClusterLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    EcsClusterLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EcsClusterLayerLoadBasedAutoScalingDownscalingArgs:
@@ -1310,6 +1692,18 @@ class EcsClusterLayerLoadBasedAutoScalingDownscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class EcsClusterLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    EcsClusterLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EcsClusterLayerLoadBasedAutoScalingUpscalingArgs:
     def __init__(__self__, *,
@@ -1399,6 +1793,13 @@ class EcsClusterLayerLoadBasedAutoScalingUpscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class GangliaLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+elif False:
+    GangliaLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GangliaLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -1427,6 +1828,22 @@ class GangliaLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class GangliaLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        log_group_name: pulumi.Input[str]
+        batch_count: NotRequired[pulumi.Input[int]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        datetime_format: NotRequired[pulumi.Input[str]]
+        encoding: NotRequired[pulumi.Input[str]]
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        initial_position: NotRequired[pulumi.Input[str]]
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        time_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    GangliaLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GangliaLayerCloudwatchConfigurationLogStreamArgs:
@@ -1563,6 +1980,36 @@ class GangliaLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class GangliaLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    GangliaLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GangliaLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -1675,6 +2122,14 @@ class GangliaLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class GangliaLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['GangliaLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['GangliaLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    GangliaLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GangliaLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -1715,6 +2170,18 @@ class GangliaLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class GangliaLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    GangliaLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GangliaLayerLoadBasedAutoScalingDownscalingArgs:
@@ -1805,6 +2272,18 @@ class GangliaLayerLoadBasedAutoScalingDownscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class GangliaLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    GangliaLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GangliaLayerLoadBasedAutoScalingUpscalingArgs:
     def __init__(__self__, *,
@@ -1894,6 +2373,13 @@ class GangliaLayerLoadBasedAutoScalingUpscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class HaproxyLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+elif False:
+    HaproxyLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HaproxyLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -1922,6 +2408,22 @@ class HaproxyLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class HaproxyLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        log_group_name: pulumi.Input[str]
+        batch_count: NotRequired[pulumi.Input[int]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        datetime_format: NotRequired[pulumi.Input[str]]
+        encoding: NotRequired[pulumi.Input[str]]
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        initial_position: NotRequired[pulumi.Input[str]]
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        time_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    HaproxyLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HaproxyLayerCloudwatchConfigurationLogStreamArgs:
@@ -2058,6 +2560,36 @@ class HaproxyLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class HaproxyLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    HaproxyLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HaproxyLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -2170,6 +2702,14 @@ class HaproxyLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class HaproxyLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['HaproxyLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['HaproxyLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    HaproxyLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HaproxyLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -2210,6 +2750,18 @@ class HaproxyLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class HaproxyLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    HaproxyLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HaproxyLayerLoadBasedAutoScalingDownscalingArgs:
@@ -2300,6 +2852,18 @@ class HaproxyLayerLoadBasedAutoScalingDownscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class HaproxyLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    HaproxyLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HaproxyLayerLoadBasedAutoScalingUpscalingArgs:
     def __init__(__self__, *,
@@ -2389,6 +2953,17 @@ class HaproxyLayerLoadBasedAutoScalingUpscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class InstanceEbsBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        snapshot_id: NotRequired[pulumi.Input[str]]
+        volume_size: NotRequired[pulumi.Input[int]]
+        volume_type: NotRequired[pulumi.Input[str]]
+elif False:
+    InstanceEbsBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceEbsBlockDeviceArgs:
     def __init__(__self__, *,
@@ -2465,6 +3040,13 @@ class InstanceEbsBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class InstanceEphemeralBlockDeviceArgsDict(TypedDict):
+        device_name: pulumi.Input[str]
+        virtual_name: pulumi.Input[str]
+elif False:
+    InstanceEphemeralBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InstanceEphemeralBlockDeviceArgs:
     def __init__(__self__, *,
@@ -2491,6 +3073,15 @@ class InstanceEphemeralBlockDeviceArgs:
     def virtual_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_name", value)
 
+
+if not MYPY:
+    class InstanceRootBlockDeviceArgsDict(TypedDict):
+        delete_on_termination: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        volume_size: NotRequired[pulumi.Input[int]]
+        volume_type: NotRequired[pulumi.Input[str]]
+elif False:
+    InstanceRootBlockDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InstanceRootBlockDeviceArgs:
@@ -2545,6 +3136,13 @@ class InstanceRootBlockDeviceArgs:
         pulumi.set(self, "volume_type", value)
 
 
+if not MYPY:
+    class JavaAppLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+elif False:
+    JavaAppLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JavaAppLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -2573,6 +3171,22 @@ class JavaAppLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class JavaAppLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        log_group_name: pulumi.Input[str]
+        batch_count: NotRequired[pulumi.Input[int]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        datetime_format: NotRequired[pulumi.Input[str]]
+        encoding: NotRequired[pulumi.Input[str]]
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        initial_position: NotRequired[pulumi.Input[str]]
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        time_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    JavaAppLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JavaAppLayerCloudwatchConfigurationLogStreamArgs:
@@ -2709,6 +3323,36 @@ class JavaAppLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class JavaAppLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    JavaAppLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JavaAppLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -2821,6 +3465,14 @@ class JavaAppLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class JavaAppLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['JavaAppLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['JavaAppLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    JavaAppLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JavaAppLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -2861,6 +3513,18 @@ class JavaAppLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class JavaAppLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    JavaAppLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JavaAppLayerLoadBasedAutoScalingDownscalingArgs:
@@ -2951,6 +3615,18 @@ class JavaAppLayerLoadBasedAutoScalingDownscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class JavaAppLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    JavaAppLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JavaAppLayerLoadBasedAutoScalingUpscalingArgs:
     def __init__(__self__, *,
@@ -3040,6 +3716,13 @@ class JavaAppLayerLoadBasedAutoScalingUpscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class MemcachedLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+elif False:
+    MemcachedLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MemcachedLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -3068,6 +3751,22 @@ class MemcachedLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class MemcachedLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        log_group_name: pulumi.Input[str]
+        batch_count: NotRequired[pulumi.Input[int]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        datetime_format: NotRequired[pulumi.Input[str]]
+        encoding: NotRequired[pulumi.Input[str]]
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        initial_position: NotRequired[pulumi.Input[str]]
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        time_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    MemcachedLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MemcachedLayerCloudwatchConfigurationLogStreamArgs:
@@ -3204,6 +3903,36 @@ class MemcachedLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class MemcachedLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    MemcachedLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MemcachedLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -3316,6 +4045,14 @@ class MemcachedLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class MemcachedLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['MemcachedLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['MemcachedLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    MemcachedLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MemcachedLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -3356,6 +4093,18 @@ class MemcachedLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class MemcachedLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    MemcachedLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MemcachedLayerLoadBasedAutoScalingDownscalingArgs:
@@ -3446,6 +4195,18 @@ class MemcachedLayerLoadBasedAutoScalingDownscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class MemcachedLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    MemcachedLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MemcachedLayerLoadBasedAutoScalingUpscalingArgs:
     def __init__(__self__, *,
@@ -3535,6 +4296,13 @@ class MemcachedLayerLoadBasedAutoScalingUpscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class MysqlLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+elif False:
+    MysqlLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MysqlLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -3563,6 +4331,22 @@ class MysqlLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class MysqlLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        log_group_name: pulumi.Input[str]
+        batch_count: NotRequired[pulumi.Input[int]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        datetime_format: NotRequired[pulumi.Input[str]]
+        encoding: NotRequired[pulumi.Input[str]]
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        initial_position: NotRequired[pulumi.Input[str]]
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        time_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    MysqlLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MysqlLayerCloudwatchConfigurationLogStreamArgs:
@@ -3699,6 +4483,36 @@ class MysqlLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class MysqlLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    MysqlLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MysqlLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -3811,6 +4625,14 @@ class MysqlLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class MysqlLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['MysqlLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['MysqlLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    MysqlLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MysqlLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -3851,6 +4673,18 @@ class MysqlLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class MysqlLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    MysqlLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MysqlLayerLoadBasedAutoScalingDownscalingArgs:
@@ -3941,6 +4775,18 @@ class MysqlLayerLoadBasedAutoScalingDownscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class MysqlLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    MysqlLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MysqlLayerLoadBasedAutoScalingUpscalingArgs:
     def __init__(__self__, *,
@@ -4030,6 +4876,13 @@ class MysqlLayerLoadBasedAutoScalingUpscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class NodejsAppLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+elif False:
+    NodejsAppLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodejsAppLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -4058,6 +4911,22 @@ class NodejsAppLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class NodejsAppLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        log_group_name: pulumi.Input[str]
+        batch_count: NotRequired[pulumi.Input[int]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        datetime_format: NotRequired[pulumi.Input[str]]
+        encoding: NotRequired[pulumi.Input[str]]
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        initial_position: NotRequired[pulumi.Input[str]]
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        time_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    NodejsAppLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NodejsAppLayerCloudwatchConfigurationLogStreamArgs:
@@ -4194,6 +5063,36 @@ class NodejsAppLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class NodejsAppLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    NodejsAppLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodejsAppLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -4306,6 +5205,14 @@ class NodejsAppLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class NodejsAppLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    NodejsAppLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodejsAppLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -4346,6 +5253,18 @@ class NodejsAppLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class NodejsAppLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    NodejsAppLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NodejsAppLayerLoadBasedAutoScalingDownscalingArgs:
@@ -4436,6 +5355,18 @@ class NodejsAppLayerLoadBasedAutoScalingDownscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class NodejsAppLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    NodejsAppLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NodejsAppLayerLoadBasedAutoScalingUpscalingArgs:
     def __init__(__self__, *,
@@ -4525,6 +5456,13 @@ class NodejsAppLayerLoadBasedAutoScalingUpscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class PhpAppLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+elif False:
+    PhpAppLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PhpAppLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -4553,6 +5491,22 @@ class PhpAppLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class PhpAppLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        log_group_name: pulumi.Input[str]
+        batch_count: NotRequired[pulumi.Input[int]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        datetime_format: NotRequired[pulumi.Input[str]]
+        encoding: NotRequired[pulumi.Input[str]]
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        initial_position: NotRequired[pulumi.Input[str]]
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        time_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    PhpAppLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PhpAppLayerCloudwatchConfigurationLogStreamArgs:
@@ -4689,6 +5643,36 @@ class PhpAppLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class PhpAppLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    PhpAppLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PhpAppLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -4801,6 +5785,14 @@ class PhpAppLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class PhpAppLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['PhpAppLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['PhpAppLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    PhpAppLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PhpAppLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -4841,6 +5833,18 @@ class PhpAppLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class PhpAppLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    PhpAppLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PhpAppLayerLoadBasedAutoScalingDownscalingArgs:
@@ -4931,6 +5935,18 @@ class PhpAppLayerLoadBasedAutoScalingDownscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class PhpAppLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    PhpAppLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PhpAppLayerLoadBasedAutoScalingUpscalingArgs:
     def __init__(__self__, *,
@@ -5020,6 +6036,13 @@ class PhpAppLayerLoadBasedAutoScalingUpscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class RailsAppLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+elif False:
+    RailsAppLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RailsAppLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -5048,6 +6071,22 @@ class RailsAppLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class RailsAppLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        log_group_name: pulumi.Input[str]
+        batch_count: NotRequired[pulumi.Input[int]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        datetime_format: NotRequired[pulumi.Input[str]]
+        encoding: NotRequired[pulumi.Input[str]]
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        initial_position: NotRequired[pulumi.Input[str]]
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        time_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    RailsAppLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RailsAppLayerCloudwatchConfigurationLogStreamArgs:
@@ -5184,6 +6223,36 @@ class RailsAppLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class RailsAppLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    RailsAppLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RailsAppLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -5296,6 +6365,14 @@ class RailsAppLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class RailsAppLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['RailsAppLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['RailsAppLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    RailsAppLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RailsAppLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -5336,6 +6413,18 @@ class RailsAppLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class RailsAppLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    RailsAppLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class RailsAppLayerLoadBasedAutoScalingDownscalingArgs:
@@ -5426,6 +6515,18 @@ class RailsAppLayerLoadBasedAutoScalingDownscalingArgs:
         pulumi.set(self, "thresholds_wait_time", value)
 
 
+if not MYPY:
+    class RailsAppLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    RailsAppLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class RailsAppLayerLoadBasedAutoScalingUpscalingArgs:
     def __init__(__self__, *,
@@ -5514,6 +6615,35 @@ class RailsAppLayerLoadBasedAutoScalingUpscalingArgs:
     def thresholds_wait_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "thresholds_wait_time", value)
 
+
+if not MYPY:
+    class StackCustomCookbooksSourceArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of source to use. For example, "archive".
+        """
+        url: pulumi.Input[str]
+        """
+        The URL where the cookbooks resource can be found.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Password to use when authenticating to the source. The provider cannot perform drift detection of this configuration.
+        """
+        revision: NotRequired[pulumi.Input[str]]
+        """
+        For sources that are version-aware, the revision to use.
+        """
+        ssh_key: NotRequired[pulumi.Input[str]]
+        """
+        SSH key to use when authenticating to the source. This provider cannot perform drift detection of this configuration.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Username to use when authenticating to the source.
+        """
+elif False:
+    StackCustomCookbooksSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StackCustomCookbooksSourceArgs:
@@ -5616,6 +6746,13 @@ class StackCustomCookbooksSourceArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class StaticWebLayerCloudwatchConfigurationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        log_streams: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArgsDict']]]]
+elif False:
+    StaticWebLayerCloudwatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StaticWebLayerCloudwatchConfigurationArgs:
     def __init__(__self__, *,
@@ -5644,6 +6781,22 @@ class StaticWebLayerCloudwatchConfigurationArgs:
     def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArgs']]]]):
         pulumi.set(self, "log_streams", value)
 
+
+if not MYPY:
+    class StaticWebLayerCloudwatchConfigurationLogStreamArgsDict(TypedDict):
+        file: pulumi.Input[str]
+        log_group_name: pulumi.Input[str]
+        batch_count: NotRequired[pulumi.Input[int]]
+        batch_size: NotRequired[pulumi.Input[int]]
+        buffer_duration: NotRequired[pulumi.Input[int]]
+        datetime_format: NotRequired[pulumi.Input[str]]
+        encoding: NotRequired[pulumi.Input[str]]
+        file_fingerprint_lines: NotRequired[pulumi.Input[str]]
+        initial_position: NotRequired[pulumi.Input[str]]
+        multiline_start_pattern: NotRequired[pulumi.Input[str]]
+        time_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    StaticWebLayerCloudwatchConfigurationLogStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StaticWebLayerCloudwatchConfigurationLogStreamArgs:
@@ -5780,6 +6933,36 @@ class StaticWebLayerCloudwatchConfigurationLogStreamArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class StaticWebLayerEbsVolumeArgsDict(TypedDict):
+        mount_point: pulumi.Input[str]
+        """
+        The path to mount the EBS volume on the layer's instances.
+        """
+        number_of_disks: pulumi.Input[int]
+        """
+        The number of disks to use for the EBS volume.
+        """
+        size: pulumi.Input[int]
+        """
+        The size of the volume in gigabytes.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        iops: NotRequired[pulumi.Input[int]]
+        """
+        For PIOPS volumes, the IOPS per disk.
+        """
+        raid_level: NotRequired[pulumi.Input[str]]
+        """
+        The RAID level to use for the volume.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of volume to create. This may be `standard` (the default), `io1` or `gp2`.
+        """
+elif False:
+    StaticWebLayerEbsVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StaticWebLayerEbsVolumeArgs:
     def __init__(__self__, *,
@@ -5892,6 +7075,14 @@ class StaticWebLayerEbsVolumeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class StaticWebLayerLoadBasedAutoScalingArgsDict(TypedDict):
+        downscaling: NotRequired[pulumi.Input['StaticWebLayerLoadBasedAutoScalingDownscalingArgsDict']]
+        enable: NotRequired[pulumi.Input[bool]]
+        upscaling: NotRequired[pulumi.Input['StaticWebLayerLoadBasedAutoScalingUpscalingArgsDict']]
+elif False:
+    StaticWebLayerLoadBasedAutoScalingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StaticWebLayerLoadBasedAutoScalingArgs:
     def __init__(__self__, *,
@@ -5932,6 +7123,18 @@ class StaticWebLayerLoadBasedAutoScalingArgs:
     def upscaling(self, value: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingUpscalingArgs']]):
         pulumi.set(self, "upscaling", value)
 
+
+if not MYPY:
+    class StaticWebLayerLoadBasedAutoScalingDownscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    StaticWebLayerLoadBasedAutoScalingDownscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StaticWebLayerLoadBasedAutoScalingDownscalingArgs:
@@ -6021,6 +7224,18 @@ class StaticWebLayerLoadBasedAutoScalingDownscalingArgs:
     def thresholds_wait_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "thresholds_wait_time", value)
 
+
+if not MYPY:
+    class StaticWebLayerLoadBasedAutoScalingUpscalingArgsDict(TypedDict):
+        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        cpu_threshold: NotRequired[pulumi.Input[float]]
+        ignore_metrics_time: NotRequired[pulumi.Input[int]]
+        instance_count: NotRequired[pulumi.Input[int]]
+        load_threshold: NotRequired[pulumi.Input[float]]
+        memory_threshold: NotRequired[pulumi.Input[float]]
+        thresholds_wait_time: NotRequired[pulumi.Input[int]]
+elif False:
+    StaticWebLayerLoadBasedAutoScalingUpscalingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StaticWebLayerLoadBasedAutoScalingUpscalingArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -298,9 +303,9 @@ class Repository(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
+                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
                  image_tag_mutability: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -317,9 +322,9 @@ class Repository(pulumi.CustomResource):
         foo = aws.ecr.Repository("foo",
             name="bar",
             image_tag_mutability="MUTABLE",
-            image_scanning_configuration=aws.ecr.RepositoryImageScanningConfigurationArgs(
-                scan_on_push=True,
-            ))
+            image_scanning_configuration={
+                "scanOnPush": True,
+            })
         ```
 
         ## Import
@@ -332,10 +337,10 @@ class Repository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
         :param pulumi.Input[bool] force_delete: If `true`, will delete the repository even if it contains images.
                Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+        :param pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -358,9 +363,9 @@ class Repository(pulumi.CustomResource):
         foo = aws.ecr.Repository("foo",
             name="bar",
             image_tag_mutability="MUTABLE",
-            image_scanning_configuration=aws.ecr.RepositoryImageScanningConfigurationArgs(
-                scan_on_push=True,
-            ))
+            image_scanning_configuration={
+                "scanOnPush": True,
+            })
         ```
 
         ## Import
@@ -386,9 +391,9 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
+                 encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
                  image_tag_mutability: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -422,9 +427,9 @@ class Repository(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
+            encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]]] = None,
             force_delete: Optional[pulumi.Input[bool]] = None,
-            image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
+            image_scanning_configuration: Optional[pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']]] = None,
             image_tag_mutability: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             registry_id: Optional[pulumi.Input[str]] = None,
@@ -439,10 +444,10 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Full ARN of the repository.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RepositoryEncryptionConfigurationArgs', 'RepositoryEncryptionConfigurationArgsDict']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
         :param pulumi.Input[bool] force_delete: If `true`, will delete the repository even if it contains images.
                Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
+        :param pulumi.Input[Union['RepositoryImageScanningConfigurationArgs', 'RepositoryImageScanningConfigurationArgsDict']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -310,7 +315,7 @@ class Route(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['RouteSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['RouteSpecArgs', 'RouteSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -329,25 +334,25 @@ class Route(pulumi.CustomResource):
             name="serviceB-route",
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=serviceb1["name"],
-                                weight=90,
-                            ),
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=serviceb2["name"],
-                                weight=10,
-                            ),
+            spec={
+                "httpRoute": {
+                    "match": {
+                        "prefix": "/",
+                    },
+                    "action": {
+                        "weightedTargets": [
+                            {
+                                "virtualNode": serviceb1["name"],
+                                "weight": 90,
+                            },
+                            {
+                                "virtualNode": serviceb2["name"],
+                                "weight": 10,
+                            },
                         ],
-                    ),
-                ),
-            ))
+                    },
+                },
+            })
         ```
 
         ### HTTP Header Routing
@@ -360,27 +365,27 @@ class Route(pulumi.CustomResource):
             name="serviceB-route",
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        method="POST",
-                        prefix="/",
-                        scheme="https",
-                        headers=[aws.appmesh.RouteSpecHttpRouteMatchHeaderArgs(
-                            name="clientRequestId",
-                            match=aws.appmesh.RouteSpecHttpRouteMatchHeaderMatchArgs(
-                                prefix="123",
-                            ),
-                        )],
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=serviceb_aws_appmesh_virtual_node["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
+            spec={
+                "httpRoute": {
+                    "match": {
+                        "method": "POST",
+                        "prefix": "/",
+                        "scheme": "https",
+                        "headers": [{
+                            "name": "clientRequestId",
+                            "match": {
+                                "prefix": "123",
+                            },
+                        }],
+                    },
+                    "action": {
+                        "weightedTargets": [{
+                            "virtualNode": serviceb_aws_appmesh_virtual_node["name"],
+                            "weight": 100,
+                        }],
+                    },
+                },
+            })
         ```
 
         ### Retry Policy
@@ -393,27 +398,27 @@ class Route(pulumi.CustomResource):
             name="serviceB-route",
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    retry_policy=aws.appmesh.RouteSpecHttpRouteRetryPolicyArgs(
-                        http_retry_events=["server-error"],
-                        max_retries=1,
-                        per_retry_timeout=aws.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs(
-                            unit="s",
-                            value=15,
-                        ),
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=serviceb_aws_appmesh_virtual_node["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
+            spec={
+                "httpRoute": {
+                    "match": {
+                        "prefix": "/",
+                    },
+                    "retryPolicy": {
+                        "httpRetryEvents": ["server-error"],
+                        "maxRetries": 1,
+                        "perRetryTimeout": {
+                            "unit": "s",
+                            "value": 15,
+                        },
+                    },
+                    "action": {
+                        "weightedTargets": [{
+                            "virtualNode": serviceb_aws_appmesh_virtual_node["name"],
+                            "weight": 100,
+                        }],
+                    },
+                },
+            })
         ```
 
         ### TCP Routing
@@ -426,16 +431,16 @@ class Route(pulumi.CustomResource):
             name="serviceB-route",
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                tcp_route=aws.appmesh.RouteSpecTcpRouteArgs(
-                    action=aws.appmesh.RouteSpecTcpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecTcpRouteActionWeightedTargetArgs(
-                            virtual_node=serviceb1["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
+            spec={
+                "tcpRoute": {
+                    "action": {
+                        "weightedTargets": [{
+                            "virtualNode": serviceb1["name"],
+                            "weight": 100,
+                        }],
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -451,7 +456,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[pulumi.InputType['RouteSpecArgs']] spec: Route specification to apply.
+        :param pulumi.Input[Union['RouteSpecArgs', 'RouteSpecArgsDict']] spec: Route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] virtual_router_name: Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         """
@@ -476,25 +481,25 @@ class Route(pulumi.CustomResource):
             name="serviceB-route",
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=serviceb1["name"],
-                                weight=90,
-                            ),
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=serviceb2["name"],
-                                weight=10,
-                            ),
+            spec={
+                "httpRoute": {
+                    "match": {
+                        "prefix": "/",
+                    },
+                    "action": {
+                        "weightedTargets": [
+                            {
+                                "virtualNode": serviceb1["name"],
+                                "weight": 90,
+                            },
+                            {
+                                "virtualNode": serviceb2["name"],
+                                "weight": 10,
+                            },
                         ],
-                    ),
-                ),
-            ))
+                    },
+                },
+            })
         ```
 
         ### HTTP Header Routing
@@ -507,27 +512,27 @@ class Route(pulumi.CustomResource):
             name="serviceB-route",
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        method="POST",
-                        prefix="/",
-                        scheme="https",
-                        headers=[aws.appmesh.RouteSpecHttpRouteMatchHeaderArgs(
-                            name="clientRequestId",
-                            match=aws.appmesh.RouteSpecHttpRouteMatchHeaderMatchArgs(
-                                prefix="123",
-                            ),
-                        )],
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=serviceb_aws_appmesh_virtual_node["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
+            spec={
+                "httpRoute": {
+                    "match": {
+                        "method": "POST",
+                        "prefix": "/",
+                        "scheme": "https",
+                        "headers": [{
+                            "name": "clientRequestId",
+                            "match": {
+                                "prefix": "123",
+                            },
+                        }],
+                    },
+                    "action": {
+                        "weightedTargets": [{
+                            "virtualNode": serviceb_aws_appmesh_virtual_node["name"],
+                            "weight": 100,
+                        }],
+                    },
+                },
+            })
         ```
 
         ### Retry Policy
@@ -540,27 +545,27 @@ class Route(pulumi.CustomResource):
             name="serviceB-route",
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    retry_policy=aws.appmesh.RouteSpecHttpRouteRetryPolicyArgs(
-                        http_retry_events=["server-error"],
-                        max_retries=1,
-                        per_retry_timeout=aws.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs(
-                            unit="s",
-                            value=15,
-                        ),
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=serviceb_aws_appmesh_virtual_node["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
+            spec={
+                "httpRoute": {
+                    "match": {
+                        "prefix": "/",
+                    },
+                    "retryPolicy": {
+                        "httpRetryEvents": ["server-error"],
+                        "maxRetries": 1,
+                        "perRetryTimeout": {
+                            "unit": "s",
+                            "value": 15,
+                        },
+                    },
+                    "action": {
+                        "weightedTargets": [{
+                            "virtualNode": serviceb_aws_appmesh_virtual_node["name"],
+                            "weight": 100,
+                        }],
+                    },
+                },
+            })
         ```
 
         ### TCP Routing
@@ -573,16 +578,16 @@ class Route(pulumi.CustomResource):
             name="serviceB-route",
             mesh_name=simple["id"],
             virtual_router_name=serviceb_aws_appmesh_virtual_router["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                tcp_route=aws.appmesh.RouteSpecTcpRouteArgs(
-                    action=aws.appmesh.RouteSpecTcpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecTcpRouteActionWeightedTargetArgs(
-                            virtual_node=serviceb1["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
+            spec={
+                "tcpRoute": {
+                    "action": {
+                        "weightedTargets": [{
+                            "virtualNode": serviceb1["name"],
+                            "weight": 100,
+                        }],
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -611,7 +616,7 @@ class Route(pulumi.CustomResource):
                  mesh_name: Optional[pulumi.Input[str]] = None,
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 spec: Optional[pulumi.Input[pulumi.InputType['RouteSpecArgs']]] = None,
+                 spec: Optional[pulumi.Input[Union['RouteSpecArgs', 'RouteSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -657,7 +662,7 @@ class Route(pulumi.CustomResource):
             mesh_owner: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_owner: Optional[pulumi.Input[str]] = None,
-            spec: Optional[pulumi.Input[pulumi.InputType['RouteSpecArgs']]] = None,
+            spec: Optional[pulumi.Input[Union['RouteSpecArgs', 'RouteSpecArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_router_name: Optional[pulumi.Input[str]] = None) -> 'Route':
@@ -675,7 +680,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[pulumi.InputType['RouteSpecArgs']] spec: Route specification to apply.
+        :param pulumi.Input[Union['RouteSpecArgs', 'RouteSpecArgsDict']] spec: Route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] virtual_router_name: Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.

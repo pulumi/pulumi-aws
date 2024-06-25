@@ -4,17 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ClusterParameterGroupParameterArgs',
+    'ClusterParameterGroupParameterArgsDict',
     'ClusterServerlessV2ScalingConfigurationArgs',
+    'ClusterServerlessV2ScalingConfigurationArgsDict',
     'GlobalClusterGlobalClusterMemberArgs',
+    'GlobalClusterGlobalClusterMemberArgsDict',
     'ParameterGroupParameterArgs',
+    'ParameterGroupParameterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterParameterGroupParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the neptune parameter.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the neptune parameter.
+        """
+        apply_method: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+        """
+elif False:
+    ClusterParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterParameterGroupParameterArgs:
@@ -69,6 +97,13 @@ class ClusterParameterGroupParameterArgs:
         pulumi.set(self, "apply_method", value)
 
 
+if not MYPY:
+    class ClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
+        max_capacity: NotRequired[pulumi.Input[float]]
+        min_capacity: NotRequired[pulumi.Input[float]]
+elif False:
+    ClusterServerlessV2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterServerlessV2ScalingConfigurationArgs:
     def __init__(__self__, *,
@@ -97,6 +132,19 @@ class ClusterServerlessV2ScalingConfigurationArgs:
     def min_capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min_capacity", value)
 
+
+if not MYPY:
+    class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
+        db_cluster_arn: NotRequired[pulumi.Input[str]]
+        """
+        Amazon Resource Name (ARN) of member DB Cluster.
+        """
+        is_writer: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the member is the primary DB Cluster.
+        """
+elif False:
+    GlobalClusterGlobalClusterMemberArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GlobalClusterGlobalClusterMemberArgs:
@@ -136,6 +184,23 @@ class GlobalClusterGlobalClusterMemberArgs:
     def is_writer(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_writer", value)
 
+
+if not MYPY:
+    class ParameterGroupParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Neptune parameter.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the Neptune parameter.
+        """
+        apply_method: NotRequired[pulumi.Input[str]]
+        """
+        The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+        """
+elif False:
+    ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ParameterGroupParameterArgs:

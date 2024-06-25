@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -76,14 +81,14 @@ class AwaitableGetSubnetsResult(GetSubnetsResult):
             tags=self.tags)
 
 
-def get_subnets(filters: Optional[Sequence[pulumi.InputType['GetSubnetsFilterArgs']]] = None,
+def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']]] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetsResult:
     """
     This resource can be useful for getting back a set of subnet IDs.
 
 
-    :param Sequence[pulumi.InputType['GetSubnetsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
            
@@ -104,14 +109,14 @@ def get_subnets(filters: Optional[Sequence[pulumi.InputType['GetSubnetsFilterArg
 
 
 @_utilities.lift_output_func(get_subnets)
-def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSubnetsFilterArgs']]]]] = None,
+def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']]]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetsResult]:
     """
     This resource can be useful for getting back a set of subnet IDs.
 
 
-    :param Sequence[pulumi.InputType['GetSubnetsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetSubnetsFilterArgs', 'GetSubnetsFilterArgsDict']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired subnets.
            

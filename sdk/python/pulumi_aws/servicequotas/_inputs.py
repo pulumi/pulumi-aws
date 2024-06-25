@@ -4,16 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ServiceQuotaUsageMetricArgs',
+    'ServiceQuotaUsageMetricArgsDict',
     'ServiceQuotaUsageMetricMetricDimensionArgs',
+    'ServiceQuotaUsageMetricMetricDimensionArgsDict',
     'GetTemplatesTemplateArgs',
+    'GetTemplatesTemplateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ServiceQuotaUsageMetricArgsDict(TypedDict):
+        metric_dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgsDict']]]]
+        """
+        The metric dimensions.
+        """
+        metric_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the metric.
+        """
+        metric_namespace: NotRequired[pulumi.Input[str]]
+        """
+        The namespace of the metric.
+        """
+        metric_statistic_recommendation: NotRequired[pulumi.Input[str]]
+        """
+        The metric statistic that AWS recommend you use when determining quota usage.
+        """
+elif False:
+    ServiceQuotaUsageMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceQuotaUsageMetricArgs:
@@ -86,6 +117,15 @@ class ServiceQuotaUsageMetricArgs:
         pulumi.set(self, "metric_statistic_recommendation", value)
 
 
+if not MYPY:
+    class ServiceQuotaUsageMetricMetricDimensionArgsDict(TypedDict):
+        class_: NotRequired[pulumi.Input[str]]
+        resource: NotRequired[pulumi.Input[str]]
+        service: NotRequired[pulumi.Input[str]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceQuotaUsageMetricMetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceQuotaUsageMetricMetricDimensionArgs:
     def __init__(__self__, *,
@@ -138,6 +178,43 @@ class ServiceQuotaUsageMetricMetricDimensionArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class GetTemplatesTemplateArgsDict(TypedDict):
+        global_quota: bool
+        """
+        Indicates whether the quota is global.
+        """
+        quota_code: str
+        """
+        Quota identifier.
+        """
+        quota_name: str
+        """
+        Quota name.
+        """
+        region: str
+        """
+        AWS Region to which the quota increases apply.
+        """
+        service_code: str
+        """
+        (Required) Service identifier.
+        """
+        service_name: str
+        """
+        Service name.
+        """
+        unit: str
+        """
+        Unit of measurement.
+        """
+        value: float
+        """
+        (Required) The new, increased value for the quota.
+        """
+elif False:
+    GetTemplatesTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetTemplatesTemplateArgs:

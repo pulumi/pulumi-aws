@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -421,7 +426,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             hierarchy_group_id: Optional[pulumi.Input[str]] = None,
-            hierarchy_paths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHierarchyGroupHierarchyPathArgs']]]]] = None,
+            hierarchy_paths: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserHierarchyGroupHierarchyPathArgs', 'UserHierarchyGroupHierarchyPathArgsDict']]]]] = None,
             instance_id: Optional[pulumi.Input[str]] = None,
             level_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -437,7 +442,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
         :param pulumi.Input[str] hierarchy_group_id: The identifier for the hierarchy group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHierarchyGroupHierarchyPathArgs']]]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserHierarchyGroupHierarchyPathArgs', 'UserHierarchyGroupHierarchyPathArgsDict']]]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] level_id: The identifier of the level in the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
