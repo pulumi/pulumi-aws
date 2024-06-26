@@ -138,7 +138,7 @@ apply() {
   # apply the patch using a 3-way merge strategy. This mirrors the default behavior of 'git merge'
   cd upstream
   for patch in ../patches/*.patch; do
-    if ! git apply --3way "$patch"; then
+    if ! git apply --3way "$patch" --allow-empty; then
       cat <<EOF
 
 make "$1"' failed to apply ${patch}. This is because there is a conflict between
