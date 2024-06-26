@@ -819,7 +819,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			case "aws_ssm_document",
 				"aws_wafv2_web_acl",
 				"aws_wafv2_rule_group",
-				"aws_batch_job_definition":
+				"aws_batch_job_definition",
+				"aws_lb_listener",
+				"aws_alb_listener":
 				return true
 			default:
 				return false

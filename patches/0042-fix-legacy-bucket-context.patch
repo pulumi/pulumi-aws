@@ -1,0 +1,28 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Venelin <venelin@pulumi.com>
+Date: Wed, 28 Feb 2024 16:06:02 +0000
+Subject: [PATCH] fix legacy bucket context
+
+
+diff --git a/internal/service/s3legacy/bucket_legacy.go b/internal/service/s3legacy/bucket_legacy.go
+index 5f64a814be..d5c03b22fb 100644
+--- a/internal/service/s3legacy/bucket_legacy.go
++++ b/internal/service/s3legacy/bucket_legacy.go
+@@ -904,7 +904,7 @@ func resourceBucketLegacyRead(ctx context.Context, d *schema.ResourceData, meta
+ 		d.Set("bucket", d.Id())
+ 	}
+ 
+-	d.Set("bucket_domain_name", meta.(*conns.AWSClient).PartitionHostname(fmt.Sprintf("%s.s3", d.Get("bucket").(string))))
++	d.Set("bucket_domain_name", meta.(*conns.AWSClient).PartitionHostname(ctx, fmt.Sprintf("%s.s3", d.Get("bucket").(string))))
+ 
+ 	// Read the policy
+ 	if _, ok := d.GetOk("policy"); ok {
+@@ -1803,7 +1803,7 @@ func websiteLegacyDomainUrl(client *conns.AWSClient, region string) string {
+ 	if isOldRegionLegacy(region) {
+ 		return fmt.Sprintf("s3-website-%s.amazonaws.com", region) //lintignore:AWSR001
+ 	}
+-	return client.RegionalHostname("s3-website")
++	return client.RegionalHostname(context.TODO(), "s3-website")
+ }
+ 
+ func isOldRegionLegacy(region string) bool {

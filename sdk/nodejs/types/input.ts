@@ -1531,11 +1531,17 @@ export namespace alb {
          */
         fixedResponse?: pulumi.Input<inputs.alb.ListenerDefaultActionFixedResponse>;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
+         * Detailed below.
          */
         forward?: pulumi.Input<inputs.alb.ListenerDefaultActionForward>;
         /**
-         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
          */
         order?: pulumi.Input<number>;
         /**
@@ -1543,7 +1549,10 @@ export namespace alb {
          */
         redirect?: pulumi.Input<inputs.alb.ListenerDefaultActionRedirect>;
         /**
-         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
@@ -1754,16 +1763,27 @@ export namespace alb {
          */
         fixedResponse?: pulumi.Input<inputs.alb.ListenerRuleActionFixedResponse>;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
          */
         forward?: pulumi.Input<inputs.alb.ListenerRuleActionForward>;
+        /**
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
+         */
         order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: pulumi.Input<inputs.alb.ListenerRuleActionRedirect>;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
@@ -36583,11 +36603,17 @@ export namespace lb {
          */
         fixedResponse?: pulumi.Input<inputs.lb.ListenerDefaultActionFixedResponse>;
         /**
-         * Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`. Detailed below.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
+         * Detailed below.
          */
         forward?: pulumi.Input<inputs.lb.ListenerDefaultActionForward>;
         /**
-         * Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
          */
         order?: pulumi.Input<number>;
         /**
@@ -36595,7 +36621,10 @@ export namespace lb {
          */
         redirect?: pulumi.Input<inputs.lb.ListenerDefaultActionRedirect>;
         /**
-         * ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
@@ -36806,16 +36835,27 @@ export namespace lb {
          */
         fixedResponse?: pulumi.Input<inputs.lb.ListenerRuleActionFixedResponse>;
         /**
-         * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `targetGroupArn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `targetGroupArn`.
+         * Configuration block for creating an action that distributes requests among one or more target groups.
+         * Specify only if `type` is `forward`.
+         * Cannot be specified with `targetGroupArn`.
          */
         forward?: pulumi.Input<inputs.lb.ListenerRuleActionForward>;
+        /**
+         * Order for the action.
+         * The action with the lowest value for order is performed first.
+         * Valid values are between `1` and `50000`.
+         * Defaults to the position in the list of actions.
+         */
         order?: pulumi.Input<number>;
         /**
          * Information for creating a redirect action. Required if `type` is `redirect`.
          */
         redirect?: pulumi.Input<inputs.lb.ListenerRuleActionRedirect>;
         /**
-         * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
+         * ARN of the Target Group to which to route traffic.
+         * Specify only if `type` is `forward` and you want to route to a single target group.
+         * To route to one or more target groups, use a `forward` block instead.
+         * Cannot be specified with `forward`.
          */
         targetGroupArn?: pulumi.Input<string>;
         /**
