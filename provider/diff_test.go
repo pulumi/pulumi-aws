@@ -15,7 +15,11 @@
 package provider
 
 import (
+	"encoding/json"
+	"fmt"
 	"testing"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // Check that having manifest...retentionDays as "3650" in the state but 3650 (numeric value) in the program does not
@@ -59,4 +63,153 @@ func TestRegressLandingZoneDiff(t *testing.T) {
 	  }
 	}]`
 	replaySequence(t, event)
+}
+
+func TestRegress1738(t *testing.T) {
+	containerDefinitionsOld := `
+	[
+	  {
+	    "cpu": 512,
+	    "environment": [],
+	    "essential": true,
+	    "healthCheck": {
+	      "command": [
+		"CMD-SHELL",
+		"curl -f http://localhost:8080/health || exit 1"
+	      ],
+	      "interval": 5,
+	      "retries": 10,
+	      "timeout": 5
+	    },
+	    "image": "nginx",
+	    "logConfiguration": {
+	      "logDriver": "awslogs",
+	      "options": {
+		"awslogs-group": "foo-bar-e196c99",
+		"awslogs-region": "us-east-1",
+		"awslogs-stream-prefix": "nginx"
+	      }
+	    },
+	    "memory": 2048,
+	    "mountPoints": [],
+	    "name": "nginx",
+	    "portMappings": [],
+	    "startTimeout": 10,
+	    "systemControls": [],
+	    "volumesFrom": []
+	  }
+	]`
+
+	containerDefinitionsNew := `
+	[
+	  {
+	    "cpu": 512,
+	    "environment": [],
+	    "healthCheck": {
+	      "command": [
+		"CMD-SHELL",
+		"curl -f http://localhost:8080/health || exit 1"
+	      ],
+	      "interval": 5,
+	      "retries": 10
+	    },
+	    "image": "nginx",
+	    "memory": 2048,
+	    "name": "nginx",
+	    "startTimeout": 10,
+	    "logConfiguration": {
+	      "logDriver": "awslogs",
+	      "options": {
+		"awslogs-group": "foo-bar-e196c99",
+		"awslogs-region": "us-east-1",
+		"awslogs-stream-prefix": "nginx"
+	      }
+	    }
+	  }
+	]`
+
+	j := func(x any) string {
+		bytes, err := json.Marshal(x)
+		contract.AssertNoErrorf(err, "json.Marshal failure")
+		return string(bytes)
+	}
+
+	replaySequence(t, fmt.Sprintf(`
+	[{
+	  "method": "/pulumirpc.ResourceProvider/Diff",
+	  "request": {
+	    "id": "foo-bar-c7f12716",
+	    "urn": "urn:pulumi:dev::repro::awsx:ecs:FargateService$awsx:ecs:FargateTaskDefinition$aws:ecs/taskDefinition:TaskDefinition::foo-bar",
+	    "olds": {
+	      "__meta": "{\"schema_version\":\"1\"}",
+	      "arn": "arn:aws:ecs:us-east-1:616138583583:task-definition/foo-bar-c7f12716:1",
+	      "arnWithoutRevision": "arn:aws:ecs:us-east-1:616138583583:task-definition/foo-bar-c7f12716",
+	      "containerDefinitions": %s,
+	      "cpu": "512",
+	      "ephemeralStorage": null,
+	      "executionRoleArn": "arn:aws:iam::616138583583:role/foo-bar-execution-694a131",
+	      "family": "foo-bar-c7f12716",
+	      "id": "foo-bar-c7f12716",
+	      "inferenceAccelerators": [],
+	      "ipcMode": "",
+	      "memory": "2048",
+	      "networkMode": "awsvpc",
+	      "pidMode": "",
+	      "placementConstraints": [],
+	      "proxyConfiguration": null,
+	      "requiresCompatibilities": [
+		"FARGATE"
+	      ],
+	      "revision": 1,
+	      "runtimePlatform": null,
+	      "skipDestroy": false,
+	      "tags": {},
+	      "tagsAll": {},
+	      "taskRoleArn": "arn:aws:iam::616138583583:role/foo-bar-task-77ab295",
+	      "trackLatest": false,
+	      "volumes": []
+	    },
+	    "news": {
+	      "__defaults": [
+		"skipDestroy",
+		"trackLatest"
+	      ],
+	      "containerDefinitions": %s,
+	      "cpu": "512",
+	      "executionRoleArn": "arn:aws:iam::616138583583:role/foo-bar-execution-694a131",
+	      "family": "foo-bar-c7f12716",
+	      "memory": "2048",
+	      "networkMode": "awsvpc",
+	      "requiresCompatibilities": [
+		"FARGATE"
+	      ],
+	      "skipDestroy": false,
+	      "taskRoleArn": "arn:aws:iam::616138583583:role/foo-bar-task-77ab295",
+	      "trackLatest": false
+	    },
+	    "oldInputs": {
+	      "__defaults": [
+		"skipDestroy",
+		"trackLatest"
+	      ],
+	      "containerDefinitions": %s,
+	      "cpu": "512",
+	      "executionRoleArn": "arn:aws:iam::616138583583:role/foo-bar-execution-694a131",
+	      "family": "foo-bar-c7f12716",
+	      "memory": "2048",
+	      "networkMode": "awsvpc",
+	      "requiresCompatibilities": [
+		"FARGATE"
+	      ],
+	      "skipDestroy": false,
+	      "taskRoleArn": "arn:aws:iam::616138583583:role/foo-bar-task-77ab295",
+	      "trackLatest": false
+	    }
+	  },
+	  "response": {
+	    "changes": "DIFF_NONE",
+            "stables": "*",
+	    "hasDetailedDiff": true
+	  }
+	}]`, j(containerDefinitionsOld), j(containerDefinitionsNew), j(containerDefinitionsNew)))
 }
