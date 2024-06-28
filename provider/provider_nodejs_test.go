@@ -225,6 +225,23 @@ func TestParallelLambdaCreation(t *testing.T) {
 	})
 }
 
+func TestRegress4128(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
+		return
+	}
+
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:         filepath.Join("test-programs", "regress-4128"),
+			SkipRefresh: true,
+		},
+		)
+	// Disable envRegion mangling
+	test.Config = nil
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	baseJS := integration.ProgramTestOptions{
