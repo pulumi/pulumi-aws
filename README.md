@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://www.pulumi.com?utm_campaign=pulumi-pulumi-aws-github-repo&utm_source=github.com&utm_medium=top-logo" title="Pulumi AWS Provider - Build and Deploy Infrastructure as Code Solutions on Any Cloud">
+    <img src="https://www.pulumi.com/images/logo/logo-on-white-box.svg?" width="350">
+  </a>
+</p>
+
 [![Actions Status](https://github.com/pulumi/pulumi-aws/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-aws/actions)
 [![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Faws.svg)](https://www.npmjs.com/package/@pulumi/aws)
@@ -12,7 +18,7 @@ The Amazon Web Services (AWS) resource provider for Pulumi lets you use AWS reso
 this package, [install the Pulumi CLI](https://www.pulumi.com/docs/get-started/install/). For a streamlined Pulumi walkthrough, including language runtime installation and AWS configuration, select "Get Started" below.
 
 <div>
-    <a href="https://www.pulumi.com/docs/get-started/aws" title="Get Started">
+    <a href="https://www.pulumi.com/docs/get-started/aws/?utm_campaign=pulumi-pulumi-aws-github-repo&utm_source=github.com&utm_medium=get-started" title="Get Started">
        <img src="https://www.pulumi.com/images/get-started.svg?" width="120">
     </a>
 </div>
@@ -109,5 +115,19 @@ The following configuration points are available:
 
 ## Reference
 
-For further information, visit [AWS in the Pulumi Registry](https://www.pulumi.com/registry/packages/aws/)
-or for detailed API reference documentation, visit [AWS API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/aws/api-docs/).
+For further information, visit [AWS in the Pulumi Registry](https://www.pulumi.com/registry/packages/aws/?utm_campaign=pulumi-pulumi-aws-github-repo&utm_source=github.com&utm_medium=reference)
+or for detailed API reference documentation, visit [AWS API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/aws/api-docs/?utm_campaign=pulumi-pulumi-aws-github-repo&utm_source=github.com&utm_medium=reference).
+
+## Pulumi developer resources
+
+Delve deeper into our project with additional resources:
+
+- [Get Started with Pulumi](https://www.pulumi.com/docs/get-started/?utm_campaign=pulumi-pulumi-aws-github-repo&utm_source=github.com&utm_medium=examples-resources): Deploy a simple application in AWS, Azure, Google Cloud, or Kubernetes using Pulumi.
+- [Documentation](https://www.pulumi.com/docs/?utm_campaign=pulumi-pulumi-aws-github-repo&utm_source=github.com&utm_medium=examples-resources): Learn about Pulumi concepts, follow user guides, and consult the reference documentation.
+- [Pulumi Blog](https://www.pulumi.com/blog/?utm_campaign=pulumi-pulumi-aws-github-repo&utm_source=github.com&utm_medium=examples-resources) - Stay in the loop with our latest tech announcements, insightful articles, and updates.
+- [Registry](https://www.pulumi.com/registry/?utm_campaign=pulumi-pulumi-aws-github-repo&utm_source=github.com&utm_medium=examples-resources): Search for packages and learn about the supported resources you need. Install the package directly into your project, browse the API documentation, and start building.
+- [Try Pulumi AI](https://www.pulumi.com/ai/?utm_campaign=pulumi-pulumi-aws-github-repo&utm_source=github.com&utm_medium=examples-resources) - Use natural-language prompts to generate Pulumi infrastructure-as-code programs in any language.
+
+## Pulumi roadmap
+
+Review the planned work for the upcoming quarter and a selected backlog of issues that are on our mind but not yet scheduled on the [Pulumi Roadmap.](https://github.com/orgs/pulumi/projects/44)
