@@ -83,27 +83,3 @@ jobs:
         pr-reviewers: ${{ github.event.client_payload.pr-reviewers }}
         pr-description: ${{ github.event.client_payload.pr-description }}
         pr-title-prefix: ${{ github.event.client_payload.pr-title-prefix }}
-    - env:
-        SLACK_CHANNEL: provider-upgrade-publish-status
-        SLACK_COLOR: "#7CFC00"
-        SLACK_ICON_EMOJI: ":taco:"
-        SLACK_MESSAGE: >-
-          Upgrade succeeded :heart_decoration:
-
-          PR opened at github.com/pulumi/${{ github.event.repository.name }}/pulls
-        SLACK_TITLE: ${{ github.event.repository.name }} upgrade result
-        SLACK_USERNAME: provider-bot
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-      name: Send Upgrade Success To Slack
-      uses: rtCamp/action-slack-notify@v2
-    - env:
-        SLACK_CHANNEL: provider-upgrade-publish-status
-        SLACK_COLOR: "#FF0000"
-        SLACK_ICON_EMOJI: ":taco:"
-        SLACK_MESSAGE: " Upgrade failed :x:"
-        SLACK_TITLE: ${{ github.event.repository.name }} upgrade result
-        SLACK_USERNAME: provider-bot
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-      if: failure()
-      name: Send Upgrade Failure To Slack
-      uses: rtCamp/action-slack-notify@v2

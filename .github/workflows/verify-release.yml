@@ -42,7 +42,6 @@ env:
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
 
 jobs:
@@ -66,3 +65,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup tools
         uses: ./.github/actions/setup-tools
+        with:
+          tools: pulumicli, go, node, dotnet, python, java
