@@ -821,7 +821,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				"aws_wafv2_rule_group",
 				"aws_batch_job_definition",
 				"aws_lb_listener",
-				"aws_alb_listener":
+				"aws_lb_listener_rule",
+				"aws_alb_listener",
+				"aws_alb_listener_rule":
 				return true
 			default:
 				return false
