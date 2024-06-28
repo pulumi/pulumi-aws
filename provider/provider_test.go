@@ -283,6 +283,8 @@ func cleanPlan(t *testing.T, plan map[string]interface{}) map[string]interface{}
 	if val, exists := plan["manifest"]; exists {
 		manifest := val.(map[string]interface{})
 		delete(manifest, "time")
+		delete(manifest, "version")
+		delete(manifest, "magic")
 	}
 
 	return plan
