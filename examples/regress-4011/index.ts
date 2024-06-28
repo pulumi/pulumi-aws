@@ -15,8 +15,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
+const cfg = new pulumi.Config();
+const parameterName = cfg.require("parameterName");
+
 const param = new aws.ssm.Parameter('regress-4011-test-secret', {
-  name: 'regress-4011-test-secret',
+  name: parameterName,
   type: 'SecureString',
   value: "test",
 });
