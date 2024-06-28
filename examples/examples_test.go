@@ -5,6 +5,7 @@ package examples
 import (
 	"context"
 	"io/ioutil"
+	"math/rand"
 	"net/http"
 	"os"
 	"testing"
@@ -90,6 +91,16 @@ func replay(t *testing.T, sequence string) {
 	)(nil)
 	require.NoError(t, err)
 	testutils.ReplaySequence(t, p, sequence)
+}
+
+var letterRunes = []rune("1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
+func randomString(length int) string {
+	b := make([]rune, length)
+	for i := range b {
+		b[i] = letterRunes[rand.Intn(len(letterRunes))]
+	}
+	return string(b)
 }
 
 // This replicates the diff when running `pulumi preview` on a aws.rds.Instance with
