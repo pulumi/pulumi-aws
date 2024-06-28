@@ -677,6 +677,8 @@ func TestRegress4011(t *testing.T) {
 		})
 
 	// Disable envRegion mangling
-	test.Config = nil
+	test.Config = map[string]string{
+		"parameterName": "regress-4011-" + randomString(10),
+	}
 	integration.ProgramTest(t, &test)
 }
