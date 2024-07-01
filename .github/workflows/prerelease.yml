@@ -152,10 +152,6 @@ jobs:
               go get github.com/hashicorp/aws-sdk-go-base@v1.1.0
               cd shim
               go test -v -coverprofile="coverage.txt" .
-          - name: upstream lint
-            run: |
-              cd upstream
-              make provider-lint
           - env:
               CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
             name: Upload coverage reports to Codecov
@@ -350,10 +346,6 @@ jobs:
             run: |
               cd upstream
               make provider-lint
-          - env:
-              CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-            name: Upload coverage reports to Codecov
-            uses: codecov/codecov-action@v4
       timeout-minutes: 60
 
 
