@@ -211,6 +211,9 @@ namespace Pulumi.Aws.Route53
         /// The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
         /// </summary>
         public readonly string LinkedServicePrincipal;
+        /// <summary>
+        /// The Hosted Zone name.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// List of DNS name servers for the Hosted Zone.
@@ -220,13 +223,22 @@ namespace Pulumi.Aws.Route53
         /// The Route 53 name server that created the SOA record.
         /// </summary>
         public readonly string PrimaryNameServer;
+        /// <summary>
+        /// Indicates whether this is a private hosted zone.
+        /// </summary>
         public readonly bool? PrivateZone;
         /// <summary>
         /// The number of Record Set in the Hosted Zone.
         /// </summary>
         public readonly int ResourceRecordSetCount;
+        /// <summary>
+        /// A map of tags assigned to the Hosted Zone.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcId;
+        /// <summary>
+        /// The Hosted Zone identifier.
+        /// </summary>
         public readonly string ZoneId;
 
         [OutputConstructor]

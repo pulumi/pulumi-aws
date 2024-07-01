@@ -106,7 +106,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+        /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         /// </summary>
         [Output("provisioningArtifactParameters")]
         public Output<Outputs.ProductProvisioningArtifactParameters> ProvisioningArtifactParameters { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string> Owner { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+        /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         /// </summary>
         [Input("provisioningArtifactParameters", required: true)]
         public Input<Inputs.ProductProvisioningArtifactParametersArgs> ProvisioningArtifactParameters { get; set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<string>? Owner { get; set; }
 
         /// <summary>
-        /// Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+        /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         /// </summary>
         [Input("provisioningArtifactParameters")]
         public Input<Inputs.ProductProvisioningArtifactParametersGetArgs>? ProvisioningArtifactParameters { get; set; }

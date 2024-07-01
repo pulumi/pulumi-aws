@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ServiceDiscovery.Outputs
     public sealed class ServiceDnsConfig
     {
         /// <summary>
-        /// An array that contains one DnsRecord object for each resource record set.
+        /// An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceDnsConfigDnsRecord> DnsRecords;
         /// <summary>

@@ -1206,6 +1206,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Networkmonitor { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Oam { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

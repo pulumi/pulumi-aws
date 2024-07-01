@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsCodeEditorAppSettings
     {
         /// <summary>
+        /// A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> CustomImages;
+        /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec? DefaultResourceSpec;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
         [OutputConstructor]
         private DomainDefaultUserSettingsCodeEditorAppSettings(
+            ImmutableArray<Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages,
+
             Outputs.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec? defaultResourceSpec,
 
             ImmutableArray<string> lifecycleConfigArns)
         {
+            CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;
             LifecycleConfigArns = lifecycleConfigArns;
         }

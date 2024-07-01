@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Drs
 {
     /// <summary>
-    /// Provides an Elastic Disaster Recovery replication configuration template resource.
+    /// Provides an Elastic Disaster Recovery replication configuration template resource. Before using DRS, your account must be [initialized](https://docs.aws.amazon.com/drs/latest/userguide/getting-started-initializing.html).
     /// 
-    /// &gt; **NOTE:** This resource is provided on a best-effort basis and may not function as intended. Due to challenges with DRS permissions, it has not been fully tested. We are collaborating with AWS to enhance its functionality and welcome your feedback.
+    /// &gt; **NOTE:** Your configuration must use the PIT policy shown in the basic configuration due to AWS rules. The only value that you can change is the `retention_duration` of `rule_id` 3.
     /// 
     /// ## Example Usage
     /// 
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Drs
         /// Whether to allow the AWS replication agent to automatically replicate newly added disks.
         /// </summary>
         [Output("autoReplicateNewDisks")]
-        public Output<bool?> AutoReplicateNewDisks { get; private set; } = null!;
+        public Output<bool> AutoReplicateNewDisks { get; private set; } = null!;
 
         /// <summary>
         /// Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.

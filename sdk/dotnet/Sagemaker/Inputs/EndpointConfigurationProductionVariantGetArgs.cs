@@ -37,6 +37,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<bool>? EnableSsmAccess { get; set; }
 
         /// <summary>
+        /// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        /// </summary>
+        [Input("inferenceAmiVersion")]
+        public Input<string>? InferenceAmiVersion { get; set; }
+
+        /// <summary>
         /// Initial number of instances used for auto-scaling.
         /// </summary>
         [Input("initialInstanceCount")]

@@ -12,6 +12,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class WorkforceOidcConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("authenticationRequestExtraParams")]
+        private InputMap<string>? _authenticationRequestExtraParams;
+
+        /// <summary>
+        /// A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+        /// </summary>
+        public InputMap<string> AuthenticationRequestExtraParams
+        {
+            get => _authenticationRequestExtraParams ?? (_authenticationRequestExtraParams = new InputMap<string>());
+            set => _authenticationRequestExtraParams = value;
+        }
+
         /// <summary>
         /// The OIDC IdP authorization endpoint used to configure your private workforce.
         /// </summary>
@@ -57,6 +69,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// </summary>
         [Input("logoutEndpoint", required: true)]
         public Input<string> LogoutEndpoint { get; set; } = null!;
+
+        /// <summary>
+        /// An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
 
         /// <summary>
         /// The OIDC IdP token endpoint used to configure your private workforce.
