@@ -130,7 +130,7 @@ export class QueryLog extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(QueryLog.__pulumiType, name, resourceInputs, opts);
+        super(QueryLog.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

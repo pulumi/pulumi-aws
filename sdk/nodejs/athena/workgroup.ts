@@ -136,7 +136,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Workgroup.__pulumiType, name, resourceInputs, opts);
+        super(Workgroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

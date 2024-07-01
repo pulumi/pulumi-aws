@@ -131,7 +131,7 @@ export class Upload extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Upload.__pulumiType, name, resourceInputs, opts);
+        super(Upload.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

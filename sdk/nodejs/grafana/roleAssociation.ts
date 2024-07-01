@@ -123,7 +123,7 @@ export class RoleAssociation extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RoleAssociation.__pulumiType, name, resourceInputs, opts);
+        super(RoleAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

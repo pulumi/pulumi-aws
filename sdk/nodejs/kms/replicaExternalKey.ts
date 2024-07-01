@@ -184,7 +184,7 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["keyMaterialBase64"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ReplicaExternalKey.__pulumiType, name, resourceInputs, opts);
+        super(ReplicaExternalKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -246,7 +246,7 @@ export class OntapVolume extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OntapVolume.__pulumiType, name, resourceInputs, opts);
+        super(OntapVolume.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

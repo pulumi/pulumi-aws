@@ -131,7 +131,7 @@ export class MultiplexProgram extends pulumi.CustomResource {
             resourceInputs["programName"] = args ? args.programName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MultiplexProgram.__pulumiType, name, resourceInputs, opts);
+        super(MultiplexProgram.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

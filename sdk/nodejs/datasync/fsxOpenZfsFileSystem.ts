@@ -148,7 +148,7 @@ export class FsxOpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FsxOpenZfsFileSystem.__pulumiType, name, resourceInputs, opts);
+        super(FsxOpenZfsFileSystem.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

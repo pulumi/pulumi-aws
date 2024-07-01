@@ -125,7 +125,7 @@ export class EmailIdentityPolicy extends pulumi.CustomResource {
             resourceInputs["policyName"] = args ? args.policyName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EmailIdentityPolicy.__pulumiType, name, resourceInputs, opts);
+        super(EmailIdentityPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

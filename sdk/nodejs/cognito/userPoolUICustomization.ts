@@ -163,7 +163,7 @@ export class UserPoolUICustomization extends pulumi.CustomResource {
             resourceInputs["lastModifiedDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserPoolUICustomization.__pulumiType, name, resourceInputs, opts);
+        super(UserPoolUICustomization.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

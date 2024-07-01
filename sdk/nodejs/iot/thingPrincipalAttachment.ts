@@ -93,7 +93,7 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
             resourceInputs["thing"] = args ? args.thing : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ThingPrincipalAttachment.__pulumiType, name, resourceInputs, opts);
+        super(ThingPrincipalAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

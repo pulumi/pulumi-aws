@@ -111,7 +111,7 @@ export class BaiduChannel extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey", "secretKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(BaiduChannel.__pulumiType, name, resourceInputs, opts);
+        super(BaiduChannel.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

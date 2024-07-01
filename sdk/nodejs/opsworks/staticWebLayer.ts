@@ -208,7 +208,7 @@ export class StaticWebLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StaticWebLayer.__pulumiType, name, resourceInputs, opts);
+        super(StaticWebLayer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -139,7 +139,7 @@ export class KxDatabase extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KxDatabase.__pulumiType, name, resourceInputs, opts);
+        super(KxDatabase.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

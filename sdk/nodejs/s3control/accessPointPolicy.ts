@@ -120,7 +120,7 @@ export class AccessPointPolicy extends pulumi.CustomResource {
             resourceInputs["hasPublicAccessPolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccessPointPolicy.__pulumiType, name, resourceInputs, opts);
+        super(AccessPointPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

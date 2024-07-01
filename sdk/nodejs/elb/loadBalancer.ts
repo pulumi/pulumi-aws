@@ -281,7 +281,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancer:LoadBalancer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
+        super(LoadBalancer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

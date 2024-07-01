@@ -87,7 +87,7 @@ export class PatchGroup extends pulumi.CustomResource {
             resourceInputs["patchGroup"] = args ? args.patchGroup : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PatchGroup.__pulumiType, name, resourceInputs, opts);
+        super(PatchGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

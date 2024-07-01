@@ -177,7 +177,7 @@ export class PrimaryContact extends pulumi.CustomResource {
             resourceInputs["websiteUrl"] = args ? args.websiteUrl : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PrimaryContact.__pulumiType, name, resourceInputs, opts);
+        super(PrimaryContact.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

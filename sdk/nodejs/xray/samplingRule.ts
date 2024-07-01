@@ -207,7 +207,7 @@ export class SamplingRule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SamplingRule.__pulumiType, name, resourceInputs, opts);
+        super(SamplingRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

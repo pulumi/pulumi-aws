@@ -104,7 +104,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
             resourceInputs["target"] = args ? args.target : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PolicyAttachment.__pulumiType, name, resourceInputs, opts);
+        super(PolicyAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

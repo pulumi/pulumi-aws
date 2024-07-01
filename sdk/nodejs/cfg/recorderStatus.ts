@@ -134,7 +134,7 @@ export class RecorderStatus extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RecorderStatus.__pulumiType, name, resourceInputs, opts);
+        super(RecorderStatus.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -91,7 +91,7 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApprovalRuleTemplateAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ApprovalRuleTemplateAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

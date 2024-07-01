@@ -139,7 +139,7 @@ export class BotAlias extends pulumi.CustomResource {
             resourceInputs["lastUpdatedDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BotAlias.__pulumiType, name, resourceInputs, opts);
+        super(BotAlias.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -114,7 +114,7 @@ export class SecretPolicy extends pulumi.CustomResource {
             resourceInputs["secretArn"] = args ? args.secretArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SecretPolicy.__pulumiType, name, resourceInputs, opts);
+        super(SecretPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

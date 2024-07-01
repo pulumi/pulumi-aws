@@ -78,7 +78,7 @@ export class SerialConsoleAccess extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SerialConsoleAccess.__pulumiType, name, resourceInputs, opts);
+        super(SerialConsoleAccess.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -149,7 +149,7 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["bundleId", "certificate", "privateKey", "teamId", "tokenKey", "tokenKeyId"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ApnsVoipChannel.__pulumiType, name, resourceInputs, opts);
+        super(ApnsVoipChannel.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -94,7 +94,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["ownerAccountId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Gateway.__pulumiType, name, resourceInputs, opts);
+        super(Gateway.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -112,7 +112,7 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
             resourceInputs["prefixListId"] = args ? args.prefixListId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedPrefixListEntry.__pulumiType, name, resourceInputs, opts);
+        super(ManagedPrefixListEntry.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

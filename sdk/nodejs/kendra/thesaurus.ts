@@ -146,7 +146,7 @@ export class Thesaurus extends pulumi.CustomResource {
             resourceInputs["thesaurusId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Thesaurus.__pulumiType, name, resourceInputs, opts);
+        super(Thesaurus.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

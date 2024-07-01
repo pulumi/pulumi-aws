@@ -137,7 +137,7 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
             resourceInputs["regionalParameters"] = args ? args.regionalParameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EnvironmentBlueprintConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(EnvironmentBlueprintConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

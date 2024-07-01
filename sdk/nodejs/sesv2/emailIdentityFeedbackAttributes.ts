@@ -91,7 +91,7 @@ export class EmailIdentityFeedbackAttributes extends pulumi.CustomResource {
             resourceInputs["emailIdentity"] = args ? args.emailIdentity : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EmailIdentityFeedbackAttributes.__pulumiType, name, resourceInputs, opts);
+        super(EmailIdentityFeedbackAttributes.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

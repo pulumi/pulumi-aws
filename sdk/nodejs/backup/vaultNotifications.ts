@@ -128,7 +128,7 @@ export class VaultNotifications extends pulumi.CustomResource {
             resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VaultNotifications.__pulumiType, name, resourceInputs, opts);
+        super(VaultNotifications.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

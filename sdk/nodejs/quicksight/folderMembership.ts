@@ -111,7 +111,7 @@ export class FolderMembership extends pulumi.CustomResource {
             resourceInputs["memberType"] = args ? args.memberType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FolderMembership.__pulumiType, name, resourceInputs, opts);
+        super(FolderMembership.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

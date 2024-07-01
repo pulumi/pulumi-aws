@@ -76,7 +76,7 @@ export class AdminAccount extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AdminAccount.__pulumiType, name, resourceInputs, opts);
+        super(AdminAccount.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

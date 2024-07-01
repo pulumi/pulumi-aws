@@ -139,7 +139,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcIngressConnection.__pulumiType, name, resourceInputs, opts);
+        super(VpcIngressConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

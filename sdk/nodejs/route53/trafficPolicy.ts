@@ -120,7 +120,7 @@ export class TrafficPolicy extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrafficPolicy.__pulumiType, name, resourceInputs, opts);
+        super(TrafficPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

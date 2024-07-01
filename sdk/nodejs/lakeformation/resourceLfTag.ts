@@ -116,7 +116,7 @@ export class ResourceLfTag extends pulumi.CustomResource {
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceLfTag.__pulumiType, name, resourceInputs, opts);
+        super(ResourceLfTag.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

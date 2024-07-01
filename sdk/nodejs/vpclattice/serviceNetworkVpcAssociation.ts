@@ -133,7 +133,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServiceNetworkVpcAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ServiceNetworkVpcAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

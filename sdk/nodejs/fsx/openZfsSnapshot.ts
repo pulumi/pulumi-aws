@@ -142,7 +142,7 @@ export class OpenZfsSnapshot extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OpenZfsSnapshot.__pulumiType, name, resourceInputs, opts);
+        super(OpenZfsSnapshot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

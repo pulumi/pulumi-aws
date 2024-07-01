@@ -195,7 +195,7 @@ export class Stack extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Stack.__pulumiType, name, resourceInputs, opts);
+        super(Stack.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

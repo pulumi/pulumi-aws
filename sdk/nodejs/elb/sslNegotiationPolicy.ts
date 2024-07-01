@@ -155,7 +155,7 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SslNegotiationPolicy.__pulumiType, name, resourceInputs, opts);
+        super(SslNegotiationPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

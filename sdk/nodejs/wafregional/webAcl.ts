@@ -208,7 +208,7 @@ export class WebAcl extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WebAcl.__pulumiType, name, resourceInputs, opts);
+        super(WebAcl.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

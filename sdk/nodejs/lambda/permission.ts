@@ -318,7 +318,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Permission.__pulumiType, name, resourceInputs, opts);
+        super(Permission.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

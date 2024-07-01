@@ -227,7 +227,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["functionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Function.__pulumiType, name, resourceInputs, opts);
+        super(Function.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

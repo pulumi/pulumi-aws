@@ -108,7 +108,7 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResolverFirewallRuleGroup.__pulumiType, name, resourceInputs, opts);
+        super(ResolverFirewallRuleGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

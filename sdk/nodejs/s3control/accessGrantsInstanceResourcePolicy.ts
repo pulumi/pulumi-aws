@@ -101,7 +101,7 @@ export class AccessGrantsInstanceResourcePolicy extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccessGrantsInstanceResourcePolicy.__pulumiType, name, resourceInputs, opts);
+        super(AccessGrantsInstanceResourcePolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

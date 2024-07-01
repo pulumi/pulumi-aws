@@ -112,7 +112,7 @@ export class LbAttachment extends pulumi.CustomResource {
             resourceInputs["lbName"] = args ? args.lbName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LbAttachment.__pulumiType, name, resourceInputs, opts);
+        super(LbAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

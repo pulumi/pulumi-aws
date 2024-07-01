@@ -277,7 +277,7 @@ export class StateMachine extends pulumi.CustomResource {
             resourceInputs["versionDescription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StateMachine.__pulumiType, name, resourceInputs, opts);
+        super(StateMachine.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

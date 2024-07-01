@@ -220,7 +220,7 @@ export class LocationHdfs extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LocationHdfs.__pulumiType, name, resourceInputs, opts);
+        super(LocationHdfs.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

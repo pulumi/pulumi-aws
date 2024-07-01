@@ -174,7 +174,7 @@ export class ProtectionGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProtectionGroup.__pulumiType, name, resourceInputs, opts);
+        super(ProtectionGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

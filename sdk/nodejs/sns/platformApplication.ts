@@ -200,7 +200,7 @@ export class PlatformApplication extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["platformCredential", "platformPrincipal"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(PlatformApplication.__pulumiType, name, resourceInputs, opts);
+        super(PlatformApplication.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

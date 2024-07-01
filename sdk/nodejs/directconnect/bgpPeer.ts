@@ -131,7 +131,7 @@ export class BgpPeer extends pulumi.CustomResource {
             resourceInputs["bgpStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BgpPeer.__pulumiType, name, resourceInputs, opts);
+        super(BgpPeer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

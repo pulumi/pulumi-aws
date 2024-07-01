@@ -93,7 +93,7 @@ export class WorkingStorage extends pulumi.CustomResource {
             resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WorkingStorage.__pulumiType, name, resourceInputs, opts);
+        super(WorkingStorage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

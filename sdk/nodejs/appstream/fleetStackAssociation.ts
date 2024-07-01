@@ -100,7 +100,7 @@ export class FleetStackAssociation extends pulumi.CustomResource {
             resourceInputs["stackName"] = args ? args.stackName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FleetStackAssociation.__pulumiType, name, resourceInputs, opts);
+        super(FleetStackAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

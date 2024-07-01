@@ -133,7 +133,7 @@ export class AssessmentDelegation extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AssessmentDelegation.__pulumiType, name, resourceInputs, opts);
+        super(AssessmentDelegation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

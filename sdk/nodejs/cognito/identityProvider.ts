@@ -135,7 +135,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IdentityProvider.__pulumiType, name, resourceInputs, opts);
+        super(IdentityProvider.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

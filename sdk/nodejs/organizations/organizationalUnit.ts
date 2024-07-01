@@ -117,7 +117,7 @@ export class OrganizationalUnit extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OrganizationalUnit.__pulumiType, name, resourceInputs, opts);
+        super(OrganizationalUnit.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

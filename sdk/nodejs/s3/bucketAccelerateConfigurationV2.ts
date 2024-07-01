@@ -109,7 +109,7 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketAccelerateConfigurationV2.__pulumiType, name, resourceInputs, opts);
+        super(BucketAccelerateConfigurationV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

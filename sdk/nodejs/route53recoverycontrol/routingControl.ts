@@ -119,7 +119,7 @@ export class RoutingControl extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RoutingControl.__pulumiType, name, resourceInputs, opts);
+        super(RoutingControl.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

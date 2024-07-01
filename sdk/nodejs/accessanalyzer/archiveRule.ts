@@ -119,7 +119,7 @@ export class ArchiveRule extends pulumi.CustomResource {
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ArchiveRule.__pulumiType, name, resourceInputs, opts);
+        super(ArchiveRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

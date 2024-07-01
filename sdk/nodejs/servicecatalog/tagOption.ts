@@ -104,7 +104,7 @@ export class TagOption extends pulumi.CustomResource {
             resourceInputs["owner"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TagOption.__pulumiType, name, resourceInputs, opts);
+        super(TagOption.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

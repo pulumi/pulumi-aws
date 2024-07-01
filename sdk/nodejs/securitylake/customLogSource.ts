@@ -133,7 +133,7 @@ export class CustomLogSource extends pulumi.CustomResource {
             resourceInputs["providerDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomLogSource.__pulumiType, name, resourceInputs, opts);
+        super(CustomLogSource.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

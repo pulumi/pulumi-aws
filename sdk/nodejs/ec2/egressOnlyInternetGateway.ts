@@ -105,7 +105,7 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EgressOnlyInternetGateway.__pulumiType, name, resourceInputs, opts);
+        super(EgressOnlyInternetGateway.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

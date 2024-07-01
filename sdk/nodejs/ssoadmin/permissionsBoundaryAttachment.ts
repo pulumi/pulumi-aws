@@ -145,7 +145,7 @@ export class PermissionsBoundaryAttachment extends pulumi.CustomResource {
             resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PermissionsBoundaryAttachment.__pulumiType, name, resourceInputs, opts);
+        super(PermissionsBoundaryAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

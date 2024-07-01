@@ -113,7 +113,7 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DomainServiceAccessPolicy.__pulumiType, name, resourceInputs, opts);
+        super(DomainServiceAccessPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -127,7 +127,7 @@ export class ServerlessLifecyclePolicy extends pulumi.CustomResource {
             resourceInputs["policyVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServerlessLifecyclePolicy.__pulumiType, name, resourceInputs, opts);
+        super(ServerlessLifecyclePolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

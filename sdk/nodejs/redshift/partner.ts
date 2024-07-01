@@ -123,7 +123,7 @@ export class Partner extends pulumi.CustomResource {
             resourceInputs["statusMessage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Partner.__pulumiType, name, resourceInputs, opts);
+        super(Partner.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

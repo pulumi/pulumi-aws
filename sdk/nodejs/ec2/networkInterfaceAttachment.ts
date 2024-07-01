@@ -113,7 +113,7 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkInterfaceAttachment.__pulumiType, name, resourceInputs, opts);
+        super(NetworkInterfaceAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

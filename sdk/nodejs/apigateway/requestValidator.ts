@@ -104,7 +104,7 @@ export class RequestValidator extends pulumi.CustomResource {
             resourceInputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RequestValidator.__pulumiType, name, resourceInputs, opts);
+        super(RequestValidator.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

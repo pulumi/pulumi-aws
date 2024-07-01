@@ -114,7 +114,7 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
             resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PermissionSetInlinePolicy.__pulumiType, name, resourceInputs, opts);
+        super(PermissionSetInlinePolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

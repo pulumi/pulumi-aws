@@ -180,7 +180,7 @@ export class Inventory extends pulumi.CustomResource {
             resourceInputs["schedule"] = args ? args.schedule : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Inventory.__pulumiType, name, resourceInputs, opts);
+        super(Inventory.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

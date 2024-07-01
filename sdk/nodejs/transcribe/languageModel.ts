@@ -176,7 +176,7 @@ export class LanguageModel extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LanguageModel.__pulumiType, name, resourceInputs, opts);
+        super(LanguageModel.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

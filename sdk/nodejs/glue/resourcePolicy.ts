@@ -98,7 +98,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourcePolicy.__pulumiType, name, resourceInputs, opts);
+        super(ResourcePolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

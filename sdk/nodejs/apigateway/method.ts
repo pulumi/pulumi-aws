@@ -202,7 +202,7 @@ export class Method extends pulumi.CustomResource {
             resourceInputs["restApi"] = args ? args.restApi : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Method.__pulumiType, name, resourceInputs, opts);
+        super(Method.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

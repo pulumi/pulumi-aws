@@ -95,7 +95,7 @@ export class NetworkAclAssociation extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkAclAssociation.__pulumiType, name, resourceInputs, opts);
+        super(NetworkAclAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

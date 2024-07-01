@@ -147,7 +147,7 @@ export class TransitGatewayPeering extends pulumi.CustomResource {
             resourceInputs["transitGatewayPeeringAttachmentId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TransitGatewayPeering.__pulumiType, name, resourceInputs, opts);
+        super(TransitGatewayPeering.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -104,7 +104,7 @@ export class RuleGroupNamespace extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RuleGroupNamespace.__pulumiType, name, resourceInputs, opts);
+        super(RuleGroupNamespace.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

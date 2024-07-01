@@ -204,7 +204,7 @@ export class ProvisioningTemplate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProvisioningTemplate.__pulumiType, name, resourceInputs, opts);
+        super(ProvisioningTemplate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

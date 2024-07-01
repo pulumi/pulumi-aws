@@ -242,7 +242,7 @@ export class BudgetAction extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BudgetAction.__pulumiType, name, resourceInputs, opts);
+        super(BudgetAction.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

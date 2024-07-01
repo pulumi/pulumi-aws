@@ -392,7 +392,7 @@ export class ObjectCopy extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["customerKey", "kmsEncryptionContext", "kmsKeyId", "sourceCustomerKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ObjectCopy.__pulumiType, name, resourceInputs, opts);
+        super(ObjectCopy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

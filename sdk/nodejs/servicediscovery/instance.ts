@@ -149,7 +149,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["serviceId"] = args ? args.serviceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Instance.__pulumiType, name, resourceInputs, opts);
+        super(Instance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

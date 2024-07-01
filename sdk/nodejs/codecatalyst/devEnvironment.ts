@@ -144,7 +144,7 @@ export class DevEnvironment extends pulumi.CustomResource {
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DevEnvironment.__pulumiType, name, resourceInputs, opts);
+        super(DevEnvironment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

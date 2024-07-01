@@ -133,7 +133,7 @@ export class Analyzer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Analyzer.__pulumiType, name, resourceInputs, opts);
+        super(Analyzer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

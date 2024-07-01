@@ -101,7 +101,7 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
             resourceInputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LocalGatewayRoute.__pulumiType, name, resourceInputs, opts);
+        super(LocalGatewayRoute.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

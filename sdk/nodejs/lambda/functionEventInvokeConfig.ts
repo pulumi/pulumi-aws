@@ -194,7 +194,7 @@ export class FunctionEventInvokeConfig extends pulumi.CustomResource {
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FunctionEventInvokeConfig.__pulumiType, name, resourceInputs, opts);
+        super(FunctionEventInvokeConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

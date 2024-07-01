@@ -264,7 +264,7 @@ export class Feature extends pulumi.CustomResource {
             resourceInputs["valueType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Feature.__pulumiType, name, resourceInputs, opts);
+        super(Feature.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

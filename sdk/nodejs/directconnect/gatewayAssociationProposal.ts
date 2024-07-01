@@ -130,7 +130,7 @@ export class GatewayAssociationProposal extends pulumi.CustomResource {
             resourceInputs["associatedGatewayType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GatewayAssociationProposal.__pulumiType, name, resourceInputs, opts);
+        super(GatewayAssociationProposal.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

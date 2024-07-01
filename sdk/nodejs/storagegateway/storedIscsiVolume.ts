@@ -233,7 +233,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             resourceInputs["volumeType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StoredIscsiVolume.__pulumiType, name, resourceInputs, opts);
+        super(StoredIscsiVolume.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

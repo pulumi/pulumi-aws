@@ -257,7 +257,7 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FlowLog.__pulumiType, name, resourceInputs, opts);
+        super(FlowLog.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

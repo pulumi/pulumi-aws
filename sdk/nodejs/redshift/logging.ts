@@ -128,7 +128,7 @@ export class Logging extends pulumi.CustomResource {
             resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Logging.__pulumiType, name, resourceInputs, opts);
+        super(Logging.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

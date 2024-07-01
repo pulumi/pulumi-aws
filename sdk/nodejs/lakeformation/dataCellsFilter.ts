@@ -93,7 +93,7 @@ export class DataCellsFilter extends pulumi.CustomResource {
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataCellsFilter.__pulumiType, name, resourceInputs, opts);
+        super(DataCellsFilter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

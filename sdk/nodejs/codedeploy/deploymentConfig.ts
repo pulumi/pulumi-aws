@@ -174,7 +174,7 @@ export class DeploymentConfig extends pulumi.CustomResource {
             resourceInputs["deploymentConfigId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DeploymentConfig.__pulumiType, name, resourceInputs, opts);
+        super(DeploymentConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

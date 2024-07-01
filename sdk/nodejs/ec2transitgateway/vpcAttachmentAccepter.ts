@@ -158,7 +158,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             resourceInputs["vpcOwnerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcAttachmentAccepter.__pulumiType, name, resourceInputs, opts);
+        super(VpcAttachmentAccepter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

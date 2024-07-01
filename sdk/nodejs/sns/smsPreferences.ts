@@ -102,7 +102,7 @@ export class SmsPreferences extends pulumi.CustomResource {
             resourceInputs["usageReportS3Bucket"] = args ? args.usageReportS3Bucket : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SmsPreferences.__pulumiType, name, resourceInputs, opts);
+        super(SmsPreferences.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

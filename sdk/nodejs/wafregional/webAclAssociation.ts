@@ -144,7 +144,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
             resourceInputs["webAclId"] = args ? args.webAclId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WebAclAssociation.__pulumiType, name, resourceInputs, opts);
+        super(WebAclAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

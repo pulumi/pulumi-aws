@@ -159,7 +159,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancingv2/targetGroupAttachment:TargetGroupAttachment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(TargetGroupAttachment.__pulumiType, name, resourceInputs, opts);
+        super(TargetGroupAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

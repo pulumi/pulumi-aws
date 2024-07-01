@@ -133,7 +133,7 @@ export class VaultLock extends pulumi.CustomResource {
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VaultLock.__pulumiType, name, resourceInputs, opts);
+        super(VaultLock.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

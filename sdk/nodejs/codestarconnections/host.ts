@@ -121,7 +121,7 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Host.__pulumiType, name, resourceInputs, opts);
+        super(Host.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

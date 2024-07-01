@@ -112,7 +112,7 @@ export class RestApiPolicy extends pulumi.CustomResource {
             resourceInputs["restApiId"] = args ? args.restApiId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RestApiPolicy.__pulumiType, name, resourceInputs, opts);
+        super(RestApiPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

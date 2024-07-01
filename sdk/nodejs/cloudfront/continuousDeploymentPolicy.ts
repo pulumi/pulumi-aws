@@ -175,7 +175,7 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ContinuousDeploymentPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ContinuousDeploymentPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

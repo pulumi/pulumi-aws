@@ -139,7 +139,7 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RepositoryPermissionsPolicy.__pulumiType, name, resourceInputs, opts);
+        super(RepositoryPermissionsPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

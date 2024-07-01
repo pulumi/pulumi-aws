@@ -127,7 +127,7 @@ export class ConfigurationPolicyAssociation extends pulumi.CustomResource {
             resourceInputs["targetId"] = args ? args.targetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConfigurationPolicyAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ConfigurationPolicyAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -117,7 +117,7 @@ export class EncryptionConfig extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EncryptionConfig.__pulumiType, name, resourceInputs, opts);
+        super(EncryptionConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

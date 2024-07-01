@@ -306,7 +306,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MetricStream.__pulumiType, name, resourceInputs, opts);
+        super(MetricStream.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -114,7 +114,7 @@ export class ClusterPolicy extends pulumi.CustomResource {
             resourceInputs["currentVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ClusterPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

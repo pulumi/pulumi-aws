@@ -97,7 +97,7 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);
+        super(SecurityGroupAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

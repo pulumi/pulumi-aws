@@ -194,7 +194,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["content"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(HostedConfigurationVersion.__pulumiType, name, resourceInputs, opts);
+        super(HostedConfigurationVersion.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

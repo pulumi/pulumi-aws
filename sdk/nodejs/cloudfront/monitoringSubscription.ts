@@ -98,7 +98,7 @@ export class MonitoringSubscription extends pulumi.CustomResource {
             resourceInputs["monitoringSubscription"] = args ? args.monitoringSubscription : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MonitoringSubscription.__pulumiType, name, resourceInputs, opts);
+        super(MonitoringSubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

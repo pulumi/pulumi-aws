@@ -118,7 +118,7 @@ export class TrafficPolicyInstance extends pulumi.CustomResource {
             resourceInputs["ttl"] = args ? args.ttl : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrafficPolicyInstance.__pulumiType, name, resourceInputs, opts);
+        super(TrafficPolicyInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

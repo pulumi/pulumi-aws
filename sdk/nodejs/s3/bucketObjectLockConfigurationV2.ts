@@ -144,7 +144,7 @@ export class BucketObjectLockConfigurationV2 extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["token"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(BucketObjectLockConfigurationV2.__pulumiType, name, resourceInputs, opts);
+        super(BucketObjectLockConfigurationV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

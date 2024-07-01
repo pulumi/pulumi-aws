@@ -101,7 +101,7 @@ export class ServerlessSecurityConfig extends pulumi.CustomResource {
             resourceInputs["configVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServerlessSecurityConfig.__pulumiType, name, resourceInputs, opts);
+        super(ServerlessSecurityConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

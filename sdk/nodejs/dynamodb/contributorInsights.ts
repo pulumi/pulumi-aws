@@ -85,7 +85,7 @@ export class ContributorInsights extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ContributorInsights.__pulumiType, name, resourceInputs, opts);
+        super(ContributorInsights.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

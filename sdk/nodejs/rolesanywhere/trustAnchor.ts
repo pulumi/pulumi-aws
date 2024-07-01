@@ -151,7 +151,7 @@ export class TrustAnchor extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrustAnchor.__pulumiType, name, resourceInputs, opts);
+        super(TrustAnchor.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

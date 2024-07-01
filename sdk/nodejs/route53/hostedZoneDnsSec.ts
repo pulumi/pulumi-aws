@@ -133,7 +133,7 @@ export class HostedZoneDnsSec extends pulumi.CustomResource {
             resourceInputs["signingStatus"] = args ? args.signingStatus : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HostedZoneDnsSec.__pulumiType, name, resourceInputs, opts);
+        super(HostedZoneDnsSec.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

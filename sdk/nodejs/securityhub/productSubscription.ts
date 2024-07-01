@@ -127,7 +127,7 @@ export class ProductSubscription extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProductSubscription.__pulumiType, name, resourceInputs, opts);
+        super(ProductSubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

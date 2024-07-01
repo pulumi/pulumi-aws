@@ -126,7 +126,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
             resourceInputs["solutionStackName"] = args ? args.solutionStackName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConfigurationTemplate.__pulumiType, name, resourceInputs, opts);
+        super(ConfigurationTemplate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

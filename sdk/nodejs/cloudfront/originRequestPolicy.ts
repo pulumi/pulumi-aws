@@ -139,7 +139,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OriginRequestPolicy.__pulumiType, name, resourceInputs, opts);
+        super(OriginRequestPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

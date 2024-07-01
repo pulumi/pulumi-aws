@@ -315,7 +315,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LaunchTemplate.__pulumiType, name, resourceInputs, opts);
+        super(LaunchTemplate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

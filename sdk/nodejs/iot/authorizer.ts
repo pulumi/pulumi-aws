@@ -135,7 +135,7 @@ export class Authorizer extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["tokenSigningPublicKeys"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Authorizer.__pulumiType, name, resourceInputs, opts);
+        super(Authorizer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -170,7 +170,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResolverEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(ResolverEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

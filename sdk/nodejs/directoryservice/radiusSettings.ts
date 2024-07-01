@@ -159,7 +159,7 @@ export class RadiusSettings extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sharedSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(RadiusSettings.__pulumiType, name, resourceInputs, opts);
+        super(RadiusSettings.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

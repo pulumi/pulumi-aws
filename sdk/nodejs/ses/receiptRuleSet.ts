@@ -85,7 +85,7 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReceiptRuleSet.__pulumiType, name, resourceInputs, opts);
+        super(ReceiptRuleSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

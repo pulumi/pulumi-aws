@@ -108,7 +108,7 @@ export class NotificationChannel extends pulumi.CustomResource {
             resourceInputs["sns"] = args ? args.sns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NotificationChannel.__pulumiType, name, resourceInputs, opts);
+        super(NotificationChannel.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

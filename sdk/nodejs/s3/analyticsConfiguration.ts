@@ -138,7 +138,7 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
             resourceInputs["storageClassAnalysis"] = args ? args.storageClassAnalysis : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AnalyticsConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(AnalyticsConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

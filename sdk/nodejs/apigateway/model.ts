@@ -120,7 +120,7 @@ export class Model extends pulumi.CustomResource {
             resourceInputs["schema"] = args ? args.schema : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Model.__pulumiType, name, resourceInputs, opts);
+        super(Model.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

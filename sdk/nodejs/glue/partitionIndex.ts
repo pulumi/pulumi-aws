@@ -181,7 +181,7 @@ export class PartitionIndex extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PartitionIndex.__pulumiType, name, resourceInputs, opts);
+        super(PartitionIndex.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

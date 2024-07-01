@@ -110,7 +110,7 @@ export class ApiMapping extends pulumi.CustomResource {
             resourceInputs["stage"] = args ? args.stage : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApiMapping.__pulumiType, name, resourceInputs, opts);
+        super(ApiMapping.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

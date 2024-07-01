@@ -101,7 +101,7 @@ export class DrtAccessLogBucketAssociation extends pulumi.CustomResource {
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DrtAccessLogBucketAssociation.__pulumiType, name, resourceInputs, opts);
+        super(DrtAccessLogBucketAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -107,7 +107,7 @@ export class QueryDefinition extends pulumi.CustomResource {
             resourceInputs["queryDefinitionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(QueryDefinition.__pulumiType, name, resourceInputs, opts);
+        super(QueryDefinition.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

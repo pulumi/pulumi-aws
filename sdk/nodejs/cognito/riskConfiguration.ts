@@ -120,7 +120,7 @@ export class RiskConfiguration extends pulumi.CustomResource {
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RiskConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(RiskConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

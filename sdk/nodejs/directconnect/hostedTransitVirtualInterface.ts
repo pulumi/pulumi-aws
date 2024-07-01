@@ -174,7 +174,7 @@ export class HostedTransitVirtualInterface extends pulumi.CustomResource {
             resourceInputs["jumboFrameCapable"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HostedTransitVirtualInterface.__pulumiType, name, resourceInputs, opts);
+        super(HostedTransitVirtualInterface.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

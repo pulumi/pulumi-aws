@@ -198,7 +198,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcEndpointService.__pulumiType, name, resourceInputs, opts);
+        super(VpcEndpointService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

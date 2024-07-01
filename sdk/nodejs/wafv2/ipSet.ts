@@ -142,7 +142,7 @@ export class IpSet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IpSet.__pulumiType, name, resourceInputs, opts);
+        super(IpSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -91,7 +91,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             resourceInputs["maxAccountLimitReached"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

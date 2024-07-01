@@ -113,7 +113,7 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
             resourceInputs["forceUpdate"] = args ? args.forceUpdate : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LogDestinationPolicy.__pulumiType, name, resourceInputs, opts);
+        super(LogDestinationPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

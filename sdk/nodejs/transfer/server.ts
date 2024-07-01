@@ -357,7 +357,7 @@ export class Server extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["hostKey", "postAuthenticationLoginBanner", "preAuthenticationLoginBanner"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Server.__pulumiType, name, resourceInputs, opts);
+        super(Server.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

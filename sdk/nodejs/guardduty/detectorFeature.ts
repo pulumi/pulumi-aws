@@ -106,7 +106,7 @@ export class DetectorFeature extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DetectorFeature.__pulumiType, name, resourceInputs, opts);
+        super(DetectorFeature.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

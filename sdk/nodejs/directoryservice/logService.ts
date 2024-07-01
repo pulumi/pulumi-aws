@@ -113,7 +113,7 @@ export class LogService extends pulumi.CustomResource {
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LogService.__pulumiType, name, resourceInputs, opts);
+        super(LogService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

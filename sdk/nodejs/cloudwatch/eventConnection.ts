@@ -229,7 +229,7 @@ export class EventConnection extends pulumi.CustomResource {
             resourceInputs["secretArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventConnection.__pulumiType, name, resourceInputs, opts);
+        super(EventConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

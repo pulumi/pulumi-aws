@@ -176,7 +176,7 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
             resourceInputs["awsDevice"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HostedPublicVirtualInterface.__pulumiType, name, resourceInputs, opts);
+        super(HostedPublicVirtualInterface.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

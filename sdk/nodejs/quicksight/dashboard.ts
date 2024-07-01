@@ -203,7 +203,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["versionNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Dashboard.__pulumiType, name, resourceInputs, opts);
+        super(Dashboard.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

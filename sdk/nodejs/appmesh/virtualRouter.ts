@@ -162,7 +162,7 @@ export class VirtualRouter extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualRouter.__pulumiType, name, resourceInputs, opts);
+        super(VirtualRouter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

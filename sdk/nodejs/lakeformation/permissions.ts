@@ -290,7 +290,7 @@ export class Permissions extends pulumi.CustomResource {
             resourceInputs["tableWithColumns"] = args ? args.tableWithColumns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Permissions.__pulumiType, name, resourceInputs, opts);
+        super(Permissions.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

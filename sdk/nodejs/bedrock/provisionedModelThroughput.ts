@@ -134,7 +134,7 @@ export class ProvisionedModelThroughput extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProvisionedModelThroughput.__pulumiType, name, resourceInputs, opts);
+        super(ProvisionedModelThroughput.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

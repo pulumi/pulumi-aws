@@ -117,7 +117,7 @@ export class SamlProvider extends pulumi.CustomResource {
             resourceInputs["validUntil"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SamlProvider.__pulumiType, name, resourceInputs, opts);
+        super(SamlProvider.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

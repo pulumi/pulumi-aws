@@ -157,7 +157,7 @@ export class V2modelsBotLocale extends pulumi.CustomResource {
             resourceInputs["voiceSettings"] = args ? args.voiceSettings : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(V2modelsBotLocale.__pulumiType, name, resourceInputs, opts);
+        super(V2modelsBotLocale.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

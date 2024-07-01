@@ -116,7 +116,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
             resourceInputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PrincipalAssociation.__pulumiType, name, resourceInputs, opts);
+        super(PrincipalAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

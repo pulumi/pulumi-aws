@@ -134,7 +134,7 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ObservabilityConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(ObservabilityConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

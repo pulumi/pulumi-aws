@@ -133,7 +133,7 @@ export class RolePolicy extends pulumi.CustomResource {
             resourceInputs["role"] = args ? args.role : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RolePolicy.__pulumiType, name, resourceInputs, opts);
+        super(RolePolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

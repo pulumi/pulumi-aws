@@ -259,7 +259,7 @@ export class ServerlessSecurityPolicy extends pulumi.CustomResource {
             resourceInputs["policyVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServerlessSecurityPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ServerlessSecurityPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

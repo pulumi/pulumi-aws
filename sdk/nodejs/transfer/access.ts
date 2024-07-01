@@ -154,7 +154,7 @@ export class Access extends pulumi.CustomResource {
             resourceInputs["serverId"] = args ? args.serverId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Access.__pulumiType, name, resourceInputs, opts);
+        super(Access.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -133,7 +133,7 @@ export class EipAssociation extends pulumi.CustomResource {
             resourceInputs["publicIp"] = args ? args.publicIp : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EipAssociation.__pulumiType, name, resourceInputs, opts);
+        super(EipAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

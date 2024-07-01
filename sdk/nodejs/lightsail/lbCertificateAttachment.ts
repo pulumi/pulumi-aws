@@ -104,7 +104,7 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
             resourceInputs["lbName"] = args ? args.lbName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LbCertificateAttachment.__pulumiType, name, resourceInputs, opts);
+        super(LbCertificateAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

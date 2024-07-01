@@ -108,7 +108,7 @@ export class TransitGatewayConnectPeerAssociation extends pulumi.CustomResource 
             resourceInputs["transitGatewayConnectPeerArn"] = args ? args.transitGatewayConnectPeerArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TransitGatewayConnectPeerAssociation.__pulumiType, name, resourceInputs, opts);
+        super(TransitGatewayConnectPeerAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -88,7 +88,7 @@ export class StaticIp extends pulumi.CustomResource {
             resourceInputs["supportCode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StaticIp.__pulumiType, name, resourceInputs, opts);
+        super(StaticIp.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -136,7 +136,7 @@ export class EventPermission extends pulumi.CustomResource {
             resourceInputs["statementId"] = args ? args.statementId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventPermission.__pulumiType, name, resourceInputs, opts);
+        super(EventPermission.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

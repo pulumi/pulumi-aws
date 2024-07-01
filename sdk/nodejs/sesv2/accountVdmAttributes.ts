@@ -106,7 +106,7 @@ export class AccountVdmAttributes extends pulumi.CustomResource {
             resourceInputs["vdmEnabled"] = args ? args.vdmEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccountVdmAttributes.__pulumiType, name, resourceInputs, opts);
+        super(AccountVdmAttributes.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

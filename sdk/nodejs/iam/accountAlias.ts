@@ -81,7 +81,7 @@ export class AccountAlias extends pulumi.CustomResource {
             resourceInputs["accountAlias"] = args ? args.accountAlias : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccountAlias.__pulumiType, name, resourceInputs, opts);
+        super(AccountAlias.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

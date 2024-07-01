@@ -103,7 +103,7 @@ export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {
             resourceInputs["servicePrincipal"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcIpamOrganizationAdminAccount.__pulumiType, name, resourceInputs, opts);
+        super(VpcIpamOrganizationAdminAccount.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

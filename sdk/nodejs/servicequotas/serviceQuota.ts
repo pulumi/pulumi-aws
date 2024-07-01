@@ -150,7 +150,7 @@ export class ServiceQuota extends pulumi.CustomResource {
             resourceInputs["usageMetrics"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServiceQuota.__pulumiType, name, resourceInputs, opts);
+        super(ServiceQuota.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

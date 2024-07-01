@@ -104,7 +104,7 @@ export class NetworkAssociation extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkAssociation.__pulumiType, name, resourceInputs, opts);
+        super(NetworkAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

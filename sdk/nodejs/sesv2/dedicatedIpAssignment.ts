@@ -95,7 +95,7 @@ export class DedicatedIpAssignment extends pulumi.CustomResource {
             resourceInputs["ip"] = args ? args.ip : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DedicatedIpAssignment.__pulumiType, name, resourceInputs, opts);
+        super(DedicatedIpAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

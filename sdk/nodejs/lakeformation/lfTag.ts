@@ -101,7 +101,7 @@ export class LfTag extends pulumi.CustomResource {
             resourceInputs["values"] = args ? args.values : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LfTag.__pulumiType, name, resourceInputs, opts);
+        super(LfTag.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

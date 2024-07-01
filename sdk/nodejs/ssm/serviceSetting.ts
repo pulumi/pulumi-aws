@@ -103,7 +103,7 @@ export class ServiceSetting extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServiceSetting.__pulumiType, name, resourceInputs, opts);
+        super(ServiceSetting.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

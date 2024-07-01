@@ -108,7 +108,7 @@ export class DocumentationVersion extends pulumi.CustomResource {
             resourceInputs["version"] = args ? args.version : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DocumentationVersion.__pulumiType, name, resourceInputs, opts);
+        super(DocumentationVersion.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -140,7 +140,7 @@ export class InternetMonitor extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InternetMonitor.__pulumiType, name, resourceInputs, opts);
+        super(InternetMonitor.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

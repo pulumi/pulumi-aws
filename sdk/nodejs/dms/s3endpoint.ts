@@ -480,7 +480,7 @@ export class S3Endpoint extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(S3Endpoint.__pulumiType, name, resourceInputs, opts);
+        super(S3Endpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

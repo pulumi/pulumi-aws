@@ -119,7 +119,7 @@ export class CustomRoutingEndpointGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomRoutingEndpointGroup.__pulumiType, name, resourceInputs, opts);
+        super(CustomRoutingEndpointGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -164,7 +164,7 @@ export class V2modelsSlot extends pulumi.CustomResource {
             resourceInputs["slotId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(V2modelsSlot.__pulumiType, name, resourceInputs, opts);
+        super(V2modelsSlot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

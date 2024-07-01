@@ -113,7 +113,7 @@ export class KeyvaluestoreKey extends pulumi.CustomResource {
             resourceInputs["totalSizeInBytes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KeyvaluestoreKey.__pulumiType, name, resourceInputs, opts);
+        super(KeyvaluestoreKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

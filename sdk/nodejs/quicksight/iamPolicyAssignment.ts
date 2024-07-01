@@ -132,7 +132,7 @@ export class IamPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["assignmentId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IamPolicyAssignment.__pulumiType, name, resourceInputs, opts);
+        super(IamPolicyAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

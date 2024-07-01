@@ -71,7 +71,7 @@ export class SecurityTokenServicePreferences extends pulumi.CustomResource {
             resourceInputs["globalEndpointTokenVersion"] = args ? args.globalEndpointTokenVersion : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SecurityTokenServicePreferences.__pulumiType, name, resourceInputs, opts);
+        super(SecurityTokenServicePreferences.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

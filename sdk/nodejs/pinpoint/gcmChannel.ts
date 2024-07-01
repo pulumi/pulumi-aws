@@ -101,7 +101,7 @@ export class GcmChannel extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(GcmChannel.__pulumiType, name, resourceInputs, opts);
+        super(GcmChannel.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

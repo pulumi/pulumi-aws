@@ -120,7 +120,7 @@ export class FileSystemPolicy extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FileSystemPolicy.__pulumiType, name, resourceInputs, opts);
+        super(FileSystemPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

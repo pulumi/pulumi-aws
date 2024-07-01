@@ -328,7 +328,7 @@ export class Role extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Role.__pulumiType, name, resourceInputs, opts);
+        super(Role.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -247,7 +247,7 @@ export class DevEndpoint extends pulumi.CustomResource {
             resourceInputs["zeppelinRemoteSparkInterpreterPort"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DevEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(DevEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

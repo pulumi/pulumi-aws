@@ -120,7 +120,7 @@ export class BillingGroup extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BillingGroup.__pulumiType, name, resourceInputs, opts);
+        super(BillingGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

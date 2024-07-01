@@ -239,7 +239,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["associationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Association.__pulumiType, name, resourceInputs, opts);
+        super(Association.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

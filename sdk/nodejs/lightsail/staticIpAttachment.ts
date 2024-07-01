@@ -99,7 +99,7 @@ export class StaticIpAttachment extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StaticIpAttachment.__pulumiType, name, resourceInputs, opts);
+        super(StaticIpAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

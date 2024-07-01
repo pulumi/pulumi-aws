@@ -80,7 +80,7 @@ export class KeyAlias extends pulumi.CustomResource {
             resourceInputs["keyArn"] = args ? args.keyArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KeyAlias.__pulumiType, name, resourceInputs, opts);
+        super(KeyAlias.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

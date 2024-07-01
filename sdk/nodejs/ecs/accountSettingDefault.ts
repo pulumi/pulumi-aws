@@ -95,7 +95,7 @@ export class AccountSettingDefault extends pulumi.CustomResource {
             resourceInputs["principalArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccountSettingDefault.__pulumiType, name, resourceInputs, opts);
+        super(AccountSettingDefault.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

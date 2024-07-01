@@ -89,7 +89,7 @@ export class LoggingOptions extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LoggingOptions.__pulumiType, name, resourceInputs, opts);
+        super(LoggingOptions.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

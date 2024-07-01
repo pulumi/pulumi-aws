@@ -121,7 +121,7 @@ export class PeeringAttachmentAccepter extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PeeringAttachmentAccepter.__pulumiType, name, resourceInputs, opts);
+        super(PeeringAttachmentAccepter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

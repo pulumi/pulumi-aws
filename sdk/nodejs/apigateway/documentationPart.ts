@@ -115,7 +115,7 @@ export class DocumentationPart extends pulumi.CustomResource {
             resourceInputs["documentationPartId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DocumentationPart.__pulumiType, name, resourceInputs, opts);
+        super(DocumentationPart.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

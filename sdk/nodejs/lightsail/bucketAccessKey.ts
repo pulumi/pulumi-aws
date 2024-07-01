@@ -107,7 +107,7 @@ export class BucketAccessKey extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketAccessKey.__pulumiType, name, resourceInputs, opts);
+        super(BucketAccessKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -189,7 +189,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
             resourceInputs["serverTimingHeadersConfig"] = args ? args.serverTimingHeadersConfig : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResponseHeadersPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ResponseHeadersPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -109,7 +109,7 @@ export class RouteTableAssociation extends pulumi.CustomResource {
             resourceInputs["resourceType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RouteTableAssociation.__pulumiType, name, resourceInputs, opts);
+        super(RouteTableAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

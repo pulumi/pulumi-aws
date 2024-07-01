@@ -103,7 +103,7 @@ export class DomainPolicy extends pulumi.CustomResource {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DomainPolicy.__pulumiType, name, resourceInputs, opts);
+        super(DomainPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

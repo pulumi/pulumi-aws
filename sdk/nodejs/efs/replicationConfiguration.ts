@@ -159,7 +159,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
             resourceInputs["sourceFileSystemRegion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReplicationConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(ReplicationConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

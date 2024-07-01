@@ -131,7 +131,7 @@ export class SourceCredential extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["token"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(SourceCredential.__pulumiType, name, resourceInputs, opts);
+        super(SourceCredential.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

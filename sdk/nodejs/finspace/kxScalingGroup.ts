@@ -170,7 +170,7 @@ export class KxScalingGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KxScalingGroup.__pulumiType, name, resourceInputs, opts);
+        super(KxScalingGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

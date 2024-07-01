@@ -125,7 +125,7 @@ export class OriginAccessControl extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OriginAccessControl.__pulumiType, name, resourceInputs, opts);
+        super(OriginAccessControl.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

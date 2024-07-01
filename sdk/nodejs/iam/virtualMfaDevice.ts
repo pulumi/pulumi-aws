@@ -136,7 +136,7 @@ export class VirtualMfaDevice extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualMfaDevice.__pulumiType, name, resourceInputs, opts);
+        super(VirtualMfaDevice.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

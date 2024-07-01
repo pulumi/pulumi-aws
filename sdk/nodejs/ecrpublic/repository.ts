@@ -141,7 +141,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Repository.__pulumiType, name, resourceInputs, opts);
+        super(Repository.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

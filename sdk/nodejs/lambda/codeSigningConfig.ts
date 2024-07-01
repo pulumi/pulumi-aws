@@ -125,7 +125,7 @@ export class CodeSigningConfig extends pulumi.CustomResource {
             resourceInputs["lastModified"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CodeSigningConfig.__pulumiType, name, resourceInputs, opts);
+        super(CodeSigningConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

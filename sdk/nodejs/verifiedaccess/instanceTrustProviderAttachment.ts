@@ -100,7 +100,7 @@ export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
             resourceInputs["verifiedaccessTrustProviderId"] = args ? args.verifiedaccessTrustProviderId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InstanceTrustProviderAttachment.__pulumiType, name, resourceInputs, opts);
+        super(InstanceTrustProviderAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

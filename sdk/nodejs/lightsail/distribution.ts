@@ -329,7 +329,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Distribution.__pulumiType, name, resourceInputs, opts);
+        super(Distribution.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

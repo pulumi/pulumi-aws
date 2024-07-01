@@ -91,7 +91,7 @@ export class AwsLogSource extends pulumi.CustomResource {
             resourceInputs["source"] = args ? args.source : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AwsLogSource.__pulumiType, name, resourceInputs, opts);
+        super(AwsLogSource.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

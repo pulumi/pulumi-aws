@@ -96,7 +96,7 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcDhcpOptionsAssociation.__pulumiType, name, resourceInputs, opts);
+        super(VpcDhcpOptionsAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

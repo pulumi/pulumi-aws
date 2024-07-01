@@ -166,7 +166,7 @@ export class ManagedPrefixList extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedPrefixList.__pulumiType, name, resourceInputs, opts);
+        super(ManagedPrefixList.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

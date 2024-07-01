@@ -106,7 +106,7 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
             resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProxyProtocolPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ProxyProtocolPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

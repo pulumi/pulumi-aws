@@ -193,7 +193,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["targetAction"] = args ? args.targetAction : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ScheduledAction.__pulumiType, name, resourceInputs, opts);
+        super(ScheduledAction.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -124,7 +124,7 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
             resourceInputs["role"] = args ? args.role : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RolePolicyAttachment.__pulumiType, name, resourceInputs, opts);
+        super(RolePolicyAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

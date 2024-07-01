@@ -125,7 +125,7 @@ export class SecretRotation extends pulumi.CustomResource {
             resourceInputs["rotationEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SecretRotation.__pulumiType, name, resourceInputs, opts);
+        super(SecretRotation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

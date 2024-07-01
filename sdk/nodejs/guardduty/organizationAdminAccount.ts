@@ -86,7 +86,7 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
             resourceInputs["adminAccountId"] = args ? args.adminAccountId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OrganizationAdminAccount.__pulumiType, name, resourceInputs, opts);
+        super(OrganizationAdminAccount.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

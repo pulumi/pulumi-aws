@@ -105,7 +105,7 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NotebookInstanceLifecycleConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(NotebookInstanceLifecycleConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

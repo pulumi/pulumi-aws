@@ -170,7 +170,7 @@ export class Recorder extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Recorder.__pulumiType, name, resourceInputs, opts);
+        super(Recorder.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -149,7 +149,7 @@ export class EndpointGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EndpointGroup.__pulumiType, name, resourceInputs, opts);
+        super(EndpointGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

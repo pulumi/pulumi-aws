@@ -104,7 +104,7 @@ export class ConditionalForwader extends pulumi.CustomResource {
             resourceInputs["remoteDomainName"] = args ? args.remoteDomainName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConditionalForwader.__pulumiType, name, resourceInputs, opts);
+        super(ConditionalForwader.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

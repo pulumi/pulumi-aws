@@ -254,7 +254,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProvisionedProduct.__pulumiType, name, resourceInputs, opts);
+        super(ProvisionedProduct.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

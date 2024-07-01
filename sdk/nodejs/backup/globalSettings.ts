@@ -81,7 +81,7 @@ export class GlobalSettings extends pulumi.CustomResource {
             resourceInputs["globalSettings"] = args ? args.globalSettings : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GlobalSettings.__pulumiType, name, resourceInputs, opts);
+        super(GlobalSettings.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

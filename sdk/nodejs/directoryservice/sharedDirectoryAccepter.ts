@@ -112,7 +112,7 @@ export class SharedDirectoryAccepter extends pulumi.CustomResource {
             resourceInputs["ownerDirectoryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SharedDirectoryAccepter.__pulumiType, name, resourceInputs, opts);
+        super(SharedDirectoryAccepter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -117,7 +117,7 @@ export class Response extends pulumi.CustomResource {
             resourceInputs["statusCode"] = args ? args.statusCode : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Response.__pulumiType, name, resourceInputs, opts);
+        super(Response.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

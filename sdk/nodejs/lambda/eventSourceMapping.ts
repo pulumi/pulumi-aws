@@ -403,7 +403,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventSourceMapping.__pulumiType, name, resourceInputs, opts);
+        super(EventSourceMapping.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

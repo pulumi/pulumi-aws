@@ -87,7 +87,7 @@ export class OrganizationAdminAccountRegistration extends pulumi.CustomResource 
             resourceInputs["organizationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OrganizationAdminAccountRegistration.__pulumiType, name, resourceInputs, opts);
+        super(OrganizationAdminAccountRegistration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

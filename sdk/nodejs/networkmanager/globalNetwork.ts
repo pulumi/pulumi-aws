@@ -96,7 +96,7 @@ export class GlobalNetwork extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GlobalNetwork.__pulumiType, name, resourceInputs, opts);
+        super(GlobalNetwork.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

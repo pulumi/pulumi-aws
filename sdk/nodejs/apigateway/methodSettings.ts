@@ -178,7 +178,7 @@ export class MethodSettings extends pulumi.CustomResource {
             resourceInputs["stageName"] = args ? args.stageName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MethodSettings.__pulumiType, name, resourceInputs, opts);
+        super(MethodSettings.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

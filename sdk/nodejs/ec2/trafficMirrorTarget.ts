@@ -136,7 +136,7 @@ export class TrafficMirrorTarget extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrafficMirrorTarget.__pulumiType, name, resourceInputs, opts);
+        super(TrafficMirrorTarget.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

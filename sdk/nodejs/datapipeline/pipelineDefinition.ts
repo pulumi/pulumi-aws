@@ -162,7 +162,7 @@ export class PipelineDefinition extends pulumi.CustomResource {
             resourceInputs["pipelineObjects"] = args ? args.pipelineObjects : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PipelineDefinition.__pulumiType, name, resourceInputs, opts);
+        super(PipelineDefinition.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

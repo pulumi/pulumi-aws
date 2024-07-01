@@ -129,7 +129,7 @@ export class FieldLevelEncryptionConfig extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FieldLevelEncryptionConfig.__pulumiType, name, resourceInputs, opts);
+        super(FieldLevelEncryptionConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

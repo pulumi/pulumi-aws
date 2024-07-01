@@ -152,7 +152,7 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
             resourceInputs["tierings"] = args ? args.tierings : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketIntelligentTieringConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(BucketIntelligentTieringConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

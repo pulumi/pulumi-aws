@@ -154,7 +154,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StorageLensConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(StorageLensConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

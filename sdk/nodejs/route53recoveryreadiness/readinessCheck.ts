@@ -113,7 +113,7 @@ export class ReadinessCheck extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReadinessCheck.__pulumiType, name, resourceInputs, opts);
+        super(ReadinessCheck.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -123,7 +123,7 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccessGrantsInstance.__pulumiType, name, resourceInputs, opts);
+        super(AccessGrantsInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

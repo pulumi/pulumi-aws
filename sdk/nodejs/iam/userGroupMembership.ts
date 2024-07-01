@@ -107,7 +107,7 @@ export class UserGroupMembership extends pulumi.CustomResource {
             resourceInputs["user"] = args ? args.user : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserGroupMembership.__pulumiType, name, resourceInputs, opts);
+        super(UserGroupMembership.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -125,7 +125,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

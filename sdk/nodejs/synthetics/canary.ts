@@ -248,7 +248,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["timelines"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Canary.__pulumiType, name, resourceInputs, opts);
+        super(Canary.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

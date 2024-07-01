@@ -103,7 +103,7 @@ export class PolicyTableAssociation extends pulumi.CustomResource {
             resourceInputs["resourceType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PolicyTableAssociation.__pulumiType, name, resourceInputs, opts);
+        super(PolicyTableAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

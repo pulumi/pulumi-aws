@@ -92,7 +92,7 @@ export class LambdaFunctionAssociation extends pulumi.CustomResource {
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LambdaFunctionAssociation.__pulumiType, name, resourceInputs, opts);
+        super(LambdaFunctionAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

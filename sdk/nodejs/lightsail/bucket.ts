@@ -141,7 +141,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Bucket.__pulumiType, name, resourceInputs, opts);
+        super(Bucket.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

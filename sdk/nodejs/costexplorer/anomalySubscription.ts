@@ -290,7 +290,7 @@ export class AnomalySubscription extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AnomalySubscription.__pulumiType, name, resourceInputs, opts);
+        super(AnomalySubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

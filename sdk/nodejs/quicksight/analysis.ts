@@ -181,7 +181,7 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Analysis.__pulumiType, name, resourceInputs, opts);
+        super(Analysis.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

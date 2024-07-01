@@ -117,7 +117,7 @@ export class VpcAssociationAuthorization extends pulumi.CustomResource {
             resourceInputs["zoneId"] = args ? args.zoneId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcAssociationAuthorization.__pulumiType, name, resourceInputs, opts);
+        super(VpcAssociationAuthorization.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

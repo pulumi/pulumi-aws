@@ -118,7 +118,7 @@ export class V2modelsBotVersion extends pulumi.CustomResource {
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(V2modelsBotVersion.__pulumiType, name, resourceInputs, opts);
+        super(V2modelsBotVersion.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

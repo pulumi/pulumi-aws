@@ -360,7 +360,7 @@ export class App extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accessToken", "basicAuthCredentials", "oauthToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(App.__pulumiType, name, resourceInputs, opts);
+        super(App.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

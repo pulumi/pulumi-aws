@@ -99,7 +99,7 @@ export class PolicyStore extends pulumi.CustomResource {
             resourceInputs["policyStoreId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PolicyStore.__pulumiType, name, resourceInputs, opts);
+        super(PolicyStore.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

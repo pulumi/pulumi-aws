@@ -141,7 +141,7 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
             resourceInputs["expirePasswords"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccountPasswordPolicy.__pulumiType, name, resourceInputs, opts);
+        super(AccountPasswordPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

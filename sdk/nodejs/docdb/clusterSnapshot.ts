@@ -151,7 +151,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterSnapshot.__pulumiType, name, resourceInputs, opts);
+        super(ClusterSnapshot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

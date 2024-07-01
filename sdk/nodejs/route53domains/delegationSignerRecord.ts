@@ -170,7 +170,7 @@ export class DelegationSignerRecord extends pulumi.CustomResource {
             resourceInputs["dnssecKeyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DelegationSignerRecord.__pulumiType, name, resourceInputs, opts);
+        super(DelegationSignerRecord.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

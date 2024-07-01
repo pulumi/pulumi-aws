@@ -117,7 +117,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DirectoryBucket.__pulumiType, name, resourceInputs, opts);
+        super(DirectoryBucket.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -92,7 +92,7 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
             resourceInputs["prefix"] = args ? args.prefix : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpotDatafeedSubscription.__pulumiType, name, resourceInputs, opts);
+        super(SpotDatafeedSubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

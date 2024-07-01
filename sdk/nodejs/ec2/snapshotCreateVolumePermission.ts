@@ -88,7 +88,7 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SnapshotCreateVolumePermission.__pulumiType, name, resourceInputs, opts);
+        super(SnapshotCreateVolumePermission.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

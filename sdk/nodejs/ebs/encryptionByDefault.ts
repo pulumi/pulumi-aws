@@ -78,7 +78,7 @@ export class EncryptionByDefault extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EncryptionByDefault.__pulumiType, name, resourceInputs, opts);
+        super(EncryptionByDefault.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

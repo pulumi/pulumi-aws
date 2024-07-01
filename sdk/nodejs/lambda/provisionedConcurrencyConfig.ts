@@ -126,7 +126,7 @@ export class ProvisionedConcurrencyConfig extends pulumi.CustomResource {
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProvisionedConcurrencyConfig.__pulumiType, name, resourceInputs, opts);
+        super(ProvisionedConcurrencyConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

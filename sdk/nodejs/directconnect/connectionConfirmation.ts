@@ -71,7 +71,7 @@ export class ConnectionConfirmation extends pulumi.CustomResource {
             resourceInputs["connectionId"] = args ? args.connectionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConnectionConfirmation.__pulumiType, name, resourceInputs, opts);
+        super(ConnectionConfirmation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

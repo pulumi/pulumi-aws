@@ -188,7 +188,7 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["zoneId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Zone.__pulumiType, name, resourceInputs, opts);
+        super(Zone.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

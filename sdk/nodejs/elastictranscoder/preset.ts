@@ -193,7 +193,7 @@ export class Preset extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Preset.__pulumiType, name, resourceInputs, opts);
+        super(Preset.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -99,7 +99,7 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
             resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VoiceConnectorLogging.__pulumiType, name, resourceInputs, opts);
+        super(VoiceConnectorLogging.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

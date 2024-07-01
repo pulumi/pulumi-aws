@@ -162,7 +162,7 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["versionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SigningProfile.__pulumiType, name, resourceInputs, opts);
+        super(SigningProfile.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

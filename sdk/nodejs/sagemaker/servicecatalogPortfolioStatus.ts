@@ -81,7 +81,7 @@ export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServicecatalogPortfolioStatus.__pulumiType, name, resourceInputs, opts);
+        super(ServicecatalogPortfolioStatus.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

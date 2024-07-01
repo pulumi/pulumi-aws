@@ -124,7 +124,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["protocol"] = args ? args.protocol : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Listener.__pulumiType, name, resourceInputs, opts);
+        super(Listener.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

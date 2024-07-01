@@ -356,7 +356,7 @@ export class BucketObject extends pulumi.CustomResource {
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketObject.__pulumiType, name, resourceInputs, opts);
+        super(BucketObject.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

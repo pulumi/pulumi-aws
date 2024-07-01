@@ -278,7 +278,7 @@ export class ExportTask extends pulumi.CustomResource {
             resourceInputs["warningMessage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ExportTask.__pulumiType, name, resourceInputs, opts);
+        super(ExportTask.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

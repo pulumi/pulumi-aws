@@ -256,7 +256,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["transitEncryptionEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GlobalReplicationGroup.__pulumiType, name, resourceInputs, opts);
+        super(GlobalReplicationGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

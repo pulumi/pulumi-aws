@@ -200,7 +200,7 @@ export class TableExport extends pulumi.CustomResource {
             resourceInputs["startTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TableExport.__pulumiType, name, resourceInputs, opts);
+        super(TableExport.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

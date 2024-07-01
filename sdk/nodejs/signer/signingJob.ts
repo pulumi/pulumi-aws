@@ -207,7 +207,7 @@ export class SigningJob extends pulumi.CustomResource {
             resourceInputs["statusReason"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SigningJob.__pulumiType, name, resourceInputs, opts);
+        super(SigningJob.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

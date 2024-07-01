@@ -105,7 +105,7 @@ export class BucketPolicy extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketPolicy.__pulumiType, name, resourceInputs, opts);
+        super(BucketPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

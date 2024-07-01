@@ -133,7 +133,7 @@ export class VpcIpamScope extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcIpamScope.__pulumiType, name, resourceInputs, opts);
+        super(VpcIpamScope.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

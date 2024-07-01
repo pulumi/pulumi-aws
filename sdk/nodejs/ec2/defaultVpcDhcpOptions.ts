@@ -131,7 +131,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DefaultVpcDhcpOptions.__pulumiType, name, resourceInputs, opts);
+        super(DefaultVpcDhcpOptions.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

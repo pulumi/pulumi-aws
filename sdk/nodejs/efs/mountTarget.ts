@@ -153,7 +153,7 @@ export class MountTarget extends pulumi.CustomResource {
             resourceInputs["ownerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MountTarget.__pulumiType, name, resourceInputs, opts);
+        super(MountTarget.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

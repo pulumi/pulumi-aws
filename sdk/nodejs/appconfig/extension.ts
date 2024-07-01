@@ -152,7 +152,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Extension.__pulumiType, name, resourceInputs, opts);
+        super(Extension.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

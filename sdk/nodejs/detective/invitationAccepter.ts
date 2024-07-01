@@ -88,7 +88,7 @@ export class InvitationAccepter extends pulumi.CustomResource {
             resourceInputs["graphArn"] = args ? args.graphArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InvitationAccepter.__pulumiType, name, resourceInputs, opts);
+        super(InvitationAccepter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

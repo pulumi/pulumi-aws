@@ -468,7 +468,7 @@ export class CoreNetwork extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CoreNetwork.__pulumiType, name, resourceInputs, opts);
+        super(CoreNetwork.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -109,7 +109,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Association.__pulumiType, name, resourceInputs, opts);
+        super(Association.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

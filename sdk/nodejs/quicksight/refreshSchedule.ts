@@ -168,7 +168,7 @@ export class RefreshSchedule extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RefreshSchedule.__pulumiType, name, resourceInputs, opts);
+        super(RefreshSchedule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

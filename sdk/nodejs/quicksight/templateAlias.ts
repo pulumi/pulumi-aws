@@ -117,7 +117,7 @@ export class TemplateAlias extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TemplateAlias.__pulumiType, name, resourceInputs, opts);
+        super(TemplateAlias.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

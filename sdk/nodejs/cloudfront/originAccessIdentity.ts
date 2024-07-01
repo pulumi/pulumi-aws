@@ -169,7 +169,7 @@ export class OriginAccessIdentity extends pulumi.CustomResource {
             resourceInputs["s3CanonicalUserId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OriginAccessIdentity.__pulumiType, name, resourceInputs, opts);
+        super(OriginAccessIdentity.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -100,7 +100,7 @@ export class InstancePublicPorts extends pulumi.CustomResource {
             resourceInputs["portInfos"] = args ? args.portInfos : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InstancePublicPorts.__pulumiType, name, resourceInputs, opts);
+        super(InstancePublicPorts.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

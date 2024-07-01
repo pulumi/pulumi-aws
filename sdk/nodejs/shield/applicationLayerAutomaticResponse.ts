@@ -79,7 +79,7 @@ export class ApplicationLayerAutomaticResponse extends pulumi.CustomResource {
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApplicationLayerAutomaticResponse.__pulumiType, name, resourceInputs, opts);
+        super(ApplicationLayerAutomaticResponse.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

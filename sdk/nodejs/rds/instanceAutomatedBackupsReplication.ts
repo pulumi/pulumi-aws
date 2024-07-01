@@ -142,7 +142,7 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
             resourceInputs["sourceDbInstanceArn"] = args ? args.sourceDbInstanceArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InstanceAutomatedBackupsReplication.__pulumiType, name, resourceInputs, opts);
+        super(InstanceAutomatedBackupsReplication.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

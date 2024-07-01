@@ -225,7 +225,7 @@ export class KeySigningKey extends pulumi.CustomResource {
             resourceInputs["signingAlgorithmType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KeySigningKey.__pulumiType, name, resourceInputs, opts);
+        super(KeySigningKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

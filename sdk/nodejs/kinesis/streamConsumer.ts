@@ -108,7 +108,7 @@ export class StreamConsumer extends pulumi.CustomResource {
             resourceInputs["creationTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StreamConsumer.__pulumiType, name, resourceInputs, opts);
+        super(StreamConsumer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

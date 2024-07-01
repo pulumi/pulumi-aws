@@ -95,7 +95,7 @@ export class BudgetResourceAssociation extends pulumi.CustomResource {
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BudgetResourceAssociation.__pulumiType, name, resourceInputs, opts);
+        super(BudgetResourceAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

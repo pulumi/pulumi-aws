@@ -79,7 +79,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             resourceInputs["graphArn"] = args ? args.graphArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

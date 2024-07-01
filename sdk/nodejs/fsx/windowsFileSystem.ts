@@ -289,7 +289,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WindowsFileSystem.__pulumiType, name, resourceInputs, opts);
+        super(WindowsFileSystem.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

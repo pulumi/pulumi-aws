@@ -172,7 +172,7 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
             resourceInputs["resourceType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcIpamPoolCidrAllocation.__pulumiType, name, resourceInputs, opts);
+        super(VpcIpamPoolCidrAllocation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

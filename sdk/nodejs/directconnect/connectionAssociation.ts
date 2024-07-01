@@ -93,7 +93,7 @@ export class ConnectionAssociation extends pulumi.CustomResource {
             resourceInputs["lagId"] = args ? args.lagId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConnectionAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ConnectionAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

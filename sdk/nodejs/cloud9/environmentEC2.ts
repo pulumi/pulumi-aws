@@ -192,7 +192,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EnvironmentEC2.__pulumiType, name, resourceInputs, opts);
+        super(EnvironmentEC2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -133,7 +133,7 @@ export class EventIntegration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventIntegration.__pulumiType, name, resourceInputs, opts);
+        super(EventIntegration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

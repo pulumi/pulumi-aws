@@ -129,7 +129,7 @@ export class UserHierarchyStructure extends pulumi.CustomResource {
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserHierarchyStructure.__pulumiType, name, resourceInputs, opts);
+        super(UserHierarchyStructure.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

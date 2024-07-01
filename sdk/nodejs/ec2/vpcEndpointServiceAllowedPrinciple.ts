@@ -92,7 +92,7 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
             resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcEndpointServiceAllowedPrinciple.__pulumiType, name, resourceInputs, opts);
+        super(VpcEndpointServiceAllowedPrinciple.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -134,7 +134,7 @@ export class ResourceServer extends pulumi.CustomResource {
             resourceInputs["scopeIdentifiers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceServer.__pulumiType, name, resourceInputs, opts);
+        super(ResourceServer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

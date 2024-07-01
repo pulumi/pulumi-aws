@@ -139,7 +139,7 @@ export class VocabularyFilter extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VocabularyFilter.__pulumiType, name, resourceInputs, opts);
+        super(VocabularyFilter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

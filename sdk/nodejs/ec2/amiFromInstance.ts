@@ -254,7 +254,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             resourceInputs["virtualizationType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AmiFromInstance.__pulumiType, name, resourceInputs, opts);
+        super(AmiFromInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -141,7 +141,7 @@ export class SecretVersion extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["secretBinary", "secretString"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(SecretVersion.__pulumiType, name, resourceInputs, opts);
+        super(SecretVersion.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -159,7 +159,7 @@ export class V2modelsBot extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(V2modelsBot.__pulumiType, name, resourceInputs, opts);
+        super(V2modelsBot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

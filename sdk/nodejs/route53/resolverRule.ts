@@ -169,7 +169,7 @@ export class ResolverRule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResolverRule.__pulumiType, name, resourceInputs, opts);
+        super(ResolverRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

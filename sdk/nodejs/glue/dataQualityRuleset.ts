@@ -187,7 +187,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataQualityRuleset.__pulumiType, name, resourceInputs, opts);
+        super(DataQualityRuleset.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

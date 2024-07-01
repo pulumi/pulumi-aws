@@ -86,7 +86,7 @@ export class Tag extends pulumi.CustomResource {
             resourceInputs["tag"] = args ? args.tag : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Tag.__pulumiType, name, resourceInputs, opts);
+        super(Tag.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

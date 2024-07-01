@@ -127,7 +127,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CapacityProvider.__pulumiType, name, resourceInputs, opts);
+        super(CapacityProvider.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

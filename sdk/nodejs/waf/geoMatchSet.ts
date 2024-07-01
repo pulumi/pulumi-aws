@@ -103,7 +103,7 @@ export class GeoMatchSet extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GeoMatchSet.__pulumiType, name, resourceInputs, opts);
+        super(GeoMatchSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

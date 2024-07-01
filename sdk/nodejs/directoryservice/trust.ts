@@ -229,7 +229,7 @@ export class Trust extends pulumi.CustomResource {
             resourceInputs["trustStateReason"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Trust.__pulumiType, name, resourceInputs, opts);
+        super(Trust.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

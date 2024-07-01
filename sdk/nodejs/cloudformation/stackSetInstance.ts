@@ -221,7 +221,7 @@ export class StackSetInstance extends pulumi.CustomResource {
             resourceInputs["stackInstanceSummaries"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StackSetInstance.__pulumiType, name, resourceInputs, opts);
+        super(StackSetInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

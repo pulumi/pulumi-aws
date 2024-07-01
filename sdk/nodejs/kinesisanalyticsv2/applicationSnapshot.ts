@@ -104,7 +104,7 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
             resourceInputs["snapshotCreationTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApplicationSnapshot.__pulumiType, name, resourceInputs, opts);
+        super(ApplicationSnapshot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

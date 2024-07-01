@@ -129,7 +129,7 @@ export class BucketCorsConfigurationV2 extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketCorsConfigurationV2.__pulumiType, name, resourceInputs, opts);
+        super(BucketCorsConfigurationV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -229,7 +229,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             resourceInputs["volumeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CachesIscsiVolume.__pulumiType, name, resourceInputs, opts);
+        super(CachesIscsiVolume.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

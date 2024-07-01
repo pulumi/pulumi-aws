@@ -95,7 +95,7 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
             resourceInputs["transitGatewayArn"] = args ? args.transitGatewayArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TransitGatewayRegistration.__pulumiType, name, resourceInputs, opts);
+        super(TransitGatewayRegistration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

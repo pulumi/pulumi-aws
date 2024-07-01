@@ -129,7 +129,7 @@ export class AccessPolicyAssociation extends pulumi.CustomResource {
             resourceInputs["modifiedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccessPolicyAssociation.__pulumiType, name, resourceInputs, opts);
+        super(AccessPolicyAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

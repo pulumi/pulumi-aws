@@ -275,7 +275,7 @@ export class AnalyticsApplication extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AnalyticsApplication.__pulumiType, name, resourceInputs, opts);
+        super(AnalyticsApplication.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

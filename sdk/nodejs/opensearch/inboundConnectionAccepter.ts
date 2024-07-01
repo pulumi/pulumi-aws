@@ -102,7 +102,7 @@ export class InboundConnectionAccepter extends pulumi.CustomResource {
             resourceInputs["connectionStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InboundConnectionAccepter.__pulumiType, name, resourceInputs, opts);
+        super(InboundConnectionAccepter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

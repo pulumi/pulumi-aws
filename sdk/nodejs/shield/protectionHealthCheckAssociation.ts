@@ -120,7 +120,7 @@ export class ProtectionHealthCheckAssociation extends pulumi.CustomResource {
             resourceInputs["shieldProtectionId"] = args ? args.shieldProtectionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProtectionHealthCheckAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ProtectionHealthCheckAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

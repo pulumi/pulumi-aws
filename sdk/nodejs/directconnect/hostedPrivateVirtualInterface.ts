@@ -173,7 +173,7 @@ export class HostedPrivateVirtualInterface extends pulumi.CustomResource {
             resourceInputs["jumboFrameCapable"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HostedPrivateVirtualInterface.__pulumiType, name, resourceInputs, opts);
+        super(HostedPrivateVirtualInterface.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

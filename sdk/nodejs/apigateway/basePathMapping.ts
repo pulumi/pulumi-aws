@@ -104,7 +104,7 @@ export class BasePathMapping extends pulumi.CustomResource {
             resourceInputs["stageName"] = args ? args.stageName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BasePathMapping.__pulumiType, name, resourceInputs, opts);
+        super(BasePathMapping.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

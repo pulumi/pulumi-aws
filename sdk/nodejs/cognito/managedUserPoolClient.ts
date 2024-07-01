@@ -276,7 +276,7 @@ export class ManagedUserPoolClient extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ManagedUserPoolClient.__pulumiType, name, resourceInputs, opts);
+        super(ManagedUserPoolClient.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

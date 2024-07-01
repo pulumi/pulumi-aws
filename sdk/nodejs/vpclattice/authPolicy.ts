@@ -117,7 +117,7 @@ export class AuthPolicy extends pulumi.CustomResource {
             resourceInputs["state"] = args ? args.state : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AuthPolicy.__pulumiType, name, resourceInputs, opts);
+        super(AuthPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -96,7 +96,7 @@ export class Graph extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Graph.__pulumiType, name, resourceInputs, opts);
+        super(Graph.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

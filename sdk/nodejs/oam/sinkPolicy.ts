@@ -130,7 +130,7 @@ export class SinkPolicy extends pulumi.CustomResource {
             resourceInputs["sinkId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SinkPolicy.__pulumiType, name, resourceInputs, opts);
+        super(SinkPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

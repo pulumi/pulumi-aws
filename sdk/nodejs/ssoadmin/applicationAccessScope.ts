@@ -108,7 +108,7 @@ export class ApplicationAccessScope extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApplicationAccessScope.__pulumiType, name, resourceInputs, opts);
+        super(ApplicationAccessScope.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

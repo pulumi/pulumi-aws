@@ -143,7 +143,7 @@ export class S3Location extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(S3Location.__pulumiType, name, resourceInputs, opts);
+        super(S3Location.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

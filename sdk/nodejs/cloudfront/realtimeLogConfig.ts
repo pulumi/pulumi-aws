@@ -159,7 +159,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RealtimeLogConfig.__pulumiType, name, resourceInputs, opts);
+        super(RealtimeLogConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

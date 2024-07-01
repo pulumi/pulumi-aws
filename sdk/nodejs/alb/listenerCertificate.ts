@@ -100,7 +100,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listenerCertificate:ListenerCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ListenerCertificate.__pulumiType, name, resourceInputs, opts);
+        super(ListenerCertificate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

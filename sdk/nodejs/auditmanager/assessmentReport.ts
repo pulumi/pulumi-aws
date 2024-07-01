@@ -110,7 +110,7 @@ export class AssessmentReport extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AssessmentReport.__pulumiType, name, resourceInputs, opts);
+        super(AssessmentReport.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

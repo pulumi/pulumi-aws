@@ -209,7 +209,7 @@ export class NodejsAppLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NodejsAppLayer.__pulumiType, name, resourceInputs, opts);
+        super(NodejsAppLayer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

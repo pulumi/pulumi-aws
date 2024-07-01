@@ -199,7 +199,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Task.__pulumiType, name, resourceInputs, opts);
+        super(Task.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

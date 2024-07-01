@@ -96,7 +96,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
             resourceInputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpnConnectionRoute.__pulumiType, name, resourceInputs, opts);
+        super(VpnConnectionRoute.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

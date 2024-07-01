@@ -95,7 +95,7 @@ export class UserProfile extends pulumi.CustomResource {
             resourceInputs["userArn"] = args ? args.userArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserProfile.__pulumiType, name, resourceInputs, opts);
+        super(UserProfile.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

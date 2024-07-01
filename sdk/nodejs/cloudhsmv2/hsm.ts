@@ -123,7 +123,7 @@ export class Hsm extends pulumi.CustomResource {
             resourceInputs["hsmState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Hsm.__pulumiType, name, resourceInputs, opts);
+        super(Hsm.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

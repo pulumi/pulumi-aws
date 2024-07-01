@@ -101,7 +101,7 @@ export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResour
             resourceInputs["period"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcNetworkPerformanceMetricSubscription.__pulumiType, name, resourceInputs, opts);
+        super(VpcNetworkPerformanceMetricSubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

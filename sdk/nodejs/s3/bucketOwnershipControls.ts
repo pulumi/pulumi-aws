@@ -99,7 +99,7 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
             resourceInputs["rule"] = args ? args.rule : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketOwnershipControls.__pulumiType, name, resourceInputs, opts);
+        super(BucketOwnershipControls.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

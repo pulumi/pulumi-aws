@@ -114,7 +114,7 @@ export class StudioSessionMapping extends pulumi.CustomResource {
             resourceInputs["studioId"] = args ? args.studioId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StudioSessionMapping.__pulumiType, name, resourceInputs, opts);
+        super(StudioSessionMapping.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

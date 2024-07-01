@@ -211,7 +211,7 @@ export class Faq extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Faq.__pulumiType, name, resourceInputs, opts);
+        super(Faq.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

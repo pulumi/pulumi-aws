@@ -249,7 +249,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServerlessCache.__pulumiType, name, resourceInputs, opts);
+        super(ServerlessCache.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

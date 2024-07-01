@@ -144,7 +144,7 @@ export class NetworkInterfaceSecurityGroupAttachment extends pulumi.CustomResour
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkInterfaceSecurityGroupAttachment.__pulumiType, name, resourceInputs, opts);
+        super(NetworkInterfaceSecurityGroupAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

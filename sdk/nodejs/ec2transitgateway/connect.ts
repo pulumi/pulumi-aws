@@ -128,7 +128,7 @@ export class Connect extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Connect.__pulumiType, name, resourceInputs, opts);
+        super(Connect.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

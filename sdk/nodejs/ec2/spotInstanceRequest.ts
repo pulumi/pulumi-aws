@@ -498,7 +498,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpotInstanceRequest.__pulumiType, name, resourceInputs, opts);
+        super(SpotInstanceRequest.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

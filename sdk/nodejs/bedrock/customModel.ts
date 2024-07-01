@@ -219,7 +219,7 @@ export class CustomModel extends pulumi.CustomResource {
             resourceInputs["validationMetrics"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomModel.__pulumiType, name, resourceInputs, opts);
+        super(CustomModel.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
