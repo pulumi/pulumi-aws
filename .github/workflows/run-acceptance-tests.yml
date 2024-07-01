@@ -72,6 +72,7 @@ jobs:
     - go_test_shim
     - provider_test
     - test_oidc
+    - upstream_lint
     runs-on: ubuntu-latest
     steps:
     - uses: guibranco/github-status-action-v2@0849440ec82c5fa69b2377725b9b7852a3977e76
@@ -121,26 +122,13 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         tools: pulumictl, pulumicli, go, node, dotnet, python, java
-    - name: Download provider + tfgen binaries
-      uses: actions/download-artifact@v4
-      with:
-        name: aws-provider.tar.gz
-        path: ${{ github.workspace }}/bin
-    - name: Untar provider binaries
-      run: >-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-        github.workspace}}/bin
-
-        find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
+    - name: Download bin
+      uses: ./.github/actions/download-bin
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
-      uses: actions/download-artifact@v4
+      uses: ./.github/actions/download-sdk
       with:
-        name: ${{ matrix.language }}-sdk.tar.gz
-        path: ${{ github.workspace}}/sdk/
-    - name: Uncompress SDK folder
-      run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
-        github.workspace }}/sdk/${{ matrix.language }}
+        language: ${{ matrix.language }}
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
@@ -191,11 +179,6 @@ jobs:
       name: Run test of provider shim
       runs-on: ubuntu-latest
       steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              swap-storage: false
-              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
@@ -387,6 +370,38 @@ jobs:
           matrix:
               language:
                   - nodejs
+  upstream_lint:
+      name: Run upstream provider-lint
+      runs-on: ubuntu-latest
+      steps:
+          - name: Free Disk Space (Ubuntu)
+            uses: jlumbroso/free-disk-space@main
+            with:
+              swap-storage: false
+              tool-cache: false
+          - name: Checkout Repo
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ env.PR_COMMIT_SHA }}
+              submodules: true
+          - uses: pulumi/provider-version-action@v1
+            with:
+              set-env: PROVIDER_VERSION
+          - name: Setup tools
+            uses: ./.github/actions/setup-tools
+            with:
+              tools: pulumictl, pulumi, go
+          - name: Make upstream
+            run: make upstream
+          - name: upstream lint
+            run: |
+              cd upstream
+              make provider-lint
+          - env:
+              CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+            name: Upload coverage reports to Codecov
+            uses: codecov/codecov-action@v4
+      timeout-minutes: 60
 
 name: run-acceptance-tests
 on:

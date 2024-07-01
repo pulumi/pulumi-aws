@@ -61,11 +61,6 @@ extraTests:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        swap-storage: false
-        tool-cache: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
@@ -86,6 +81,39 @@ extraTests:
         go get github.com/hashicorp/aws-sdk-go-base@v1.1.0
         cd shim
         go test -v -coverprofile="coverage.txt" .
+    - name: upstream lint
+      run: |
+        cd upstream
+        make provider-lint
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4
+      env:
+       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+  upstream_lint:
+    name: Run upstream provider-lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@main
+      with:
+        swap-storage: false
+        tool-cache: false
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ env.PR_COMMIT_SHA }}
+        submodules: true
+    - uses: pulumi/provider-version-action@v1
+      with:
+        set-env: 'PROVIDER_VERSION'
+    - name: Setup tools
+      uses: ./.github/actions/setup-tools
+      with:
+        tools: pulumictl, pulumi, go
+    - name: Make upstream
+      run: make upstream
     - name: upstream lint
       run: |
         cd upstream

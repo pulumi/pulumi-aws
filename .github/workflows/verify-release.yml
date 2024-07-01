@@ -22,6 +22,11 @@ on:
         required: false
         type: boolean
         default: false
+      skipGoSdk:
+        description: "Skip the Go SDK verification. Defaults to 'false'. This is used when we're not publishing a Go SDK on the default branch build."
+        required: false
+        type: boolean
+        default: false
 
 env:
   AWS_REGION: us-west-2

@@ -52,91 +52,13 @@ jobs:
       - go_test_shim
       - provider_test
       - test_oidc
-    runs-on: ubuntu-latest
-    steps:
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@v1.3.1
-      with:
-        # this might remove tools that are actually needed,
-        # if set to "true" but frees about 6 GB
-        tool-cache: false
-        swap-storage: false
-    - name: Checkout Repo
-      uses: actions/checkout@v4
-      with:
-        submodules: true
-    - name: Setup tools
-      uses: ./.github/actions/setup-tools
-      with:
-        tools: pulumictl, pulumicli, go
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-region: us-east-2
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 7200
-        role-external-id: upload-pulumi-release
-        role-session-name: aws@githubActions
-        role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
-    - name: Run GoReleaser
-      uses: goreleaser/goreleaser-action@v5
-      env:
-        GORELEASER_CURRENT_TAG: v${{ needs.prerequisites.outputs.version }}
-        PROVIDER_VERSION: ${{ needs.prerequisites.outputs.version }}
-      with:
-        args: -p 1 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
-          150m0s
-        version: latest
-  publish_sdk:
-    name: publish_sdk
-    needs: 
-      - prerequisites
-      - publish
-    runs-on: ubuntu-latest
-    steps:
-    - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@v0.0.18
-      with:
-        sdk: all
-        version: ${{ needs.prerequisites.outputs.version }}
-        dotnet-version: "6.0.x"
-        java-version: "11"
-        node-version: "20.x"
-        python-version: "3.11.8"
-  publish_go_sdk:
-    name: publish_go_sdk
-    needs: 
-      - prerequisites
-      - publish_sdk
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v4
-      with:
-        submodules: true
-    - name: Download Go SDK
-      uses: actions/download-artifact@v4
-      with:
-        name: go-sdk.tar.gz
-        path: ${{ github.workspace }}/sdk/
-    - name: Uncompress Go SDK
-      run: tar -zxf ${{ github.workspace }}/sdk/go.tar.gz -C
-        ${{ github.workspace }}/sdk/go
-      shell: bash
-    - uses: pulumi/publish-go-sdk-action@v1
-      with:
-        repository: ${{ github.repository }}
-        base-ref: ${{ github.sha }}
-        source: sdk
-        path: sdk
-        version: ${{ needs.prerequisites.outputs.version }}
-        additive: false
-        # Avoid including other language SDKs & artifacts in the commit
-        files: |
-          go.*
-          go/**
-          !*.tar.gz
+      - upstream_lint
+    uses: ./.github/workflows/publish.yml
+    secrets: inherit
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
+      isPrerelease: true
+
   test:
     name: test
     needs: 
@@ -163,26 +85,13 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         tools: pulumictl, pulumicli, go, node, dotnet, python, java
-    - name: Download provider + tfgen binaries
-      uses: actions/download-artifact@v4
-      with:
-        name: aws-provider.tar.gz
-        path: ${{ github.workspace }}/bin
-    - name: Untar provider binaries
-      run: >-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-        github.workspace}}/bin
-
-        find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
+    - name: Download bin
+      uses: ./.github/actions/download-bin
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
-      uses: actions/download-artifact@v4
+      uses: ./.github/actions/download-sdk
       with:
-        name: ${{ matrix.language }}-sdk.tar.gz
-        path: ${{ github.workspace}}/sdk/
-    - name: Uncompress SDK folder
-      run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
-        github.workspace }}/sdk/${{ matrix.language }}
+        language: ${{ matrix.language }}
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
@@ -223,11 +132,6 @@ jobs:
       name: Run test of provider shim
       runs-on: ubuntu-latest
       steps:
-          - name: Free Disk Space (Ubuntu)
-            uses: jlumbroso/free-disk-space@main
-            with:
-              swap-storage: false
-              tool-cache: false
           - name: Checkout Repo
             uses: actions/checkout@v4
             with:
@@ -419,20 +323,39 @@ jobs:
           matrix:
               language:
                   - nodejs
+  upstream_lint:
+      name: Run upstream provider-lint
+      runs-on: ubuntu-latest
+      steps:
+          - name: Free Disk Space (Ubuntu)
+            uses: jlumbroso/free-disk-space@main
+            with:
+              swap-storage: false
+              tool-cache: false
+          - name: Checkout Repo
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ env.PR_COMMIT_SHA }}
+              submodules: true
+          - uses: pulumi/provider-version-action@v1
+            with:
+              set-env: PROVIDER_VERSION
+          - name: Setup tools
+            uses: ./.github/actions/setup-tools
+            with:
+              tools: pulumictl, pulumi, go
+          - name: Make upstream
+            run: make upstream
+          - name: upstream lint
+            run: |
+              cd upstream
+              make provider-lint
+          - env:
+              CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+            name: Upload coverage reports to Codecov
+            uses: codecov/codecov-action@v4
+      timeout-minutes: 60
 
-  verify-release:
-    name: verify-release
-    needs:
-      - prerequisites
-      - publish
-      - publish_sdk
-      - publish_go_sdk
-    uses: ./.github/workflows/verify-release.yml
-    secrets: inherit
-    with:
-      providerVersion: ${{ needs.prerequisites.outputs.version }}
-      # Prelease is run often but we only have 5 concurrent macos runners, so we only test after the stable release.
-      enableMacosRunner: false
 
 name: prerelease
 on:
