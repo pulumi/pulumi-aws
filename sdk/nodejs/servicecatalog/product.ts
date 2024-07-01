@@ -104,7 +104,7 @@ export class Product extends pulumi.CustomResource {
      */
     public readonly owner!: pulumi.Output<string>;
     /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+     * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
      */
     public readonly provisioningArtifactParameters!: pulumi.Output<outputs.servicecatalog.ProductProvisioningArtifactParameters>;
     /**
@@ -239,7 +239,7 @@ export interface ProductState {
      */
     owner?: pulumi.Input<string>;
     /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+     * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
      */
     provisioningArtifactParameters?: pulumi.Input<inputs.servicecatalog.ProductProvisioningArtifactParameters>;
     /**
@@ -301,7 +301,7 @@ export interface ProductArgs {
      */
     owner: pulumi.Input<string>;
     /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+     * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
      */
     provisioningArtifactParameters: pulumi.Input<inputs.servicecatalog.ProductProvisioningArtifactParameters>;
     /**

@@ -27,7 +27,6 @@ export function getUserGroups(args: GetUserGroupsArgs, opts?: pulumi.InvokeOptio
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserGroups:getUserGroups", {
-        "groups": args.groups,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -36,10 +35,6 @@ export function getUserGroups(args: GetUserGroupsArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getUserGroups.
  */
 export interface GetUserGroupsArgs {
-    /**
-     * List of groups. See `groups` below.
-     */
-    groups?: inputs.cognito.GetUserGroupsGroup[];
     /**
      * User pool the client belongs to.
      */
@@ -53,7 +48,7 @@ export interface GetUserGroupsResult {
     /**
      * List of groups. See `groups` below.
      */
-    readonly groups?: outputs.cognito.GetUserGroupsGroup[];
+    readonly groups: outputs.cognito.GetUserGroupsGroup[];
     /**
      * User pool identifier.
      */
@@ -84,10 +79,6 @@ export function getUserGroupsOutput(args: GetUserGroupsOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getUserGroups.
  */
 export interface GetUserGroupsOutputArgs {
-    /**
-     * List of groups. See `groups` below.
-     */
-    groups?: pulumi.Input<pulumi.Input<inputs.cognito.GetUserGroupsGroupArgs>[]>;
     /**
      * User pool the client belongs to.
      */

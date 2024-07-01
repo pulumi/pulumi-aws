@@ -112,19 +112,19 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      */
     public readonly dnsConfig!: pulumi.Output<outputs.servicediscovery.ServiceDnsConfig | undefined>;
     /**
-     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      */
     public readonly healthCheckConfig!: pulumi.Output<outputs.servicediscovery.ServiceHealthCheckConfig | undefined>;
     /**
-     * A complex type that contains settings for ECS managed health checks.
+     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
      */
     public readonly healthCheckCustomConfig!: pulumi.Output<outputs.servicediscovery.ServiceHealthCheckCustomConfig | undefined>;
     /**
@@ -206,19 +206,19 @@ export interface ServiceState {
      */
     description?: pulumi.Input<string>;
     /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      */
     dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
     /**
-     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      */
     healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
     /**
-     * A complex type that contains settings for ECS managed health checks.
+     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
      */
     healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
     /**
@@ -254,19 +254,19 @@ export interface ServiceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      */
     dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
     /**
-     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      */
     healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
     /**
-     * A complex type that contains settings for ECS managed health checks.
+     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
      */
     healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
     /**

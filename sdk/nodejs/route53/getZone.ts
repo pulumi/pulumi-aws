@@ -97,6 +97,9 @@ export interface GetZoneResult {
      * The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
      */
     readonly linkedServicePrincipal: string;
+    /**
+     * The Hosted Zone name.
+     */
     readonly name: string;
     /**
      * List of DNS name servers for the Hosted Zone.
@@ -106,13 +109,22 @@ export interface GetZoneResult {
      * The Route 53 name server that created the SOA record.
      */
     readonly primaryNameServer: string;
+    /**
+     * Indicates whether this is a private hosted zone.
+     */
     readonly privateZone?: boolean;
     /**
      * The number of Record Set in the Hosted Zone.
      */
     readonly resourceRecordSetCount: number;
+    /**
+     * A map of tags assigned to the Hosted Zone.
+     */
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
+    /**
+     * The Hosted Zone identifier.
+     */
     readonly zoneId: string;
 }
 /**

@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Elastic Disaster Recovery replication configuration template resource.
+ * Provides an Elastic Disaster Recovery replication configuration template resource. Before using DRS, your account must be [initialized](https://docs.aws.amazon.com/drs/latest/userguide/getting-started-initializing.html).
  *
- * > **NOTE:** This resource is provided on a best-effort basis and may not function as intended. Due to challenges with DRS permissions, it has not been fully tested. We are collaborating with AWS to enhance its functionality and welcome your feedback.
+ * > **NOTE:** Your configuration must use the PIT policy shown in the basic configuration due to AWS rules. The only value that you can change is the `retentionDuration` of `ruleId` 3.
  *
  * ## Example Usage
  *
@@ -61,7 +61,7 @@ export class ReplicationConfigurationTemplate extends pulumi.CustomResource {
     /**
      * Whether to allow the AWS replication agent to automatically replicate newly added disks.
      */
-    public readonly autoReplicateNewDisks!: pulumi.Output<boolean | undefined>;
+    public readonly autoReplicateNewDisks!: pulumi.Output<boolean>;
     /**
      * Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
      */

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -22,6 +25,10 @@ import * as utilities from "../utilities";
  * const exampleControlTowerControl = new aws.controltower.ControlTowerControl("example", {
  *     controlIdentifier: current.then(current => `arn:aws:controltower:${current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK`),
  *     targetIdentifier: exampleGetOrganizationalUnits.then(exampleGetOrganizationalUnits => .filter(x => x.name == "Infrastructure").map(x => (x.arn))[0]),
+ *     parameters: [{
+ *         key: "AllowedRegions",
+ *         value: JSON.stringify(["us-east-1"]),
+ *     }],
  * });
  * ```
  *
@@ -62,11 +69,21 @@ export class ControlTowerControl extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the EnabledControl resource.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
      */
     public readonly controlIdentifier!: pulumi.Output<string>;
     /**
+     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+     */
+    public readonly parameters!: pulumi.Output<outputs.controltower.ControlTowerControlParameter[] | undefined>;
+    /**
      * The ARN of the organizational unit.
+     *
+     * The following arguments are optional:
      */
     public readonly targetIdentifier!: pulumi.Output<string>;
 
@@ -83,7 +100,9 @@ export class ControlTowerControl extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ControlTowerControlState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["controlIdentifier"] = state ? state.controlIdentifier : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["targetIdentifier"] = state ? state.targetIdentifier : undefined;
         } else {
             const args = argsOrState as ControlTowerControlArgs | undefined;
@@ -94,7 +113,9 @@ export class ControlTowerControl extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetIdentifier'");
             }
             resourceInputs["controlIdentifier"] = args ? args.controlIdentifier : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ControlTowerControl.__pulumiType, name, resourceInputs, opts);
@@ -106,11 +127,21 @@ export class ControlTowerControl extends pulumi.CustomResource {
  */
 export interface ControlTowerControlState {
     /**
+     * The ARN of the EnabledControl resource.
+     */
+    arn?: pulumi.Input<string>;
+    /**
      * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
      */
     controlIdentifier?: pulumi.Input<string>;
     /**
+     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.ControlTowerControlParameter>[]>;
+    /**
      * The ARN of the organizational unit.
+     *
+     * The following arguments are optional:
      */
     targetIdentifier?: pulumi.Input<string>;
 }
@@ -124,7 +155,13 @@ export interface ControlTowerControlArgs {
      */
     controlIdentifier: pulumi.Input<string>;
     /**
+     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.ControlTowerControlParameter>[]>;
+    /**
      * The ARN of the organizational unit.
+     *
+     * The following arguments are optional:
      */
     targetIdentifier: pulumi.Input<string>;
 }
