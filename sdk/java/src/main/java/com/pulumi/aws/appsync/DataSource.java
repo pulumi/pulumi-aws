@@ -177,70 +177,70 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * DynamoDB settings. See DynamoDB Config
+     * DynamoDB settings. See `dynamodb_config` Block for details.
      * 
      */
     @Export(name="dynamodbConfig", refs={DataSourceDynamodbConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceDynamodbConfig> dynamodbConfig;
 
     /**
-     * @return DynamoDB settings. See DynamoDB Config
+     * @return DynamoDB settings. See `dynamodb_config` Block for details.
      * 
      */
     public Output<Optional<DataSourceDynamodbConfig>> dynamodbConfig() {
         return Codegen.optional(this.dynamodbConfig);
     }
     /**
-     * Amazon Elasticsearch settings. See ElasticSearch Config
+     * Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
      * 
      */
     @Export(name="elasticsearchConfig", refs={DataSourceElasticsearchConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceElasticsearchConfig> elasticsearchConfig;
 
     /**
-     * @return Amazon Elasticsearch settings. See ElasticSearch Config
+     * @return Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
      * 
      */
     public Output<Optional<DataSourceElasticsearchConfig>> elasticsearchConfig() {
         return Codegen.optional(this.elasticsearchConfig);
     }
     /**
-     * AWS EventBridge settings. See Event Bridge Config
+     * AWS EventBridge settings. See `event_bridge_config` Block for details.
      * 
      */
     @Export(name="eventBridgeConfig", refs={DataSourceEventBridgeConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceEventBridgeConfig> eventBridgeConfig;
 
     /**
-     * @return AWS EventBridge settings. See Event Bridge Config
+     * @return AWS EventBridge settings. See `event_bridge_config` Block for details.
      * 
      */
     public Output<Optional<DataSourceEventBridgeConfig>> eventBridgeConfig() {
         return Codegen.optional(this.eventBridgeConfig);
     }
     /**
-     * HTTP settings. See HTTP Config
+     * HTTP settings. See `http_config` Block for details.
      * 
      */
     @Export(name="httpConfig", refs={DataSourceHttpConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceHttpConfig> httpConfig;
 
     /**
-     * @return HTTP settings. See HTTP Config
+     * @return HTTP settings. See `http_config` Block for details.
      * 
      */
     public Output<Optional<DataSourceHttpConfig>> httpConfig() {
         return Codegen.optional(this.httpConfig);
     }
     /**
-     * AWS Lambda settings. See Lambda Config
+     * AWS Lambda settings. See `lambda_config` Block for details.
      * 
      */
     @Export(name="lambdaConfig", refs={DataSourceLambdaConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceLambdaConfig> lambdaConfig;
 
     /**
-     * @return AWS Lambda settings. See Lambda Config
+     * @return AWS Lambda settings. See `lambda_config` Block for details.
      * 
      */
     public Output<Optional<DataSourceLambdaConfig>> lambdaConfig() {
@@ -261,28 +261,28 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Amazon OpenSearch Service settings. See OpenSearch Service Config
+     * Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
      * 
      */
     @Export(name="opensearchserviceConfig", refs={DataSourceOpensearchserviceConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceOpensearchserviceConfig> opensearchserviceConfig;
 
     /**
-     * @return Amazon OpenSearch Service settings. See OpenSearch Service Config
+     * @return Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
      * 
      */
     public Output<Optional<DataSourceOpensearchserviceConfig>> opensearchserviceConfig() {
         return Codegen.optional(this.opensearchserviceConfig);
     }
     /**
-     * AWS RDS settings. See Relational Database Config
+     * AWS RDS settings. See `relational_database_config` Block for details.
      * 
      */
     @Export(name="relationalDatabaseConfig", refs={DataSourceRelationalDatabaseConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceRelationalDatabaseConfig> relationalDatabaseConfig;
 
     /**
-     * @return AWS RDS settings. See Relational Database Config
+     * @return AWS RDS settings. See `relational_database_config` Block for details.
      * 
      */
     public Output<Optional<DataSourceRelationalDatabaseConfig>> relationalDatabaseConfig() {

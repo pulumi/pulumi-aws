@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetUserGroupsResult {
@@ -17,7 +16,7 @@ public final class GetUserGroupsResult {
      * @return List of groups. See `groups` below.
      * 
      */
-    private @Nullable List<GetUserGroupsGroup> groups;
+    private List<GetUserGroupsGroup> groups;
     /**
      * @return User pool identifier.
      * 
@@ -31,7 +30,7 @@ public final class GetUserGroupsResult {
      * 
      */
     public List<GetUserGroupsGroup> groups() {
-        return this.groups == null ? List.of() : this.groups;
+        return this.groups;
     }
     /**
      * @return User pool identifier.
@@ -53,7 +52,7 @@ public final class GetUserGroupsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<GetUserGroupsGroup> groups;
+        private List<GetUserGroupsGroup> groups;
         private String id;
         private String userPoolId;
         public Builder() {}
@@ -65,8 +64,10 @@ public final class GetUserGroupsResult {
         }
 
         @CustomType.Setter
-        public Builder groups(@Nullable List<GetUserGroupsGroup> groups) {
-
+        public Builder groups(List<GetUserGroupsGroup> groups) {
+            if (groups == null) {
+              throw new MissingRequiredPropertyException("GetUserGroupsResult", "groups");
+            }
             this.groups = groups;
             return this;
         }

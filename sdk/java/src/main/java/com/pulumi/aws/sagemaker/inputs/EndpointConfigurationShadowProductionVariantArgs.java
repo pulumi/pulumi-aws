@@ -51,6 +51,13 @@ public final class EndpointConfigurationShadowProductionVariantArgs extends com.
         return Optional.ofNullable(this.enableSsmAccess);
     }
 
+    @Import(name="inferenceAmiVersion")
+    private @Nullable Output<String> inferenceAmiVersion;
+
+    public Optional<Output<String>> inferenceAmiVersion() {
+        return Optional.ofNullable(this.inferenceAmiVersion);
+    }
+
     @Import(name="initialInstanceCount")
     private @Nullable Output<Integer> initialInstanceCount;
 
@@ -121,6 +128,7 @@ public final class EndpointConfigurationShadowProductionVariantArgs extends com.
         this.containerStartupHealthCheckTimeoutInSeconds = $.containerStartupHealthCheckTimeoutInSeconds;
         this.coreDumpConfig = $.coreDumpConfig;
         this.enableSsmAccess = $.enableSsmAccess;
+        this.inferenceAmiVersion = $.inferenceAmiVersion;
         this.initialInstanceCount = $.initialInstanceCount;
         this.initialVariantWeight = $.initialVariantWeight;
         this.instanceType = $.instanceType;
@@ -184,6 +192,15 @@ public final class EndpointConfigurationShadowProductionVariantArgs extends com.
 
         public Builder enableSsmAccess(Boolean enableSsmAccess) {
             return enableSsmAccess(Output.of(enableSsmAccess));
+        }
+
+        public Builder inferenceAmiVersion(@Nullable Output<String> inferenceAmiVersion) {
+            $.inferenceAmiVersion = inferenceAmiVersion;
+            return this;
+        }
+
+        public Builder inferenceAmiVersion(String inferenceAmiVersion) {
+            return inferenceAmiVersion(Output.of(inferenceAmiVersion));
         }
 
         public Builder initialInstanceCount(@Nullable Output<Integer> initialInstanceCount) {

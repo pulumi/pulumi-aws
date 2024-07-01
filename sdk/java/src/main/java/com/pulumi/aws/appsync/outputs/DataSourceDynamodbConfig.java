@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceDynamodbConfig {
     /**
-     * @return The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+     * @return The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
      * 
      */
     private @Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig;
@@ -42,7 +42,7 @@ public final class DataSourceDynamodbConfig {
 
     private DataSourceDynamodbConfig() {}
     /**
-     * @return The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+     * @return The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
      * 
      */
     public Optional<DataSourceDynamodbConfigDeltaSyncConfig> deltaSyncConfig() {

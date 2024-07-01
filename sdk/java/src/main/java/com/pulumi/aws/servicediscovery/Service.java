@@ -180,56 +180,56 @@ public class Service extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
      * 
      */
     @Export(name="dnsConfig", refs={ServiceDnsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceDnsConfig> dnsConfig;
 
     /**
-     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
      * 
      */
     public Output<Optional<ServiceDnsConfig>> dnsConfig() {
         return Codegen.optional(this.dnsConfig);
     }
     /**
-     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      * 
      */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
     /**
-     * @return A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+     * @return A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
     /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
      * 
      */
     @Export(name="healthCheckConfig", refs={ServiceHealthCheckConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceHealthCheckConfig> healthCheckConfig;
 
     /**
-     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
      * 
      */
     public Output<Optional<ServiceHealthCheckConfig>> healthCheckConfig() {
         return Codegen.optional(this.healthCheckConfig);
     }
     /**
-     * A complex type that contains settings for ECS managed health checks.
+     * A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
      * 
      */
     @Export(name="healthCheckCustomConfig", refs={ServiceHealthCheckCustomConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceHealthCheckCustomConfig> healthCheckCustomConfig;
 
     /**
-     * @return A complex type that contains settings for ECS managed health checks.
+     * @return A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
      * 
      */
     public Output<Optional<ServiceHealthCheckCustomConfig>> healthCheckCustomConfig() {

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings;
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings;
@@ -22,6 +23,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
      * 
      */
     private @Nullable DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
+    private @Nullable DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings generativeAiSettings;
     /**
      * @return The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
      * 
@@ -55,6 +57,9 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
      */
     public Optional<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings> directDeploySettings() {
         return Optional.ofNullable(this.directDeploySettings);
+    }
+    public Optional<DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings> generativeAiSettings() {
+        return Optional.ofNullable(this.generativeAiSettings);
     }
     /**
      * @return The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
@@ -102,6 +107,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
+        private @Nullable DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings generativeAiSettings;
         private @Nullable List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings;
         private @Nullable DomainDefaultUserSettingsCanvasAppSettingsKendraSettings kendraSettings;
         private @Nullable DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings;
@@ -111,6 +117,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
         public Builder(DomainDefaultUserSettingsCanvasAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.directDeploySettings = defaults.directDeploySettings;
+    	      this.generativeAiSettings = defaults.generativeAiSettings;
     	      this.identityProviderOauthSettings = defaults.identityProviderOauthSettings;
     	      this.kendraSettings = defaults.kendraSettings;
     	      this.modelRegisterSettings = defaults.modelRegisterSettings;
@@ -122,6 +129,12 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
         public Builder directDeploySettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings) {
 
             this.directDeploySettings = directDeploySettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder generativeAiSettings(@Nullable DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings generativeAiSettings) {
+
+            this.generativeAiSettings = generativeAiSettings;
             return this;
         }
         @CustomType.Setter
@@ -160,6 +173,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettings {
         public DomainDefaultUserSettingsCanvasAppSettings build() {
             final var _resultValue = new DomainDefaultUserSettingsCanvasAppSettings();
             _resultValue.directDeploySettings = directDeploySettings;
+            _resultValue.generativeAiSettings = generativeAiSettings;
             _resultValue.identityProviderOauthSettings = identityProviderOauthSettings;
             _resultValue.kendraSettings = kendraSettings;
             _resultValue.modelRegisterSettings = modelRegisterSettings;

@@ -53,14 +53,14 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
      * 
      */
     @Import(name="deliveryOptions")
     private @Nullable Output<ConfigurationSetDeliveryOptionsArgs> deliveryOptions;
 
     /**
-     * @return An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+     * @return An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetDeliveryOptionsArgs>> deliveryOptions() {
@@ -68,14 +68,14 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
      * 
      */
     @Import(name="reputationOptions")
     private @Nullable Output<ConfigurationSetReputationOptionsArgs> reputationOptions;
 
     /**
-     * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+     * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetReputationOptionsArgs>> reputationOptions() {
@@ -83,14 +83,14 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     * An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
      * 
      */
     @Import(name="sendingOptions")
     private @Nullable Output<ConfigurationSetSendingOptionsArgs> sendingOptions;
 
     /**
-     * @return An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     * @return An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetSendingOptionsArgs>> sendingOptions() {
@@ -98,14 +98,14 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An object that contains information about the suppression list preferences for your account.
+     * An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
      * 
      */
     @Import(name="suppressionOptions")
     private @Nullable Output<ConfigurationSetSuppressionOptionsArgs> suppressionOptions;
 
     /**
-     * @return An object that contains information about the suppression list preferences for your account.
+     * @return An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetSuppressionOptionsArgs>> suppressionOptions() {
@@ -147,14 +147,14 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An object that defines the open and click tracking options for emails that you send using the configuration set.
+     * An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
      * 
      */
     @Import(name="trackingOptions")
     private @Nullable Output<ConfigurationSetTrackingOptionsArgs> trackingOptions;
 
     /**
-     * @return An object that defines the open and click tracking options for emails that you send using the configuration set.
+     * @return An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetTrackingOptionsArgs>> trackingOptions() {
@@ -162,14 +162,14 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     * An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
      * 
      */
     @Import(name="vdmOptions")
     private @Nullable Output<ConfigurationSetVdmOptionsArgs> vdmOptions;
 
     /**
-     * @return An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     * @return An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetVdmOptionsArgs>> vdmOptions() {
@@ -252,7 +252,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deliveryOptions An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+         * @param deliveryOptions An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deliveryOptions An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+         * @param deliveryOptions An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `delivery_options` Block for details.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param reputationOptions An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+         * @param reputationOptions An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param reputationOptions An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+         * @param reputationOptions An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sendingOptions An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+         * @param sendingOptions An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sendingOptions An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+         * @param sendingOptions An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sending_options` Block for details.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param suppressionOptions An object that contains information about the suppression list preferences for your account.
+         * @param suppressionOptions An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param suppressionOptions An object that contains information about the suppression list preferences for your account.
+         * @param suppressionOptions An object that contains information about the suppression list preferences for your account. See `suppression_options` Block for details.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param trackingOptions An object that defines the open and click tracking options for emails that you send using the configuration set.
+         * @param trackingOptions An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param trackingOptions An object that defines the open and click tracking options for emails that you send using the configuration set.
+         * @param trackingOptions An object that defines the open and click tracking options for emails that you send using the configuration set. See `tracking_options` Block for details.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vdmOptions An object that defines the VDM settings that apply to emails that you send using the configuration set.
+         * @param vdmOptions An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class ConfigurationSetState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param vdmOptions An object that defines the VDM settings that apply to emails that you send using the configuration set.
+         * @param vdmOptions An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdm_options` Block for details.
          * 
          * @return builder
          * 

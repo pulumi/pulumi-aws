@@ -68,14 +68,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * DynamoDB settings. See DynamoDB Config
+     * DynamoDB settings. See `dynamodb_config` Block for details.
      * 
      */
     @Import(name="dynamodbConfig")
     private @Nullable Output<DataSourceDynamodbConfigArgs> dynamodbConfig;
 
     /**
-     * @return DynamoDB settings. See DynamoDB Config
+     * @return DynamoDB settings. See `dynamodb_config` Block for details.
      * 
      */
     public Optional<Output<DataSourceDynamodbConfigArgs>> dynamodbConfig() {
@@ -83,14 +83,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Elasticsearch settings. See ElasticSearch Config
+     * Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
      * 
      */
     @Import(name="elasticsearchConfig")
     private @Nullable Output<DataSourceElasticsearchConfigArgs> elasticsearchConfig;
 
     /**
-     * @return Amazon Elasticsearch settings. See ElasticSearch Config
+     * @return Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
      * 
      */
     public Optional<Output<DataSourceElasticsearchConfigArgs>> elasticsearchConfig() {
@@ -98,14 +98,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS EventBridge settings. See Event Bridge Config
+     * AWS EventBridge settings. See `event_bridge_config` Block for details.
      * 
      */
     @Import(name="eventBridgeConfig")
     private @Nullable Output<DataSourceEventBridgeConfigArgs> eventBridgeConfig;
 
     /**
-     * @return AWS EventBridge settings. See Event Bridge Config
+     * @return AWS EventBridge settings. See `event_bridge_config` Block for details.
      * 
      */
     public Optional<Output<DataSourceEventBridgeConfigArgs>> eventBridgeConfig() {
@@ -113,14 +113,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * HTTP settings. See HTTP Config
+     * HTTP settings. See `http_config` Block for details.
      * 
      */
     @Import(name="httpConfig")
     private @Nullable Output<DataSourceHttpConfigArgs> httpConfig;
 
     /**
-     * @return HTTP settings. See HTTP Config
+     * @return HTTP settings. See `http_config` Block for details.
      * 
      */
     public Optional<Output<DataSourceHttpConfigArgs>> httpConfig() {
@@ -128,14 +128,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS Lambda settings. See Lambda Config
+     * AWS Lambda settings. See `lambda_config` Block for details.
      * 
      */
     @Import(name="lambdaConfig")
     private @Nullable Output<DataSourceLambdaConfigArgs> lambdaConfig;
 
     /**
-     * @return AWS Lambda settings. See Lambda Config
+     * @return AWS Lambda settings. See `lambda_config` Block for details.
      * 
      */
     public Optional<Output<DataSourceLambdaConfigArgs>> lambdaConfig() {
@@ -158,14 +158,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon OpenSearch Service settings. See OpenSearch Service Config
+     * Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
      * 
      */
     @Import(name="opensearchserviceConfig")
     private @Nullable Output<DataSourceOpensearchserviceConfigArgs> opensearchserviceConfig;
 
     /**
-     * @return Amazon OpenSearch Service settings. See OpenSearch Service Config
+     * @return Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
      * 
      */
     public Optional<Output<DataSourceOpensearchserviceConfigArgs>> opensearchserviceConfig() {
@@ -173,14 +173,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS RDS settings. See Relational Database Config
+     * AWS RDS settings. See `relational_database_config` Block for details.
      * 
      */
     @Import(name="relationalDatabaseConfig")
     private @Nullable Output<DataSourceRelationalDatabaseConfigArgs> relationalDatabaseConfig;
 
     /**
-     * @return AWS RDS settings. See Relational Database Config
+     * @return AWS RDS settings. See `relational_database_config` Block for details.
      * 
      */
     public Optional<Output<DataSourceRelationalDatabaseConfigArgs>> relationalDatabaseConfig() {
@@ -317,7 +317,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamodbConfig DynamoDB settings. See DynamoDB Config
+         * @param dynamodbConfig DynamoDB settings. See `dynamodb_config` Block for details.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dynamodbConfig DynamoDB settings. See DynamoDB Config
+         * @param dynamodbConfig DynamoDB settings. See `dynamodb_config` Block for details.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param elasticsearchConfig Amazon Elasticsearch settings. See ElasticSearch Config
+         * @param elasticsearchConfig Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param elasticsearchConfig Amazon Elasticsearch settings. See ElasticSearch Config
+         * @param elasticsearchConfig Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBridgeConfig AWS EventBridge settings. See Event Bridge Config
+         * @param eventBridgeConfig AWS EventBridge settings. See `event_bridge_config` Block for details.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param eventBridgeConfig AWS EventBridge settings. See Event Bridge Config
+         * @param eventBridgeConfig AWS EventBridge settings. See `event_bridge_config` Block for details.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpConfig HTTP settings. See HTTP Config
+         * @param httpConfig HTTP settings. See `http_config` Block for details.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param httpConfig HTTP settings. See HTTP Config
+         * @param httpConfig HTTP settings. See `http_config` Block for details.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaConfig AWS Lambda settings. See Lambda Config
+         * @param lambdaConfig AWS Lambda settings. See `lambda_config` Block for details.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaConfig AWS Lambda settings. See Lambda Config
+         * @param lambdaConfig AWS Lambda settings. See `lambda_config` Block for details.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param opensearchserviceConfig Amazon OpenSearch Service settings. See OpenSearch Service Config
+         * @param opensearchserviceConfig Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param opensearchserviceConfig Amazon OpenSearch Service settings. See OpenSearch Service Config
+         * @param opensearchserviceConfig Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param relationalDatabaseConfig AWS RDS settings. See Relational Database Config
+         * @param relationalDatabaseConfig AWS RDS settings. See `relational_database_config` Block for details.
          * 
          * @return builder
          * 
@@ -475,7 +475,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param relationalDatabaseConfig AWS RDS settings. See Relational Database Config
+         * @param relationalDatabaseConfig AWS RDS settings. See `relational_database_config` Block for details.
          * 
          * @return builder
          * 

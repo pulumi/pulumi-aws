@@ -3,11 +3,15 @@
 
 package com.pulumi.aws.controltower;
 
+import com.pulumi.aws.controltower.inputs.ControlTowerControlParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ControlTowerControlArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,7 +34,24 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+     * 
+     */
+    @Import(name="parameters")
+    private @Nullable Output<List<ControlTowerControlParameterArgs>> parameters;
+
+    /**
+     * @return Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+     * 
+     */
+    public Optional<Output<List<ControlTowerControlParameterArgs>>> parameters() {
+        return Optional.ofNullable(this.parameters);
+    }
+
+    /**
      * The ARN of the organizational unit.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="targetIdentifier", required=true)
@@ -38,6 +59,8 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
 
     /**
      * @return The ARN of the organizational unit.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> targetIdentifier() {
@@ -48,6 +71,7 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
 
     private ControlTowerControlArgs(ControlTowerControlArgs $) {
         this.controlIdentifier = $.controlIdentifier;
+        this.parameters = $.parameters;
         this.targetIdentifier = $.targetIdentifier;
     }
 
@@ -91,7 +115,40 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param parameters Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(@Nullable Output<List<ControlTowerControlParameterArgs>> parameters) {
+            $.parameters = parameters;
+            return this;
+        }
+
+        /**
+         * @param parameters Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(List<ControlTowerControlParameterArgs> parameters) {
+            return parameters(Output.of(parameters));
+        }
+
+        /**
+         * @param parameters Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(ControlTowerControlParameterArgs... parameters) {
+            return parameters(List.of(parameters));
+        }
+
+        /**
          * @param targetIdentifier The ARN of the organizational unit.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -103,6 +160,8 @@ public final class ControlTowerControlArgs extends com.pulumi.resources.Resource
 
         /**
          * @param targetIdentifier The ARN of the organizational unit.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

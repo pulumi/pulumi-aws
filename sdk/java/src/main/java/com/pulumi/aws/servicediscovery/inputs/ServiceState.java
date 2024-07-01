@@ -51,14 +51,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
      * 
      */
     @Import(name="dnsConfig")
     private @Nullable Output<ServiceDnsConfigArgs> dnsConfig;
 
     /**
-     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
      * 
      */
     public Optional<Output<ServiceDnsConfigArgs>> dnsConfig() {
@@ -66,14 +66,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      * 
      */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+     * @return A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
@@ -81,14 +81,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
      * 
      */
     @Import(name="healthCheckConfig")
     private @Nullable Output<ServiceHealthCheckConfigArgs> healthCheckConfig;
 
     /**
-     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
      * 
      */
     public Optional<Output<ServiceHealthCheckConfigArgs>> healthCheckConfig() {
@@ -96,14 +96,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A complex type that contains settings for ECS managed health checks.
+     * A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
      * 
      */
     @Import(name="healthCheckCustomConfig")
     private @Nullable Output<ServiceHealthCheckCustomConfigArgs> healthCheckCustomConfig;
 
     /**
-     * @return A complex type that contains settings for ECS managed health checks.
+     * @return A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
      * 
      */
     public Optional<Output<ServiceHealthCheckCustomConfigArgs>> healthCheckCustomConfig() {
@@ -270,7 +270,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+         * @param dnsConfig A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsConfig A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+         * @param dnsConfig A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+         * @param forceDestroy A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+         * @param forceDestroy A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckConfig A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+         * @param healthCheckConfig A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckConfig A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+         * @param healthCheckConfig A complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckCustomConfig A complex type that contains settings for ECS managed health checks.
+         * @param healthCheckCustomConfig A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param healthCheckCustomConfig A complex type that contains settings for ECS managed health checks.
+         * @param healthCheckCustomConfig A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
          * 
          * @return builder
          * 

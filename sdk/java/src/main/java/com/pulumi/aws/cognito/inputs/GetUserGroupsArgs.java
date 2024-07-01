@@ -3,35 +3,16 @@
 
 package com.pulumi.aws.cognito.inputs;
 
-import com.pulumi.aws.cognito.inputs.GetUserGroupsGroupArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetUserGroupsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserGroupsArgs Empty = new GetUserGroupsArgs();
-
-    /**
-     * List of groups. See `groups` below.
-     * 
-     */
-    @Import(name="groups")
-    private @Nullable Output<List<GetUserGroupsGroupArgs>> groups;
-
-    /**
-     * @return List of groups. See `groups` below.
-     * 
-     */
-    public Optional<Output<List<GetUserGroupsGroupArgs>>> groups() {
-        return Optional.ofNullable(this.groups);
-    }
 
     /**
      * User pool the client belongs to.
@@ -51,7 +32,6 @@ public final class GetUserGroupsArgs extends com.pulumi.resources.InvokeArgs {
     private GetUserGroupsArgs() {}
 
     private GetUserGroupsArgs(GetUserGroupsArgs $) {
-        this.groups = $.groups;
         this.userPoolId = $.userPoolId;
     }
 
@@ -71,37 +51,6 @@ public final class GetUserGroupsArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetUserGroupsArgs defaults) {
             $ = new GetUserGroupsArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param groups List of groups. See `groups` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder groups(@Nullable Output<List<GetUserGroupsGroupArgs>> groups) {
-            $.groups = groups;
-            return this;
-        }
-
-        /**
-         * @param groups List of groups. See `groups` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder groups(List<GetUserGroupsGroupArgs> groups) {
-            return groups(Output.of(groups));
-        }
-
-        /**
-         * @param groups List of groups. See `groups` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder groups(GetUserGroupsGroupArgs... groups) {
-            return groups(List.of(groups));
         }
 
         /**

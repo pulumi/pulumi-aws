@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementFiel
 import com.pulumi.aws.wafv2.outputs.RuleGroupRuleStatementSqliMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,6 +20,7 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
      * 
      */
     private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatch fieldToMatch;
+    private @Nullable String sensitivityLevel;
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
@@ -34,6 +36,9 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
      */
     public Optional<RuleGroupRuleStatementSqliMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
+    }
+    public Optional<String> sensitivityLevel() {
+        return Optional.ofNullable(this.sensitivityLevel);
     }
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
@@ -55,11 +60,13 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatch fieldToMatch;
+        private @Nullable String sensitivityLevel;
         private List<RuleGroupRuleStatementSqliMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(RuleGroupRuleStatementSqliMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
+    	      this.sensitivityLevel = defaults.sensitivityLevel;
     	      this.textTransformations = defaults.textTransformations;
         }
 
@@ -67,6 +74,12 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
         public Builder fieldToMatch(@Nullable RuleGroupRuleStatementSqliMatchStatementFieldToMatch fieldToMatch) {
 
             this.fieldToMatch = fieldToMatch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sensitivityLevel(@Nullable String sensitivityLevel) {
+
+            this.sensitivityLevel = sensitivityLevel;
             return this;
         }
         @CustomType.Setter
@@ -83,6 +96,7 @@ public final class RuleGroupRuleStatementSqliMatchStatement {
         public RuleGroupRuleStatementSqliMatchStatement build() {
             final var _resultValue = new RuleGroupRuleStatementSqliMatchStatement();
             _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.sensitivityLevel = sensitivityLevel;
             _resultValue.textTransformations = textTransformations;
             return _resultValue;
         }

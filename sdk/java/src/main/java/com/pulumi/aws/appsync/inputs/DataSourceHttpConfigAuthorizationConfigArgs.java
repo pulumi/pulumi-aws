@@ -32,14 +32,14 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
     }
 
     /**
-     * Identity and Access Management (IAM) settings. See AWS IAM Config.
+     * Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
      * 
      */
     @Import(name="awsIamConfig")
     private @Nullable Output<DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs> awsIamConfig;
 
     /**
-     * @return Identity and Access Management (IAM) settings. See AWS IAM Config.
+     * @return Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
      * 
      */
     public Optional<Output<DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs>> awsIamConfig() {
@@ -93,7 +93,7 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
         }
 
         /**
-         * @param awsIamConfig Identity and Access Management (IAM) settings. See AWS IAM Config.
+         * @param awsIamConfig Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DataSourceHttpConfigAuthorizationConfigArgs extends com.pulum
         }
 
         /**
-         * @param awsIamConfig Identity and Access Management (IAM) settings. See AWS IAM Config.
+         * @param awsIamConfig Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
          * 
          * @return builder
          * 

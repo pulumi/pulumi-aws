@@ -40,6 +40,11 @@ public final class EndpointConfigurationProductionVariant {
      */
     private @Nullable Boolean enableSsmAccess;
     /**
+     * @return Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+     * 
+     */
+    private @Nullable String inferenceAmiVersion;
+    /**
      * @return Initial number of instances used for auto-scaling.
      * 
      */
@@ -113,6 +118,13 @@ public final class EndpointConfigurationProductionVariant {
      */
     public Optional<Boolean> enableSsmAccess() {
         return Optional.ofNullable(this.enableSsmAccess);
+    }
+    /**
+     * @return Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+     * 
+     */
+    public Optional<String> inferenceAmiVersion() {
+        return Optional.ofNullable(this.inferenceAmiVersion);
     }
     /**
      * @return Initial number of instances used for auto-scaling.
@@ -191,6 +203,7 @@ public final class EndpointConfigurationProductionVariant {
         private @Nullable Integer containerStartupHealthCheckTimeoutInSeconds;
         private @Nullable EndpointConfigurationProductionVariantCoreDumpConfig coreDumpConfig;
         private @Nullable Boolean enableSsmAccess;
+        private @Nullable String inferenceAmiVersion;
         private @Nullable Integer initialInstanceCount;
         private @Nullable Double initialVariantWeight;
         private @Nullable String instanceType;
@@ -207,6 +220,7 @@ public final class EndpointConfigurationProductionVariant {
     	      this.containerStartupHealthCheckTimeoutInSeconds = defaults.containerStartupHealthCheckTimeoutInSeconds;
     	      this.coreDumpConfig = defaults.coreDumpConfig;
     	      this.enableSsmAccess = defaults.enableSsmAccess;
+    	      this.inferenceAmiVersion = defaults.inferenceAmiVersion;
     	      this.initialInstanceCount = defaults.initialInstanceCount;
     	      this.initialVariantWeight = defaults.initialVariantWeight;
     	      this.instanceType = defaults.instanceType;
@@ -240,6 +254,12 @@ public final class EndpointConfigurationProductionVariant {
         public Builder enableSsmAccess(@Nullable Boolean enableSsmAccess) {
 
             this.enableSsmAccess = enableSsmAccess;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inferenceAmiVersion(@Nullable String inferenceAmiVersion) {
+
+            this.inferenceAmiVersion = inferenceAmiVersion;
             return this;
         }
         @CustomType.Setter
@@ -307,6 +327,7 @@ public final class EndpointConfigurationProductionVariant {
             _resultValue.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             _resultValue.coreDumpConfig = coreDumpConfig;
             _resultValue.enableSsmAccess = enableSsmAccess;
+            _resultValue.inferenceAmiVersion = inferenceAmiVersion;
             _resultValue.initialInstanceCount = initialInstanceCount;
             _resultValue.initialVariantWeight = initialVariantWeight;
             _resultValue.instanceType = instanceType;

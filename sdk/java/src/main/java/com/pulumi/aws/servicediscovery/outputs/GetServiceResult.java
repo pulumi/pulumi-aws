@@ -27,17 +27,17 @@ public final class GetServiceResult {
      */
     private String description;
     /**
-     * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
      * 
      */
     private List<GetServiceDnsConfig> dnsConfigs;
     /**
-     * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
      * 
      */
     private List<GetServiceHealthCheckConfig> healthCheckConfigs;
     /**
-     * @return A complex type that contains settings for ECS managed health checks.
+     * @return A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
      * 
      */
     private List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs;
@@ -83,21 +83,21 @@ public final class GetServiceResult {
         return this.description;
     }
     /**
-     * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * @return Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
      * 
      */
     public List<GetServiceDnsConfig> dnsConfigs() {
         return this.dnsConfigs;
     }
     /**
-     * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * @return Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
      * 
      */
     public List<GetServiceHealthCheckConfig> healthCheckConfigs() {
         return this.healthCheckConfigs;
     }
     /**
-     * @return A complex type that contains settings for ECS managed health checks.
+     * @return A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
      * 
      */
     public List<GetServiceHealthCheckCustomConfig> healthCheckCustomConfigs() {

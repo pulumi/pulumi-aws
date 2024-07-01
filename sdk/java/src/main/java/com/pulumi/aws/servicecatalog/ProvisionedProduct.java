@@ -344,14 +344,14 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.provisioningArtifactName);
     }
     /**
-     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
      * 
      */
     @Export(name="provisioningParameters", refs={List.class,ProvisionedProductProvisioningParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProvisionedProductProvisioningParameter>> provisioningParameters;
 
     /**
-     * @return Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+     * @return Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
      * 
      */
     public Output<Optional<List<ProvisionedProductProvisioningParameter>>> provisioningParameters() {
@@ -372,14 +372,14 @@ public class ProvisionedProduct extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retainPhysicalResources);
     }
     /**
-     * Configuration block with information about the provisioning preferences for a stack set. See details below.
+     * Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
      * 
      */
     @Export(name="stackSetProvisioningPreferences", refs={ProvisionedProductStackSetProvisioningPreferences.class}, tree="[0]")
     private Output</* @Nullable */ ProvisionedProductStackSetProvisioningPreferences> stackSetProvisioningPreferences;
 
     /**
-     * @return Configuration block with information about the provisioning preferences for a stack set. See details below.
+     * @return Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
      * 
      */
     public Output<Optional<ProvisionedProductStackSetProvisioningPreferences>> stackSetProvisioningPreferences() {

@@ -6,11 +6,14 @@ package com.pulumi.aws.controltower;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.controltower.ControlTowerControlArgs;
 import com.pulumi.aws.controltower.inputs.ControlTowerControlState;
+import com.pulumi.aws.controltower.outputs.ControlTowerControlParameter;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -34,6 +37,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:controltower/controlTowerControl:ControlTowerControl")
 public class ControlTowerControl extends com.pulumi.resources.CustomResource {
     /**
+     * The ARN of the EnabledControl resource.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return The ARN of the EnabledControl resource.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
      * 
      */
@@ -48,7 +65,23 @@ public class ControlTowerControl extends com.pulumi.resources.CustomResource {
         return this.controlIdentifier;
     }
     /**
+     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+     * 
+     */
+    @Export(name="parameters", refs={List.class,ControlTowerControlParameter.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ControlTowerControlParameter>> parameters;
+
+    /**
+     * @return Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+     * 
+     */
+    public Output<Optional<List<ControlTowerControlParameter>>> parameters() {
+        return Codegen.optional(this.parameters);
+    }
+    /**
      * The ARN of the organizational unit.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="targetIdentifier", refs={String.class}, tree="[0]")
@@ -56,6 +89,8 @@ public class ControlTowerControl extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The ARN of the organizational unit.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> targetIdentifier() {

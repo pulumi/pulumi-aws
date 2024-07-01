@@ -2884,6 +2884,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="networkmonitor")
+    private @Nullable Output<String> networkmonitor;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> networkmonitor() {
+        return Optional.ofNullable(this.networkmonitor);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="oam")
     private @Nullable Output<String> oam;
 
@@ -4469,6 +4484,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.neptunegraph = $.neptunegraph;
         this.networkfirewall = $.networkfirewall;
         this.networkmanager = $.networkmanager;
+        this.networkmonitor = $.networkmonitor;
         this.oam = $.oam;
         this.opensearch = $.opensearch;
         this.opensearchingestion = $.opensearchingestion;
@@ -8591,6 +8607,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder networkmanager(String networkmanager) {
             return networkmanager(Output.of(networkmanager));
+        }
+
+        /**
+         * @param networkmonitor Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkmonitor(@Nullable Output<String> networkmonitor) {
+            $.networkmonitor = networkmonitor;
+            return this;
+        }
+
+        /**
+         * @param networkmonitor Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkmonitor(String networkmonitor) {
+            return networkmonitor(Output.of(networkmonitor));
         }
 
         /**

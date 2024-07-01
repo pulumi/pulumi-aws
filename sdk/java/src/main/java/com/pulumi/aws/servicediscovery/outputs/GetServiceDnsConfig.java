@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceDnsConfig {
     /**
-     * @return An array that contains one DnsRecord object for each resource record set.
+     * @return An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
      * 
      */
     private List<GetServiceDnsConfigDnsRecord> dnsRecords;
@@ -30,7 +30,7 @@ public final class GetServiceDnsConfig {
 
     private GetServiceDnsConfig() {}
     /**
-     * @return An array that contains one DnsRecord object for each resource record set.
+     * @return An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
      * 
      */
     public List<GetServiceDnsConfigDnsRecord> dnsRecords() {

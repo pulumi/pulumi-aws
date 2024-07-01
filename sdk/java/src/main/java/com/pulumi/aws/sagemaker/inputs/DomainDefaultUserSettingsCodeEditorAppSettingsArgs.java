@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainDefaultUserSettingsCodeEditorAppSettingsArgs Empty = new DomainDefaultUserSettingsCodeEditorAppSettingsArgs();
+
+    /**
+     * A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+     * 
+     */
+    @Import(name="customImages")
+    private @Nullable Output<List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs>> customImages;
+
+    /**
+     * @return A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+     * 
+     */
+    public Optional<Output<List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs>>> customImages() {
+        return Optional.ofNullable(this.customImages);
+    }
 
     /**
      * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
@@ -50,6 +66,7 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
     private DomainDefaultUserSettingsCodeEditorAppSettingsArgs() {}
 
     private DomainDefaultUserSettingsCodeEditorAppSettingsArgs(DomainDefaultUserSettingsCodeEditorAppSettingsArgs $) {
+        this.customImages = $.customImages;
         this.defaultResourceSpec = $.defaultResourceSpec;
         this.lifecycleConfigArns = $.lifecycleConfigArns;
     }
@@ -70,6 +87,37 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettingsArgs extends co
 
         public Builder(DomainDefaultUserSettingsCodeEditorAppSettingsArgs defaults) {
             $ = new DomainDefaultUserSettingsCodeEditorAppSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customImages A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customImages(@Nullable Output<List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs>> customImages) {
+            $.customImages = customImages;
+            return this;
+        }
+
+        /**
+         * @param customImages A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customImages(List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs> customImages) {
+            return customImages(Output.of(customImages));
+        }
+
+        /**
+         * @param customImages A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customImages(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs... customImages) {
+            return customImages(List.of(customImages));
         }
 
         /**
