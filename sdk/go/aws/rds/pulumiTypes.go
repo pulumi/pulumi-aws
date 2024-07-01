@@ -2623,7 +2623,7 @@ type ProxyDefaultTargetGroupConnectionPoolConfig struct {
 	MaxConnectionsPercent *int `pulumi:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
 	MaxIdleConnectionsPercent *int `pulumi:"maxIdleConnectionsPercent"`
-	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
 	SessionPinningFilters []string `pulumi:"sessionPinningFilters"`
 }
 
@@ -2647,7 +2647,7 @@ type ProxyDefaultTargetGroupConnectionPoolConfigArgs struct {
 	MaxConnectionsPercent pulumi.IntPtrInput `pulumi:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
 	MaxIdleConnectionsPercent pulumi.IntPtrInput `pulumi:"maxIdleConnectionsPercent"`
-	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
 	SessionPinningFilters pulumi.StringArrayInput `pulumi:"sessionPinningFilters"`
 }
 
@@ -2748,7 +2748,7 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) MaxIdleConnectionsPer
 	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *int { return v.MaxIdleConnectionsPercent }).(pulumi.IntPtrOutput)
 }
 
-// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
 func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) SessionPinningFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) []string { return v.SessionPinningFilters }).(pulumi.StringArrayOutput)
 }
@@ -2817,7 +2817,7 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) MaxIdleConnections
 	}).(pulumi.IntPtrOutput)
 }
 
-// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
 func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) SessionPinningFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) []string {
 		if v == nil {

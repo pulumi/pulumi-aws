@@ -80,7 +80,7 @@ type Product struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Owner of the product.
 	Owner pulumi.StringOutput `pulumi:"owner"`
-	// Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersOutput `pulumi:"provisioningArtifactParameters"`
 	// Status of the product.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -157,7 +157,7 @@ type productState struct {
 	Name *string `pulumi:"name"`
 	// Owner of the product.
 	Owner *string `pulumi:"owner"`
-	// Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters *ProductProvisioningArtifactParameters `pulumi:"provisioningArtifactParameters"`
 	// Status of the product.
 	Status *string `pulumi:"status"`
@@ -196,7 +196,7 @@ type ProductState struct {
 	Name pulumi.StringPtrInput
 	// Owner of the product.
 	Owner pulumi.StringPtrInput
-	// Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersPtrInput
 	// Status of the product.
 	Status pulumi.StringPtrInput
@@ -233,7 +233,7 @@ type productArgs struct {
 	Name *string `pulumi:"name"`
 	// Owner of the product.
 	Owner string `pulumi:"owner"`
-	// Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParameters `pulumi:"provisioningArtifactParameters"`
 	// Support information about the product.
 	SupportDescription *string `pulumi:"supportDescription"`
@@ -261,7 +261,7 @@ type ProductArgs struct {
 	Name pulumi.StringPtrInput
 	// Owner of the product.
 	Owner pulumi.StringInput
-	// Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersInput
 	// Support information about the product.
 	SupportDescription pulumi.StringPtrInput
@@ -404,7 +404,7 @@ func (o ProductOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 func (o ProductOutput) ProvisioningArtifactParameters() ProductProvisioningArtifactParametersOutput {
 	return o.ApplyT(func(v *Product) ProductProvisioningArtifactParametersOutput { return v.ProvisioningArtifactParameters }).(ProductProvisioningArtifactParametersOutput)
 }

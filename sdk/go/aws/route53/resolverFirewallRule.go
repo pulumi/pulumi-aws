@@ -87,12 +87,16 @@ type ResolverFirewallRule struct {
 	BlockResponse pulumi.StringPtrOutput `pulumi:"blockResponse"`
 	// The ID of the domain list that you want to use in the rule.
 	FirewallDomainListId pulumi.StringOutput `pulumi:"firewallDomainListId"`
+	// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+	FirewallDomainRedirectionAction pulumi.StringPtrOutput `pulumi:"firewallDomainRedirectionAction"`
 	// The unique identifier of the firewall rule group where you want to create the rule.
 	FirewallRuleGroupId pulumi.StringOutput `pulumi:"firewallRuleGroupId"`
 	// A name that lets you identify the rule, to manage and use it.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
 	Priority pulumi.IntOutput `pulumi:"priority"`
+	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+	QType pulumi.StringPtrOutput `pulumi:"qType"`
 }
 
 // NewResolverFirewallRule registers a new resource with the given unique name, arguments, and options.
@@ -149,12 +153,16 @@ type resolverFirewallRuleState struct {
 	BlockResponse *string `pulumi:"blockResponse"`
 	// The ID of the domain list that you want to use in the rule.
 	FirewallDomainListId *string `pulumi:"firewallDomainListId"`
+	// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+	FirewallDomainRedirectionAction *string `pulumi:"firewallDomainRedirectionAction"`
 	// The unique identifier of the firewall rule group where you want to create the rule.
 	FirewallRuleGroupId *string `pulumi:"firewallRuleGroupId"`
 	// A name that lets you identify the rule, to manage and use it.
 	Name *string `pulumi:"name"`
 	// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
 	Priority *int `pulumi:"priority"`
+	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+	QType *string `pulumi:"qType"`
 }
 
 type ResolverFirewallRuleState struct {
@@ -170,12 +178,16 @@ type ResolverFirewallRuleState struct {
 	BlockResponse pulumi.StringPtrInput
 	// The ID of the domain list that you want to use in the rule.
 	FirewallDomainListId pulumi.StringPtrInput
+	// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+	FirewallDomainRedirectionAction pulumi.StringPtrInput
 	// The unique identifier of the firewall rule group where you want to create the rule.
 	FirewallRuleGroupId pulumi.StringPtrInput
 	// A name that lets you identify the rule, to manage and use it.
 	Name pulumi.StringPtrInput
 	// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
 	Priority pulumi.IntPtrInput
+	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+	QType pulumi.StringPtrInput
 }
 
 func (ResolverFirewallRuleState) ElementType() reflect.Type {
@@ -195,12 +207,16 @@ type resolverFirewallRuleArgs struct {
 	BlockResponse *string `pulumi:"blockResponse"`
 	// The ID of the domain list that you want to use in the rule.
 	FirewallDomainListId string `pulumi:"firewallDomainListId"`
+	// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+	FirewallDomainRedirectionAction *string `pulumi:"firewallDomainRedirectionAction"`
 	// The unique identifier of the firewall rule group where you want to create the rule.
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
 	// A name that lets you identify the rule, to manage and use it.
 	Name *string `pulumi:"name"`
 	// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
 	Priority int `pulumi:"priority"`
+	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+	QType *string `pulumi:"qType"`
 }
 
 // The set of arguments for constructing a ResolverFirewallRule resource.
@@ -217,12 +233,16 @@ type ResolverFirewallRuleArgs struct {
 	BlockResponse pulumi.StringPtrInput
 	// The ID of the domain list that you want to use in the rule.
 	FirewallDomainListId pulumi.StringInput
+	// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+	FirewallDomainRedirectionAction pulumi.StringPtrInput
 	// The unique identifier of the firewall rule group where you want to create the rule.
 	FirewallRuleGroupId pulumi.StringInput
 	// A name that lets you identify the rule, to manage and use it.
 	Name pulumi.StringPtrInput
 	// The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
 	Priority pulumi.IntInput
+	// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+	QType pulumi.StringPtrInput
 }
 
 func (ResolverFirewallRuleArgs) ElementType() reflect.Type {
@@ -342,6 +362,11 @@ func (o ResolverFirewallRuleOutput) FirewallDomainListId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.StringOutput { return v.FirewallDomainListId }).(pulumi.StringOutput)
 }
 
+// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+func (o ResolverFirewallRuleOutput) FirewallDomainRedirectionAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.StringPtrOutput { return v.FirewallDomainRedirectionAction }).(pulumi.StringPtrOutput)
+}
+
 // The unique identifier of the firewall rule group where you want to create the rule.
 func (o ResolverFirewallRuleOutput) FirewallRuleGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.StringOutput { return v.FirewallRuleGroupId }).(pulumi.StringOutput)
@@ -355,6 +380,11 @@ func (o ResolverFirewallRuleOutput) Name() pulumi.StringOutput {
 // The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
 func (o ResolverFirewallRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+func (o ResolverFirewallRuleOutput) QType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResolverFirewallRule) pulumi.StringPtrOutput { return v.QType }).(pulumi.StringPtrOutput)
 }
 
 type ResolverFirewallRuleArrayOutput struct{ *pulumi.OutputState }

@@ -116,6 +116,8 @@ type Workteam struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+	WorkerAccessConfiguration WorkteamWorkerAccessConfigurationOutput `pulumi:"workerAccessConfiguration"`
 	// The name of the Workteam (must be unique).
 	WorkforceName pulumi.StringOutput `pulumi:"workforceName"`
 	// The name of the workforce.
@@ -180,6 +182,8 @@ type workteamState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+	WorkerAccessConfiguration *WorkteamWorkerAccessConfiguration `pulumi:"workerAccessConfiguration"`
 	// The name of the Workteam (must be unique).
 	WorkforceName *string `pulumi:"workforceName"`
 	// The name of the workforce.
@@ -203,6 +207,8 @@ type WorkteamState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+	WorkerAccessConfiguration WorkteamWorkerAccessConfigurationPtrInput
 	// The name of the Workteam (must be unique).
 	WorkforceName pulumi.StringPtrInput
 	// The name of the workforce.
@@ -222,6 +228,8 @@ type workteamArgs struct {
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+	WorkerAccessConfiguration *WorkteamWorkerAccessConfiguration `pulumi:"workerAccessConfiguration"`
 	// The name of the Workteam (must be unique).
 	WorkforceName string `pulumi:"workforceName"`
 	// The name of the workforce.
@@ -238,6 +246,8 @@ type WorkteamArgs struct {
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+	WorkerAccessConfiguration WorkteamWorkerAccessConfigurationPtrInput
 	// The name of the Workteam (must be unique).
 	WorkforceName pulumi.StringInput
 	// The name of the workforce.
@@ -366,6 +376,11 @@ func (o WorkteamOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o WorkteamOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+func (o WorkteamOutput) WorkerAccessConfiguration() WorkteamWorkerAccessConfigurationOutput {
+	return o.ApplyT(func(v *Workteam) WorkteamWorkerAccessConfigurationOutput { return v.WorkerAccessConfiguration }).(WorkteamWorkerAccessConfigurationOutput)
 }
 
 // The name of the Workteam (must be unique).

@@ -1951,9 +1951,9 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 }
 
 type ConfigurationSetVdmOptions struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
 	DashboardOptions *ConfigurationSetVdmOptionsDashboardOptions `pulumi:"dashboardOptions"`
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
 	GuardianOptions *ConfigurationSetVdmOptionsGuardianOptions `pulumi:"guardianOptions"`
 }
 
@@ -1969,9 +1969,9 @@ type ConfigurationSetVdmOptionsInput interface {
 }
 
 type ConfigurationSetVdmOptionsArgs struct {
-	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
 	DashboardOptions ConfigurationSetVdmOptionsDashboardOptionsPtrInput `pulumi:"dashboardOptions"`
-	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
 	GuardianOptions ConfigurationSetVdmOptionsGuardianOptionsPtrInput `pulumi:"guardianOptions"`
 }
 
@@ -2052,14 +2052,14 @@ func (o ConfigurationSetVdmOptionsOutput) ToConfigurationSetVdmOptionsPtrOutputW
 	}).(ConfigurationSetVdmOptionsPtrOutput)
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
 func (o ConfigurationSetVdmOptionsOutput) DashboardOptions() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsDashboardOptions {
 		return v.DashboardOptions
 	}).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
 func (o ConfigurationSetVdmOptionsOutput) GuardianOptions() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsGuardianOptions {
 		return v.GuardianOptions
@@ -2090,7 +2090,7 @@ func (o ConfigurationSetVdmOptionsPtrOutput) Elem() ConfigurationSetVdmOptionsOu
 	}).(ConfigurationSetVdmOptionsOutput)
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+// Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
 func (o ConfigurationSetVdmOptionsPtrOutput) DashboardOptions() ConfigurationSetVdmOptionsDashboardOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsDashboardOptions {
 		if v == nil {
@@ -2100,7 +2100,7 @@ func (o ConfigurationSetVdmOptionsPtrOutput) DashboardOptions() ConfigurationSet
 	}).(ConfigurationSetVdmOptionsDashboardOptionsPtrOutput)
 }
 
-// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+// Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
 func (o ConfigurationSetVdmOptionsPtrOutput) GuardianOptions() ConfigurationSetVdmOptionsGuardianOptionsPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetVdmOptions) *ConfigurationSetVdmOptionsGuardianOptions {
 		if v == nil {

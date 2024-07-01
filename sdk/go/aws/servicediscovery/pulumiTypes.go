@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ServiceDnsConfig struct {
-	// An array that contains one DnsRecord object for each resource record set.
+	// An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
 	DnsRecords []ServiceDnsConfigDnsRecord `pulumi:"dnsRecords"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId string `pulumi:"namespaceId"`
@@ -34,7 +34,7 @@ type ServiceDnsConfigInput interface {
 }
 
 type ServiceDnsConfigArgs struct {
-	// An array that contains one DnsRecord object for each resource record set.
+	// An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
 	DnsRecords ServiceDnsConfigDnsRecordArrayInput `pulumi:"dnsRecords"`
 	// The ID of the namespace to use for DNS configuration.
 	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
@@ -119,7 +119,7 @@ func (o ServiceDnsConfigOutput) ToServiceDnsConfigPtrOutputWithContext(ctx conte
 	}).(ServiceDnsConfigPtrOutput)
 }
 
-// An array that contains one DnsRecord object for each resource record set.
+// An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
 func (o ServiceDnsConfigOutput) DnsRecords() ServiceDnsConfigDnsRecordArrayOutput {
 	return o.ApplyT(func(v ServiceDnsConfig) []ServiceDnsConfigDnsRecord { return v.DnsRecords }).(ServiceDnsConfigDnsRecordArrayOutput)
 }
@@ -158,7 +158,7 @@ func (o ServiceDnsConfigPtrOutput) Elem() ServiceDnsConfigOutput {
 	}).(ServiceDnsConfigOutput)
 }
 
-// An array that contains one DnsRecord object for each resource record set.
+// An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
 func (o ServiceDnsConfigPtrOutput) DnsRecords() ServiceDnsConfigDnsRecordArrayOutput {
 	return o.ApplyT(func(v *ServiceDnsConfig) []ServiceDnsConfigDnsRecord {
 		if v == nil {
@@ -607,7 +607,7 @@ func (o ServiceHealthCheckCustomConfigPtrOutput) FailureThreshold() pulumi.IntPt
 }
 
 type GetServiceDnsConfig struct {
-	// An array that contains one DnsRecord object for each resource record set.
+	// An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
 	DnsRecords []GetServiceDnsConfigDnsRecord `pulumi:"dnsRecords"`
 	// ID of the namespace that the service belongs to.
 	NamespaceId string `pulumi:"namespaceId"`
@@ -627,7 +627,7 @@ type GetServiceDnsConfigInput interface {
 }
 
 type GetServiceDnsConfigArgs struct {
-	// An array that contains one DnsRecord object for each resource record set.
+	// An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
 	DnsRecords GetServiceDnsConfigDnsRecordArrayInput `pulumi:"dnsRecords"`
 	// ID of the namespace that the service belongs to.
 	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
@@ -686,7 +686,7 @@ func (o GetServiceDnsConfigOutput) ToGetServiceDnsConfigOutputWithContext(ctx co
 	return o
 }
 
-// An array that contains one DnsRecord object for each resource record set.
+// An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
 func (o GetServiceDnsConfigOutput) DnsRecords() GetServiceDnsConfigDnsRecordArrayOutput {
 	return o.ApplyT(func(v GetServiceDnsConfig) []GetServiceDnsConfigDnsRecord { return v.DnsRecords }).(GetServiceDnsConfigDnsRecordArrayOutput)
 }

@@ -1066,6 +1066,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Networkmanager *string `pulumi:"networkmanager"`
 	// Use this to override the default service endpoint URL
+	Networkmonitor *string `pulumi:"networkmonitor"`
+	// Use this to override the default service endpoint URL
 	Oam *string `pulumi:"oam"`
 	// Use this to override the default service endpoint URL
 	Opensearch *string `pulumi:"opensearch"`
@@ -1647,6 +1649,8 @@ type ProviderEndpointArgs struct {
 	Networkfirewall pulumi.StringPtrInput `pulumi:"networkfirewall"`
 	// Use this to override the default service endpoint URL
 	Networkmanager pulumi.StringPtrInput `pulumi:"networkmanager"`
+	// Use this to override the default service endpoint URL
+	Networkmonitor pulumi.StringPtrInput `pulumi:"networkmonitor"`
 	// Use this to override the default service endpoint URL
 	Oam pulumi.StringPtrInput `pulumi:"oam"`
 	// Use this to override the default service endpoint URL
@@ -2839,6 +2843,11 @@ func (o ProviderEndpointOutput) Networkfirewall() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Networkmanager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Networkmanager }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Networkmonitor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Networkmonitor }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

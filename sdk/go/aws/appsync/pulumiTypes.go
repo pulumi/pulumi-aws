@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DataSourceDynamodbConfig struct {
-	// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+	// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 	DeltaSyncConfig *DataSourceDynamodbConfigDeltaSyncConfig `pulumi:"deltaSyncConfig"`
 	// AWS region of the DynamoDB table. Defaults to current region.
 	Region *string `pulumi:"region"`
@@ -38,7 +38,7 @@ type DataSourceDynamodbConfigInput interface {
 }
 
 type DataSourceDynamodbConfigArgs struct {
-	// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+	// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 	DeltaSyncConfig DataSourceDynamodbConfigDeltaSyncConfigPtrInput `pulumi:"deltaSyncConfig"`
 	// AWS region of the DynamoDB table. Defaults to current region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -127,7 +127,7 @@ func (o DataSourceDynamodbConfigOutput) ToDataSourceDynamodbConfigPtrOutputWithC
 	}).(DataSourceDynamodbConfigPtrOutput)
 }
 
-// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 func (o DataSourceDynamodbConfigOutput) DeltaSyncConfig() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig { return v.DeltaSyncConfig }).(DataSourceDynamodbConfigDeltaSyncConfigPtrOutput)
 }
@@ -176,7 +176,7 @@ func (o DataSourceDynamodbConfigPtrOutput) Elem() DataSourceDynamodbConfigOutput
 	}).(DataSourceDynamodbConfigOutput)
 }
 
-// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+// The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
 func (o DataSourceDynamodbConfigPtrOutput) DeltaSyncConfig() DataSourceDynamodbConfigDeltaSyncConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceDynamodbConfig) *DataSourceDynamodbConfigDeltaSyncConfig {
 		if v == nil {
@@ -695,7 +695,7 @@ func (o DataSourceEventBridgeConfigPtrOutput) EventBusArn() pulumi.StringPtrOutp
 }
 
 type DataSourceHttpConfig struct {
-	// Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+	// Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
 	AuthorizationConfig *DataSourceHttpConfigAuthorizationConfig `pulumi:"authorizationConfig"`
 	// HTTP URL.
 	Endpoint string `pulumi:"endpoint"`
@@ -713,7 +713,7 @@ type DataSourceHttpConfigInput interface {
 }
 
 type DataSourceHttpConfigArgs struct {
-	// Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+	// Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
 	AuthorizationConfig DataSourceHttpConfigAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
 	// HTTP URL.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
@@ -796,7 +796,7 @@ func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigPtrOutputWithContext(c
 	}).(DataSourceHttpConfigPtrOutput)
 }
 
-// Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+// Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
 func (o DataSourceHttpConfigOutput) AuthorizationConfig() DataSourceHttpConfigAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfig) *DataSourceHttpConfigAuthorizationConfig { return v.AuthorizationConfig }).(DataSourceHttpConfigAuthorizationConfigPtrOutput)
 }
@@ -830,7 +830,7 @@ func (o DataSourceHttpConfigPtrOutput) Elem() DataSourceHttpConfigOutput {
 	}).(DataSourceHttpConfigOutput)
 }
 
-// Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+// Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
 func (o DataSourceHttpConfigPtrOutput) AuthorizationConfig() DataSourceHttpConfigAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfig) *DataSourceHttpConfigAuthorizationConfig {
 		if v == nil {
@@ -853,7 +853,7 @@ func (o DataSourceHttpConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 type DataSourceHttpConfigAuthorizationConfig struct {
 	// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
 	AuthorizationType *string `pulumi:"authorizationType"`
-	// Identity and Access Management (IAM) settings. See AWS IAM Config.
+	// Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
 	AwsIamConfig *DataSourceHttpConfigAuthorizationConfigAwsIamConfig `pulumi:"awsIamConfig"`
 }
 
@@ -871,7 +871,7 @@ type DataSourceHttpConfigAuthorizationConfigInput interface {
 type DataSourceHttpConfigAuthorizationConfigArgs struct {
 	// Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
 	AuthorizationType pulumi.StringPtrInput `pulumi:"authorizationType"`
-	// Identity and Access Management (IAM) settings. See AWS IAM Config.
+	// Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
 	AwsIamConfig DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrInput `pulumi:"awsIamConfig"`
 }
 
@@ -957,7 +957,7 @@ func (o DataSourceHttpConfigAuthorizationConfigOutput) AuthorizationType() pulum
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfig) *string { return v.AuthorizationType }).(pulumi.StringPtrOutput)
 }
 
-// Identity and Access Management (IAM) settings. See AWS IAM Config.
+// Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
 func (o DataSourceHttpConfigAuthorizationConfigOutput) AwsIamConfig() DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceHttpConfigAuthorizationConfig) *DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
 		return v.AwsIamConfig
@@ -998,7 +998,7 @@ func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) AuthorizationType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Identity and Access Management (IAM) settings. See AWS IAM Config.
+// Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
 func (o DataSourceHttpConfigAuthorizationConfigPtrOutput) AwsIamConfig() DataSourceHttpConfigAuthorizationConfigAwsIamConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceHttpConfigAuthorizationConfig) *DataSourceHttpConfigAuthorizationConfigAwsIamConfig {
 		if v == nil {
@@ -1302,8 +1302,10 @@ func (o DataSourceLambdaConfigPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type DataSourceOpensearchserviceConfig struct {
-	Endpoint string  `pulumi:"endpoint"`
-	Region   *string `pulumi:"region"`
+	// HTTP endpoint of the OpenSearch domain.
+	Endpoint string `pulumi:"endpoint"`
+	// AWS region of the OpenSearch domain. Defaults to current region.
+	Region *string `pulumi:"region"`
 }
 
 // DataSourceOpensearchserviceConfigInput is an input type that accepts DataSourceOpensearchserviceConfigArgs and DataSourceOpensearchserviceConfigOutput values.
@@ -1318,8 +1320,10 @@ type DataSourceOpensearchserviceConfigInput interface {
 }
 
 type DataSourceOpensearchserviceConfigArgs struct {
-	Endpoint pulumi.StringInput    `pulumi:"endpoint"`
-	Region   pulumi.StringPtrInput `pulumi:"region"`
+	// HTTP endpoint of the OpenSearch domain.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// AWS region of the OpenSearch domain. Defaults to current region.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (DataSourceOpensearchserviceConfigArgs) ElementType() reflect.Type {
@@ -1399,10 +1403,12 @@ func (o DataSourceOpensearchserviceConfigOutput) ToDataSourceOpensearchserviceCo
 	}).(DataSourceOpensearchserviceConfigPtrOutput)
 }
 
+// HTTP endpoint of the OpenSearch domain.
 func (o DataSourceOpensearchserviceConfigOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// AWS region of the OpenSearch domain. Defaults to current region.
 func (o DataSourceOpensearchserviceConfigOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceOpensearchserviceConfig) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -1431,6 +1437,7 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Elem() DataSourceOpensearchs
 	}).(DataSourceOpensearchserviceConfigOutput)
 }
 
+// HTTP endpoint of the OpenSearch domain.
 func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
 		if v == nil {
@@ -1440,6 +1447,7 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Endpoint() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// AWS region of the OpenSearch domain. Defaults to current region.
 func (o DataSourceOpensearchserviceConfigPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOpensearchserviceConfig) *string {
 		if v == nil {
@@ -1450,7 +1458,7 @@ func (o DataSourceOpensearchserviceConfigPtrOutput) Region() pulumi.StringPtrOut
 }
 
 type DataSourceRelationalDatabaseConfig struct {
-	// Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+	// Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
 	HttpEndpointConfig *DataSourceRelationalDatabaseConfigHttpEndpointConfig `pulumi:"httpEndpointConfig"`
 	// Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
 	SourceType *string `pulumi:"sourceType"`
@@ -1468,7 +1476,7 @@ type DataSourceRelationalDatabaseConfigInput interface {
 }
 
 type DataSourceRelationalDatabaseConfigArgs struct {
-	// Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+	// Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
 	HttpEndpointConfig DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrInput `pulumi:"httpEndpointConfig"`
 	// Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
@@ -1551,7 +1559,7 @@ func (o DataSourceRelationalDatabaseConfigOutput) ToDataSourceRelationalDatabase
 	}).(DataSourceRelationalDatabaseConfigPtrOutput)
 }
 
-// Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+// Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
 func (o DataSourceRelationalDatabaseConfigOutput) HttpEndpointConfig() DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput {
 	return o.ApplyT(func(v DataSourceRelationalDatabaseConfig) *DataSourceRelationalDatabaseConfigHttpEndpointConfig {
 		return v.HttpEndpointConfig
@@ -1587,7 +1595,7 @@ func (o DataSourceRelationalDatabaseConfigPtrOutput) Elem() DataSourceRelational
 	}).(DataSourceRelationalDatabaseConfigOutput)
 }
 
-// Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+// Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
 func (o DataSourceRelationalDatabaseConfigPtrOutput) HttpEndpointConfig() DataSourceRelationalDatabaseConfigHttpEndpointConfigPtrOutput {
 	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfig) *DataSourceRelationalDatabaseConfigHttpEndpointConfig {
 		if v == nil {
@@ -1981,7 +1989,7 @@ type FunctionSyncConfig struct {
 	ConflictDetection *string `pulumi:"conflictDetection"`
 	// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 	ConflictHandler *string `pulumi:"conflictHandler"`
-	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
 	LambdaConflictHandlerConfig *FunctionSyncConfigLambdaConflictHandlerConfig `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -2001,7 +2009,7 @@ type FunctionSyncConfigArgs struct {
 	ConflictDetection pulumi.StringPtrInput `pulumi:"conflictDetection"`
 	// Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
 	ConflictHandler pulumi.StringPtrInput `pulumi:"conflictHandler"`
-	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+	// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
 	LambdaConflictHandlerConfig FunctionSyncConfigLambdaConflictHandlerConfigPtrInput `pulumi:"lambdaConflictHandlerConfig"`
 }
 
@@ -2092,7 +2100,7 @@ func (o FunctionSyncConfigOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfig) *string { return v.ConflictHandler }).(pulumi.StringPtrOutput)
 }
 
-// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
 func (o FunctionSyncConfigOutput) LambdaConflictHandlerConfig() FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v FunctionSyncConfig) *FunctionSyncConfigLambdaConflictHandlerConfig {
 		return v.LambdaConflictHandlerConfig
@@ -2143,7 +2151,7 @@ func (o FunctionSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+// Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
 func (o FunctionSyncConfigPtrOutput) LambdaConflictHandlerConfig() FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput {
 	return o.ApplyT(func(v *FunctionSyncConfig) *FunctionSyncConfigLambdaConflictHandlerConfig {
 		if v == nil {
@@ -2293,11 +2301,11 @@ func (o FunctionSyncConfigLambdaConflictHandlerConfigPtrOutput) LambdaConflictHa
 type GraphQLApiAdditionalAuthenticationProvider struct {
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType string `pulumi:"authenticationType"`
-	// Nested argument containing Lambda authorizer configuration. Defined below.
+	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 	LambdaAuthorizerConfig *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
-	// Nested argument containing OpenID Connect configuration. Defined below.
+	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig `pulumi:"openidConnectConfig"`
-	// Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig `pulumi:"userPoolConfig"`
 }
 
@@ -2315,11 +2323,11 @@ type GraphQLApiAdditionalAuthenticationProviderInput interface {
 type GraphQLApiAdditionalAuthenticationProviderArgs struct {
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
-	// Nested argument containing Lambda authorizer configuration. Defined below.
+	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 	LambdaAuthorizerConfig GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
-	// Nested argument containing OpenID Connect configuration. Defined below.
+	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput `pulumi:"openidConnectConfig"`
-	// Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrInput `pulumi:"userPoolConfig"`
 }
 
@@ -2379,21 +2387,21 @@ func (o GraphQLApiAdditionalAuthenticationProviderOutput) AuthenticationType() p
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) string { return v.AuthenticationType }).(pulumi.StringOutput)
 }
 
-// Nested argument containing Lambda authorizer configuration. Defined below.
+// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) LambdaAuthorizerConfig() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig {
 		return v.LambdaAuthorizerConfig
 	}).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput)
 }
 
-// Nested argument containing OpenID Connect configuration. Defined below.
+// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) OpenidConnectConfig() GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig {
 		return v.OpenidConnectConfig
 	}).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput)
 }
 
-// Amazon Cognito User Pool configuration. Defined below.
+// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) UserPoolConfig() GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
 		return v.UserPoolConfig

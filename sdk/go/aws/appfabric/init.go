@@ -23,8 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:appfabric/appAuthorization:AppAuthorization":
 		r = &AppAuthorization{}
+	case "aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection":
+		r = &AppAuthorizationConnection{}
 	case "aws:appfabric/appBundle:AppBundle":
 		r = &AppBundle{}
+	case "aws:appfabric/ingestion:Ingestion":
+		r = &Ingestion{}
+	case "aws:appfabric/ingestionDestination:IngestionDestination":
+		r = &IngestionDestination{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -45,7 +51,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"appfabric/appAuthorizationConnection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"appfabric/appBundle",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appfabric/ingestion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appfabric/ingestionDestination",
 		&module{version},
 	)
 }
