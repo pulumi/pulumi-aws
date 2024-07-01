@@ -6,7 +6,7 @@ Subject: [PATCH] Transform PF provider to make tags not computed
 
 diff --git a/shim/pf.go b/shim/pf.go
 new file mode 100644
-index 0000000000..9caf1e72fa
+index 0000000000..65f8ffaeb5
 --- /dev/null
 +++ b/shim/pf.go
 @@ -0,0 +1,142 @@
@@ -41,7 +41,7 @@ index 0000000000..9caf1e72fa
 +	for i := range r {
 +		i := i
 +		result = append(result, func() resource.Resource {
-+			return &transformedFrameworkResource{result[i]()}
++			return &transformedFrameworkResource{r[i]()}
 +		})
 +	}
 +	return result
