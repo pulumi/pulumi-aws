@@ -46,6 +46,10 @@ public final class GetZoneResult {
      * 
      */
     private String linkedServicePrincipal;
+    /**
+     * @return The Hosted Zone name.
+     * 
+     */
     private String name;
     /**
      * @return List of DNS name servers for the Hosted Zone.
@@ -57,14 +61,26 @@ public final class GetZoneResult {
      * 
      */
     private String primaryNameServer;
+    /**
+     * @return Indicates whether this is a private hosted zone.
+     * 
+     */
     private @Nullable Boolean privateZone;
     /**
      * @return The number of Record Set in the Hosted Zone.
      * 
      */
     private Integer resourceRecordSetCount;
+    /**
+     * @return A map of tags assigned to the Hosted Zone.
+     * 
+     */
     private Map<String,String> tags;
     private String vpcId;
+    /**
+     * @return The Hosted Zone identifier.
+     * 
+     */
     private String zoneId;
 
     private GetZoneResult() {}
@@ -110,6 +126,10 @@ public final class GetZoneResult {
     public String linkedServicePrincipal() {
         return this.linkedServicePrincipal;
     }
+    /**
+     * @return The Hosted Zone name.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -127,6 +147,10 @@ public final class GetZoneResult {
     public String primaryNameServer() {
         return this.primaryNameServer;
     }
+    /**
+     * @return Indicates whether this is a private hosted zone.
+     * 
+     */
     public Optional<Boolean> privateZone() {
         return Optional.ofNullable(this.privateZone);
     }
@@ -137,12 +161,20 @@ public final class GetZoneResult {
     public Integer resourceRecordSetCount() {
         return this.resourceRecordSetCount;
     }
+    /**
+     * @return A map of tags assigned to the Hosted Zone.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
     public String vpcId() {
         return this.vpcId;
     }
+    /**
+     * @return The Hosted Zone identifier.
+     * 
+     */
     public String zoneId() {
         return this.zoneId;
     }

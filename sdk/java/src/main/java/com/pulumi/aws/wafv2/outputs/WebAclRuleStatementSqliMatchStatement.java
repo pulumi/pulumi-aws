@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementFieldTo
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementSqliMatchStatementTextTransformation;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,6 +20,7 @@ public final class WebAclRuleStatementSqliMatchStatement {
      * 
      */
     private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatch fieldToMatch;
+    private @Nullable String sensitivityLevel;
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
      * 
@@ -32,6 +34,9 @@ public final class WebAclRuleStatementSqliMatchStatement {
      */
     public Optional<WebAclRuleStatementSqliMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
+    }
+    public Optional<String> sensitivityLevel() {
+        return Optional.ofNullable(this.sensitivityLevel);
     }
     /**
      * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
@@ -51,11 +56,13 @@ public final class WebAclRuleStatementSqliMatchStatement {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable WebAclRuleStatementSqliMatchStatementFieldToMatch fieldToMatch;
+        private @Nullable String sensitivityLevel;
         private List<WebAclRuleStatementSqliMatchStatementTextTransformation> textTransformations;
         public Builder() {}
         public Builder(WebAclRuleStatementSqliMatchStatement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fieldToMatch = defaults.fieldToMatch;
+    	      this.sensitivityLevel = defaults.sensitivityLevel;
     	      this.textTransformations = defaults.textTransformations;
         }
 
@@ -63,6 +70,12 @@ public final class WebAclRuleStatementSqliMatchStatement {
         public Builder fieldToMatch(@Nullable WebAclRuleStatementSqliMatchStatementFieldToMatch fieldToMatch) {
 
             this.fieldToMatch = fieldToMatch;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sensitivityLevel(@Nullable String sensitivityLevel) {
+
+            this.sensitivityLevel = sensitivityLevel;
             return this;
         }
         @CustomType.Setter
@@ -79,6 +92,7 @@ public final class WebAclRuleStatementSqliMatchStatement {
         public WebAclRuleStatementSqliMatchStatement build() {
             final var _resultValue = new WebAclRuleStatementSqliMatchStatement();
             _resultValue.fieldToMatch = fieldToMatch;
+            _resultValue.sensitivityLevel = sensitivityLevel;
             _resultValue.textTransformations = textTransformations;
             return _resultValue;
         }

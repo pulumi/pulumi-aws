@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         public readonly int? ContainerStartupHealthCheckTimeoutInSeconds;
         public readonly Outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig? CoreDumpConfig;
         public readonly bool? EnableSsmAccess;
+        public readonly string? InferenceAmiVersion;
         public readonly int? InitialInstanceCount;
         public readonly double? InitialVariantWeight;
         public readonly string? InstanceType;
@@ -36,6 +37,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             Outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig? coreDumpConfig,
 
             bool? enableSsmAccess,
+
+            string? inferenceAmiVersion,
 
             int? initialInstanceCount,
 
@@ -59,6 +62,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             ContainerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             CoreDumpConfig = coreDumpConfig;
             EnableSsmAccess = enableSsmAccess;
+            InferenceAmiVersion = inferenceAmiVersion;
             InitialInstanceCount = initialInstanceCount;
             InitialVariantWeight = initialVariantWeight;
             InstanceType = instanceType;

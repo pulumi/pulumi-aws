@@ -8,6 +8,7 @@ import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementTextT
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -33,6 +34,13 @@ public final class RuleGroupRuleStatementSqliMatchStatementArgs extends com.pulu
         return Optional.ofNullable(this.fieldToMatch);
     }
 
+    @Import(name="sensitivityLevel")
+    private @Nullable Output<String> sensitivityLevel;
+
+    public Optional<Output<String>> sensitivityLevel() {
+        return Optional.ofNullable(this.sensitivityLevel);
+    }
+
     /**
      * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
      * At least one required.
@@ -56,6 +64,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementArgs extends com.pulu
 
     private RuleGroupRuleStatementSqliMatchStatementArgs(RuleGroupRuleStatementSqliMatchStatementArgs $) {
         this.fieldToMatch = $.fieldToMatch;
+        this.sensitivityLevel = $.sensitivityLevel;
         this.textTransformations = $.textTransformations;
     }
 
@@ -96,6 +105,15 @@ public final class RuleGroupRuleStatementSqliMatchStatementArgs extends com.pulu
          */
         public Builder fieldToMatch(RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs fieldToMatch) {
             return fieldToMatch(Output.of(fieldToMatch));
+        }
+
+        public Builder sensitivityLevel(@Nullable Output<String> sensitivityLevel) {
+            $.sensitivityLevel = sensitivityLevel;
+            return this;
+        }
+
+        public Builder sensitivityLevel(String sensitivityLevel) {
+            return sensitivityLevel(Output.of(sensitivityLevel));
         }
 
         /**

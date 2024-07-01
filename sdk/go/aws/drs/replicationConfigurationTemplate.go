@@ -12,9 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Elastic Disaster Recovery replication configuration template resource.
+// Provides an Elastic Disaster Recovery replication configuration template resource. Before using DRS, your account must be [initialized](https://docs.aws.amazon.com/drs/latest/userguide/getting-started-initializing.html).
 //
-// > **NOTE:** This resource is provided on a best-effort basis and may not function as intended. Due to challenges with DRS permissions, it has not been fully tested. We are collaborating with AWS to enhance its functionality and welcome your feedback.
+// > **NOTE:** Your configuration must use the PIT policy shown in the basic configuration due to AWS rules. The only value that you can change is the `retentionDuration` of `ruleId` 3.
 //
 // ## Example Usage
 //
@@ -33,7 +33,7 @@ type ReplicationConfigurationTemplate struct {
 	// Whether to associate the default Elastic Disaster Recovery Security group with the Replication Configuration Template.
 	AssociateDefaultSecurityGroup pulumi.BoolOutput `pulumi:"associateDefaultSecurityGroup"`
 	// Whether to allow the AWS replication agent to automatically replicate newly added disks.
-	AutoReplicateNewDisks pulumi.BoolPtrOutput `pulumi:"autoReplicateNewDisks"`
+	AutoReplicateNewDisks pulumi.BoolOutput `pulumi:"autoReplicateNewDisks"`
 	// Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.
 	BandwidthThrottling pulumi.IntOutput `pulumi:"bandwidthThrottling"`
 	// Whether to create a Public IP for the Recovery Instance by default.
@@ -387,8 +387,8 @@ func (o ReplicationConfigurationTemplateOutput) AssociateDefaultSecurityGroup() 
 }
 
 // Whether to allow the AWS replication agent to automatically replicate newly added disks.
-func (o ReplicationConfigurationTemplateOutput) AutoReplicateNewDisks() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ReplicationConfigurationTemplate) pulumi.BoolPtrOutput { return v.AutoReplicateNewDisks }).(pulumi.BoolPtrOutput)
+func (o ReplicationConfigurationTemplateOutput) AutoReplicateNewDisks() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationTemplate) pulumi.BoolOutput { return v.AutoReplicateNewDisks }).(pulumi.BoolOutput)
 }
 
 // Configure bandwidth throttling for the outbound data transfer rate of the Source Server in Mbps.

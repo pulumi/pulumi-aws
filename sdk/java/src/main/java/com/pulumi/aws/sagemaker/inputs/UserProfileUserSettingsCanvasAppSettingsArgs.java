@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs;
@@ -34,6 +35,13 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
      */
     public Optional<Output<UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>> directDeploySettings() {
         return Optional.ofNullable(this.directDeploySettings);
+    }
+
+    @Import(name="generativeAiSettings")
+    private @Nullable Output<UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs> generativeAiSettings;
+
+    public Optional<Output<UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs>> generativeAiSettings() {
+        return Optional.ofNullable(this.generativeAiSettings);
     }
 
     /**
@@ -115,6 +123,7 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
 
     private UserProfileUserSettingsCanvasAppSettingsArgs(UserProfileUserSettingsCanvasAppSettingsArgs $) {
         this.directDeploySettings = $.directDeploySettings;
+        this.generativeAiSettings = $.generativeAiSettings;
         this.identityProviderOauthSettings = $.identityProviderOauthSettings;
         this.kendraSettings = $.kendraSettings;
         this.modelRegisterSettings = $.modelRegisterSettings;
@@ -159,6 +168,15 @@ public final class UserProfileUserSettingsCanvasAppSettingsArgs extends com.pulu
          */
         public Builder directDeploySettings(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs directDeploySettings) {
             return directDeploySettings(Output.of(directDeploySettings));
+        }
+
+        public Builder generativeAiSettings(@Nullable Output<UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs> generativeAiSettings) {
+            $.generativeAiSettings = generativeAiSettings;
+            return this;
+        }
+
+        public Builder generativeAiSettings(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs generativeAiSettings) {
+            return generativeAiSettings(Output.of(generativeAiSettings));
         }
 
         /**

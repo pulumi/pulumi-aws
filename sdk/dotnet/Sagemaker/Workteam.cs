@@ -133,6 +133,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
+        /// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+        /// </summary>
+        [Output("workerAccessConfiguration")]
+        public Output<Outputs.WorkteamWorkerAccessConfiguration> WorkerAccessConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Workteam (must be unique).
         /// </summary>
         [Output("workforceName")]
@@ -227,6 +233,12 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
+        /// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+        /// </summary>
+        [Input("workerAccessConfiguration")]
+        public Input<Inputs.WorkteamWorkerAccessConfigurationArgs>? WorkerAccessConfiguration { get; set; }
+
+        /// <summary>
         /// The name of the Workteam (must be unique).
         /// </summary>
         [Input("workforceName", required: true)]
@@ -306,6 +318,12 @@ namespace Pulumi.Aws.Sagemaker
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+        /// </summary>
+        [Input("workerAccessConfiguration")]
+        public Input<Inputs.WorkteamWorkerAccessConfigurationGetArgs>? WorkerAccessConfiguration { get; set; }
 
         /// <summary>
         /// The name of the Workteam (must be unique).

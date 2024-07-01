@@ -186,6 +186,7 @@ const (
 	neptuneMod                  = "Neptune"                  // Neptune
 	networkFirewallMod          = "NetworkFirewall"          // Network Firewall
 	networkManagerMod           = "NetworkManager"           // Network Manager
+	networkMonitorMod           = "NetworkMonitor"           // Network Monitor
 	oamMod                      = "Oam"                      // Observability Access Manager
 	opensearchMod               = "OpenSearch"               // OpenSearch
 	opsworksMod                 = "OpsWorks"                 // OpsWorks
@@ -404,6 +405,7 @@ var moduleMap = map[string]string{
 	"neptune":                         neptuneMod,
 	"networkfirewall":                 networkFirewallMod,
 	"networkmanager":                  networkManagerMod,
+	"networkmonitor":                  networkMonitorMod,
 	"oam":                             oamMod,
 	"opensearch":                      opensearchMod,
 	"opsworks":                        opsworksMod,
@@ -4207,6 +4209,14 @@ compatibility shim in favor of the new "name" field.`)
 						"```sh\n" +
 						"$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example\n" +
 						"```\n",
+				},
+			},
+			"aws_networkfirewall_tls_inspection_configuration": {
+				Tok: awsResource(networkFirewallMod, "TlsInspectionConfiguration"),
+				Fields: map[string]*info.Schema{
+					"tls_inspection_configuration": &info.Schema{
+						CSharpName: "TlsInspectionConfig",
+					},
 				},
 			},
 

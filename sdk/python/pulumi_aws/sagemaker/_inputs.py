@@ -97,6 +97,8 @@ __all__ = [
     'DomainDefaultUserSettingsCanvasAppSettingsArgsDict',
     'DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs',
     'DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgsDict',
+    'DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs',
+    'DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict',
     'DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs',
     'DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgsDict',
     'DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs',
@@ -109,6 +111,8 @@ __all__ = [
     'DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgsDict',
     'DomainDefaultUserSettingsCodeEditorAppSettingsArgs',
     'DomainDefaultUserSettingsCodeEditorAppSettingsArgsDict',
+    'DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs',
+    'DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgsDict',
     'DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs',
     'DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict',
     'DomainDefaultUserSettingsCustomFileSystemConfigArgs',
@@ -323,6 +327,8 @@ __all__ = [
     'UserProfileUserSettingsCanvasAppSettingsArgsDict',
     'UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgsDict',
+    'UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs',
+    'UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict',
     'UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs',
     'UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgsDict',
     'UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs',
@@ -335,6 +341,8 @@ __all__ = [
     'UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgsDict',
     'UserProfileUserSettingsCodeEditorAppSettingsArgs',
     'UserProfileUserSettingsCodeEditorAppSettingsArgsDict',
+    'UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs',
+    'UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgsDict',
     'UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs',
     'UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict',
     'UserProfileUserSettingsCustomFileSystemConfigArgs',
@@ -397,6 +405,12 @@ __all__ = [
     'WorkteamMemberDefinitionOidcMemberDefinitionArgsDict',
     'WorkteamNotificationConfigurationArgs',
     'WorkteamNotificationConfigurationArgsDict',
+    'WorkteamWorkerAccessConfigurationArgs',
+    'WorkteamWorkerAccessConfigurationArgsDict',
+    'WorkteamWorkerAccessConfigurationS3PresignArgs',
+    'WorkteamWorkerAccessConfigurationS3PresignArgsDict',
+    'WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs',
+    'WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgsDict',
 ]
 
 MYPY = False
@@ -3190,6 +3204,7 @@ if not MYPY:
         """
         The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
         """
+        generative_ai_settings: NotRequired[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict']]
         identity_provider_oauth_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgsDict']]]]
         """
         The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
@@ -3217,6 +3232,7 @@ elif False:
 class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     def __init__(__self__, *,
                  direct_deploy_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']] = None,
+                 generative_ai_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs']] = None,
                  identity_provider_oauth_settings: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]] = None,
                  kendra_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs']] = None,
                  model_register_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']] = None,
@@ -3232,6 +3248,8 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
         """
         if direct_deploy_settings is not None:
             pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
+        if generative_ai_settings is not None:
+            pulumi.set(__self__, "generative_ai_settings", generative_ai_settings)
         if identity_provider_oauth_settings is not None:
             pulumi.set(__self__, "identity_provider_oauth_settings", identity_provider_oauth_settings)
         if kendra_settings is not None:
@@ -3254,6 +3272,15 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @direct_deploy_settings.setter
     def direct_deploy_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]):
         pulumi.set(self, "direct_deploy_settings", value)
+
+    @property
+    @pulumi.getter(name="generativeAiSettings")
+    def generative_ai_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs']]:
+        return pulumi.get(self, "generative_ai_settings")
+
+    @generative_ai_settings.setter
+    def generative_ai_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs']]):
+        pulumi.set(self, "generative_ai_settings", value)
 
     @property
     @pulumi.getter(name="identityProviderOauthSettings")
@@ -3346,6 +3373,29 @@ class DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict(TypedDict):
+        amazon_bedrock_role_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs:
+    def __init__(__self__, *,
+                 amazon_bedrock_role_arn: Optional[pulumi.Input[str]] = None):
+        if amazon_bedrock_role_arn is not None:
+            pulumi.set(__self__, "amazon_bedrock_role_arn", amazon_bedrock_role_arn)
+
+    @property
+    @pulumi.getter(name="amazonBedrockRoleArn")
+    def amazon_bedrock_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "amazon_bedrock_role_arn")
+
+    @amazon_bedrock_role_arn.setter
+    def amazon_bedrock_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "amazon_bedrock_role_arn", value)
 
 
 if not MYPY:
@@ -3609,6 +3659,10 @@ class DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs:
 
 if not MYPY:
     class DomainDefaultUserSettingsCodeEditorAppSettingsArgsDict(TypedDict):
+        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgsDict']]]]
+        """
+        A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+        """
         default_resource_spec: NotRequired[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict']]
         """
         The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
@@ -3623,16 +3677,32 @@ elif False:
 @pulumi.input_type
 class DomainDefaultUserSettingsCodeEditorAppSettingsArgs:
     def __init__(__self__, *,
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
         :param pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs']]]]:
+        """
+        A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+        """
+        return pulumi.get(self, "custom_images")
+
+    @custom_images.setter
+    def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs']]]]):
+        pulumi.set(self, "custom_images", value)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -3657,6 +3727,76 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsArgs:
     @lifecycle_config_arns.setter
     def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "lifecycle_config_arns", value)
+
+
+if not MYPY:
+    class DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgsDict(TypedDict):
+        app_image_config_name: pulumi.Input[str]
+        """
+        The name of the App Image Config.
+        """
+        image_name: pulumi.Input[str]
+        """
+        The name of the Custom Image.
+        """
+        image_version_number: NotRequired[pulumi.Input[int]]
+        """
+        The version number of the Custom Image.
+        """
+elif False:
+    DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs:
+    def __init__(__self__, *,
+                 app_image_config_name: pulumi.Input[str],
+                 image_name: pulumi.Input[str],
+                 image_version_number: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
+        :param pulumi.Input[str] image_name: The name of the Custom Image.
+        :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> pulumi.Input[str]:
+        """
+        The name of the App Image Config.
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @app_image_config_name.setter
+    def app_image_config_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_image_config_name", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Custom Image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number of the Custom Image.
+        """
+        return pulumi.get(self, "image_version_number")
+
+    @image_version_number.setter
+    def image_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_version_number", value)
 
 
 if not MYPY:
@@ -6048,6 +6188,10 @@ if not MYPY:
         """
         You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
         """
+        inference_ami_version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        """
         initial_instance_count: NotRequired[pulumi.Input[int]]
         """
         Initial number of instances used for auto-scaling.
@@ -6091,6 +6235,7 @@ class EndpointConfigurationProductionVariantArgs:
                  container_startup_health_check_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  core_dump_config: Optional[pulumi.Input['EndpointConfigurationProductionVariantCoreDumpConfigArgs']] = None,
                  enable_ssm_access: Optional[pulumi.Input[bool]] = None,
+                 inference_ami_version: Optional[pulumi.Input[str]] = None,
                  initial_instance_count: Optional[pulumi.Input[int]] = None,
                  initial_variant_weight: Optional[pulumi.Input[float]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -6105,6 +6250,7 @@ class EndpointConfigurationProductionVariantArgs:
         :param pulumi.Input[int] container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         :param pulumi.Input['EndpointConfigurationProductionVariantCoreDumpConfigArgs'] core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
         :param pulumi.Input[bool] enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        :param pulumi.Input[str] inference_ami_version: Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
         :param pulumi.Input[int] initial_instance_count: Initial number of instances used for auto-scaling.
         :param pulumi.Input[float] initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param pulumi.Input[str] instance_type: The type of instance to start.
@@ -6123,6 +6269,8 @@ class EndpointConfigurationProductionVariantArgs:
             pulumi.set(__self__, "core_dump_config", core_dump_config)
         if enable_ssm_access is not None:
             pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
+        if inference_ami_version is not None:
+            pulumi.set(__self__, "inference_ami_version", inference_ami_version)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if initial_variant_weight is not None:
@@ -6199,6 +6347,18 @@ class EndpointConfigurationProductionVariantArgs:
     @enable_ssm_access.setter
     def enable_ssm_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_ssm_access", value)
+
+    @property
+    @pulumi.getter(name="inferenceAmiVersion")
+    def inference_ami_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        """
+        return pulumi.get(self, "inference_ami_version")
+
+    @inference_ami_version.setter
+    def inference_ami_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inference_ami_version", value)
 
     @property
     @pulumi.getter(name="initialInstanceCount")
@@ -6456,6 +6616,7 @@ if not MYPY:
         container_startup_health_check_timeout_in_seconds: NotRequired[pulumi.Input[int]]
         core_dump_config: NotRequired[pulumi.Input['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgsDict']]
         enable_ssm_access: NotRequired[pulumi.Input[bool]]
+        inference_ami_version: NotRequired[pulumi.Input[str]]
         initial_instance_count: NotRequired[pulumi.Input[int]]
         initial_variant_weight: NotRequired[pulumi.Input[float]]
         instance_type: NotRequired[pulumi.Input[str]]
@@ -6475,6 +6636,7 @@ class EndpointConfigurationShadowProductionVariantArgs:
                  container_startup_health_check_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  core_dump_config: Optional[pulumi.Input['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs']] = None,
                  enable_ssm_access: Optional[pulumi.Input[bool]] = None,
+                 inference_ami_version: Optional[pulumi.Input[str]] = None,
                  initial_instance_count: Optional[pulumi.Input[int]] = None,
                  initial_variant_weight: Optional[pulumi.Input[float]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -6492,6 +6654,8 @@ class EndpointConfigurationShadowProductionVariantArgs:
             pulumi.set(__self__, "core_dump_config", core_dump_config)
         if enable_ssm_access is not None:
             pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
+        if inference_ami_version is not None:
+            pulumi.set(__self__, "inference_ami_version", inference_ami_version)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if initial_variant_weight is not None:
@@ -6553,6 +6717,15 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @enable_ssm_access.setter
     def enable_ssm_access(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_ssm_access", value)
+
+    @property
+    @pulumi.getter(name="inferenceAmiVersion")
+    def inference_ami_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "inference_ami_version")
+
+    @inference_ami_version.setter
+    def inference_ami_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inference_ami_version", value)
 
     @property
     @pulumi.getter(name="initialInstanceCount")
@@ -10836,6 +11009,7 @@ if not MYPY:
         """
         The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
         """
+        generative_ai_settings: NotRequired[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict']]
         identity_provider_oauth_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgsDict']]]]
         """
         The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
@@ -10863,6 +11037,7 @@ elif False:
 class UserProfileUserSettingsCanvasAppSettingsArgs:
     def __init__(__self__, *,
                  direct_deploy_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']] = None,
+                 generative_ai_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs']] = None,
                  identity_provider_oauth_settings: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]] = None,
                  kendra_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs']] = None,
                  model_register_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']] = None,
@@ -10878,6 +11053,8 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
         """
         if direct_deploy_settings is not None:
             pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
+        if generative_ai_settings is not None:
+            pulumi.set(__self__, "generative_ai_settings", generative_ai_settings)
         if identity_provider_oauth_settings is not None:
             pulumi.set(__self__, "identity_provider_oauth_settings", identity_provider_oauth_settings)
         if kendra_settings is not None:
@@ -10900,6 +11077,15 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
     @direct_deploy_settings.setter
     def direct_deploy_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]):
         pulumi.set(self, "direct_deploy_settings", value)
+
+    @property
+    @pulumi.getter(name="generativeAiSettings")
+    def generative_ai_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs']]:
+        return pulumi.get(self, "generative_ai_settings")
+
+    @generative_ai_settings.setter
+    def generative_ai_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs']]):
+        pulumi.set(self, "generative_ai_settings", value)
 
     @property
     @pulumi.getter(name="identityProviderOauthSettings")
@@ -10992,6 +11178,29 @@ class UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict(TypedDict):
+        amazon_bedrock_role_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs:
+    def __init__(__self__, *,
+                 amazon_bedrock_role_arn: Optional[pulumi.Input[str]] = None):
+        if amazon_bedrock_role_arn is not None:
+            pulumi.set(__self__, "amazon_bedrock_role_arn", amazon_bedrock_role_arn)
+
+    @property
+    @pulumi.getter(name="amazonBedrockRoleArn")
+    def amazon_bedrock_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "amazon_bedrock_role_arn")
+
+    @amazon_bedrock_role_arn.setter
+    def amazon_bedrock_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "amazon_bedrock_role_arn", value)
 
 
 if not MYPY:
@@ -11255,6 +11464,10 @@ class UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs:
 
 if not MYPY:
     class UserProfileUserSettingsCodeEditorAppSettingsArgsDict(TypedDict):
+        custom_images: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgsDict']]]]
+        """
+        A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+        """
         default_resource_spec: NotRequired[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict']]
         """
         The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
@@ -11269,16 +11482,32 @@ elif False:
 @pulumi.input_type
 class UserProfileUserSettingsCodeEditorAppSettingsArgs:
     def __init__(__self__, *,
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs']]]] = None,
                  default_resource_spec: Optional[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']] = None,
                  lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
         :param pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs']]]]:
+        """
+        A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+        """
+        return pulumi.get(self, "custom_images")
+
+    @custom_images.setter
+    def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs']]]]):
+        pulumi.set(self, "custom_images", value)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -11303,6 +11532,76 @@ class UserProfileUserSettingsCodeEditorAppSettingsArgs:
     @lifecycle_config_arns.setter
     def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "lifecycle_config_arns", value)
+
+
+if not MYPY:
+    class UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgsDict(TypedDict):
+        app_image_config_name: pulumi.Input[str]
+        """
+        The name of the App Image Config.
+        """
+        image_name: pulumi.Input[str]
+        """
+        The name of the Custom Image.
+        """
+        image_version_number: NotRequired[pulumi.Input[int]]
+        """
+        The version number of the Custom Image.
+        """
+elif False:
+    UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs:
+    def __init__(__self__, *,
+                 app_image_config_name: pulumi.Input[str],
+                 image_name: pulumi.Input[str],
+                 image_version_number: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
+        :param pulumi.Input[str] image_name: The name of the Custom Image.
+        :param pulumi.Input[int] image_version_number: The version number of the Custom Image.
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> pulumi.Input[str]:
+        """
+        The name of the App Image Config.
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @app_image_config_name.setter
+    def app_image_config_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "app_image_config_name", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Custom Image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The version number of the Custom Image.
+        """
+        return pulumi.get(self, "image_version_number")
+
+    @image_version_number.setter
+    def image_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "image_version_number", value)
 
 
 if not MYPY:
@@ -12985,6 +13284,14 @@ if not MYPY:
         """
         The OIDC IdP user information endpoint used to configure your private workforce.
         """
+        authentication_request_extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+        """
 elif False:
     WorkforceOidcConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -12998,7 +13305,9 @@ class WorkforceOidcConfigArgs:
                  jwks_uri: pulumi.Input[str],
                  logout_endpoint: pulumi.Input[str],
                  token_endpoint: pulumi.Input[str],
-                 user_info_endpoint: pulumi.Input[str]):
+                 user_info_endpoint: pulumi.Input[str],
+                 authentication_request_extra_params: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 scope: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] authorization_endpoint: The OIDC IdP authorization endpoint used to configure your private workforce.
         :param pulumi.Input[str] client_id: The OIDC IdP client ID used to configure your private workforce.
@@ -13008,6 +13317,8 @@ class WorkforceOidcConfigArgs:
         :param pulumi.Input[str] logout_endpoint: The OIDC IdP logout endpoint used to configure your private workforce.
         :param pulumi.Input[str] token_endpoint: The OIDC IdP token endpoint used to configure your private workforce.
         :param pulumi.Input[str] user_info_endpoint: The OIDC IdP user information endpoint used to configure your private workforce.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] authentication_request_extra_params: A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+        :param pulumi.Input[str] scope: An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_id", client_id)
@@ -13017,6 +13328,10 @@ class WorkforceOidcConfigArgs:
         pulumi.set(__self__, "logout_endpoint", logout_endpoint)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
         pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+        if authentication_request_extra_params is not None:
+            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -13113,6 +13428,30 @@ class WorkforceOidcConfigArgs:
     @user_info_endpoint.setter
     def user_info_endpoint(self, value: pulumi.Input[str]):
         pulumi.set(self, "user_info_endpoint", value)
+
+    @property
+    @pulumi.getter(name="authenticationRequestExtraParams")
+    def authentication_request_extra_params(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+        """
+        return pulumi.get(self, "authentication_request_extra_params")
+
+    @authentication_request_extra_params.setter
+    def authentication_request_extra_params(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authentication_request_extra_params", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
 
 
 if not MYPY:
@@ -13420,5 +13759,121 @@ class WorkteamNotificationConfigurationArgs:
     @notification_topic_arn.setter
     def notification_topic_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "notification_topic_arn", value)
+
+
+if not MYPY:
+    class WorkteamWorkerAccessConfigurationArgsDict(TypedDict):
+        s3_presign: NotRequired[pulumi.Input['WorkteamWorkerAccessConfigurationS3PresignArgsDict']]
+        """
+        Defines any Amazon S3 resource constraints. see S3 Presign details below.
+        """
+elif False:
+    WorkteamWorkerAccessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkteamWorkerAccessConfigurationArgs:
+    def __init__(__self__, *,
+                 s3_presign: Optional[pulumi.Input['WorkteamWorkerAccessConfigurationS3PresignArgs']] = None):
+        """
+        :param pulumi.Input['WorkteamWorkerAccessConfigurationS3PresignArgs'] s3_presign: Defines any Amazon S3 resource constraints. see S3 Presign details below.
+        """
+        if s3_presign is not None:
+            pulumi.set(__self__, "s3_presign", s3_presign)
+
+    @property
+    @pulumi.getter(name="s3Presign")
+    def s3_presign(self) -> Optional[pulumi.Input['WorkteamWorkerAccessConfigurationS3PresignArgs']]:
+        """
+        Defines any Amazon S3 resource constraints. see S3 Presign details below.
+        """
+        return pulumi.get(self, "s3_presign")
+
+    @s3_presign.setter
+    def s3_presign(self, value: Optional[pulumi.Input['WorkteamWorkerAccessConfigurationS3PresignArgs']]):
+        pulumi.set(self, "s3_presign", value)
+
+
+if not MYPY:
+    class WorkteamWorkerAccessConfigurationS3PresignArgsDict(TypedDict):
+        iam_policy_constraints: NotRequired[pulumi.Input['WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgsDict']]
+        """
+        Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
+        """
+elif False:
+    WorkteamWorkerAccessConfigurationS3PresignArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkteamWorkerAccessConfigurationS3PresignArgs:
+    def __init__(__self__, *,
+                 iam_policy_constraints: Optional[pulumi.Input['WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs']] = None):
+        """
+        :param pulumi.Input['WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs'] iam_policy_constraints: Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
+        """
+        if iam_policy_constraints is not None:
+            pulumi.set(__self__, "iam_policy_constraints", iam_policy_constraints)
+
+    @property
+    @pulumi.getter(name="iamPolicyConstraints")
+    def iam_policy_constraints(self) -> Optional[pulumi.Input['WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs']]:
+        """
+        Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
+        """
+        return pulumi.get(self, "iam_policy_constraints")
+
+    @iam_policy_constraints.setter
+    def iam_policy_constraints(self, value: Optional[pulumi.Input['WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs']]):
+        pulumi.set(self, "iam_policy_constraints", value)
+
+
+if not MYPY:
+    class WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgsDict(TypedDict):
+        source_ip: NotRequired[pulumi.Input[str]]
+        """
+        When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
+        """
+        vpc_source_ip: NotRequired[pulumi.Input[str]]
+        """
+        When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
+        """
+elif False:
+    WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs:
+    def __init__(__self__, *,
+                 source_ip: Optional[pulumi.Input[str]] = None,
+                 vpc_source_ip: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] source_ip: When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
+        :param pulumi.Input[str] vpc_source_ip: When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
+        """
+        if source_ip is not None:
+            pulumi.set(__self__, "source_ip", source_ip)
+        if vpc_source_ip is not None:
+            pulumi.set(__self__, "vpc_source_ip", vpc_source_ip)
+
+    @property
+    @pulumi.getter(name="sourceIp")
+    def source_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
+        """
+        return pulumi.get(self, "source_ip")
+
+    @source_ip.setter
+    def source_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_ip", value)
+
+    @property
+    @pulumi.getter(name="vpcSourceIp")
+    def vpc_source_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
+        """
+        return pulumi.get(self, "vpc_source_ip")
+
+    @vpc_source_ip.setter
+    def vpc_source_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_source_ip", value)
 
 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class DataSourceDynamodbConfig
     {
         /// <summary>
-        /// The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+        /// The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
         /// </summary>
         public readonly Outputs.DataSourceDynamodbConfigDeltaSyncConfig? DeltaSyncConfig;
         /// <summary>

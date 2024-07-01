@@ -970,6 +970,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String networkmonitor;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String oam;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2774,6 +2779,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> networkmonitor() {
+        return Optional.ofNullable(this.networkmonitor);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> oam() {
         return Optional.ofNullable(this.oam);
     }
@@ -3622,6 +3634,7 @@ public final class Endpoints {
         private @Nullable String neptunegraph;
         private @Nullable String networkfirewall;
         private @Nullable String networkmanager;
+        private @Nullable String networkmonitor;
         private @Nullable String oam;
         private @Nullable String opensearch;
         private @Nullable String opensearchingestion;
@@ -3909,6 +3922,7 @@ public final class Endpoints {
     	      this.neptunegraph = defaults.neptunegraph;
     	      this.networkfirewall = defaults.networkfirewall;
     	      this.networkmanager = defaults.networkmanager;
+    	      this.networkmonitor = defaults.networkmonitor;
     	      this.oam = defaults.oam;
     	      this.opensearch = defaults.opensearch;
     	      this.opensearchingestion = defaults.opensearchingestion;
@@ -5151,6 +5165,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder networkmonitor(@Nullable String networkmonitor) {
+
+            this.networkmonitor = networkmonitor;
+            return this;
+        }
+        @CustomType.Setter
         public Builder oam(@Nullable String oam) {
 
             this.oam = oam;
@@ -5901,6 +5921,7 @@ public final class Endpoints {
             _resultValue.neptunegraph = neptunegraph;
             _resultValue.networkfirewall = networkfirewall;
             _resultValue.networkmanager = networkmanager;
+            _resultValue.networkmonitor = networkmonitor;
             _resultValue.oam = oam;
             _resultValue.opensearch = opensearch;
             _resultValue.opensearchingestion = opensearchingestion;

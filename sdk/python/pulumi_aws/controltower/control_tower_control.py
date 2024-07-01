@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ControlTowerControlArgs', 'ControlTowerControl']
 
@@ -20,14 +22,20 @@ __all__ = ['ControlTowerControlArgs', 'ControlTowerControl']
 class ControlTowerControlArgs:
     def __init__(__self__, *,
                  control_identifier: pulumi.Input[str],
-                 target_identifier: pulumi.Input[str]):
+                 target_identifier: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]] = None):
         """
         The set of arguments for constructing a ControlTowerControl resource.
         :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         :param pulumi.Input[str] target_identifier: The ARN of the organizational unit.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         """
         pulumi.set(__self__, "control_identifier", control_identifier)
         pulumi.set(__self__, "target_identifier", target_identifier)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="controlIdentifier")
@@ -46,6 +54,8 @@ class ControlTowerControlArgs:
     def target_identifier(self) -> pulumi.Input[str]:
         """
         The ARN of the organizational unit.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target_identifier")
 
@@ -53,21 +63,55 @@ class ControlTowerControlArgs:
     def target_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_identifier", value)
 
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]:
+        """
+        Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
 
 @pulumi.input_type
 class _ControlTowerControlState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  control_identifier: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]] = None,
                  target_identifier: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ControlTowerControl resources.
+        :param pulumi.Input[str] arn: The ARN of the EnabledControl resource.
         :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         :param pulumi.Input[str] target_identifier: The ARN of the organizational unit.
+               
+               The following arguments are optional:
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if control_identifier is not None:
             pulumi.set(__self__, "control_identifier", control_identifier)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
         if target_identifier is not None:
             pulumi.set(__self__, "target_identifier", target_identifier)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the EnabledControl resource.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="controlIdentifier")
@@ -82,10 +126,24 @@ class _ControlTowerControlState:
         pulumi.set(self, "control_identifier", value)
 
     @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]:
+        """
+        Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlTowerControlParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> Optional[pulumi.Input[str]]:
         """
         The ARN of the organizational unit.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target_identifier")
 
@@ -100,6 +158,7 @@ class ControlTowerControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
                  target_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -110,6 +169,7 @@ class ControlTowerControl(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         current = aws.get_region()
@@ -117,7 +177,11 @@ class ControlTowerControl(pulumi.CustomResource):
         example_get_organizational_units = aws.organizations.get_organizational_units(parent_id=example.roots[0].id)
         example_control_tower_control = aws.controltower.ControlTowerControl("example",
             control_identifier=f"arn:aws:controltower:{current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
-            target_identifier=[x.arn for x in example_get_organizational_units.children if x.name == "Infrastructure"][0])
+            target_identifier=[x.arn for x in example_get_organizational_units.children if x.name == "Infrastructure"][0],
+            parameters=[{
+                "key": "AllowedRegions",
+                "value": json.dumps(["us-east-1"]),
+            }])
         ```
 
         ## Import
@@ -131,7 +195,10 @@ class ControlTowerControl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         :param pulumi.Input[str] target_identifier: The ARN of the organizational unit.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -147,6 +214,7 @@ class ControlTowerControl(pulumi.CustomResource):
 
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
         current = aws.get_region()
@@ -154,7 +222,11 @@ class ControlTowerControl(pulumi.CustomResource):
         example_get_organizational_units = aws.organizations.get_organizational_units(parent_id=example.roots[0].id)
         example_control_tower_control = aws.controltower.ControlTowerControl("example",
             control_identifier=f"arn:aws:controltower:{current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
-            target_identifier=[x.arn for x in example_get_organizational_units.children if x.name == "Infrastructure"][0])
+            target_identifier=[x.arn for x in example_get_organizational_units.children if x.name == "Infrastructure"][0],
+            parameters=[{
+                "key": "AllowedRegions",
+                "value": json.dumps(["us-east-1"]),
+            }])
         ```
 
         ## Import
@@ -181,6 +253,7 @@ class ControlTowerControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
                  target_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -194,9 +267,11 @@ class ControlTowerControl(pulumi.CustomResource):
             if control_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'control_identifier'")
             __props__.__dict__["control_identifier"] = control_identifier
+            __props__.__dict__["parameters"] = parameters
             if target_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'target_identifier'")
             __props__.__dict__["target_identifier"] = target_identifier
+            __props__.__dict__["arn"] = None
         super(ControlTowerControl, __self__).__init__(
             'aws:controltower/controlTowerControl:ControlTowerControl',
             resource_name,
@@ -207,7 +282,9 @@ class ControlTowerControl(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             control_identifier: Optional[pulumi.Input[str]] = None,
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]]] = None,
             target_identifier: Optional[pulumi.Input[str]] = None) -> 'ControlTowerControl':
         """
         Get an existing ControlTowerControl resource's state with the given name, id, and optional extra
@@ -216,16 +293,30 @@ class ControlTowerControl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the EnabledControl resource.
         :param pulumi.Input[str] control_identifier: The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ControlTowerControlParameterArgs', 'ControlTowerControlParameterArgsDict']]]] parameters: Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         :param pulumi.Input[str] target_identifier: The ARN of the organizational unit.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ControlTowerControlState.__new__(_ControlTowerControlState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["control_identifier"] = control_identifier
+        __props__.__dict__["parameters"] = parameters
         __props__.__dict__["target_identifier"] = target_identifier
         return ControlTowerControl(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the EnabledControl resource.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="controlIdentifier")
@@ -236,10 +327,20 @@ class ControlTowerControl(pulumi.CustomResource):
         return pulumi.get(self, "control_identifier")
 
     @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ControlTowerControlParameter']]]:
+        """
+        Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> pulumi.Output[str]:
         """
         The ARN of the organizational unit.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "target_identifier")
 

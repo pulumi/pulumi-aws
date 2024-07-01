@@ -6,7 +6,7 @@ Subject: [PATCH] Revert WAF schema changes
 - This causes far too many types to be generated downstream.
 
 diff --git a/internal/service/wafv2/schemas.go b/internal/service/wafv2/schemas.go
-index 66f0f2f0f6..bf3f4b5526 100644
+index b354b7f1e8..85a2a2356b 100644
 --- a/internal/service/wafv2/schemas.go
 +++ b/internal/service/wafv2/schemas.go
 @@ -54,14 +54,14 @@ func ruleGroupRootStatementSchema(level int) *schema.Schema {

@@ -166,15 +166,15 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+        /// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceDnsConfigResult> DnsConfigs;
         /// <summary>
-        /// Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+        /// Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceHealthCheckConfigResult> HealthCheckConfigs;
         /// <summary>
-        /// A complex type that contains settings for ECS managed health checks.
+        /// A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServiceHealthCheckCustomConfigResult> HealthCheckCustomConfigs;
         /// <summary>

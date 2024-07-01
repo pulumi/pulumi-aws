@@ -31,7 +31,7 @@ if not MYPY:
     class ServiceDnsConfigArgsDict(TypedDict):
         dns_records: pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArgsDict']]]
         """
-        An array that contains one DnsRecord object for each resource record set.
+        An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
         """
         namespace_id: pulumi.Input[str]
         """
@@ -51,7 +51,7 @@ class ServiceDnsConfigArgs:
                  namespace_id: pulumi.Input[str],
                  routing_policy: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArgs']]] dns_records: An array that contains one DnsRecord object for each resource record set.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArgs']]] dns_records: An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
         :param pulumi.Input[str] namespace_id: The ID of the namespace to use for DNS configuration.
         :param pulumi.Input[str] routing_policy: The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
         """
@@ -64,7 +64,7 @@ class ServiceDnsConfigArgs:
     @pulumi.getter(name="dnsRecords")
     def dns_records(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArgs']]]:
         """
-        An array that contains one DnsRecord object for each resource record set.
+        An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
         """
         return pulumi.get(self, "dns_records")
 

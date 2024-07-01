@@ -662,11 +662,11 @@ if not MYPY:
     class ConfigurationSetVdmOptionsArgsDict(TypedDict):
         dashboard_options: NotRequired[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgsDict']]
         """
-        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
         """
         guardian_options: NotRequired[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgsDict']]
         """
-        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
         """
 elif False:
     ConfigurationSetVdmOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -677,8 +677,8 @@ class ConfigurationSetVdmOptionsArgs:
                  dashboard_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs']] = None,
                  guardian_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs']] = None):
         """
-        :param pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
+        :param pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
         """
         if dashboard_options is not None:
             pulumi.set(__self__, "dashboard_options", dashboard_options)
@@ -689,7 +689,7 @@ class ConfigurationSetVdmOptionsArgs:
     @pulumi.getter(name="dashboardOptions")
     def dashboard_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs']]:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
         """
         return pulumi.get(self, "dashboard_options")
 
@@ -701,7 +701,7 @@ class ConfigurationSetVdmOptionsArgs:
     @pulumi.getter(name="guardianOptions")
     def guardian_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs']]:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
         """
         return pulumi.get(self, "guardian_options")
 

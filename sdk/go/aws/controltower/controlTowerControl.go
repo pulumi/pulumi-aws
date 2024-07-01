@@ -25,9 +25,15 @@ import (
 type ControlTowerControl struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the EnabledControl resource.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier pulumi.StringOutput `pulumi:"controlIdentifier"`
+	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+	Parameters ControlTowerControlParameterArrayOutput `pulumi:"parameters"`
 	// The ARN of the organizational unit.
+	//
+	// The following arguments are optional:
 	TargetIdentifier pulumi.StringOutput `pulumi:"targetIdentifier"`
 }
 
@@ -67,16 +73,28 @@ func GetControlTowerControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ControlTowerControl resources.
 type controlTowerControlState struct {
+	// The ARN of the EnabledControl resource.
+	Arn *string `pulumi:"arn"`
 	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier *string `pulumi:"controlIdentifier"`
+	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+	Parameters []ControlTowerControlParameter `pulumi:"parameters"`
 	// The ARN of the organizational unit.
+	//
+	// The following arguments are optional:
 	TargetIdentifier *string `pulumi:"targetIdentifier"`
 }
 
 type ControlTowerControlState struct {
+	// The ARN of the EnabledControl resource.
+	Arn pulumi.StringPtrInput
 	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier pulumi.StringPtrInput
+	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+	Parameters ControlTowerControlParameterArrayInput
 	// The ARN of the organizational unit.
+	//
+	// The following arguments are optional:
 	TargetIdentifier pulumi.StringPtrInput
 }
 
@@ -87,7 +105,11 @@ func (ControlTowerControlState) ElementType() reflect.Type {
 type controlTowerControlArgs struct {
 	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier string `pulumi:"controlIdentifier"`
+	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+	Parameters []ControlTowerControlParameter `pulumi:"parameters"`
 	// The ARN of the organizational unit.
+	//
+	// The following arguments are optional:
 	TargetIdentifier string `pulumi:"targetIdentifier"`
 }
 
@@ -95,7 +117,11 @@ type controlTowerControlArgs struct {
 type ControlTowerControlArgs struct {
 	// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 	ControlIdentifier pulumi.StringInput
+	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+	Parameters ControlTowerControlParameterArrayInput
 	// The ARN of the organizational unit.
+	//
+	// The following arguments are optional:
 	TargetIdentifier pulumi.StringInput
 }
 
@@ -186,12 +212,24 @@ func (o ControlTowerControlOutput) ToControlTowerControlOutputWithContext(ctx co
 	return o
 }
 
+// The ARN of the EnabledControl resource.
+func (o ControlTowerControlOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControlTowerControl) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
 // The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
 func (o ControlTowerControlOutput) ControlIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ControlTowerControl) pulumi.StringOutput { return v.ControlIdentifier }).(pulumi.StringOutput)
 }
 
+// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+func (o ControlTowerControlOutput) Parameters() ControlTowerControlParameterArrayOutput {
+	return o.ApplyT(func(v *ControlTowerControl) ControlTowerControlParameterArrayOutput { return v.Parameters }).(ControlTowerControlParameterArrayOutput)
+}
+
 // The ARN of the organizational unit.
+//
+// The following arguments are optional:
 func (o ControlTowerControlOutput) TargetIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ControlTowerControl) pulumi.StringOutput { return v.TargetIdentifier }).(pulumi.StringOutput)
 }

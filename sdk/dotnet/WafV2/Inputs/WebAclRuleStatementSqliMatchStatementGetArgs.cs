@@ -18,6 +18,9 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("fieldToMatch")]
         public Input<Inputs.WebAclRuleStatementSqliMatchStatementFieldToMatchGetArgs>? FieldToMatch { get; set; }
 
+        [Input("sensitivityLevel")]
+        public Input<string>? SensitivityLevel { get; set; }
+
         [Input("textTransformations", required: true)]
         private InputList<Inputs.WebAclRuleStatementSqliMatchStatementTextTransformationGetArgs>? _textTransformations;
 

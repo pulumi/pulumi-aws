@@ -15,8 +15,38 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ControlTowerControlParameter',
     'LandingZoneDriftStatus',
 ]
+
+@pulumi.output_type
+class ControlTowerControlParameter(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The name of the parameter.
+        :param str value: The value of the parameter.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the parameter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the parameter.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class LandingZoneDriftStatus(dict):

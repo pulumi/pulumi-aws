@@ -76,7 +76,7 @@ class DataSourceDynamodbConfig(dict):
                  versioned: Optional[bool] = None):
         """
         :param str table_name: Name of the DynamoDB table.
-        :param 'DataSourceDynamodbConfigDeltaSyncConfigArgs' delta_sync_config: The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+        :param 'DataSourceDynamodbConfigDeltaSyncConfigArgs' delta_sync_config: The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
         :param str region: AWS region of the DynamoDB table. Defaults to current region.
         :param bool use_caller_credentials: Set to `true` to use Amazon Cognito credentials with this data source.
         :param bool versioned: Detects Conflict Detection and Resolution with this data source.
@@ -103,7 +103,7 @@ class DataSourceDynamodbConfig(dict):
     @pulumi.getter(name="deltaSyncConfig")
     def delta_sync_config(self) -> Optional['outputs.DataSourceDynamodbConfigDeltaSyncConfig']:
         """
-        The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+        The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
         """
         return pulumi.get(self, "delta_sync_config")
 
@@ -284,7 +284,7 @@ class DataSourceHttpConfig(dict):
                  authorization_config: Optional['outputs.DataSourceHttpConfigAuthorizationConfig'] = None):
         """
         :param str endpoint: HTTP URL.
-        :param 'DataSourceHttpConfigAuthorizationConfigArgs' authorization_config: Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+        :param 'DataSourceHttpConfigAuthorizationConfigArgs' authorization_config: Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         if authorization_config is not None:
@@ -302,7 +302,7 @@ class DataSourceHttpConfig(dict):
     @pulumi.getter(name="authorizationConfig")
     def authorization_config(self) -> Optional['outputs.DataSourceHttpConfigAuthorizationConfig']:
         """
-        Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+        Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
         """
         return pulumi.get(self, "authorization_config")
 
@@ -333,7 +333,7 @@ class DataSourceHttpConfigAuthorizationConfig(dict):
                  aws_iam_config: Optional['outputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfig'] = None):
         """
         :param str authorization_type: Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-        :param 'DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs' aws_iam_config: Identity and Access Management (IAM) settings. See AWS IAM Config.
+        :param 'DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs' aws_iam_config: Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
         """
         if authorization_type is not None:
             pulumi.set(__self__, "authorization_type", authorization_type)
@@ -352,7 +352,7 @@ class DataSourceHttpConfigAuthorizationConfig(dict):
     @pulumi.getter(name="awsIamConfig")
     def aws_iam_config(self) -> Optional['outputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfig']:
         """
-        Identity and Access Management (IAM) settings. See AWS IAM Config.
+        Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
         """
         return pulumi.get(self, "aws_iam_config")
 
@@ -447,6 +447,10 @@ class DataSourceOpensearchserviceConfig(dict):
     def __init__(__self__, *,
                  endpoint: str,
                  region: Optional[str] = None):
+        """
+        :param str endpoint: HTTP endpoint of the OpenSearch domain.
+        :param str region: AWS region of the OpenSearch domain. Defaults to current region.
+        """
         pulumi.set(__self__, "endpoint", endpoint)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -454,11 +458,17 @@ class DataSourceOpensearchserviceConfig(dict):
     @property
     @pulumi.getter
     def endpoint(self) -> str:
+        """
+        HTTP endpoint of the OpenSearch domain.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter
     def region(self) -> Optional[str]:
+        """
+        AWS region of the OpenSearch domain. Defaults to current region.
+        """
         return pulumi.get(self, "region")
 
 
@@ -487,7 +497,7 @@ class DataSourceRelationalDatabaseConfig(dict):
                  http_endpoint_config: Optional['outputs.DataSourceRelationalDatabaseConfigHttpEndpointConfig'] = None,
                  source_type: Optional[str] = None):
         """
-        :param 'DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs' http_endpoint_config: Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+        :param 'DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs' http_endpoint_config: Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
         :param str source_type: Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
         """
         if http_endpoint_config is not None:
@@ -499,7 +509,7 @@ class DataSourceRelationalDatabaseConfig(dict):
     @pulumi.getter(name="httpEndpointConfig")
     def http_endpoint_config(self) -> Optional['outputs.DataSourceRelationalDatabaseConfigHttpEndpointConfig']:
         """
-        Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+        Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
         """
         return pulumi.get(self, "http_endpoint_config")
 
@@ -674,7 +684,7 @@ class FunctionSyncConfig(dict):
         """
         :param str conflict_detection: Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
         :param str conflict_handler: Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-        :param 'FunctionSyncConfigLambdaConflictHandlerConfigArgs' lambda_conflict_handler_config: Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        :param 'FunctionSyncConfigLambdaConflictHandlerConfigArgs' lambda_conflict_handler_config: Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
         """
         if conflict_detection is not None:
             pulumi.set(__self__, "conflict_detection", conflict_detection)
@@ -703,7 +713,7 @@ class FunctionSyncConfig(dict):
     @pulumi.getter(name="lambdaConflictHandlerConfig")
     def lambda_conflict_handler_config(self) -> Optional['outputs.FunctionSyncConfigLambdaConflictHandlerConfig']:
         """
-        Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
         """
         return pulumi.get(self, "lambda_conflict_handler_config")
 
@@ -776,9 +786,9 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
                  user_pool_config: Optional['outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig'] = None):
         """
         :param str authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param 'GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs' lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
-        :param 'GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs' openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
-        :param 'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs' user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param 'GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs' lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+        :param 'GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs' openid_connect_config: Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+        :param 'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs' user_pool_config: Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         if lambda_authorizer_config is not None:
@@ -800,7 +810,7 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> Optional['outputs.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig']:
         """
-        Nested argument containing Lambda authorizer configuration. Defined below.
+        Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         """
         return pulumi.get(self, "lambda_authorizer_config")
 
@@ -808,7 +818,7 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
     @pulumi.getter(name="openidConnectConfig")
     def openid_connect_config(self) -> Optional['outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig']:
         """
-        Nested argument containing OpenID Connect configuration. Defined below.
+        Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         """
         return pulumi.get(self, "openid_connect_config")
 
@@ -816,7 +826,7 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
     @pulumi.getter(name="userPoolConfig")
     def user_pool_config(self) -> Optional['outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig']:
         """
-        Amazon Cognito User Pool configuration. Defined below.
+        Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         """
         return pulumi.get(self, "user_pool_config")
 

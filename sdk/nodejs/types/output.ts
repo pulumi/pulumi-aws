@@ -1923,6 +1923,29 @@ export namespace appconfig {
 }
 
 export namespace appfabric {
+    export interface AppAuthorizationConnectionAuthRequest {
+        /**
+         * The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+         */
+        code: string;
+        /**
+         * The redirect URL that is specified in the AuthURL and the application client.
+         */
+        redirectUri: string;
+    }
+
+    export interface AppAuthorizationConnectionTenant {
+        tenantDisplayName: string;
+        tenantIdentifier: string;
+    }
+
+    export interface AppAuthorizationConnectionTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
     export interface AppAuthorizationCredential {
         /**
          * Contains API key credential information.
@@ -1964,6 +1987,76 @@ export namespace appfabric {
     }
 
     export interface AppAuthorizationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface IngestionDestinationDestinationConfiguration {
+        /**
+         * Contains information about an audit log processing configuration.
+         */
+        auditLog?: outputs.appfabric.IngestionDestinationDestinationConfigurationAuditLog;
+    }
+
+    export interface IngestionDestinationDestinationConfigurationAuditLog {
+        /**
+         * Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+         */
+        destination?: outputs.appfabric.IngestionDestinationDestinationConfigurationAuditLogDestination;
+    }
+
+    export interface IngestionDestinationDestinationConfigurationAuditLogDestination {
+        /**
+         * Contains information about an Amazon Data Firehose delivery stream.
+         */
+        firehoseStream?: outputs.appfabric.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream;
+        /**
+         * Contains information about an Amazon S3 bucket.
+         */
+        s3Bucket?: outputs.appfabric.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket;
+    }
+
+    export interface IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream {
+        streamName: string;
+    }
+
+    export interface IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket {
+        bucketName: string;
+        /**
+         * The object key to use.
+         */
+        prefix?: string;
+    }
+
+    export interface IngestionDestinationProcessingConfiguration {
+        /**
+         * Contains information about an audit log processing configuration.
+         */
+        auditLog?: outputs.appfabric.IngestionDestinationProcessingConfigurationAuditLog;
+    }
+
+    export interface IngestionDestinationProcessingConfigurationAuditLog {
+        /**
+         * The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+         */
+        format: string;
+        /**
+         * The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+         */
+        schema: string;
+    }
+
+    export interface IngestionDestinationTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
@@ -7079,7 +7172,7 @@ export namespace appstream {
 export namespace appsync {
     export interface DataSourceDynamodbConfig {
         /**
-         * The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+         * The DeltaSyncConfig for a versioned data source. See `deltaSyncConfig` Block for details.
          */
         deltaSyncConfig?: outputs.appsync.DataSourceDynamodbConfigDeltaSyncConfig;
         /**
@@ -7135,7 +7228,7 @@ export namespace appsync {
 
     export interface DataSourceHttpConfig {
         /**
-         * Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+         * Authorization configuration in case the HTTP endpoint requires authorization. See `authorizationConfig` Block for details.
          */
         authorizationConfig?: outputs.appsync.DataSourceHttpConfigAuthorizationConfig;
         /**
@@ -7150,7 +7243,7 @@ export namespace appsync {
          */
         authorizationType?: string;
         /**
-         * Identity and Access Management (IAM) settings. See AWS IAM Config.
+         * Identity and Access Management (IAM) settings. See `awsIamConfig` Block for details.
          */
         awsIamConfig?: outputs.appsync.DataSourceHttpConfigAuthorizationConfigAwsIamConfig;
     }
@@ -7174,13 +7267,19 @@ export namespace appsync {
     }
 
     export interface DataSourceOpensearchserviceConfig {
+        /**
+         * HTTP endpoint of the OpenSearch domain.
+         */
         endpoint: string;
+        /**
+         * AWS region of the OpenSearch domain. Defaults to current region.
+         */
         region: string;
     }
 
     export interface DataSourceRelationalDatabaseConfig {
         /**
-         * Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+         * Amazon RDS HTTP endpoint configuration. See `httpEndpointConfig` Block for details.
          */
         httpEndpointConfig?: outputs.appsync.DataSourceRelationalDatabaseConfigHttpEndpointConfig;
         /**
@@ -7233,7 +7332,7 @@ export namespace appsync {
          */
         conflictHandler?: string;
         /**
-         * Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+         * Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambdaConflictHandlerConfig` Block for details.
          */
         lambdaConflictHandlerConfig?: outputs.appsync.FunctionSyncConfigLambdaConflictHandlerConfig;
     }
@@ -7251,15 +7350,15 @@ export namespace appsync {
          */
         authenticationType: string;
         /**
-         * Nested argument containing Lambda authorizer configuration. Defined below.
+         * Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
          */
         lambdaAuthorizerConfig?: outputs.appsync.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig;
         /**
-         * Nested argument containing OpenID Connect configuration. Defined below.
+         * Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
          */
         openidConnectConfig?: outputs.appsync.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig;
         /**
-         * Amazon Cognito User Pool configuration. Defined below.
+         * Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
          */
         userPoolConfig?: outputs.appsync.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig;
     }
@@ -13969,7 +14068,7 @@ export namespace codebuild {
          */
         excludeMatchedPattern?: boolean;
         /**
-         * For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
+         * For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED`, `WORKFLOW_JOB_QUEUED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
          */
         pattern: string;
         /**
@@ -16450,6 +16549,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        networkmonitor?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         oam?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -17772,6 +17875,17 @@ export namespace connect {
 }
 
 export namespace controltower {
+    export interface ControlTowerControlParameter {
+        /**
+         * The name of the parameter.
+         */
+        key: string;
+        /**
+         * The value of the parameter.
+         */
+        value: string;
+    }
+
     export interface LandingZoneDriftStatus {
         /**
          * The drift status of the landing zone.
@@ -59680,6 +59794,161 @@ export namespace networkfirewall {
         ruleOrder: string;
     }
 
+    export interface TlsInspectionConfigurationCertificate {
+        /**
+         * ARN of the certificate.
+         */
+        certificateArn: string;
+        /**
+         * Serial number of the certificate.
+         */
+        certificateSerial: string;
+        /**
+         * Status of the certificate.
+         */
+        status: string;
+        /**
+         * Details about the certificate status, including information about certificate errors.
+         */
+        statusMessage: string;
+    }
+
+    export interface TlsInspectionConfigurationCertificateAuthority {
+        /**
+         * ARN of the certificate.
+         */
+        certificateArn: string;
+        /**
+         * Serial number of the certificate.
+         */
+        certificateSerial: string;
+        /**
+         * Status of the certificate.
+         */
+        status: string;
+        /**
+         * Details about the certificate status, including information about certificate errors.
+         */
+        statusMessage: string;
+    }
+
+    export interface TlsInspectionConfigurationEncryptionConfiguration {
+        /**
+         * ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+         */
+        keyId: string;
+        /**
+         * Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
+         */
+        type: string;
+    }
+
+    export interface TlsInspectionConfigurationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfiguration {
+        /**
+         * Server certificate configurations that are associated with the TLS configuration. Detailed below.
+         */
+        serverCertificateConfiguration?: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration;
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration {
+        /**
+         * ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
+         */
+        certificateAuthorityArn?: string;
+        /**
+         * Check Certificate Revocation Status block. Detailed below.
+         */
+        checkCertificateRevocationStatus?: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus;
+        /**
+         * Scope block. Detailed below.
+         */
+        scopes?: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope[];
+        /**
+         * Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
+         */
+        serverCertificates?: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate[];
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus {
+        revokedStatusAction?: string;
+        unknownStatusAction?: string;
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope {
+        /**
+         * Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
+         */
+        destinationPorts?: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort[];
+        /**
+         * Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
+         */
+        destinations?: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination[];
+        /**
+         * Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+         */
+        protocols: number[];
+        /**
+         * Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
+         */
+        sourcePorts?: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort[];
+        /**
+         * Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
+         */
+        sources?: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource[];
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination {
+        /**
+         * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+         */
+        addressDefinition: string;
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort {
+        fromPort: number;
+        toPort: number;
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource {
+        /**
+         * An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+         */
+        addressDefinition: string;
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort {
+        /**
+         * The lower limit of the port range. This must be less than or equal to the `toPort`.
+         */
+        fromPort: number;
+        /**
+         * The upper limit of the port range. This must be greater than or equal to the `fromPort`.
+         */
+        toPort: number;
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate {
+        /**
+         * ARN of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
+         */
+        resourceArn?: string;
+    }
+
 }
 
 export namespace networkmanager {
@@ -65103,7 +65372,7 @@ export namespace rds {
          */
         maxIdleConnectionsPercent?: number;
         /**
-         * Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+         * Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
          */
         sessionPinningFilters?: string[];
     }
@@ -69163,6 +69432,7 @@ export namespace sagemaker {
          * The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
          */
         directDeploySettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings;
+        generativeAiSettings?: outputs.sagemaker.DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings;
         /**
          * The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
          */
@@ -69190,6 +69460,10 @@ export namespace sagemaker {
          * Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
          */
         status?: string;
+    }
+
+    export interface DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings {
+        amazonBedrockRoleArn?: string;
     }
 
     export interface DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
@@ -69249,6 +69523,10 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsCodeEditorAppSettings {
         /**
+         * A list of custom SageMaker images that are configured to run as a CodeEditor app. see `customImage` Block below.
+         */
+        customImages?: outputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage[];
+        /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec;
@@ -69256,6 +69534,21 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
+    }
+
+    export interface DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: string;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: string;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: number;
     }
 
     export interface DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
@@ -69774,6 +70067,10 @@ export namespace sagemaker {
          */
         enableSsmAccess?: boolean;
         /**
+         * Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+         */
+        inferenceAmiVersion?: string;
+        /**
          * Initial number of instances used for auto-scaling.
          */
         initialInstanceCount?: number;
@@ -69849,6 +70146,7 @@ export namespace sagemaker {
         containerStartupHealthCheckTimeoutInSeconds?: number;
         coreDumpConfig?: outputs.sagemaker.EndpointConfigurationShadowProductionVariantCoreDumpConfig;
         enableSsmAccess?: boolean;
+        inferenceAmiVersion?: string;
         initialInstanceCount?: number;
         initialVariantWeight?: number;
         instanceType?: string;
@@ -70731,6 +71029,7 @@ export namespace sagemaker {
          * The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
          */
         directDeploySettings?: outputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings;
+        generativeAiSettings?: outputs.sagemaker.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings;
         /**
          * The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
          */
@@ -70758,6 +71057,10 @@ export namespace sagemaker {
          * Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
          */
         status?: string;
+    }
+
+    export interface UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings {
+        amazonBedrockRoleArn?: string;
     }
 
     export interface UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
@@ -70817,6 +71120,10 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsCodeEditorAppSettings {
         /**
+         * A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+         */
+        customImages?: outputs.sagemaker.UserProfileUserSettingsCodeEditorAppSettingsCustomImage[];
+        /**
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec;
@@ -70824,6 +71131,21 @@ export namespace sagemaker {
          * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
+    }
+
+    export interface UserProfileUserSettingsCodeEditorAppSettingsCustomImage {
+        /**
+         * The name of the App Image Config.
+         */
+        appImageConfigName: string;
+        /**
+         * The name of the Custom Image.
+         */
+        imageName: string;
+        /**
+         * The version number of the Custom Image.
+         */
+        imageVersionNumber?: number;
     }
 
     export interface UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
@@ -71173,6 +71495,10 @@ export namespace sagemaker {
 
     export interface WorkforceOidcConfig {
         /**
+         * A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+         */
+        authenticationRequestExtraParams?: {[key: string]: string};
+        /**
          * The OIDC IdP authorization endpoint used to configure your private workforce.
          */
         authorizationEndpoint: string;
@@ -71196,6 +71522,10 @@ export namespace sagemaker {
          * The OIDC IdP logout endpoint used to configure your private workforce.
          */
         logoutEndpoint: string;
+        /**
+         * An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+         */
+        scope?: string;
         /**
          * The OIDC IdP token endpoint used to configure your private workforce.
          */
@@ -71270,6 +71600,31 @@ export namespace sagemaker {
          * The ARN for the SNS topic to which notifications should be published.
          */
         notificationTopicArn?: string;
+    }
+
+    export interface WorkteamWorkerAccessConfiguration {
+        /**
+         * Defines any Amazon S3 resource constraints. see S3 Presign details below.
+         */
+        s3Presign: outputs.sagemaker.WorkteamWorkerAccessConfigurationS3Presign;
+    }
+
+    export interface WorkteamWorkerAccessConfigurationS3Presign {
+        /**
+         * Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
+         */
+        iamPolicyConstraints: outputs.sagemaker.WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints;
+    }
+
+    export interface WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints {
+        /**
+         * When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
+         */
+        sourceIp: string;
+        /**
+         * When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
+         */
+        vpcSourceIp: string;
     }
 
 }
@@ -73622,7 +73977,7 @@ export namespace servicecatalog {
 export namespace servicediscovery {
     export interface GetServiceDnsConfig {
         /**
-         * An array that contains one DnsRecord object for each resource record set.
+         * An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
          */
         dnsRecords: outputs.servicediscovery.GetServiceDnsConfigDnsRecord[];
         /**
@@ -73670,7 +74025,7 @@ export namespace servicediscovery {
 
     export interface ServiceDnsConfig {
         /**
-         * An array that contains one DnsRecord object for each resource record set.
+         * An array that contains one DnsRecord object for each resource record set. See `dnsRecords` Block for details.
          */
         dnsRecords: outputs.servicediscovery.ServiceDnsConfigDnsRecord[];
         /**
@@ -74120,11 +74475,11 @@ export namespace sesv2 {
 
     export interface ConfigurationSetVdmOptions {
         /**
-         * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+         * Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
          */
         dashboardOptions?: outputs.sesv2.ConfigurationSetVdmOptionsDashboardOptions;
         /**
-         * Specifies additional settings for your VDM configuration as applicable to the Guardian.
+         * Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
          */
         guardianOptions?: outputs.sesv2.ConfigurationSetVdmOptionsGuardianOptions;
     }
@@ -78896,6 +79251,7 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch;
+        sensitivityLevel?: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
@@ -79897,6 +80253,7 @@ export namespace wafv2 {
          * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          */
         fieldToMatch?: outputs.wafv2.RuleGroupRuleStatementSqliMatchStatementFieldToMatch;
+        sensitivityLevel?: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
          * At least one required.
@@ -82577,6 +82934,7 @@ export namespace wafv2 {
          * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          */
         fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch;
+        sensitivityLevel?: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
@@ -84131,6 +84489,7 @@ export namespace wafv2 {
          * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          */
         fieldToMatch?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch;
+        sensitivityLevel?: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */
@@ -85330,6 +85689,7 @@ export namespace wafv2 {
          * Part of a web request that you want AWS WAF to inspect. See `fieldToMatch` below for details.
          */
         fieldToMatch?: outputs.wafv2.WebAclRuleStatementSqliMatchStatementFieldToMatch;
+        sensitivityLevel?: string;
         /**
          * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `textTransformation` below for details.
          */

@@ -30,6 +30,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly bool? EnableSsmAccess;
         /// <summary>
+        /// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        /// </summary>
+        public readonly string? InferenceAmiVersion;
+        /// <summary>
         /// Initial number of instances used for auto-scaling.
         /// </summary>
         public readonly int? InitialInstanceCount;
@@ -76,6 +80,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             bool? enableSsmAccess,
 
+            string? inferenceAmiVersion,
+
             int? initialInstanceCount,
 
             double? initialVariantWeight,
@@ -98,6 +104,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             ContainerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             CoreDumpConfig = coreDumpConfig;
             EnableSsmAccess = enableSsmAccess;
+            InferenceAmiVersion = inferenceAmiVersion;
             InitialInstanceCount = initialInstanceCount;
             InitialVariantWeight = initialVariantWeight;
             InstanceType = instanceType;

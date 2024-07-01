@@ -34,7 +34,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfig {
      */
     private @Nullable Integer maxIdleConnectionsPercent;
     /**
-     * @return Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+     * @return Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
      * 
      */
     private @Nullable List<String> sessionPinningFilters;
@@ -69,7 +69,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfig {
         return Optional.ofNullable(this.maxIdleConnectionsPercent);
     }
     /**
-     * @return Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+     * @return Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
      * 
      */
     public List<String> sessionPinningFilters() {

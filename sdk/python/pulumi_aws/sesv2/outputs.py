@@ -665,8 +665,8 @@ class ConfigurationSetVdmOptions(dict):
                  dashboard_options: Optional['outputs.ConfigurationSetVdmOptionsDashboardOptions'] = None,
                  guardian_options: Optional['outputs.ConfigurationSetVdmOptionsGuardianOptions'] = None):
         """
-        :param 'ConfigurationSetVdmOptionsDashboardOptionsArgs' dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param 'ConfigurationSetVdmOptionsGuardianOptionsArgs' guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param 'ConfigurationSetVdmOptionsDashboardOptionsArgs' dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
+        :param 'ConfigurationSetVdmOptionsGuardianOptionsArgs' guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
         """
         if dashboard_options is not None:
             pulumi.set(__self__, "dashboard_options", dashboard_options)
@@ -677,7 +677,7 @@ class ConfigurationSetVdmOptions(dict):
     @pulumi.getter(name="dashboardOptions")
     def dashboard_options(self) -> Optional['outputs.ConfigurationSetVdmOptionsDashboardOptions']:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
         """
         return pulumi.get(self, "dashboard_options")
 
@@ -685,7 +685,7 @@ class ConfigurationSetVdmOptions(dict):
     @pulumi.getter(name="guardianOptions")
     def guardian_options(self) -> Optional['outputs.ConfigurationSetVdmOptionsGuardianOptions']:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
         """
         return pulumi.get(self, "guardian_options")
 

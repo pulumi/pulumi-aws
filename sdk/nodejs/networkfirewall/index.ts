@@ -45,6 +45,11 @@ export type RuleGroup = import("./ruleGroup").RuleGroup;
 export const RuleGroup: typeof import("./ruleGroup").RuleGroup = null as any;
 utilities.lazyLoad(exports, ["RuleGroup"], () => require("./ruleGroup"));
 
+export { TlsInspectionConfigurationArgs, TlsInspectionConfigurationState } from "./tlsInspectionConfiguration";
+export type TlsInspectionConfiguration = import("./tlsInspectionConfiguration").TlsInspectionConfiguration;
+export const TlsInspectionConfiguration: typeof import("./tlsInspectionConfiguration").TlsInspectionConfiguration = null as any;
+utilities.lazyLoad(exports, ["TlsInspectionConfiguration"], () => require("./tlsInspectionConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -60,6 +65,8 @@ const _module = {
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:networkfirewall/ruleGroup:RuleGroup":
                 return new RuleGroup(name, <any>undefined, { urn })
+            case "aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration":
+                return new TlsInspectionConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -70,3 +77,4 @@ pulumi.runtime.registerResourceModule("aws", "networkfirewall/firewallPolicy", _
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/loggingConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "networkfirewall/ruleGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "networkfirewall/tlsInspectionConfiguration", _module)

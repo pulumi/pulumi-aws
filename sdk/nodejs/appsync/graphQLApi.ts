@@ -36,7 +36,7 @@ export class GraphQLApi extends pulumi.CustomResource {
     }
 
     /**
-     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     * One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
      */
     public readonly additionalAuthenticationProviders!: pulumi.Output<outputs.appsync.GraphQLApiAdditionalAuthenticationProvider[] | undefined>;
     /**
@@ -52,19 +52,19 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly introspectionConfig!: pulumi.Output<string | undefined>;
     /**
-     * Nested argument containing Lambda authorizer configuration. Defined below.
+     * Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
      */
     public readonly lambdaAuthorizerConfig!: pulumi.Output<outputs.appsync.GraphQLApiLambdaAuthorizerConfig | undefined>;
     /**
-     * Nested argument containing logging configuration. Defined below.
+     * Nested argument containing logging configuration. See `logConfig` Block for details.
      */
     public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQLApiLogConfig | undefined>;
     /**
-     * User-supplied name for the GraphqlApi.
+     * User-supplied name for the GraphSQL API.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Nested argument containing OpenID Connect configuration. Defined below.
+     * Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
      */
     public readonly openidConnectConfig!: pulumi.Output<outputs.appsync.GraphQLApiOpenidConnectConfig | undefined>;
     /**
@@ -96,7 +96,7 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly uris!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
      */
     public readonly userPoolConfig!: pulumi.Output<outputs.appsync.GraphQLApiUserPoolConfig | undefined>;
     /**
@@ -171,7 +171,7 @@ export class GraphQLApi extends pulumi.CustomResource {
  */
 export interface GraphQLApiState {
     /**
-     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     * One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
      */
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
@@ -187,19 +187,19 @@ export interface GraphQLApiState {
      */
     introspectionConfig?: pulumi.Input<string>;
     /**
-     * Nested argument containing Lambda authorizer configuration. Defined below.
+     * Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
      */
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfig>;
     /**
-     * Nested argument containing logging configuration. Defined below.
+     * Nested argument containing logging configuration. See `logConfig` Block for details.
      */
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
     /**
-     * User-supplied name for the GraphqlApi.
+     * User-supplied name for the GraphSQL API.
      */
     name?: pulumi.Input<string>;
     /**
-     * Nested argument containing OpenID Connect configuration. Defined below.
+     * Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
      */
     openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
     /**
@@ -231,7 +231,7 @@ export interface GraphQLApiState {
      */
     uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
      */
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
     /**
@@ -249,7 +249,7 @@ export interface GraphQLApiState {
  */
 export interface GraphQLApiArgs {
     /**
-     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     * One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
      */
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
@@ -261,19 +261,19 @@ export interface GraphQLApiArgs {
      */
     introspectionConfig?: pulumi.Input<string>;
     /**
-     * Nested argument containing Lambda authorizer configuration. Defined below.
+     * Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
      */
     lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfig>;
     /**
-     * Nested argument containing logging configuration. Defined below.
+     * Nested argument containing logging configuration. See `logConfig` Block for details.
      */
     logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
     /**
-     * User-supplied name for the GraphqlApi.
+     * User-supplied name for the GraphSQL API.
      */
     name?: pulumi.Input<string>;
     /**
-     * Nested argument containing OpenID Connect configuration. Defined below.
+     * Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
      */
     openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
     /**
@@ -295,7 +295,7 @@ export interface GraphQLApiArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
      */
     userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
     /**

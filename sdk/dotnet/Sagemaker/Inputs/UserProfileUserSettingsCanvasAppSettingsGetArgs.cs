@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("directDeploySettings")]
         public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsGetArgs>? DirectDeploySettings { get; set; }
 
+        [Input("generativeAiSettings")]
+        public Input<Inputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsGetArgs>? GenerativeAiSettings { get; set; }
+
         [Input("identityProviderOauthSettings")]
         private InputList<Inputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingGetArgs>? _identityProviderOauthSettings;
 

@@ -102,6 +102,10 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     public readonly firstName!: pulumi.Output<string | undefined>;
     /**
+     * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     */
+    public readonly iamIdentityCenterInstanceArn!: pulumi.Output<string | undefined>;
+    /**
      * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     public readonly lastName!: pulumi.Output<string | undefined>;
@@ -145,6 +149,7 @@ export class AccountSubscription extends pulumi.CustomResource {
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["emailAddress"] = state ? state.emailAddress : undefined;
             resourceInputs["firstName"] = state ? state.firstName : undefined;
+            resourceInputs["iamIdentityCenterInstanceArn"] = state ? state.iamIdentityCenterInstanceArn : undefined;
             resourceInputs["lastName"] = state ? state.lastName : undefined;
             resourceInputs["notificationEmail"] = state ? state.notificationEmail : undefined;
             resourceInputs["readerGroups"] = state ? state.readerGroups : undefined;
@@ -174,6 +179,7 @@ export class AccountSubscription extends pulumi.CustomResource {
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
             resourceInputs["firstName"] = args ? args.firstName : undefined;
+            resourceInputs["iamIdentityCenterInstanceArn"] = args ? args.iamIdentityCenterInstanceArn : undefined;
             resourceInputs["lastName"] = args ? args.lastName : undefined;
             resourceInputs["notificationEmail"] = args ? args.notificationEmail : undefined;
             resourceInputs["readerGroups"] = args ? args.readerGroups : undefined;
@@ -237,6 +243,10 @@ export interface AccountSubscriptionState {
      * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     firstName?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     */
+    iamIdentityCenterInstanceArn?: pulumi.Input<string>;
     /**
      * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
@@ -305,6 +315,10 @@ export interface AccountSubscriptionArgs {
      * First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     firstName?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     */
+    iamIdentityCenterInstanceArn?: pulumi.Input<string>;
     /**
      * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */

@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceOpensearchserviceConfig {
+    /**
+     * @return HTTP endpoint of the OpenSearch domain.
+     * 
+     */
     private String endpoint;
+    /**
+     * @return AWS region of the OpenSearch domain. Defaults to current region.
+     * 
+     */
     private @Nullable String region;
 
     private DataSourceOpensearchserviceConfig() {}
+    /**
+     * @return HTTP endpoint of the OpenSearch domain.
+     * 
+     */
     public String endpoint() {
         return this.endpoint;
     }
+    /**
+     * @return AWS region of the OpenSearch domain. Defaults to current region.
+     * 
+     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }

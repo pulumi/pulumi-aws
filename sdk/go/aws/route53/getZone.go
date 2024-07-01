@@ -95,17 +95,21 @@ type LookupZoneResult struct {
 	LinkedServiceDescription string `pulumi:"linkedServiceDescription"`
 	// The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
 	LinkedServicePrincipal string `pulumi:"linkedServicePrincipal"`
-	Name                   string `pulumi:"name"`
+	// The Hosted Zone name.
+	Name string `pulumi:"name"`
 	// List of DNS name servers for the Hosted Zone.
 	NameServers []string `pulumi:"nameServers"`
 	// The Route 53 name server that created the SOA record.
 	PrimaryNameServer string `pulumi:"primaryNameServer"`
-	PrivateZone       *bool  `pulumi:"privateZone"`
+	// Indicates whether this is a private hosted zone.
+	PrivateZone *bool `pulumi:"privateZone"`
 	// The number of Record Set in the Hosted Zone.
-	ResourceRecordSetCount int               `pulumi:"resourceRecordSetCount"`
-	Tags                   map[string]string `pulumi:"tags"`
-	VpcId                  string            `pulumi:"vpcId"`
-	ZoneId                 string            `pulumi:"zoneId"`
+	ResourceRecordSetCount int `pulumi:"resourceRecordSetCount"`
+	// A map of tags assigned to the Hosted Zone.
+	Tags  map[string]string `pulumi:"tags"`
+	VpcId string            `pulumi:"vpcId"`
+	// The Hosted Zone identifier.
+	ZoneId string `pulumi:"zoneId"`
 }
 
 func LookupZoneOutput(ctx *pulumi.Context, args LookupZoneOutputArgs, opts ...pulumi.InvokeOption) LookupZoneResultOutput {
@@ -184,6 +188,7 @@ func (o LookupZoneResultOutput) LinkedServicePrincipal() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.LinkedServicePrincipal }).(pulumi.StringOutput)
 }
 
+// The Hosted Zone name.
 func (o LookupZoneResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -198,6 +203,7 @@ func (o LookupZoneResultOutput) PrimaryNameServer() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.PrimaryNameServer }).(pulumi.StringOutput)
 }
 
+// Indicates whether this is a private hosted zone.
 func (o LookupZoneResultOutput) PrivateZone() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupZoneResult) *bool { return v.PrivateZone }).(pulumi.BoolPtrOutput)
 }
@@ -207,6 +213,7 @@ func (o LookupZoneResultOutput) ResourceRecordSetCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupZoneResult) int { return v.ResourceRecordSetCount }).(pulumi.IntOutput)
 }
 
+// A map of tags assigned to the Hosted Zone.
 func (o LookupZoneResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupZoneResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -215,6 +222,7 @@ func (o LookupZoneResultOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
+// The Hosted Zone identifier.
 func (o LookupZoneResultOutput) ZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.ZoneId }).(pulumi.StringOutput)
 }

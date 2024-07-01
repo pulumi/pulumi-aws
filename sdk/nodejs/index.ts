@@ -214,6 +214,7 @@ import * as mwaa from "./mwaa";
 import * as neptune from "./neptune";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
+import * as networkmonitor from "./networkmonitor";
 import * as oam from "./oam";
 import * as opensearch from "./opensearch";
 import * as opensearchingest from "./opensearchingest";
@@ -427,6 +428,7 @@ export {
     neptune,
     networkfirewall,
     networkmanager,
+    networkmonitor,
     oam,
     opensearch,
     opensearchingest,

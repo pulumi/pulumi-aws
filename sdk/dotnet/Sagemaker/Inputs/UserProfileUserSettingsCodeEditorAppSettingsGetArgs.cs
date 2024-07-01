@@ -12,6 +12,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
 
     public sealed class UserProfileUserSettingsCodeEditorAppSettingsGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customImages")]
+        private InputList<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageGetArgs>? _customImages;
+
+        /// <summary>
+        /// A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+        /// </summary>
+        public InputList<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageGetArgs> CustomImages
+        {
+            get => _customImages ?? (_customImages = new InputList<Inputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImageGetArgs>());
+            set => _customImages = value;
+        }
+
         /// <summary>
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         /// </summary>

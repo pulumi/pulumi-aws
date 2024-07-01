@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ControlTowerControlParameter struct {
+	// The name of the parameter.
+	Key string `pulumi:"key"`
+	// The value of the parameter.
+	Value string `pulumi:"value"`
+}
+
+// ControlTowerControlParameterInput is an input type that accepts ControlTowerControlParameterArgs and ControlTowerControlParameterOutput values.
+// You can construct a concrete instance of `ControlTowerControlParameterInput` via:
+//
+//	ControlTowerControlParameterArgs{...}
+type ControlTowerControlParameterInput interface {
+	pulumi.Input
+
+	ToControlTowerControlParameterOutput() ControlTowerControlParameterOutput
+	ToControlTowerControlParameterOutputWithContext(context.Context) ControlTowerControlParameterOutput
+}
+
+type ControlTowerControlParameterArgs struct {
+	// The name of the parameter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the parameter.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ControlTowerControlParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControlTowerControlParameter)(nil)).Elem()
+}
+
+func (i ControlTowerControlParameterArgs) ToControlTowerControlParameterOutput() ControlTowerControlParameterOutput {
+	return i.ToControlTowerControlParameterOutputWithContext(context.Background())
+}
+
+func (i ControlTowerControlParameterArgs) ToControlTowerControlParameterOutputWithContext(ctx context.Context) ControlTowerControlParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControlTowerControlParameterOutput)
+}
+
+// ControlTowerControlParameterArrayInput is an input type that accepts ControlTowerControlParameterArray and ControlTowerControlParameterArrayOutput values.
+// You can construct a concrete instance of `ControlTowerControlParameterArrayInput` via:
+//
+//	ControlTowerControlParameterArray{ ControlTowerControlParameterArgs{...} }
+type ControlTowerControlParameterArrayInput interface {
+	pulumi.Input
+
+	ToControlTowerControlParameterArrayOutput() ControlTowerControlParameterArrayOutput
+	ToControlTowerControlParameterArrayOutputWithContext(context.Context) ControlTowerControlParameterArrayOutput
+}
+
+type ControlTowerControlParameterArray []ControlTowerControlParameterInput
+
+func (ControlTowerControlParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ControlTowerControlParameter)(nil)).Elem()
+}
+
+func (i ControlTowerControlParameterArray) ToControlTowerControlParameterArrayOutput() ControlTowerControlParameterArrayOutput {
+	return i.ToControlTowerControlParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ControlTowerControlParameterArray) ToControlTowerControlParameterArrayOutputWithContext(ctx context.Context) ControlTowerControlParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ControlTowerControlParameterArrayOutput)
+}
+
+type ControlTowerControlParameterOutput struct{ *pulumi.OutputState }
+
+func (ControlTowerControlParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ControlTowerControlParameter)(nil)).Elem()
+}
+
+func (o ControlTowerControlParameterOutput) ToControlTowerControlParameterOutput() ControlTowerControlParameterOutput {
+	return o
+}
+
+func (o ControlTowerControlParameterOutput) ToControlTowerControlParameterOutputWithContext(ctx context.Context) ControlTowerControlParameterOutput {
+	return o
+}
+
+// The name of the parameter.
+func (o ControlTowerControlParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ControlTowerControlParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the parameter.
+func (o ControlTowerControlParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ControlTowerControlParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ControlTowerControlParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ControlTowerControlParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ControlTowerControlParameter)(nil)).Elem()
+}
+
+func (o ControlTowerControlParameterArrayOutput) ToControlTowerControlParameterArrayOutput() ControlTowerControlParameterArrayOutput {
+	return o
+}
+
+func (o ControlTowerControlParameterArrayOutput) ToControlTowerControlParameterArrayOutputWithContext(ctx context.Context) ControlTowerControlParameterArrayOutput {
+	return o
+}
+
+func (o ControlTowerControlParameterArrayOutput) Index(i pulumi.IntInput) ControlTowerControlParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ControlTowerControlParameter {
+		return vs[0].([]ControlTowerControlParameter)[vs[1].(int)]
+	}).(ControlTowerControlParameterOutput)
+}
+
 type LandingZoneDriftStatus struct {
 	// The drift status of the landing zone.
 	Status *string `pulumi:"status"`
@@ -111,8 +217,12 @@ func (o LandingZoneDriftStatusArrayOutput) Index(i pulumi.IntInput) LandingZoneD
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlTowerControlParameterInput)(nil)).Elem(), ControlTowerControlParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlTowerControlParameterArrayInput)(nil)).Elem(), ControlTowerControlParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LandingZoneDriftStatusInput)(nil)).Elem(), LandingZoneDriftStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LandingZoneDriftStatusArrayInput)(nil)).Elem(), LandingZoneDriftStatusArray{})
+	pulumi.RegisterOutputType(ControlTowerControlParameterOutput{})
+	pulumi.RegisterOutputType(ControlTowerControlParameterArrayOutput{})
 	pulumi.RegisterOutputType(LandingZoneDriftStatusOutput{})
 	pulumi.RegisterOutputType(LandingZoneDriftStatusArrayOutput{})
 }

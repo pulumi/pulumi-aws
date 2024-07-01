@@ -13,7 +13,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallResult {
@@ -76,7 +75,7 @@ public final class GetFirewallResult {
      * @return Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
-    private @Nullable Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return String token used when updating a firewall.
      * 
@@ -171,7 +170,7 @@ public final class GetFirewallResult {
      * 
      */
     public Map<String,String> tags() {
-        return this.tags == null ? Map.of() : this.tags;
+        return this.tags;
     }
     /**
      * @return String token used when updating a firewall.
@@ -208,7 +207,7 @@ public final class GetFirewallResult {
         private String name;
         private Boolean subnetChangeProtection;
         private List<GetFirewallSubnetMapping> subnetMappings;
-        private @Nullable Map<String,String> tags;
+        private Map<String,String> tags;
         private String updateToken;
         private String vpcId;
         public Builder() {}
@@ -328,8 +327,10 @@ public final class GetFirewallResult {
             return subnetMappings(List.of(subnetMappings));
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "tags");
+            }
             this.tags = tags;
             return this;
         }

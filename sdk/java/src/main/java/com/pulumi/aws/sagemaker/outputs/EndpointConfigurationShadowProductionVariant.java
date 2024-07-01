@@ -23,6 +23,7 @@ public final class EndpointConfigurationShadowProductionVariant {
     private @Nullable Integer containerStartupHealthCheckTimeoutInSeconds;
     private @Nullable EndpointConfigurationShadowProductionVariantCoreDumpConfig coreDumpConfig;
     private @Nullable Boolean enableSsmAccess;
+    private @Nullable String inferenceAmiVersion;
     private @Nullable Integer initialInstanceCount;
     private @Nullable Double initialVariantWeight;
     private @Nullable String instanceType;
@@ -45,6 +46,9 @@ public final class EndpointConfigurationShadowProductionVariant {
     }
     public Optional<Boolean> enableSsmAccess() {
         return Optional.ofNullable(this.enableSsmAccess);
+    }
+    public Optional<String> inferenceAmiVersion() {
+        return Optional.ofNullable(this.inferenceAmiVersion);
     }
     public Optional<Integer> initialInstanceCount() {
         return Optional.ofNullable(this.initialInstanceCount);
@@ -87,6 +91,7 @@ public final class EndpointConfigurationShadowProductionVariant {
         private @Nullable Integer containerStartupHealthCheckTimeoutInSeconds;
         private @Nullable EndpointConfigurationShadowProductionVariantCoreDumpConfig coreDumpConfig;
         private @Nullable Boolean enableSsmAccess;
+        private @Nullable String inferenceAmiVersion;
         private @Nullable Integer initialInstanceCount;
         private @Nullable Double initialVariantWeight;
         private @Nullable String instanceType;
@@ -103,6 +108,7 @@ public final class EndpointConfigurationShadowProductionVariant {
     	      this.containerStartupHealthCheckTimeoutInSeconds = defaults.containerStartupHealthCheckTimeoutInSeconds;
     	      this.coreDumpConfig = defaults.coreDumpConfig;
     	      this.enableSsmAccess = defaults.enableSsmAccess;
+    	      this.inferenceAmiVersion = defaults.inferenceAmiVersion;
     	      this.initialInstanceCount = defaults.initialInstanceCount;
     	      this.initialVariantWeight = defaults.initialVariantWeight;
     	      this.instanceType = defaults.instanceType;
@@ -136,6 +142,12 @@ public final class EndpointConfigurationShadowProductionVariant {
         public Builder enableSsmAccess(@Nullable Boolean enableSsmAccess) {
 
             this.enableSsmAccess = enableSsmAccess;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inferenceAmiVersion(@Nullable String inferenceAmiVersion) {
+
+            this.inferenceAmiVersion = inferenceAmiVersion;
             return this;
         }
         @CustomType.Setter
@@ -203,6 +215,7 @@ public final class EndpointConfigurationShadowProductionVariant {
             _resultValue.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             _resultValue.coreDumpConfig = coreDumpConfig;
             _resultValue.enableSsmAccess = enableSsmAccess;
+            _resultValue.inferenceAmiVersion = inferenceAmiVersion;
             _resultValue.initialInstanceCount = initialInstanceCount;
             _resultValue.initialVariantWeight = initialVariantWeight;
             _resultValue.instanceType = instanceType;

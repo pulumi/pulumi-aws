@@ -19,19 +19,19 @@ namespace Pulumi.Aws.AppSync.Inputs
         public Input<string> AuthenticationType { get; set; } = null!;
 
         /// <summary>
-        /// Nested argument containing Lambda authorizer configuration. Defined below.
+        /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         /// </summary>
         [Input("lambdaAuthorizerConfig")]
         public Input<Inputs.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs>? LambdaAuthorizerConfig { get; set; }
 
         /// <summary>
-        /// Nested argument containing OpenID Connect configuration. Defined below.
+        /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         /// </summary>
         [Input("openidConnectConfig")]
         public Input<Inputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs>? OpenidConnectConfig { get; set; }
 
         /// <summary>
-        /// Amazon Cognito User Pool configuration. Defined below.
+        /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         /// </summary>
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs>? UserPoolConfig { get; set; }

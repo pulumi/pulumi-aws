@@ -69,11 +69,11 @@ type LookupServiceResult struct {
 	Arn string `pulumi:"arn"`
 	// Description of the service.
 	Description string `pulumi:"description"`
-	// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+	// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
 	DnsConfigs []GetServiceDnsConfig `pulumi:"dnsConfigs"`
-	// Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+	// Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
 	HealthCheckConfigs []GetServiceHealthCheckConfig `pulumi:"healthCheckConfigs"`
-	// A complex type that contains settings for ECS managed health checks.
+	// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
 	HealthCheckCustomConfigs []GetServiceHealthCheckCustomConfig `pulumi:"healthCheckCustomConfigs"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -144,17 +144,17 @@ func (o LookupServiceResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+// Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
 func (o LookupServiceResultOutput) DnsConfigs() GetServiceDnsConfigArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceDnsConfig { return v.DnsConfigs }).(GetServiceDnsConfigArrayOutput)
 }
 
-// Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+// Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
 func (o LookupServiceResultOutput) HealthCheckConfigs() GetServiceHealthCheckConfigArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceHealthCheckConfig { return v.HealthCheckConfigs }).(GetServiceHealthCheckConfigArrayOutput)
 }
 
-// A complex type that contains settings for ECS managed health checks.
+// A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
 func (o LookupServiceResultOutput) HealthCheckCustomConfigs() GetServiceHealthCheckCustomConfigArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []GetServiceHealthCheckCustomConfig { return v.HealthCheckCustomConfigs }).(GetServiceHealthCheckCustomConfigArrayOutput)
 }

@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourcePolicy{}
 	case "aws:networkfirewall/ruleGroup:RuleGroup":
 		r = &RuleGroup{}
+	case "aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration":
+		r = &TlsInspectionConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"networkfirewall/ruleGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"networkfirewall/tlsInspectionConfiguration",
 		&module{version},
 	)
 }

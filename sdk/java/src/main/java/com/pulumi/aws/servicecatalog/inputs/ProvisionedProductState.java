@@ -296,14 +296,14 @@ public final class ProvisionedProductState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
      * 
      */
     @Import(name="provisioningParameters")
     private @Nullable Output<List<ProvisionedProductProvisioningParameterArgs>> provisioningParameters;
 
     /**
-     * @return Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+     * @return Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
      * 
      */
     public Optional<Output<List<ProvisionedProductProvisioningParameterArgs>>> provisioningParameters() {
@@ -326,14 +326,14 @@ public final class ProvisionedProductState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Configuration block with information about the provisioning preferences for a stack set. See details below.
+     * Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
      * 
      */
     @Import(name="stackSetProvisioningPreferences")
     private @Nullable Output<ProvisionedProductStackSetProvisioningPreferencesArgs> stackSetProvisioningPreferences;
 
     /**
-     * @return Configuration block with information about the provisioning preferences for a stack set. See details below.
+     * @return Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
      * 
      */
     public Optional<Output<ProvisionedProductStackSetProvisioningPreferencesArgs>> stackSetProvisioningPreferences() {
@@ -885,7 +885,7 @@ public final class ProvisionedProductState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -896,7 +896,7 @@ public final class ProvisionedProductState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -906,7 +906,7 @@ public final class ProvisionedProductState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+         * @param provisioningParameters Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -937,7 +937,7 @@ public final class ProvisionedProductState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param stackSetProvisioningPreferences Configuration block with information about the provisioning preferences for a stack set. See details below.
+         * @param stackSetProvisioningPreferences Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
          * 
          * @return builder
          * 
@@ -948,7 +948,7 @@ public final class ProvisionedProductState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param stackSetProvisioningPreferences Configuration block with information about the provisioning preferences for a stack set. See details below.
+         * @param stackSetProvisioningPreferences Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
          * 
          * @return builder
          * 

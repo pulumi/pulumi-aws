@@ -19,14 +19,14 @@ public final class ServiceDnsConfigArgs extends com.pulumi.resources.ResourceArg
     public static final ServiceDnsConfigArgs Empty = new ServiceDnsConfigArgs();
 
     /**
-     * An array that contains one DnsRecord object for each resource record set.
+     * An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
      * 
      */
     @Import(name="dnsRecords", required=true)
     private Output<List<ServiceDnsConfigDnsRecordArgs>> dnsRecords;
 
     /**
-     * @return An array that contains one DnsRecord object for each resource record set.
+     * @return An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
      * 
      */
     public Output<List<ServiceDnsConfigDnsRecordArgs>> dnsRecords() {
@@ -90,7 +90,7 @@ public final class ServiceDnsConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dnsRecords An array that contains one DnsRecord object for each resource record set.
+         * @param dnsRecords An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class ServiceDnsConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dnsRecords An array that contains one DnsRecord object for each resource record set.
+         * @param dnsRecords An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class ServiceDnsConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dnsRecords An array that contains one DnsRecord object for each resource record set.
+         * @param dnsRecords An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
          * 
          * @return builder
          * 

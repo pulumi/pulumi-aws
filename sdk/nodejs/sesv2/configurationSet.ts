@@ -86,19 +86,19 @@ export class ConfigurationSet extends pulumi.CustomResource {
      */
     public readonly configurationSetName!: pulumi.Output<string>;
     /**
-     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
      */
     public readonly deliveryOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetDeliveryOptions | undefined>;
     /**
-     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
      */
     public readonly reputationOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetReputationOptions>;
     /**
-     * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     * An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
      */
     public readonly sendingOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetSendingOptions>;
     /**
-     * An object that contains information about the suppression list preferences for your account.
+     * An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
      */
     public readonly suppressionOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetSuppressionOptions | undefined>;
     /**
@@ -110,11 +110,11 @@ export class ConfigurationSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * An object that defines the open and click tracking options for emails that you send using the configuration set.
+     * An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
      */
     public readonly trackingOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetTrackingOptions | undefined>;
     /**
-     * An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     * An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdmOptions` Block for details.
      */
     public readonly vdmOptions!: pulumi.Output<outputs.sesv2.ConfigurationSetVdmOptions | undefined>;
 
@@ -175,19 +175,19 @@ export interface ConfigurationSetState {
      */
     configurationSetName?: pulumi.Input<string>;
     /**
-     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
      */
     deliveryOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetDeliveryOptions>;
     /**
-     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
      */
     reputationOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetReputationOptions>;
     /**
-     * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     * An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
      */
     sendingOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetSendingOptions>;
     /**
-     * An object that contains information about the suppression list preferences for your account.
+     * An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
      */
     suppressionOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetSuppressionOptions>;
     /**
@@ -199,11 +199,11 @@ export interface ConfigurationSetState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * An object that defines the open and click tracking options for emails that you send using the configuration set.
+     * An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
      */
     trackingOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetTrackingOptions>;
     /**
-     * An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     * An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdmOptions` Block for details.
      */
     vdmOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetVdmOptions>;
 }
@@ -217,19 +217,19 @@ export interface ConfigurationSetArgs {
      */
     configurationSetName: pulumi.Input<string>;
     /**
-     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
      */
     deliveryOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetDeliveryOptions>;
     /**
-     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
      */
     reputationOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetReputationOptions>;
     /**
-     * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     * An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
      */
     sendingOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetSendingOptions>;
     /**
-     * An object that contains information about the suppression list preferences for your account.
+     * An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
      */
     suppressionOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetSuppressionOptions>;
     /**
@@ -237,11 +237,11 @@ export interface ConfigurationSetArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * An object that defines the open and click tracking options for emails that you send using the configuration set.
+     * An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
      */
     trackingOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetTrackingOptions>;
     /**
-     * An object that defines the VDM settings that apply to emails that you send using the configuration set.
+     * An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdmOptions` Block for details.
      */
     vdmOptions?: pulumi.Input<inputs.sesv2.ConfigurationSetVdmOptions>;
 }

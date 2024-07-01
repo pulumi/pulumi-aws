@@ -197,6 +197,21 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * 
+     */
+    @Import(name="iamIdentityCenterInstanceArn")
+    private @Nullable Output<String> iamIdentityCenterInstanceArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * 
+     */
+    public Optional<Output<String>> iamIdentityCenterInstanceArn() {
+        return Optional.ofNullable(this.iamIdentityCenterInstanceArn);
+    }
+
+    /**
      * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
@@ -275,6 +290,7 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
         this.edition = $.edition;
         this.emailAddress = $.emailAddress;
         this.firstName = $.firstName;
+        this.iamIdentityCenterInstanceArn = $.iamIdentityCenterInstanceArn;
         this.lastName = $.lastName;
         this.notificationEmail = $.notificationEmail;
         this.readerGroups = $.readerGroups;
@@ -569,6 +585,27 @@ public final class AccountSubscriptionState extends com.pulumi.resources.Resourc
          */
         public Builder firstName(String firstName) {
             return firstName(Output.of(firstName));
+        }
+
+        /**
+         * @param iamIdentityCenterInstanceArn The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamIdentityCenterInstanceArn(@Nullable Output<String> iamIdentityCenterInstanceArn) {
+            $.iamIdentityCenterInstanceArn = iamIdentityCenterInstanceArn;
+            return this;
+        }
+
+        /**
+         * @param iamIdentityCenterInstanceArn The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iamIdentityCenterInstanceArn(String iamIdentityCenterInstanceArn) {
+            return iamIdentityCenterInstanceArn(Output.of(iamIdentityCenterInstanceArn));
         }
 
         /**

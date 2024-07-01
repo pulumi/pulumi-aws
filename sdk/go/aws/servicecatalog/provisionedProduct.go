@@ -108,11 +108,11 @@ type ProvisionedProduct struct {
 	ProvisioningArtifactId pulumi.StringOutput `pulumi:"provisioningArtifactId"`
 	// Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
 	ProvisioningArtifactName pulumi.StringPtrOutput `pulumi:"provisioningArtifactName"`
-	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters ProvisionedProductProvisioningParameterArrayOutput `pulumi:"provisioningParameters"`
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources pulumi.BoolPtrOutput `pulumi:"retainPhysicalResources"`
-	// Configuration block with information about the provisioning preferences for a stack set. See details below.
+	// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
 	StackSetProvisioningPreferences ProvisionedProductStackSetProvisioningPreferencesPtrOutput `pulumi:"stackSetProvisioningPreferences"`
 	// Current status of the provisioned product. See meanings below.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -196,11 +196,11 @@ type provisionedProductState struct {
 	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
 	// Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
 	ProvisioningArtifactName *string `pulumi:"provisioningArtifactName"`
-	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters []ProvisionedProductProvisioningParameter `pulumi:"provisioningParameters"`
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources *bool `pulumi:"retainPhysicalResources"`
-	// Configuration block with information about the provisioning preferences for a stack set. See details below.
+	// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
 	StackSetProvisioningPreferences *ProvisionedProductStackSetProvisioningPreferences `pulumi:"stackSetProvisioningPreferences"`
 	// Current status of the provisioned product. See meanings below.
 	Status *string `pulumi:"status"`
@@ -255,11 +255,11 @@ type ProvisionedProductState struct {
 	ProvisioningArtifactId pulumi.StringPtrInput
 	// Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
 	ProvisioningArtifactName pulumi.StringPtrInput
-	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters ProvisionedProductProvisioningParameterArrayInput
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources pulumi.BoolPtrInput
-	// Configuration block with information about the provisioning preferences for a stack set. See details below.
+	// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
 	StackSetProvisioningPreferences ProvisionedProductStackSetProvisioningPreferencesPtrInput
 	// Current status of the provisioned product. See meanings below.
 	Status pulumi.StringPtrInput
@@ -302,11 +302,11 @@ type provisionedProductArgs struct {
 	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
 	// Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
 	ProvisioningArtifactName *string `pulumi:"provisioningArtifactName"`
-	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters []ProvisionedProductProvisioningParameter `pulumi:"provisioningParameters"`
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources *bool `pulumi:"retainPhysicalResources"`
-	// Configuration block with information about the provisioning preferences for a stack set. See details below.
+	// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
 	StackSetProvisioningPreferences *ProvisionedProductStackSetProvisioningPreferences `pulumi:"stackSetProvisioningPreferences"`
 	// Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -336,11 +336,11 @@ type ProvisionedProductArgs struct {
 	ProvisioningArtifactId pulumi.StringPtrInput
 	// Name of the provisioning artifact. You must provide the `provisioningArtifactId` or `provisioningArtifactName`, but not both.
 	ProvisioningArtifactName pulumi.StringPtrInput
-	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters ProvisionedProductProvisioningParameterArrayInput
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources pulumi.BoolPtrInput
-	// Configuration block with information about the provisioning preferences for a stack set. See details below.
+	// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
 	StackSetProvisioningPreferences ProvisionedProductStackSetProvisioningPreferencesPtrInput
 	// Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -525,7 +525,7 @@ func (o ProvisionedProductOutput) ProvisioningArtifactName() pulumi.StringPtrOut
 	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringPtrOutput { return v.ProvisioningArtifactName }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 func (o ProvisionedProductOutput) ProvisioningParameters() ProvisionedProductProvisioningParameterArrayOutput {
 	return o.ApplyT(func(v *ProvisionedProduct) ProvisionedProductProvisioningParameterArrayOutput {
 		return v.ProvisioningParameters
@@ -537,7 +537,7 @@ func (o ProvisionedProductOutput) RetainPhysicalResources() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v *ProvisionedProduct) pulumi.BoolPtrOutput { return v.RetainPhysicalResources }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block with information about the provisioning preferences for a stack set. See details below.
+// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
 func (o ProvisionedProductOutput) StackSetProvisioningPreferences() ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
 	return o.ApplyT(func(v *ProvisionedProduct) ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
 		return v.StackSetProvisioningPreferences

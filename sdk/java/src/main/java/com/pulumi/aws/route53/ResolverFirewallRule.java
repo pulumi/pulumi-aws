@@ -172,6 +172,20 @@ public class ResolverFirewallRule extends com.pulumi.resources.CustomResource {
         return this.firewallDomainListId;
     }
     /**
+     * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+     * 
+     */
+    @Export(name="firewallDomainRedirectionAction", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> firewallDomainRedirectionAction;
+
+    /**
+     * @return Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+     * 
+     */
+    public Output<Optional<String>> firewallDomainRedirectionAction() {
+        return Codegen.optional(this.firewallDomainRedirectionAction);
+    }
+    /**
      * The unique identifier of the firewall rule group where you want to create the rule.
      * 
      */
@@ -212,6 +226,20 @@ public class ResolverFirewallRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> priority() {
         return this.priority;
+    }
+    /**
+     * The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+     * 
+     */
+    @Export(name="qType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> qType;
+
+    /**
+     * @return The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+     * 
+     */
+    public Output<Optional<String>> qType() {
+        return Codegen.optional(this.qType);
     }
 
     /**
