@@ -4211,6 +4211,14 @@ compatibility shim in favor of the new "name" field.`)
 						"```\n",
 				},
 			},
+			"aws_networkfirewall_tls_inspection_configuration": {
+				Tok: awsResource(networkFirewallMod, "TlsInspectionConfiguration"),
+				Fields: map[string]*info.Schema{
+					"tls_inspection_configuration": &info.Schema{
+						CSharpName: "TlsInspectionConfig",
+					},
+				},
+			},
 
 			// signer
 			"aws_signer_signing_job":                {Tok: awsResource(signerMod, "SigningJob")},
