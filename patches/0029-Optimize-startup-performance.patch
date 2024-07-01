@@ -61,19 +61,18 @@ index 0000000000..35202ebd58
 +	return r.SchemaMap()
 +}
 diff --git a/shim/shim.go b/shim/shim.go
-index e24e53fe17..3378f955bb 100644
+index 3fd8dc90f0..fde6157bbf 100644
 --- a/shim/shim.go
 +++ b/shim/shim.go
-@@ -17,7 +17,7 @@ type UpstreamProvider struct {
+@@ -17,7 +17,6 @@ type UpstreamProvider struct {
  }
  
  func NewUpstreamProvider(ctx context.Context) (UpstreamProvider, error) {
--	primary, err := provider.New(ctx)
-+	primary, err := provider.New(provider.DisableTagSchemaCheck(ctx))
+-	ctx = fwprovider.DisableTagSchemaCheck(ctx)
+ 	primary, err := provider.New(provider.DisableTagSchemaCheck(ctx))
  	if err != nil {
  		return UpstreamProvider{}, err
- 	}
-@@ -44,44 +44,42 @@ func NewTagConfig(ctx context.Context, i interface{}) TagConfig {
+@@ -45,44 +44,42 @@ func NewTagConfig(ctx context.Context, i interface{}) TagConfig {
  // rationale for this is that Pulumi copies tags to tags_all before it hits the TF layer, so these
  // attributes must match in schema.
  func markTagsAllNotComputedForResources(sdkV2Provider *schema.Provider) {
