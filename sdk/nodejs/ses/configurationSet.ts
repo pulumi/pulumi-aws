@@ -149,7 +149,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:ses/confgurationSet:ConfgurationSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConfigurationSet.__pulumiType, name, resourceInputs, opts);
+        super(ConfigurationSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -124,7 +124,7 @@ export class ServiceIntegration extends pulumi.CustomResource {
             resourceInputs["opsCenter"] = args ? args.opsCenter : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServiceIntegration.__pulumiType, name, resourceInputs, opts);
+        super(ServiceIntegration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

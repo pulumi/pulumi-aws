@@ -181,7 +181,7 @@ export class AccountSubscription extends pulumi.CustomResource {
             resourceInputs["accountSubscriptionStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccountSubscription.__pulumiType, name, resourceInputs, opts);
+        super(AccountSubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -103,7 +103,7 @@ export class StandardsSubscription extends pulumi.CustomResource {
             resourceInputs["standardsArn"] = args ? args.standardsArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StandardsSubscription.__pulumiType, name, resourceInputs, opts);
+        super(StandardsSubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

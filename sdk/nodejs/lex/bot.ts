@@ -236,7 +236,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Bot.__pulumiType, name, resourceInputs, opts);
+        super(Bot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

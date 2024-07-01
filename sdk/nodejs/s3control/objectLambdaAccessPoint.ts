@@ -125,7 +125,7 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ObjectLambdaAccessPoint.__pulumiType, name, resourceInputs, opts);
+        super(ObjectLambdaAccessPoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

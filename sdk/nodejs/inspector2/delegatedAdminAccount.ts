@@ -88,7 +88,7 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
             resourceInputs["relationshipStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DelegatedAdminAccount.__pulumiType, name, resourceInputs, opts);
+        super(DelegatedAdminAccount.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

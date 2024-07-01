@@ -134,7 +134,7 @@ export class CustomerGatewayAssociation extends pulumi.CustomResource {
             resourceInputs["linkId"] = args ? args.linkId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomerGatewayAssociation.__pulumiType, name, resourceInputs, opts);
+        super(CustomerGatewayAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

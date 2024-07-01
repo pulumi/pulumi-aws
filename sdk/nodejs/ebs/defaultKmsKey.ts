@@ -86,7 +86,7 @@ export class DefaultKmsKey extends pulumi.CustomResource {
             resourceInputs["keyArn"] = args ? args.keyArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DefaultKmsKey.__pulumiType, name, resourceInputs, opts);
+        super(DefaultKmsKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

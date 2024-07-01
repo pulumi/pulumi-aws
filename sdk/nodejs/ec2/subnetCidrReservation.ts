@@ -113,7 +113,7 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
             resourceInputs["ownerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SubnetCidrReservation.__pulumiType, name, resourceInputs, opts);
+        super(SubnetCidrReservation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

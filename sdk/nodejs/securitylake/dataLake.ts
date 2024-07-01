@@ -159,7 +159,7 @@ export class DataLake extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataLake.__pulumiType, name, resourceInputs, opts);
+        super(DataLake.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

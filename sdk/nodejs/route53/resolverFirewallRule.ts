@@ -155,7 +155,7 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
             resourceInputs["priority"] = args ? args.priority : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResolverFirewallRule.__pulumiType, name, resourceInputs, opts);
+        super(ResolverFirewallRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

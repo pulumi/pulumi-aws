@@ -90,7 +90,7 @@ export class TrafficSourceAttachment extends pulumi.CustomResource {
             resourceInputs["trafficSource"] = args ? args.trafficSource : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrafficSourceAttachment.__pulumiType, name, resourceInputs, opts);
+        super(TrafficSourceAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

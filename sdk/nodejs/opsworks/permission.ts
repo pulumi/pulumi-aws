@@ -104,7 +104,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["userArn"] = args ? args.userArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Permission.__pulumiType, name, resourceInputs, opts);
+        super(Permission.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

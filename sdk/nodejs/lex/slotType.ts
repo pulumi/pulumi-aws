@@ -160,7 +160,7 @@ export class SlotType extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SlotType.__pulumiType, name, resourceInputs, opts);
+        super(SlotType.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

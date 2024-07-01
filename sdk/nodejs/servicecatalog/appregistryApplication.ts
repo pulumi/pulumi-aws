@@ -113,7 +113,7 @@ export class AppregistryApplication extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AppregistryApplication.__pulumiType, name, resourceInputs, opts);
+        super(AppregistryApplication.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

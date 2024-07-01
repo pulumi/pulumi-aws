@@ -152,7 +152,7 @@ export class Statement extends pulumi.CustomResource {
             resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Statement.__pulumiType, name, resourceInputs, opts);
+        super(Statement.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

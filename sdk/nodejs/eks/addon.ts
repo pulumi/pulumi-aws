@@ -279,7 +279,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Addon.__pulumiType, name, resourceInputs, opts);
+        super(Addon.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

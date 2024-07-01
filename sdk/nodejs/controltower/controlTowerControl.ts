@@ -97,7 +97,7 @@ export class ControlTowerControl extends pulumi.CustomResource {
             resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ControlTowerControl.__pulumiType, name, resourceInputs, opts);
+        super(ControlTowerControl.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

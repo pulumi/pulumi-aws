@@ -317,7 +317,7 @@ export class Branch extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["basicAuthCredentials"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Branch.__pulumiType, name, resourceInputs, opts);
+        super(Branch.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

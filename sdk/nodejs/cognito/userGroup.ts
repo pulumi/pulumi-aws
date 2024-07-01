@@ -136,7 +136,7 @@ export class UserGroup extends pulumi.CustomResource {
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserGroup.__pulumiType, name, resourceInputs, opts);
+        super(UserGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

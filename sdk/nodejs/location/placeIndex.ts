@@ -140,7 +140,7 @@ export class PlaceIndex extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PlaceIndex.__pulumiType, name, resourceInputs, opts);
+        super(PlaceIndex.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

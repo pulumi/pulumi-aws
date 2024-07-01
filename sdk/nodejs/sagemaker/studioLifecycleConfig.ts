@@ -126,7 +126,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StudioLifecycleConfig.__pulumiType, name, resourceInputs, opts);
+        super(StudioLifecycleConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

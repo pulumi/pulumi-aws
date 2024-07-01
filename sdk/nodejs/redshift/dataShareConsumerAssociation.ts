@@ -134,7 +134,7 @@ export class DataShareConsumerAssociation extends pulumi.CustomResource {
             resourceInputs["producerArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataShareConsumerAssociation.__pulumiType, name, resourceInputs, opts);
+        super(DataShareConsumerAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

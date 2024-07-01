@@ -86,7 +86,7 @@ export class ClassificationExportConfiguration extends pulumi.CustomResource {
             resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClassificationExportConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(ClassificationExportConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

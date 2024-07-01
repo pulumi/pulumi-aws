@@ -120,7 +120,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
             resourceInputs["targetNetworkCidr"] = args ? args.targetNetworkCidr : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AuthorizationRule.__pulumiType, name, resourceInputs, opts);
+        super(AuthorizationRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

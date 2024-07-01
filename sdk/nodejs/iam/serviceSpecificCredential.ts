@@ -118,7 +118,7 @@ export class ServiceSpecificCredential extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["servicePassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ServiceSpecificCredential.__pulumiType, name, resourceInputs, opts);
+        super(ServiceSpecificCredential.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

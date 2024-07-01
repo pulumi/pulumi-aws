@@ -79,7 +79,7 @@ export class BucketResourceAccess extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketResourceAccess.__pulumiType, name, resourceInputs, opts);
+        super(BucketResourceAccess.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -140,7 +140,7 @@ export class CustomPlugin extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomPlugin.__pulumiType, name, resourceInputs, opts);
+        super(CustomPlugin.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

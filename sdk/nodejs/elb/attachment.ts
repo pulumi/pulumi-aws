@@ -93,7 +93,7 @@ export class Attachment extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/attachment:Attachment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Attachment.__pulumiType, name, resourceInputs, opts);
+        super(Attachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

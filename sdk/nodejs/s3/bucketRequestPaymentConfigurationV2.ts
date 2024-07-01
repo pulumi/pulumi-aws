@@ -110,7 +110,7 @@ export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
             resourceInputs["payer"] = args ? args.payer : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketRequestPaymentConfigurationV2.__pulumiType, name, resourceInputs, opts);
+        super(BucketRequestPaymentConfigurationV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -134,7 +134,7 @@ export class Package extends pulumi.CustomResource {
             resourceInputs["packageId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Package.__pulumiType, name, resourceInputs, opts);
+        super(Package.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

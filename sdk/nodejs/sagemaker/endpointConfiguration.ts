@@ -151,7 +151,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EndpointConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(EndpointConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

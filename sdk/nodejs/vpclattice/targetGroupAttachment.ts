@@ -91,7 +91,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             resourceInputs["targetGroupIdentifier"] = args ? args.targetGroupIdentifier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TargetGroupAttachment.__pulumiType, name, resourceInputs, opts);
+        super(TargetGroupAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

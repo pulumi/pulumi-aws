@@ -121,7 +121,7 @@ export class VirtualCluster extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualCluster.__pulumiType, name, resourceInputs, opts);
+        super(VirtualCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

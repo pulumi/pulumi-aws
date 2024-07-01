@@ -173,7 +173,7 @@ export class FargateProfile extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FargateProfile.__pulumiType, name, resourceInputs, opts);
+        super(FargateProfile.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

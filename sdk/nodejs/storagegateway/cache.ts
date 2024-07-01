@@ -93,7 +93,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Cache.__pulumiType, name, resourceInputs, opts);
+        super(Cache.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

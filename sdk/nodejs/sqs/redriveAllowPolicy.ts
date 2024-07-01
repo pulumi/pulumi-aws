@@ -102,7 +102,7 @@ export class RedriveAllowPolicy extends pulumi.CustomResource {
             resourceInputs["redriveAllowPolicy"] = args ? args.redriveAllowPolicy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RedriveAllowPolicy.__pulumiType, name, resourceInputs, opts);
+        super(RedriveAllowPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

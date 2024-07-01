@@ -118,7 +118,7 @@ export class VaultPolicy extends pulumi.CustomResource {
             resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VaultPolicy.__pulumiType, name, resourceInputs, opts);
+        super(VaultPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

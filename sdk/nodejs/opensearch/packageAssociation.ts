@@ -103,7 +103,7 @@ export class PackageAssociation extends pulumi.CustomResource {
             resourceInputs["referencePath"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PackageAssociation.__pulumiType, name, resourceInputs, opts);
+        super(PackageAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

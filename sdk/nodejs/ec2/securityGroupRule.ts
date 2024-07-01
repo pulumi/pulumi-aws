@@ -277,7 +277,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             resourceInputs["securityGroupRuleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SecurityGroupRule.__pulumiType, name, resourceInputs, opts);
+        super(SecurityGroupRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

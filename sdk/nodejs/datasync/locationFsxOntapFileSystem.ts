@@ -136,7 +136,7 @@ export class LocationFsxOntapFileSystem extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LocationFsxOntapFileSystem.__pulumiType, name, resourceInputs, opts);
+        super(LocationFsxOntapFileSystem.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

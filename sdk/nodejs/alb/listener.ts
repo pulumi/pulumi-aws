@@ -349,7 +349,7 @@ export class Listener extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/listener:Listener" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Listener.__pulumiType, name, resourceInputs, opts);
+        super(Listener.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

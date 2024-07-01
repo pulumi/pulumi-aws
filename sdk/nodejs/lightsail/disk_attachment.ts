@@ -119,7 +119,7 @@ export class Disk_attachment extends pulumi.CustomResource {
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Disk_attachment.__pulumiType, name, resourceInputs, opts);
+        super(Disk_attachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

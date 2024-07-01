@@ -78,7 +78,7 @@ export class ModelPackageGroupPolicy extends pulumi.CustomResource {
             resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ModelPackageGroupPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ModelPackageGroupPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

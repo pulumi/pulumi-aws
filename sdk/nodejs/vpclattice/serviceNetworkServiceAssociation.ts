@@ -141,7 +141,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServiceNetworkServiceAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ServiceNetworkServiceAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

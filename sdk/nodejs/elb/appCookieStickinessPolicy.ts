@@ -123,7 +123,7 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AppCookieStickinessPolicy.__pulumiType, name, resourceInputs, opts);
+        super(AppCookieStickinessPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

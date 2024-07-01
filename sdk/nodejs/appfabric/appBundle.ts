@@ -103,7 +103,7 @@ export class AppBundle extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AppBundle.__pulumiType, name, resourceInputs, opts);
+        super(AppBundle.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

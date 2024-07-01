@@ -112,7 +112,7 @@ export class UserGroupAssociation extends pulumi.CustomResource {
             resourceInputs["userId"] = args ? args.userId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserGroupAssociation.__pulumiType, name, resourceInputs, opts);
+        super(UserGroupAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

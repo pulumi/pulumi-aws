@@ -116,7 +116,7 @@ export class MonitoringSchedule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MonitoringSchedule.__pulumiType, name, resourceInputs, opts);
+        super(MonitoringSchedule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

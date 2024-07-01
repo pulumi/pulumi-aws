@@ -104,7 +104,7 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KinesisStreamingDestination.__pulumiType, name, resourceInputs, opts);
+        super(KinesisStreamingDestination.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

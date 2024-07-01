@@ -94,7 +94,7 @@ export class InstanceMetadataDefaults extends pulumi.CustomResource {
             resourceInputs["instanceMetadataTags"] = args ? args.instanceMetadataTags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InstanceMetadataDefaults.__pulumiType, name, resourceInputs, opts);
+        super(InstanceMetadataDefaults.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

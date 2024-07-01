@@ -162,7 +162,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             resourceInputs["uris"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GraphQLApi.__pulumiType, name, resourceInputs, opts);
+        super(GraphQLApi.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

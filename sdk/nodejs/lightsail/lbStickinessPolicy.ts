@@ -109,7 +109,7 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
             resourceInputs["lbName"] = args ? args.lbName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LbStickinessPolicy.__pulumiType, name, resourceInputs, opts);
+        super(LbStickinessPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

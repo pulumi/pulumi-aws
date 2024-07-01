@@ -96,7 +96,7 @@ export class EndpointPrivateDns extends pulumi.CustomResource {
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EndpointPrivateDns.__pulumiType, name, resourceInputs, opts);
+        super(EndpointPrivateDns.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

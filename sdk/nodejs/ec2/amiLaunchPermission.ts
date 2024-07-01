@@ -133,7 +133,7 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
             resourceInputs["organizationalUnitArn"] = args ? args.organizationalUnitArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AmiLaunchPermission.__pulumiType, name, resourceInputs, opts);
+        super(AmiLaunchPermission.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

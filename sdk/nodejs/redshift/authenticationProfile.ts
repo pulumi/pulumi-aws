@@ -95,7 +95,7 @@ export class AuthenticationProfile extends pulumi.CustomResource {
             resourceInputs["authenticationProfileName"] = args ? args.authenticationProfileName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AuthenticationProfile.__pulumiType, name, resourceInputs, opts);
+        super(AuthenticationProfile.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

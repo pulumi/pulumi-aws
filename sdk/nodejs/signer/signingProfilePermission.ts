@@ -144,7 +144,7 @@ export class SigningProfilePermission extends pulumi.CustomResource {
             resourceInputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SigningProfilePermission.__pulumiType, name, resourceInputs, opts);
+        super(SigningProfilePermission.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

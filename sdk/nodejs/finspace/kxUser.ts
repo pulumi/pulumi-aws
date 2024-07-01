@@ -144,7 +144,7 @@ export class KxUser extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KxUser.__pulumiType, name, resourceInputs, opts);
+        super(KxUser.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

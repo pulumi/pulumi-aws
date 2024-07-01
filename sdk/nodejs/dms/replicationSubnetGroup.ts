@@ -176,7 +176,7 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReplicationSubnetGroup.__pulumiType, name, resourceInputs, opts);
+        super(ReplicationSubnetGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

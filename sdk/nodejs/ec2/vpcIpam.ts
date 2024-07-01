@@ -164,7 +164,7 @@ export class VpcIpam extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcIpam.__pulumiType, name, resourceInputs, opts);
+        super(VpcIpam.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

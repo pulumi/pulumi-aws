@@ -105,7 +105,7 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
             resourceInputs["topicArn"] = args ? args.topicArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IdentityNotificationTopic.__pulumiType, name, resourceInputs, opts);
+        super(IdentityNotificationTopic.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

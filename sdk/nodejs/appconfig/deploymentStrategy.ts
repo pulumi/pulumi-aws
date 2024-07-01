@@ -152,7 +152,7 @@ export class DeploymentStrategy extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DeploymentStrategy.__pulumiType, name, resourceInputs, opts);
+        super(DeploymentStrategy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

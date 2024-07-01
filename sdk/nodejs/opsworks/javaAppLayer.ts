@@ -233,7 +233,7 @@ export class JavaAppLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(JavaAppLayer.__pulumiType, name, resourceInputs, opts);
+        super(JavaAppLayer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

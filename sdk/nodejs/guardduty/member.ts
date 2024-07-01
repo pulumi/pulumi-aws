@@ -129,7 +129,7 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["relationshipStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Member.__pulumiType, name, resourceInputs, opts);
+        super(Member.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

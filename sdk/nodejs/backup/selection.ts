@@ -231,7 +231,7 @@ export class Selection extends pulumi.CustomResource {
             resourceInputs["selectionTags"] = args ? args.selectionTags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Selection.__pulumiType, name, resourceInputs, opts);
+        super(Selection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

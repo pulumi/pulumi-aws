@@ -106,7 +106,7 @@ export class Enabler extends pulumi.CustomResource {
             resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Enabler.__pulumiType, name, resourceInputs, opts);
+        super(Enabler.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
