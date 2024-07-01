@@ -5,10 +5,10 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/appfabric/app_authorization.go b/internal/service/appfabric/app_authorization.go
-index 8b8f2091ec..9781507561 100644
+index 07bafd3e84..df82b14d52 100644
 --- a/internal/service/appfabric/app_authorization.go
 +++ b/internal/service/appfabric/app_authorization.go
-@@ -112,7 +112,7 @@ func (r *appAuthorizationResource) Schema(ctx context.Context, request resource.
+@@ -105,7 +105,7 @@ func (r *appAuthorizationResource) Schema(ctx context.Context, request resource.
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),

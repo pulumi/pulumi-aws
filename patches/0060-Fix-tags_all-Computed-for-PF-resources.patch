@@ -5,10 +5,10 @@ Subject: [PATCH] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/drs/replication_configuration_template.go b/internal/service/drs/replication_configuration_template.go
-index 500e1a1947..3691471e73 100644
+index 2a61014670..9d61baebe7 100644
 --- a/internal/service/drs/replication_configuration_template.go
 +++ b/internal/service/drs/replication_configuration_template.go
-@@ -100,7 +100,7 @@ func (r *replicationConfigurationTemplateResource) Schema(ctx context.Context, r
+@@ -106,7 +106,7 @@ func (r *replicationConfigurationTemplateResource) Schema(ctx context.Context, r
  
  			"staging_area_tags": tftags.TagsAttribute(),
  			names.AttrTags:      tftags.TagsAttribute(),
