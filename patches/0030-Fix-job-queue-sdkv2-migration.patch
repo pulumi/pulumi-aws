@@ -5,7 +5,7 @@ Subject: [PATCH] Fix job queue sdkv2 migration
 
 
 diff --git a/internal/service/batch/job_queue_schema.go b/internal/service/batch/job_queue_schema.go
-index a4a1625554..8057006cad 100644
+index e8e1a272eb..d602d4d301 100644
 --- a/internal/service/batch/job_queue_schema.go
 +++ b/internal/service/batch/job_queue_schema.go
 @@ -93,6 +93,7 @@ func upgradeJobQueueResourceStateV0toV1(ctx context.Context, req resource.Upgrad
