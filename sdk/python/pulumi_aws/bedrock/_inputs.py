@@ -27,6 +27,10 @@ __all__ = [
     'AgentAgentAliasTimeoutsArgsDict',
     'AgentAgentPromptOverrideConfigurationArgs',
     'AgentAgentPromptOverrideConfigurationArgsDict',
+    'AgentAgentPromptOverrideConfigurationPromptConfigurationArgs',
+    'AgentAgentPromptOverrideConfigurationPromptConfigurationArgsDict',
+    'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs',
+    'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgsDict',
     'AgentAgentTimeoutsArgs',
     'AgentAgentTimeoutsArgsDict',
     'AgentDataSourceDataSourceConfigurationArgs',
@@ -334,7 +338,7 @@ if not MYPY:
         """
         ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
         """
-        prompt_configurations: pulumi.Input[Sequence[Any]]
+        prompt_configurations: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationArgsDict']]]
         """
         Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
         """
@@ -345,10 +349,10 @@ elif False:
 class AgentAgentPromptOverrideConfigurationArgs:
     def __init__(__self__, *,
                  override_lambda: pulumi.Input[str],
-                 prompt_configurations: pulumi.Input[Sequence[Any]]):
+                 prompt_configurations: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs']]]):
         """
         :param pulumi.Input[str] override_lambda: ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
-        :param pulumi.Input[Sequence[Any]] prompt_configurations: Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs']]] prompt_configurations: Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
         """
         pulumi.set(__self__, "override_lambda", override_lambda)
         pulumi.set(__self__, "prompt_configurations", prompt_configurations)
@@ -367,15 +371,248 @@ class AgentAgentPromptOverrideConfigurationArgs:
 
     @property
     @pulumi.getter(name="promptConfigurations")
-    def prompt_configurations(self) -> pulumi.Input[Sequence[Any]]:
+    def prompt_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs']]]:
         """
         Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
         """
         return pulumi.get(self, "prompt_configurations")
 
     @prompt_configurations.setter
-    def prompt_configurations(self, value: pulumi.Input[Sequence[Any]]):
+    def prompt_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs']]]):
         pulumi.set(self, "prompt_configurations", value)
+
+
+if not MYPY:
+    class AgentAgentPromptOverrideConfigurationPromptConfigurationArgsDict(TypedDict):
+        base_prompt_template: pulumi.Input[str]
+        """
+        prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+        """
+        inference_configurations: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgsDict']]]
+        """
+        Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` block for details.
+        """
+        parser_mode: pulumi.Input[str]
+        """
+        Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        """
+        prompt_creation_mode: pulumi.Input[str]
+        """
+        Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        """
+        prompt_state: pulumi.Input[str]
+        """
+        Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+        """
+        prompt_type: pulumi.Input[str]
+        """
+        Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+        """
+elif False:
+    AgentAgentPromptOverrideConfigurationPromptConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentPromptOverrideConfigurationPromptConfigurationArgs:
+    def __init__(__self__, *,
+                 base_prompt_template: pulumi.Input[str],
+                 inference_configurations: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs']]],
+                 parser_mode: pulumi.Input[str],
+                 prompt_creation_mode: pulumi.Input[str],
+                 prompt_state: pulumi.Input[str],
+                 prompt_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] base_prompt_template: prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+        :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs']]] inference_configurations: Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` block for details.
+        :param pulumi.Input[str] parser_mode: Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        :param pulumi.Input[str] prompt_creation_mode: Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        :param pulumi.Input[str] prompt_state: Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[str] prompt_type: Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+        """
+        pulumi.set(__self__, "base_prompt_template", base_prompt_template)
+        pulumi.set(__self__, "inference_configurations", inference_configurations)
+        pulumi.set(__self__, "parser_mode", parser_mode)
+        pulumi.set(__self__, "prompt_creation_mode", prompt_creation_mode)
+        pulumi.set(__self__, "prompt_state", prompt_state)
+        pulumi.set(__self__, "prompt_type", prompt_type)
+
+    @property
+    @pulumi.getter(name="basePromptTemplate")
+    def base_prompt_template(self) -> pulumi.Input[str]:
+        """
+        prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+        """
+        return pulumi.get(self, "base_prompt_template")
+
+    @base_prompt_template.setter
+    def base_prompt_template(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base_prompt_template", value)
+
+    @property
+    @pulumi.getter(name="inferenceConfigurations")
+    def inference_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs']]]:
+        """
+        Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` block for details.
+        """
+        return pulumi.get(self, "inference_configurations")
+
+    @inference_configurations.setter
+    def inference_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs']]]):
+        pulumi.set(self, "inference_configurations", value)
+
+    @property
+    @pulumi.getter(name="parserMode")
+    def parser_mode(self) -> pulumi.Input[str]:
+        """
+        Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        """
+        return pulumi.get(self, "parser_mode")
+
+    @parser_mode.setter
+    def parser_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parser_mode", value)
+
+    @property
+    @pulumi.getter(name="promptCreationMode")
+    def prompt_creation_mode(self) -> pulumi.Input[str]:
+        """
+        Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        """
+        return pulumi.get(self, "prompt_creation_mode")
+
+    @prompt_creation_mode.setter
+    def prompt_creation_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prompt_creation_mode", value)
+
+    @property
+    @pulumi.getter(name="promptState")
+    def prompt_state(self) -> pulumi.Input[str]:
+        """
+        Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "prompt_state")
+
+    @prompt_state.setter
+    def prompt_state(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prompt_state", value)
+
+    @property
+    @pulumi.getter(name="promptType")
+    def prompt_type(self) -> pulumi.Input[str]:
+        """
+        Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+        """
+        return pulumi.get(self, "prompt_type")
+
+    @prompt_type.setter
+    def prompt_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prompt_type", value)
+
+
+if not MYPY:
+    class AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgsDict(TypedDict):
+        max_length: pulumi.Input[int]
+        """
+        Maximum number of tokens to allow in the generated response.
+        """
+        stop_sequences: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+        """
+        temperature: pulumi.Input[float]
+        """
+        Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+        """
+        top_k: pulumi.Input[int]
+        """
+        Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+        """
+        top_p: pulumi.Input[float]
+        """
+        Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+        """
+elif False:
+    AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs:
+    def __init__(__self__, *,
+                 max_length: pulumi.Input[int],
+                 stop_sequences: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 temperature: pulumi.Input[float],
+                 top_k: pulumi.Input[int],
+                 top_p: pulumi.Input[float]):
+        """
+        :param pulumi.Input[int] max_length: Maximum number of tokens to allow in the generated response.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stop_sequences: List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+        :param pulumi.Input[float] temperature: Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+        :param pulumi.Input[int] top_k: Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+        :param pulumi.Input[float] top_p: Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+        """
+        pulumi.set(__self__, "max_length", max_length)
+        pulumi.set(__self__, "stop_sequences", stop_sequences)
+        pulumi.set(__self__, "temperature", temperature)
+        pulumi.set(__self__, "top_k", top_k)
+        pulumi.set(__self__, "top_p", top_p)
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> pulumi.Input[int]:
+        """
+        Maximum number of tokens to allow in the generated response.
+        """
+        return pulumi.get(self, "max_length")
+
+    @max_length.setter
+    def max_length(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_length", value)
+
+    @property
+    @pulumi.getter(name="stopSequences")
+    def stop_sequences(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+        """
+        return pulumi.get(self, "stop_sequences")
+
+    @stop_sequences.setter
+    def stop_sequences(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "stop_sequences", value)
+
+    @property
+    @pulumi.getter
+    def temperature(self) -> pulumi.Input[float]:
+        """
+        Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+        """
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: pulumi.Input[float]):
+        pulumi.set(self, "temperature", value)
+
+    @property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> pulumi.Input[int]:
+        """
+        Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+        """
+        return pulumi.get(self, "top_k")
+
+    @top_k.setter
+    def top_k(self, value: pulumi.Input[int]):
+        pulumi.set(self, "top_k", value)
+
+    @property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> pulumi.Input[float]:
+        """
+        Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+        """
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: pulumi.Input[float]):
+        pulumi.set(self, "top_p", value)
 
 
 if not MYPY:

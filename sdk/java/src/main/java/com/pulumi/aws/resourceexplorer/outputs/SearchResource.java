@@ -3,9 +3,9 @@
 
 package com.pulumi.aws.resourceexplorer.outputs;
 
+import com.pulumi.aws.resourceexplorer.outputs.SearchResourceProperty;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -31,7 +31,7 @@ public final class SearchResource {
      * @return Structure with additional type-specific details about the resource.  See `properties` below.
      * 
      */
-    private List<Object> properties;
+    private List<SearchResourceProperty> properties;
     /**
      * @return Amazon Web Services Region in which the resource was created and exists.
      * 
@@ -74,7 +74,7 @@ public final class SearchResource {
      * @return Structure with additional type-specific details about the resource.  See `properties` below.
      * 
      */
-    public List<Object> properties() {
+    public List<SearchResourceProperty> properties() {
         return this.properties;
     }
     /**
@@ -111,7 +111,7 @@ public final class SearchResource {
         private String arn;
         private String lastReportedAt;
         private String owningAccountId;
-        private List<Object> properties;
+        private List<SearchResourceProperty> properties;
         private String region;
         private String resourceType;
         private String service;
@@ -152,14 +152,14 @@ public final class SearchResource {
             return this;
         }
         @CustomType.Setter
-        public Builder properties(List<Object> properties) {
+        public Builder properties(List<SearchResourceProperty> properties) {
             if (properties == null) {
               throw new MissingRequiredPropertyException("SearchResource", "properties");
             }
             this.properties = properties;
             return this;
         }
-        public Builder properties(Object... properties) {
+        public Builder properties(SearchResourceProperty... properties) {
             return properties(List.of(properties));
         }
         @CustomType.Setter

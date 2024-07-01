@@ -1444,7 +1444,7 @@ func (o FilterFindingCriteriaCriterionArrayOutput) Index(i pulumi.IntInput) Filt
 
 type MalwareProtectionPlanAction struct {
 	// Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
-	Taggings []interface{} `pulumi:"taggings"`
+	Taggings []MalwareProtectionPlanActionTagging `pulumi:"taggings"`
 }
 
 // MalwareProtectionPlanActionInput is an input type that accepts MalwareProtectionPlanActionArgs and MalwareProtectionPlanActionOutput values.
@@ -1460,7 +1460,7 @@ type MalwareProtectionPlanActionInput interface {
 
 type MalwareProtectionPlanActionArgs struct {
 	// Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
-	Taggings pulumi.ArrayInput `pulumi:"taggings"`
+	Taggings MalwareProtectionPlanActionTaggingArrayInput `pulumi:"taggings"`
 }
 
 func (MalwareProtectionPlanActionArgs) ElementType() reflect.Type {
@@ -1515,8 +1515,8 @@ func (o MalwareProtectionPlanActionOutput) ToMalwareProtectionPlanActionOutputWi
 }
 
 // Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
-func (o MalwareProtectionPlanActionOutput) Taggings() pulumi.ArrayOutput {
-	return o.ApplyT(func(v MalwareProtectionPlanAction) []interface{} { return v.Taggings }).(pulumi.ArrayOutput)
+func (o MalwareProtectionPlanActionOutput) Taggings() MalwareProtectionPlanActionTaggingArrayOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanAction) []MalwareProtectionPlanActionTagging { return v.Taggings }).(MalwareProtectionPlanActionTaggingArrayOutput)
 }
 
 type MalwareProtectionPlanActionArrayOutput struct{ *pulumi.OutputState }
@@ -1537,6 +1537,103 @@ func (o MalwareProtectionPlanActionArrayOutput) Index(i pulumi.IntInput) Malware
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MalwareProtectionPlanAction {
 		return vs[0].([]MalwareProtectionPlanAction)[vs[1].(int)]
 	}).(MalwareProtectionPlanActionOutput)
+}
+
+type MalwareProtectionPlanActionTagging struct {
+	// Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+	Status string `pulumi:"status"`
+}
+
+// MalwareProtectionPlanActionTaggingInput is an input type that accepts MalwareProtectionPlanActionTaggingArgs and MalwareProtectionPlanActionTaggingOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanActionTaggingInput` via:
+//
+//	MalwareProtectionPlanActionTaggingArgs{...}
+type MalwareProtectionPlanActionTaggingInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanActionTaggingOutput() MalwareProtectionPlanActionTaggingOutput
+	ToMalwareProtectionPlanActionTaggingOutputWithContext(context.Context) MalwareProtectionPlanActionTaggingOutput
+}
+
+type MalwareProtectionPlanActionTaggingArgs struct {
+	// Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (MalwareProtectionPlanActionTaggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanActionTagging)(nil)).Elem()
+}
+
+func (i MalwareProtectionPlanActionTaggingArgs) ToMalwareProtectionPlanActionTaggingOutput() MalwareProtectionPlanActionTaggingOutput {
+	return i.ToMalwareProtectionPlanActionTaggingOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanActionTaggingArgs) ToMalwareProtectionPlanActionTaggingOutputWithContext(ctx context.Context) MalwareProtectionPlanActionTaggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanActionTaggingOutput)
+}
+
+// MalwareProtectionPlanActionTaggingArrayInput is an input type that accepts MalwareProtectionPlanActionTaggingArray and MalwareProtectionPlanActionTaggingArrayOutput values.
+// You can construct a concrete instance of `MalwareProtectionPlanActionTaggingArrayInput` via:
+//
+//	MalwareProtectionPlanActionTaggingArray{ MalwareProtectionPlanActionTaggingArgs{...} }
+type MalwareProtectionPlanActionTaggingArrayInput interface {
+	pulumi.Input
+
+	ToMalwareProtectionPlanActionTaggingArrayOutput() MalwareProtectionPlanActionTaggingArrayOutput
+	ToMalwareProtectionPlanActionTaggingArrayOutputWithContext(context.Context) MalwareProtectionPlanActionTaggingArrayOutput
+}
+
+type MalwareProtectionPlanActionTaggingArray []MalwareProtectionPlanActionTaggingInput
+
+func (MalwareProtectionPlanActionTaggingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MalwareProtectionPlanActionTagging)(nil)).Elem()
+}
+
+func (i MalwareProtectionPlanActionTaggingArray) ToMalwareProtectionPlanActionTaggingArrayOutput() MalwareProtectionPlanActionTaggingArrayOutput {
+	return i.ToMalwareProtectionPlanActionTaggingArrayOutputWithContext(context.Background())
+}
+
+func (i MalwareProtectionPlanActionTaggingArray) ToMalwareProtectionPlanActionTaggingArrayOutputWithContext(ctx context.Context) MalwareProtectionPlanActionTaggingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MalwareProtectionPlanActionTaggingArrayOutput)
+}
+
+type MalwareProtectionPlanActionTaggingOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanActionTaggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MalwareProtectionPlanActionTagging)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanActionTaggingOutput) ToMalwareProtectionPlanActionTaggingOutput() MalwareProtectionPlanActionTaggingOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanActionTaggingOutput) ToMalwareProtectionPlanActionTaggingOutputWithContext(ctx context.Context) MalwareProtectionPlanActionTaggingOutput {
+	return o
+}
+
+// Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+func (o MalwareProtectionPlanActionTaggingOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanActionTagging) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type MalwareProtectionPlanActionTaggingArrayOutput struct{ *pulumi.OutputState }
+
+func (MalwareProtectionPlanActionTaggingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MalwareProtectionPlanActionTagging)(nil)).Elem()
+}
+
+func (o MalwareProtectionPlanActionTaggingArrayOutput) ToMalwareProtectionPlanActionTaggingArrayOutput() MalwareProtectionPlanActionTaggingArrayOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanActionTaggingArrayOutput) ToMalwareProtectionPlanActionTaggingArrayOutputWithContext(ctx context.Context) MalwareProtectionPlanActionTaggingArrayOutput {
+	return o
+}
+
+func (o MalwareProtectionPlanActionTaggingArrayOutput) Index(i pulumi.IntInput) MalwareProtectionPlanActionTaggingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MalwareProtectionPlanActionTagging {
+		return vs[0].([]MalwareProtectionPlanActionTagging)[vs[1].(int)]
+	}).(MalwareProtectionPlanActionTaggingOutput)
 }
 
 type MalwareProtectionPlanProtectedResource struct {
@@ -3217,6 +3314,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaCriterionArrayInput)(nil)).Elem(), FilterFindingCriteriaCriterionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanActionInput)(nil)).Elem(), MalwareProtectionPlanActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanActionArrayInput)(nil)).Elem(), MalwareProtectionPlanActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanActionTaggingInput)(nil)).Elem(), MalwareProtectionPlanActionTaggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanActionTaggingArrayInput)(nil)).Elem(), MalwareProtectionPlanActionTaggingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanProtectedResourceInput)(nil)).Elem(), MalwareProtectionPlanProtectedResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanProtectedResourcePtrInput)(nil)).Elem(), MalwareProtectionPlanProtectedResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanProtectedResourceS3BucketInput)(nil)).Elem(), MalwareProtectionPlanProtectedResourceS3BucketArgs{})
@@ -3263,6 +3362,8 @@ func init() {
 	pulumi.RegisterOutputType(FilterFindingCriteriaCriterionArrayOutput{})
 	pulumi.RegisterOutputType(MalwareProtectionPlanActionOutput{})
 	pulumi.RegisterOutputType(MalwareProtectionPlanActionArrayOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanActionTaggingOutput{})
+	pulumi.RegisterOutputType(MalwareProtectionPlanActionTaggingArrayOutput{})
 	pulumi.RegisterOutputType(MalwareProtectionPlanProtectedResourceOutput{})
 	pulumi.RegisterOutputType(MalwareProtectionPlanProtectedResourcePtrOutput{})
 	pulumi.RegisterOutputType(MalwareProtectionPlanProtectedResourceS3BucketOutput{})

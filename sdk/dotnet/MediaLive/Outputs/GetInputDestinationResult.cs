@@ -16,7 +16,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string Ip;
         public readonly string Port;
         public readonly string Url;
-        public readonly ImmutableArray<object> Vpcs;
+        public readonly ImmutableArray<Outputs.GetInputDestinationVpcResult> Vpcs;
 
         [OutputConstructor]
         private GetInputDestinationResult(
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
 
             string url,
 
-            ImmutableArray<object> vpcs)
+            ImmutableArray<Outputs.GetInputDestinationVpcResult> vpcs)
         {
             Ip = ip;
             Port = port;

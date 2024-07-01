@@ -3,10 +3,10 @@
 
 package com.pulumi.aws.lex.outputs;
 
+import com.pulumi.aws.lex.outputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValue;
 import com.pulumi.aws.lex.outputs.V2modelsSlotTypeSlotTypeValuesSynonym;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -17,7 +17,7 @@ public final class V2modelsSlotTypeSlotTypeValues {
      * @return List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
      * 
      */
-    private List<Object> slotTypeValues;
+    private List<V2modelsSlotTypeSlotTypeValuesSlotTypeValue> slotTypeValues;
     /**
      * @return Additional values related to the slot type entry. See `sample_value` argument reference below.
      * 
@@ -29,7 +29,7 @@ public final class V2modelsSlotTypeSlotTypeValues {
      * @return List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
      * 
      */
-    public List<Object> slotTypeValues() {
+    public List<V2modelsSlotTypeSlotTypeValuesSlotTypeValue> slotTypeValues() {
         return this.slotTypeValues;
     }
     /**
@@ -49,7 +49,7 @@ public final class V2modelsSlotTypeSlotTypeValues {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<Object> slotTypeValues;
+        private List<V2modelsSlotTypeSlotTypeValuesSlotTypeValue> slotTypeValues;
         private @Nullable List<V2modelsSlotTypeSlotTypeValuesSynonym> synonyms;
         public Builder() {}
         public Builder(V2modelsSlotTypeSlotTypeValues defaults) {
@@ -59,14 +59,14 @@ public final class V2modelsSlotTypeSlotTypeValues {
         }
 
         @CustomType.Setter
-        public Builder slotTypeValues(List<Object> slotTypeValues) {
+        public Builder slotTypeValues(List<V2modelsSlotTypeSlotTypeValuesSlotTypeValue> slotTypeValues) {
             if (slotTypeValues == null) {
               throw new MissingRequiredPropertyException("V2modelsSlotTypeSlotTypeValues", "slotTypeValues");
             }
             this.slotTypeValues = slotTypeValues;
             return this;
         }
-        public Builder slotTypeValues(Object... slotTypeValues) {
+        public Builder slotTypeValues(V2modelsSlotTypeSlotTypeValuesSlotTypeValue... slotTypeValues) {
             return slotTypeValues(List.of(slotTypeValues));
         }
         @CustomType.Setter

@@ -3,9 +3,9 @@
 
 package com.pulumi.aws.batch.outputs;
 
+import com.pulumi.aws.batch.outputs.GetJobDefinitionEksPropertyPodProperty;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,14 +15,14 @@ public final class GetJobDefinitionEksProperty {
      * @return The properties for the Kubernetes pod resources of a job.
      * 
      */
-    private List<Object> podProperties;
+    private List<GetJobDefinitionEksPropertyPodProperty> podProperties;
 
     private GetJobDefinitionEksProperty() {}
     /**
      * @return The properties for the Kubernetes pod resources of a job.
      * 
      */
-    public List<Object> podProperties() {
+    public List<GetJobDefinitionEksPropertyPodProperty> podProperties() {
         return this.podProperties;
     }
 
@@ -35,7 +35,7 @@ public final class GetJobDefinitionEksProperty {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<Object> podProperties;
+        private List<GetJobDefinitionEksPropertyPodProperty> podProperties;
         public Builder() {}
         public Builder(GetJobDefinitionEksProperty defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,14 +43,14 @@ public final class GetJobDefinitionEksProperty {
         }
 
         @CustomType.Setter
-        public Builder podProperties(List<Object> podProperties) {
+        public Builder podProperties(List<GetJobDefinitionEksPropertyPodProperty> podProperties) {
             if (podProperties == null) {
               throw new MissingRequiredPropertyException("GetJobDefinitionEksProperty", "podProperties");
             }
             this.podProperties = podProperties;
             return this;
         }
-        public Builder podProperties(Object... podProperties) {
+        public Builder podProperties(GetJobDefinitionEksPropertyPodProperty... podProperties) {
             return podProperties(List.of(podProperties));
         }
         public GetJobDefinitionEksProperty build() {

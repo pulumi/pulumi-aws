@@ -1831,7 +1831,7 @@ type GetGroupsGroup struct {
 	// Group's display name.
 	DisplayName string `pulumi:"displayName"`
 	// List of identifiers issued to this resource by an external identity provider.
-	ExternalIds []interface{} `pulumi:"externalIds"`
+	ExternalIds []GetGroupsGroupExternalId `pulumi:"externalIds"`
 	// Identifier of the group in the Identity Store.
 	GroupId string `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On (SSO) Instance.
@@ -1855,7 +1855,7 @@ type GetGroupsGroupArgs struct {
 	// Group's display name.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// List of identifiers issued to this resource by an external identity provider.
-	ExternalIds pulumi.ArrayInput `pulumi:"externalIds"`
+	ExternalIds GetGroupsGroupExternalIdArrayInput `pulumi:"externalIds"`
 	// Identifier of the group in the Identity Store.
 	GroupId pulumi.StringInput `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On (SSO) Instance.
@@ -1924,8 +1924,8 @@ func (o GetGroupsGroupOutput) DisplayName() pulumi.StringOutput {
 }
 
 // List of identifiers issued to this resource by an external identity provider.
-func (o GetGroupsGroupOutput) ExternalIds() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetGroupsGroup) []interface{} { return v.ExternalIds }).(pulumi.ArrayOutput)
+func (o GetGroupsGroupOutput) ExternalIds() GetGroupsGroupExternalIdArrayOutput {
+	return o.ApplyT(func(v GetGroupsGroup) []GetGroupsGroupExternalId { return v.ExternalIds }).(GetGroupsGroupExternalIdArrayOutput)
 }
 
 // Identifier of the group in the Identity Store.
@@ -1956,6 +1956,112 @@ func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupsGroup {
 		return vs[0].([]GetGroupsGroup)[vs[1].(int)]
 	}).(GetGroupsGroupOutput)
+}
+
+type GetGroupsGroupExternalId struct {
+	// Identifier issued to this resource by an external identity provider.
+	Id string `pulumi:"id"`
+	// Issuer for an external identifier.
+	Issuer string `pulumi:"issuer"`
+}
+
+// GetGroupsGroupExternalIdInput is an input type that accepts GetGroupsGroupExternalIdArgs and GetGroupsGroupExternalIdOutput values.
+// You can construct a concrete instance of `GetGroupsGroupExternalIdInput` via:
+//
+//	GetGroupsGroupExternalIdArgs{...}
+type GetGroupsGroupExternalIdInput interface {
+	pulumi.Input
+
+	ToGetGroupsGroupExternalIdOutput() GetGroupsGroupExternalIdOutput
+	ToGetGroupsGroupExternalIdOutputWithContext(context.Context) GetGroupsGroupExternalIdOutput
+}
+
+type GetGroupsGroupExternalIdArgs struct {
+	// Identifier issued to this resource by an external identity provider.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Issuer for an external identifier.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+}
+
+func (GetGroupsGroupExternalIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupsGroupExternalId)(nil)).Elem()
+}
+
+func (i GetGroupsGroupExternalIdArgs) ToGetGroupsGroupExternalIdOutput() GetGroupsGroupExternalIdOutput {
+	return i.ToGetGroupsGroupExternalIdOutputWithContext(context.Background())
+}
+
+func (i GetGroupsGroupExternalIdArgs) ToGetGroupsGroupExternalIdOutputWithContext(ctx context.Context) GetGroupsGroupExternalIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupsGroupExternalIdOutput)
+}
+
+// GetGroupsGroupExternalIdArrayInput is an input type that accepts GetGroupsGroupExternalIdArray and GetGroupsGroupExternalIdArrayOutput values.
+// You can construct a concrete instance of `GetGroupsGroupExternalIdArrayInput` via:
+//
+//	GetGroupsGroupExternalIdArray{ GetGroupsGroupExternalIdArgs{...} }
+type GetGroupsGroupExternalIdArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupsGroupExternalIdArrayOutput() GetGroupsGroupExternalIdArrayOutput
+	ToGetGroupsGroupExternalIdArrayOutputWithContext(context.Context) GetGroupsGroupExternalIdArrayOutput
+}
+
+type GetGroupsGroupExternalIdArray []GetGroupsGroupExternalIdInput
+
+func (GetGroupsGroupExternalIdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupsGroupExternalId)(nil)).Elem()
+}
+
+func (i GetGroupsGroupExternalIdArray) ToGetGroupsGroupExternalIdArrayOutput() GetGroupsGroupExternalIdArrayOutput {
+	return i.ToGetGroupsGroupExternalIdArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupsGroupExternalIdArray) ToGetGroupsGroupExternalIdArrayOutputWithContext(ctx context.Context) GetGroupsGroupExternalIdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupsGroupExternalIdArrayOutput)
+}
+
+type GetGroupsGroupExternalIdOutput struct{ *pulumi.OutputState }
+
+func (GetGroupsGroupExternalIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupsGroupExternalId)(nil)).Elem()
+}
+
+func (o GetGroupsGroupExternalIdOutput) ToGetGroupsGroupExternalIdOutput() GetGroupsGroupExternalIdOutput {
+	return o
+}
+
+func (o GetGroupsGroupExternalIdOutput) ToGetGroupsGroupExternalIdOutputWithContext(ctx context.Context) GetGroupsGroupExternalIdOutput {
+	return o
+}
+
+// Identifier issued to this resource by an external identity provider.
+func (o GetGroupsGroupExternalIdOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroupExternalId) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Issuer for an external identifier.
+func (o GetGroupsGroupExternalIdOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroupExternalId) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+type GetGroupsGroupExternalIdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupsGroupExternalIdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupsGroupExternalId)(nil)).Elem()
+}
+
+func (o GetGroupsGroupExternalIdArrayOutput) ToGetGroupsGroupExternalIdArrayOutput() GetGroupsGroupExternalIdArrayOutput {
+	return o
+}
+
+func (o GetGroupsGroupExternalIdArrayOutput) ToGetGroupsGroupExternalIdArrayOutputWithContext(ctx context.Context) GetGroupsGroupExternalIdArrayOutput {
+	return o
+}
+
+func (o GetGroupsGroupExternalIdArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupExternalIdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupsGroupExternalId {
+		return vs[0].([]GetGroupsGroupExternalId)[vs[1].(int)]
+	}).(GetGroupsGroupExternalIdOutput)
 }
 
 type GetUserAddress struct {
@@ -3255,6 +3361,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterPtrInput)(nil)).Elem(), GetGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupInput)(nil)).Elem(), GetGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupArrayInput)(nil)).Elem(), GetGroupsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupExternalIdInput)(nil)).Elem(), GetGroupsGroupExternalIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupExternalIdArrayInput)(nil)).Elem(), GetGroupsGroupExternalIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAddressInput)(nil)).Elem(), GetUserAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAddressArrayInput)(nil)).Elem(), GetUserAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAlternateIdentifierInput)(nil)).Elem(), GetUserAlternateIdentifierArgs{})
@@ -3297,6 +3405,8 @@ func init() {
 	pulumi.RegisterOutputType(GetGroupFilterPtrOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetGroupsGroupExternalIdOutput{})
+	pulumi.RegisterOutputType(GetGroupsGroupExternalIdArrayOutput{})
 	pulumi.RegisterOutputType(GetUserAddressOutput{})
 	pulumi.RegisterOutputType(GetUserAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetUserAlternateIdentifierOutput{})

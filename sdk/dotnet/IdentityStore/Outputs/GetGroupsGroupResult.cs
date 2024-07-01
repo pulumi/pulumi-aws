@@ -24,7 +24,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
         /// <summary>
         /// List of identifiers issued to this resource by an external identity provider.
         /// </summary>
-        public readonly ImmutableArray<object> ExternalIds;
+        public readonly ImmutableArray<Outputs.GetGroupsGroupExternalIdResult> ExternalIds;
         /// <summary>
         /// Identifier of the group in the Identity Store.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.IdentityStore.Outputs
 
             string displayName,
 
-            ImmutableArray<object> externalIds,
+            ImmutableArray<Outputs.GetGroupsGroupExternalIdResult> externalIds,
 
             string groupId,
 

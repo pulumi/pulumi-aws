@@ -3,9 +3,9 @@
 
 package com.pulumi.aws.medialive.outputs;
 
+import com.pulumi.aws.medialive.outputs.GetInputDestinationVpc;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,7 +15,7 @@ public final class GetInputDestination {
     private String ip;
     private String port;
     private String url;
-    private List<Object> vpcs;
+    private List<GetInputDestinationVpc> vpcs;
 
     private GetInputDestination() {}
     public String ip() {
@@ -27,7 +27,7 @@ public final class GetInputDestination {
     public String url() {
         return this.url;
     }
-    public List<Object> vpcs() {
+    public List<GetInputDestinationVpc> vpcs() {
         return this.vpcs;
     }
 
@@ -43,7 +43,7 @@ public final class GetInputDestination {
         private String ip;
         private String port;
         private String url;
-        private List<Object> vpcs;
+        private List<GetInputDestinationVpc> vpcs;
         public Builder() {}
         public Builder(GetInputDestination defaults) {
     	      Objects.requireNonNull(defaults);
@@ -78,14 +78,14 @@ public final class GetInputDestination {
             return this;
         }
         @CustomType.Setter
-        public Builder vpcs(List<Object> vpcs) {
+        public Builder vpcs(List<GetInputDestinationVpc> vpcs) {
             if (vpcs == null) {
               throw new MissingRequiredPropertyException("GetInputDestination", "vpcs");
             }
             this.vpcs = vpcs;
             return this;
         }
-        public Builder vpcs(Object... vpcs) {
+        public Builder vpcs(GetInputDestinationVpc... vpcs) {
             return vpcs(List.of(vpcs));
         }
         public GetInputDestination build() {

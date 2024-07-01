@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Batch.Outputs
         /// <summary>
         /// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
         /// </summary>
-        public readonly ImmutableArray<object> EvaluateOnExits;
+        public readonly ImmutableArray<Outputs.GetJobDefinitionRetryStrategyEvaluateOnExitResult> EvaluateOnExits;
 
         [OutputConstructor]
         private GetJobDefinitionRetryStrategyResult(
             int attempts,
 
-            ImmutableArray<object> evaluateOnExits)
+            ImmutableArray<Outputs.GetJobDefinitionRetryStrategyEvaluateOnExitResult> evaluateOnExits)
         {
             Attempts = attempts;
             EvaluateOnExits = evaluateOnExits;

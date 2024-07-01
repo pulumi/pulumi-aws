@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Information about the validators.
         /// </summary>
-        public readonly ImmutableArray<object> Validators;
+        public readonly ImmutableArray<Outputs.GetCustomModelValidationDataConfigValidatorResult> Validators;
 
         [OutputConstructor]
-        private GetCustomModelValidationDataConfigResult(ImmutableArray<object> validators)
+        private GetCustomModelValidationDataConfigResult(ImmutableArray<Outputs.GetCustomModelValidationDataConfigValidatorResult> validators)
         {
             Validators = validators;
         }

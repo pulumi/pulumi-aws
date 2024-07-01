@@ -4036,7 +4036,7 @@ func (o GetComputeEnvironmentUpdatePolicyArrayOutput) Index(i pulumi.IntInput) G
 
 type GetJobDefinitionEksProperty struct {
 	// The properties for the Kubernetes pod resources of a job.
-	PodProperties []interface{} `pulumi:"podProperties"`
+	PodProperties []GetJobDefinitionEksPropertyPodProperty `pulumi:"podProperties"`
 }
 
 // GetJobDefinitionEksPropertyInput is an input type that accepts GetJobDefinitionEksPropertyArgs and GetJobDefinitionEksPropertyOutput values.
@@ -4052,7 +4052,7 @@ type GetJobDefinitionEksPropertyInput interface {
 
 type GetJobDefinitionEksPropertyArgs struct {
 	// The properties for the Kubernetes pod resources of a job.
-	PodProperties pulumi.ArrayInput `pulumi:"podProperties"`
+	PodProperties GetJobDefinitionEksPropertyPodPropertyArrayInput `pulumi:"podProperties"`
 }
 
 func (GetJobDefinitionEksPropertyArgs) ElementType() reflect.Type {
@@ -4107,8 +4107,8 @@ func (o GetJobDefinitionEksPropertyOutput) ToGetJobDefinitionEksPropertyOutputWi
 }
 
 // The properties for the Kubernetes pod resources of a job.
-func (o GetJobDefinitionEksPropertyOutput) PodProperties() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetJobDefinitionEksProperty) []interface{} { return v.PodProperties }).(pulumi.ArrayOutput)
+func (o GetJobDefinitionEksPropertyOutput) PodProperties() GetJobDefinitionEksPropertyPodPropertyArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksProperty) []GetJobDefinitionEksPropertyPodProperty { return v.PodProperties }).(GetJobDefinitionEksPropertyPodPropertyArrayOutput)
 }
 
 type GetJobDefinitionEksPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -4131,11 +4131,1335 @@ func (o GetJobDefinitionEksPropertyArrayOutput) Index(i pulumi.IntInput) GetJobD
 	}).(GetJobDefinitionEksPropertyOutput)
 }
 
+type GetJobDefinitionEksPropertyPodProperty struct {
+	// The properties of the container that's used on the Amazon EKS pod. Array of EksContainer objects.
+	Containers []GetJobDefinitionEksPropertyPodPropertyContainer `pulumi:"containers"`
+	// The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
+	DnsPolicy string `pulumi:"dnsPolicy"`
+	// Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+	HostNetwork bool `pulumi:"hostNetwork"`
+	// Metadata about the Kubernetes pod.
+	Metadatas []GetJobDefinitionEksPropertyPodPropertyMetadata `pulumi:"metadatas"`
+	// The name of the service account that's used to run the pod.
+	ServiceAccountName bool `pulumi:"serviceAccountName"`
+	// A list of data volumes used in a job.
+	Volumes []GetJobDefinitionEksPropertyPodPropertyVolume `pulumi:"volumes"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyArgs and GetJobDefinitionEksPropertyPodPropertyOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyOutput() GetJobDefinitionEksPropertyPodPropertyOutput
+	ToGetJobDefinitionEksPropertyPodPropertyOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyArgs struct {
+	// The properties of the container that's used on the Amazon EKS pod. Array of EksContainer objects.
+	Containers GetJobDefinitionEksPropertyPodPropertyContainerArrayInput `pulumi:"containers"`
+	// The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
+	DnsPolicy pulumi.StringInput `pulumi:"dnsPolicy"`
+	// Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+	HostNetwork pulumi.BoolInput `pulumi:"hostNetwork"`
+	// Metadata about the Kubernetes pod.
+	Metadatas GetJobDefinitionEksPropertyPodPropertyMetadataArrayInput `pulumi:"metadatas"`
+	// The name of the service account that's used to run the pod.
+	ServiceAccountName pulumi.BoolInput `pulumi:"serviceAccountName"`
+	// A list of data volumes used in a job.
+	Volumes GetJobDefinitionEksPropertyPodPropertyVolumeArrayInput `pulumi:"volumes"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodProperty)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyArgs) ToGetJobDefinitionEksPropertyPodPropertyOutput() GetJobDefinitionEksPropertyPodPropertyOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyArgs) ToGetJobDefinitionEksPropertyPodPropertyOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyArray and GetJobDefinitionEksPropertyPodPropertyArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyArray{ GetJobDefinitionEksPropertyPodPropertyArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyArrayOutput() GetJobDefinitionEksPropertyPodPropertyArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyArray []GetJobDefinitionEksPropertyPodPropertyInput
+
+func (GetJobDefinitionEksPropertyPodPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodProperty)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyArray) ToGetJobDefinitionEksPropertyPodPropertyArrayOutput() GetJobDefinitionEksPropertyPodPropertyArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyArray) ToGetJobDefinitionEksPropertyPodPropertyArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodProperty)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) ToGetJobDefinitionEksPropertyPodPropertyOutput() GetJobDefinitionEksPropertyPodPropertyOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) ToGetJobDefinitionEksPropertyPodPropertyOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyOutput {
+	return o
+}
+
+// The properties of the container that's used on the Amazon EKS pod. Array of EksContainer objects.
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) Containers() GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyContainer {
+		return v.Containers
+	}).(GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput)
+}
+
+// The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) DnsPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) string { return v.DnsPolicy }).(pulumi.StringOutput)
+}
+
+// Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) HostNetwork() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) bool { return v.HostNetwork }).(pulumi.BoolOutput)
+}
+
+// Metadata about the Kubernetes pod.
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) Metadatas() GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyMetadata {
+		return v.Metadatas
+	}).(GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput)
+}
+
+// The name of the service account that's used to run the pod.
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) ServiceAccountName() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) bool { return v.ServiceAccountName }).(pulumi.BoolOutput)
+}
+
+// A list of data volumes used in a job.
+func (o GetJobDefinitionEksPropertyPodPropertyOutput) Volumes() GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodProperty) []GetJobDefinitionEksPropertyPodPropertyVolume {
+		return v.Volumes
+	}).(GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodProperty)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyArrayOutput() GetJobDefinitionEksPropertyPodPropertyArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodProperty {
+		return vs[0].([]GetJobDefinitionEksPropertyPodProperty)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainer struct {
+	// An array of arguments to the entrypoint
+	Args []string `pulumi:"args"`
+	// The command that's passed to the container.
+	Commands []string `pulumi:"commands"`
+	// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+	Envs []GetJobDefinitionEksPropertyPodPropertyContainerEnv `pulumi:"envs"`
+	// The image used to start a container.
+	Image string `pulumi:"image"`
+	// The image pull policy for the container.
+	ImagePullPolicy string `pulumi:"imagePullPolicy"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// The type and amount of resources to assign to a container.
+	Resources []GetJobDefinitionEksPropertyPodPropertyContainerResource `pulumi:"resources"`
+	// The security context for a job.
+	SecurityContexts []GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext `pulumi:"securityContexts"`
+	// The volume mounts for the container.
+	VolumeMounts []GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount `pulumi:"volumeMounts"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyContainerInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerArgs and GetJobDefinitionEksPropertyPodPropertyContainerOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyContainerInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyContainerArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyContainerInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyContainerOutput() GetJobDefinitionEksPropertyPodPropertyContainerOutput
+	ToGetJobDefinitionEksPropertyPodPropertyContainerOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyContainerOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerArgs struct {
+	// An array of arguments to the entrypoint
+	Args pulumi.StringArrayInput `pulumi:"args"`
+	// The command that's passed to the container.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+	Envs GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayInput `pulumi:"envs"`
+	// The image used to start a container.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The image pull policy for the container.
+	ImagePullPolicy pulumi.StringInput `pulumi:"imagePullPolicy"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type and amount of resources to assign to a container.
+	Resources GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayInput `pulumi:"resources"`
+	// The security context for a job.
+	SecurityContexts GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayInput `pulumi:"securityContexts"`
+	// The volume mounts for the container.
+	VolumeMounts GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainer)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerArgs) ToGetJobDefinitionEksPropertyPodPropertyContainerOutput() GetJobDefinitionEksPropertyPodPropertyContainerOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyContainerOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerArgs) ToGetJobDefinitionEksPropertyPodPropertyContainerOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyContainerOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyContainerArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerArray and GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyContainerArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyContainerArray{ GetJobDefinitionEksPropertyPodPropertyContainerArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyContainerArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyContainerArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerArray []GetJobDefinitionEksPropertyPodPropertyContainerInput
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyContainer)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerArray) ToGetJobDefinitionEksPropertyPodPropertyContainerArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerArray) ToGetJobDefinitionEksPropertyPodPropertyContainerArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainer)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerOutput() GetJobDefinitionEksPropertyPodPropertyContainerOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerOutput {
+	return o
+}
+
+// An array of arguments to the entrypoint
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Args() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []string { return v.Args }).(pulumi.StringArrayOutput)
+}
+
+// The command that's passed to the container.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Envs() GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []GetJobDefinitionEksPropertyPodPropertyContainerEnv {
+		return v.Envs
+	}).(GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput)
+}
+
+// The image used to start a container.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The image pull policy for the container.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) ImagePullPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) string { return v.ImagePullPolicy }).(pulumi.StringOutput)
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type and amount of resources to assign to a container.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) Resources() GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []GetJobDefinitionEksPropertyPodPropertyContainerResource {
+		return v.Resources
+	}).(GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput)
+}
+
+// The security context for a job.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) SecurityContexts() GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext {
+		return v.SecurityContexts
+	}).(GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput)
+}
+
+// The volume mounts for the container.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerOutput) VolumeMounts() GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainer) []GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount {
+		return v.VolumeMounts
+	}).(GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyContainer)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyContainer {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyContainer)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyContainerOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerEnv struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// The quantity of the specified resource to reserve for the container.
+	Value string `pulumi:"value"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyContainerEnvInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerEnvArgs and GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyContainerEnvInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyContainerEnvArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyContainerEnvInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyContainerEnvOutput() GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput
+	ToGetJobDefinitionEksPropertyPodPropertyContainerEnvOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerEnvArgs struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// The quantity of the specified resource to reserve for the container.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerEnvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerEnv)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerEnvArgs) ToGetJobDefinitionEksPropertyPodPropertyContainerEnvOutput() GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyContainerEnvOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerEnvArgs) ToGetJobDefinitionEksPropertyPodPropertyContainerEnvOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerEnvArray and GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyContainerEnvArray{ GetJobDefinitionEksPropertyPodPropertyContainerEnvArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerEnvArray []GetJobDefinitionEksPropertyPodPropertyContainerEnvInput
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerEnvArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyContainerEnv)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerEnvArray) ToGetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerEnvArray) ToGetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerEnv)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerEnvOutput() GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerEnvOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput {
+	return o
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerEnv) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The quantity of the specified resource to reserve for the container.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerEnv) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyContainerEnv)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyContainerEnv {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyContainerEnv)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerResource struct {
+	// The type and quantity of the resources to reserve for the container.
+	Limits map[string]interface{} `pulumi:"limits"`
+	// The type and quantity of the resources to request for the container.
+	Requests map[string]interface{} `pulumi:"requests"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyContainerResourceInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs and GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyContainerResourceInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyContainerResourceInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyContainerResourceOutput() GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput
+	ToGetJobDefinitionEksPropertyPodPropertyContainerResourceOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs struct {
+	// The type and quantity of the resources to reserve for the container.
+	Limits pulumi.MapInput `pulumi:"limits"`
+	// The type and quantity of the resources to request for the container.
+	Requests pulumi.MapInput `pulumi:"requests"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerResource)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs) ToGetJobDefinitionEksPropertyPodPropertyContainerResourceOutput() GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyContainerResourceOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs) ToGetJobDefinitionEksPropertyPodPropertyContainerResourceOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerResourceArray and GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyContainerResourceArray{ GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerResourceArray []GetJobDefinitionEksPropertyPodPropertyContainerResourceInput
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyContainerResource)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerResourceArray) ToGetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerResourceArray) ToGetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerResource)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerResourceOutput() GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerResourceOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput {
+	return o
+}
+
+// The type and quantity of the resources to reserve for the container.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) Limits() pulumi.MapOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerResource) map[string]interface{} {
+		return v.Limits
+	}).(pulumi.MapOutput)
+}
+
+// The type and quantity of the resources to request for the container.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput) Requests() pulumi.MapOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerResource) map[string]interface{} {
+		return v.Requests
+	}).(pulumi.MapOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyContainerResource)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyContainerResource {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyContainerResource)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext struct {
+	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+	Privileged             bool `pulumi:"privileged"`
+	ReadOnlyRootFileSystem bool `pulumi:"readOnlyRootFileSystem"`
+	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+	RunAsGroup int `pulumi:"runAsGroup"`
+	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+	RunAsNonRoot bool `pulumi:"runAsNonRoot"`
+	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+	RunAsUser int `pulumi:"runAsUser"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs and GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput() GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput
+	ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs struct {
+	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+	Privileged             pulumi.BoolInput `pulumi:"privileged"`
+	ReadOnlyRootFileSystem pulumi.BoolInput `pulumi:"readOnlyRootFileSystem"`
+	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+	RunAsGroup pulumi.IntInput `pulumi:"runAsGroup"`
+	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+	RunAsNonRoot pulumi.BoolInput `pulumi:"runAsNonRoot"`
+	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+	RunAsUser pulumi.IntInput `pulumi:"runAsUser"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs) ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput() GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs) ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArray and GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArray{ GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArray []GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextInput
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArray) ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArray) ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput() GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput {
+	return o
+}
+
+// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) Privileged() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext) bool { return v.Privileged }).(pulumi.BoolOutput)
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) ReadOnlyRootFileSystem() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext) bool {
+		return v.ReadOnlyRootFileSystem
+	}).(pulumi.BoolOutput)
+}
+
+// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) RunAsGroup() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext) int { return v.RunAsGroup }).(pulumi.IntOutput)
+}
+
+// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext) bool { return v.RunAsNonRoot }).(pulumi.BoolOutput)
+}
+
+// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) RunAsUser() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext) int { return v.RunAsUser }).(pulumi.IntOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount struct {
+	// The path on the container where the volume is mounted.
+	MountPath string `pulumi:"mountPath"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// If this value is true, the container has read-only access to the volume.
+	ReadOnly bool `pulumi:"readOnly"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs and GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput() GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput
+	ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs struct {
+	// The path on the container where the volume is mounted.
+	MountPath pulumi.StringInput `pulumi:"mountPath"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// If this value is true, the container has read-only access to the volume.
+	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs) ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput() GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs) ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArray and GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArray{ GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArray []GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountInput
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArray) ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArray) ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput() GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput {
+	return o
+}
+
+// The path on the container where the volume is mounted.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// If this value is true, the container has read-only access to the volume.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput) ReadOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount) bool { return v.ReadOnly }).(pulumi.BoolOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput() GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyMetadata struct {
+	// Key-value pairs used to identify, sort, and organize cube resources.
+	Labels map[string]interface{} `pulumi:"labels"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyMetadataInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyMetadataArgs and GetJobDefinitionEksPropertyPodPropertyMetadataOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyMetadataInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyMetadataArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyMetadataInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyMetadataOutput() GetJobDefinitionEksPropertyPodPropertyMetadataOutput
+	ToGetJobDefinitionEksPropertyPodPropertyMetadataOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyMetadataOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyMetadataArgs struct {
+	// Key-value pairs used to identify, sort, and organize cube resources.
+	Labels pulumi.MapInput `pulumi:"labels"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyMetadata)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyMetadataArgs) ToGetJobDefinitionEksPropertyPodPropertyMetadataOutput() GetJobDefinitionEksPropertyPodPropertyMetadataOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyMetadataOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyMetadataArgs) ToGetJobDefinitionEksPropertyPodPropertyMetadataOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyMetadataOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyMetadataArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyMetadataArray and GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyMetadataArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyMetadataArray{ GetJobDefinitionEksPropertyPodPropertyMetadataArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyMetadataArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput() GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyMetadataArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyMetadataArray []GetJobDefinitionEksPropertyPodPropertyMetadataInput
+
+func (GetJobDefinitionEksPropertyPodPropertyMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyMetadata)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyMetadataArray) ToGetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput() GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyMetadataArray) ToGetJobDefinitionEksPropertyPodPropertyMetadataArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyMetadataOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyMetadata)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyMetadataOutput) ToGetJobDefinitionEksPropertyPodPropertyMetadataOutput() GetJobDefinitionEksPropertyPodPropertyMetadataOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyMetadataOutput) ToGetJobDefinitionEksPropertyPodPropertyMetadataOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyMetadataOutput {
+	return o
+}
+
+// Key-value pairs used to identify, sort, and organize cube resources.
+func (o GetJobDefinitionEksPropertyPodPropertyMetadataOutput) Labels() pulumi.MapOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyMetadata) map[string]interface{} { return v.Labels }).(pulumi.MapOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyMetadata)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput() GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyMetadataArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyMetadata {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyMetadata)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyMetadataOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolume struct {
+	// Specifies the configuration of a Kubernetes emptyDir volume.
+	EmptyDirs []GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir `pulumi:"emptyDirs"`
+	// The path for the device on the host container instance.
+	HostPaths []GetJobDefinitionEksPropertyPodPropertyVolumeHostPath `pulumi:"hostPaths"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// Specifies the configuration of a Kubernetes secret volume.
+	Secrets []GetJobDefinitionEksPropertyPodPropertyVolumeSecret `pulumi:"secrets"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyVolumeInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyVolumeArgs and GetJobDefinitionEksPropertyPodPropertyVolumeOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyVolumeInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyVolumeArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyVolumeInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeOutput() GetJobDefinitionEksPropertyPodPropertyVolumeOutput
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeArgs struct {
+	// Specifies the configuration of a Kubernetes emptyDir volume.
+	EmptyDirs GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayInput `pulumi:"emptyDirs"`
+	// The path for the device on the host container instance.
+	HostPaths GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayInput `pulumi:"hostPaths"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the configuration of a Kubernetes secret volume.
+	Secrets GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayInput `pulumi:"secrets"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolume)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeArgs) ToGetJobDefinitionEksPropertyPodPropertyVolumeOutput() GetJobDefinitionEksPropertyPodPropertyVolumeOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyVolumeOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeArgs) ToGetJobDefinitionEksPropertyPodPropertyVolumeOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyVolumeOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyVolumeArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyVolumeArray and GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyVolumeArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyVolumeArray{ GetJobDefinitionEksPropertyPodPropertyVolumeArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyVolumeArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeArray []GetJobDefinitionEksPropertyPodPropertyVolumeInput
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyVolume)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeArray) ToGetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeArray) ToGetJobDefinitionEksPropertyPodPropertyVolumeArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolume)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeOutput() GetJobDefinitionEksPropertyPodPropertyVolumeOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeOutput {
+	return o
+}
+
+// Specifies the configuration of a Kubernetes emptyDir volume.
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) EmptyDirs() GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolume) []GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir {
+		return v.EmptyDirs
+	}).(GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput)
+}
+
+// The path for the device on the host container instance.
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) HostPaths() GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolume) []GetJobDefinitionEksPropertyPodPropertyVolumeHostPath {
+		return v.HostPaths
+	}).(GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput)
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the configuration of a Kubernetes secret volume.
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeOutput) Secrets() GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolume) []GetJobDefinitionEksPropertyPodPropertyVolumeSecret {
+		return v.Secrets
+	}).(GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyVolume)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyVolume {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyVolume)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyVolumeOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir struct {
+	// The medium to store the volume.
+	Medium string `pulumi:"medium"`
+	// The maximum size of the volume. By default, there's no maximum size defined.
+	SizeLimit string `pulumi:"sizeLimit"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArgs and GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput() GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArgs struct {
+	// The medium to store the volume.
+	Medium pulumi.StringInput `pulumi:"medium"`
+	// The maximum size of the volume. By default, there's no maximum size defined.
+	SizeLimit pulumi.StringInput `pulumi:"sizeLimit"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArgs) ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput() GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArgs) ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArray and GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArray{ GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArray []GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirInput
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArray) ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArray) ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput() GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput {
+	return o
+}
+
+// The medium to store the volume.
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput) Medium() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir) string { return v.Medium }).(pulumi.StringOutput)
+}
+
+// The maximum size of the volume. By default, there's no maximum size defined.
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput) SizeLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir) string { return v.SizeLimit }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeHostPath struct {
+	// The path of the file or directory on the host to mount into containers on the pod.
+	Path string `pulumi:"path"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyVolumeHostPathInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArgs and GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyVolumeHostPathInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyVolumeHostPathInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput() GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArgs struct {
+	// The path of the file or directory on the host to mount into containers on the pod.
+	Path pulumi.StringInput `pulumi:"path"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeHostPath)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArgs) ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput() GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArgs) ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArray and GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArray{ GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArray []GetJobDefinitionEksPropertyPodPropertyVolumeHostPathInput
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyVolumeHostPath)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArray) ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArray) ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeHostPath)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput() GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput {
+	return o
+}
+
+// The path of the file or directory on the host to mount into containers on the pod.
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolumeHostPath) string { return v.Path }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyVolumeHostPath)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyVolumeHostPath {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyVolumeHostPath)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeSecret struct {
+	// Specifies whether the secret or the secret's keys must be defined.
+	Optional bool `pulumi:"optional"`
+	// The name of the secret. The name must be allowed as a DNS subdomain name
+	SecretName string `pulumi:"secretName"`
+}
+
+// GetJobDefinitionEksPropertyPodPropertyVolumeSecretInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyVolumeSecretArgs and GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyVolumeSecretInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyVolumeSecretArgs{...}
+type GetJobDefinitionEksPropertyPodPropertyVolumeSecretInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput() GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeSecretArgs struct {
+	// Specifies whether the secret or the secret's keys must be defined.
+	Optional pulumi.BoolInput `pulumi:"optional"`
+	// The name of the secret. The name must be allowed as a DNS subdomain name
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeSecret)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeSecretArgs) ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput() GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeSecretArgs) ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput)
+}
+
+// GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayInput is an input type that accepts GetJobDefinitionEksPropertyPodPropertyVolumeSecretArray and GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayInput` via:
+//
+//	GetJobDefinitionEksPropertyPodPropertyVolumeSecretArray{ GetJobDefinitionEksPropertyPodPropertyVolumeSecretArgs{...} }
+type GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput
+	ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutputWithContext(context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeSecretArray []GetJobDefinitionEksPropertyPodPropertyVolumeSecretInput
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyVolumeSecret)(nil)).Elem()
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeSecretArray) ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput {
+	return i.ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionEksPropertyPodPropertyVolumeSecretArray) ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeSecret)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput() GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput {
+	return o
+}
+
+// Specifies whether the secret or the secret's keys must be defined.
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput) Optional() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolumeSecret) bool { return v.Optional }).(pulumi.BoolOutput)
+}
+
+// The name of the secret. The name must be allowed as a DNS subdomain name
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyVolumeSecret) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionEksPropertyPodPropertyVolumeSecret)(nil)).Elem()
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput() GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput) ToGetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionEksPropertyPodPropertyVolumeSecret {
+		return vs[0].([]GetJobDefinitionEksPropertyPodPropertyVolumeSecret)[vs[1].(int)]
+	}).(GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput)
+}
+
 type GetJobDefinitionNodeProperty struct {
 	// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
 	MainNode int `pulumi:"mainNode"`
 	// A list of node ranges and their properties that are associated with a multi-node parallel job.
-	NodeRangeProperties []interface{} `pulumi:"nodeRangeProperties"`
+	NodeRangeProperties []GetJobDefinitionNodePropertyNodeRangeProperty `pulumi:"nodeRangeProperties"`
 	// The number of nodes that are associated with a multi-node parallel job.
 	NumNodes int `pulumi:"numNodes"`
 }
@@ -4155,7 +5479,7 @@ type GetJobDefinitionNodePropertyArgs struct {
 	// Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
 	MainNode pulumi.IntInput `pulumi:"mainNode"`
 	// A list of node ranges and their properties that are associated with a multi-node parallel job.
-	NodeRangeProperties pulumi.ArrayInput `pulumi:"nodeRangeProperties"`
+	NodeRangeProperties GetJobDefinitionNodePropertyNodeRangePropertyArrayInput `pulumi:"nodeRangeProperties"`
 	// The number of nodes that are associated with a multi-node parallel job.
 	NumNodes pulumi.IntInput `pulumi:"numNodes"`
 }
@@ -4217,8 +5541,10 @@ func (o GetJobDefinitionNodePropertyOutput) MainNode() pulumi.IntOutput {
 }
 
 // A list of node ranges and their properties that are associated with a multi-node parallel job.
-func (o GetJobDefinitionNodePropertyOutput) NodeRangeProperties() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetJobDefinitionNodeProperty) []interface{} { return v.NodeRangeProperties }).(pulumi.ArrayOutput)
+func (o GetJobDefinitionNodePropertyOutput) NodeRangeProperties() GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodeProperty) []GetJobDefinitionNodePropertyNodeRangeProperty {
+		return v.NodeRangeProperties
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput)
 }
 
 // The number of nodes that are associated with a multi-node parallel job.
@@ -4246,11 +5572,2457 @@ func (o GetJobDefinitionNodePropertyArrayOutput) Index(i pulumi.IntInput) GetJob
 	}).(GetJobDefinitionNodePropertyOutput)
 }
 
+type GetJobDefinitionNodePropertyNodeRangeProperty struct {
+	// The container details for the node range.
+	Containers []GetJobDefinitionNodePropertyNodeRangePropertyContainer `pulumi:"containers"`
+	// The range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
+	TargetNodes string `pulumi:"targetNodes"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyArgs and GetJobDefinitionNodePropertyNodeRangePropertyOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyOutput() GetJobDefinitionNodePropertyNodeRangePropertyOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyArgs struct {
+	// The container details for the node range.
+	Containers GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayInput `pulumi:"containers"`
+	// The range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
+	TargetNodes pulumi.StringInput `pulumi:"targetNodes"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangeProperty)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyOutput() GetJobDefinitionNodePropertyNodeRangePropertyOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyArray and GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyArray{ GetJobDefinitionNodePropertyNodeRangePropertyArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyArray []GetJobDefinitionNodePropertyNodeRangePropertyInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangeProperty)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyArray) ToGetJobDefinitionNodePropertyNodeRangePropertyArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyArray) ToGetJobDefinitionNodePropertyNodeRangePropertyArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangeProperty)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyOutput() GetJobDefinitionNodePropertyNodeRangePropertyOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyOutput {
+	return o
+}
+
+// The container details for the node range.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyOutput) Containers() GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangeProperty) []GetJobDefinitionNodePropertyNodeRangePropertyContainer {
+		return v.Containers
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput)
+}
+
+// The range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
+func (o GetJobDefinitionNodePropertyNodeRangePropertyOutput) TargetNodes() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangeProperty) string { return v.TargetNodes }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangeProperty)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangeProperty {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangeProperty)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainer struct {
+	// The command that's passed to the container.
+	Commands []string `pulumi:"commands"`
+	// The environment variables to pass to a container.
+	Environments []GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment `pulumi:"environments"`
+	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
+	EphemeralStorages []GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage `pulumi:"ephemeralStorages"`
+	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+	ExecutionRoleArn string `pulumi:"executionRoleArn"`
+	// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+	FargatePlatformConfigurations []GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration `pulumi:"fargatePlatformConfigurations"`
+	// The image used to start a container.
+	Image string `pulumi:"image"`
+	// The instance type to use for a multi-node parallel job.
+	InstanceType string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+	JobRoleArn string `pulumi:"jobRoleArn"`
+	// Linux-specific modifications that are applied to the container.
+	LinuxParameters []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter `pulumi:"linuxParameters"`
+	// The log configuration specification for the container.
+	LogConfigurations []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration `pulumi:"logConfigurations"`
+	// The mount points for data volumes in your container.
+	MountPoints []GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint `pulumi:"mountPoints"`
+	// The network configuration for jobs that are running on Fargate resources.
+	NetworkConfigurations []GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration `pulumi:"networkConfigurations"`
+	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+	Privileged bool `pulumi:"privileged"`
+	// When this parameter is true, the container is given read-only access to its root file system.
+	ReadonlyRootFilesystem bool `pulumi:"readonlyRootFilesystem"`
+	// The type and amount of resources to assign to a container.
+	ResourceRequirements []GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement `pulumi:"resourceRequirements"`
+	// An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+	RuntimePlatforms []GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform `pulumi:"runtimePlatforms"`
+	// The secrets for the container.
+	Secrets []GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret `pulumi:"secrets"`
+	// A list of ulimits to set in the container.
+	Ulimits []GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit `pulumi:"ulimits"`
+	// The user name to use inside the container.
+	User string `pulumi:"user"`
+	// A list of data volumes used in a job.
+	Volumes []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume `pulumi:"volumes"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs struct {
+	// The command that's passed to the container.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The environment variables to pass to a container.
+	Environments GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayInput `pulumi:"environments"`
+	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
+	EphemeralStorages GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayInput `pulumi:"ephemeralStorages"`
+	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
+	// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+	FargatePlatformConfigurations GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayInput `pulumi:"fargatePlatformConfigurations"`
+	// The image used to start a container.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The instance type to use for a multi-node parallel job.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+	JobRoleArn pulumi.StringInput `pulumi:"jobRoleArn"`
+	// Linux-specific modifications that are applied to the container.
+	LinuxParameters GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayInput `pulumi:"linuxParameters"`
+	// The log configuration specification for the container.
+	LogConfigurations GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayInput `pulumi:"logConfigurations"`
+	// The mount points for data volumes in your container.
+	MountPoints GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayInput `pulumi:"mountPoints"`
+	// The network configuration for jobs that are running on Fargate resources.
+	NetworkConfigurations GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayInput `pulumi:"networkConfigurations"`
+	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+	Privileged pulumi.BoolInput `pulumi:"privileged"`
+	// When this parameter is true, the container is given read-only access to its root file system.
+	ReadonlyRootFilesystem pulumi.BoolInput `pulumi:"readonlyRootFilesystem"`
+	// The type and amount of resources to assign to a container.
+	ResourceRequirements GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayInput `pulumi:"resourceRequirements"`
+	// An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+	RuntimePlatforms GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayInput `pulumi:"runtimePlatforms"`
+	// The secrets for the container.
+	Secrets GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayInput `pulumi:"secrets"`
+	// A list of ulimits to set in the container.
+	Ulimits GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayInput `pulumi:"ulimits"`
+	// The user name to use inside the container.
+	User pulumi.StringInput `pulumi:"user"`
+	// A list of data volumes used in a job.
+	Volumes GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayInput `pulumi:"volumes"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainer)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainer)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainer)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput {
+	return o
+}
+
+// The command that's passed to the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to pass to a container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Environments() GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment {
+		return v.Environments
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput)
+}
+
+// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) EphemeralStorages() GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage {
+		return v.EphemeralStorages
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ExecutionRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+}
+
+// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) FargatePlatformConfigurations() GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration {
+		return v.FargatePlatformConfigurations
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput)
+}
+
+// The image used to start a container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The instance type to use for a multi-node parallel job.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) JobRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.JobRoleArn }).(pulumi.StringOutput)
+}
+
+// Linux-specific modifications that are applied to the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) LinuxParameters() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter {
+		return v.LinuxParameters
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput)
+}
+
+// The log configuration specification for the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) LogConfigurations() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration {
+		return v.LogConfigurations
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput)
+}
+
+// The mount points for data volumes in your container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) MountPoints() GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint {
+		return v.MountPoints
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput)
+}
+
+// The network configuration for jobs that are running on Fargate resources.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) NetworkConfigurations() GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration {
+		return v.NetworkConfigurations
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput)
+}
+
+// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Privileged() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) bool { return v.Privileged }).(pulumi.BoolOutput)
+}
+
+// When this parameter is true, the container is given read-only access to its root file system.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ReadonlyRootFilesystem() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) bool { return v.ReadonlyRootFilesystem }).(pulumi.BoolOutput)
+}
+
+// The type and amount of resources to assign to a container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ResourceRequirements() GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement {
+		return v.ResourceRequirements
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput)
+}
+
+// An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) RuntimePlatforms() GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform {
+		return v.RuntimePlatforms
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput)
+}
+
+// The secrets for the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Secrets() GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret {
+		return v.Secrets
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput)
+}
+
+// A list of ulimits to set in the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Ulimits() GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit {
+		return v.Ulimits
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput)
+}
+
+// The user name to use inside the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) User() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.User }).(pulumi.StringOutput)
+}
+
+// A list of data volumes used in a job.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) Volumes() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume {
+		return v.Volumes
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainer)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainer {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainer)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// The quantity of the specified resource to reserve for the container.
+	Value string `pulumi:"value"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArgs struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// The quantity of the specified resource to reserve for the container.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput {
+	return o
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The quantity of the specified resource to reserve for the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage struct {
+	SizeInGib int `pulumi:"sizeInGib"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArgs struct {
+	SizeInGib pulumi.IntInput `pulumi:"sizeInGib"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput) SizeInGib() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage) int { return v.SizeInGib }).(pulumi.IntOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration struct {
+	// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
+	PlatformVersion string `pulumi:"platformVersion"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArgs struct {
+	// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
+	PlatformVersion pulumi.StringInput `pulumi:"platformVersion"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput {
+	return o
+}
+
+// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput) PlatformVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration) string {
+		return v.PlatformVersion
+	}).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter struct {
+	// Any of the host devices to expose to the container.
+	Devices []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice `pulumi:"devices"`
+	// If true, run an init process inside the container that forwards signals and reaps processes.
+	InitProcessEnabled bool `pulumi:"initProcessEnabled"`
+	// The total amount of swap memory (in MiB) a container can use.
+	MaxSwap int `pulumi:"maxSwap"`
+	// The value for the size (in MiB) of the `/dev/shm` volume.
+	SharedMemorySize int `pulumi:"sharedMemorySize"`
+	// You can use this parameter to tune a container's memory swappiness behavior.
+	Swappiness int `pulumi:"swappiness"`
+	// The container path, mount options, and size (in MiB) of the tmpfs mount.
+	Tmpfs []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf `pulumi:"tmpfs"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs struct {
+	// Any of the host devices to expose to the container.
+	Devices GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayInput `pulumi:"devices"`
+	// If true, run an init process inside the container that forwards signals and reaps processes.
+	InitProcessEnabled pulumi.BoolInput `pulumi:"initProcessEnabled"`
+	// The total amount of swap memory (in MiB) a container can use.
+	MaxSwap pulumi.IntInput `pulumi:"maxSwap"`
+	// The value for the size (in MiB) of the `/dev/shm` volume.
+	SharedMemorySize pulumi.IntInput `pulumi:"sharedMemorySize"`
+	// You can use this parameter to tune a container's memory swappiness behavior.
+	Swappiness pulumi.IntInput `pulumi:"swappiness"`
+	// The container path, mount options, and size (in MiB) of the tmpfs mount.
+	Tmpfs GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayInput `pulumi:"tmpfs"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput {
+	return o
+}
+
+// Any of the host devices to expose to the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) Devices() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice {
+		return v.Devices
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput)
+}
+
+// If true, run an init process inside the container that forwards signals and reaps processes.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) InitProcessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) bool {
+		return v.InitProcessEnabled
+	}).(pulumi.BoolOutput)
+}
+
+// The total amount of swap memory (in MiB) a container can use.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) MaxSwap() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) int { return v.MaxSwap }).(pulumi.IntOutput)
+}
+
+// The value for the size (in MiB) of the `/dev/shm` volume.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) SharedMemorySize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) int {
+		return v.SharedMemorySize
+	}).(pulumi.IntOutput)
+}
+
+// You can use this parameter to tune a container's memory swappiness behavior.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) Swappiness() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) int { return v.Swappiness }).(pulumi.IntOutput)
+}
+
+// The container path, mount options, and size (in MiB) of the tmpfs mount.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput) Tmpfs() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter) []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf {
+		return v.Tmpfs
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice struct {
+	// The absolute file path in the container where the tmpfs volume is mounted.
+	ContainerPath string `pulumi:"containerPath"`
+	// The path for the device on the host container instance.
+	HostPath string `pulumi:"hostPath"`
+	// The explicit permissions to provide to the container for the device.
+	Permissions []string `pulumi:"permissions"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs struct {
+	// The absolute file path in the container where the tmpfs volume is mounted.
+	ContainerPath pulumi.StringInput `pulumi:"containerPath"`
+	// The path for the device on the host container instance.
+	HostPath pulumi.StringInput `pulumi:"hostPath"`
+	// The explicit permissions to provide to the container for the device.
+	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput {
+	return o
+}
+
+// The absolute file path in the container where the tmpfs volume is mounted.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput) ContainerPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice) string {
+		return v.ContainerPath
+	}).(pulumi.StringOutput)
+}
+
+// The path for the device on the host container instance.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput) HostPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice) string {
+		return v.HostPath
+	}).(pulumi.StringOutput)
+}
+
+// The explicit permissions to provide to the container for the device.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput) Permissions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice) []string {
+		return v.Permissions
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf struct {
+	// The absolute file path in the container where the tmpfs volume is mounted.
+	ContainerPath string `pulumi:"containerPath"`
+	// The list of tmpfs volume mount options.
+	MountOptions []string `pulumi:"mountOptions"`
+	// The size (in MiB) of the tmpfs volume.
+	Size int `pulumi:"size"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs struct {
+	// The absolute file path in the container where the tmpfs volume is mounted.
+	ContainerPath pulumi.StringInput `pulumi:"containerPath"`
+	// The list of tmpfs volume mount options.
+	MountOptions pulumi.StringArrayInput `pulumi:"mountOptions"`
+	// The size (in MiB) of the tmpfs volume.
+	Size pulumi.IntInput `pulumi:"size"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput {
+	return o
+}
+
+// The absolute file path in the container where the tmpfs volume is mounted.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput) ContainerPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf) string {
+		return v.ContainerPath
+	}).(pulumi.StringOutput)
+}
+
+// The list of tmpfs volume mount options.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput) MountOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf) []string {
+		return v.MountOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// The size (in MiB) of the tmpfs volume.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf) int { return v.Size }).(pulumi.IntOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration struct {
+	// The log driver to use for the container.
+	LogDriver string `pulumi:"logDriver"`
+	// The configuration options to send to the log driver.
+	Options map[string]interface{} `pulumi:"options"`
+	// The secrets to pass to the log configuration.
+	SecretOptions []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption `pulumi:"secretOptions"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs struct {
+	// The log driver to use for the container.
+	LogDriver pulumi.StringInput `pulumi:"logDriver"`
+	// The configuration options to send to the log driver.
+	Options pulumi.MapInput `pulumi:"options"`
+	// The secrets to pass to the log configuration.
+	SecretOptions GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayInput `pulumi:"secretOptions"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput {
+	return o
+}
+
+// The log driver to use for the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) LogDriver() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration) string {
+		return v.LogDriver
+	}).(pulumi.StringOutput)
+}
+
+// The configuration options to send to the log driver.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) Options() pulumi.MapOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration) map[string]interface{} {
+		return v.Options
+	}).(pulumi.MapOutput)
+}
+
+// The secrets to pass to the log configuration.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput) SecretOptions() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration) []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption {
+		return v.SecretOptions
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+	ValueFrom string `pulumi:"valueFrom"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArgs struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput {
+	return o
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput) ValueFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption) string {
+		return v.ValueFrom
+	}).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint struct {
+	// The absolute file path in the container where the tmpfs volume is mounted.
+	ContainerPath string `pulumi:"containerPath"`
+	// If this value is true, the container has read-only access to the volume.
+	ReadOnly bool `pulumi:"readOnly"`
+	// The name of the volume to mount.
+	SourceVolume string `pulumi:"sourceVolume"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs struct {
+	// The absolute file path in the container where the tmpfs volume is mounted.
+	ContainerPath pulumi.StringInput `pulumi:"containerPath"`
+	// If this value is true, the container has read-only access to the volume.
+	ReadOnly pulumi.BoolInput `pulumi:"readOnly"`
+	// The name of the volume to mount.
+	SourceVolume pulumi.StringInput `pulumi:"sourceVolume"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput {
+	return o
+}
+
+// The absolute file path in the container where the tmpfs volume is mounted.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput) ContainerPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint) string {
+		return v.ContainerPath
+	}).(pulumi.StringOutput)
+}
+
+// If this value is true, the container has read-only access to the volume.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput) ReadOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint) bool { return v.ReadOnly }).(pulumi.BoolOutput)
+}
+
+// The name of the volume to mount.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput) SourceVolume() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint) string { return v.SourceVolume }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration struct {
+	// Indicates whether the job has a public IP address.
+	AssignPublicIp bool `pulumi:"assignPublicIp"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArgs struct {
+	// Indicates whether the job has a public IP address.
+	AssignPublicIp pulumi.BoolInput `pulumi:"assignPublicIp"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput {
+	return o
+}
+
+// Indicates whether the job has a public IP address.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration) bool {
+		return v.AssignPublicIp
+	}).(pulumi.BoolOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement struct {
+	// The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
+	Type string `pulumi:"type"`
+	// The quantity of the specified resource to reserve for the container.
+	Value string `pulumi:"value"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArgs struct {
+	// The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The quantity of the specified resource to reserve for the container.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput {
+	return o
+}
+
+// The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// The quantity of the specified resource to reserve for the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform struct {
+	// The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
+	CpuArchitecture string `pulumi:"cpuArchitecture"`
+	// The operating system for the compute environment. V
+	OperatingSystemFamily string `pulumi:"operatingSystemFamily"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArgs struct {
+	// The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
+	CpuArchitecture pulumi.StringInput `pulumi:"cpuArchitecture"`
+	// The operating system for the compute environment. V
+	OperatingSystemFamily pulumi.StringInput `pulumi:"operatingSystemFamily"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput {
+	return o
+}
+
+// The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput) CpuArchitecture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform) string {
+		return v.CpuArchitecture
+	}).(pulumi.StringOutput)
+}
+
+// The operating system for the compute environment. V
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput) OperatingSystemFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform) string {
+		return v.OperatingSystemFamily
+	}).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+	ValueFrom string `pulumi:"valueFrom"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArgs struct {
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput {
+	return o
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput) ValueFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret) string { return v.ValueFrom }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit struct {
+	// The hard limit for the ulimit type.
+	HardLimit int `pulumi:"hardLimit"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+	// The soft limit for the ulimit type.
+	SoftLimit int `pulumi:"softLimit"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs struct {
+	// The hard limit for the ulimit type.
+	HardLimit pulumi.IntInput `pulumi:"hardLimit"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+	// The soft limit for the ulimit type.
+	SoftLimit pulumi.IntInput `pulumi:"softLimit"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput {
+	return o
+}
+
+// The hard limit for the ulimit type.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput) HardLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit) int { return v.HardLimit }).(pulumi.IntOutput)
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The soft limit for the ulimit type.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput) SoftLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit) int { return v.SoftLimit }).(pulumi.IntOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume struct {
+	// This parameter is specified when you're using an Amazon Elastic File System file system for job storage.
+	EfsVolumeConfigurations []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration `pulumi:"efsVolumeConfigurations"`
+	// The contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored.
+	Hosts []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost `pulumi:"hosts"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name string `pulumi:"name"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs struct {
+	// This parameter is specified when you're using an Amazon Elastic File System file system for job storage.
+	EfsVolumeConfigurations GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayInput `pulumi:"efsVolumeConfigurations"`
+	// The contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored.
+	Hosts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayInput `pulumi:"hosts"`
+	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput {
+	return o
+}
+
+// This parameter is specified when you're using an Amazon Elastic File System file system for job storage.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput) EfsVolumeConfigurations() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume) []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration {
+		return v.EfsVolumeConfigurations
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput)
+}
+
+// The contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput) Hosts() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume) []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost {
+		return v.Hosts
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput)
+}
+
+// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration struct {
+	// The authorization configuration details for the Amazon EFS file system.
+	AuthorizationConfigs []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfigs"`
+	// The Amazon EFS file system ID to use.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The directory within the Amazon EFS file system to mount as the root directory inside the host.
+	RootDirectory string `pulumi:"rootDirectory"`
+	// Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
+	TransitEncryption string `pulumi:"transitEncryption"`
+	// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
+	TransitEncryptionPort int `pulumi:"transitEncryptionPort"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs struct {
+	// The authorization configuration details for the Amazon EFS file system.
+	AuthorizationConfigs GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput `pulumi:"authorizationConfigs"`
+	// The Amazon EFS file system ID to use.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The directory within the Amazon EFS file system to mount as the root directory inside the host.
+	RootDirectory pulumi.StringInput `pulumi:"rootDirectory"`
+	// Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
+	TransitEncryption pulumi.StringInput `pulumi:"transitEncryption"`
+	// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
+	TransitEncryptionPort pulumi.IntInput `pulumi:"transitEncryptionPort"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput {
+	return o
+}
+
+// The authorization configuration details for the Amazon EFS file system.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) AuthorizationConfigs() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration) []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig {
+		return v.AuthorizationConfigs
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput)
+}
+
+// The Amazon EFS file system ID to use.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration) string {
+		return v.FileSystemId
+	}).(pulumi.StringOutput)
+}
+
+// The directory within the Amazon EFS file system to mount as the root directory inside the host.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration) string {
+		return v.RootDirectory
+	}).(pulumi.StringOutput)
+}
+
+// Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) TransitEncryption() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration) string {
+		return v.TransitEncryption
+	}).(pulumi.StringOutput)
+}
+
+// The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration) int {
+		return v.TransitEncryptionPort
+	}).(pulumi.IntOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig struct {
+	// The Amazon EFS access point ID to use.
+	AccessPointId string `pulumi:"accessPointId"`
+	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
+	Iam string `pulumi:"iam"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs struct {
+	// The Amazon EFS access point ID to use.
+	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
+	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
+	Iam pulumi.StringInput `pulumi:"iam"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+// The Amazon EFS access point ID to use.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput) AccessPointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig) string {
+		return v.AccessPointId
+	}).(pulumi.StringOutput)
+}
+
+// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput) Iam() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig) string {
+		return v.Iam
+	}).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost struct {
+	// The path on the host container instance that's presented to the container.
+	SourcePath string `pulumi:"sourcePath"`
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArgs and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArgs{...}
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArgs struct {
+	// The path on the host container instance that's presented to the container.
+	SourcePath pulumi.StringInput `pulumi:"sourcePath"`
+}
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArgs) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput)
+}
+
+// GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayInput is an input type that accepts GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArray and GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayInput` via:
+//
+//	GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArray{ GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArgs{...} }
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput
+	ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutputWithContext(context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArray []GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostInput
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost)(nil)).Elem()
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput {
+	return i.ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArray) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput {
+	return o
+}
+
+// The path on the host container instance that's presented to the container.
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput) SourcePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost) string { return v.SourcePath }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost)(nil)).Elem()
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput() GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput) ToGetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutputWithContext(ctx context.Context) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost {
+		return vs[0].([]GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost)[vs[1].(int)]
+	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput)
+}
+
 type GetJobDefinitionRetryStrategy struct {
 	// The number of times to move a job to the RUNNABLE status.
 	Attempts int `pulumi:"attempts"`
 	// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
-	EvaluateOnExits []interface{} `pulumi:"evaluateOnExits"`
+	EvaluateOnExits []GetJobDefinitionRetryStrategyEvaluateOnExit `pulumi:"evaluateOnExits"`
 }
 
 // GetJobDefinitionRetryStrategyInput is an input type that accepts GetJobDefinitionRetryStrategyArgs and GetJobDefinitionRetryStrategyOutput values.
@@ -4268,7 +8040,7 @@ type GetJobDefinitionRetryStrategyArgs struct {
 	// The number of times to move a job to the RUNNABLE status.
 	Attempts pulumi.IntInput `pulumi:"attempts"`
 	// Array of up to 5 objects that specify the conditions where jobs are retried or failed.
-	EvaluateOnExits pulumi.ArrayInput `pulumi:"evaluateOnExits"`
+	EvaluateOnExits GetJobDefinitionRetryStrategyEvaluateOnExitArrayInput `pulumi:"evaluateOnExits"`
 }
 
 func (GetJobDefinitionRetryStrategyArgs) ElementType() reflect.Type {
@@ -4328,8 +8100,10 @@ func (o GetJobDefinitionRetryStrategyOutput) Attempts() pulumi.IntOutput {
 }
 
 // Array of up to 5 objects that specify the conditions where jobs are retried or failed.
-func (o GetJobDefinitionRetryStrategyOutput) EvaluateOnExits() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetJobDefinitionRetryStrategy) []interface{} { return v.EvaluateOnExits }).(pulumi.ArrayOutput)
+func (o GetJobDefinitionRetryStrategyOutput) EvaluateOnExits() GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return o.ApplyT(func(v GetJobDefinitionRetryStrategy) []GetJobDefinitionRetryStrategyEvaluateOnExit {
+		return v.EvaluateOnExits
+	}).(GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput)
 }
 
 type GetJobDefinitionRetryStrategyArrayOutput struct{ *pulumi.OutputState }
@@ -4350,6 +8124,130 @@ func (o GetJobDefinitionRetryStrategyArrayOutput) Index(i pulumi.IntInput) GetJo
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionRetryStrategy {
 		return vs[0].([]GetJobDefinitionRetryStrategy)[vs[1].(int)]
 	}).(GetJobDefinitionRetryStrategyOutput)
+}
+
+type GetJobDefinitionRetryStrategyEvaluateOnExit struct {
+	// Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren't case sensitive.
+	Action string `pulumi:"action"`
+	// Contains a glob pattern to match against the decimal representation of the ExitCode returned for a job.
+	OnExitCode string `pulumi:"onExitCode"`
+	// Contains a glob pattern to match against the Reason returned for a job.
+	OnReason string `pulumi:"onReason"`
+	// Contains a glob pattern to match against the StatusReason returned for a job.
+	OnStatusReason string `pulumi:"onStatusReason"`
+}
+
+// GetJobDefinitionRetryStrategyEvaluateOnExitInput is an input type that accepts GetJobDefinitionRetryStrategyEvaluateOnExitArgs and GetJobDefinitionRetryStrategyEvaluateOnExitOutput values.
+// You can construct a concrete instance of `GetJobDefinitionRetryStrategyEvaluateOnExitInput` via:
+//
+//	GetJobDefinitionRetryStrategyEvaluateOnExitArgs{...}
+type GetJobDefinitionRetryStrategyEvaluateOnExitInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionRetryStrategyEvaluateOnExitOutput() GetJobDefinitionRetryStrategyEvaluateOnExitOutput
+	ToGetJobDefinitionRetryStrategyEvaluateOnExitOutputWithContext(context.Context) GetJobDefinitionRetryStrategyEvaluateOnExitOutput
+}
+
+type GetJobDefinitionRetryStrategyEvaluateOnExitArgs struct {
+	// Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren't case sensitive.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Contains a glob pattern to match against the decimal representation of the ExitCode returned for a job.
+	OnExitCode pulumi.StringInput `pulumi:"onExitCode"`
+	// Contains a glob pattern to match against the Reason returned for a job.
+	OnReason pulumi.StringInput `pulumi:"onReason"`
+	// Contains a glob pattern to match against the StatusReason returned for a job.
+	OnStatusReason pulumi.StringInput `pulumi:"onStatusReason"`
+}
+
+func (GetJobDefinitionRetryStrategyEvaluateOnExitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionRetryStrategyEvaluateOnExit)(nil)).Elem()
+}
+
+func (i GetJobDefinitionRetryStrategyEvaluateOnExitArgs) ToGetJobDefinitionRetryStrategyEvaluateOnExitOutput() GetJobDefinitionRetryStrategyEvaluateOnExitOutput {
+	return i.ToGetJobDefinitionRetryStrategyEvaluateOnExitOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionRetryStrategyEvaluateOnExitArgs) ToGetJobDefinitionRetryStrategyEvaluateOnExitOutputWithContext(ctx context.Context) GetJobDefinitionRetryStrategyEvaluateOnExitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionRetryStrategyEvaluateOnExitOutput)
+}
+
+// GetJobDefinitionRetryStrategyEvaluateOnExitArrayInput is an input type that accepts GetJobDefinitionRetryStrategyEvaluateOnExitArray and GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput values.
+// You can construct a concrete instance of `GetJobDefinitionRetryStrategyEvaluateOnExitArrayInput` via:
+//
+//	GetJobDefinitionRetryStrategyEvaluateOnExitArray{ GetJobDefinitionRetryStrategyEvaluateOnExitArgs{...} }
+type GetJobDefinitionRetryStrategyEvaluateOnExitArrayInput interface {
+	pulumi.Input
+
+	ToGetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput() GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput
+	ToGetJobDefinitionRetryStrategyEvaluateOnExitArrayOutputWithContext(context.Context) GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput
+}
+
+type GetJobDefinitionRetryStrategyEvaluateOnExitArray []GetJobDefinitionRetryStrategyEvaluateOnExitInput
+
+func (GetJobDefinitionRetryStrategyEvaluateOnExitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionRetryStrategyEvaluateOnExit)(nil)).Elem()
+}
+
+func (i GetJobDefinitionRetryStrategyEvaluateOnExitArray) ToGetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput() GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return i.ToGetJobDefinitionRetryStrategyEvaluateOnExitArrayOutputWithContext(context.Background())
+}
+
+func (i GetJobDefinitionRetryStrategyEvaluateOnExitArray) ToGetJobDefinitionRetryStrategyEvaluateOnExitArrayOutputWithContext(ctx context.Context) GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput)
+}
+
+type GetJobDefinitionRetryStrategyEvaluateOnExitOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionRetryStrategyEvaluateOnExitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetJobDefinitionRetryStrategyEvaluateOnExit)(nil)).Elem()
+}
+
+func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) ToGetJobDefinitionRetryStrategyEvaluateOnExitOutput() GetJobDefinitionRetryStrategyEvaluateOnExitOutput {
+	return o
+}
+
+func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) ToGetJobDefinitionRetryStrategyEvaluateOnExitOutputWithContext(ctx context.Context) GetJobDefinitionRetryStrategyEvaluateOnExitOutput {
+	return o
+}
+
+// Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren't case sensitive.
+func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionRetryStrategyEvaluateOnExit) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Contains a glob pattern to match against the decimal representation of the ExitCode returned for a job.
+func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) OnExitCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionRetryStrategyEvaluateOnExit) string { return v.OnExitCode }).(pulumi.StringOutput)
+}
+
+// Contains a glob pattern to match against the Reason returned for a job.
+func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) OnReason() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionRetryStrategyEvaluateOnExit) string { return v.OnReason }).(pulumi.StringOutput)
+}
+
+// Contains a glob pattern to match against the StatusReason returned for a job.
+func (o GetJobDefinitionRetryStrategyEvaluateOnExitOutput) OnStatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v GetJobDefinitionRetryStrategyEvaluateOnExit) string { return v.OnStatusReason }).(pulumi.StringOutput)
+}
+
+type GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetJobDefinitionRetryStrategyEvaluateOnExit)(nil)).Elem()
+}
+
+func (o GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput) ToGetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput() GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput) ToGetJobDefinitionRetryStrategyEvaluateOnExitArrayOutputWithContext(ctx context.Context) GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput {
+	return o
+}
+
+func (o GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput) Index(i pulumi.IntInput) GetJobDefinitionRetryStrategyEvaluateOnExitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetJobDefinitionRetryStrategyEvaluateOnExit {
+		return vs[0].([]GetJobDefinitionRetryStrategyEvaluateOnExit)[vs[1].(int)]
+	}).(GetJobDefinitionRetryStrategyEvaluateOnExitOutput)
 }
 
 type GetJobDefinitionTimeout struct {
@@ -4822,10 +8720,74 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetComputeEnvironmentUpdatePolicyArrayInput)(nil)).Elem(), GetComputeEnvironmentUpdatePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyInput)(nil)).Elem(), GetJobDefinitionEksPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerEnvInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerEnvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerEnvArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerResourceInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyMetadataInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyMetadataArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeHostPathInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeSecretInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyVolumeSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayInput)(nil)).Elem(), GetJobDefinitionEksPropertyPodPropertyVolumeSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyInput)(nil)).Elem(), GetJobDefinitionNodePropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayInput)(nil)).Elem(), GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionRetryStrategyInput)(nil)).Elem(), GetJobDefinitionRetryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionRetryStrategyArrayInput)(nil)).Elem(), GetJobDefinitionRetryStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionRetryStrategyEvaluateOnExitInput)(nil)).Elem(), GetJobDefinitionRetryStrategyEvaluateOnExitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionRetryStrategyEvaluateOnExitArrayInput)(nil)).Elem(), GetJobDefinitionRetryStrategyEvaluateOnExitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionTimeoutInput)(nil)).Elem(), GetJobDefinitionTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobDefinitionTimeoutArrayInput)(nil)).Elem(), GetJobDefinitionTimeoutArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobQueueComputeEnvironmentOrderInput)(nil)).Elem(), GetJobQueueComputeEnvironmentOrderArgs{})
@@ -4886,10 +8848,74 @@ func init() {
 	pulumi.RegisterOutputType(GetComputeEnvironmentUpdatePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerEnvOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerEnvArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerResourceOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyContainerVolumeMountArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyMetadataOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyMetadataArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyVolumeOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDirArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyVolumeHostPathOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyVolumeHostPathArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyVolumeSecretOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionEksPropertyPodPropertyVolumeSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostArrayOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionRetryStrategyOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionRetryStrategyArrayOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionRetryStrategyEvaluateOnExitOutput{})
+	pulumi.RegisterOutputType(GetJobDefinitionRetryStrategyEvaluateOnExitArrayOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionTimeoutOutput{})
 	pulumi.RegisterOutputType(GetJobDefinitionTimeoutArrayOutput{})
 	pulumi.RegisterOutputType(GetJobQueueComputeEnvironmentOrderOutput{})

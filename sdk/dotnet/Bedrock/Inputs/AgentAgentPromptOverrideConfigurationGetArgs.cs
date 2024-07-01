@@ -19,14 +19,14 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> OverrideLambda { get; set; } = null!;
 
         [Input("promptConfigurations", required: true)]
-        private InputList<object>? _promptConfigurations;
+        private InputList<Inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationGetArgs>? _promptConfigurations;
 
         /// <summary>
         /// Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
         /// </summary>
-        public InputList<object> PromptConfigurations
+        public InputList<Inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationGetArgs> PromptConfigurations
         {
-            get => _promptConfigurations ?? (_promptConfigurations = new InputList<object>());
+            get => _promptConfigurations ?? (_promptConfigurations = new InputList<Inputs.AgentAgentPromptOverrideConfigurationPromptConfigurationGetArgs>());
             set => _promptConfigurations = value;
         }
 

@@ -3,9 +3,9 @@
 
 package com.pulumi.aws.lex.outputs;
 
+import com.pulumi.aws.lex.outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,14 +15,14 @@ public final class V2modelsSlotTypeCompositeSlotTypeSetting {
      * @return Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
      * 
      */
-    private List<Object> subSlots;
+    private List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots;
 
     private V2modelsSlotTypeCompositeSlotTypeSetting() {}
     /**
      * @return Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
      * 
      */
-    public List<Object> subSlots() {
+    public List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots() {
         return this.subSlots;
     }
 
@@ -35,7 +35,7 @@ public final class V2modelsSlotTypeCompositeSlotTypeSetting {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<Object> subSlots;
+        private List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots;
         public Builder() {}
         public Builder(V2modelsSlotTypeCompositeSlotTypeSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,14 +43,14 @@ public final class V2modelsSlotTypeCompositeSlotTypeSetting {
         }
 
         @CustomType.Setter
-        public Builder subSlots(List<Object> subSlots) {
+        public Builder subSlots(List<V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots) {
             if (subSlots == null) {
               throw new MissingRequiredPropertyException("V2modelsSlotTypeCompositeSlotTypeSetting", "subSlots");
             }
             this.subSlots = subSlots;
             return this;
         }
-        public Builder subSlots(Object... subSlots) {
+        public Builder subSlots(V2modelsSlotTypeCompositeSlotTypeSettingSubSlot... subSlots) {
             return subSlots(List.of(subSlots));
         }
         public V2modelsSlotTypeCompositeSlotTypeSetting build() {
