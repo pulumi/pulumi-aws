@@ -286,7 +286,7 @@ class ClusterEndpoint(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages an RDS Aurora Cluster Endpoint.
+        Manages an RDS Aurora Cluster Custom Endpoint.
         You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
 
         ## Example Usage
@@ -370,7 +370,7 @@ class ClusterEndpoint(pulumi.CustomResource):
                  args: ClusterEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an RDS Aurora Cluster Endpoint.
+        Manages an RDS Aurora Cluster Custom Endpoint.
         You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
 
         ## Example Usage

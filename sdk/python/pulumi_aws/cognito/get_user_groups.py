@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetUserGroupsResult',
@@ -41,7 +40,7 @@ class GetUserGroupsResult:
 
     @property
     @pulumi.getter
-    def groups(self) -> Optional[Sequence['outputs.GetUserGroupsGroupResult']]:
+    def groups(self) -> Sequence['outputs.GetUserGroupsGroupResult']:
         """
         List of groups. See `groups` below.
         """
@@ -72,8 +71,7 @@ class AwaitableGetUserGroupsResult(GetUserGroupsResult):
             user_pool_id=self.user_pool_id)
 
 
-def get_user_groups(groups: Optional[Sequence[Union['GetUserGroupsGroupArgs', 'GetUserGroupsGroupArgsDict']]] = None,
-                    user_pool_id: Optional[str] = None,
+def get_user_groups(user_pool_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserGroupsResult:
     """
     Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
@@ -90,11 +88,9 @@ def get_user_groups(groups: Optional[Sequence[Union['GetUserGroupsGroupArgs', 'G
     ```
 
 
-    :param Sequence[Union['GetUserGroupsGroupArgs', 'GetUserGroupsGroupArgsDict']] groups: List of groups. See `groups` below.
     :param str user_pool_id: User pool the client belongs to.
     """
     __args__ = dict()
-    __args__['groups'] = groups
     __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserGroups:getUserGroups', __args__, opts=opts, typ=GetUserGroupsResult).value
@@ -106,8 +102,7 @@ def get_user_groups(groups: Optional[Sequence[Union['GetUserGroupsGroupArgs', 'G
 
 
 @_utilities.lift_output_func(get_user_groups)
-def get_user_groups_output(groups: Optional[pulumi.Input[Optional[Sequence[Union['GetUserGroupsGroupArgs', 'GetUserGroupsGroupArgsDict']]]]] = None,
-                           user_pool_id: Optional[pulumi.Input[str]] = None,
+def get_user_groups_output(user_pool_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserGroupsResult]:
     """
     Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
@@ -124,7 +119,6 @@ def get_user_groups_output(groups: Optional[pulumi.Input[Optional[Sequence[Union
     ```
 
 
-    :param Sequence[Union['GetUserGroupsGroupArgs', 'GetUserGroupsGroupArgsDict']] groups: List of groups. See `groups` below.
     :param str user_pool_id: User pool the client belongs to.
     """
     ...

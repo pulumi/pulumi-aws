@@ -595,9 +595,9 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  use_dedicated_replication_server: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides an Elastic Disaster Recovery replication configuration template resource.
+        Provides an Elastic Disaster Recovery replication configuration template resource. Before using DRS, your account must be [initialized](https://docs.aws.amazon.com/drs/latest/userguide/getting-started-initializing.html).
 
-        > **NOTE:** This resource is provided on a best-effort basis and may not function as intended. Due to challenges with DRS permissions, it has not been fully tested. We are collaborating with AWS to enhance its functionality and welcome your feedback.
+        > **NOTE:** Your configuration must use the PIT policy shown in the basic configuration due to AWS rules. The only value that you can change is the `retention_duration` of `rule_id` 3.
 
         ## Example Usage
 
@@ -636,9 +636,9 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  args: ReplicationConfigurationTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic Disaster Recovery replication configuration template resource.
+        Provides an Elastic Disaster Recovery replication configuration template resource. Before using DRS, your account must be [initialized](https://docs.aws.amazon.com/drs/latest/userguide/getting-started-initializing.html).
 
-        > **NOTE:** This resource is provided on a best-effort basis and may not function as intended. Due to challenges with DRS permissions, it has not been fully tested. We are collaborating with AWS to enhance its functionality and welcome your feedback.
+        > **NOTE:** Your configuration must use the PIT policy shown in the basic configuration due to AWS rules. The only value that you can change is the `retention_duration` of `rule_id` 3.
 
         ## Example Usage
 
@@ -825,7 +825,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoReplicateNewDisks")
-    def auto_replicate_new_disks(self) -> pulumi.Output[Optional[bool]]:
+    def auto_replicate_new_disks(self) -> pulumi.Output[bool]:
         """
         Whether to allow the AWS replication agent to automatically replicate newly added disks.
         """

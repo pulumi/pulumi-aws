@@ -38,14 +38,14 @@ class DataSourceArgs:
         :param pulumi.Input[str] api_id: API ID for the GraphQL API for the data source.
         :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[str] description: Description of the data source.
-        :param pulumi.Input['DataSourceDynamodbConfigArgs'] dynamodb_config: DynamoDB settings. See DynamoDB Config
-        :param pulumi.Input['DataSourceElasticsearchConfigArgs'] elasticsearch_config: Amazon Elasticsearch settings. See ElasticSearch Config
-        :param pulumi.Input['DataSourceEventBridgeConfigArgs'] event_bridge_config: AWS EventBridge settings. See Event Bridge Config
-        :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See HTTP Config
-        :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See Lambda Config
+        :param pulumi.Input['DataSourceDynamodbConfigArgs'] dynamodb_config: DynamoDB settings. See `dynamodb_config` Block for details.
+        :param pulumi.Input['DataSourceElasticsearchConfigArgs'] elasticsearch_config: Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
+        :param pulumi.Input['DataSourceEventBridgeConfigArgs'] event_bridge_config: AWS EventBridge settings. See `event_bridge_config` Block for details.
+        :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See `http_config` Block for details.
+        :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See `lambda_config` Block for details.
         :param pulumi.Input[str] name: User-supplied name for the data source.
-        :param pulumi.Input['DataSourceOpensearchserviceConfigArgs'] opensearchservice_config: Amazon OpenSearch Service settings. See OpenSearch Service Config
-        :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
+        :param pulumi.Input['DataSourceOpensearchserviceConfigArgs'] opensearchservice_config: Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See `relational_database_config` Block for details.
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -111,7 +111,7 @@ class DataSourceArgs:
     @pulumi.getter(name="dynamodbConfig")
     def dynamodb_config(self) -> Optional[pulumi.Input['DataSourceDynamodbConfigArgs']]:
         """
-        DynamoDB settings. See DynamoDB Config
+        DynamoDB settings. See `dynamodb_config` Block for details.
         """
         return pulumi.get(self, "dynamodb_config")
 
@@ -123,7 +123,7 @@ class DataSourceArgs:
     @pulumi.getter(name="elasticsearchConfig")
     def elasticsearch_config(self) -> Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']]:
         """
-        Amazon Elasticsearch settings. See ElasticSearch Config
+        Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
         """
         return pulumi.get(self, "elasticsearch_config")
 
@@ -135,7 +135,7 @@ class DataSourceArgs:
     @pulumi.getter(name="eventBridgeConfig")
     def event_bridge_config(self) -> Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']]:
         """
-        AWS EventBridge settings. See Event Bridge Config
+        AWS EventBridge settings. See `event_bridge_config` Block for details.
         """
         return pulumi.get(self, "event_bridge_config")
 
@@ -147,7 +147,7 @@ class DataSourceArgs:
     @pulumi.getter(name="httpConfig")
     def http_config(self) -> Optional[pulumi.Input['DataSourceHttpConfigArgs']]:
         """
-        HTTP settings. See HTTP Config
+        HTTP settings. See `http_config` Block for details.
         """
         return pulumi.get(self, "http_config")
 
@@ -159,7 +159,7 @@ class DataSourceArgs:
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional[pulumi.Input['DataSourceLambdaConfigArgs']]:
         """
-        AWS Lambda settings. See Lambda Config
+        AWS Lambda settings. See `lambda_config` Block for details.
         """
         return pulumi.get(self, "lambda_config")
 
@@ -183,7 +183,7 @@ class DataSourceArgs:
     @pulumi.getter(name="opensearchserviceConfig")
     def opensearchservice_config(self) -> Optional[pulumi.Input['DataSourceOpensearchserviceConfigArgs']]:
         """
-        Amazon OpenSearch Service settings. See OpenSearch Service Config
+        Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
         """
         return pulumi.get(self, "opensearchservice_config")
 
@@ -195,7 +195,7 @@ class DataSourceArgs:
     @pulumi.getter(name="relationalDatabaseConfig")
     def relational_database_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]:
         """
-        AWS RDS settings. See Relational Database Config
+        AWS RDS settings. See `relational_database_config` Block for details.
         """
         return pulumi.get(self, "relational_database_config")
 
@@ -237,14 +237,14 @@ class _DataSourceState:
         :param pulumi.Input[str] api_id: API ID for the GraphQL API for the data source.
         :param pulumi.Input[str] arn: ARN
         :param pulumi.Input[str] description: Description of the data source.
-        :param pulumi.Input['DataSourceDynamodbConfigArgs'] dynamodb_config: DynamoDB settings. See DynamoDB Config
-        :param pulumi.Input['DataSourceElasticsearchConfigArgs'] elasticsearch_config: Amazon Elasticsearch settings. See ElasticSearch Config
-        :param pulumi.Input['DataSourceEventBridgeConfigArgs'] event_bridge_config: AWS EventBridge settings. See Event Bridge Config
-        :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See HTTP Config
-        :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See Lambda Config
+        :param pulumi.Input['DataSourceDynamodbConfigArgs'] dynamodb_config: DynamoDB settings. See `dynamodb_config` Block for details.
+        :param pulumi.Input['DataSourceElasticsearchConfigArgs'] elasticsearch_config: Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
+        :param pulumi.Input['DataSourceEventBridgeConfigArgs'] event_bridge_config: AWS EventBridge settings. See `event_bridge_config` Block for details.
+        :param pulumi.Input['DataSourceHttpConfigArgs'] http_config: HTTP settings. See `http_config` Block for details.
+        :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See `lambda_config` Block for details.
         :param pulumi.Input[str] name: User-supplied name for the data source.
-        :param pulumi.Input['DataSourceOpensearchserviceConfigArgs'] opensearchservice_config: Amazon OpenSearch Service settings. See OpenSearch Service Config
-        :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
+        :param pulumi.Input['DataSourceOpensearchserviceConfigArgs'] opensearchservice_config: Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See `relational_database_config` Block for details.
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         """
@@ -315,7 +315,7 @@ class _DataSourceState:
     @pulumi.getter(name="dynamodbConfig")
     def dynamodb_config(self) -> Optional[pulumi.Input['DataSourceDynamodbConfigArgs']]:
         """
-        DynamoDB settings. See DynamoDB Config
+        DynamoDB settings. See `dynamodb_config` Block for details.
         """
         return pulumi.get(self, "dynamodb_config")
 
@@ -327,7 +327,7 @@ class _DataSourceState:
     @pulumi.getter(name="elasticsearchConfig")
     def elasticsearch_config(self) -> Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']]:
         """
-        Amazon Elasticsearch settings. See ElasticSearch Config
+        Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
         """
         return pulumi.get(self, "elasticsearch_config")
 
@@ -339,7 +339,7 @@ class _DataSourceState:
     @pulumi.getter(name="eventBridgeConfig")
     def event_bridge_config(self) -> Optional[pulumi.Input['DataSourceEventBridgeConfigArgs']]:
         """
-        AWS EventBridge settings. See Event Bridge Config
+        AWS EventBridge settings. See `event_bridge_config` Block for details.
         """
         return pulumi.get(self, "event_bridge_config")
 
@@ -351,7 +351,7 @@ class _DataSourceState:
     @pulumi.getter(name="httpConfig")
     def http_config(self) -> Optional[pulumi.Input['DataSourceHttpConfigArgs']]:
         """
-        HTTP settings. See HTTP Config
+        HTTP settings. See `http_config` Block for details.
         """
         return pulumi.get(self, "http_config")
 
@@ -363,7 +363,7 @@ class _DataSourceState:
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional[pulumi.Input['DataSourceLambdaConfigArgs']]:
         """
-        AWS Lambda settings. See Lambda Config
+        AWS Lambda settings. See `lambda_config` Block for details.
         """
         return pulumi.get(self, "lambda_config")
 
@@ -387,7 +387,7 @@ class _DataSourceState:
     @pulumi.getter(name="opensearchserviceConfig")
     def opensearchservice_config(self) -> Optional[pulumi.Input['DataSourceOpensearchserviceConfigArgs']]:
         """
-        Amazon OpenSearch Service settings. See OpenSearch Service Config
+        Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
         """
         return pulumi.get(self, "opensearchservice_config")
 
@@ -399,7 +399,7 @@ class _DataSourceState:
     @pulumi.getter(name="relationalDatabaseConfig")
     def relational_database_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]:
         """
-        AWS RDS settings. See Relational Database Config
+        AWS RDS settings. See `relational_database_config` Block for details.
         """
         return pulumi.get(self, "relational_database_config")
 
@@ -513,14 +513,14 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API ID for the GraphQL API for the data source.
         :param pulumi.Input[str] description: Description of the data source.
-        :param pulumi.Input[Union['DataSourceDynamodbConfigArgs', 'DataSourceDynamodbConfigArgsDict']] dynamodb_config: DynamoDB settings. See DynamoDB Config
-        :param pulumi.Input[Union['DataSourceElasticsearchConfigArgs', 'DataSourceElasticsearchConfigArgsDict']] elasticsearch_config: Amazon Elasticsearch settings. See ElasticSearch Config
-        :param pulumi.Input[Union['DataSourceEventBridgeConfigArgs', 'DataSourceEventBridgeConfigArgsDict']] event_bridge_config: AWS EventBridge settings. See Event Bridge Config
-        :param pulumi.Input[Union['DataSourceHttpConfigArgs', 'DataSourceHttpConfigArgsDict']] http_config: HTTP settings. See HTTP Config
-        :param pulumi.Input[Union['DataSourceLambdaConfigArgs', 'DataSourceLambdaConfigArgsDict']] lambda_config: AWS Lambda settings. See Lambda Config
+        :param pulumi.Input[Union['DataSourceDynamodbConfigArgs', 'DataSourceDynamodbConfigArgsDict']] dynamodb_config: DynamoDB settings. See `dynamodb_config` Block for details.
+        :param pulumi.Input[Union['DataSourceElasticsearchConfigArgs', 'DataSourceElasticsearchConfigArgsDict']] elasticsearch_config: Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
+        :param pulumi.Input[Union['DataSourceEventBridgeConfigArgs', 'DataSourceEventBridgeConfigArgsDict']] event_bridge_config: AWS EventBridge settings. See `event_bridge_config` Block for details.
+        :param pulumi.Input[Union['DataSourceHttpConfigArgs', 'DataSourceHttpConfigArgsDict']] http_config: HTTP settings. See `http_config` Block for details.
+        :param pulumi.Input[Union['DataSourceLambdaConfigArgs', 'DataSourceLambdaConfigArgsDict']] lambda_config: AWS Lambda settings. See `lambda_config` Block for details.
         :param pulumi.Input[str] name: User-supplied name for the data source.
-        :param pulumi.Input[Union['DataSourceOpensearchserviceConfigArgs', 'DataSourceOpensearchserviceConfigArgsDict']] opensearchservice_config: Amazon OpenSearch Service settings. See OpenSearch Service Config
-        :param pulumi.Input[Union['DataSourceRelationalDatabaseConfigArgs', 'DataSourceRelationalDatabaseConfigArgsDict']] relational_database_config: AWS RDS settings. See Relational Database Config
+        :param pulumi.Input[Union['DataSourceOpensearchserviceConfigArgs', 'DataSourceOpensearchserviceConfigArgsDict']] opensearchservice_config: Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        :param pulumi.Input[Union['DataSourceRelationalDatabaseConfigArgs', 'DataSourceRelationalDatabaseConfigArgsDict']] relational_database_config: AWS RDS settings. See `relational_database_config` Block for details.
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         """
@@ -675,14 +675,14 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] api_id: API ID for the GraphQL API for the data source.
         :param pulumi.Input[str] arn: ARN
         :param pulumi.Input[str] description: Description of the data source.
-        :param pulumi.Input[Union['DataSourceDynamodbConfigArgs', 'DataSourceDynamodbConfigArgsDict']] dynamodb_config: DynamoDB settings. See DynamoDB Config
-        :param pulumi.Input[Union['DataSourceElasticsearchConfigArgs', 'DataSourceElasticsearchConfigArgsDict']] elasticsearch_config: Amazon Elasticsearch settings. See ElasticSearch Config
-        :param pulumi.Input[Union['DataSourceEventBridgeConfigArgs', 'DataSourceEventBridgeConfigArgsDict']] event_bridge_config: AWS EventBridge settings. See Event Bridge Config
-        :param pulumi.Input[Union['DataSourceHttpConfigArgs', 'DataSourceHttpConfigArgsDict']] http_config: HTTP settings. See HTTP Config
-        :param pulumi.Input[Union['DataSourceLambdaConfigArgs', 'DataSourceLambdaConfigArgsDict']] lambda_config: AWS Lambda settings. See Lambda Config
+        :param pulumi.Input[Union['DataSourceDynamodbConfigArgs', 'DataSourceDynamodbConfigArgsDict']] dynamodb_config: DynamoDB settings. See `dynamodb_config` Block for details.
+        :param pulumi.Input[Union['DataSourceElasticsearchConfigArgs', 'DataSourceElasticsearchConfigArgsDict']] elasticsearch_config: Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
+        :param pulumi.Input[Union['DataSourceEventBridgeConfigArgs', 'DataSourceEventBridgeConfigArgsDict']] event_bridge_config: AWS EventBridge settings. See `event_bridge_config` Block for details.
+        :param pulumi.Input[Union['DataSourceHttpConfigArgs', 'DataSourceHttpConfigArgsDict']] http_config: HTTP settings. See `http_config` Block for details.
+        :param pulumi.Input[Union['DataSourceLambdaConfigArgs', 'DataSourceLambdaConfigArgsDict']] lambda_config: AWS Lambda settings. See `lambda_config` Block for details.
         :param pulumi.Input[str] name: User-supplied name for the data source.
-        :param pulumi.Input[Union['DataSourceOpensearchserviceConfigArgs', 'DataSourceOpensearchserviceConfigArgsDict']] opensearchservice_config: Amazon OpenSearch Service settings. See OpenSearch Service Config
-        :param pulumi.Input[Union['DataSourceRelationalDatabaseConfigArgs', 'DataSourceRelationalDatabaseConfigArgsDict']] relational_database_config: AWS RDS settings. See Relational Database Config
+        :param pulumi.Input[Union['DataSourceOpensearchserviceConfigArgs', 'DataSourceOpensearchserviceConfigArgsDict']] opensearchservice_config: Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        :param pulumi.Input[Union['DataSourceRelationalDatabaseConfigArgs', 'DataSourceRelationalDatabaseConfigArgsDict']] relational_database_config: AWS RDS settings. See `relational_database_config` Block for details.
         :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         """
@@ -733,7 +733,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="dynamodbConfig")
     def dynamodb_config(self) -> pulumi.Output[Optional['outputs.DataSourceDynamodbConfig']]:
         """
-        DynamoDB settings. See DynamoDB Config
+        DynamoDB settings. See `dynamodb_config` Block for details.
         """
         return pulumi.get(self, "dynamodb_config")
 
@@ -741,7 +741,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="elasticsearchConfig")
     def elasticsearch_config(self) -> pulumi.Output[Optional['outputs.DataSourceElasticsearchConfig']]:
         """
-        Amazon Elasticsearch settings. See ElasticSearch Config
+        Amazon Elasticsearch settings. See `elasticsearch_config` Block for details.
         """
         return pulumi.get(self, "elasticsearch_config")
 
@@ -749,7 +749,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="eventBridgeConfig")
     def event_bridge_config(self) -> pulumi.Output[Optional['outputs.DataSourceEventBridgeConfig']]:
         """
-        AWS EventBridge settings. See Event Bridge Config
+        AWS EventBridge settings. See `event_bridge_config` Block for details.
         """
         return pulumi.get(self, "event_bridge_config")
 
@@ -757,7 +757,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="httpConfig")
     def http_config(self) -> pulumi.Output[Optional['outputs.DataSourceHttpConfig']]:
         """
-        HTTP settings. See HTTP Config
+        HTTP settings. See `http_config` Block for details.
         """
         return pulumi.get(self, "http_config")
 
@@ -765,7 +765,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> pulumi.Output[Optional['outputs.DataSourceLambdaConfig']]:
         """
-        AWS Lambda settings. See Lambda Config
+        AWS Lambda settings. See `lambda_config` Block for details.
         """
         return pulumi.get(self, "lambda_config")
 
@@ -781,7 +781,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="opensearchserviceConfig")
     def opensearchservice_config(self) -> pulumi.Output[Optional['outputs.DataSourceOpensearchserviceConfig']]:
         """
-        Amazon OpenSearch Service settings. See OpenSearch Service Config
+        Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
         """
         return pulumi.get(self, "opensearchservice_config")
 
@@ -789,7 +789,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="relationalDatabaseConfig")
     def relational_database_config(self) -> pulumi.Output[Optional['outputs.DataSourceRelationalDatabaseConfig']]:
         """
-        AWS RDS settings. See Relational Database Config
+        AWS RDS settings. See `relational_database_config` Block for details.
         """
         return pulumi.get(self, "relational_database_config")
 

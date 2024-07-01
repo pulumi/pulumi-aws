@@ -433,6 +433,7 @@ class Endpoints(dict):
                  neptunegraph: Optional[str] = None,
                  networkfirewall: Optional[str] = None,
                  networkmanager: Optional[str] = None,
+                 networkmonitor: Optional[str] = None,
                  oam: Optional[str] = None,
                  opensearch: Optional[str] = None,
                  opensearchingestion: Optional[str] = None,
@@ -718,6 +719,7 @@ class Endpoints(dict):
         :param str neptunegraph: Use this to override the default service endpoint URL
         :param str networkfirewall: Use this to override the default service endpoint URL
         :param str networkmanager: Use this to override the default service endpoint URL
+        :param str networkmonitor: Use this to override the default service endpoint URL
         :param str oam: Use this to override the default service endpoint URL
         :param str opensearch: Use this to override the default service endpoint URL
         :param str opensearchingestion: Use this to override the default service endpoint URL
@@ -1194,6 +1196,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "networkfirewall", networkfirewall)
         if networkmanager is not None:
             pulumi.set(__self__, "networkmanager", networkmanager)
+        if networkmonitor is not None:
+            pulumi.set(__self__, "networkmonitor", networkmonitor)
         if oam is not None:
             pulumi.set(__self__, "oam", oam)
         if opensearch is not None:
@@ -2908,6 +2912,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "networkmanager")
+
+    @property
+    @pulumi.getter
+    def networkmonitor(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "networkmonitor")
 
     @property
     @pulumi.getter

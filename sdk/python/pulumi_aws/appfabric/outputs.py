@@ -16,12 +16,126 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AppAuthorizationConnectionAuthRequest',
+    'AppAuthorizationConnectionTenant',
+    'AppAuthorizationConnectionTimeouts',
     'AppAuthorizationCredential',
     'AppAuthorizationCredentialApiKeyCredential',
     'AppAuthorizationCredentialOauth2Credential',
     'AppAuthorizationTenant',
     'AppAuthorizationTimeouts',
+    'IngestionDestinationDestinationConfiguration',
+    'IngestionDestinationDestinationConfigurationAuditLog',
+    'IngestionDestinationDestinationConfigurationAuditLogDestination',
+    'IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream',
+    'IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket',
+    'IngestionDestinationProcessingConfiguration',
+    'IngestionDestinationProcessingConfigurationAuditLog',
+    'IngestionDestinationTimeouts',
 ]
+
+@pulumi.output_type
+class AppAuthorizationConnectionAuthRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "redirectUri":
+            suggest = "redirect_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppAuthorizationConnectionAuthRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppAuthorizationConnectionAuthRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppAuthorizationConnectionAuthRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: str,
+                 redirect_uri: str):
+        """
+        :param str code: The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+        :param str redirect_uri: The redirect URL that is specified in the AuthURL and the application client.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "redirect_uri", redirect_uri)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="redirectUri")
+    def redirect_uri(self) -> str:
+        """
+        The redirect URL that is specified in the AuthURL and the application client.
+        """
+        return pulumi.get(self, "redirect_uri")
+
+
+@pulumi.output_type
+class AppAuthorizationConnectionTenant(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tenantDisplayName":
+            suggest = "tenant_display_name"
+        elif key == "tenantIdentifier":
+            suggest = "tenant_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppAuthorizationConnectionTenant. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppAuthorizationConnectionTenant.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppAuthorizationConnectionTenant.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tenant_display_name: str,
+                 tenant_identifier: str):
+        pulumi.set(__self__, "tenant_display_name", tenant_display_name)
+        pulumi.set(__self__, "tenant_identifier", tenant_identifier)
+
+    @property
+    @pulumi.getter(name="tenantDisplayName")
+    def tenant_display_name(self) -> str:
+        return pulumi.get(self, "tenant_display_name")
+
+    @property
+    @pulumi.getter(name="tenantIdentifier")
+    def tenant_identifier(self) -> str:
+        return pulumi.get(self, "tenant_identifier")
+
+
+@pulumi.output_type
+class AppAuthorizationConnectionTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
 
 @pulumi.output_type
 class AppAuthorizationCredential(dict):
@@ -206,6 +320,291 @@ class AppAuthorizationTenant(dict):
 
 @pulumi.output_type
 class AppAuthorizationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class IngestionDestinationDestinationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "auditLog":
+            suggest = "audit_log"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IngestionDestinationDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IngestionDestinationDestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IngestionDestinationDestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audit_log: Optional['outputs.IngestionDestinationDestinationConfigurationAuditLog'] = None):
+        """
+        :param 'IngestionDestinationDestinationConfigurationAuditLogArgs' audit_log: Contains information about an audit log processing configuration.
+        """
+        if audit_log is not None:
+            pulumi.set(__self__, "audit_log", audit_log)
+
+    @property
+    @pulumi.getter(name="auditLog")
+    def audit_log(self) -> Optional['outputs.IngestionDestinationDestinationConfigurationAuditLog']:
+        """
+        Contains information about an audit log processing configuration.
+        """
+        return pulumi.get(self, "audit_log")
+
+
+@pulumi.output_type
+class IngestionDestinationDestinationConfigurationAuditLog(dict):
+    def __init__(__self__, *,
+                 destination: Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestination'] = None):
+        """
+        :param 'IngestionDestinationDestinationConfigurationAuditLogDestinationArgs' destination: Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestination']:
+        """
+        Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+        """
+        return pulumi.get(self, "destination")
+
+
+@pulumi.output_type
+class IngestionDestinationDestinationConfigurationAuditLogDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firehoseStream":
+            suggest = "firehose_stream"
+        elif key == "s3Bucket":
+            suggest = "s3_bucket"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IngestionDestinationDestinationConfigurationAuditLogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IngestionDestinationDestinationConfigurationAuditLogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IngestionDestinationDestinationConfigurationAuditLogDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 firehose_stream: Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream'] = None,
+                 s3_bucket: Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket'] = None):
+        """
+        :param 'IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs' firehose_stream: Contains information about an Amazon Data Firehose delivery stream.
+        :param 'IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs' s3_bucket: Contains information about an Amazon S3 bucket.
+        """
+        if firehose_stream is not None:
+            pulumi.set(__self__, "firehose_stream", firehose_stream)
+        if s3_bucket is not None:
+            pulumi.set(__self__, "s3_bucket", s3_bucket)
+
+    @property
+    @pulumi.getter(name="firehoseStream")
+    def firehose_stream(self) -> Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream']:
+        """
+        Contains information about an Amazon Data Firehose delivery stream.
+        """
+        return pulumi.get(self, "firehose_stream")
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> Optional['outputs.IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket']:
+        """
+        Contains information about an Amazon S3 bucket.
+        """
+        return pulumi.get(self, "s3_bucket")
+
+
+@pulumi.output_type
+class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamName":
+            suggest = "stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stream_name: str):
+        pulumi.set(__self__, "stream_name", stream_name)
+
+    @property
+    @pulumi.getter(name="streamName")
+    def stream_name(self) -> str:
+        return pulumi.get(self, "stream_name")
+
+
+@pulumi.output_type
+class IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IngestionDestinationDestinationConfigurationAuditLogDestinationS3Bucket.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 prefix: Optional[str] = None):
+        """
+        :param str prefix: The object key to use.
+        """
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        The object key to use.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
+class IngestionDestinationProcessingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "auditLog":
+            suggest = "audit_log"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IngestionDestinationProcessingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IngestionDestinationProcessingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IngestionDestinationProcessingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audit_log: Optional['outputs.IngestionDestinationProcessingConfigurationAuditLog'] = None):
+        """
+        :param 'IngestionDestinationProcessingConfigurationAuditLogArgs' audit_log: Contains information about an audit log processing configuration.
+        """
+        if audit_log is not None:
+            pulumi.set(__self__, "audit_log", audit_log)
+
+    @property
+    @pulumi.getter(name="auditLog")
+    def audit_log(self) -> Optional['outputs.IngestionDestinationProcessingConfigurationAuditLog']:
+        """
+        Contains information about an audit log processing configuration.
+        """
+        return pulumi.get(self, "audit_log")
+
+
+@pulumi.output_type
+class IngestionDestinationProcessingConfigurationAuditLog(dict):
+    def __init__(__self__, *,
+                 format: str,
+                 schema: str):
+        """
+        :param str format: The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+        :param str schema: The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+        """
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        """
+        The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> str:
+        """
+        The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class IngestionDestinationTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,

@@ -57,12 +57,14 @@ __all__ = [
     'DomainDefaultUserSettings',
     'DomainDefaultUserSettingsCanvasAppSettings',
     'DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings',
+    'DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings',
     'DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting',
     'DomainDefaultUserSettingsCanvasAppSettingsKendraSettings',
     'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings',
     'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings',
     'DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings',
     'DomainDefaultUserSettingsCodeEditorAppSettings',
+    'DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage',
     'DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec',
     'DomainDefaultUserSettingsCustomFileSystemConfig',
     'DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfig',
@@ -170,12 +172,14 @@ __all__ = [
     'UserProfileUserSettings',
     'UserProfileUserSettingsCanvasAppSettings',
     'UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings',
+    'UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings',
     'UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting',
     'UserProfileUserSettingsCanvasAppSettingsKendraSettings',
     'UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings',
     'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings',
     'UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings',
     'UserProfileUserSettingsCodeEditorAppSettings',
+    'UserProfileUserSettingsCodeEditorAppSettingsCustomImage',
     'UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec',
     'UserProfileUserSettingsCustomFileSystemConfig',
     'UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfig',
@@ -207,6 +211,9 @@ __all__ = [
     'WorkteamMemberDefinitionCognitoMemberDefinition',
     'WorkteamMemberDefinitionOidcMemberDefinition',
     'WorkteamNotificationConfiguration',
+    'WorkteamWorkerAccessConfiguration',
+    'WorkteamWorkerAccessConfigurationS3Presign',
+    'WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints',
 ]
 
 @pulumi.output_type
@@ -2624,6 +2631,8 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
         suggest = None
         if key == "directDeploySettings":
             suggest = "direct_deploy_settings"
+        elif key == "generativeAiSettings":
+            suggest = "generative_ai_settings"
         elif key == "identityProviderOauthSettings":
             suggest = "identity_provider_oauth_settings"
         elif key == "kendraSettings":
@@ -2648,6 +2657,7 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
 
     def __init__(__self__, *,
                  direct_deploy_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings'] = None,
+                 generative_ai_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings'] = None,
                  identity_provider_oauth_settings: Optional[Sequence['outputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting']] = None,
                  kendra_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings'] = None,
                  model_register_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings'] = None,
@@ -2663,6 +2673,8 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
         """
         if direct_deploy_settings is not None:
             pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
+        if generative_ai_settings is not None:
+            pulumi.set(__self__, "generative_ai_settings", generative_ai_settings)
         if identity_provider_oauth_settings is not None:
             pulumi.set(__self__, "identity_provider_oauth_settings", identity_provider_oauth_settings)
         if kendra_settings is not None:
@@ -2681,6 +2693,11 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
         The model deployment settings for the SageMaker Canvas application. See `direct_deploy_settings` Block below.
         """
         return pulumi.get(self, "direct_deploy_settings")
+
+    @property
+    @pulumi.getter(name="generativeAiSettings")
+    def generative_ai_settings(self) -> Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings']:
+        return pulumi.get(self, "generative_ai_settings")
 
     @property
     @pulumi.getter(name="identityProviderOauthSettings")
@@ -2740,6 +2757,36 @@ class DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings(dict):
         Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amazonBedrockRoleArn":
+            suggest = "amazon_bedrock_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amazon_bedrock_role_arn: Optional[str] = None):
+        if amazon_bedrock_role_arn is not None:
+            pulumi.set(__self__, "amazon_bedrock_role_arn", amazon_bedrock_role_arn)
+
+    @property
+    @pulumi.getter(name="amazonBedrockRoleArn")
+    def amazon_bedrock_role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "amazon_bedrock_role_arn")
 
 
 @pulumi.output_type
@@ -2973,7 +3020,9 @@ class DomainDefaultUserSettingsCodeEditorAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultResourceSpec":
+        if key == "customImages":
+            suggest = "custom_images"
+        elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
         elif key == "lifecycleConfigArns":
             suggest = "lifecycle_config_arns"
@@ -2990,16 +3039,28 @@ class DomainDefaultUserSettingsCodeEditorAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_images: Optional[Sequence['outputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
+        :param Sequence['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
         :param 'DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[Sequence['outputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage']]:
+        """
+        A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+        """
+        return pulumi.get(self, "custom_images")
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -3016,6 +3077,68 @@ class DomainDefaultUserSettingsCodeEditorAppSettings(dict):
         The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         return pulumi.get(self, "lifecycle_config_arns")
+
+
+@pulumi.output_type
+class DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appImageConfigName":
+            suggest = "app_image_config_name"
+        elif key == "imageName":
+            suggest = "image_name"
+        elif key == "imageVersionNumber":
+            suggest = "image_version_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_image_config_name: str,
+                 image_name: str,
+                 image_version_number: Optional[int] = None):
+        """
+        :param str app_image_config_name: The name of the App Image Config.
+        :param str image_name: The name of the Custom Image.
+        :param int image_version_number: The version number of the Custom Image.
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> str:
+        """
+        The name of the App Image Config.
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        """
+        The name of the Custom Image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[int]:
+        """
+        The version number of the Custom Image.
+        """
+        return pulumi.get(self, "image_version_number")
 
 
 @pulumi.output_type
@@ -5127,6 +5250,8 @@ class EndpointConfigurationProductionVariant(dict):
             suggest = "core_dump_config"
         elif key == "enableSsmAccess":
             suggest = "enable_ssm_access"
+        elif key == "inferenceAmiVersion":
+            suggest = "inference_ami_version"
         elif key == "initialInstanceCount":
             suggest = "initial_instance_count"
         elif key == "initialVariantWeight":
@@ -5161,6 +5286,7 @@ class EndpointConfigurationProductionVariant(dict):
                  container_startup_health_check_timeout_in_seconds: Optional[int] = None,
                  core_dump_config: Optional['outputs.EndpointConfigurationProductionVariantCoreDumpConfig'] = None,
                  enable_ssm_access: Optional[bool] = None,
+                 inference_ami_version: Optional[str] = None,
                  initial_instance_count: Optional[int] = None,
                  initial_variant_weight: Optional[float] = None,
                  instance_type: Optional[str] = None,
@@ -5175,6 +5301,7 @@ class EndpointConfigurationProductionVariant(dict):
         :param int container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         :param 'EndpointConfigurationProductionVariantCoreDumpConfigArgs' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
         :param bool enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
+        :param str inference_ami_version: Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
         :param int initial_instance_count: Initial number of instances used for auto-scaling.
         :param float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param str instance_type: The type of instance to start.
@@ -5193,6 +5320,8 @@ class EndpointConfigurationProductionVariant(dict):
             pulumi.set(__self__, "core_dump_config", core_dump_config)
         if enable_ssm_access is not None:
             pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
+        if inference_ami_version is not None:
+            pulumi.set(__self__, "inference_ami_version", inference_ami_version)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if initial_variant_weight is not None:
@@ -5249,6 +5378,14 @@ class EndpointConfigurationProductionVariant(dict):
         You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
         """
         return pulumi.get(self, "enable_ssm_access")
+
+    @property
+    @pulumi.getter(name="inferenceAmiVersion")
+    def inference_ami_version(self) -> Optional[str]:
+        """
+        Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+        """
+        return pulumi.get(self, "inference_ami_version")
 
     @property
     @pulumi.getter(name="initialInstanceCount")
@@ -5476,6 +5613,8 @@ class EndpointConfigurationShadowProductionVariant(dict):
             suggest = "core_dump_config"
         elif key == "enableSsmAccess":
             suggest = "enable_ssm_access"
+        elif key == "inferenceAmiVersion":
+            suggest = "inference_ami_version"
         elif key == "initialInstanceCount":
             suggest = "initial_instance_count"
         elif key == "initialVariantWeight":
@@ -5510,6 +5649,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
                  container_startup_health_check_timeout_in_seconds: Optional[int] = None,
                  core_dump_config: Optional['outputs.EndpointConfigurationShadowProductionVariantCoreDumpConfig'] = None,
                  enable_ssm_access: Optional[bool] = None,
+                 inference_ami_version: Optional[str] = None,
                  initial_instance_count: Optional[int] = None,
                  initial_variant_weight: Optional[float] = None,
                  instance_type: Optional[str] = None,
@@ -5527,6 +5667,8 @@ class EndpointConfigurationShadowProductionVariant(dict):
             pulumi.set(__self__, "core_dump_config", core_dump_config)
         if enable_ssm_access is not None:
             pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
+        if inference_ami_version is not None:
+            pulumi.set(__self__, "inference_ami_version", inference_ami_version)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if initial_variant_weight is not None:
@@ -5568,6 +5710,11 @@ class EndpointConfigurationShadowProductionVariant(dict):
     @pulumi.getter(name="enableSsmAccess")
     def enable_ssm_access(self) -> Optional[bool]:
         return pulumi.get(self, "enable_ssm_access")
+
+    @property
+    @pulumi.getter(name="inferenceAmiVersion")
+    def inference_ami_version(self) -> Optional[str]:
+        return pulumi.get(self, "inference_ami_version")
 
     @property
     @pulumi.getter(name="initialInstanceCount")
@@ -9272,6 +9419,8 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
         suggest = None
         if key == "directDeploySettings":
             suggest = "direct_deploy_settings"
+        elif key == "generativeAiSettings":
+            suggest = "generative_ai_settings"
         elif key == "identityProviderOauthSettings":
             suggest = "identity_provider_oauth_settings"
         elif key == "kendraSettings":
@@ -9296,6 +9445,7 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
 
     def __init__(__self__, *,
                  direct_deploy_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings'] = None,
+                 generative_ai_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings'] = None,
                  identity_provider_oauth_settings: Optional[Sequence['outputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting']] = None,
                  kendra_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsKendraSettings'] = None,
                  model_register_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings'] = None,
@@ -9311,6 +9461,8 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
         """
         if direct_deploy_settings is not None:
             pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
+        if generative_ai_settings is not None:
+            pulumi.set(__self__, "generative_ai_settings", generative_ai_settings)
         if identity_provider_oauth_settings is not None:
             pulumi.set(__self__, "identity_provider_oauth_settings", identity_provider_oauth_settings)
         if kendra_settings is not None:
@@ -9329,6 +9481,11 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
         The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
         """
         return pulumi.get(self, "direct_deploy_settings")
+
+    @property
+    @pulumi.getter(name="generativeAiSettings")
+    def generative_ai_settings(self) -> Optional['outputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings']:
+        return pulumi.get(self, "generative_ai_settings")
 
     @property
     @pulumi.getter(name="identityProviderOauthSettings")
@@ -9388,6 +9545,36 @@ class UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings(dict):
         Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amazonBedrockRoleArn":
+            suggest = "amazon_bedrock_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amazon_bedrock_role_arn: Optional[str] = None):
+        if amazon_bedrock_role_arn is not None:
+            pulumi.set(__self__, "amazon_bedrock_role_arn", amazon_bedrock_role_arn)
+
+    @property
+    @pulumi.getter(name="amazonBedrockRoleArn")
+    def amazon_bedrock_role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "amazon_bedrock_role_arn")
 
 
 @pulumi.output_type
@@ -9621,7 +9808,9 @@ class UserProfileUserSettingsCodeEditorAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultResourceSpec":
+        if key == "customImages":
+            suggest = "custom_images"
+        elif key == "defaultResourceSpec":
             suggest = "default_resource_spec"
         elif key == "lifecycleConfigArns":
             suggest = "lifecycle_config_arns"
@@ -9638,16 +9827,28 @@ class UserProfileUserSettingsCodeEditorAppSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_images: Optional[Sequence['outputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
+        :param Sequence['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
         :param 'UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if lifecycle_config_arns is not None:
             pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[Sequence['outputs.UserProfileUserSettingsCodeEditorAppSettingsCustomImage']]:
+        """
+        A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+        """
+        return pulumi.get(self, "custom_images")
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -9664,6 +9865,68 @@ class UserProfileUserSettingsCodeEditorAppSettings(dict):
         The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         return pulumi.get(self, "lifecycle_config_arns")
+
+
+@pulumi.output_type
+class UserProfileUserSettingsCodeEditorAppSettingsCustomImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appImageConfigName":
+            suggest = "app_image_config_name"
+        elif key == "imageName":
+            suggest = "image_name"
+        elif key == "imageVersionNumber":
+            suggest = "image_version_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProfileUserSettingsCodeEditorAppSettingsCustomImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProfileUserSettingsCodeEditorAppSettingsCustomImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProfileUserSettingsCodeEditorAppSettingsCustomImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_image_config_name: str,
+                 image_name: str,
+                 image_version_number: Optional[int] = None):
+        """
+        :param str app_image_config_name: The name of the App Image Config.
+        :param str image_name: The name of the Custom Image.
+        :param int image_version_number: The version number of the Custom Image.
+        """
+        pulumi.set(__self__, "app_image_config_name", app_image_config_name)
+        pulumi.set(__self__, "image_name", image_name)
+        if image_version_number is not None:
+            pulumi.set(__self__, "image_version_number", image_version_number)
+
+    @property
+    @pulumi.getter(name="appImageConfigName")
+    def app_image_config_name(self) -> str:
+        """
+        The name of the App Image Config.
+        """
+        return pulumi.get(self, "app_image_config_name")
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> str:
+        """
+        The name of the Custom Image.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter(name="imageVersionNumber")
+    def image_version_number(self) -> Optional[int]:
+        """
+        The version number of the Custom Image.
+        """
+        return pulumi.get(self, "image_version_number")
 
 
 @pulumi.output_type
@@ -11141,6 +11404,8 @@ class WorkforceOidcConfig(dict):
             suggest = "token_endpoint"
         elif key == "userInfoEndpoint":
             suggest = "user_info_endpoint"
+        elif key == "authenticationRequestExtraParams":
+            suggest = "authentication_request_extra_params"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkforceOidcConfig. Access the value via the '{suggest}' property getter instead.")
@@ -11161,7 +11426,9 @@ class WorkforceOidcConfig(dict):
                  jwks_uri: str,
                  logout_endpoint: str,
                  token_endpoint: str,
-                 user_info_endpoint: str):
+                 user_info_endpoint: str,
+                 authentication_request_extra_params: Optional[Mapping[str, str]] = None,
+                 scope: Optional[str] = None):
         """
         :param str authorization_endpoint: The OIDC IdP authorization endpoint used to configure your private workforce.
         :param str client_id: The OIDC IdP client ID used to configure your private workforce.
@@ -11171,6 +11438,8 @@ class WorkforceOidcConfig(dict):
         :param str logout_endpoint: The OIDC IdP logout endpoint used to configure your private workforce.
         :param str token_endpoint: The OIDC IdP token endpoint used to configure your private workforce.
         :param str user_info_endpoint: The OIDC IdP user information endpoint used to configure your private workforce.
+        :param Mapping[str, str] authentication_request_extra_params: A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+        :param str scope: An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_id", client_id)
@@ -11180,6 +11449,10 @@ class WorkforceOidcConfig(dict):
         pulumi.set(__self__, "logout_endpoint", logout_endpoint)
         pulumi.set(__self__, "token_endpoint", token_endpoint)
         pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+        if authentication_request_extra_params is not None:
+            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -11244,6 +11517,22 @@ class WorkforceOidcConfig(dict):
         The OIDC IdP user information endpoint used to configure your private workforce.
         """
         return pulumi.get(self, "user_info_endpoint")
+
+    @property
+    @pulumi.getter(name="authenticationRequestExtraParams")
+    def authentication_request_extra_params(self) -> Optional[Mapping[str, str]]:
+        """
+        A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+        """
+        return pulumi.get(self, "authentication_request_extra_params")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+        """
+        return pulumi.get(self, "scope")
 
 
 @pulumi.output_type
@@ -11503,5 +11792,127 @@ class WorkteamNotificationConfiguration(dict):
         The ARN for the SNS topic to which notifications should be published.
         """
         return pulumi.get(self, "notification_topic_arn")
+
+
+@pulumi.output_type
+class WorkteamWorkerAccessConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Presign":
+            suggest = "s3_presign"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkteamWorkerAccessConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkteamWorkerAccessConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkteamWorkerAccessConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_presign: Optional['outputs.WorkteamWorkerAccessConfigurationS3Presign'] = None):
+        """
+        :param 'WorkteamWorkerAccessConfigurationS3PresignArgs' s3_presign: Defines any Amazon S3 resource constraints. see S3 Presign details below.
+        """
+        if s3_presign is not None:
+            pulumi.set(__self__, "s3_presign", s3_presign)
+
+    @property
+    @pulumi.getter(name="s3Presign")
+    def s3_presign(self) -> Optional['outputs.WorkteamWorkerAccessConfigurationS3Presign']:
+        """
+        Defines any Amazon S3 resource constraints. see S3 Presign details below.
+        """
+        return pulumi.get(self, "s3_presign")
+
+
+@pulumi.output_type
+class WorkteamWorkerAccessConfigurationS3Presign(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamPolicyConstraints":
+            suggest = "iam_policy_constraints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkteamWorkerAccessConfigurationS3Presign. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkteamWorkerAccessConfigurationS3Presign.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkteamWorkerAccessConfigurationS3Presign.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_policy_constraints: Optional['outputs.WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints'] = None):
+        """
+        :param 'WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs' iam_policy_constraints: Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
+        """
+        if iam_policy_constraints is not None:
+            pulumi.set(__self__, "iam_policy_constraints", iam_policy_constraints)
+
+    @property
+    @pulumi.getter(name="iamPolicyConstraints")
+    def iam_policy_constraints(self) -> Optional['outputs.WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints']:
+        """
+        Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
+        """
+        return pulumi.get(self, "iam_policy_constraints")
+
+
+@pulumi.output_type
+class WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceIp":
+            suggest = "source_ip"
+        elif key == "vpcSourceIp":
+            suggest = "vpc_source_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_ip: Optional[str] = None,
+                 vpc_source_ip: Optional[str] = None):
+        """
+        :param str source_ip: When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
+        :param str vpc_source_ip: When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
+        """
+        if source_ip is not None:
+            pulumi.set(__self__, "source_ip", source_ip)
+        if vpc_source_ip is not None:
+            pulumi.set(__self__, "vpc_source_ip", vpc_source_ip)
+
+    @property
+    @pulumi.getter(name="sourceIp")
+    def source_ip(self) -> Optional[str]:
+        """
+        When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
+        """
+        return pulumi.get(self, "source_ip")
+
+    @property
+    @pulumi.getter(name="vpcSourceIp")
+    def vpc_source_ip(self) -> Optional[str]:
+        """
+        When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
+        """
+        return pulumi.get(self, "vpc_source_ip")
 
 

@@ -65,6 +65,19 @@ __all__ = [
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePort',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlag',
     'RuleGroupRuleGroupStatefulRuleOptions',
+    'TlsInspectionConfigurationCertificate',
+    'TlsInspectionConfigurationCertificateAuthority',
+    'TlsInspectionConfigurationEncryptionConfiguration',
+    'TlsInspectionConfigurationTimeouts',
+    'TlsInspectionConfigurationTlsInspectionConfiguration',
+    'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration',
+    'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus',
+    'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope',
+    'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination',
+    'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort',
+    'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource',
+    'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort',
+    'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate',
     'GetFirewallEncryptionConfigurationResult',
     'GetFirewallFirewallStatusResult',
     'GetFirewallFirewallStatusCapacityUsageSummaryResult',
@@ -2316,6 +2329,668 @@ class RuleGroupRuleGroupStatefulRuleOptions(dict):
         Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
         """
         return pulumi.get(self, "rule_order")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+        elif key == "certificateSerial":
+            suggest = "certificate_serial"
+        elif key == "statusMessage":
+            suggest = "status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_arn: str,
+                 certificate_serial: str,
+                 status: str,
+                 status_message: str):
+        """
+        :param str certificate_arn: ARN of the certificate.
+        :param str certificate_serial: Serial number of the certificate.
+        :param str status: Status of the certificate.
+        :param str status_message: Details about the certificate status, including information about certificate errors.
+        """
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        pulumi.set(__self__, "certificate_serial", certificate_serial)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> str:
+        """
+        ARN of the certificate.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @property
+    @pulumi.getter(name="certificateSerial")
+    def certificate_serial(self) -> str:
+        """
+        Serial number of the certificate.
+        """
+        return pulumi.get(self, "certificate_serial")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the certificate.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Details about the certificate status, including information about certificate errors.
+        """
+        return pulumi.get(self, "status_message")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationCertificateAuthority(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateArn":
+            suggest = "certificate_arn"
+        elif key == "certificateSerial":
+            suggest = "certificate_serial"
+        elif key == "statusMessage":
+            suggest = "status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationCertificateAuthority. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationCertificateAuthority.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationCertificateAuthority.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_arn: str,
+                 certificate_serial: str,
+                 status: str,
+                 status_message: str):
+        """
+        :param str certificate_arn: ARN of the certificate.
+        :param str certificate_serial: Serial number of the certificate.
+        :param str status: Status of the certificate.
+        :param str status_message: Details about the certificate status, including information about certificate errors.
+        """
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        pulumi.set(__self__, "certificate_serial", certificate_serial)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> str:
+        """
+        ARN of the certificate.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @property
+    @pulumi.getter(name="certificateSerial")
+    def certificate_serial(self) -> str:
+        """
+        Serial number of the certificate.
+        """
+        return pulumi.get(self, "certificate_serial")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the certificate.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        Details about the certificate status, including information about certificate errors.
+        """
+        return pulumi.get(self, "status_message")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_id: str,
+                 type: str):
+        """
+        :param str key_id: ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+        :param str type: Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
+        """
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> str:
+        """
+        ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+        """
+        return pulumi.get(self, "key_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[str] = None,
+                 delete: Optional[str] = None,
+                 update: Optional[str] = None):
+        """
+        :param str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTlsInspectionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverCertificateConfiguration":
+            suggest = "server_certificate_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationTlsInspectionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_certificate_configuration: Optional['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration'] = None):
+        """
+        :param 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs' server_certificate_configuration: Server certificate configurations that are associated with the TLS configuration. Detailed below.
+        """
+        if server_certificate_configuration is not None:
+            pulumi.set(__self__, "server_certificate_configuration", server_certificate_configuration)
+
+    @property
+    @pulumi.getter(name="serverCertificateConfiguration")
+    def server_certificate_configuration(self) -> Optional['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration']:
+        """
+        Server certificate configurations that are associated with the TLS configuration. Detailed below.
+        """
+        return pulumi.get(self, "server_certificate_configuration")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityArn":
+            suggest = "certificate_authority_arn"
+        elif key == "checkCertificateRevocationStatus":
+            suggest = "check_certificate_revocation_status"
+        elif key == "serverCertificates":
+            suggest = "server_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_authority_arn: Optional[str] = None,
+                 check_certificate_revocation_status: Optional['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus'] = None,
+                 scopes: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope']] = None,
+                 server_certificates: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate']] = None):
+        """
+        :param str certificate_authority_arn: ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
+        :param 'TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs' check_certificate_revocation_status: Check Certificate Revocation Status block. Detailed below.
+        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeArgs'] scopes: Scope block. Detailed below.
+        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs'] server_certificates: Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
+        """
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if check_certificate_revocation_status is not None:
+            pulumi.set(__self__, "check_certificate_revocation_status", check_certificate_revocation_status)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if server_certificates is not None:
+            pulumi.set(__self__, "server_certificates", server_certificates)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[str]:
+        """
+        ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
+        """
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @property
+    @pulumi.getter(name="checkCertificateRevocationStatus")
+    def check_certificate_revocation_status(self) -> Optional['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus']:
+        """
+        Check Certificate Revocation Status block. Detailed below.
+        """
+        return pulumi.get(self, "check_certificate_revocation_status")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope']]:
+        """
+        Scope block. Detailed below.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="serverCertificates")
+    def server_certificates(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate']]:
+        """
+        Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
+        """
+        return pulumi.get(self, "server_certificates")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "revokedStatusAction":
+            suggest = "revoked_status_action"
+        elif key == "unknownStatusAction":
+            suggest = "unknown_status_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 revoked_status_action: Optional[str] = None,
+                 unknown_status_action: Optional[str] = None):
+        if revoked_status_action is not None:
+            pulumi.set(__self__, "revoked_status_action", revoked_status_action)
+        if unknown_status_action is not None:
+            pulumi.set(__self__, "unknown_status_action", unknown_status_action)
+
+    @property
+    @pulumi.getter(name="revokedStatusAction")
+    def revoked_status_action(self) -> Optional[str]:
+        return pulumi.get(self, "revoked_status_action")
+
+    @property
+    @pulumi.getter(name="unknownStatusAction")
+    def unknown_status_action(self) -> Optional[str]:
+        return pulumi.get(self, "unknown_status_action")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "sourcePorts":
+            suggest = "source_ports"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 protocols: Sequence[int],
+                 destination_ports: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort']] = None,
+                 destinations: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination']] = None,
+                 source_ports: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort']] = None,
+                 sources: Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource']] = None):
+        """
+        :param Sequence[int] protocols: Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs'] destination_ports: Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
+        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs'] destinations: Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
+        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs'] source_ports: Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
+        :param Sequence['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs'] sources: Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
+        """
+        pulumi.set(__self__, "protocols", protocols)
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Sequence[int]:
+        """
+        Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+        """
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort']]:
+        """
+        Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
+        """
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination']]:
+        """
+        Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
+        """
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort']]:
+        """
+        Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
+        """
+        return pulumi.get(self, "source_ports")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource']]:
+        """
+        Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
+        """
+        return pulumi.get(self, "sources")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressDefinition":
+            suggest = "address_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_definition: str):
+        """
+        :param str address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        """
+        pulumi.set(__self__, "address_definition", address_definition)
+
+    @property
+    @pulumi.getter(name="addressDefinition")
+    def address_definition(self) -> str:
+        """
+        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        """
+        return pulumi.get(self, "address_definition")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPort.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 to_port: int):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressDefinition":
+            suggest = "address_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_definition: str):
+        """
+        :param str address_definition: An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        """
+        pulumi.set(__self__, "address_definition", address_definition)
+
+    @property
+    @pulumi.getter(name="addressDefinition")
+    def address_definition(self) -> str:
+        """
+        An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
+        """
+        return pulumi.get(self, "address_definition")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePort.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 to_port: int):
+        """
+        :param int from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
+        :param int to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        """
+        The lower limit of the port range. This must be less than or equal to the `to_port`.
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        """
+        The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_arn: Optional[str] = None):
+        """
+        :param str resource_arn: ARN of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
+        """
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[str]:
+        """
+        ARN of the Certificate Manager SSL/TLS server certificate that's used for inbound SSL/TLS inspection.
+        """
+        return pulumi.get(self, "resource_arn")
 
 
 @pulumi.output_type

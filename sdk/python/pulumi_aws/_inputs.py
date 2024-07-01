@@ -1164,6 +1164,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        networkmonitor: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         oam: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -1733,6 +1737,7 @@ class ProviderEndpointArgs:
                  neptunegraph: Optional[pulumi.Input[str]] = None,
                  networkfirewall: Optional[pulumi.Input[str]] = None,
                  networkmanager: Optional[pulumi.Input[str]] = None,
+                 networkmonitor: Optional[pulumi.Input[str]] = None,
                  oam: Optional[pulumi.Input[str]] = None,
                  opensearch: Optional[pulumi.Input[str]] = None,
                  opensearchingestion: Optional[pulumi.Input[str]] = None,
@@ -2018,6 +2023,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] neptunegraph: Use this to override the default service endpoint URL
         :param pulumi.Input[str] networkfirewall: Use this to override the default service endpoint URL
         :param pulumi.Input[str] networkmanager: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] networkmonitor: Use this to override the default service endpoint URL
         :param pulumi.Input[str] oam: Use this to override the default service endpoint URL
         :param pulumi.Input[str] opensearch: Use this to override the default service endpoint URL
         :param pulumi.Input[str] opensearchingestion: Use this to override the default service endpoint URL
@@ -2494,6 +2500,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "networkfirewall", networkfirewall)
         if networkmanager is not None:
             pulumi.set(__self__, "networkmanager", networkmanager)
+        if networkmonitor is not None:
+            pulumi.set(__self__, "networkmonitor", networkmonitor)
         if oam is not None:
             pulumi.set(__self__, "oam", oam)
         if opensearch is not None:
@@ -4972,6 +4980,18 @@ class ProviderEndpointArgs:
     @networkmanager.setter
     def networkmanager(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "networkmanager", value)
+
+    @property
+    @pulumi.getter
+    def networkmonitor(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "networkmonitor")
+
+    @networkmonitor.setter
+    def networkmonitor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "networkmonitor", value)
 
     @property
     @pulumi.getter

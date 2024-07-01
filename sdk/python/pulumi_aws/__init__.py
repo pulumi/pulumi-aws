@@ -303,6 +303,8 @@ if typing.TYPE_CHECKING:
     networkfirewall = __networkfirewall
     import pulumi_aws.networkmanager as __networkmanager
     networkmanager = __networkmanager
+    import pulumi_aws.networkmonitor as __networkmonitor
+    networkmonitor = __networkmonitor
     import pulumi_aws.oam as __oam
     oam = __oam
     import pulumi_aws.opensearch as __opensearch
@@ -584,6 +586,7 @@ else:
     neptune = _utilities.lazy_import('pulumi_aws.neptune')
     networkfirewall = _utilities.lazy_import('pulumi_aws.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws.networkmanager')
+    networkmonitor = _utilities.lazy_import('pulumi_aws.networkmonitor')
     oam = _utilities.lazy_import('pulumi_aws.oam')
     opensearch = _utilities.lazy_import('pulumi_aws.opensearch')
     opensearchingest = _utilities.lazy_import('pulumi_aws.opensearchingest')
@@ -1268,10 +1271,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appfabric/appAuthorizationConnection",
+  "fqn": "pulumi_aws.appfabric",
+  "classes": {
+   "aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection": "AppAuthorizationConnection"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appfabric/appBundle",
   "fqn": "pulumi_aws.appfabric",
   "classes": {
    "aws:appfabric/appBundle:AppBundle": "AppBundle"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appfabric/ingestion",
+  "fqn": "pulumi_aws.appfabric",
+  "classes": {
+   "aws:appfabric/ingestion:Ingestion": "Ingestion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appfabric/ingestionDestination",
+  "fqn": "pulumi_aws.appfabric",
+  "classes": {
+   "aws:appfabric/ingestionDestination:IngestionDestination": "IngestionDestination"
   }
  },
  {
@@ -7788,6 +7815,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "networkfirewall/tlsInspectionConfiguration",
+  "fqn": "pulumi_aws.networkfirewall",
+  "classes": {
+   "aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration": "TlsInspectionConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "networkmanager/attachmentAccepter",
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
@@ -7928,6 +7963,22 @@ _utilities.register(
   "fqn": "pulumi_aws.networkmanager",
   "classes": {
    "aws:networkmanager/vpcAttachment:VpcAttachment": "VpcAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmonitor/monitor",
+  "fqn": "pulumi_aws.networkmonitor",
+  "classes": {
+   "aws:networkmonitor/monitor:Monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "networkmonitor/probe",
+  "fqn": "pulumi_aws.networkmonitor",
+  "classes": {
+   "aws:networkmonitor/probe:Probe": "Probe"
   }
  },
  {
