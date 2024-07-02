@@ -3,10 +3,10 @@
 
 package com.pulumi.aws.batch.outputs;
 
+import com.pulumi.aws.batch.outputs.GetJobDefinitionRetryStrategyEvaluateOnExit;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,7 +21,7 @@ public final class GetJobDefinitionRetryStrategy {
      * @return Array of up to 5 objects that specify the conditions where jobs are retried or failed.
      * 
      */
-    private List<Object> evaluateOnExits;
+    private List<GetJobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits;
 
     private GetJobDefinitionRetryStrategy() {}
     /**
@@ -35,7 +35,7 @@ public final class GetJobDefinitionRetryStrategy {
      * @return Array of up to 5 objects that specify the conditions where jobs are retried or failed.
      * 
      */
-    public List<Object> evaluateOnExits() {
+    public List<GetJobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits() {
         return this.evaluateOnExits;
     }
 
@@ -49,7 +49,7 @@ public final class GetJobDefinitionRetryStrategy {
     @CustomType.Builder
     public static final class Builder {
         private Integer attempts;
-        private List<Object> evaluateOnExits;
+        private List<GetJobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits;
         public Builder() {}
         public Builder(GetJobDefinitionRetryStrategy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,14 +66,14 @@ public final class GetJobDefinitionRetryStrategy {
             return this;
         }
         @CustomType.Setter
-        public Builder evaluateOnExits(List<Object> evaluateOnExits) {
+        public Builder evaluateOnExits(List<GetJobDefinitionRetryStrategyEvaluateOnExit> evaluateOnExits) {
             if (evaluateOnExits == null) {
               throw new MissingRequiredPropertyException("GetJobDefinitionRetryStrategy", "evaluateOnExits");
             }
             this.evaluateOnExits = evaluateOnExits;
             return this;
         }
-        public Builder evaluateOnExits(Object... evaluateOnExits) {
+        public Builder evaluateOnExits(GetJobDefinitionRetryStrategyEvaluateOnExit... evaluateOnExits) {
             return evaluateOnExits(List.of(evaluateOnExits));
         }
         public GetJobDefinitionRetryStrategy build() {
