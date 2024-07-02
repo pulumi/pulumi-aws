@@ -380,13 +380,11 @@ jobs:
             with:
               ref: ${{ env.PR_COMMIT_SHA }}
               submodules: true
-          - uses: pulumi/provider-version-action@v1
+          - name: Install Go
+            uses: actions/setup-go@v5
             with:
-              set-env: PROVIDER_VERSION
-          - name: Setup tools
-            uses: ./.github/actions/setup-tools
-            with:
-              tools: pulumictl, pulumi, go
+              cache: false
+              go-version: 1.22.x
           - name: Make upstream
             run: make upstream
           - name: upstream lint
