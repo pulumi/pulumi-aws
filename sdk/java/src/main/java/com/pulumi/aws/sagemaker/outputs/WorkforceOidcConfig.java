@@ -6,10 +6,18 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkforceOidcConfig {
+    /**
+     * @return A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+     * 
+     */
+    private @Nullable Map<String,String> authenticationRequestExtraParams;
     /**
      * @return The OIDC IdP authorization endpoint used to configure your private workforce.
      * 
@@ -41,6 +49,11 @@ public final class WorkforceOidcConfig {
      */
     private String logoutEndpoint;
     /**
+     * @return An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+     * 
+     */
+    private @Nullable String scope;
+    /**
      * @return The OIDC IdP token endpoint used to configure your private workforce.
      * 
      */
@@ -52,6 +65,13 @@ public final class WorkforceOidcConfig {
     private String userInfoEndpoint;
 
     private WorkforceOidcConfig() {}
+    /**
+     * @return A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+     * 
+     */
+    public Map<String,String> authenticationRequestExtraParams() {
+        return this.authenticationRequestExtraParams == null ? Map.of() : this.authenticationRequestExtraParams;
+    }
     /**
      * @return The OIDC IdP authorization endpoint used to configure your private workforce.
      * 
@@ -95,6 +115,13 @@ public final class WorkforceOidcConfig {
         return this.logoutEndpoint;
     }
     /**
+     * @return An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+     * 
+     */
+    public Optional<String> scope() {
+        return Optional.ofNullable(this.scope);
+    }
+    /**
      * @return The OIDC IdP token endpoint used to configure your private workforce.
      * 
      */
@@ -118,27 +145,37 @@ public final class WorkforceOidcConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Map<String,String> authenticationRequestExtraParams;
         private String authorizationEndpoint;
         private String clientId;
         private String clientSecret;
         private String issuer;
         private String jwksUri;
         private String logoutEndpoint;
+        private @Nullable String scope;
         private String tokenEndpoint;
         private String userInfoEndpoint;
         public Builder() {}
         public Builder(WorkforceOidcConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.authenticationRequestExtraParams = defaults.authenticationRequestExtraParams;
     	      this.authorizationEndpoint = defaults.authorizationEndpoint;
     	      this.clientId = defaults.clientId;
     	      this.clientSecret = defaults.clientSecret;
     	      this.issuer = defaults.issuer;
     	      this.jwksUri = defaults.jwksUri;
     	      this.logoutEndpoint = defaults.logoutEndpoint;
+    	      this.scope = defaults.scope;
     	      this.tokenEndpoint = defaults.tokenEndpoint;
     	      this.userInfoEndpoint = defaults.userInfoEndpoint;
         }
 
+        @CustomType.Setter
+        public Builder authenticationRequestExtraParams(@Nullable Map<String,String> authenticationRequestExtraParams) {
+
+            this.authenticationRequestExtraParams = authenticationRequestExtraParams;
+            return this;
+        }
         @CustomType.Setter
         public Builder authorizationEndpoint(String authorizationEndpoint) {
             if (authorizationEndpoint == null) {
@@ -188,6 +225,12 @@ public final class WorkforceOidcConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder scope(@Nullable String scope) {
+
+            this.scope = scope;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tokenEndpoint(String tokenEndpoint) {
             if (tokenEndpoint == null) {
               throw new MissingRequiredPropertyException("WorkforceOidcConfig", "tokenEndpoint");
@@ -205,12 +248,14 @@ public final class WorkforceOidcConfig {
         }
         public WorkforceOidcConfig build() {
             final var _resultValue = new WorkforceOidcConfig();
+            _resultValue.authenticationRequestExtraParams = authenticationRequestExtraParams;
             _resultValue.authorizationEndpoint = authorizationEndpoint;
             _resultValue.clientId = clientId;
             _resultValue.clientSecret = clientSecret;
             _resultValue.issuer = issuer;
             _resultValue.jwksUri = jwksUri;
             _resultValue.logoutEndpoint = logoutEndpoint;
+            _resultValue.scope = scope;
             _resultValue.tokenEndpoint = tokenEndpoint;
             _resultValue.userInfoEndpoint = userInfoEndpoint;
             return _resultValue;

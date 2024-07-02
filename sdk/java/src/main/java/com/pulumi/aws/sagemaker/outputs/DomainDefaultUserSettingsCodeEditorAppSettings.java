@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage;
 import com.pulumi.aws.sagemaker.outputs.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultUserSettingsCodeEditorAppSettings {
+    /**
+     * @return A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+     * 
+     */
+    private @Nullable List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages;
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
@@ -25,6 +31,13 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
     private @Nullable List<String> lifecycleConfigArns;
 
     private DomainDefaultUserSettingsCodeEditorAppSettings() {}
+    /**
+     * @return A list of custom SageMaker images that are configured to run as a CodeEditor app. see `custom_image` Block below.
+     * 
+     */
+    public List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages() {
+        return this.customImages == null ? List.of() : this.customImages;
+    }
     /**
      * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `default_resource_spec` Block below.
      * 
@@ -49,15 +62,26 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages;
         private @Nullable DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
         private @Nullable List<String> lifecycleConfigArns;
         public Builder() {}
         public Builder(DomainDefaultUserSettingsCodeEditorAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.customImages = defaults.customImages;
     	      this.defaultResourceSpec = defaults.defaultResourceSpec;
     	      this.lifecycleConfigArns = defaults.lifecycleConfigArns;
         }
 
+        @CustomType.Setter
+        public Builder customImages(@Nullable List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages) {
+
+            this.customImages = customImages;
+            return this;
+        }
+        public Builder customImages(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage... customImages) {
+            return customImages(List.of(customImages));
+        }
         @CustomType.Setter
         public Builder defaultResourceSpec(@Nullable DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec) {
 
@@ -75,6 +99,7 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
         }
         public DomainDefaultUserSettingsCodeEditorAppSettings build() {
             final var _resultValue = new DomainDefaultUserSettingsCodeEditorAppSettings();
+            _resultValue.customImages = customImages;
             _resultValue.defaultResourceSpec = defaultResourceSpec;
             _resultValue.lifecycleConfigArns = lifecycleConfigArns;
             return _resultValue;

@@ -23,7 +23,7 @@ public final class FunctionSyncConfig {
      */
     private @Nullable String conflictHandler;
     /**
-     * @return Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+     * @return Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
      * 
      */
     private @Nullable FunctionSyncConfigLambdaConflictHandlerConfig lambdaConflictHandlerConfig;
@@ -44,7 +44,7 @@ public final class FunctionSyncConfig {
         return Optional.ofNullable(this.conflictHandler);
     }
     /**
-     * @return Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+     * @return Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
      * 
      */
     public Optional<FunctionSyncConfigLambdaConflictHandlerConfig> lambdaConflictHandlerConfig() {

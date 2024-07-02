@@ -43,8 +43,8 @@ class FunctionArgs:
         :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: Function response mapping template.
-        :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-        :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
+        :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+        :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "data_source", data_source)
@@ -179,7 +179,7 @@ class FunctionArgs:
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input['FunctionRuntimeArgs']]:
         """
-        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
         """
         return pulumi.get(self, "runtime")
 
@@ -191,7 +191,7 @@ class FunctionArgs:
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional[pulumi.Input['FunctionSyncConfigArgs']]:
         """
-        Describes a Sync configuration for a resolver. See Sync Config.
+        Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         """
         return pulumi.get(self, "sync_config")
 
@@ -229,8 +229,8 @@ class _FunctionState:
         :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: Function response mapping template.
-        :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-        :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
+        :param pulumi.Input['FunctionRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+        :param pulumi.Input['FunctionSyncConfigArgs'] sync_config: Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -395,7 +395,7 @@ class _FunctionState:
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input['FunctionRuntimeArgs']]:
         """
-        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
         """
         return pulumi.get(self, "runtime")
 
@@ -407,7 +407,7 @@ class _FunctionState:
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional[pulumi.Input['FunctionSyncConfigArgs']]:
         """
-        Describes a Sync configuration for a resolver. See Sync Config.
+        Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         """
         return pulumi.get(self, "sync_config")
 
@@ -528,8 +528,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: Function response mapping template.
-        :param pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-        :param pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
+        :param pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+        :param pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']] sync_config: Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         """
         ...
     @overload
@@ -714,8 +714,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] name: Function name. The function name does not have to be unique.
         :param pulumi.Input[str] request_mapping_template: Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         :param pulumi.Input[str] response_mapping_template: Function response mapping template.
-        :param pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-        :param pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']] sync_config: Describes a Sync configuration for a resolver. See Sync Config.
+        :param pulumi.Input[Union['FunctionRuntimeArgs', 'FunctionRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
+        :param pulumi.Input[Union['FunctionSyncConfigArgs', 'FunctionSyncConfigArgsDict']] sync_config: Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -828,7 +828,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def runtime(self) -> pulumi.Output[Optional['outputs.FunctionRuntime']]:
         """
-        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
         """
         return pulumi.get(self, "runtime")
 
@@ -836,7 +836,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> pulumi.Output[Optional['outputs.FunctionSyncConfig']]:
         """
-        Describes a Sync configuration for a resolver. See Sync Config.
+        Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         """
         return pulumi.get(self, "sync_config")
 

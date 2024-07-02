@@ -254,7 +254,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <summary>
         /// Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// String token used when updating a firewall.
         /// </summary>
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.NetworkFirewall
 
             ImmutableArray<Outputs.GetFirewallSubnetMappingResult> subnetMappings,
 
-            ImmutableDictionary<string, string>? tags,
+            ImmutableDictionary<string, string> tags,
 
             string updateToken,
 

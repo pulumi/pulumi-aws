@@ -107,6 +107,21 @@ public final class ResolverFirewallRuleState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+     * 
+     */
+    @Import(name="firewallDomainRedirectionAction")
+    private @Nullable Output<String> firewallDomainRedirectionAction;
+
+    /**
+     * @return Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+     * 
+     */
+    public Optional<Output<String>> firewallDomainRedirectionAction() {
+        return Optional.ofNullable(this.firewallDomainRedirectionAction);
+    }
+
+    /**
      * The unique identifier of the firewall rule group where you want to create the rule.
      * 
      */
@@ -151,6 +166,21 @@ public final class ResolverFirewallRuleState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.priority);
     }
 
+    /**
+     * The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+     * 
+     */
+    @Import(name="qType")
+    private @Nullable Output<String> qType;
+
+    /**
+     * @return The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+     * 
+     */
+    public Optional<Output<String>> qType() {
+        return Optional.ofNullable(this.qType);
+    }
+
     private ResolverFirewallRuleState() {}
 
     private ResolverFirewallRuleState(ResolverFirewallRuleState $) {
@@ -160,9 +190,11 @@ public final class ResolverFirewallRuleState extends com.pulumi.resources.Resour
         this.blockOverrideTtl = $.blockOverrideTtl;
         this.blockResponse = $.blockResponse;
         this.firewallDomainListId = $.firewallDomainListId;
+        this.firewallDomainRedirectionAction = $.firewallDomainRedirectionAction;
         this.firewallRuleGroupId = $.firewallRuleGroupId;
         this.name = $.name;
         this.priority = $.priority;
+        this.qType = $.qType;
     }
 
     public static Builder builder() {
@@ -310,6 +342,27 @@ public final class ResolverFirewallRuleState extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param firewallDomainRedirectionAction Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallDomainRedirectionAction(@Nullable Output<String> firewallDomainRedirectionAction) {
+            $.firewallDomainRedirectionAction = firewallDomainRedirectionAction;
+            return this;
+        }
+
+        /**
+         * @param firewallDomainRedirectionAction Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallDomainRedirectionAction(String firewallDomainRedirectionAction) {
+            return firewallDomainRedirectionAction(Output.of(firewallDomainRedirectionAction));
+        }
+
+        /**
          * @param firewallRuleGroupId The unique identifier of the firewall rule group where you want to create the rule.
          * 
          * @return builder
@@ -370,6 +423,27 @@ public final class ResolverFirewallRuleState extends com.pulumi.resources.Resour
          */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
+        }
+
+        /**
+         * @param qType The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qType(@Nullable Output<String> qType) {
+            $.qType = qType;
+            return this;
+        }
+
+        /**
+         * @param qType The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder qType(String qType) {
+            return qType(Output.of(qType));
         }
 
         public ResolverFirewallRuleState build() {

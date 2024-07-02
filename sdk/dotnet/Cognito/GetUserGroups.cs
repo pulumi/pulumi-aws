@@ -67,18 +67,6 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserGroupsArgs : global::Pulumi.InvokeArgs
     {
-        [Input("groups")]
-        private List<Inputs.GetUserGroupsGroupArgs>? _groups;
-
-        /// <summary>
-        /// List of groups. See `groups` below.
-        /// </summary>
-        public List<Inputs.GetUserGroupsGroupArgs> Groups
-        {
-            get => _groups ?? (_groups = new List<Inputs.GetUserGroupsGroupArgs>());
-            set => _groups = value;
-        }
-
         /// <summary>
         /// User pool the client belongs to.
         /// </summary>
@@ -93,18 +81,6 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("groups")]
-        private InputList<Inputs.GetUserGroupsGroupInputArgs>? _groups;
-
-        /// <summary>
-        /// List of groups. See `groups` below.
-        /// </summary>
-        public InputList<Inputs.GetUserGroupsGroupInputArgs> Groups
-        {
-            get => _groups ?? (_groups = new InputList<Inputs.GetUserGroupsGroupInputArgs>());
-            set => _groups = value;
-        }
-
         /// <summary>
         /// User pool the client belongs to.
         /// </summary>

@@ -6864,6 +6864,7 @@ func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefau
 type DomainDefaultUserSettingsCanvasAppSettings struct {
 	// The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
 	DirectDeploySettings *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings `pulumi:"directDeploySettings"`
+	GenerativeAiSettings *DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings `pulumi:"generativeAiSettings"`
 	// The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
 	IdentityProviderOauthSettings []DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting `pulumi:"identityProviderOauthSettings"`
 	// The settings for document querying. See `kendraSettings` Block below.
@@ -6890,6 +6891,7 @@ type DomainDefaultUserSettingsCanvasAppSettingsInput interface {
 type DomainDefaultUserSettingsCanvasAppSettingsArgs struct {
 	// The model deployment settings for the SageMaker Canvas application. See `directDeploySettings` Block below.
 	DirectDeploySettings DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput `pulumi:"directDeploySettings"`
+	GenerativeAiSettings DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput `pulumi:"generativeAiSettings"`
 	// The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
 	IdentityProviderOauthSettings DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput `pulumi:"identityProviderOauthSettings"`
 	// The settings for document querying. See `kendraSettings` Block below.
@@ -6986,6 +6988,12 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) DirectDeploySettings()
 	}).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
 }
 
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) GenerativeAiSettings() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings {
+		return v.GenerativeAiSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput)
+}
+
 // The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) IdentityProviderOauthSettings() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) []DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
@@ -7053,6 +7061,15 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) DirectDeploySetting
 		}
 		return v.DirectDeploySettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) GenerativeAiSettings() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings {
+		if v == nil {
+			return nil
+		}
+		return v.GenerativeAiSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput)
 }
 
 // The settings for connecting to an external data source with OAuth. See `identityProviderOauthSettings` Block below.
@@ -7239,6 +7256,141 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
 			return nil
 		}
 		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings struct {
+	AmazonBedrockRoleArn *string `pulumi:"amazonBedrockRoleArn"`
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs and DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsInput` via:
+//
+//	DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{...}
+type DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs struct {
+	AmazonBedrockRoleArn pulumi.StringPtrInput `pulumi:"amazonBedrockRoleArn"`
+}
+
+func (DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput).ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs, DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtr and DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrType DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs
+
+func DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtr(v *DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput {
+	return (*domainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings) *DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings {
+		return &v
+	}).(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput)
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) AmazonBedrockRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings) *string {
+		return v.AmazonBedrockRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput) Elem() DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings) DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings
+		return ret
+	}).(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput)
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput) AmazonBedrockRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AmazonBedrockRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7975,6 +8127,8 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3
 }
 
 type DomainDefaultUserSettingsCodeEditorAppSettings struct {
+	// A list of custom SageMaker images that are configured to run as a CodeEditor app. see `customImage` Block below.
+	CustomImages []DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -7993,6 +8147,8 @@ type DomainDefaultUserSettingsCodeEditorAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsCodeEditorAppSettingsArgs struct {
+	// A list of custom SageMaker images that are configured to run as a CodeEditor app. see `customImage` Block below.
+	CustomImages DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 	DefaultResourceSpec DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -8076,6 +8232,13 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) ToDomainDefaultUse
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a CodeEditor app. see `customImage` Block below.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) CustomImages() DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettings) []DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage {
+		return v.CustomImages
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput)
+}
+
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
@@ -8112,6 +8275,16 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) Elem() DomainDe
 	}).(DomainDefaultUserSettingsCodeEditorAppSettingsOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a CodeEditor app. see `customImage` Block below.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) CustomImages() DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) []DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput)
+}
+
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see `defaultResourceSpec` Block below.
 func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCodeEditorAppSettings) *DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
@@ -8130,6 +8303,121 @@ func (o DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput) LifecycleConfig
 		}
 		return v.LifecycleConfigArns
 	}).(pulumi.StringArrayOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage struct {
+	// The name of the App Image Config.
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageInput is an input type that accepts DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs and DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageInput` via:
+//
+//	DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs{...}
+type DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput() DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutputWithContext(context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput() DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs) ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput)
+}
+
+// DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayInput is an input type that accepts DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArray and DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayInput` via:
+//
+//	DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArray{ DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs{...} }
+type DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput
+	ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutputWithContext(context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArray []DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageInput
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArray) ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return i.ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArray) ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput() DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput {
+	return o
+}
+
+// The name of the App Image Config.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// The name of the Custom Image.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The version number of the Custom Image.
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput() DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput) ToDomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput) Index(i pulumi.IntInput) DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage {
+		return vs[0].([]DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage)[vs[1].(int)]
+	}).(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput)
 }
 
 type DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec struct {
@@ -13822,6 +14110,8 @@ type EndpointConfigurationProductionVariant struct {
 	CoreDumpConfig *EndpointConfigurationProductionVariantCoreDumpConfig `pulumi:"coreDumpConfig"`
 	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
 	EnableSsmAccess *bool `pulumi:"enableSsmAccess"`
+	// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+	InferenceAmiVersion *string `pulumi:"inferenceAmiVersion"`
 	// Initial number of instances used for auto-scaling.
 	InitialInstanceCount *int `pulumi:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
@@ -13862,6 +14152,8 @@ type EndpointConfigurationProductionVariantArgs struct {
 	CoreDumpConfig EndpointConfigurationProductionVariantCoreDumpConfigPtrInput `pulumi:"coreDumpConfig"`
 	// You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
 	EnableSsmAccess pulumi.BoolPtrInput `pulumi:"enableSsmAccess"`
+	// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+	InferenceAmiVersion pulumi.StringPtrInput `pulumi:"inferenceAmiVersion"`
 	// Initial number of instances used for auto-scaling.
 	InitialInstanceCount pulumi.IntPtrInput `pulumi:"initialInstanceCount"`
 	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
@@ -13955,6 +14247,11 @@ func (o EndpointConfigurationProductionVariantOutput) CoreDumpConfig() EndpointC
 // You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
 func (o EndpointConfigurationProductionVariantOutput) EnableSsmAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *bool { return v.EnableSsmAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+func (o EndpointConfigurationProductionVariantOutput) InferenceAmiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.InferenceAmiVersion }).(pulumi.StringPtrOutput)
 }
 
 // Initial number of instances used for auto-scaling.
@@ -14459,6 +14756,7 @@ type EndpointConfigurationShadowProductionVariant struct {
 	ContainerStartupHealthCheckTimeoutInSeconds *int                                                          `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
 	CoreDumpConfig                              *EndpointConfigurationShadowProductionVariantCoreDumpConfig   `pulumi:"coreDumpConfig"`
 	EnableSsmAccess                             *bool                                                         `pulumi:"enableSsmAccess"`
+	InferenceAmiVersion                         *string                                                       `pulumi:"inferenceAmiVersion"`
 	InitialInstanceCount                        *int                                                          `pulumi:"initialInstanceCount"`
 	InitialVariantWeight                        *float64                                                      `pulumi:"initialVariantWeight"`
 	InstanceType                                *string                                                       `pulumi:"instanceType"`
@@ -14486,6 +14784,7 @@ type EndpointConfigurationShadowProductionVariantArgs struct {
 	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput                                                   `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
 	CoreDumpConfig                              EndpointConfigurationShadowProductionVariantCoreDumpConfigPtrInput   `pulumi:"coreDumpConfig"`
 	EnableSsmAccess                             pulumi.BoolPtrInput                                                  `pulumi:"enableSsmAccess"`
+	InferenceAmiVersion                         pulumi.StringPtrInput                                                `pulumi:"inferenceAmiVersion"`
 	InitialInstanceCount                        pulumi.IntPtrInput                                                   `pulumi:"initialInstanceCount"`
 	InitialVariantWeight                        pulumi.Float64PtrInput                                               `pulumi:"initialVariantWeight"`
 	InstanceType                                pulumi.StringPtrInput                                                `pulumi:"instanceType"`
@@ -14566,6 +14865,10 @@ func (o EndpointConfigurationShadowProductionVariantOutput) CoreDumpConfig() End
 
 func (o EndpointConfigurationShadowProductionVariantOutput) EnableSsmAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *bool { return v.EnableSsmAccess }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointConfigurationShadowProductionVariantOutput) InferenceAmiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationShadowProductionVariant) *string { return v.InferenceAmiVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointConfigurationShadowProductionVariantOutput) InitialInstanceCount() pulumi.IntPtrOutput {
@@ -25244,6 +25547,7 @@ func (o UserProfileUserSettingsPtrOutput) TensorBoardAppSettings() UserProfileUs
 type UserProfileUserSettingsCanvasAppSettings struct {
 	// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
 	DirectDeploySettings *UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings `pulumi:"directDeploySettings"`
+	GenerativeAiSettings *UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings `pulumi:"generativeAiSettings"`
 	// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
 	IdentityProviderOauthSettings []UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting `pulumi:"identityProviderOauthSettings"`
 	// The settings for document querying. See Kendra Settings below.
@@ -25270,6 +25574,7 @@ type UserProfileUserSettingsCanvasAppSettingsInput interface {
 type UserProfileUserSettingsCanvasAppSettingsArgs struct {
 	// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
 	DirectDeploySettings UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput `pulumi:"directDeploySettings"`
+	GenerativeAiSettings UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput `pulumi:"generativeAiSettings"`
 	// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
 	IdentityProviderOauthSettings UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput `pulumi:"identityProviderOauthSettings"`
 	// The settings for document querying. See Kendra Settings below.
@@ -25366,6 +25671,12 @@ func (o UserProfileUserSettingsCanvasAppSettingsOutput) DirectDeploySettings() U
 	}).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
 }
 
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) GenerativeAiSettings() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings {
+		return v.GenerativeAiSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput)
+}
+
 // The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
 func (o UserProfileUserSettingsCanvasAppSettingsOutput) IdentityProviderOauthSettings() UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) []UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
@@ -25433,6 +25744,15 @@ func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) DirectDeploySettings(
 		}
 		return v.DirectDeploySettings
 	}).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) GenerativeAiSettings() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings {
+		if v == nil {
+			return nil
+		}
+		return v.GenerativeAiSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput)
 }
 
 // The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
@@ -25619,6 +25939,141 @@ func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) S
 			return nil
 		}
 		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings struct {
+	AmazonBedrockRoleArn *string `pulumi:"amazonBedrockRoleArn"`
+}
+
+// UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs and UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsInput` via:
+//
+//	UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{...}
+type UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput
+	ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput
+}
+
+type UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs struct {
+	AmazonBedrockRoleArn pulumi.StringPtrInput `pulumi:"amazonBedrockRoleArn"`
+}
+
+func (UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput)
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput).ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs, UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtr and UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput
+	ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput
+}
+
+type userProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrType UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs
+
+func UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtr(v *UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs) UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput {
+	return (*userProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings) *UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings {
+		return &v
+	}).(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput)
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput) AmazonBedrockRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings) *string {
+		return v.AmazonBedrockRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput) Elem() UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings) UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings
+		return ret
+	}).(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput)
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput) AmazonBedrockRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AmazonBedrockRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -26351,6 +26806,8 @@ func (o UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput) S3Km
 }
 
 type UserProfileUserSettingsCodeEditorAppSettings struct {
+	// A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+	CustomImages []UserProfileUserSettingsCodeEditorAppSettingsCustomImage `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -26369,6 +26826,8 @@ type UserProfileUserSettingsCodeEditorAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsCodeEditorAppSettingsArgs struct {
+	// A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+	CustomImages UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayInput `pulumi:"customImages"`
 	// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 	DefaultResourceSpec UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
@@ -26452,6 +26911,13 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) ToUserProfileUserSet
 	}).(UserProfileUserSettingsCodeEditorAppSettingsPtrOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) CustomImages() UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettings) []UserProfileUserSettingsCodeEditorAppSettingsCustomImage {
+		return v.CustomImages
+	}).(UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput)
+}
+
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsCodeEditorAppSettingsOutput) DefaultResourceSpec() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettings) *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
@@ -26488,6 +26954,16 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) Elem() UserProfil
 	}).(UserProfileUserSettingsCodeEditorAppSettingsOutput)
 }
 
+// A list of custom SageMaker images that are configured to run as a CodeEditor app. see Custom Image below.
+func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) CustomImages() UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettings) []UserProfileUserSettingsCodeEditorAppSettingsCustomImage {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImages
+	}).(UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput)
+}
+
 // The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
 func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCodeEditorAppSettings) *UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec {
@@ -26506,6 +26982,121 @@ func (o UserProfileUserSettingsCodeEditorAppSettingsPtrOutput) LifecycleConfigAr
 		}
 		return v.LifecycleConfigArns
 	}).(pulumi.StringArrayOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsCustomImage struct {
+	// The name of the App Image Config.
+	AppImageConfigName string `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName string `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
+}
+
+// UserProfileUserSettingsCodeEditorAppSettingsCustomImageInput is an input type that accepts UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs and UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCodeEditorAppSettingsCustomImageInput` via:
+//
+//	UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs{...}
+type UserProfileUserSettingsCodeEditorAppSettingsCustomImageInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput() UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput
+	ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageOutputWithContext(context.Context) UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs struct {
+	// The name of the App Image Config.
+	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
+	// The name of the Custom Image.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The version number of the Custom Image.
+	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
+}
+
+func (UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs) ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput() UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs) ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput)
+}
+
+// UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayInput is an input type that accepts UserProfileUserSettingsCodeEditorAppSettingsCustomImageArray and UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayInput` via:
+//
+//	UserProfileUserSettingsCodeEditorAppSettingsCustomImageArray{ UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs{...} }
+type UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput() UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput
+	ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutputWithContext(context.Context) UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsCustomImageArray []UserProfileUserSettingsCodeEditorAppSettingsCustomImageInput
+
+func (UserProfileUserSettingsCodeEditorAppSettingsCustomImageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsCodeEditorAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsCustomImageArray) ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput() UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return i.ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCodeEditorAppSettingsCustomImageArray) ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput) ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput() UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput) ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput {
+	return o
+}
+
+// The name of the App Image Config.
+func (o UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
+}
+
+// The name of the Custom Image.
+func (o UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The version number of the Custom Image.
+func (o UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCodeEditorAppSettingsCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+type UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsCodeEditorAppSettingsCustomImage)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput) ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput() UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput) ToUserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput) Index(i pulumi.IntInput) UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileUserSettingsCodeEditorAppSettingsCustomImage {
+		return vs[0].([]UserProfileUserSettingsCodeEditorAppSettingsCustomImage)[vs[1].(int)]
+	}).(UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput)
 }
 
 type UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec struct {
@@ -30382,6 +30973,8 @@ func (o WorkforceCognitoConfigPtrOutput) UserPool() pulumi.StringPtrOutput {
 }
 
 type WorkforceOidcConfig struct {
+	// A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+	AuthenticationRequestExtraParams map[string]string `pulumi:"authenticationRequestExtraParams"`
 	// The OIDC IdP authorization endpoint used to configure your private workforce.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
 	// The OIDC IdP client ID used to configure your private workforce.
@@ -30394,6 +30987,8 @@ type WorkforceOidcConfig struct {
 	JwksUri string `pulumi:"jwksUri"`
 	// The OIDC IdP logout endpoint used to configure your private workforce.
 	LogoutEndpoint string `pulumi:"logoutEndpoint"`
+	// An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+	Scope *string `pulumi:"scope"`
 	// The OIDC IdP token endpoint used to configure your private workforce.
 	TokenEndpoint string `pulumi:"tokenEndpoint"`
 	// The OIDC IdP user information endpoint used to configure your private workforce.
@@ -30412,6 +31007,8 @@ type WorkforceOidcConfigInput interface {
 }
 
 type WorkforceOidcConfigArgs struct {
+	// A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
 	// The OIDC IdP authorization endpoint used to configure your private workforce.
 	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
 	// The OIDC IdP client ID used to configure your private workforce.
@@ -30424,6 +31021,8 @@ type WorkforceOidcConfigArgs struct {
 	JwksUri pulumi.StringInput `pulumi:"jwksUri"`
 	// The OIDC IdP logout endpoint used to configure your private workforce.
 	LogoutEndpoint pulumi.StringInput `pulumi:"logoutEndpoint"`
+	// An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
 	// The OIDC IdP token endpoint used to configure your private workforce.
 	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
 	// The OIDC IdP user information endpoint used to configure your private workforce.
@@ -30507,6 +31106,11 @@ func (o WorkforceOidcConfigOutput) ToWorkforceOidcConfigPtrOutputWithContext(ctx
 	}).(WorkforceOidcConfigPtrOutput)
 }
 
+// A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+func (o WorkforceOidcConfigOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v WorkforceOidcConfig) map[string]string { return v.AuthenticationRequestExtraParams }).(pulumi.StringMapOutput)
+}
+
 // The OIDC IdP authorization endpoint used to configure your private workforce.
 func (o WorkforceOidcConfigOutput) AuthorizationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
@@ -30535,6 +31139,11 @@ func (o WorkforceOidcConfigOutput) JwksUri() pulumi.StringOutput {
 // The OIDC IdP logout endpoint used to configure your private workforce.
 func (o WorkforceOidcConfigOutput) LogoutEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.LogoutEndpoint }).(pulumi.StringOutput)
+}
+
+// An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+func (o WorkforceOidcConfigOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkforceOidcConfig) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 // The OIDC IdP token endpoint used to configure your private workforce.
@@ -30569,6 +31178,16 @@ func (o WorkforceOidcConfigPtrOutput) Elem() WorkforceOidcConfigOutput {
 		var ret WorkforceOidcConfig
 		return ret
 	}).(WorkforceOidcConfigOutput)
+}
+
+// A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+func (o WorkforceOidcConfigPtrOutput) AuthenticationRequestExtraParams() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationRequestExtraParams
+	}).(pulumi.StringMapOutput)
 }
 
 // The OIDC IdP authorization endpoint used to configure your private workforce.
@@ -30628,6 +31247,16 @@ func (o WorkforceOidcConfigPtrOutput) LogoutEndpoint() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.LogoutEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+func (o WorkforceOidcConfigPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -31541,6 +32170,440 @@ func (o WorkteamNotificationConfigurationPtrOutput) NotificationTopicArn() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkteamWorkerAccessConfiguration struct {
+	// Defines any Amazon S3 resource constraints. see S3 Presign details below.
+	S3Presign *WorkteamWorkerAccessConfigurationS3Presign `pulumi:"s3Presign"`
+}
+
+// WorkteamWorkerAccessConfigurationInput is an input type that accepts WorkteamWorkerAccessConfigurationArgs and WorkteamWorkerAccessConfigurationOutput values.
+// You can construct a concrete instance of `WorkteamWorkerAccessConfigurationInput` via:
+//
+//	WorkteamWorkerAccessConfigurationArgs{...}
+type WorkteamWorkerAccessConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkteamWorkerAccessConfigurationOutput() WorkteamWorkerAccessConfigurationOutput
+	ToWorkteamWorkerAccessConfigurationOutputWithContext(context.Context) WorkteamWorkerAccessConfigurationOutput
+}
+
+type WorkteamWorkerAccessConfigurationArgs struct {
+	// Defines any Amazon S3 resource constraints. see S3 Presign details below.
+	S3Presign WorkteamWorkerAccessConfigurationS3PresignPtrInput `pulumi:"s3Presign"`
+}
+
+func (WorkteamWorkerAccessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamWorkerAccessConfiguration)(nil)).Elem()
+}
+
+func (i WorkteamWorkerAccessConfigurationArgs) ToWorkteamWorkerAccessConfigurationOutput() WorkteamWorkerAccessConfigurationOutput {
+	return i.ToWorkteamWorkerAccessConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkteamWorkerAccessConfigurationArgs) ToWorkteamWorkerAccessConfigurationOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamWorkerAccessConfigurationOutput)
+}
+
+func (i WorkteamWorkerAccessConfigurationArgs) ToWorkteamWorkerAccessConfigurationPtrOutput() WorkteamWorkerAccessConfigurationPtrOutput {
+	return i.ToWorkteamWorkerAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkteamWorkerAccessConfigurationArgs) ToWorkteamWorkerAccessConfigurationPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamWorkerAccessConfigurationOutput).ToWorkteamWorkerAccessConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkteamWorkerAccessConfigurationPtrInput is an input type that accepts WorkteamWorkerAccessConfigurationArgs, WorkteamWorkerAccessConfigurationPtr and WorkteamWorkerAccessConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkteamWorkerAccessConfigurationPtrInput` via:
+//
+//	        WorkteamWorkerAccessConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkteamWorkerAccessConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkteamWorkerAccessConfigurationPtrOutput() WorkteamWorkerAccessConfigurationPtrOutput
+	ToWorkteamWorkerAccessConfigurationPtrOutputWithContext(context.Context) WorkteamWorkerAccessConfigurationPtrOutput
+}
+
+type workteamWorkerAccessConfigurationPtrType WorkteamWorkerAccessConfigurationArgs
+
+func WorkteamWorkerAccessConfigurationPtr(v *WorkteamWorkerAccessConfigurationArgs) WorkteamWorkerAccessConfigurationPtrInput {
+	return (*workteamWorkerAccessConfigurationPtrType)(v)
+}
+
+func (*workteamWorkerAccessConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamWorkerAccessConfiguration)(nil)).Elem()
+}
+
+func (i *workteamWorkerAccessConfigurationPtrType) ToWorkteamWorkerAccessConfigurationPtrOutput() WorkteamWorkerAccessConfigurationPtrOutput {
+	return i.ToWorkteamWorkerAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workteamWorkerAccessConfigurationPtrType) ToWorkteamWorkerAccessConfigurationPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamWorkerAccessConfigurationPtrOutput)
+}
+
+type WorkteamWorkerAccessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkteamWorkerAccessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamWorkerAccessConfiguration)(nil)).Elem()
+}
+
+func (o WorkteamWorkerAccessConfigurationOutput) ToWorkteamWorkerAccessConfigurationOutput() WorkteamWorkerAccessConfigurationOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationOutput) ToWorkteamWorkerAccessConfigurationOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationOutput) ToWorkteamWorkerAccessConfigurationPtrOutput() WorkteamWorkerAccessConfigurationPtrOutput {
+	return o.ToWorkteamWorkerAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkteamWorkerAccessConfigurationOutput) ToWorkteamWorkerAccessConfigurationPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkteamWorkerAccessConfiguration) *WorkteamWorkerAccessConfiguration {
+		return &v
+	}).(WorkteamWorkerAccessConfigurationPtrOutput)
+}
+
+// Defines any Amazon S3 resource constraints. see S3 Presign details below.
+func (o WorkteamWorkerAccessConfigurationOutput) S3Presign() WorkteamWorkerAccessConfigurationS3PresignPtrOutput {
+	return o.ApplyT(func(v WorkteamWorkerAccessConfiguration) *WorkteamWorkerAccessConfigurationS3Presign {
+		return v.S3Presign
+	}).(WorkteamWorkerAccessConfigurationS3PresignPtrOutput)
+}
+
+type WorkteamWorkerAccessConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkteamWorkerAccessConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamWorkerAccessConfiguration)(nil)).Elem()
+}
+
+func (o WorkteamWorkerAccessConfigurationPtrOutput) ToWorkteamWorkerAccessConfigurationPtrOutput() WorkteamWorkerAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationPtrOutput) ToWorkteamWorkerAccessConfigurationPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationPtrOutput) Elem() WorkteamWorkerAccessConfigurationOutput {
+	return o.ApplyT(func(v *WorkteamWorkerAccessConfiguration) WorkteamWorkerAccessConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkteamWorkerAccessConfiguration
+		return ret
+	}).(WorkteamWorkerAccessConfigurationOutput)
+}
+
+// Defines any Amazon S3 resource constraints. see S3 Presign details below.
+func (o WorkteamWorkerAccessConfigurationPtrOutput) S3Presign() WorkteamWorkerAccessConfigurationS3PresignPtrOutput {
+	return o.ApplyT(func(v *WorkteamWorkerAccessConfiguration) *WorkteamWorkerAccessConfigurationS3Presign {
+		if v == nil {
+			return nil
+		}
+		return v.S3Presign
+	}).(WorkteamWorkerAccessConfigurationS3PresignPtrOutput)
+}
+
+type WorkteamWorkerAccessConfigurationS3Presign struct {
+	// Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
+	IamPolicyConstraints *WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints `pulumi:"iamPolicyConstraints"`
+}
+
+// WorkteamWorkerAccessConfigurationS3PresignInput is an input type that accepts WorkteamWorkerAccessConfigurationS3PresignArgs and WorkteamWorkerAccessConfigurationS3PresignOutput values.
+// You can construct a concrete instance of `WorkteamWorkerAccessConfigurationS3PresignInput` via:
+//
+//	WorkteamWorkerAccessConfigurationS3PresignArgs{...}
+type WorkteamWorkerAccessConfigurationS3PresignInput interface {
+	pulumi.Input
+
+	ToWorkteamWorkerAccessConfigurationS3PresignOutput() WorkteamWorkerAccessConfigurationS3PresignOutput
+	ToWorkteamWorkerAccessConfigurationS3PresignOutputWithContext(context.Context) WorkteamWorkerAccessConfigurationS3PresignOutput
+}
+
+type WorkteamWorkerAccessConfigurationS3PresignArgs struct {
+	// Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
+	IamPolicyConstraints WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrInput `pulumi:"iamPolicyConstraints"`
+}
+
+func (WorkteamWorkerAccessConfigurationS3PresignArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3Presign)(nil)).Elem()
+}
+
+func (i WorkteamWorkerAccessConfigurationS3PresignArgs) ToWorkteamWorkerAccessConfigurationS3PresignOutput() WorkteamWorkerAccessConfigurationS3PresignOutput {
+	return i.ToWorkteamWorkerAccessConfigurationS3PresignOutputWithContext(context.Background())
+}
+
+func (i WorkteamWorkerAccessConfigurationS3PresignArgs) ToWorkteamWorkerAccessConfigurationS3PresignOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamWorkerAccessConfigurationS3PresignOutput)
+}
+
+func (i WorkteamWorkerAccessConfigurationS3PresignArgs) ToWorkteamWorkerAccessConfigurationS3PresignPtrOutput() WorkteamWorkerAccessConfigurationS3PresignPtrOutput {
+	return i.ToWorkteamWorkerAccessConfigurationS3PresignPtrOutputWithContext(context.Background())
+}
+
+func (i WorkteamWorkerAccessConfigurationS3PresignArgs) ToWorkteamWorkerAccessConfigurationS3PresignPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamWorkerAccessConfigurationS3PresignOutput).ToWorkteamWorkerAccessConfigurationS3PresignPtrOutputWithContext(ctx)
+}
+
+// WorkteamWorkerAccessConfigurationS3PresignPtrInput is an input type that accepts WorkteamWorkerAccessConfigurationS3PresignArgs, WorkteamWorkerAccessConfigurationS3PresignPtr and WorkteamWorkerAccessConfigurationS3PresignPtrOutput values.
+// You can construct a concrete instance of `WorkteamWorkerAccessConfigurationS3PresignPtrInput` via:
+//
+//	        WorkteamWorkerAccessConfigurationS3PresignArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkteamWorkerAccessConfigurationS3PresignPtrInput interface {
+	pulumi.Input
+
+	ToWorkteamWorkerAccessConfigurationS3PresignPtrOutput() WorkteamWorkerAccessConfigurationS3PresignPtrOutput
+	ToWorkteamWorkerAccessConfigurationS3PresignPtrOutputWithContext(context.Context) WorkteamWorkerAccessConfigurationS3PresignPtrOutput
+}
+
+type workteamWorkerAccessConfigurationS3PresignPtrType WorkteamWorkerAccessConfigurationS3PresignArgs
+
+func WorkteamWorkerAccessConfigurationS3PresignPtr(v *WorkteamWorkerAccessConfigurationS3PresignArgs) WorkteamWorkerAccessConfigurationS3PresignPtrInput {
+	return (*workteamWorkerAccessConfigurationS3PresignPtrType)(v)
+}
+
+func (*workteamWorkerAccessConfigurationS3PresignPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamWorkerAccessConfigurationS3Presign)(nil)).Elem()
+}
+
+func (i *workteamWorkerAccessConfigurationS3PresignPtrType) ToWorkteamWorkerAccessConfigurationS3PresignPtrOutput() WorkteamWorkerAccessConfigurationS3PresignPtrOutput {
+	return i.ToWorkteamWorkerAccessConfigurationS3PresignPtrOutputWithContext(context.Background())
+}
+
+func (i *workteamWorkerAccessConfigurationS3PresignPtrType) ToWorkteamWorkerAccessConfigurationS3PresignPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamWorkerAccessConfigurationS3PresignPtrOutput)
+}
+
+type WorkteamWorkerAccessConfigurationS3PresignOutput struct{ *pulumi.OutputState }
+
+func (WorkteamWorkerAccessConfigurationS3PresignOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3Presign)(nil)).Elem()
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignOutput) ToWorkteamWorkerAccessConfigurationS3PresignOutput() WorkteamWorkerAccessConfigurationS3PresignOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignOutput) ToWorkteamWorkerAccessConfigurationS3PresignOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignOutput) ToWorkteamWorkerAccessConfigurationS3PresignPtrOutput() WorkteamWorkerAccessConfigurationS3PresignPtrOutput {
+	return o.ToWorkteamWorkerAccessConfigurationS3PresignPtrOutputWithContext(context.Background())
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignOutput) ToWorkteamWorkerAccessConfigurationS3PresignPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkteamWorkerAccessConfigurationS3Presign) *WorkteamWorkerAccessConfigurationS3Presign {
+		return &v
+	}).(WorkteamWorkerAccessConfigurationS3PresignPtrOutput)
+}
+
+// Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
+func (o WorkteamWorkerAccessConfigurationS3PresignOutput) IamPolicyConstraints() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput {
+	return o.ApplyT(func(v WorkteamWorkerAccessConfigurationS3Presign) *WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints {
+		return v.IamPolicyConstraints
+	}).(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput)
+}
+
+type WorkteamWorkerAccessConfigurationS3PresignPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkteamWorkerAccessConfigurationS3PresignPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamWorkerAccessConfigurationS3Presign)(nil)).Elem()
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignPtrOutput) ToWorkteamWorkerAccessConfigurationS3PresignPtrOutput() WorkteamWorkerAccessConfigurationS3PresignPtrOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignPtrOutput) ToWorkteamWorkerAccessConfigurationS3PresignPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignPtrOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignPtrOutput) Elem() WorkteamWorkerAccessConfigurationS3PresignOutput {
+	return o.ApplyT(func(v *WorkteamWorkerAccessConfigurationS3Presign) WorkteamWorkerAccessConfigurationS3Presign {
+		if v != nil {
+			return *v
+		}
+		var ret WorkteamWorkerAccessConfigurationS3Presign
+		return ret
+	}).(WorkteamWorkerAccessConfigurationS3PresignOutput)
+}
+
+// Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
+func (o WorkteamWorkerAccessConfigurationS3PresignPtrOutput) IamPolicyConstraints() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput {
+	return o.ApplyT(func(v *WorkteamWorkerAccessConfigurationS3Presign) *WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints {
+		if v == nil {
+			return nil
+		}
+		return v.IamPolicyConstraints
+	}).(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput)
+}
+
+type WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints struct {
+	// When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
+	SourceIp *string `pulumi:"sourceIp"`
+	// When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
+	VpcSourceIp *string `pulumi:"vpcSourceIp"`
+}
+
+// WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsInput is an input type that accepts WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs and WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput values.
+// You can construct a concrete instance of `WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsInput` via:
+//
+//	WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs{...}
+type WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsInput interface {
+	pulumi.Input
+
+	ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput
+	ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutputWithContext(context.Context) WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput
+}
+
+type WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs struct {
+	// When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
+	SourceIp pulumi.StringPtrInput `pulumi:"sourceIp"`
+	// When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
+	VpcSourceIp pulumi.StringPtrInput `pulumi:"vpcSourceIp"`
+}
+
+func (WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints)(nil)).Elem()
+}
+
+func (i WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput {
+	return i.ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutputWithContext(context.Background())
+}
+
+func (i WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput)
+}
+
+func (i WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput {
+	return i.ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (i WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput).ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutputWithContext(ctx)
+}
+
+// WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrInput is an input type that accepts WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs, WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtr and WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput values.
+// You can construct a concrete instance of `WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrInput` via:
+//
+//	        WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrInput interface {
+	pulumi.Input
+
+	ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput
+	ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutputWithContext(context.Context) WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput
+}
+
+type workteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrType WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs
+
+func WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtr(v *WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs) WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrInput {
+	return (*workteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrType)(v)
+}
+
+func (*workteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints)(nil)).Elem()
+}
+
+func (i *workteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrType) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput {
+	return i.ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (i *workteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrType) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput)
+}
+
+type WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput struct{ *pulumi.OutputState }
+
+func (WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints)(nil)).Elem()
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput {
+	return o.ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints) *WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints {
+		return &v
+	}).(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput)
+}
+
+// When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput) SourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints) *string { return v.SourceIp }).(pulumi.StringPtrOutput)
+}
+
+// When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput) VpcSourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints) *string { return v.VpcSourceIp }).(pulumi.StringPtrOutput)
+}
+
+type WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints)(nil)).Elem()
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput) ToWorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutputWithContext(ctx context.Context) WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput {
+	return o
+}
+
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput) Elem() WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput {
+	return o.ApplyT(func(v *WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints) WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints {
+		if v != nil {
+			return *v
+		}
+		var ret WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints
+		return ret
+	}).(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput)
+}
+
+// When SourceIp is Enabled the worker's IP address when a task is rendered in the worker portal is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match in order for the Amazon S3 resource to be rendered in the worker portal. Valid values are `Enabled` or `Disabled`
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput) SourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// When VpcSourceIp is Enabled the worker's IP address when a task is rendered in private worker portal inside the VPC is added to the IAM policy as a Condition used to generate the Amazon S3 presigned URL. To render the task successfully Amazon S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint, and that the worker's IP address matches the IP address in the IAM policy. To learn more about configuring private worker portal, see [Use Amazon VPC mode from a private worker portal](https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html). Valid values are `Enabled` or `Disabled`
+func (o WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput) VpcSourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraints) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcSourceIp
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigCodeEditorAppImageConfigPtrInput)(nil)).Elem(), AppImageConfigCodeEditorAppImageConfigArgs{})
@@ -31624,6 +32687,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs{})
@@ -31636,6 +32701,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCustomFileSystemConfigInput)(nil)).Elem(), DomainDefaultUserSettingsCustomFileSystemConfigArgs{})
@@ -31849,6 +32916,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsKendraSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs{})
@@ -31861,6 +32930,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsCustomImageInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsCustomImageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCustomFileSystemConfigInput)(nil)).Elem(), UserProfileUserSettingsCustomFileSystemConfigArgs{})
@@ -31923,6 +32994,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamMemberDefinitionOidcMemberDefinitionPtrInput)(nil)).Elem(), WorkteamMemberDefinitionOidcMemberDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamNotificationConfigurationInput)(nil)).Elem(), WorkteamNotificationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamNotificationConfigurationPtrInput)(nil)).Elem(), WorkteamNotificationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationPtrInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationS3PresignArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignPtrInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationS3PresignArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrInput)(nil)).Elem(), WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs{})
 	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigOutput{})
 	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigCodeEditorAppImageConfigContainerConfigOutput{})
@@ -32005,6 +33082,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput{})
@@ -32017,6 +33096,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCustomFileSystemConfigOutput{})
@@ -32230,6 +33311,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput{})
@@ -32242,6 +33325,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsCustomImageOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCustomFileSystemConfigOutput{})
@@ -32304,4 +33389,10 @@ func init() {
 	pulumi.RegisterOutputType(WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(WorkteamNotificationConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkteamNotificationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkteamWorkerAccessConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkteamWorkerAccessConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkteamWorkerAccessConfigurationS3PresignOutput{})
+	pulumi.RegisterOutputType(WorkteamWorkerAccessConfigurationS3PresignPtrOutput{})
+	pulumi.RegisterOutputType(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsOutput{})
+	pulumi.RegisterOutputType(WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsPtrOutput{})
 }

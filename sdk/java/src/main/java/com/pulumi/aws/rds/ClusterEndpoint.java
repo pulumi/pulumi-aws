@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an RDS Aurora Cluster Endpoint.
+ * Manages an RDS Aurora Cluster Custom Endpoint.
  * You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
  * 
  * ## Example Usage

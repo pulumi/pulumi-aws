@@ -17,14 +17,14 @@ public final class DataSourceRelationalDatabaseConfigArgs extends com.pulumi.res
     public static final DataSourceRelationalDatabaseConfigArgs Empty = new DataSourceRelationalDatabaseConfigArgs();
 
     /**
-     * Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+     * Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
      * 
      */
     @Import(name="httpEndpointConfig")
     private @Nullable Output<DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs> httpEndpointConfig;
 
     /**
-     * @return Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+     * @return Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
      * 
      */
     public Optional<Output<DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs>> httpEndpointConfig() {
@@ -72,7 +72,7 @@ public final class DataSourceRelationalDatabaseConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param httpEndpointConfig Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+         * @param httpEndpointConfig Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DataSourceRelationalDatabaseConfigArgs extends com.pulumi.res
         }
 
         /**
-         * @param httpEndpointConfig Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+         * @param httpEndpointConfig Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
          * 
          * @return builder
          * 

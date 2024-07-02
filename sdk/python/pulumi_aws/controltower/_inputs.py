@@ -15,11 +15,63 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'ControlTowerControlParameterArgs',
+    'ControlTowerControlParameterArgsDict',
     'LandingZoneDriftStatusArgs',
     'LandingZoneDriftStatusArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ControlTowerControlParameterArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The name of the parameter.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the parameter.
+        """
+elif False:
+    ControlTowerControlParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ControlTowerControlParameterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The name of the parameter.
+        :param pulumi.Input[str] value: The value of the parameter.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name of the parameter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the parameter.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 if not MYPY:
     class LandingZoneDriftStatusArgsDict(TypedDict):

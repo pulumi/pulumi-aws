@@ -113,6 +113,12 @@ namespace Pulumi.Aws.Quicksight
         public Output<string?> FirstName { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        /// </summary>
+        [Output("iamIdentityCenterInstanceArn")]
+        public Output<string?> IamIdentityCenterInstanceArn { get; private set; } = null!;
+
+        /// <summary>
         /// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         /// </summary>
         [Output("lastName")]
@@ -263,6 +269,12 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? FirstName { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        /// </summary>
+        [Input("iamIdentityCenterInstanceArn")]
+        public Input<string>? IamIdentityCenterInstanceArn { get; set; }
+
+        /// <summary>
         /// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         /// </summary>
         [Input("lastName")]
@@ -385,6 +397,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("firstName")]
         public Input<string>? FirstName { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        /// </summary>
+        [Input("iamIdentityCenterInstanceArn")]
+        public Input<string>? IamIdentityCenterInstanceArn { get; set; }
 
         /// <summary>
         /// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.

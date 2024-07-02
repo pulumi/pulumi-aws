@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class WorkforceOidcConfig
     {
         /// <summary>
+        /// A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? AuthenticationRequestExtraParams;
+        /// <summary>
         /// The OIDC IdP authorization endpoint used to configure your private workforce.
         /// </summary>
         public readonly string AuthorizationEndpoint;
@@ -38,6 +42,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string LogoutEndpoint;
         /// <summary>
+        /// An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+        /// </summary>
+        public readonly string? Scope;
+        /// <summary>
         /// The OIDC IdP token endpoint used to configure your private workforce.
         /// </summary>
         public readonly string TokenEndpoint;
@@ -48,6 +56,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
         [OutputConstructor]
         private WorkforceOidcConfig(
+            ImmutableDictionary<string, string>? authenticationRequestExtraParams,
+
             string authorizationEndpoint,
 
             string clientId,
@@ -60,16 +70,20 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             string logoutEndpoint,
 
+            string? scope,
+
             string tokenEndpoint,
 
             string userInfoEndpoint)
         {
+            AuthenticationRequestExtraParams = authenticationRequestExtraParams;
             AuthorizationEndpoint = authorizationEndpoint;
             ClientId = clientId;
             ClientSecret = clientSecret;
             Issuer = issuer;
             JwksUri = jwksUri;
             LogoutEndpoint = logoutEndpoint;
+            Scope = scope;
             TokenEndpoint = tokenEndpoint;
             UserInfoEndpoint = userInfoEndpoint;
         }

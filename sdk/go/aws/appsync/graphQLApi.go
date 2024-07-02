@@ -15,7 +15,7 @@ import (
 type GraphQLApi struct {
 	pulumi.CustomResourceState
 
-	// One or more additional authentication providers for the GraphqlApi. Defined below.
+	// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayOutput `pulumi:"additionalAuthenticationProviders"`
 	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -23,13 +23,13 @@ type GraphQLApi struct {
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 	IntrospectionConfig pulumi.StringPtrOutput `pulumi:"introspectionConfig"`
-	// Nested argument containing Lambda authorizer configuration. Defined below.
+	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrOutput `pulumi:"lambdaAuthorizerConfig"`
-	// Nested argument containing logging configuration. Defined below.
+	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig GraphQLApiLogConfigPtrOutput `pulumi:"logConfig"`
-	// User-supplied name for the GraphqlApi.
+	// User-supplied name for the GraphSQL API.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Nested argument containing OpenID Connect configuration. Defined below.
+	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrOutput `pulumi:"openidConnectConfig"`
 	// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
 	//
@@ -47,7 +47,7 @@ type GraphQLApi struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris pulumi.StringMapOutput `pulumi:"uris"`
-	// Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrOutput `pulumi:"userPoolConfig"`
 	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
 	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
@@ -88,7 +88,7 @@ func GetGraphQLApi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GraphQLApi resources.
 type graphQLApiState struct {
-	// One or more additional authentication providers for the GraphqlApi. Defined below.
+	// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
 	// ARN
 	Arn *string `pulumi:"arn"`
@@ -96,13 +96,13 @@ type graphQLApiState struct {
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 	IntrospectionConfig *string `pulumi:"introspectionConfig"`
-	// Nested argument containing Lambda authorizer configuration. Defined below.
+	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
-	// Nested argument containing logging configuration. Defined below.
+	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
-	// User-supplied name for the GraphqlApi.
+	// User-supplied name for the GraphSQL API.
 	Name *string `pulumi:"name"`
-	// Nested argument containing OpenID Connect configuration. Defined below.
+	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig *GraphQLApiOpenidConnectConfig `pulumi:"openidConnectConfig"`
 	// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
 	//
@@ -120,7 +120,7 @@ type graphQLApiState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris map[string]string `pulumi:"uris"`
-	// Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
 	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
 	Visibility *string `pulumi:"visibility"`
@@ -129,7 +129,7 @@ type graphQLApiState struct {
 }
 
 type GraphQLApiState struct {
-	// One or more additional authentication providers for the GraphqlApi. Defined below.
+	// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
 	// ARN
 	Arn pulumi.StringPtrInput
@@ -137,13 +137,13 @@ type GraphQLApiState struct {
 	AuthenticationType pulumi.StringPtrInput
 	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 	IntrospectionConfig pulumi.StringPtrInput
-	// Nested argument containing Lambda authorizer configuration. Defined below.
+	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput
-	// Nested argument containing logging configuration. Defined below.
+	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig GraphQLApiLogConfigPtrInput
-	// User-supplied name for the GraphqlApi.
+	// User-supplied name for the GraphSQL API.
 	Name pulumi.StringPtrInput
-	// Nested argument containing OpenID Connect configuration. Defined below.
+	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrInput
 	// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
 	//
@@ -161,7 +161,7 @@ type GraphQLApiState struct {
 	TagsAll pulumi.StringMapInput
 	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris pulumi.StringMapInput
-	// Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
 	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
 	Visibility pulumi.StringPtrInput
@@ -174,19 +174,19 @@ func (GraphQLApiState) ElementType() reflect.Type {
 }
 
 type graphQLApiArgs struct {
-	// One or more additional authentication providers for the GraphqlApi. Defined below.
+	// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType string `pulumi:"authenticationType"`
 	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 	IntrospectionConfig *string `pulumi:"introspectionConfig"`
-	// Nested argument containing Lambda authorizer configuration. Defined below.
+	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
-	// Nested argument containing logging configuration. Defined below.
+	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
-	// User-supplied name for the GraphqlApi.
+	// User-supplied name for the GraphSQL API.
 	Name *string `pulumi:"name"`
-	// Nested argument containing OpenID Connect configuration. Defined below.
+	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig *GraphQLApiOpenidConnectConfig `pulumi:"openidConnectConfig"`
 	// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
 	//
@@ -198,7 +198,7 @@ type graphQLApiArgs struct {
 	Schema *string `pulumi:"schema"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
 	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
 	Visibility *string `pulumi:"visibility"`
@@ -208,19 +208,19 @@ type graphQLApiArgs struct {
 
 // The set of arguments for constructing a GraphQLApi resource.
 type GraphQLApiArgs struct {
-	// One or more additional authentication providers for the GraphqlApi. Defined below.
+	// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
 	// Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringInput
 	// Sets the value of the GraphQL API to enable (`ENABLED`) or disable (`DISABLED`) introspection. If no value is provided, the introspection configuration will be set to ENABLED by default. This field will produce an error if the operation attempts to use the introspection feature while this field is disabled. For more information about introspection, see [GraphQL introspection](https://graphql.org/learn/introspection/).
 	IntrospectionConfig pulumi.StringPtrInput
-	// Nested argument containing Lambda authorizer configuration. Defined below.
+	// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput
-	// Nested argument containing logging configuration. Defined below.
+	// Nested argument containing logging configuration. See `logConfig` Block for details.
 	LogConfig GraphQLApiLogConfigPtrInput
-	// User-supplied name for the GraphqlApi.
+	// User-supplied name for the GraphSQL API.
 	Name pulumi.StringPtrInput
-	// Nested argument containing OpenID Connect configuration. Defined below.
+	// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 	OpenidConnectConfig GraphQLApiOpenidConnectConfigPtrInput
 	// The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
 	//
@@ -232,7 +232,7 @@ type GraphQLApiArgs struct {
 	Schema pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Amazon Cognito User Pool configuration. Defined below.
+	// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput
 	// Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
 	Visibility pulumi.StringPtrInput
@@ -327,7 +327,7 @@ func (o GraphQLApiOutput) ToGraphQLApiOutputWithContext(ctx context.Context) Gra
 	return o
 }
 
-// One or more additional authentication providers for the GraphqlApi. Defined below.
+// One or more additional authentication providers for the GraphSQL API. See `additionalAuthenticationProvider` Block for details.
 func (o GraphQLApiOutput) AdditionalAuthenticationProviders() GraphQLApiAdditionalAuthenticationProviderArrayOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiAdditionalAuthenticationProviderArrayOutput {
 		return v.AdditionalAuthenticationProviders
@@ -349,22 +349,22 @@ func (o GraphQLApiOutput) IntrospectionConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringPtrOutput { return v.IntrospectionConfig }).(pulumi.StringPtrOutput)
 }
 
-// Nested argument containing Lambda authorizer configuration. Defined below.
+// Nested argument containing Lambda authorizer configuration. See `lambdaAuthorizerConfig` Block for details.
 func (o GraphQLApiOutput) LambdaAuthorizerConfig() GraphQLApiLambdaAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiLambdaAuthorizerConfigPtrOutput { return v.LambdaAuthorizerConfig }).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
 }
 
-// Nested argument containing logging configuration. Defined below.
+// Nested argument containing logging configuration. See `logConfig` Block for details.
 func (o GraphQLApiOutput) LogConfig() GraphQLApiLogConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiLogConfigPtrOutput { return v.LogConfig }).(GraphQLApiLogConfigPtrOutput)
 }
 
-// User-supplied name for the GraphqlApi.
+// User-supplied name for the GraphSQL API.
 func (o GraphQLApiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Nested argument containing OpenID Connect configuration. Defined below.
+// Nested argument containing OpenID Connect configuration. See `openidConnectConfig` Block for details.
 func (o GraphQLApiOutput) OpenidConnectConfig() GraphQLApiOpenidConnectConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiOpenidConnectConfigPtrOutput { return v.OpenidConnectConfig }).(GraphQLApiOpenidConnectConfigPtrOutput)
 }
@@ -403,7 +403,7 @@ func (o GraphQLApiOutput) Uris() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GraphQLApi) pulumi.StringMapOutput { return v.Uris }).(pulumi.StringMapOutput)
 }
 
-// Amazon Cognito User Pool configuration. Defined below.
+// Amazon Cognito User Pool configuration. See `userPoolConfig` Block for details.
 func (o GraphQLApiOutput) UserPoolConfig() GraphQLApiUserPoolConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQLApi) GraphQLApiUserPoolConfigPtrOutput { return v.UserPoolConfig }).(GraphQLApiUserPoolConfigPtrOutput)
 }

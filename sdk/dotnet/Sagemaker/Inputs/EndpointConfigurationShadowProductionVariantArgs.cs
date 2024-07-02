@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("enableSsmAccess")]
         public Input<bool>? EnableSsmAccess { get; set; }
 
+        [Input("inferenceAmiVersion")]
+        public Input<string>? InferenceAmiVersion { get; set; }
+
         [Input("initialInstanceCount")]
         public Input<int>? InitialInstanceCount { get; set; }
 

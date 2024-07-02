@@ -70,15 +70,15 @@ export interface GetServiceResult {
      */
     readonly description: string;
     /**
-     * Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+     * Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dnsConfig` Block for details.
      */
     readonly dnsConfigs: outputs.servicediscovery.GetServiceDnsConfig[];
     /**
-     * Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+     * Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `healthCheckConfig` Block for details.
      */
     readonly healthCheckConfigs: outputs.servicediscovery.GetServiceHealthCheckConfig[];
     /**
-     * A complex type that contains settings for ECS managed health checks.
+     * A complex type that contains settings for ECS managed health checks. See `healthCheckCustomConfig` Block for details.
      */
     readonly healthCheckCustomConfigs: outputs.servicediscovery.GetServiceHealthCheckCustomConfig[];
     /**

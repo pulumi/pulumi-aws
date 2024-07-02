@@ -84,6 +84,21 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
     }
 
     /**
+     * Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+     * 
+     */
+    @Import(name="inferenceAmiVersion")
+    private @Nullable Output<String> inferenceAmiVersion;
+
+    /**
+     * @return Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+     * 
+     */
+    public Optional<Output<String>> inferenceAmiVersion() {
+        return Optional.ofNullable(this.inferenceAmiVersion);
+    }
+
+    /**
      * Initial number of instances used for auto-scaling.
      * 
      */
@@ -225,6 +240,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         this.containerStartupHealthCheckTimeoutInSeconds = $.containerStartupHealthCheckTimeoutInSeconds;
         this.coreDumpConfig = $.coreDumpConfig;
         this.enableSsmAccess = $.enableSsmAccess;
+        this.inferenceAmiVersion = $.inferenceAmiVersion;
         this.initialInstanceCount = $.initialInstanceCount;
         this.initialVariantWeight = $.initialVariantWeight;
         this.instanceType = $.instanceType;
@@ -336,6 +352,27 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
          */
         public Builder enableSsmAccess(Boolean enableSsmAccess) {
             return enableSsmAccess(Output.of(enableSsmAccess));
+        }
+
+        /**
+         * @param inferenceAmiVersion Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inferenceAmiVersion(@Nullable Output<String> inferenceAmiVersion) {
+            $.inferenceAmiVersion = inferenceAmiVersion;
+            return this;
+        }
+
+        /**
+         * @param inferenceAmiVersion Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by Amazon Web Services with a set of software and driver versions. Amazon Web Services optimizes these configurations for different machine learning workloads.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inferenceAmiVersion(String inferenceAmiVersion) {
+            return inferenceAmiVersion(Output.of(inferenceAmiVersion));
         }
 
         /**

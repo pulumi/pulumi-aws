@@ -52,8 +52,6 @@ func GetUserGroups(ctx *pulumi.Context, args *GetUserGroupsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getUserGroups.
 type GetUserGroupsArgs struct {
-	// List of groups. See `groups` below.
-	Groups []GetUserGroupsGroup `pulumi:"groups"`
 	// User pool the client belongs to.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -82,8 +80,6 @@ func GetUserGroupsOutput(ctx *pulumi.Context, args GetUserGroupsOutputArgs, opts
 
 // A collection of arguments for invoking getUserGroups.
 type GetUserGroupsOutputArgs struct {
-	// List of groups. See `groups` below.
-	Groups GetUserGroupsGroupArrayInput `pulumi:"groups"`
 	// User pool the client belongs to.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }

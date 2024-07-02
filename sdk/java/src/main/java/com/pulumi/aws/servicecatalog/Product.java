@@ -192,14 +192,14 @@ public class Product extends com.pulumi.resources.CustomResource {
         return this.owner;
     }
     /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+     * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
      * 
      */
     @Export(name="provisioningArtifactParameters", refs={ProductProvisioningArtifactParameters.class}, tree="[0]")
     private Output<ProductProvisioningArtifactParameters> provisioningArtifactParameters;
 
     /**
-     * @return Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+     * @return Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
      * 
      */
     public Output<ProductProvisioningArtifactParameters> provisioningArtifactParameters() {

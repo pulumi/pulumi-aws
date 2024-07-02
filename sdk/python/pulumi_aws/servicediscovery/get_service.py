@@ -79,7 +79,7 @@ class GetServiceResult:
     @pulumi.getter(name="dnsConfigs")
     def dns_configs(self) -> Sequence['outputs.GetServiceDnsConfigResult']:
         """
-        Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
+        Complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance. See `dns_config` Block for details.
         """
         return pulumi.get(self, "dns_configs")
 
@@ -87,7 +87,7 @@ class GetServiceResult:
     @pulumi.getter(name="healthCheckConfigs")
     def health_check_configs(self) -> Sequence['outputs.GetServiceHealthCheckConfigResult']:
         """
-        Complex type that contains settings for an optional health check. Only for Public DNS namespaces.
+        Complex type that contains settings for an optional health check. Only for Public DNS namespaces. See `health_check_config` Block for details.
         """
         return pulumi.get(self, "health_check_configs")
 
@@ -95,7 +95,7 @@ class GetServiceResult:
     @pulumi.getter(name="healthCheckCustomConfigs")
     def health_check_custom_configs(self) -> Sequence['outputs.GetServiceHealthCheckCustomConfigResult']:
         """
-        A complex type that contains settings for ECS managed health checks.
+        A complex type that contains settings for ECS managed health checks. See `health_check_custom_config` Block for details.
         """
         return pulumi.get(self, "health_check_custom_configs")
 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppSync.Inputs
     public sealed class DataSourceRelationalDatabaseConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+        /// Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
         /// </summary>
         [Input("httpEndpointConfig")]
         public Input<Inputs.DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs>? HttpEndpointConfig { get; set; }

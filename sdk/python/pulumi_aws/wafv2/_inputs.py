@@ -9772,6 +9772,7 @@ if not MYPY:
         """
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
+        sensitivity_level: NotRequired[pulumi.Input[str]]
 elif False:
     RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -9779,7 +9780,8 @@ elif False:
 class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs:
     def __init__(__self__, *,
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs']]],
-                 field_to_match: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs']] = None):
+                 field_to_match: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs']] = None,
+                 sensitivity_level: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
@@ -9789,6 +9791,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if sensitivity_level is not None:
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -9815,6 +9819,15 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @field_to_match.setter
     def field_to_match(self, value: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs']]):
         pulumi.set(self, "field_to_match", value)
+
+    @property
+    @pulumi.getter(name="sensitivityLevel")
+    def sensitivity_level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sensitivity_level")
+
+    @sensitivity_level.setter
+    def sensitivity_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sensitivity_level", value)
 
 
 if not MYPY:
@@ -14643,6 +14656,7 @@ if not MYPY:
         """
         The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
+        sensitivity_level: NotRequired[pulumi.Input[str]]
 elif False:
     RuleGroupRuleStatementSqliMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -14650,7 +14664,8 @@ elif False:
 class RuleGroupRuleStatementSqliMatchStatementArgs:
     def __init__(__self__, *,
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs']]],
-                 field_to_match: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs']] = None):
+                 field_to_match: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs']] = None,
+                 sensitivity_level: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
@@ -14660,6 +14675,8 @@ class RuleGroupRuleStatementSqliMatchStatementArgs:
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if sensitivity_level is not None:
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -14686,6 +14703,15 @@ class RuleGroupRuleStatementSqliMatchStatementArgs:
     @field_to_match.setter
     def field_to_match(self, value: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs']]):
         pulumi.set(self, "field_to_match", value)
+
+    @property
+    @pulumi.getter(name="sensitivityLevel")
+    def sensitivity_level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sensitivity_level")
+
+    @sensitivity_level.setter
+    def sensitivity_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sensitivity_level", value)
 
 
 if not MYPY:
@@ -27481,6 +27507,7 @@ if not MYPY:
         """
         Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
+        sensitivity_level: NotRequired[pulumi.Input[str]]
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -27488,7 +27515,8 @@ elif False:
 class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs:
     def __init__(__self__, *,
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs']]],
-                 field_to_match: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs']] = None):
+                 field_to_match: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs']] = None,
+                 sensitivity_level: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs'] field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
@@ -27496,6 +27524,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if sensitivity_level is not None:
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -27520,6 +27550,15 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     @field_to_match.setter
     def field_to_match(self, value: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs']]):
         pulumi.set(self, "field_to_match", value)
+
+    @property
+    @pulumi.getter(name="sensitivityLevel")
+    def sensitivity_level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sensitivity_level")
+
+    @sensitivity_level.setter
+    def sensitivity_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sensitivity_level", value)
 
 
 if not MYPY:
@@ -34963,6 +35002,7 @@ if not MYPY:
         """
         Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
+        sensitivity_level: NotRequired[pulumi.Input[str]]
 elif False:
     WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -34970,7 +35010,8 @@ elif False:
 class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs:
     def __init__(__self__, *,
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs']]],
-                 field_to_match: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs']] = None):
+                 field_to_match: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs']] = None,
+                 sensitivity_level: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs'] field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
@@ -34978,6 +35019,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementA
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if sensitivity_level is not None:
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -35002,6 +35045,15 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementA
     @field_to_match.setter
     def field_to_match(self, value: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs']]):
         pulumi.set(self, "field_to_match", value)
+
+    @property
+    @pulumi.getter(name="sensitivityLevel")
+    def sensitivity_level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sensitivity_level")
+
+    @sensitivity_level.setter
+    def sensitivity_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sensitivity_level", value)
 
 
 if not MYPY:
@@ -40710,6 +40762,7 @@ if not MYPY:
         """
         Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
+        sensitivity_level: NotRequired[pulumi.Input[str]]
 elif False:
     WebAclRuleStatementSqliMatchStatementArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -40717,7 +40770,8 @@ elif False:
 class WebAclRuleStatementSqliMatchStatementArgs:
     def __init__(__self__, *,
                  text_transformations: pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementSqliMatchStatementTextTransformationArgs']]],
-                 field_to_match: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchArgs']] = None):
+                 field_to_match: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchArgs']] = None,
+                 sensitivity_level: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleStatementSqliMatchStatementTextTransformationArgs']]] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
         :param pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchArgs'] field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
@@ -40725,6 +40779,8 @@ class WebAclRuleStatementSqliMatchStatementArgs:
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
             pulumi.set(__self__, "field_to_match", field_to_match)
+        if sensitivity_level is not None:
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -40749,6 +40805,15 @@ class WebAclRuleStatementSqliMatchStatementArgs:
     @field_to_match.setter
     def field_to_match(self, value: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchArgs']]):
         pulumi.set(self, "field_to_match", value)
+
+    @property
+    @pulumi.getter(name="sensitivityLevel")
+    def sensitivity_level(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "sensitivity_level")
+
+    @sensitivity_level.setter
+    def sensitivity_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sensitivity_level", value)
 
 
 if not MYPY:

@@ -96,6 +96,10 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
      */
     public readonly firewallDomainListId!: pulumi.Output<string>;
     /**
+     * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+     */
+    public readonly firewallDomainRedirectionAction!: pulumi.Output<string | undefined>;
+    /**
      * The unique identifier of the firewall rule group where you want to create the rule.
      */
     public readonly firewallRuleGroupId!: pulumi.Output<string>;
@@ -107,6 +111,10 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
      * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
      */
     public readonly priority!: pulumi.Output<number>;
+    /**
+     * The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+     */
+    public readonly qType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ResolverFirewallRule resource with the given unique name, arguments, and options.
@@ -127,9 +135,11 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
             resourceInputs["blockOverrideTtl"] = state ? state.blockOverrideTtl : undefined;
             resourceInputs["blockResponse"] = state ? state.blockResponse : undefined;
             resourceInputs["firewallDomainListId"] = state ? state.firewallDomainListId : undefined;
+            resourceInputs["firewallDomainRedirectionAction"] = state ? state.firewallDomainRedirectionAction : undefined;
             resourceInputs["firewallRuleGroupId"] = state ? state.firewallRuleGroupId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["qType"] = state ? state.qType : undefined;
         } else {
             const args = argsOrState as ResolverFirewallRuleArgs | undefined;
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -150,9 +160,11 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
             resourceInputs["blockOverrideTtl"] = args ? args.blockOverrideTtl : undefined;
             resourceInputs["blockResponse"] = args ? args.blockResponse : undefined;
             resourceInputs["firewallDomainListId"] = args ? args.firewallDomainListId : undefined;
+            resourceInputs["firewallDomainRedirectionAction"] = args ? args.firewallDomainRedirectionAction : undefined;
             resourceInputs["firewallRuleGroupId"] = args ? args.firewallRuleGroupId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["qType"] = args ? args.qType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResolverFirewallRule.__pulumiType, name, resourceInputs, opts);
@@ -188,6 +200,10 @@ export interface ResolverFirewallRuleState {
      */
     firewallDomainListId?: pulumi.Input<string>;
     /**
+     * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+     */
+    firewallDomainRedirectionAction?: pulumi.Input<string>;
+    /**
      * The unique identifier of the firewall rule group where you want to create the rule.
      */
     firewallRuleGroupId?: pulumi.Input<string>;
@@ -199,6 +215,10 @@ export interface ResolverFirewallRuleState {
      * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
      */
     priority?: pulumi.Input<number>;
+    /**
+     * The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+     */
+    qType?: pulumi.Input<string>;
 }
 
 /**
@@ -230,6 +250,10 @@ export interface ResolverFirewallRuleArgs {
      */
     firewallDomainListId: pulumi.Input<string>;
     /**
+     * Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+     */
+    firewallDomainRedirectionAction?: pulumi.Input<string>;
+    /**
      * The unique identifier of the firewall rule group where you want to create the rule.
      */
     firewallRuleGroupId: pulumi.Input<string>;
@@ -241,4 +265,8 @@ export interface ResolverFirewallRuleArgs {
      * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
      */
     priority: pulumi.Input<number>;
+    /**
+     * The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+     */
+    qType?: pulumi.Input<string>;
 }

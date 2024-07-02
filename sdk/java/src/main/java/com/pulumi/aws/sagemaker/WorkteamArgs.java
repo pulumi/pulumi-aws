@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker;
 
 import com.pulumi.aws.sagemaker.inputs.WorkteamMemberDefinitionArgs;
 import com.pulumi.aws.sagemaker.inputs.WorkteamNotificationConfigurationArgs;
+import com.pulumi.aws.sagemaker.inputs.WorkteamWorkerAccessConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -81,6 +82,21 @@ public final class WorkteamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+     * 
+     */
+    @Import(name="workerAccessConfiguration")
+    private @Nullable Output<WorkteamWorkerAccessConfigurationArgs> workerAccessConfiguration;
+
+    /**
+     * @return Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+     * 
+     */
+    public Optional<Output<WorkteamWorkerAccessConfigurationArgs>> workerAccessConfiguration() {
+        return Optional.ofNullable(this.workerAccessConfiguration);
+    }
+
+    /**
      * The name of the Workteam (must be unique).
      * 
      */
@@ -117,6 +133,7 @@ public final class WorkteamArgs extends com.pulumi.resources.ResourceArgs {
         this.memberDefinitions = $.memberDefinitions;
         this.notificationConfiguration = $.notificationConfiguration;
         this.tags = $.tags;
+        this.workerAccessConfiguration = $.workerAccessConfiguration;
         this.workforceName = $.workforceName;
         this.workteamName = $.workteamName;
     }
@@ -231,6 +248,27 @@ public final class WorkteamArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param workerAccessConfiguration Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workerAccessConfiguration(@Nullable Output<WorkteamWorkerAccessConfigurationArgs> workerAccessConfiguration) {
+            $.workerAccessConfiguration = workerAccessConfiguration;
+            return this;
+        }
+
+        /**
+         * @param workerAccessConfiguration Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workerAccessConfiguration(WorkteamWorkerAccessConfigurationArgs workerAccessConfiguration) {
+            return workerAccessConfiguration(Output.of(workerAccessConfiguration));
         }
 
         /**

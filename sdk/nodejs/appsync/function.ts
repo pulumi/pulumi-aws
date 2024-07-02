@@ -170,11 +170,11 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly responseMappingTemplate!: pulumi.Output<string | undefined>;
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      */
     public readonly runtime!: pulumi.Output<outputs.appsync.FunctionRuntime | undefined>;
     /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
+     * Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
      */
     public readonly syncConfig!: pulumi.Output<outputs.appsync.FunctionSyncConfig | undefined>;
 
@@ -280,11 +280,11 @@ export interface FunctionState {
      */
     responseMappingTemplate?: pulumi.Input<string>;
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      */
     runtime?: pulumi.Input<inputs.appsync.FunctionRuntime>;
     /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
+     * Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
      */
     syncConfig?: pulumi.Input<inputs.appsync.FunctionSyncConfig>;
 }
@@ -330,11 +330,11 @@ export interface FunctionArgs {
      */
     responseMappingTemplate?: pulumi.Input<string>;
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      */
     runtime?: pulumi.Input<inputs.appsync.FunctionRuntime>;
     /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
+     * Describes a Sync configuration for a resolver. See `syncConfig` Block for details.
      */
     syncConfig?: pulumi.Input<inputs.appsync.FunctionSyncConfig>;
 }

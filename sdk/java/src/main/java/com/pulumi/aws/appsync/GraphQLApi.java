@@ -26,14 +26,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appsync/graphQLApi:GraphQLApi")
 public class GraphQLApi extends com.pulumi.resources.CustomResource {
     /**
-     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     * One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
      * 
      */
     @Export(name="additionalAuthenticationProviders", refs={List.class,GraphQLApiAdditionalAuthenticationProvider.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GraphQLApiAdditionalAuthenticationProvider>> additionalAuthenticationProviders;
 
     /**
-     * @return One or more additional authentication providers for the GraphqlApi. Defined below.
+     * @return One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
      * 
      */
     public Output<Optional<List<GraphQLApiAdditionalAuthenticationProvider>>> additionalAuthenticationProviders() {
@@ -82,56 +82,56 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.introspectionConfig);
     }
     /**
-     * Nested argument containing Lambda authorizer configuration. Defined below.
+     * Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
      * 
      */
     @Export(name="lambdaAuthorizerConfig", refs={GraphQLApiLambdaAuthorizerConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiLambdaAuthorizerConfig> lambdaAuthorizerConfig;
 
     /**
-     * @return Nested argument containing Lambda authorizer configuration. Defined below.
+     * @return Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
      * 
      */
     public Output<Optional<GraphQLApiLambdaAuthorizerConfig>> lambdaAuthorizerConfig() {
         return Codegen.optional(this.lambdaAuthorizerConfig);
     }
     /**
-     * Nested argument containing logging configuration. Defined below.
+     * Nested argument containing logging configuration. See `log_config` Block for details.
      * 
      */
     @Export(name="logConfig", refs={GraphQLApiLogConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiLogConfig> logConfig;
 
     /**
-     * @return Nested argument containing logging configuration. Defined below.
+     * @return Nested argument containing logging configuration. See `log_config` Block for details.
      * 
      */
     public Output<Optional<GraphQLApiLogConfig>> logConfig() {
         return Codegen.optional(this.logConfig);
     }
     /**
-     * User-supplied name for the GraphqlApi.
+     * User-supplied name for the GraphSQL API.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return User-supplied name for the GraphqlApi.
+     * @return User-supplied name for the GraphSQL API.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Nested argument containing OpenID Connect configuration. Defined below.
+     * Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
      * 
      */
     @Export(name="openidConnectConfig", refs={GraphQLApiOpenidConnectConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiOpenidConnectConfig> openidConnectConfig;
 
     /**
-     * @return Nested argument containing OpenID Connect configuration. Defined below.
+     * @return Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
      * 
      */
     public Output<Optional<GraphQLApiOpenidConnectConfig>> openidConnectConfig() {
@@ -230,14 +230,14 @@ public class GraphQLApi extends com.pulumi.resources.CustomResource {
         return this.uris;
     }
     /**
-     * Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
      * 
      */
     @Export(name="userPoolConfig", refs={GraphQLApiUserPoolConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiUserPoolConfig> userPoolConfig;
 
     /**
-     * @return Amazon Cognito User Pool configuration. Defined below.
+     * @return Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
      * 
      */
     public Output<Optional<GraphQLApiUserPoolConfig>> userPoolConfig() {

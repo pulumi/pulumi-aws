@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Route53
         public Output<string> FirewallDomainListId { get; private set; } = null!;
 
         /// <summary>
+        /// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+        /// </summary>
+        [Output("firewallDomainRedirectionAction")]
+        public Output<string?> FirewallDomainRedirectionAction { get; private set; } = null!;
+
+        /// <summary>
         /// The unique identifier of the firewall rule group where you want to create the rule.
         /// </summary>
         [Output("firewallRuleGroupId")]
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        /// </summary>
+        [Output("qType")]
+        public Output<string?> QType { get; private set; } = null!;
 
 
         /// <summary>
@@ -202,6 +214,12 @@ namespace Pulumi.Aws.Route53
         public Input<string> FirewallDomainListId { get; set; } = null!;
 
         /// <summary>
+        /// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+        /// </summary>
+        [Input("firewallDomainRedirectionAction")]
+        public Input<string>? FirewallDomainRedirectionAction { get; set; }
+
+        /// <summary>
         /// The unique identifier of the firewall rule group where you want to create the rule.
         /// </summary>
         [Input("firewallRuleGroupId", required: true)]
@@ -218,6 +236,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
+
+        /// <summary>
+        /// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        /// </summary>
+        [Input("qType")]
+        public Input<string>? QType { get; set; }
 
         public ResolverFirewallRuleArgs()
         {
@@ -264,6 +288,12 @@ namespace Pulumi.Aws.Route53
         public Input<string>? FirewallDomainListId { get; set; }
 
         /// <summary>
+        /// Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+        /// </summary>
+        [Input("firewallDomainRedirectionAction")]
+        public Input<string>? FirewallDomainRedirectionAction { get; set; }
+
+        /// <summary>
         /// The unique identifier of the firewall rule group where you want to create the rule.
         /// </summary>
         [Input("firewallRuleGroupId")]
@@ -280,6 +310,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
+
+        /// <summary>
+        /// The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        /// </summary>
+        [Input("qType")]
+        public Input<string>? QType { get; set; }
 
         public ResolverFirewallRuleState()
         {

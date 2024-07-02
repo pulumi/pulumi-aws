@@ -18,14 +18,14 @@ public final class DataSourceHttpConfigArgs extends com.pulumi.resources.Resourc
     public static final DataSourceHttpConfigArgs Empty = new DataSourceHttpConfigArgs();
 
     /**
-     * Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+     * Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
      * 
      */
     @Import(name="authorizationConfig")
     private @Nullable Output<DataSourceHttpConfigAuthorizationConfigArgs> authorizationConfig;
 
     /**
-     * @return Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+     * @return Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
      * 
      */
     public Optional<Output<DataSourceHttpConfigAuthorizationConfigArgs>> authorizationConfig() {
@@ -73,7 +73,7 @@ public final class DataSourceHttpConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authorizationConfig Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+         * @param authorizationConfig Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DataSourceHttpConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param authorizationConfig Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+         * @param authorizationConfig Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
          * 
          * @return builder
          * 

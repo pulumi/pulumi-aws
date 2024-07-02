@@ -151,7 +151,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
      */
     public readonly provisioningArtifactName!: pulumi.Output<string | undefined>;
     /**
-     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      */
     public readonly provisioningParameters!: pulumi.Output<outputs.servicecatalog.ProvisionedProductProvisioningParameter[] | undefined>;
     /**
@@ -159,7 +159,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
      */
     public readonly retainPhysicalResources!: pulumi.Output<boolean | undefined>;
     /**
-     * Configuration block with information about the provisioning preferences for a stack set. See details below.
+     * Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
      */
     public readonly stackSetProvisioningPreferences!: pulumi.Output<outputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences | undefined>;
     /**
@@ -337,7 +337,7 @@ export interface ProvisionedProductState {
      */
     provisioningArtifactName?: pulumi.Input<string>;
     /**
-     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      */
     provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductProvisioningParameter>[]>;
     /**
@@ -345,7 +345,7 @@ export interface ProvisionedProductState {
      */
     retainPhysicalResources?: pulumi.Input<boolean>;
     /**
-     * Configuration block with information about the provisioning preferences for a stack set. See details below.
+     * Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
      */
     stackSetProvisioningPreferences?: pulumi.Input<inputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences>;
     /**
@@ -419,7 +419,7 @@ export interface ProvisionedProductArgs {
      */
     provisioningArtifactName?: pulumi.Input<string>;
     /**
-     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+     * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      */
     provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductProvisioningParameter>[]>;
     /**
@@ -427,7 +427,7 @@ export interface ProvisionedProductArgs {
      */
     retainPhysicalResources?: pulumi.Input<boolean>;
     /**
-     * Configuration block with information about the provisioning preferences for a stack set. See details below.
+     * Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
      */
     stackSetProvisioningPreferences?: pulumi.Input<inputs.servicecatalog.ProvisionedProductStackSetProvisioningPreferences>;
     /**

@@ -13,5 +13,6 @@ from .get_resource_policy import *
 from .logging_configuration import *
 from .resource_policy import *
 from .rule_group import *
+from .tls_inspection_configuration import *
 from ._inputs import *
 from . import outputs

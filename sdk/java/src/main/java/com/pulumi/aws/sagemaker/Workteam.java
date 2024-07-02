@@ -8,6 +8,7 @@ import com.pulumi.aws.sagemaker.WorkteamArgs;
 import com.pulumi.aws.sagemaker.inputs.WorkteamState;
 import com.pulumi.aws.sagemaker.outputs.WorkteamMemberDefinition;
 import com.pulumi.aws.sagemaker.outputs.WorkteamNotificationConfiguration;
+import com.pulumi.aws.sagemaker.outputs.WorkteamWorkerAccessConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -225,6 +226,20 @@ public class Workteam extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+     * 
+     */
+    @Export(name="workerAccessConfiguration", refs={WorkteamWorkerAccessConfiguration.class}, tree="[0]")
+    private Output<WorkteamWorkerAccessConfiguration> workerAccessConfiguration;
+
+    /**
+     * @return Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL. see Worker Access Configuration details below.
+     * 
+     */
+    public Output<WorkteamWorkerAccessConfiguration> workerAccessConfiguration() {
+        return this.workerAccessConfiguration;
     }
     /**
      * The name of the Workteam (must be unique).

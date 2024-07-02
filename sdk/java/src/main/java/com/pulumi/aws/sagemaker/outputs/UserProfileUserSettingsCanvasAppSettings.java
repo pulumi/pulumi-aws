@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.outputs;
 
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings;
+import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsKendraSettings;
 import com.pulumi.aws.sagemaker.outputs.UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings;
@@ -22,6 +23,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
      * 
      */
     private @Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
+    private @Nullable UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings generativeAiSettings;
     /**
      * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
      * 
@@ -55,6 +57,9 @@ public final class UserProfileUserSettingsCanvasAppSettings {
      */
     public Optional<UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings> directDeploySettings() {
         return Optional.ofNullable(this.directDeploySettings);
+    }
+    public Optional<UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings> generativeAiSettings() {
+        return Optional.ofNullable(this.generativeAiSettings);
     }
     /**
      * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
@@ -102,6 +107,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings;
+        private @Nullable UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings generativeAiSettings;
         private @Nullable List<UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings;
         private @Nullable UserProfileUserSettingsCanvasAppSettingsKendraSettings kendraSettings;
         private @Nullable UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings modelRegisterSettings;
@@ -111,6 +117,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
         public Builder(UserProfileUserSettingsCanvasAppSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.directDeploySettings = defaults.directDeploySettings;
+    	      this.generativeAiSettings = defaults.generativeAiSettings;
     	      this.identityProviderOauthSettings = defaults.identityProviderOauthSettings;
     	      this.kendraSettings = defaults.kendraSettings;
     	      this.modelRegisterSettings = defaults.modelRegisterSettings;
@@ -122,6 +129,12 @@ public final class UserProfileUserSettingsCanvasAppSettings {
         public Builder directDeploySettings(@Nullable UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings directDeploySettings) {
 
             this.directDeploySettings = directDeploySettings;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder generativeAiSettings(@Nullable UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettings generativeAiSettings) {
+
+            this.generativeAiSettings = generativeAiSettings;
             return this;
         }
         @CustomType.Setter
@@ -160,6 +173,7 @@ public final class UserProfileUserSettingsCanvasAppSettings {
         public UserProfileUserSettingsCanvasAppSettings build() {
             final var _resultValue = new UserProfileUserSettingsCanvasAppSettings();
             _resultValue.directDeploySettings = directDeploySettings;
+            _resultValue.generativeAiSettings = generativeAiSettings;
             _resultValue.identityProviderOauthSettings = identityProviderOauthSettings;
             _resultValue.kendraSettings = kendraSettings;
             _resultValue.modelRegisterSettings = modelRegisterSettings;

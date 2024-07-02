@@ -323,28 +323,28 @@ public class Function extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.responseMappingTemplate);
     }
     /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      * 
      */
     @Export(name="runtime", refs={FunctionRuntime.class}, tree="[0]")
     private Output</* @Nullable */ FunctionRuntime> runtime;
 
     /**
-     * @return Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
+     * @return Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
      * 
      */
     public Output<Optional<FunctionRuntime>> runtime() {
         return Codegen.optional(this.runtime);
     }
     /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
+     * Describes a Sync configuration for a resolver. See `sync_config` Block for details.
      * 
      */
     @Export(name="syncConfig", refs={FunctionSyncConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionSyncConfig> syncConfig;
 
     /**
-     * @return Describes a Sync configuration for a resolver. See Sync Config.
+     * @return Describes a Sync configuration for a resolver. See `sync_config` Block for details.
      * 
      */
     public Output<Optional<FunctionSyncConfig>> syncConfig() {

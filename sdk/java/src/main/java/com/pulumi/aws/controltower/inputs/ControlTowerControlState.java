@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.controltower.inputs;
 
+import com.pulumi.aws.controltower.inputs.ControlTowerControlParameterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ControlTowerControlState extends com.pulumi.resources.ResourceArgs {
 
     public static final ControlTowerControlState Empty = new ControlTowerControlState();
+
+    /**
+     * The ARN of the EnabledControl resource.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The ARN of the EnabledControl resource.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
 
     /**
      * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
@@ -31,7 +48,24 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+     * 
+     */
+    @Import(name="parameters")
+    private @Nullable Output<List<ControlTowerControlParameterArgs>> parameters;
+
+    /**
+     * @return Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+     * 
+     */
+    public Optional<Output<List<ControlTowerControlParameterArgs>>> parameters() {
+        return Optional.ofNullable(this.parameters);
+    }
+
+    /**
      * The ARN of the organizational unit.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="targetIdentifier")
@@ -39,6 +73,8 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
 
     /**
      * @return The ARN of the organizational unit.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> targetIdentifier() {
@@ -48,7 +84,9 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
     private ControlTowerControlState() {}
 
     private ControlTowerControlState(ControlTowerControlState $) {
+        this.arn = $.arn;
         this.controlIdentifier = $.controlIdentifier;
+        this.parameters = $.parameters;
         this.targetIdentifier = $.targetIdentifier;
     }
 
@@ -68,6 +106,27 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
 
         public Builder(ControlTowerControlState defaults) {
             $ = new ControlTowerControlState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The ARN of the EnabledControl resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The ARN of the EnabledControl resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**
@@ -92,7 +151,40 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
         }
 
         /**
+         * @param parameters Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(@Nullable Output<List<ControlTowerControlParameterArgs>> parameters) {
+            $.parameters = parameters;
+            return this;
+        }
+
+        /**
+         * @param parameters Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(List<ControlTowerControlParameterArgs> parameters) {
+            return parameters(Output.of(parameters));
+        }
+
+        /**
+         * @param parameters Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(ControlTowerControlParameterArgs... parameters) {
+            return parameters(List.of(parameters));
+        }
+
+        /**
          * @param targetIdentifier The ARN of the organizational unit.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -104,6 +196,8 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
 
         /**
          * @param targetIdentifier The ARN of the organizational unit.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

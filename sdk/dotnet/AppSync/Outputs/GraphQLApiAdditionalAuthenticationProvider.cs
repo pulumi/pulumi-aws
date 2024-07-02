@@ -18,15 +18,15 @@ namespace Pulumi.Aws.AppSync.Outputs
         /// </summary>
         public readonly string AuthenticationType;
         /// <summary>
-        /// Nested argument containing Lambda authorizer configuration. Defined below.
+        /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         /// </summary>
         public readonly Outputs.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig? LambdaAuthorizerConfig;
         /// <summary>
-        /// Nested argument containing OpenID Connect configuration. Defined below.
+        /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         /// </summary>
         public readonly Outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig? OpenidConnectConfig;
         /// <summary>
-        /// Amazon Cognito User Pool configuration. Defined below.
+        /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         /// </summary>
         public readonly Outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig? UserPoolConfig;
 

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppSync
     public partial class GraphQLApi : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more additional authentication providers for the GraphqlApi. Defined below.
+        /// One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
         /// </summary>
         [Output("additionalAuthenticationProviders")]
         public Output<ImmutableArray<Outputs.GraphQLApiAdditionalAuthenticationProvider>> AdditionalAuthenticationProviders { get; private set; } = null!;
@@ -37,25 +37,25 @@ namespace Pulumi.Aws.AppSync
         public Output<string?> IntrospectionConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument containing Lambda authorizer configuration. Defined below.
+        /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         /// </summary>
         [Output("lambdaAuthorizerConfig")]
         public Output<Outputs.GraphQLApiLambdaAuthorizerConfig?> LambdaAuthorizerConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument containing logging configuration. Defined below.
+        /// Nested argument containing logging configuration. See `log_config` Block for details.
         /// </summary>
         [Output("logConfig")]
         public Output<Outputs.GraphQLApiLogConfig?> LogConfig { get; private set; } = null!;
 
         /// <summary>
-        /// User-supplied name for the GraphqlApi.
+        /// User-supplied name for the GraphSQL API.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Nested argument containing OpenID Connect configuration. Defined below.
+        /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         /// </summary>
         [Output("openidConnectConfig")]
         public Output<Outputs.GraphQLApiOpenidConnectConfig?> OpenidConnectConfig { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.AppSync
         public Output<ImmutableDictionary<string, string>> Uris { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Cognito User Pool configuration. Defined below.
+        /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         /// </summary>
         [Output("userPoolConfig")]
         public Output<Outputs.GraphQLApiUserPoolConfig?> UserPoolConfig { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.AppSync
         private InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs>? _additionalAuthenticationProviders;
 
         /// <summary>
-        /// One or more additional authentication providers for the GraphqlApi. Defined below.
+        /// One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
         /// </summary>
         public InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderArgs> AdditionalAuthenticationProviders
         {
@@ -187,25 +187,25 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? IntrospectionConfig { get; set; }
 
         /// <summary>
-        /// Nested argument containing Lambda authorizer configuration. Defined below.
+        /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         /// </summary>
         [Input("lambdaAuthorizerConfig")]
         public Input<Inputs.GraphQLApiLambdaAuthorizerConfigArgs>? LambdaAuthorizerConfig { get; set; }
 
         /// <summary>
-        /// Nested argument containing logging configuration. Defined below.
+        /// Nested argument containing logging configuration. See `log_config` Block for details.
         /// </summary>
         [Input("logConfig")]
         public Input<Inputs.GraphQLApiLogConfigArgs>? LogConfig { get; set; }
 
         /// <summary>
-        /// User-supplied name for the GraphqlApi.
+        /// User-supplied name for the GraphSQL API.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Nested argument containing OpenID Connect configuration. Defined below.
+        /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         /// </summary>
         [Input("openidConnectConfig")]
         public Input<Inputs.GraphQLApiOpenidConnectConfigArgs>? OpenidConnectConfig { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// Amazon Cognito User Pool configuration. Defined below.
+        /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         /// </summary>
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigArgs>? UserPoolConfig { get; set; }
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.AppSync
         private InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderGetArgs>? _additionalAuthenticationProviders;
 
         /// <summary>
-        /// One or more additional authentication providers for the GraphqlApi. Defined below.
+        /// One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
         /// </summary>
         public InputList<Inputs.GraphQLApiAdditionalAuthenticationProviderGetArgs> AdditionalAuthenticationProviders
         {
@@ -299,25 +299,25 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? IntrospectionConfig { get; set; }
 
         /// <summary>
-        /// Nested argument containing Lambda authorizer configuration. Defined below.
+        /// Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
         /// </summary>
         [Input("lambdaAuthorizerConfig")]
         public Input<Inputs.GraphQLApiLambdaAuthorizerConfigGetArgs>? LambdaAuthorizerConfig { get; set; }
 
         /// <summary>
-        /// Nested argument containing logging configuration. Defined below.
+        /// Nested argument containing logging configuration. See `log_config` Block for details.
         /// </summary>
         [Input("logConfig")]
         public Input<Inputs.GraphQLApiLogConfigGetArgs>? LogConfig { get; set; }
 
         /// <summary>
-        /// User-supplied name for the GraphqlApi.
+        /// User-supplied name for the GraphSQL API.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Nested argument containing OpenID Connect configuration. Defined below.
+        /// Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
         /// </summary>
         [Input("openidConnectConfig")]
         public Input<Inputs.GraphQLApiOpenidConnectConfigGetArgs>? OpenidConnectConfig { get; set; }
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// Amazon Cognito User Pool configuration. Defined below.
+        /// Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
         /// </summary>
         [Input("userPoolConfig")]
         public Input<Inputs.GraphQLApiUserPoolConfigGetArgs>? UserPoolConfig { get; set; }

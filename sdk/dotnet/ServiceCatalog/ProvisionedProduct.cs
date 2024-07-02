@@ -176,7 +176,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<string?> ProvisioningArtifactName { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
         /// </summary>
         [Output("provisioningParameters")]
         public Output<ImmutableArray<Outputs.ProvisionedProductProvisioningParameter>> ProvisioningParameters { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<bool?> RetainPhysicalResources { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with information about the provisioning preferences for a stack set. See details below.
+        /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         /// </summary>
         [Output("stackSetProvisioningPreferences")]
         public Output<Outputs.ProvisionedProductStackSetProvisioningPreferences?> StackSetProvisioningPreferences { get; private set; } = null!;
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputList<Inputs.ProvisionedProductProvisioningParameterArgs>? _provisioningParameters;
 
         /// <summary>
-        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
         /// </summary>
         public InputList<Inputs.ProvisionedProductProvisioningParameterArgs> ProvisioningParameters
         {
@@ -356,7 +356,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<bool>? RetainPhysicalResources { get; set; }
 
         /// <summary>
-        /// Configuration block with information about the provisioning preferences for a stack set. See details below.
+        /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         /// </summary>
         [Input("stackSetProvisioningPreferences")]
         public Input<Inputs.ProvisionedProductStackSetProvisioningPreferencesArgs>? StackSetProvisioningPreferences { get; set; }
@@ -513,7 +513,7 @@ namespace Pulumi.Aws.ServiceCatalog
         private InputList<Inputs.ProvisionedProductProvisioningParameterGetArgs>? _provisioningParameters;
 
         /// <summary>
-        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See details below.
+        /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
         /// </summary>
         public InputList<Inputs.ProvisionedProductProvisioningParameterGetArgs> ProvisioningParameters
         {
@@ -528,7 +528,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Input<bool>? RetainPhysicalResources { get; set; }
 
         /// <summary>
-        /// Configuration block with information about the provisioning preferences for a stack set. See details below.
+        /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         /// </summary>
         [Input("stackSetProvisioningPreferences")]
         public Input<Inputs.ProvisionedProductStackSetProvisioningPreferencesGetArgs>? StackSetProvisioningPreferences { get; set; }

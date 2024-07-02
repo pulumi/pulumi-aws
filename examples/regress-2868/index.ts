@@ -42,6 +42,15 @@ export const AppUsersPool = new aws.cognito.UserPool("test-user-pool", {
             maxLength: "2048",
             minLength: "0",
         },
+    },{
+        attributeDataType: "String",
+        mutable: true,
+        name: "birthdate",
+        required: false,
+        stringAttributeConstraints: {
+            maxLength: "2048",
+            minLength: "0",
+        },
     }],
     softwareTokenMfaConfiguration: {
         enabled: true,

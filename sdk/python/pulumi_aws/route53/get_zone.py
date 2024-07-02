@@ -121,6 +121,9 @@ class GetZoneResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The Hosted Zone name.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -142,6 +145,9 @@ class GetZoneResult:
     @property
     @pulumi.getter(name="privateZone")
     def private_zone(self) -> Optional[bool]:
+        """
+        Indicates whether this is a private hosted zone.
+        """
         return pulumi.get(self, "private_zone")
 
     @property
@@ -155,6 +161,9 @@ class GetZoneResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags assigned to the Hosted Zone.
+        """
         return pulumi.get(self, "tags")
 
     @property
@@ -165,6 +174,9 @@ class GetZoneResult:
     @property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> str:
+        """
+        The Hosted Zone identifier.
+        """
         return pulumi.get(self, "zone_id")
 
 

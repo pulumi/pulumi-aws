@@ -54,7 +54,7 @@ class ServiceDnsConfig(dict):
                  namespace_id: str,
                  routing_policy: Optional[str] = None):
         """
-        :param Sequence['ServiceDnsConfigDnsRecordArgs'] dns_records: An array that contains one DnsRecord object for each resource record set.
+        :param Sequence['ServiceDnsConfigDnsRecordArgs'] dns_records: An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
         :param str namespace_id: The ID of the namespace to use for DNS configuration.
         :param str routing_policy: The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
         """
@@ -67,7 +67,7 @@ class ServiceDnsConfig(dict):
     @pulumi.getter(name="dnsRecords")
     def dns_records(self) -> Sequence['outputs.ServiceDnsConfigDnsRecord']:
         """
-        An array that contains one DnsRecord object for each resource record set.
+        An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
         """
         return pulumi.get(self, "dns_records")
 
@@ -222,7 +222,7 @@ class GetServiceDnsConfigResult(dict):
                  namespace_id: str,
                  routing_policy: str):
         """
-        :param Sequence['GetServiceDnsConfigDnsRecordArgs'] dns_records: An array that contains one DnsRecord object for each resource record set.
+        :param Sequence['GetServiceDnsConfigDnsRecordArgs'] dns_records: An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
         :param str namespace_id: ID of the namespace that the service belongs to.
         :param str routing_policy: Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
         """
@@ -234,7 +234,7 @@ class GetServiceDnsConfigResult(dict):
     @pulumi.getter(name="dnsRecords")
     def dns_records(self) -> Sequence['outputs.GetServiceDnsConfigDnsRecordResult']:
         """
-        An array that contains one DnsRecord object for each resource record set.
+        An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
         """
         return pulumi.get(self, "dns_records")
 

@@ -27,7 +27,9 @@ class ResolverFirewallRuleArgs:
                  block_override_domain: Optional[pulumi.Input[str]] = None,
                  block_override_ttl: Optional[pulumi.Input[int]] = None,
                  block_response: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 firewall_domain_redirection_action: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 q_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResolverFirewallRule resource.
         :param pulumi.Input[str] action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
@@ -38,7 +40,9 @@ class ResolverFirewallRuleArgs:
         :param pulumi.Input[str] block_override_domain: The custom DNS record to send back in response to the query.
         :param pulumi.Input[int] block_override_ttl: The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
         :param pulumi.Input[str] block_response: The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
+        :param pulumi.Input[str] firewall_domain_redirection_action: Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
         :param pulumi.Input[str] name: A name that lets you identify the rule, to manage and use it.
+        :param pulumi.Input[str] q_type: The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
@@ -52,8 +56,12 @@ class ResolverFirewallRuleArgs:
             pulumi.set(__self__, "block_override_ttl", block_override_ttl)
         if block_response is not None:
             pulumi.set(__self__, "block_response", block_response)
+        if firewall_domain_redirection_action is not None:
+            pulumi.set(__self__, "firewall_domain_redirection_action", firewall_domain_redirection_action)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if q_type is not None:
+            pulumi.set(__self__, "q_type", q_type)
 
     @property
     @pulumi.getter
@@ -152,6 +160,18 @@ class ResolverFirewallRuleArgs:
         pulumi.set(self, "block_response", value)
 
     @property
+    @pulumi.getter(name="firewallDomainRedirectionAction")
+    def firewall_domain_redirection_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+        """
+        return pulumi.get(self, "firewall_domain_redirection_action")
+
+    @firewall_domain_redirection_action.setter
+    def firewall_domain_redirection_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_domain_redirection_action", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -163,6 +183,18 @@ class ResolverFirewallRuleArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="qType")
+    def q_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        """
+        return pulumi.get(self, "q_type")
+
+    @q_type.setter
+    def q_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "q_type", value)
+
 
 @pulumi.input_type
 class _ResolverFirewallRuleState:
@@ -173,9 +205,11 @@ class _ResolverFirewallRuleState:
                  block_override_ttl: Optional[pulumi.Input[int]] = None,
                  block_response: Optional[pulumi.Input[str]] = None,
                  firewall_domain_list_id: Optional[pulumi.Input[str]] = None,
+                 firewall_domain_redirection_action: Optional[pulumi.Input[str]] = None,
                  firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 priority: Optional[pulumi.Input[int]] = None):
+                 priority: Optional[pulumi.Input[int]] = None,
+                 q_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResolverFirewallRule resources.
         :param pulumi.Input[str] action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
@@ -184,9 +218,11 @@ class _ResolverFirewallRuleState:
         :param pulumi.Input[int] block_override_ttl: The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
         :param pulumi.Input[str] block_response: The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
         :param pulumi.Input[str] firewall_domain_list_id: The ID of the domain list that you want to use in the rule.
+        :param pulumi.Input[str] firewall_domain_redirection_action: Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
         :param pulumi.Input[str] firewall_rule_group_id: The unique identifier of the firewall rule group where you want to create the rule.
         :param pulumi.Input[str] name: A name that lets you identify the rule, to manage and use it.
         :param pulumi.Input[int] priority: The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
+        :param pulumi.Input[str] q_type: The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -200,12 +236,16 @@ class _ResolverFirewallRuleState:
             pulumi.set(__self__, "block_response", block_response)
         if firewall_domain_list_id is not None:
             pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
+        if firewall_domain_redirection_action is not None:
+            pulumi.set(__self__, "firewall_domain_redirection_action", firewall_domain_redirection_action)
         if firewall_rule_group_id is not None:
             pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if q_type is not None:
+            pulumi.set(__self__, "q_type", q_type)
 
     @property
     @pulumi.getter
@@ -280,6 +320,18 @@ class _ResolverFirewallRuleState:
         pulumi.set(self, "firewall_domain_list_id", value)
 
     @property
+    @pulumi.getter(name="firewallDomainRedirectionAction")
+    def firewall_domain_redirection_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+        """
+        return pulumi.get(self, "firewall_domain_redirection_action")
+
+    @firewall_domain_redirection_action.setter
+    def firewall_domain_redirection_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_domain_redirection_action", value)
+
+    @property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -315,6 +367,18 @@ class _ResolverFirewallRuleState:
     def priority(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "priority", value)
 
+    @property
+    @pulumi.getter(name="qType")
+    def q_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        """
+        return pulumi.get(self, "q_type")
+
+    @q_type.setter
+    def q_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "q_type", value)
+
 
 class ResolverFirewallRule(pulumi.CustomResource):
     @overload
@@ -327,9 +391,11 @@ class ResolverFirewallRule(pulumi.CustomResource):
                  block_override_ttl: Optional[pulumi.Input[int]] = None,
                  block_response: Optional[pulumi.Input[str]] = None,
                  firewall_domain_list_id: Optional[pulumi.Input[str]] = None,
+                 firewall_domain_redirection_action: Optional[pulumi.Input[str]] = None,
                  firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 q_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Provides a Route 53 Resolver DNS Firewall rule resource.
@@ -375,9 +441,11 @@ class ResolverFirewallRule(pulumi.CustomResource):
         :param pulumi.Input[int] block_override_ttl: The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
         :param pulumi.Input[str] block_response: The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
         :param pulumi.Input[str] firewall_domain_list_id: The ID of the domain list that you want to use in the rule.
+        :param pulumi.Input[str] firewall_domain_redirection_action: Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
         :param pulumi.Input[str] firewall_rule_group_id: The unique identifier of the firewall rule group where you want to create the rule.
         :param pulumi.Input[str] name: A name that lets you identify the rule, to manage and use it.
         :param pulumi.Input[int] priority: The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
+        :param pulumi.Input[str] q_type: The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
         """
         ...
     @overload
@@ -442,9 +510,11 @@ class ResolverFirewallRule(pulumi.CustomResource):
                  block_override_ttl: Optional[pulumi.Input[int]] = None,
                  block_response: Optional[pulumi.Input[str]] = None,
                  firewall_domain_list_id: Optional[pulumi.Input[str]] = None,
+                 firewall_domain_redirection_action: Optional[pulumi.Input[str]] = None,
                  firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
+                 q_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -464,6 +534,7 @@ class ResolverFirewallRule(pulumi.CustomResource):
             if firewall_domain_list_id is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_domain_list_id'")
             __props__.__dict__["firewall_domain_list_id"] = firewall_domain_list_id
+            __props__.__dict__["firewall_domain_redirection_action"] = firewall_domain_redirection_action
             if firewall_rule_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_rule_group_id'")
             __props__.__dict__["firewall_rule_group_id"] = firewall_rule_group_id
@@ -471,6 +542,7 @@ class ResolverFirewallRule(pulumi.CustomResource):
             if priority is None and not opts.urn:
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
+            __props__.__dict__["q_type"] = q_type
         super(ResolverFirewallRule, __self__).__init__(
             'aws:route53/resolverFirewallRule:ResolverFirewallRule',
             resource_name,
@@ -487,9 +559,11 @@ class ResolverFirewallRule(pulumi.CustomResource):
             block_override_ttl: Optional[pulumi.Input[int]] = None,
             block_response: Optional[pulumi.Input[str]] = None,
             firewall_domain_list_id: Optional[pulumi.Input[str]] = None,
+            firewall_domain_redirection_action: Optional[pulumi.Input[str]] = None,
             firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            priority: Optional[pulumi.Input[int]] = None) -> 'ResolverFirewallRule':
+            priority: Optional[pulumi.Input[int]] = None,
+            q_type: Optional[pulumi.Input[str]] = None) -> 'ResolverFirewallRule':
         """
         Get an existing ResolverFirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -503,9 +577,11 @@ class ResolverFirewallRule(pulumi.CustomResource):
         :param pulumi.Input[int] block_override_ttl: The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
         :param pulumi.Input[str] block_response: The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
         :param pulumi.Input[str] firewall_domain_list_id: The ID of the domain list that you want to use in the rule.
+        :param pulumi.Input[str] firewall_domain_redirection_action: Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
         :param pulumi.Input[str] firewall_rule_group_id: The unique identifier of the firewall rule group where you want to create the rule.
         :param pulumi.Input[str] name: A name that lets you identify the rule, to manage and use it.
         :param pulumi.Input[int] priority: The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
+        :param pulumi.Input[str] q_type: The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -517,9 +593,11 @@ class ResolverFirewallRule(pulumi.CustomResource):
         __props__.__dict__["block_override_ttl"] = block_override_ttl
         __props__.__dict__["block_response"] = block_response
         __props__.__dict__["firewall_domain_list_id"] = firewall_domain_list_id
+        __props__.__dict__["firewall_domain_redirection_action"] = firewall_domain_redirection_action
         __props__.__dict__["firewall_rule_group_id"] = firewall_rule_group_id
         __props__.__dict__["name"] = name
         __props__.__dict__["priority"] = priority
+        __props__.__dict__["q_type"] = q_type
         return ResolverFirewallRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -571,6 +649,14 @@ class ResolverFirewallRule(pulumi.CustomResource):
         return pulumi.get(self, "firewall_domain_list_id")
 
     @property
+    @pulumi.getter(name="firewallDomainRedirectionAction")
+    def firewall_domain_redirection_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
+        """
+        return pulumi.get(self, "firewall_domain_redirection_action")
+
+    @property
     @pulumi.getter(name="firewallRuleGroupId")
     def firewall_rule_group_id(self) -> pulumi.Output[str]:
         """
@@ -593,4 +679,12 @@ class ResolverFirewallRule(pulumi.CustomResource):
         The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
         """
         return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="qType")
+    def q_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        """
+        return pulumi.get(self, "q_type")
 

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.ControlTower
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -39,6 +40,17 @@ namespace Pulumi.Aws.ControlTower
     ///         {
     ///             return x.Arn;
     ///         }).ToList()[0],
+    ///         Parameters = new[]
+    ///         {
+    ///             new Aws.ControlTower.Inputs.ControlTowerControlParameterArgs
+    ///             {
+    ///                 Key = "AllowedRegions",
+    ///                 Value = JsonSerializer.Serialize(new[]
+    ///                 {
+    ///                     "us-east-1",
+    ///                 }),
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -56,13 +68,27 @@ namespace Pulumi.Aws.ControlTower
     public partial class ControlTowerControl : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the EnabledControl resource.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         /// </summary>
         [Output("controlIdentifier")]
         public Output<string> ControlIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableArray<Outputs.ControlTowerControlParameter>> Parameters { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the organizational unit.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("targetIdentifier")]
         public Output<string> TargetIdentifier { get; private set; } = null!;
@@ -119,8 +145,22 @@ namespace Pulumi.Aws.ControlTower
         [Input("controlIdentifier", required: true)]
         public Input<string> ControlIdentifier { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputList<Inputs.ControlTowerControlParameterArgs>? _parameters;
+
+        /// <summary>
+        /// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        /// </summary>
+        public InputList<Inputs.ControlTowerControlParameterArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.ControlTowerControlParameterArgs>());
+            set => _parameters = value;
+        }
+
         /// <summary>
         /// The ARN of the organizational unit.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("targetIdentifier", required: true)]
         public Input<string> TargetIdentifier { get; set; } = null!;
@@ -134,13 +174,33 @@ namespace Pulumi.Aws.ControlTower
     public sealed class ControlTowerControlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ARN of the EnabledControl resource.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         /// </summary>
         [Input("controlIdentifier")]
         public Input<string>? ControlIdentifier { get; set; }
 
+        [Input("parameters")]
+        private InputList<Inputs.ControlTowerControlParameterGetArgs>? _parameters;
+
+        /// <summary>
+        /// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
+        /// </summary>
+        public InputList<Inputs.ControlTowerControlParameterGetArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.ControlTowerControlParameterGetArgs>());
+            set => _parameters = value;
+        }
+
         /// <summary>
         /// The ARN of the organizational unit.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("targetIdentifier")]
         public Input<string>? TargetIdentifier { get; set; }

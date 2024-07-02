@@ -139,14 +139,14 @@ public final class ProductState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+     * Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
      * 
      */
     @Import(name="provisioningArtifactParameters")
     private @Nullable Output<ProductProvisioningArtifactParametersArgs> provisioningArtifactParameters;
 
     /**
-     * @return Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+     * @return Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
      * 
      */
     public Optional<Output<ProductProvisioningArtifactParametersArgs>> provisioningArtifactParameters() {
@@ -478,7 +478,7 @@ public final class ProductState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provisioningArtifactParameters Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+         * @param provisioningArtifactParameters Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class ProductState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param provisioningArtifactParameters Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+         * @param provisioningArtifactParameters Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
          * 
          * @return builder
          * 

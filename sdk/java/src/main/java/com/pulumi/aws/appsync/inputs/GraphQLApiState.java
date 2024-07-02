@@ -25,14 +25,14 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
     public static final GraphQLApiState Empty = new GraphQLApiState();
 
     /**
-     * One or more additional authentication providers for the GraphqlApi. Defined below.
+     * One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
      * 
      */
     @Import(name="additionalAuthenticationProviders")
     private @Nullable Output<List<GraphQLApiAdditionalAuthenticationProviderArgs>> additionalAuthenticationProviders;
 
     /**
-     * @return One or more additional authentication providers for the GraphqlApi. Defined below.
+     * @return One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
      * 
      */
     public Optional<Output<List<GraphQLApiAdditionalAuthenticationProviderArgs>>> additionalAuthenticationProviders() {
@@ -85,14 +85,14 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Nested argument containing Lambda authorizer configuration. Defined below.
+     * Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
      * 
      */
     @Import(name="lambdaAuthorizerConfig")
     private @Nullable Output<GraphQLApiLambdaAuthorizerConfigArgs> lambdaAuthorizerConfig;
 
     /**
-     * @return Nested argument containing Lambda authorizer configuration. Defined below.
+     * @return Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiLambdaAuthorizerConfigArgs>> lambdaAuthorizerConfig() {
@@ -100,14 +100,14 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Nested argument containing logging configuration. Defined below.
+     * Nested argument containing logging configuration. See `log_config` Block for details.
      * 
      */
     @Import(name="logConfig")
     private @Nullable Output<GraphQLApiLogConfigArgs> logConfig;
 
     /**
-     * @return Nested argument containing logging configuration. Defined below.
+     * @return Nested argument containing logging configuration. See `log_config` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiLogConfigArgs>> logConfig() {
@@ -115,14 +115,14 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User-supplied name for the GraphqlApi.
+     * User-supplied name for the GraphSQL API.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return User-supplied name for the GraphqlApi.
+     * @return User-supplied name for the GraphSQL API.
      * 
      */
     public Optional<Output<String>> name() {
@@ -130,14 +130,14 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Nested argument containing OpenID Connect configuration. Defined below.
+     * Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
      * 
      */
     @Import(name="openidConnectConfig")
     private @Nullable Output<GraphQLApiOpenidConnectConfigArgs> openidConnectConfig;
 
     /**
-     * @return Nested argument containing OpenID Connect configuration. Defined below.
+     * @return Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiOpenidConnectConfigArgs>> openidConnectConfig() {
@@ -247,14 +247,14 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
      * 
      */
     @Import(name="userPoolConfig")
     private @Nullable Output<GraphQLApiUserPoolConfigArgs> userPoolConfig;
 
     /**
-     * @return Amazon Cognito User Pool configuration. Defined below.
+     * @return Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiUserPoolConfigArgs>> userPoolConfig() {
@@ -332,7 +332,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphqlApi. Defined below.
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphqlApi. Defined below.
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphqlApi. Defined below.
+         * @param additionalAuthenticationProviders One or more additional authentication providers for the GraphSQL API. See `additional_authentication_provider` Block for details.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. Defined below.
+         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. Defined below.
+         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logConfig Nested argument containing logging configuration. Defined below.
+         * @param logConfig Nested argument containing logging configuration. See `log_config` Block for details.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logConfig Nested argument containing logging configuration. Defined below.
+         * @param logConfig Nested argument containing logging configuration. See `log_config` Block for details.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name User-supplied name for the GraphqlApi.
+         * @param name User-supplied name for the GraphSQL API.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name User-supplied name for the GraphqlApi.
+         * @param name User-supplied name for the GraphSQL API.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. Defined below.
+         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. Defined below.
+         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
          * 
          * @return builder
          * 
@@ -648,7 +648,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userPoolConfig Amazon Cognito User Pool configuration. Defined below.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
          * 
          * @return builder
          * 
@@ -659,7 +659,7 @@ public final class GraphQLApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userPoolConfig Amazon Cognito User Pool configuration. Defined below.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
          * 
          * @return builder
          * 

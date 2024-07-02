@@ -232,6 +232,20 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.firstName);
     }
     /**
+     * The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * 
+     */
+    @Export(name="iamIdentityCenterInstanceArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> iamIdentityCenterInstanceArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+     * 
+     */
+    public Output<Optional<String>> iamIdentityCenterInstanceArn() {
+        return Codegen.optional(this.iamIdentityCenterInstanceArn);
+    }
+    /**
      * Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */

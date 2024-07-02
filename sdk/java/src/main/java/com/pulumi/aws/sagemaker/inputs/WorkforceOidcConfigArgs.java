@@ -7,12 +7,30 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class WorkforceOidcConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WorkforceOidcConfigArgs Empty = new WorkforceOidcConfigArgs();
+
+    /**
+     * A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+     * 
+     */
+    @Import(name="authenticationRequestExtraParams")
+    private @Nullable Output<Map<String,String>> authenticationRequestExtraParams;
+
+    /**
+     * @return A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> authenticationRequestExtraParams() {
+        return Optional.ofNullable(this.authenticationRequestExtraParams);
+    }
 
     /**
      * The OIDC IdP authorization endpoint used to configure your private workforce.
@@ -105,6 +123,21 @@ public final class WorkforceOidcConfigArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+     * 
+     */
+    @Import(name="scope")
+    private @Nullable Output<String> scope;
+
+    /**
+     * @return An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+     * 
+     */
+    public Optional<Output<String>> scope() {
+        return Optional.ofNullable(this.scope);
+    }
+
+    /**
      * The OIDC IdP token endpoint used to configure your private workforce.
      * 
      */
@@ -137,12 +170,14 @@ public final class WorkforceOidcConfigArgs extends com.pulumi.resources.Resource
     private WorkforceOidcConfigArgs() {}
 
     private WorkforceOidcConfigArgs(WorkforceOidcConfigArgs $) {
+        this.authenticationRequestExtraParams = $.authenticationRequestExtraParams;
         this.authorizationEndpoint = $.authorizationEndpoint;
         this.clientId = $.clientId;
         this.clientSecret = $.clientSecret;
         this.issuer = $.issuer;
         this.jwksUri = $.jwksUri;
         this.logoutEndpoint = $.logoutEndpoint;
+        this.scope = $.scope;
         this.tokenEndpoint = $.tokenEndpoint;
         this.userInfoEndpoint = $.userInfoEndpoint;
     }
@@ -163,6 +198,27 @@ public final class WorkforceOidcConfigArgs extends com.pulumi.resources.Resource
 
         public Builder(WorkforceOidcConfigArgs defaults) {
             $ = new WorkforceOidcConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param authenticationRequestExtraParams A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationRequestExtraParams(@Nullable Output<Map<String,String>> authenticationRequestExtraParams) {
+            $.authenticationRequestExtraParams = authenticationRequestExtraParams;
+            return this;
+        }
+
+        /**
+         * @param authenticationRequestExtraParams A string to string map of identifiers specific to the custom identity provider (IdP) being used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationRequestExtraParams(Map<String,String> authenticationRequestExtraParams) {
+            return authenticationRequestExtraParams(Output.of(authenticationRequestExtraParams));
         }
 
         /**
@@ -289,6 +345,27 @@ public final class WorkforceOidcConfigArgs extends com.pulumi.resources.Resource
          */
         public Builder logoutEndpoint(String logoutEndpoint) {
             return logoutEndpoint(Output.of(logoutEndpoint));
+        }
+
+        /**
+         * @param scope An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(@Nullable Output<String> scope) {
+            $.scope = scope;
+            return this;
+        }
+
+        /**
+         * @param scope An array of string identifiers used to refer to the specific pieces of user data or claims that the client application wants to access.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(String scope) {
+            return scope(Output.of(scope));
         }
 
         /**

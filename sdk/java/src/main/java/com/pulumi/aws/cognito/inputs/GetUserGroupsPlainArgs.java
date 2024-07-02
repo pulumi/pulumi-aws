@@ -3,34 +3,15 @@
 
 package com.pulumi.aws.cognito.inputs;
 
-import com.pulumi.aws.cognito.inputs.GetUserGroupsGroup;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetUserGroupsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserGroupsPlainArgs Empty = new GetUserGroupsPlainArgs();
-
-    /**
-     * List of groups. See `groups` below.
-     * 
-     */
-    @Import(name="groups")
-    private @Nullable List<GetUserGroupsGroup> groups;
-
-    /**
-     * @return List of groups. See `groups` below.
-     * 
-     */
-    public Optional<List<GetUserGroupsGroup>> groups() {
-        return Optional.ofNullable(this.groups);
-    }
 
     /**
      * User pool the client belongs to.
@@ -50,7 +31,6 @@ public final class GetUserGroupsPlainArgs extends com.pulumi.resources.InvokeArg
     private GetUserGroupsPlainArgs() {}
 
     private GetUserGroupsPlainArgs(GetUserGroupsPlainArgs $) {
-        this.groups = $.groups;
         this.userPoolId = $.userPoolId;
     }
 
@@ -70,27 +50,6 @@ public final class GetUserGroupsPlainArgs extends com.pulumi.resources.InvokeArg
 
         public Builder(GetUserGroupsPlainArgs defaults) {
             $ = new GetUserGroupsPlainArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param groups List of groups. See `groups` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder groups(@Nullable List<GetUserGroupsGroup> groups) {
-            $.groups = groups;
-            return this;
-        }
-
-        /**
-         * @param groups List of groups. See `groups` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder groups(GetUserGroupsGroup... groups) {
-            return groups(List.of(groups));
         }
 
         /**

@@ -35,14 +35,14 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
     }
 
     /**
-     * Nested argument containing Lambda authorizer configuration. Defined below.
+     * Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
      * 
      */
     @Import(name="lambdaAuthorizerConfig")
     private @Nullable Output<GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs> lambdaAuthorizerConfig;
 
     /**
-     * @return Nested argument containing Lambda authorizer configuration. Defined below.
+     * @return Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs>> lambdaAuthorizerConfig() {
@@ -50,14 +50,14 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
     }
 
     /**
-     * Nested argument containing OpenID Connect configuration. Defined below.
+     * Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
      * 
      */
     @Import(name="openidConnectConfig")
     private @Nullable Output<GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs> openidConnectConfig;
 
     /**
-     * @return Nested argument containing OpenID Connect configuration. Defined below.
+     * @return Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs>> openidConnectConfig() {
@@ -65,14 +65,14 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
     }
 
     /**
-     * Amazon Cognito User Pool configuration. Defined below.
+     * Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
      * 
      */
     @Import(name="userPoolConfig")
     private @Nullable Output<GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs> userPoolConfig;
 
     /**
-     * @return Amazon Cognito User Pool configuration. Defined below.
+     * @return Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
      * 
      */
     public Optional<Output<GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs>> userPoolConfig() {
@@ -128,7 +128,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. Defined below.
+         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. Defined below.
+         * @param lambdaAuthorizerConfig Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. Defined below.
+         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. Defined below.
+         * @param openidConnectConfig Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param userPoolConfig Amazon Cognito User Pool configuration. Defined below.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class GraphQLApiAdditionalAuthenticationProviderArgs extends com.pu
         }
 
         /**
-         * @param userPoolConfig Amazon Cognito User Pool configuration. Defined below.
+         * @param userPoolConfig Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
          * 
          * @return builder
          * 

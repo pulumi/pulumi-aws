@@ -31,6 +31,7 @@ class AccountSubscriptionArgs:
                  directory_id: Optional[pulumi.Input[str]] = None,
                  email_address: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
+                 iam_identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  realm: Optional[pulumi.Input[str]] = None):
@@ -50,6 +51,7 @@ class AccountSubscriptionArgs:
         :param pulumi.Input[str] directory_id: Active Directory ID that is associated with your Amazon QuickSight account.
         :param pulumi.Input[str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        :param pulumi.Input[str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
         :param pulumi.Input[str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] reader_groups: Reader group associated with your Active Direcrtory.
         :param pulumi.Input[str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
@@ -74,6 +76,8 @@ class AccountSubscriptionArgs:
             pulumi.set(__self__, "email_address", email_address)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
+        if iam_identity_center_instance_arn is not None:
+            pulumi.set(__self__, "iam_identity_center_instance_arn", iam_identity_center_instance_arn)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
         if reader_groups is not None:
@@ -228,6 +232,18 @@ class AccountSubscriptionArgs:
         pulumi.set(self, "first_name", value)
 
     @property
+    @pulumi.getter(name="iamIdentityCenterInstanceArn")
+    def iam_identity_center_instance_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        """
+        return pulumi.get(self, "iam_identity_center_instance_arn")
+
+    @iam_identity_center_instance_arn.setter
+    def iam_identity_center_instance_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_identity_center_instance_arn", value)
+
+    @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -279,6 +295,7 @@ class _AccountSubscriptionState:
                  edition: Optional[pulumi.Input[str]] = None,
                  email_address: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
+                 iam_identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  notification_email: Optional[pulumi.Input[str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -297,6 +314,7 @@ class _AccountSubscriptionState:
         :param pulumi.Input[str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         :param pulumi.Input[str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        :param pulumi.Input[str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
         :param pulumi.Input[str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
                
@@ -328,6 +346,8 @@ class _AccountSubscriptionState:
             pulumi.set(__self__, "email_address", email_address)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
+        if iam_identity_center_instance_arn is not None:
+            pulumi.set(__self__, "iam_identity_center_instance_arn", iam_identity_center_instance_arn)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
         if notification_email is not None:
@@ -482,6 +502,18 @@ class _AccountSubscriptionState:
         pulumi.set(self, "first_name", value)
 
     @property
+    @pulumi.getter(name="iamIdentityCenterInstanceArn")
+    def iam_identity_center_instance_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        """
+        return pulumi.get(self, "iam_identity_center_instance_arn")
+
+    @iam_identity_center_instance_arn.setter
+    def iam_identity_center_instance_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_identity_center_instance_arn", value)
+
+    @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -548,6 +580,7 @@ class AccountSubscription(pulumi.CustomResource):
                  edition: Optional[pulumi.Input[str]] = None,
                  email_address: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
+                 iam_identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  notification_email: Optional[pulumi.Input[str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -586,6 +619,7 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         :param pulumi.Input[str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        :param pulumi.Input[str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
         :param pulumi.Input[str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
                
@@ -645,6 +679,7 @@ class AccountSubscription(pulumi.CustomResource):
                  edition: Optional[pulumi.Input[str]] = None,
                  email_address: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
+                 iam_identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
                  last_name: Optional[pulumi.Input[str]] = None,
                  notification_email: Optional[pulumi.Input[str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -675,6 +710,7 @@ class AccountSubscription(pulumi.CustomResource):
             __props__.__dict__["edition"] = edition
             __props__.__dict__["email_address"] = email_address
             __props__.__dict__["first_name"] = first_name
+            __props__.__dict__["iam_identity_center_instance_arn"] = iam_identity_center_instance_arn
             __props__.__dict__["last_name"] = last_name
             if notification_email is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_email'")
@@ -704,6 +740,7 @@ class AccountSubscription(pulumi.CustomResource):
             edition: Optional[pulumi.Input[str]] = None,
             email_address: Optional[pulumi.Input[str]] = None,
             first_name: Optional[pulumi.Input[str]] = None,
+            iam_identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
             last_name: Optional[pulumi.Input[str]] = None,
             notification_email: Optional[pulumi.Input[str]] = None,
             reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -727,6 +764,7 @@ class AccountSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] edition: Edition of Amazon QuickSight that you want your account to have. Currently, you can choose from `STANDARD`, `ENTERPRISE` or `ENTERPRISE_AND_Q`.
         :param pulumi.Input[str] email_address: Email address of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] first_name: First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+        :param pulumi.Input[str] iam_identity_center_instance_arn: The Amazon Resource Name (ARN) for the IAM Identity Center instance.
         :param pulumi.Input[str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[str] notification_email: Email address that you want Amazon QuickSight to send notifications to regarding your Amazon QuickSight account or Amazon QuickSight subscription.
                
@@ -750,6 +788,7 @@ class AccountSubscription(pulumi.CustomResource):
         __props__.__dict__["edition"] = edition
         __props__.__dict__["email_address"] = email_address
         __props__.__dict__["first_name"] = first_name
+        __props__.__dict__["iam_identity_center_instance_arn"] = iam_identity_center_instance_arn
         __props__.__dict__["last_name"] = last_name
         __props__.__dict__["notification_email"] = notification_email
         __props__.__dict__["reader_groups"] = reader_groups
@@ -851,6 +890,14 @@ class AccountSubscription(pulumi.CustomResource):
         First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         """
         return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="iamIdentityCenterInstanceArn")
+    def iam_identity_center_instance_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+        """
+        return pulumi.get(self, "iam_identity_center_instance_arn")
 
     @property
     @pulumi.getter(name="lastName")
