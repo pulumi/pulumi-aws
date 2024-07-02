@@ -21,7 +21,6 @@ env:
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
 jobs:
   resync_build:
@@ -40,34 +39,10 @@ jobs:
     - id: run-url
       name: Create URL to the run output
       run:  echo "run-url=https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> "$GITHUB_OUTPUT"
-    - name: Install Go
-      uses: actions/setup-go@v5
+    - name: Setup tools
+      uses: ./.github/actions/setup-tools
       with:
-        go-version: "1.21.x"
-        cache-dependency-path: |
-          sdk/go.sum
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
-      with:
-        tag: v0.0.46
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/actions@v5
-      with:
-        pulumi-version: "dev"
-    - name: Setup DotNet
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: "6.0.x"
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: "20.x"
-        registry-url: https://registry.npmjs.org
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.11.8"
+        tools: pulumictl, pulumicli, go, node, dotnet, python
     - name: Sync with ci-mgmt
       run: cp -r "ci-mgmt/provider-ci/providers/$PROVIDER/repo/." .
     - name: Remove ci-mgmt directory

@@ -28,10 +28,10 @@ index 92763850ac..ef67582664 100644
  				// Ensure that the schema look OK.
 diff --git a/internal/provider/provider_tagcheck.go b/internal/provider/provider_tagcheck.go
 new file mode 100644
-index 0000000000..35202ebd58
+index 0000000000..8cea6059ba
 --- /dev/null
 +++ b/internal/provider/provider_tagcheck.go
-@@ -0,0 +1,28 @@
+@@ -0,0 +1,37 @@
 +package provider
 +
 +import (
@@ -52,9 +52,18 @@ index 0000000000..35202ebd58
 +	switch flag := flag.(type) {
 +	case bool:
 +		if flag {
++			//lintignore:S013
 +			return map[string]*schema.Schema{
-+				names.AttrTags:    &schema.Schema{Computed: tagsComputed},
-+				names.AttrTagsAll: &schema.Schema{Computed: true},
++				names.AttrTags: {
++					Type:     schema.TypeMap,
++					Computed: tagsComputed,
++					Elem:     &schema.Schema{Type: schema.TypeString},
++				},
++				names.AttrTagsAll: {
++					Type:     schema.TypeMap,
++					Computed: true,
++					Elem:     &schema.Schema{Type: schema.TypeString},
++				},
 +			}
 +		}
 +	}

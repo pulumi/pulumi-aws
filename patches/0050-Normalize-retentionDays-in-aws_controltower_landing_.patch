@@ -134,7 +134,7 @@ index c2f2830b9c..299e7653c1 100644
 +}
 diff --git a/internal/service/controltower/landing_zone_internals_test.go b/internal/service/controltower/landing_zone_internals_test.go
 new file mode 100644
-index 0000000000..a8bb57939e
+index 0000000000..7c97e09ce2
 --- /dev/null
 +++ b/internal/service/controltower/landing_zone_internals_test.go
 @@ -0,0 +1,50 @@
@@ -151,7 +151,7 @@ index 0000000000..a8bb57939e
 +	actual, err := resourceLandingZoneNormalizeManifest(`
 +	{
 +	  "governedRegions": [
-+	    "ap-southeast-2"
++	    "REGION"
 +	  ],
 +	  "organizationStructure": {
 +	    "security": {
@@ -164,7 +164,7 @@ index 0000000000..a8bb57939e
 +	      "accessLoggingBucket": {
 +		"retentionDays": "3650"
 +	      },
-+	      "kmsKeyArn": "arn:aws:kms:ap-southeast-2:89XXXXXXXX25:key/10e27ec4-5555-4444-b408-777777777777",
++	      "kmsKeyArn": "arn:PARTITION:kms:REGION:89XXXXXXXX25:key/10e27ec4-5555-4444-b408-777777777777",
 +	      "loggingBucket": {
 +		"retentionDays": "365"
 +	      }
@@ -181,7 +181,7 @@ index 0000000000..a8bb57939e
 +	if err != nil {
 +		t.Error(err)
 +	}
-+	expected := `{"accessManagement":{"enabled":true},"centralizedLogging":{"accountId":"89XXXXXXXX39","configurations":{"accessLoggingBucket":{"retentionDays":3650},"kmsKeyArn":"arn:aws:kms:ap-southeast-2:89XXXXXXXX25:key/10e27ec4-5555-4444-b408-777777777777","loggingBucket":{"retentionDays":365}},"enabled":true},"governedRegions":["ap-southeast-2"],"organizationStructure":{"security":{"name":"Security"}},"securityRoles":{"accountId":"89XXXXXXXX42"}}`
++	expected := `{"accessManagement":{"enabled":true},"centralizedLogging":{"accountId":"89XXXXXXXX39","configurations":{"accessLoggingBucket":{"retentionDays":3650},"kmsKeyArn":"arn:PARTITION:kms:REGION:89XXXXXXXX25:key/10e27ec4-5555-4444-b408-777777777777","loggingBucket":{"retentionDays":365}},"enabled":true},"governedRegions":["REGION"],"organizationStructure":{"security":{"name":"Security"}},"securityRoles":{"accountId":"89XXXXXXXX42"}}`
 +	if expected != actual {
 +		t.Logf("Expected: %s", expected)
 +		t.Logf("Actual: %s", actual)
