@@ -8,16 +8,14 @@ jobs:
     name: Check for upstream provider upgrades
     runs-on: ubuntu-latest
     steps:
-    - name: Install Go
-      uses: actions/setup-go@v5
-      with:
-        go-version: "1.21.x"
-        cache-dependency-path: |
-          sdk/go.sum
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
         submodules: true
+    - name: Setup tools
+      uses: ./.github/actions/setup-tools
+      with:
+        tools: go
     - name: Install upgrade-provider
       run: go install github.com/pulumi/upgrade-provider@main
       shell: bash
@@ -34,17 +32,6 @@ jobs:
       env:
         REPO: ${{ github.repository }}
       shell: bash
-    - name: Send Check Version Failure To Slack
-      if: failure()
-      uses: rtCamp/action-slack-notify@v2
-      env:
-        SLACK_CHANNEL: provider-upgrade-publish-status
-        SLACK_COLOR: "#FF0000"
-        SLACK_ICON_EMOJI: ":owl:"
-        SLACK_MESSAGE: " Failed to check upstream for a new version "
-        SLACK_TITLE: ${{ github.event.repository.name }} upstream version check
-        SLACK_USERNAME: provider-bot
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
 name: Check upstream upgrade
 on:
   workflow_dispatch: {} #so we can run this manually if necessary.
