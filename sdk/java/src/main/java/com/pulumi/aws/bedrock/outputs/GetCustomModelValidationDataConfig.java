@@ -3,9 +3,9 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.GetCustomModelValidationDataConfigValidator;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,14 +15,14 @@ public final class GetCustomModelValidationDataConfig {
      * @return Information about the validators.
      * 
      */
-    private List<Object> validators;
+    private List<GetCustomModelValidationDataConfigValidator> validators;
 
     private GetCustomModelValidationDataConfig() {}
     /**
      * @return Information about the validators.
      * 
      */
-    public List<Object> validators() {
+    public List<GetCustomModelValidationDataConfigValidator> validators() {
         return this.validators;
     }
 
@@ -35,7 +35,7 @@ public final class GetCustomModelValidationDataConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<Object> validators;
+        private List<GetCustomModelValidationDataConfigValidator> validators;
         public Builder() {}
         public Builder(GetCustomModelValidationDataConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,14 +43,14 @@ public final class GetCustomModelValidationDataConfig {
         }
 
         @CustomType.Setter
-        public Builder validators(List<Object> validators) {
+        public Builder validators(List<GetCustomModelValidationDataConfigValidator> validators) {
             if (validators == null) {
               throw new MissingRequiredPropertyException("GetCustomModelValidationDataConfig", "validators");
             }
             this.validators = validators;
             return this;
         }
-        public Builder validators(Object... validators) {
+        public Builder validators(GetCustomModelValidationDataConfigValidator... validators) {
             return validators(List.of(validators));
         }
         public GetCustomModelValidationDataConfig build() {

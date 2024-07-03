@@ -3,9 +3,9 @@
 
 package com.pulumi.aws.codeguruprofiler.outputs;
 
+import com.pulumi.aws.codeguruprofiler.outputs.GetProfilingGroupProfilingStatusLatestAggregatedProfile;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -14,7 +14,7 @@ import java.util.Objects;
 public final class GetProfilingGroupProfilingStatus {
     private String latestAgentOrchestratedAt;
     private String latestAgentProfileReportedAt;
-    private List<Object> latestAggregatedProfiles;
+    private List<GetProfilingGroupProfilingStatusLatestAggregatedProfile> latestAggregatedProfiles;
 
     private GetProfilingGroupProfilingStatus() {}
     public String latestAgentOrchestratedAt() {
@@ -23,7 +23,7 @@ public final class GetProfilingGroupProfilingStatus {
     public String latestAgentProfileReportedAt() {
         return this.latestAgentProfileReportedAt;
     }
-    public List<Object> latestAggregatedProfiles() {
+    public List<GetProfilingGroupProfilingStatusLatestAggregatedProfile> latestAggregatedProfiles() {
         return this.latestAggregatedProfiles;
     }
 
@@ -38,7 +38,7 @@ public final class GetProfilingGroupProfilingStatus {
     public static final class Builder {
         private String latestAgentOrchestratedAt;
         private String latestAgentProfileReportedAt;
-        private List<Object> latestAggregatedProfiles;
+        private List<GetProfilingGroupProfilingStatusLatestAggregatedProfile> latestAggregatedProfiles;
         public Builder() {}
         public Builder(GetProfilingGroupProfilingStatus defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,14 +64,14 @@ public final class GetProfilingGroupProfilingStatus {
             return this;
         }
         @CustomType.Setter
-        public Builder latestAggregatedProfiles(List<Object> latestAggregatedProfiles) {
+        public Builder latestAggregatedProfiles(List<GetProfilingGroupProfilingStatusLatestAggregatedProfile> latestAggregatedProfiles) {
             if (latestAggregatedProfiles == null) {
               throw new MissingRequiredPropertyException("GetProfilingGroupProfilingStatus", "latestAggregatedProfiles");
             }
             this.latestAggregatedProfiles = latestAggregatedProfiles;
             return this;
         }
-        public Builder latestAggregatedProfiles(Object... latestAggregatedProfiles) {
+        public Builder latestAggregatedProfiles(GetProfilingGroupProfilingStatusLatestAggregatedProfile... latestAggregatedProfiles) {
             return latestAggregatedProfiles(List.of(latestAggregatedProfiles));
         }
         public GetProfilingGroupProfilingStatus build() {

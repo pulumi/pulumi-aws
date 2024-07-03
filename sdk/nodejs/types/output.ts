@@ -9566,7 +9566,185 @@ export namespace batch {
         /**
          * The properties for the Kubernetes pod resources of a job.
          */
-        podProperties: any[];
+        podProperties: outputs.batch.GetJobDefinitionEksPropertyPodProperty[];
+    }
+
+    export interface GetJobDefinitionEksPropertyPodProperty {
+        /**
+         * The properties of the container that's used on the Amazon EKS pod. Array of EksContainer objects.
+         */
+        containers: outputs.batch.GetJobDefinitionEksPropertyPodPropertyContainer[];
+        /**
+         * The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
+         */
+        dnsPolicy: string;
+        /**
+         * Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+         */
+        hostNetwork: boolean;
+        /**
+         * Metadata about the Kubernetes pod.
+         */
+        metadatas: outputs.batch.GetJobDefinitionEksPropertyPodPropertyMetadata[];
+        /**
+         * The name of the service account that's used to run the pod.
+         */
+        serviceAccountName: boolean;
+        /**
+         * A list of data volumes used in a job.
+         */
+        volumes: outputs.batch.GetJobDefinitionEksPropertyPodPropertyVolume[];
+    }
+
+    export interface GetJobDefinitionEksPropertyPodPropertyContainer {
+        /**
+         * An array of arguments to the entrypoint
+         */
+        args: string[];
+        /**
+         * The command that's passed to the container.
+         */
+        commands: string[];
+        /**
+         * The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+         */
+        envs: outputs.batch.GetJobDefinitionEksPropertyPodPropertyContainerEnv[];
+        /**
+         * The image used to start a container.
+         */
+        image: string;
+        /**
+         * The image pull policy for the container.
+         */
+        imagePullPolicy: string;
+        /**
+         * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         */
+        name: string;
+        /**
+         * The type and amount of resources to assign to a container.
+         */
+        resources: outputs.batch.GetJobDefinitionEksPropertyPodPropertyContainerResource[];
+        /**
+         * The security context for a job.
+         */
+        securityContexts: outputs.batch.GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext[];
+        /**
+         * The volume mounts for the container.
+         */
+        volumeMounts: outputs.batch.GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount[];
+    }
+
+    export interface GetJobDefinitionEksPropertyPodPropertyContainerEnv {
+        /**
+         * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         */
+        name: string;
+        /**
+         * The quantity of the specified resource to reserve for the container.
+         */
+        value: string;
+    }
+
+    export interface GetJobDefinitionEksPropertyPodPropertyContainerResource {
+        /**
+         * The type and quantity of the resources to reserve for the container.
+         */
+        limits: {[key: string]: any};
+        /**
+         * The type and quantity of the resources to request for the container.
+         */
+        requests: {[key: string]: any};
+    }
+
+    export interface GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext {
+        /**
+         * When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+         */
+        privileged: boolean;
+        readOnlyRootFileSystem: boolean;
+        /**
+         * When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+         */
+        runAsGroup: number;
+        /**
+         * When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+         */
+        runAsNonRoot: boolean;
+        /**
+         * When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+         */
+        runAsUser: number;
+    }
+
+    export interface GetJobDefinitionEksPropertyPodPropertyContainerVolumeMount {
+        /**
+         * The path on the container where the volume is mounted.
+         */
+        mountPath: string;
+        /**
+         * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         */
+        name: string;
+        /**
+         * If this value is true, the container has read-only access to the volume.
+         */
+        readOnly: boolean;
+    }
+
+    export interface GetJobDefinitionEksPropertyPodPropertyMetadata {
+        /**
+         * Key-value pairs used to identify, sort, and organize cube resources.
+         */
+        labels: {[key: string]: any};
+    }
+
+    export interface GetJobDefinitionEksPropertyPodPropertyVolume {
+        /**
+         * Specifies the configuration of a Kubernetes emptyDir volume.
+         */
+        emptyDirs: outputs.batch.GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir[];
+        /**
+         * The path for the device on the host container instance.
+         */
+        hostPaths: outputs.batch.GetJobDefinitionEksPropertyPodPropertyVolumeHostPath[];
+        /**
+         * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         */
+        name: string;
+        /**
+         * Specifies the configuration of a Kubernetes secret volume.
+         */
+        secrets: outputs.batch.GetJobDefinitionEksPropertyPodPropertyVolumeSecret[];
+    }
+
+    export interface GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir {
+        /**
+         * The medium to store the volume.
+         */
+        medium: string;
+        /**
+         * The maximum size of the volume. By default, there's no maximum size defined.
+         */
+        sizeLimit: string;
+    }
+
+    export interface GetJobDefinitionEksPropertyPodPropertyVolumeHostPath {
+        /**
+         * The path of the file or directory on the host to mount into containers on the pod.
+         */
+        path: string;
+    }
+
+    export interface GetJobDefinitionEksPropertyPodPropertyVolumeSecret {
+        /**
+         * Specifies whether the secret or the secret's keys must be defined.
+         */
+        optional: boolean;
+        /**
+         * The name of the secret. The name must be allowed as a DNS subdomain name
+         */
+        secretName: string;
     }
 
     export interface GetJobDefinitionNodeProperty {
@@ -9577,11 +9755,336 @@ export namespace batch {
         /**
          * A list of node ranges and their properties that are associated with a multi-node parallel job.
          */
-        nodeRangeProperties: any[];
+        nodeRangeProperties: outputs.batch.GetJobDefinitionNodePropertyNodeRangeProperty[];
         /**
          * The number of nodes that are associated with a multi-node parallel job.
          */
         numNodes: number;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangeProperty {
+        /**
+         * The container details for the node range.
+         */
+        containers: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainer[];
+        /**
+         * The range of nodes, using node index values. A range of 0:3 indicates nodes with index values of 0 through 3. I
+         */
+        targetNodes: string;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainer {
+        /**
+         * The command that's passed to the container.
+         */
+        commands: string[];
+        /**
+         * The environment variables to pass to a container.
+         */
+        environments: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment[];
+        /**
+         * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
+         */
+        ephemeralStorages: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage[];
+        /**
+         * The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+         */
+        executionRoleArn: string;
+        /**
+         * The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+         */
+        fargatePlatformConfigurations: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration[];
+        /**
+         * The image used to start a container.
+         */
+        image: string;
+        /**
+         * The instance type to use for a multi-node parallel job.
+         */
+        instanceType: string;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+         */
+        jobRoleArn: string;
+        /**
+         * Linux-specific modifications that are applied to the container.
+         */
+        linuxParameters: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter[];
+        /**
+         * The log configuration specification for the container.
+         */
+        logConfigurations: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration[];
+        /**
+         * The mount points for data volumes in your container.
+         */
+        mountPoints: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint[];
+        /**
+         * The network configuration for jobs that are running on Fargate resources.
+         */
+        networkConfigurations: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration[];
+        /**
+         * When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
+         */
+        privileged: boolean;
+        /**
+         * When this parameter is true, the container is given read-only access to its root file system.
+         */
+        readonlyRootFilesystem: boolean;
+        /**
+         * The type and amount of resources to assign to a container.
+         */
+        resourceRequirements: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement[];
+        /**
+         * An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+         */
+        runtimePlatforms: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform[];
+        /**
+         * The secrets for the container.
+         */
+        secrets: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret[];
+        /**
+         * A list of ulimits to set in the container.
+         */
+        ulimits: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit[];
+        /**
+         * The user name to use inside the container.
+         */
+        user: string;
+        /**
+         * A list of data volumes used in a job.
+         */
+        volumes: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume[];
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment {
+        /**
+         * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         */
+        name: string;
+        /**
+         * The quantity of the specified resource to reserve for the container.
+         */
+        value: string;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage {
+        sizeInGib: number;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration {
+        /**
+         * The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources.
+         */
+        platformVersion: string;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter {
+        /**
+         * Any of the host devices to expose to the container.
+         */
+        devices: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice[];
+        /**
+         * If true, run an init process inside the container that forwards signals and reaps processes.
+         */
+        initProcessEnabled: boolean;
+        /**
+         * The total amount of swap memory (in MiB) a container can use.
+         */
+        maxSwap: number;
+        /**
+         * The value for the size (in MiB) of the `/dev/shm` volume.
+         */
+        sharedMemorySize: number;
+        /**
+         * You can use this parameter to tune a container's memory swappiness behavior.
+         */
+        swappiness: number;
+        /**
+         * The container path, mount options, and size (in MiB) of the tmpfs mount.
+         */
+        tmpfs: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf[];
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterDevice {
+        /**
+         * The absolute file path in the container where the tmpfs volume is mounted.
+         */
+        containerPath: string;
+        /**
+         * The path for the device on the host container instance.
+         */
+        hostPath: string;
+        /**
+         * The explicit permissions to provide to the container for the device.
+         */
+        permissions: string[];
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf {
+        /**
+         * The absolute file path in the container where the tmpfs volume is mounted.
+         */
+        containerPath: string;
+        /**
+         * The list of tmpfs volume mount options.
+         */
+        mountOptions: string[];
+        /**
+         * The size (in MiB) of the tmpfs volume.
+         */
+        size: number;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration {
+        /**
+         * The log driver to use for the container.
+         */
+        logDriver: string;
+        /**
+         * The configuration options to send to the log driver.
+         */
+        options: {[key: string]: any};
+        /**
+         * The secrets to pass to the log configuration.
+         */
+        secretOptions: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption[];
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOption {
+        /**
+         * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         */
+        name: string;
+        /**
+         * The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+         */
+        valueFrom: string;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint {
+        /**
+         * The absolute file path in the container where the tmpfs volume is mounted.
+         */
+        containerPath: string;
+        /**
+         * If this value is true, the container has read-only access to the volume.
+         */
+        readOnly: boolean;
+        /**
+         * The name of the volume to mount.
+         */
+        sourceVolume: string;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration {
+        /**
+         * Indicates whether the job has a public IP address.
+         */
+        assignPublicIp: boolean;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement {
+        /**
+         * The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
+         */
+        type: string;
+        /**
+         * The quantity of the specified resource to reserve for the container.
+         */
+        value: string;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform {
+        /**
+         * The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
+         */
+        cpuArchitecture: string;
+        /**
+         * The operating system for the compute environment. V
+         */
+        operatingSystemFamily: string;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret {
+        /**
+         * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         */
+        name: string;
+        /**
+         * The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+         */
+        valueFrom: string;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit {
+        /**
+         * The hard limit for the ulimit type.
+         */
+        hardLimit: number;
+        /**
+         * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         */
+        name: string;
+        /**
+         * The soft limit for the ulimit type.
+         */
+        softLimit: number;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume {
+        /**
+         * This parameter is specified when you're using an Amazon Elastic File System file system for job storage.
+         */
+        efsVolumeConfigurations: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration[];
+        /**
+         * The contents of the host parameter determine whether your data volume persists on the host container instance and where it's stored.
+         */
+        hosts: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost[];
+        /**
+         * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         */
+        name: string;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration {
+        /**
+         * The authorization configuration details for the Amazon EFS file system.
+         */
+        authorizationConfigs: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig[];
+        /**
+         * The Amazon EFS file system ID to use.
+         */
+        fileSystemId: string;
+        /**
+         * The directory within the Amazon EFS file system to mount as the root directory inside the host.
+         */
+        rootDirectory: string;
+        /**
+         * Determines whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server
+         */
+        transitEncryption: string;
+        /**
+         * The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
+         */
+        transitEncryptionPort: number;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig {
+        /**
+         * The Amazon EFS access point ID to use.
+         */
+        accessPointId: string;
+        /**
+         * Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system.
+         */
+        iam: string;
+    }
+
+    export interface GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost {
+        /**
+         * The path on the host container instance that's presented to the container.
+         */
+        sourcePath: string;
     }
 
     export interface GetJobDefinitionRetryStrategy {
@@ -9592,7 +10095,26 @@ export namespace batch {
         /**
          * Array of up to 5 objects that specify the conditions where jobs are retried or failed.
          */
-        evaluateOnExits: any[];
+        evaluateOnExits: outputs.batch.GetJobDefinitionRetryStrategyEvaluateOnExit[];
+    }
+
+    export interface GetJobDefinitionRetryStrategyEvaluateOnExit {
+        /**
+         * Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren't case sensitive.
+         */
+        action: string;
+        /**
+         * Contains a glob pattern to match against the decimal representation of the ExitCode returned for a job.
+         */
+        onExitCode: string;
+        /**
+         * Contains a glob pattern to match against the Reason returned for a job.
+         */
+        onReason: string;
+        /**
+         * Contains a glob pattern to match against the StatusReason returned for a job.
+         */
+        onStatusReason: string;
     }
 
     export interface GetJobDefinitionTimeout {
@@ -10007,7 +10529,57 @@ export namespace bedrock {
         /**
          * Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
          */
-        promptConfigurations: any[];
+        promptConfigurations: outputs.bedrock.AgentAgentPromptOverrideConfigurationPromptConfiguration[];
+    }
+
+    export interface AgentAgentPromptOverrideConfigurationPromptConfiguration {
+        /**
+         * prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+         */
+        basePromptTemplate: string;
+        /**
+         * Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` block for details.
+         */
+        inferenceConfigurations: outputs.bedrock.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration[];
+        /**
+         * Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType`. If you set the argument as `OVERRIDDEN`, the `overrideLambda` argument in the `promptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+         */
+        parserMode: string;
+        /**
+         * Whether to override the default prompt template for this `promptType`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+         */
+        promptCreationMode: string;
+        /**
+         * Whether to allow the agent to carry out the step specified in the `promptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+         */
+        promptState: string;
+        /**
+         * Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+         */
+        promptType: string;
+    }
+
+    export interface AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration {
+        /**
+         * Maximum number of tokens to allow in the generated response.
+         */
+        maxLength: number;
+        /**
+         * List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+         */
+        stopSequences: string[];
+        /**
+         * Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+         */
+        temperature: number;
+        /**
+         * Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+         */
+        topK: number;
+        /**
+         * Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+         */
+        topP: number;
     }
 
     export interface AgentAgentTimeouts {
@@ -10370,7 +10942,14 @@ export namespace bedrock {
         /**
          * Information about the validators.
          */
-        validators: any[];
+        validators: outputs.bedrock.GetCustomModelValidationDataConfigValidator[];
+    }
+
+    export interface GetCustomModelValidationDataConfigValidator {
+        /**
+         * The S3 URI where the validation data is stored..
+         */
+        s3Uri: string;
     }
 
     export interface GetCustomModelValidationMetric {
@@ -10409,15 +10988,15 @@ export namespace bedrockfoundation {
         /**
          * Customizations that the model supports.
          */
-        customizationsSupporteds: any[];
+        customizationsSupporteds: string[];
         /**
          * Inference types that the model supports.
          */
-        inferenceTypesSupporteds: any[];
+        inferenceTypesSupporteds: string[];
         /**
          * Input modalities that the model supports.
          */
-        inputModalities: any[];
+        inputModalities: string[];
         /**
          * Model ARN.
          */
@@ -10433,7 +11012,7 @@ export namespace bedrockfoundation {
         /**
          * Output modalities that the model supports.
          */
-        outputModalities: any[];
+        outputModalities: string[];
         /**
          * Model provider name.
          */
@@ -14452,7 +15031,12 @@ export namespace codeguruprofiler {
     export interface GetProfilingGroupProfilingStatus {
         latestAgentOrchestratedAt: string;
         latestAgentProfileReportedAt: string;
-        latestAggregatedProfiles: any[];
+        latestAggregatedProfiles: outputs.codeguruprofiler.GetProfilingGroupProfilingStatusLatestAggregatedProfile[];
+    }
+
+    export interface GetProfilingGroupProfilingStatusLatestAggregatedProfile {
+        period: string;
+        start: string;
     }
 
     export interface ProfilingGroupAgentOrchestrationConfig {
@@ -35298,7 +35882,14 @@ export namespace guardduty {
         /**
          * Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
          */
-        taggings: any[];
+        taggings: outputs.guardduty.MalwareProtectionPlanActionTagging[];
+    }
+
+    export interface MalwareProtectionPlanActionTagging {
+        /**
+         * Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+         */
+        status: string;
     }
 
     export interface MalwareProtectionPlanProtectedResource {
@@ -35654,7 +36245,7 @@ export namespace identitystore {
         /**
          * List of identifiers issued to this resource by an external identity provider.
          */
-        externalIds: any[];
+        externalIds: outputs.identitystore.GetGroupsGroupExternalId[];
         /**
          * Identifier of the group in the Identity Store.
          */
@@ -35663,6 +36254,17 @@ export namespace identitystore {
          * Identity Store ID associated with the Single Sign-On (SSO) Instance.
          */
         identityStoreId: string;
+    }
+
+    export interface GetGroupsGroupExternalId {
+        /**
+         * Identifier issued to this resource by an external identity provider.
+         */
+        id: string;
+        /**
+         * Issuer for an external identifier.
+         */
+        issuer: string;
     }
 
     export interface GetUserAddress {
@@ -54202,7 +54804,17 @@ export namespace lex {
         /**
          * Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
          */
-        subSlots: any[];
+        subSlots: outputs.lex.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot[];
+    }
+
+    export interface V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
+        /**
+         * Name of the slot type
+         *
+         * The following arguments are optional:
+         */
+        name: string;
+        subSlotId: string;
     }
 
     export interface V2modelsSlotTypeExternalSourceSetting {
@@ -54229,11 +54841,15 @@ export namespace lex {
         /**
          * List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
          */
-        slotTypeValues: any[];
+        slotTypeValues: outputs.lex.V2modelsSlotTypeSlotTypeValuesSlotTypeValue[];
         /**
          * Additional values related to the slot type entry. See `sampleValue` argument reference below.
          */
         synonyms?: outputs.lex.V2modelsSlotTypeSlotTypeValuesSynonym[];
+    }
+
+    export interface V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
+        value: string;
     }
 
     export interface V2modelsSlotTypeSlotTypeValuesSynonym {
@@ -57752,7 +58368,12 @@ export namespace medialive {
         ip: string;
         port: string;
         url: string;
-        vpcs: any[];
+        vpcs: outputs.medialive.GetInputDestinationVpc[];
+    }
+
+    export interface GetInputDestinationVpc {
+        availabilityZone: string;
+        networkInterfaceId: string;
     }
 
     export interface GetInputInputDevice {
@@ -65792,7 +66413,7 @@ export namespace resourceexplorer {
         /**
          * Structure with additional type-specific details about the resource.  See `properties` below.
          */
-        properties: any[];
+        properties: outputs.resourceexplorer.SearchResourceProperty[];
         /**
          * Amazon Web Services Region in which the resource was created and exists.
          */
@@ -65816,6 +66437,21 @@ export namespace resourceexplorer {
          * Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
          */
         totalResources: number;
+    }
+
+    export interface SearchResourceProperty {
+        /**
+         * Details about this property. The content of this field is a JSON object that varies based on the resource type.
+         */
+        data: string;
+        /**
+         * The date and time that the information about this resource property was last updated.
+         */
+        lastReportedAt: string;
+        /**
+         * Name of this property of the resource.
+         */
+        name: string;
     }
 
     export interface ViewFilters {
@@ -75057,12 +75693,57 @@ export namespace ssm {
     }
 
     export interface GetContactsRotationRecurrence {
-        dailySettings: any[];
-        monthlySettings: any[];
+        dailySettings: outputs.ssm.GetContactsRotationRecurrenceDailySetting[];
+        monthlySettings: outputs.ssm.GetContactsRotationRecurrenceMonthlySetting[];
         numberOfOnCalls: number;
         recurrenceMultiplier: number;
-        shiftCoverages: any[];
-        weeklySettings: any[];
+        shiftCoverages: outputs.ssm.GetContactsRotationRecurrenceShiftCoverage[];
+        weeklySettings: outputs.ssm.GetContactsRotationRecurrenceWeeklySetting[];
+    }
+
+    export interface GetContactsRotationRecurrenceDailySetting {
+        hourOfDay: number;
+        minuteOfHour: number;
+    }
+
+    export interface GetContactsRotationRecurrenceMonthlySetting {
+        dayOfMonth: number;
+        handOffTimes: outputs.ssm.GetContactsRotationRecurrenceMonthlySettingHandOffTime[];
+    }
+
+    export interface GetContactsRotationRecurrenceMonthlySettingHandOffTime {
+        hourOfDay: number;
+        minuteOfHour: number;
+    }
+
+    export interface GetContactsRotationRecurrenceShiftCoverage {
+        coverageTimes: outputs.ssm.GetContactsRotationRecurrenceShiftCoverageCoverageTime[];
+        mapBlockKey: string;
+    }
+
+    export interface GetContactsRotationRecurrenceShiftCoverageCoverageTime {
+        ends: outputs.ssm.GetContactsRotationRecurrenceShiftCoverageCoverageTimeEnd[];
+        starts: outputs.ssm.GetContactsRotationRecurrenceShiftCoverageCoverageTimeStart[];
+    }
+
+    export interface GetContactsRotationRecurrenceShiftCoverageCoverageTimeEnd {
+        hourOfDay: number;
+        minuteOfHour: number;
+    }
+
+    export interface GetContactsRotationRecurrenceShiftCoverageCoverageTimeStart {
+        hourOfDay: number;
+        minuteOfHour: number;
+    }
+
+    export interface GetContactsRotationRecurrenceWeeklySetting {
+        dayOfWeek: string;
+        handOffTimes: outputs.ssm.GetContactsRotationRecurrenceWeeklySettingHandOffTime[];
+    }
+
+    export interface GetContactsRotationRecurrenceWeeklySettingHandOffTime {
+        hourOfDay: number;
+        minuteOfHour: number;
     }
 
     export interface GetInstancesFilter {
