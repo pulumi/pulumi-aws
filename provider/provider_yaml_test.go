@@ -16,14 +16,19 @@ import (
 	"runtime"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/aws/aws-sdk-go-v2/config"
 	s3sdk "github.com/aws/aws-sdk-go-v2/service/s3"
+	"github.com/aws/aws-sdk-go-v2/service/s3/types"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -382,6 +387,119 @@ resources:
 	})
 }
 
+// TestDefaultTagsImport tests the scenario where `tagsAll` and `tags` both
+// exist and the user is importing a resource.
+func TestDefaultTagsImport(t *testing.T) {
+	bucketName := fmt.Sprintf("mybucket-%d", time.Now().UnixNano())
+	file1 := `
+name: default-tags
+runtime: yaml
+resources:
+  awsProvider:
+    type: pulumi:providers:aws
+    properties:
+      defaultTags:
+        tags:
+          Project: x
+          Environment: dev
+  myBucket:
+    type: aws:s3:BucketV2
+    properties:
+      bucket: %s
+      tags:
+        CreatedBy: pulumi-aws
+    options:
+      provider: ${awsProvider}
+      retainOnDelete: %s
+%s
+outputs:
+  bucketName: ${myBucket.id}
+`
+	workdir := t.TempDir()
+	cwd, err := os.Getwd()
+	assert.NoError(t, err)
+
+	first := fmt.Sprintf(file1, bucketName, "true", "")
+	err = os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), []byte(first), 0o600)
+	require.NoError(t, err)
+
+	ptest := pulumitest.NewPulumiTest(t, workdir,
+		opttest.SkipInstall(),
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+		opttest.TestInPlace(),
+	)
+	ptest.Up()
+	tags := getBucketTagging(ptest.Context(), bucketName)
+	assert.Subset(t, tags, []types.Tag{
+		{
+			Key:   pulumi.StringRef("Project"),
+			Value: pulumi.StringRef("x"),
+		},
+		{
+			Key:   pulumi.StringRef("Environment"),
+			Value: pulumi.StringRef("dev"),
+		},
+		{
+			Key:   pulumi.StringRef("CreatedBy"),
+			Value: pulumi.StringRef("pulumi-aws"),
+		},
+	})
+
+	// destroy with retainOnDelete: true
+	ptest.Destroy()
+
+	err = os.WriteFile(
+		filepath.Join(workdir, "Pulumi.yaml"),
+		[]byte(fmt.Sprintf(file1, bucketName, "false", fmt.Sprintf("      import: %s", bucketName))),
+		0o600,
+	)
+	require.NoError(t, err)
+
+	// up with an import
+	importResult := ptest.Up(optup.Diff())
+
+	changes := *importResult.Summary.ResourceChanges
+	assert.Equal(t, 1, changes["import"])
+	assert.Equal(t, importResult.Summary.Result, "succeeded")
+}
+
+func TestRegress4080(t *testing.T) {
+	file1 := `
+name: test-aws-1655-pf
+runtime: yaml
+description: |
+    Initial deployment without tags
+resources:
+    app:
+        type: aws:appconfig:Application
+    aws-provider:
+        type: pulumi:providers:aws
+    res:
+        options:
+            provider: ${aws-provider}
+        properties:
+            applicationId: ${app.id}
+        type: aws:appconfig:Environment
+`
+	workdir := t.TempDir()
+	cwd, err := os.Getwd()
+	assert.NoError(t, err)
+
+	err = os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), []byte(file1), 0o600)
+	require.NoError(t, err)
+
+	ptest := pulumitest.NewPulumiTest(t, workdir,
+		opttest.SkipInstall(),
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+		opttest.TestInPlace(),
+	)
+	ptest.Up()
+
+	res := ptest.Preview(optpreview.Refresh(), optpreview.Diff())
+	fmt.Printf("stdout: %s", res.StdOut)
+	fmt.Printf("stderr: %s", res.StdErr)
+}
+
 // Make sure that legacy Bucket supports deleting tags out of band and detecting drift.
 func TestRegress3674(t *testing.T) {
 	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-3674"), opttest.SkipInstall())
@@ -470,6 +588,15 @@ func configureS3() *s3sdk.Client {
 	cfg, err := config.LoadDefaultConfig(context.TODO(), loadOpts...)
 	contract.AssertNoErrorf(err, "failed to load AWS config")
 	return s3sdk.NewFromConfig(cfg)
+}
+
+func getBucketTagging(ctx context.Context, awsBucket string) []types.Tag {
+	s3 := configureS3()
+	tagging, err := s3.GetBucketTagging(ctx, &s3sdk.GetBucketTaggingInput{
+		Bucket: &awsBucket,
+	})
+	contract.AssertNoErrorf(err, "failed to get bucket tagging")
+	return tagging.TagSet
 }
 
 func deleteBucketTagging(ctx context.Context, awsBucket string) {

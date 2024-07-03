@@ -5945,6 +5945,19 @@ compatibility shim in favor of the new "name" field.`)
 			prov.Resources[key].PreCheckCallback = applyTags
 		}
 
+		// also override read so that it works during import
+		if transform := prov.Resources[key].TransformOutputs; transform != nil {
+			prov.Resources[key].TransformOutputs = func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+				config, err := transform(ctx, pm)
+				if err != nil {
+					return nil, err
+				}
+				return applyTagsOutputs(ctx, config)
+			}
+		} else {
+			prov.Resources[key].TransformOutputs = applyTagsOutputs
+		}
+
 		if prov.Resources[key].GetFields() == nil {
 			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
 		}
