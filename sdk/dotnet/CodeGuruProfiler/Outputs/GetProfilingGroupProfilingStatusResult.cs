@@ -15,7 +15,7 @@ namespace Pulumi.Aws.CodeGuruProfiler.Outputs
     {
         public readonly string LatestAgentOrchestratedAt;
         public readonly string LatestAgentProfileReportedAt;
-        public readonly ImmutableArray<object> LatestAggregatedProfiles;
+        public readonly ImmutableArray<Outputs.GetProfilingGroupProfilingStatusLatestAggregatedProfileResult> LatestAggregatedProfiles;
 
         [OutputConstructor]
         private GetProfilingGroupProfilingStatusResult(
@@ -23,7 +23,7 @@ namespace Pulumi.Aws.CodeGuruProfiler.Outputs
 
             string latestAgentProfileReportedAt,
 
-            ImmutableArray<object> latestAggregatedProfiles)
+            ImmutableArray<Outputs.GetProfilingGroupProfilingStatusLatestAggregatedProfileResult> latestAggregatedProfiles)
         {
             LatestAgentOrchestratedAt = latestAgentOrchestratedAt;
             LatestAgentProfileReportedAt = latestAgentProfileReportedAt;

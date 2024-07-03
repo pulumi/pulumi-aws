@@ -738,7 +738,7 @@ type AgentAgentPromptOverrideConfiguration struct {
 	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
 	OverrideLambda string `pulumi:"overrideLambda"`
 	// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
-	PromptConfigurations []interface{} `pulumi:"promptConfigurations"`
+	PromptConfigurations []AgentAgentPromptOverrideConfigurationPromptConfiguration `pulumi:"promptConfigurations"`
 }
 
 // AgentAgentPromptOverrideConfigurationInput is an input type that accepts AgentAgentPromptOverrideConfigurationArgs and AgentAgentPromptOverrideConfigurationOutput values.
@@ -756,7 +756,7 @@ type AgentAgentPromptOverrideConfigurationArgs struct {
 	// ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `promptConfigurations` block must contain a `parserMode` value that is set to `OVERRIDDEN`.
 	OverrideLambda pulumi.StringInput `pulumi:"overrideLambda"`
 	// Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
-	PromptConfigurations pulumi.ArrayInput `pulumi:"promptConfigurations"`
+	PromptConfigurations AgentAgentPromptOverrideConfigurationPromptConfigurationArrayInput `pulumi:"promptConfigurations"`
 }
 
 func (AgentAgentPromptOverrideConfigurationArgs) ElementType() reflect.Type {
@@ -816,8 +816,10 @@ func (o AgentAgentPromptOverrideConfigurationOutput) OverrideLambda() pulumi.Str
 }
 
 // Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
-func (o AgentAgentPromptOverrideConfigurationOutput) PromptConfigurations() pulumi.ArrayOutput {
-	return o.ApplyT(func(v AgentAgentPromptOverrideConfiguration) []interface{} { return v.PromptConfigurations }).(pulumi.ArrayOutput)
+func (o AgentAgentPromptOverrideConfigurationOutput) PromptConfigurations() AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfiguration) []AgentAgentPromptOverrideConfigurationPromptConfiguration {
+		return v.PromptConfigurations
+	}).(AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput)
 }
 
 type AgentAgentPromptOverrideConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -838,6 +840,293 @@ func (o AgentAgentPromptOverrideConfigurationArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentPromptOverrideConfiguration {
 		return vs[0].([]AgentAgentPromptOverrideConfiguration)[vs[1].(int)]
 	}).(AgentAgentPromptOverrideConfigurationOutput)
+}
+
+type AgentAgentPromptOverrideConfigurationPromptConfiguration struct {
+	// prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+	BasePromptTemplate string `pulumi:"basePromptTemplate"`
+	// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` block for details.
+	InferenceConfigurations []AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration `pulumi:"inferenceConfigurations"`
+	// Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType`. If you set the argument as `OVERRIDDEN`, the `overrideLambda` argument in the `promptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+	ParserMode string `pulumi:"parserMode"`
+	// Whether to override the default prompt template for this `promptType`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+	PromptCreationMode string `pulumi:"promptCreationMode"`
+	// Whether to allow the agent to carry out the step specified in the `promptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+	PromptState string `pulumi:"promptState"`
+	// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+	PromptType string `pulumi:"promptType"`
+}
+
+// AgentAgentPromptOverrideConfigurationPromptConfigurationInput is an input type that accepts AgentAgentPromptOverrideConfigurationPromptConfigurationArgs and AgentAgentPromptOverrideConfigurationPromptConfigurationOutput values.
+// You can construct a concrete instance of `AgentAgentPromptOverrideConfigurationPromptConfigurationInput` via:
+//
+//	AgentAgentPromptOverrideConfigurationPromptConfigurationArgs{...}
+type AgentAgentPromptOverrideConfigurationPromptConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentAgentPromptOverrideConfigurationPromptConfigurationOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationOutput
+	ToAgentAgentPromptOverrideConfigurationPromptConfigurationOutputWithContext(context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationOutput
+}
+
+type AgentAgentPromptOverrideConfigurationPromptConfigurationArgs struct {
+	// prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+	BasePromptTemplate pulumi.StringInput `pulumi:"basePromptTemplate"`
+	// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` block for details.
+	InferenceConfigurations AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayInput `pulumi:"inferenceConfigurations"`
+	// Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType`. If you set the argument as `OVERRIDDEN`, the `overrideLambda` argument in the `promptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+	ParserMode pulumi.StringInput `pulumi:"parserMode"`
+	// Whether to override the default prompt template for this `promptType`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+	PromptCreationMode pulumi.StringInput `pulumi:"promptCreationMode"`
+	// Whether to allow the agent to carry out the step specified in the `promptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+	PromptState pulumi.StringInput `pulumi:"promptState"`
+	// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+	PromptType pulumi.StringInput `pulumi:"promptType"`
+}
+
+func (AgentAgentPromptOverrideConfigurationPromptConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentPromptOverrideConfigurationPromptConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentPromptOverrideConfigurationPromptConfigurationArgs) ToAgentAgentPromptOverrideConfigurationPromptConfigurationOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationOutput {
+	return i.ToAgentAgentPromptOverrideConfigurationPromptConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentAgentPromptOverrideConfigurationPromptConfigurationArgs) ToAgentAgentPromptOverrideConfigurationPromptConfigurationOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentPromptOverrideConfigurationPromptConfigurationOutput)
+}
+
+// AgentAgentPromptOverrideConfigurationPromptConfigurationArrayInput is an input type that accepts AgentAgentPromptOverrideConfigurationPromptConfigurationArray and AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentAgentPromptOverrideConfigurationPromptConfigurationArrayInput` via:
+//
+//	AgentAgentPromptOverrideConfigurationPromptConfigurationArray{ AgentAgentPromptOverrideConfigurationPromptConfigurationArgs{...} }
+type AgentAgentPromptOverrideConfigurationPromptConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput
+	ToAgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutputWithContext(context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput
+}
+
+type AgentAgentPromptOverrideConfigurationPromptConfigurationArray []AgentAgentPromptOverrideConfigurationPromptConfigurationInput
+
+func (AgentAgentPromptOverrideConfigurationPromptConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentPromptOverrideConfigurationPromptConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentPromptOverrideConfigurationPromptConfigurationArray) ToAgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput {
+	return i.ToAgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentAgentPromptOverrideConfigurationPromptConfigurationArray) ToAgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput)
+}
+
+type AgentAgentPromptOverrideConfigurationPromptConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentPromptOverrideConfigurationPromptConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) ToAgentAgentPromptOverrideConfigurationPromptConfigurationOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationOutput {
+	return o
+}
+
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) ToAgentAgentPromptOverrideConfigurationPromptConfigurationOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationOutput {
+	return o
+}
+
+// prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) BasePromptTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) string { return v.BasePromptTemplate }).(pulumi.StringOutput)
+}
+
+// Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` block for details.
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) InferenceConfigurations() AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) []AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration {
+		return v.InferenceConfigurations
+	}).(AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput)
+}
+
+// Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType`. If you set the argument as `OVERRIDDEN`, the `overrideLambda` argument in the `promptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) ParserMode() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) string { return v.ParserMode }).(pulumi.StringOutput)
+}
+
+// Whether to override the default prompt template for this `promptType`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) PromptCreationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) string { return v.PromptCreationMode }).(pulumi.StringOutput)
+}
+
+// Whether to allow the agent to carry out the step specified in the `promptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) PromptState() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) string { return v.PromptState }).(pulumi.StringOutput)
+}
+
+// Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationOutput) PromptType() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfiguration) string { return v.PromptType }).(pulumi.StringOutput)
+}
+
+type AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentPromptOverrideConfigurationPromptConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput) ToAgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput) ToAgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput) Index(i pulumi.IntInput) AgentAgentPromptOverrideConfigurationPromptConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentPromptOverrideConfigurationPromptConfiguration {
+		return vs[0].([]AgentAgentPromptOverrideConfigurationPromptConfiguration)[vs[1].(int)]
+	}).(AgentAgentPromptOverrideConfigurationPromptConfigurationOutput)
+}
+
+type AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration struct {
+	// Maximum number of tokens to allow in the generated response.
+	MaxLength int `pulumi:"maxLength"`
+	// List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+	StopSequences []string `pulumi:"stopSequences"`
+	// Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+	Temperature float64 `pulumi:"temperature"`
+	// Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+	TopK int `pulumi:"topK"`
+	// Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+	TopP float64 `pulumi:"topP"`
+}
+
+// AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationInput is an input type that accepts AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs and AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput values.
+// You can construct a concrete instance of `AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationInput` via:
+//
+//	AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs{...}
+type AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput
+	ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutputWithContext(context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput
+}
+
+type AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs struct {
+	// Maximum number of tokens to allow in the generated response.
+	MaxLength pulumi.IntInput `pulumi:"maxLength"`
+	// List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+	StopSequences pulumi.StringArrayInput `pulumi:"stopSequences"`
+	// Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+	Temperature pulumi.Float64Input `pulumi:"temperature"`
+	// Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+	TopK pulumi.IntInput `pulumi:"topK"`
+	// Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+	TopP pulumi.Float64Input `pulumi:"topP"`
+}
+
+func (AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs) ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput {
+	return i.ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs) ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput)
+}
+
+// AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayInput is an input type that accepts AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArray and AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput values.
+// You can construct a concrete instance of `AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayInput` via:
+//
+//	AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArray{ AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs{...} }
+type AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput
+	ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutputWithContext(context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput
+}
+
+type AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArray []AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationInput
+
+func (AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration)(nil)).Elem()
+}
+
+func (i AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArray) ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput {
+	return i.ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArray) ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput)
+}
+
+type AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput) ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput {
+	return o
+}
+
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput) ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput {
+	return o
+}
+
+// Maximum number of tokens to allow in the generated response.
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput) MaxLength() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration) int {
+		return v.MaxLength
+	}).(pulumi.IntOutput)
+}
+
+// List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput) StopSequences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration) []string {
+		return v.StopSequences
+	}).(pulumi.StringArrayOutput)
+}
+
+// Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput) Temperature() pulumi.Float64Output {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration) float64 {
+		return v.Temperature
+	}).(pulumi.Float64Output)
+}
+
+// Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput) TopK() pulumi.IntOutput {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration) int {
+		return v.TopK
+	}).(pulumi.IntOutput)
+}
+
+// Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput) TopP() pulumi.Float64Output {
+	return o.ApplyT(func(v AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration) float64 {
+		return v.TopP
+	}).(pulumi.Float64Output)
+}
+
+type AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration)(nil)).Elem()
+}
+
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput) ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput() AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput) ToAgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutputWithContext(ctx context.Context) AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput {
+	return o
+}
+
+func (o AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput) Index(i pulumi.IntInput) AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration {
+		return vs[0].([]AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration)[vs[1].(int)]
+	}).(AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput)
 }
 
 type AgentAgentTimeouts struct {
@@ -5745,7 +6034,7 @@ func (o GetCustomModelTrainingMetricArrayOutput) Index(i pulumi.IntInput) GetCus
 
 type GetCustomModelValidationDataConfig struct {
 	// Information about the validators.
-	Validators []interface{} `pulumi:"validators"`
+	Validators []GetCustomModelValidationDataConfigValidator `pulumi:"validators"`
 }
 
 // GetCustomModelValidationDataConfigInput is an input type that accepts GetCustomModelValidationDataConfigArgs and GetCustomModelValidationDataConfigOutput values.
@@ -5761,7 +6050,7 @@ type GetCustomModelValidationDataConfigInput interface {
 
 type GetCustomModelValidationDataConfigArgs struct {
 	// Information about the validators.
-	Validators pulumi.ArrayInput `pulumi:"validators"`
+	Validators GetCustomModelValidationDataConfigValidatorArrayInput `pulumi:"validators"`
 }
 
 func (GetCustomModelValidationDataConfigArgs) ElementType() reflect.Type {
@@ -5816,8 +6105,10 @@ func (o GetCustomModelValidationDataConfigOutput) ToGetCustomModelValidationData
 }
 
 // Information about the validators.
-func (o GetCustomModelValidationDataConfigOutput) Validators() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetCustomModelValidationDataConfig) []interface{} { return v.Validators }).(pulumi.ArrayOutput)
+func (o GetCustomModelValidationDataConfigOutput) Validators() GetCustomModelValidationDataConfigValidatorArrayOutput {
+	return o.ApplyT(func(v GetCustomModelValidationDataConfig) []GetCustomModelValidationDataConfigValidator {
+		return v.Validators
+	}).(GetCustomModelValidationDataConfigValidatorArrayOutput)
 }
 
 type GetCustomModelValidationDataConfigArrayOutput struct{ *pulumi.OutputState }
@@ -5838,6 +6129,103 @@ func (o GetCustomModelValidationDataConfigArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomModelValidationDataConfig {
 		return vs[0].([]GetCustomModelValidationDataConfig)[vs[1].(int)]
 	}).(GetCustomModelValidationDataConfigOutput)
+}
+
+type GetCustomModelValidationDataConfigValidator struct {
+	// The S3 URI where the validation data is stored..
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// GetCustomModelValidationDataConfigValidatorInput is an input type that accepts GetCustomModelValidationDataConfigValidatorArgs and GetCustomModelValidationDataConfigValidatorOutput values.
+// You can construct a concrete instance of `GetCustomModelValidationDataConfigValidatorInput` via:
+//
+//	GetCustomModelValidationDataConfigValidatorArgs{...}
+type GetCustomModelValidationDataConfigValidatorInput interface {
+	pulumi.Input
+
+	ToGetCustomModelValidationDataConfigValidatorOutput() GetCustomModelValidationDataConfigValidatorOutput
+	ToGetCustomModelValidationDataConfigValidatorOutputWithContext(context.Context) GetCustomModelValidationDataConfigValidatorOutput
+}
+
+type GetCustomModelValidationDataConfigValidatorArgs struct {
+	// The S3 URI where the validation data is stored..
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (GetCustomModelValidationDataConfigValidatorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomModelValidationDataConfigValidator)(nil)).Elem()
+}
+
+func (i GetCustomModelValidationDataConfigValidatorArgs) ToGetCustomModelValidationDataConfigValidatorOutput() GetCustomModelValidationDataConfigValidatorOutput {
+	return i.ToGetCustomModelValidationDataConfigValidatorOutputWithContext(context.Background())
+}
+
+func (i GetCustomModelValidationDataConfigValidatorArgs) ToGetCustomModelValidationDataConfigValidatorOutputWithContext(ctx context.Context) GetCustomModelValidationDataConfigValidatorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomModelValidationDataConfigValidatorOutput)
+}
+
+// GetCustomModelValidationDataConfigValidatorArrayInput is an input type that accepts GetCustomModelValidationDataConfigValidatorArray and GetCustomModelValidationDataConfigValidatorArrayOutput values.
+// You can construct a concrete instance of `GetCustomModelValidationDataConfigValidatorArrayInput` via:
+//
+//	GetCustomModelValidationDataConfigValidatorArray{ GetCustomModelValidationDataConfigValidatorArgs{...} }
+type GetCustomModelValidationDataConfigValidatorArrayInput interface {
+	pulumi.Input
+
+	ToGetCustomModelValidationDataConfigValidatorArrayOutput() GetCustomModelValidationDataConfigValidatorArrayOutput
+	ToGetCustomModelValidationDataConfigValidatorArrayOutputWithContext(context.Context) GetCustomModelValidationDataConfigValidatorArrayOutput
+}
+
+type GetCustomModelValidationDataConfigValidatorArray []GetCustomModelValidationDataConfigValidatorInput
+
+func (GetCustomModelValidationDataConfigValidatorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomModelValidationDataConfigValidator)(nil)).Elem()
+}
+
+func (i GetCustomModelValidationDataConfigValidatorArray) ToGetCustomModelValidationDataConfigValidatorArrayOutput() GetCustomModelValidationDataConfigValidatorArrayOutput {
+	return i.ToGetCustomModelValidationDataConfigValidatorArrayOutputWithContext(context.Background())
+}
+
+func (i GetCustomModelValidationDataConfigValidatorArray) ToGetCustomModelValidationDataConfigValidatorArrayOutputWithContext(ctx context.Context) GetCustomModelValidationDataConfigValidatorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomModelValidationDataConfigValidatorArrayOutput)
+}
+
+type GetCustomModelValidationDataConfigValidatorOutput struct{ *pulumi.OutputState }
+
+func (GetCustomModelValidationDataConfigValidatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomModelValidationDataConfigValidator)(nil)).Elem()
+}
+
+func (o GetCustomModelValidationDataConfigValidatorOutput) ToGetCustomModelValidationDataConfigValidatorOutput() GetCustomModelValidationDataConfigValidatorOutput {
+	return o
+}
+
+func (o GetCustomModelValidationDataConfigValidatorOutput) ToGetCustomModelValidationDataConfigValidatorOutputWithContext(ctx context.Context) GetCustomModelValidationDataConfigValidatorOutput {
+	return o
+}
+
+// The S3 URI where the validation data is stored..
+func (o GetCustomModelValidationDataConfigValidatorOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomModelValidationDataConfigValidator) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type GetCustomModelValidationDataConfigValidatorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCustomModelValidationDataConfigValidatorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomModelValidationDataConfigValidator)(nil)).Elem()
+}
+
+func (o GetCustomModelValidationDataConfigValidatorArrayOutput) ToGetCustomModelValidationDataConfigValidatorArrayOutput() GetCustomModelValidationDataConfigValidatorArrayOutput {
+	return o
+}
+
+func (o GetCustomModelValidationDataConfigValidatorArrayOutput) ToGetCustomModelValidationDataConfigValidatorArrayOutputWithContext(ctx context.Context) GetCustomModelValidationDataConfigValidatorArrayOutput {
+	return o
+}
+
+func (o GetCustomModelValidationDataConfigValidatorArrayOutput) Index(i pulumi.IntInput) GetCustomModelValidationDataConfigValidatorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomModelValidationDataConfigValidator {
+		return vs[0].([]GetCustomModelValidationDataConfigValidator)[vs[1].(int)]
+	}).(GetCustomModelValidationDataConfigValidatorOutput)
 }
 
 type GetCustomModelValidationMetric struct {
@@ -6065,6 +6453,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentAliasTimeoutsPtrInput)(nil)).Elem(), AgentAgentAliasTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationArrayInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationPromptConfigurationInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationPromptConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationPromptConfigurationArrayInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationPromptConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayInput)(nil)).Elem(), AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentTimeoutsInput)(nil)).Elem(), AgentAgentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentAgentTimeoutsPtrInput)(nil)).Elem(), AgentAgentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceDataSourceConfigurationInput)(nil)).Elem(), AgentDataSourceDataSourceConfigurationArgs{})
@@ -6131,6 +6523,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelTrainingMetricArrayInput)(nil)).Elem(), GetCustomModelTrainingMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelValidationDataConfigInput)(nil)).Elem(), GetCustomModelValidationDataConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelValidationDataConfigArrayInput)(nil)).Elem(), GetCustomModelValidationDataConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelValidationDataConfigValidatorInput)(nil)).Elem(), GetCustomModelValidationDataConfigValidatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelValidationDataConfigValidatorArrayInput)(nil)).Elem(), GetCustomModelValidationDataConfigValidatorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelValidationMetricInput)(nil)).Elem(), GetCustomModelValidationMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelValidationMetricArrayInput)(nil)).Elem(), GetCustomModelValidationMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomModelsModelSummaryInput)(nil)).Elem(), GetCustomModelsModelSummaryArgs{})
@@ -6147,6 +6541,10 @@ func init() {
 	pulumi.RegisterOutputType(AgentAgentAliasTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationPromptConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationPromptConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AgentAgentTimeoutsOutput{})
 	pulumi.RegisterOutputType(AgentAgentTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceDataSourceConfigurationOutput{})
@@ -6213,6 +6611,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCustomModelTrainingMetricArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomModelValidationDataConfigOutput{})
 	pulumi.RegisterOutputType(GetCustomModelValidationDataConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetCustomModelValidationDataConfigValidatorOutput{})
+	pulumi.RegisterOutputType(GetCustomModelValidationDataConfigValidatorArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomModelValidationMetricOutput{})
 	pulumi.RegisterOutputType(GetCustomModelValidationMetricArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomModelsModelSummaryOutput{})

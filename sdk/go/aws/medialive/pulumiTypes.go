@@ -31542,10 +31542,10 @@ func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrO
 }
 
 type GetInputDestination struct {
-	Ip   string        `pulumi:"ip"`
-	Port string        `pulumi:"port"`
-	Url  string        `pulumi:"url"`
-	Vpcs []interface{} `pulumi:"vpcs"`
+	Ip   string                   `pulumi:"ip"`
+	Port string                   `pulumi:"port"`
+	Url  string                   `pulumi:"url"`
+	Vpcs []GetInputDestinationVpc `pulumi:"vpcs"`
 }
 
 // GetInputDestinationInput is an input type that accepts GetInputDestinationArgs and GetInputDestinationOutput values.
@@ -31560,10 +31560,10 @@ type GetInputDestinationInput interface {
 }
 
 type GetInputDestinationArgs struct {
-	Ip   pulumi.StringInput `pulumi:"ip"`
-	Port pulumi.StringInput `pulumi:"port"`
-	Url  pulumi.StringInput `pulumi:"url"`
-	Vpcs pulumi.ArrayInput  `pulumi:"vpcs"`
+	Ip   pulumi.StringInput               `pulumi:"ip"`
+	Port pulumi.StringInput               `pulumi:"port"`
+	Url  pulumi.StringInput               `pulumi:"url"`
+	Vpcs GetInputDestinationVpcArrayInput `pulumi:"vpcs"`
 }
 
 func (GetInputDestinationArgs) ElementType() reflect.Type {
@@ -31629,8 +31629,8 @@ func (o GetInputDestinationOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInputDestination) string { return v.Url }).(pulumi.StringOutput)
 }
 
-func (o GetInputDestinationOutput) Vpcs() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetInputDestination) []interface{} { return v.Vpcs }).(pulumi.ArrayOutput)
+func (o GetInputDestinationOutput) Vpcs() GetInputDestinationVpcArrayOutput {
+	return o.ApplyT(func(v GetInputDestination) []GetInputDestinationVpc { return v.Vpcs }).(GetInputDestinationVpcArrayOutput)
 }
 
 type GetInputDestinationArrayOutput struct{ *pulumi.OutputState }
@@ -31651,6 +31651,106 @@ func (o GetInputDestinationArrayOutput) Index(i pulumi.IntInput) GetInputDestina
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputDestination {
 		return vs[0].([]GetInputDestination)[vs[1].(int)]
 	}).(GetInputDestinationOutput)
+}
+
+type GetInputDestinationVpc struct {
+	AvailabilityZone   string `pulumi:"availabilityZone"`
+	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+}
+
+// GetInputDestinationVpcInput is an input type that accepts GetInputDestinationVpcArgs and GetInputDestinationVpcOutput values.
+// You can construct a concrete instance of `GetInputDestinationVpcInput` via:
+//
+//	GetInputDestinationVpcArgs{...}
+type GetInputDestinationVpcInput interface {
+	pulumi.Input
+
+	ToGetInputDestinationVpcOutput() GetInputDestinationVpcOutput
+	ToGetInputDestinationVpcOutputWithContext(context.Context) GetInputDestinationVpcOutput
+}
+
+type GetInputDestinationVpcArgs struct {
+	AvailabilityZone   pulumi.StringInput `pulumi:"availabilityZone"`
+	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
+}
+
+func (GetInputDestinationVpcArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputDestinationVpc)(nil)).Elem()
+}
+
+func (i GetInputDestinationVpcArgs) ToGetInputDestinationVpcOutput() GetInputDestinationVpcOutput {
+	return i.ToGetInputDestinationVpcOutputWithContext(context.Background())
+}
+
+func (i GetInputDestinationVpcArgs) ToGetInputDestinationVpcOutputWithContext(ctx context.Context) GetInputDestinationVpcOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputDestinationVpcOutput)
+}
+
+// GetInputDestinationVpcArrayInput is an input type that accepts GetInputDestinationVpcArray and GetInputDestinationVpcArrayOutput values.
+// You can construct a concrete instance of `GetInputDestinationVpcArrayInput` via:
+//
+//	GetInputDestinationVpcArray{ GetInputDestinationVpcArgs{...} }
+type GetInputDestinationVpcArrayInput interface {
+	pulumi.Input
+
+	ToGetInputDestinationVpcArrayOutput() GetInputDestinationVpcArrayOutput
+	ToGetInputDestinationVpcArrayOutputWithContext(context.Context) GetInputDestinationVpcArrayOutput
+}
+
+type GetInputDestinationVpcArray []GetInputDestinationVpcInput
+
+func (GetInputDestinationVpcArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputDestinationVpc)(nil)).Elem()
+}
+
+func (i GetInputDestinationVpcArray) ToGetInputDestinationVpcArrayOutput() GetInputDestinationVpcArrayOutput {
+	return i.ToGetInputDestinationVpcArrayOutputWithContext(context.Background())
+}
+
+func (i GetInputDestinationVpcArray) ToGetInputDestinationVpcArrayOutputWithContext(ctx context.Context) GetInputDestinationVpcArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputDestinationVpcArrayOutput)
+}
+
+type GetInputDestinationVpcOutput struct{ *pulumi.OutputState }
+
+func (GetInputDestinationVpcOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputDestinationVpc)(nil)).Elem()
+}
+
+func (o GetInputDestinationVpcOutput) ToGetInputDestinationVpcOutput() GetInputDestinationVpcOutput {
+	return o
+}
+
+func (o GetInputDestinationVpcOutput) ToGetInputDestinationVpcOutputWithContext(ctx context.Context) GetInputDestinationVpcOutput {
+	return o
+}
+
+func (o GetInputDestinationVpcOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputDestinationVpc) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+func (o GetInputDestinationVpcOutput) NetworkInterfaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputDestinationVpc) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+type GetInputDestinationVpcArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInputDestinationVpcArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputDestinationVpc)(nil)).Elem()
+}
+
+func (o GetInputDestinationVpcArrayOutput) ToGetInputDestinationVpcArrayOutput() GetInputDestinationVpcArrayOutput {
+	return o
+}
+
+func (o GetInputDestinationVpcArrayOutput) ToGetInputDestinationVpcArrayOutputWithContext(ctx context.Context) GetInputDestinationVpcArrayOutput {
+	return o
+}
+
+func (o GetInputDestinationVpcArrayOutput) Index(i pulumi.IntInput) GetInputDestinationVpcOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputDestinationVpc {
+		return vs[0].([]GetInputDestinationVpc)[vs[1].(int)]
+	}).(GetInputDestinationVpcOutput)
 }
 
 type GetInputInputDevice struct {
@@ -32290,6 +32390,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationInput)(nil)).Elem(), GetInputDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationArrayInput)(nil)).Elem(), GetInputDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationVpcInput)(nil)).Elem(), GetInputDestinationVpcArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationVpcArrayInput)(nil)).Elem(), GetInputDestinationVpcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputInputDeviceInput)(nil)).Elem(), GetInputInputDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputInputDeviceArrayInput)(nil)).Elem(), GetInputInputDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInputMediaConnectFlowInput)(nil)).Elem(), GetInputMediaConnectFlowArgs{})
@@ -32635,6 +32737,8 @@ func init() {
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GetInputDestinationOutput{})
 	pulumi.RegisterOutputType(GetInputDestinationArrayOutput{})
+	pulumi.RegisterOutputType(GetInputDestinationVpcOutput{})
+	pulumi.RegisterOutputType(GetInputDestinationVpcArrayOutput{})
 	pulumi.RegisterOutputType(GetInputInputDeviceOutput{})
 	pulumi.RegisterOutputType(GetInputInputDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetInputMediaConnectFlowOutput{})

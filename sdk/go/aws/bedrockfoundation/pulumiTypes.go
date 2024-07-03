@@ -15,11 +15,11 @@ var _ = internal.GetEnvOrDefault
 
 type GetModelsModelSummary struct {
 	// Customizations that the model supports.
-	CustomizationsSupporteds []interface{} `pulumi:"customizationsSupporteds"`
+	CustomizationsSupporteds []string `pulumi:"customizationsSupporteds"`
 	// Inference types that the model supports.
-	InferenceTypesSupporteds []interface{} `pulumi:"inferenceTypesSupporteds"`
+	InferenceTypesSupporteds []string `pulumi:"inferenceTypesSupporteds"`
 	// Input modalities that the model supports.
-	InputModalities []interface{} `pulumi:"inputModalities"`
+	InputModalities []string `pulumi:"inputModalities"`
 	// Model ARN.
 	ModelArn string `pulumi:"modelArn"`
 	// Model identifier.
@@ -27,7 +27,7 @@ type GetModelsModelSummary struct {
 	// Model name.
 	ModelName string `pulumi:"modelName"`
 	// Output modalities that the model supports.
-	OutputModalities []interface{} `pulumi:"outputModalities"`
+	OutputModalities []string `pulumi:"outputModalities"`
 	// Model provider name.
 	ProviderName string `pulumi:"providerName"`
 	// Indicates whether the model supports streaming.
@@ -47,11 +47,11 @@ type GetModelsModelSummaryInput interface {
 
 type GetModelsModelSummaryArgs struct {
 	// Customizations that the model supports.
-	CustomizationsSupporteds pulumi.ArrayInput `pulumi:"customizationsSupporteds"`
+	CustomizationsSupporteds pulumi.StringArrayInput `pulumi:"customizationsSupporteds"`
 	// Inference types that the model supports.
-	InferenceTypesSupporteds pulumi.ArrayInput `pulumi:"inferenceTypesSupporteds"`
+	InferenceTypesSupporteds pulumi.StringArrayInput `pulumi:"inferenceTypesSupporteds"`
 	// Input modalities that the model supports.
-	InputModalities pulumi.ArrayInput `pulumi:"inputModalities"`
+	InputModalities pulumi.StringArrayInput `pulumi:"inputModalities"`
 	// Model ARN.
 	ModelArn pulumi.StringInput `pulumi:"modelArn"`
 	// Model identifier.
@@ -59,7 +59,7 @@ type GetModelsModelSummaryArgs struct {
 	// Model name.
 	ModelName pulumi.StringInput `pulumi:"modelName"`
 	// Output modalities that the model supports.
-	OutputModalities pulumi.ArrayInput `pulumi:"outputModalities"`
+	OutputModalities pulumi.StringArrayInput `pulumi:"outputModalities"`
 	// Model provider name.
 	ProviderName pulumi.StringInput `pulumi:"providerName"`
 	// Indicates whether the model supports streaming.
@@ -118,18 +118,18 @@ func (o GetModelsModelSummaryOutput) ToGetModelsModelSummaryOutputWithContext(ct
 }
 
 // Customizations that the model supports.
-func (o GetModelsModelSummaryOutput) CustomizationsSupporteds() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetModelsModelSummary) []interface{} { return v.CustomizationsSupporteds }).(pulumi.ArrayOutput)
+func (o GetModelsModelSummaryOutput) CustomizationsSupporteds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetModelsModelSummary) []string { return v.CustomizationsSupporteds }).(pulumi.StringArrayOutput)
 }
 
 // Inference types that the model supports.
-func (o GetModelsModelSummaryOutput) InferenceTypesSupporteds() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetModelsModelSummary) []interface{} { return v.InferenceTypesSupporteds }).(pulumi.ArrayOutput)
+func (o GetModelsModelSummaryOutput) InferenceTypesSupporteds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetModelsModelSummary) []string { return v.InferenceTypesSupporteds }).(pulumi.StringArrayOutput)
 }
 
 // Input modalities that the model supports.
-func (o GetModelsModelSummaryOutput) InputModalities() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetModelsModelSummary) []interface{} { return v.InputModalities }).(pulumi.ArrayOutput)
+func (o GetModelsModelSummaryOutput) InputModalities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetModelsModelSummary) []string { return v.InputModalities }).(pulumi.StringArrayOutput)
 }
 
 // Model ARN.
@@ -148,8 +148,8 @@ func (o GetModelsModelSummaryOutput) ModelName() pulumi.StringOutput {
 }
 
 // Output modalities that the model supports.
-func (o GetModelsModelSummaryOutput) OutputModalities() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetModelsModelSummary) []interface{} { return v.OutputModalities }).(pulumi.ArrayOutput)
+func (o GetModelsModelSummaryOutput) OutputModalities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetModelsModelSummary) []string { return v.OutputModalities }).(pulumi.StringArrayOutput)
 }
 
 // Model provider name.

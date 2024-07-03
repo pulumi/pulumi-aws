@@ -245,9 +245,9 @@ func (o GetProfilingGroupAgentOrchestrationConfigArrayOutput) Index(i pulumi.Int
 }
 
 type GetProfilingGroupProfilingStatus struct {
-	LatestAgentOrchestratedAt    string        `pulumi:"latestAgentOrchestratedAt"`
-	LatestAgentProfileReportedAt string        `pulumi:"latestAgentProfileReportedAt"`
-	LatestAggregatedProfiles     []interface{} `pulumi:"latestAggregatedProfiles"`
+	LatestAgentOrchestratedAt    string                                                    `pulumi:"latestAgentOrchestratedAt"`
+	LatestAgentProfileReportedAt string                                                    `pulumi:"latestAgentProfileReportedAt"`
+	LatestAggregatedProfiles     []GetProfilingGroupProfilingStatusLatestAggregatedProfile `pulumi:"latestAggregatedProfiles"`
 }
 
 // GetProfilingGroupProfilingStatusInput is an input type that accepts GetProfilingGroupProfilingStatusArgs and GetProfilingGroupProfilingStatusOutput values.
@@ -262,9 +262,9 @@ type GetProfilingGroupProfilingStatusInput interface {
 }
 
 type GetProfilingGroupProfilingStatusArgs struct {
-	LatestAgentOrchestratedAt    pulumi.StringInput `pulumi:"latestAgentOrchestratedAt"`
-	LatestAgentProfileReportedAt pulumi.StringInput `pulumi:"latestAgentProfileReportedAt"`
-	LatestAggregatedProfiles     pulumi.ArrayInput  `pulumi:"latestAggregatedProfiles"`
+	LatestAgentOrchestratedAt    pulumi.StringInput                                                `pulumi:"latestAgentOrchestratedAt"`
+	LatestAgentProfileReportedAt pulumi.StringInput                                                `pulumi:"latestAgentProfileReportedAt"`
+	LatestAggregatedProfiles     GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayInput `pulumi:"latestAggregatedProfiles"`
 }
 
 func (GetProfilingGroupProfilingStatusArgs) ElementType() reflect.Type {
@@ -326,8 +326,10 @@ func (o GetProfilingGroupProfilingStatusOutput) LatestAgentProfileReportedAt() p
 	return o.ApplyT(func(v GetProfilingGroupProfilingStatus) string { return v.LatestAgentProfileReportedAt }).(pulumi.StringOutput)
 }
 
-func (o GetProfilingGroupProfilingStatusOutput) LatestAggregatedProfiles() pulumi.ArrayOutput {
-	return o.ApplyT(func(v GetProfilingGroupProfilingStatus) []interface{} { return v.LatestAggregatedProfiles }).(pulumi.ArrayOutput)
+func (o GetProfilingGroupProfilingStatusOutput) LatestAggregatedProfiles() GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput {
+	return o.ApplyT(func(v GetProfilingGroupProfilingStatus) []GetProfilingGroupProfilingStatusLatestAggregatedProfile {
+		return v.LatestAggregatedProfiles
+	}).(GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput)
 }
 
 type GetProfilingGroupProfilingStatusArrayOutput struct{ *pulumi.OutputState }
@@ -350,6 +352,106 @@ func (o GetProfilingGroupProfilingStatusArrayOutput) Index(i pulumi.IntInput) Ge
 	}).(GetProfilingGroupProfilingStatusOutput)
 }
 
+type GetProfilingGroupProfilingStatusLatestAggregatedProfile struct {
+	Period string `pulumi:"period"`
+	Start  string `pulumi:"start"`
+}
+
+// GetProfilingGroupProfilingStatusLatestAggregatedProfileInput is an input type that accepts GetProfilingGroupProfilingStatusLatestAggregatedProfileArgs and GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput values.
+// You can construct a concrete instance of `GetProfilingGroupProfilingStatusLatestAggregatedProfileInput` via:
+//
+//	GetProfilingGroupProfilingStatusLatestAggregatedProfileArgs{...}
+type GetProfilingGroupProfilingStatusLatestAggregatedProfileInput interface {
+	pulumi.Input
+
+	ToGetProfilingGroupProfilingStatusLatestAggregatedProfileOutput() GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput
+	ToGetProfilingGroupProfilingStatusLatestAggregatedProfileOutputWithContext(context.Context) GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput
+}
+
+type GetProfilingGroupProfilingStatusLatestAggregatedProfileArgs struct {
+	Period pulumi.StringInput `pulumi:"period"`
+	Start  pulumi.StringInput `pulumi:"start"`
+}
+
+func (GetProfilingGroupProfilingStatusLatestAggregatedProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProfilingGroupProfilingStatusLatestAggregatedProfile)(nil)).Elem()
+}
+
+func (i GetProfilingGroupProfilingStatusLatestAggregatedProfileArgs) ToGetProfilingGroupProfilingStatusLatestAggregatedProfileOutput() GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput {
+	return i.ToGetProfilingGroupProfilingStatusLatestAggregatedProfileOutputWithContext(context.Background())
+}
+
+func (i GetProfilingGroupProfilingStatusLatestAggregatedProfileArgs) ToGetProfilingGroupProfilingStatusLatestAggregatedProfileOutputWithContext(ctx context.Context) GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput)
+}
+
+// GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayInput is an input type that accepts GetProfilingGroupProfilingStatusLatestAggregatedProfileArray and GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput values.
+// You can construct a concrete instance of `GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayInput` via:
+//
+//	GetProfilingGroupProfilingStatusLatestAggregatedProfileArray{ GetProfilingGroupProfilingStatusLatestAggregatedProfileArgs{...} }
+type GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayInput interface {
+	pulumi.Input
+
+	ToGetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput() GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput
+	ToGetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutputWithContext(context.Context) GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput
+}
+
+type GetProfilingGroupProfilingStatusLatestAggregatedProfileArray []GetProfilingGroupProfilingStatusLatestAggregatedProfileInput
+
+func (GetProfilingGroupProfilingStatusLatestAggregatedProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProfilingGroupProfilingStatusLatestAggregatedProfile)(nil)).Elem()
+}
+
+func (i GetProfilingGroupProfilingStatusLatestAggregatedProfileArray) ToGetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput() GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput {
+	return i.ToGetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutputWithContext(context.Background())
+}
+
+func (i GetProfilingGroupProfilingStatusLatestAggregatedProfileArray) ToGetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutputWithContext(ctx context.Context) GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput)
+}
+
+type GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput struct{ *pulumi.OutputState }
+
+func (GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProfilingGroupProfilingStatusLatestAggregatedProfile)(nil)).Elem()
+}
+
+func (o GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput) ToGetProfilingGroupProfilingStatusLatestAggregatedProfileOutput() GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput {
+	return o
+}
+
+func (o GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput) ToGetProfilingGroupProfilingStatusLatestAggregatedProfileOutputWithContext(ctx context.Context) GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput {
+	return o
+}
+
+func (o GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput) Period() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProfilingGroupProfilingStatusLatestAggregatedProfile) string { return v.Period }).(pulumi.StringOutput)
+}
+
+func (o GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProfilingGroupProfilingStatusLatestAggregatedProfile) string { return v.Start }).(pulumi.StringOutput)
+}
+
+type GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProfilingGroupProfilingStatusLatestAggregatedProfile)(nil)).Elem()
+}
+
+func (o GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput) ToGetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput() GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput {
+	return o
+}
+
+func (o GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput) ToGetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutputWithContext(ctx context.Context) GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput {
+	return o
+}
+
+func (o GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput) Index(i pulumi.IntInput) GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProfilingGroupProfilingStatusLatestAggregatedProfile {
+		return vs[0].([]GetProfilingGroupProfilingStatusLatestAggregatedProfile)[vs[1].(int)]
+	}).(GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupAgentOrchestrationConfigInput)(nil)).Elem(), ProfilingGroupAgentOrchestrationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfilingGroupAgentOrchestrationConfigPtrInput)(nil)).Elem(), ProfilingGroupAgentOrchestrationConfigArgs{})
@@ -357,10 +459,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilingGroupAgentOrchestrationConfigArrayInput)(nil)).Elem(), GetProfilingGroupAgentOrchestrationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilingGroupProfilingStatusInput)(nil)).Elem(), GetProfilingGroupProfilingStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilingGroupProfilingStatusArrayInput)(nil)).Elem(), GetProfilingGroupProfilingStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilingGroupProfilingStatusLatestAggregatedProfileInput)(nil)).Elem(), GetProfilingGroupProfilingStatusLatestAggregatedProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayInput)(nil)).Elem(), GetProfilingGroupProfilingStatusLatestAggregatedProfileArray{})
 	pulumi.RegisterOutputType(ProfilingGroupAgentOrchestrationConfigOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupAgentOrchestrationConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetProfilingGroupAgentOrchestrationConfigOutput{})
 	pulumi.RegisterOutputType(GetProfilingGroupAgentOrchestrationConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetProfilingGroupProfilingStatusOutput{})
 	pulumi.RegisterOutputType(GetProfilingGroupProfilingStatusArrayOutput{})
+	pulumi.RegisterOutputType(GetProfilingGroupProfilingStatusLatestAggregatedProfileOutput{})
+	pulumi.RegisterOutputType(GetProfilingGroupProfilingStatusLatestAggregatedProfileArrayOutput{})
 }
