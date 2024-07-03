@@ -5,7 +5,7 @@ Subject: [PATCH] Provide context to conns
 
 
 diff --git a/internal/service/ecr/credentials_data_source.go b/internal/service/ecr/credentials_data_source.go
-index 572754846f..9dd9fd0e8c 100644
+index b6e19a7283..9176fa0a16 100644
 --- a/internal/service/ecr/credentials_data_source.go
 +++ b/internal/service/ecr/credentials_data_source.go
 @@ -1,6 +1,7 @@
@@ -16,7 +16,7 @@ index 572754846f..9dd9fd0e8c 100644
  	"log"
  	"time"
  
-@@ -39,7 +40,8 @@ func DataSourceCredentials() *schema.Resource {
+@@ -38,7 +39,8 @@ func DataSourceCredentials() *schema.Resource {
  }
  
  func dataSourceAwsEcrCredentialsRead(d *schema.ResourceData, meta interface{}) error {
