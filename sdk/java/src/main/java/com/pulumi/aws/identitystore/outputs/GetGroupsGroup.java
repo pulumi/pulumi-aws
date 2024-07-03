@@ -3,9 +3,9 @@
 
 package com.pulumi.aws.identitystore.outputs;
 
+import com.pulumi.aws.identitystore.outputs.GetGroupsGroupExternalId;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -26,7 +26,7 @@ public final class GetGroupsGroup {
      * @return List of identifiers issued to this resource by an external identity provider.
      * 
      */
-    private List<Object> externalIds;
+    private List<GetGroupsGroupExternalId> externalIds;
     /**
      * @return Identifier of the group in the Identity Store.
      * 
@@ -57,7 +57,7 @@ public final class GetGroupsGroup {
      * @return List of identifiers issued to this resource by an external identity provider.
      * 
      */
-    public List<Object> externalIds() {
+    public List<GetGroupsGroupExternalId> externalIds() {
         return this.externalIds;
     }
     /**
@@ -86,7 +86,7 @@ public final class GetGroupsGroup {
     public static final class Builder {
         private String description;
         private String displayName;
-        private List<Object> externalIds;
+        private List<GetGroupsGroupExternalId> externalIds;
         private String groupId;
         private String identityStoreId;
         public Builder() {}
@@ -116,14 +116,14 @@ public final class GetGroupsGroup {
             return this;
         }
         @CustomType.Setter
-        public Builder externalIds(List<Object> externalIds) {
+        public Builder externalIds(List<GetGroupsGroupExternalId> externalIds) {
             if (externalIds == null) {
               throw new MissingRequiredPropertyException("GetGroupsGroup", "externalIds");
             }
             this.externalIds = externalIds;
             return this;
         }
-        public Builder externalIds(Object... externalIds) {
+        public Builder externalIds(GetGroupsGroupExternalId... externalIds) {
             return externalIds(List.of(externalIds));
         }
         @CustomType.Setter

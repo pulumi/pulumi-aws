@@ -3,10 +3,10 @@
 
 package com.pulumi.aws.batch.outputs;
 
+import com.pulumi.aws.batch.outputs.GetJobDefinitionNodePropertyNodeRangeProperty;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,7 +21,7 @@ public final class GetJobDefinitionNodeProperty {
      * @return A list of node ranges and their properties that are associated with a multi-node parallel job.
      * 
      */
-    private List<Object> nodeRangeProperties;
+    private List<GetJobDefinitionNodePropertyNodeRangeProperty> nodeRangeProperties;
     /**
      * @return The number of nodes that are associated with a multi-node parallel job.
      * 
@@ -40,7 +40,7 @@ public final class GetJobDefinitionNodeProperty {
      * @return A list of node ranges and their properties that are associated with a multi-node parallel job.
      * 
      */
-    public List<Object> nodeRangeProperties() {
+    public List<GetJobDefinitionNodePropertyNodeRangeProperty> nodeRangeProperties() {
         return this.nodeRangeProperties;
     }
     /**
@@ -61,7 +61,7 @@ public final class GetJobDefinitionNodeProperty {
     @CustomType.Builder
     public static final class Builder {
         private Integer mainNode;
-        private List<Object> nodeRangeProperties;
+        private List<GetJobDefinitionNodePropertyNodeRangeProperty> nodeRangeProperties;
         private Integer numNodes;
         public Builder() {}
         public Builder(GetJobDefinitionNodeProperty defaults) {
@@ -80,14 +80,14 @@ public final class GetJobDefinitionNodeProperty {
             return this;
         }
         @CustomType.Setter
-        public Builder nodeRangeProperties(List<Object> nodeRangeProperties) {
+        public Builder nodeRangeProperties(List<GetJobDefinitionNodePropertyNodeRangeProperty> nodeRangeProperties) {
             if (nodeRangeProperties == null) {
               throw new MissingRequiredPropertyException("GetJobDefinitionNodeProperty", "nodeRangeProperties");
             }
             this.nodeRangeProperties = nodeRangeProperties;
             return this;
         }
-        public Builder nodeRangeProperties(Object... nodeRangeProperties) {
+        public Builder nodeRangeProperties(GetJobDefinitionNodePropertyNodeRangeProperty... nodeRangeProperties) {
             return nodeRangeProperties(List.of(nodeRangeProperties));
         }
         @CustomType.Setter

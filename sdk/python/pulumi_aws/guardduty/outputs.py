@@ -27,6 +27,7 @@ __all__ = [
     'FilterFindingCriteria',
     'FilterFindingCriteriaCriterion',
     'MalwareProtectionPlanAction',
+    'MalwareProtectionPlanActionTagging',
     'MalwareProtectionPlanProtectedResource',
     'MalwareProtectionPlanProtectedResourceS3Bucket',
     'OrganizationConfigurationDatasources',
@@ -439,19 +440,37 @@ class FilterFindingCriteriaCriterion(dict):
 @pulumi.output_type
 class MalwareProtectionPlanAction(dict):
     def __init__(__self__, *,
-                 taggings: Sequence[Any]):
+                 taggings: Sequence['outputs.MalwareProtectionPlanActionTagging']):
         """
-        :param Sequence[Any] taggings: Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+        :param Sequence['MalwareProtectionPlanActionTaggingArgs'] taggings: Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
         """
         pulumi.set(__self__, "taggings", taggings)
 
     @property
     @pulumi.getter
-    def taggings(self) -> Sequence[Any]:
+    def taggings(self) -> Sequence['outputs.MalwareProtectionPlanActionTagging']:
         """
         Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
         """
         return pulumi.get(self, "taggings")
+
+
+@pulumi.output_type
+class MalwareProtectionPlanActionTagging(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
