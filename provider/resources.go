@@ -4214,7 +4214,7 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_networkfirewall_tls_inspection_configuration": {
 				Tok: awsResource(networkFirewallMod, "TlsInspectionConfiguration"),
 				Fields: map[string]*info.Schema{
-					"tls_inspection_configuration": &info.Schema{
+					"tls_inspection_configuration": {
 						CSharpName: "TlsInspectionConfig",
 					},
 				},
