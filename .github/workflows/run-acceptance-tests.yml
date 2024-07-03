@@ -20,7 +20,6 @@ env:
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
 
 # This should cancel any previous runs of the same workflow on the same branch which are still running.
@@ -73,6 +72,7 @@ jobs:
     - go_test_shim
     - provider_test
     - test_oidc
+    - upstream_lint
     runs-on: ubuntu-latest
     steps:
     - uses: guibranco/github-status-action-v2@0849440ec82c5fa69b2377725b9b7852a3977e76
@@ -122,26 +122,13 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         tools: pulumictl, pulumicli, go, node, dotnet, python, java
-    - name: Download provider + tfgen binaries
-      uses: actions/download-artifact@v4
-      with:
-        name: aws-provider.tar.gz
-        path: ${{ github.workspace }}/bin
-    - name: Untar provider binaries
-      run: >-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-        github.workspace}}/bin
-
-        find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
+    - name: Download bin
+      uses: ./.github/actions/download-bin
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
-      uses: actions/download-artifact@v4
+      uses: ./.github/actions/download-sdk
       with:
-        name: ${{ matrix.language }}-sdk.tar.gz
-        path: ${{ github.workspace}}/sdk/
-    - name: Uncompress SDK folder
-      run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
-        github.workspace }}/sdk/${{ matrix.language }}
+        language: ${{ matrix.language }}
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
@@ -379,6 +366,32 @@ jobs:
           matrix:
               language:
                   - nodejs
+  upstream_lint:
+      name: Run upstream provider-lint
+      runs-on: ubuntu-latest
+      steps:
+          - name: Free Disk Space (Ubuntu)
+            uses: jlumbroso/free-disk-space@main
+            with:
+              swap-storage: false
+              tool-cache: false
+          - name: Checkout Repo
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ env.PR_COMMIT_SHA }}
+              submodules: true
+          - name: Install Go
+            uses: actions/setup-go@v5
+            with:
+              cache: false
+              go-version: 1.22.x
+          - name: Make upstream
+            run: make upstream
+          - name: upstream lint
+            run: |
+              cd upstream
+              make provider-lint
+      timeout-minutes: 60
 
 name: run-acceptance-tests
 on:

@@ -13,11 +13,13 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ProfilingGroupAgentOrchestrationConfig',
     'GetProfilingGroupAgentOrchestrationConfigResult',
     'GetProfilingGroupProfilingStatusResult',
+    'GetProfilingGroupProfilingStatusLatestAggregatedProfileResult',
 ]
 
 @pulumi.output_type
@@ -72,7 +74,7 @@ class GetProfilingGroupProfilingStatusResult(dict):
     def __init__(__self__, *,
                  latest_agent_orchestrated_at: str,
                  latest_agent_profile_reported_at: str,
-                 latest_aggregated_profiles: Sequence[Any]):
+                 latest_aggregated_profiles: Sequence['outputs.GetProfilingGroupProfilingStatusLatestAggregatedProfileResult']):
         pulumi.set(__self__, "latest_agent_orchestrated_at", latest_agent_orchestrated_at)
         pulumi.set(__self__, "latest_agent_profile_reported_at", latest_agent_profile_reported_at)
         pulumi.set(__self__, "latest_aggregated_profiles", latest_aggregated_profiles)
@@ -89,7 +91,26 @@ class GetProfilingGroupProfilingStatusResult(dict):
 
     @property
     @pulumi.getter(name="latestAggregatedProfiles")
-    def latest_aggregated_profiles(self) -> Sequence[Any]:
+    def latest_aggregated_profiles(self) -> Sequence['outputs.GetProfilingGroupProfilingStatusLatestAggregatedProfileResult']:
         return pulumi.get(self, "latest_aggregated_profiles")
+
+
+@pulumi.output_type
+class GetProfilingGroupProfilingStatusLatestAggregatedProfileResult(dict):
+    def __init__(__self__, *,
+                 period: str,
+                 start: str):
+        pulumi.set(__self__, "period", period)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def period(self) -> str:
+        return pulumi.get(self, "period")
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        return pulumi.get(self, "start")
 
 

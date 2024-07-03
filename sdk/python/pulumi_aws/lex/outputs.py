@@ -972,10 +972,12 @@ __all__ = [
     'V2modelsSlotObfuscationSetting',
     'V2modelsSlotTimeouts',
     'V2modelsSlotTypeCompositeSlotTypeSetting',
+    'V2modelsSlotTypeCompositeSlotTypeSettingSubSlot',
     'V2modelsSlotTypeExternalSourceSetting',
     'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSetting',
     'V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSource',
     'V2modelsSlotTypeSlotTypeValues',
+    'V2modelsSlotTypeSlotTypeValuesSlotTypeValue',
     'V2modelsSlotTypeSlotTypeValuesSynonym',
     'V2modelsSlotTypeTimeouts',
     'V2modelsSlotTypeValueSelectionSetting',
@@ -41409,19 +41411,65 @@ class V2modelsSlotTypeCompositeSlotTypeSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 sub_slots: Sequence[Any]):
+                 sub_slots: Sequence['outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot']):
         """
-        :param Sequence[Any] sub_slots: Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
+        :param Sequence['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs'] sub_slots: Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
         """
         pulumi.set(__self__, "sub_slots", sub_slots)
 
     @property
     @pulumi.getter(name="subSlots")
-    def sub_slots(self) -> Sequence[Any]:
+    def sub_slots(self) -> Sequence['outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot']:
         """
         Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
         """
         return pulumi.get(self, "sub_slots")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeCompositeSlotTypeSettingSubSlot(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subSlotId":
+            suggest = "sub_slot_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in V2modelsSlotTypeCompositeSlotTypeSettingSubSlot. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        V2modelsSlotTypeCompositeSlotTypeSettingSubSlot.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        V2modelsSlotTypeCompositeSlotTypeSettingSubSlot.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 sub_slot_id: str):
+        """
+        :param str name: Name of the slot type
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sub_slot_id", sub_slot_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the slot type
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subSlotId")
+    def sub_slot_id(self) -> str:
+        return pulumi.get(self, "sub_slot_id")
 
 
 @pulumi.output_type
@@ -41546,10 +41594,10 @@ class V2modelsSlotTypeSlotTypeValues(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 slot_type_values: Sequence[Any],
+                 slot_type_values: Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValue'],
                  synonyms: Optional[Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSynonym']] = None):
         """
-        :param Sequence[Any] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
+        :param Sequence['V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs'] slot_type_values: List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
         :param Sequence['V2modelsSlotTypeSlotTypeValuesSynonymArgs'] synonyms: Additional values related to the slot type entry. See `sample_value` argument reference below.
         """
         pulumi.set(__self__, "slot_type_values", slot_type_values)
@@ -41558,7 +41606,7 @@ class V2modelsSlotTypeSlotTypeValues(dict):
 
     @property
     @pulumi.getter(name="slotTypeValues")
-    def slot_type_values(self) -> Sequence[Any]:
+    def slot_type_values(self) -> Sequence['outputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValue']:
         """
         List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
         """
@@ -41571,6 +41619,18 @@ class V2modelsSlotTypeSlotTypeValues(dict):
         Additional values related to the slot type entry. See `sample_value` argument reference below.
         """
         return pulumi.get(self, "synonyms")
+
+
+@pulumi.output_type
+class V2modelsSlotTypeSlotTypeValuesSlotTypeValue(dict):
+    def __init__(__self__, *,
+                 value: str):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
