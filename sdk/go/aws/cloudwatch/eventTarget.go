@@ -338,17 +338,9 @@ import (
 // if err != nil {
 // return err
 // }
-// ecsEventsRunTaskWithAnyRole, err := iam.GetPolicyDocument(ctx, invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
-// Text: taskName.Arn,
-// Search: "/:\\d+$/",
-// Replace: ":*",
-// }, nil)
-// if err != nil {
-// return err
-// }
-// &iam.GetPolicyDocumentArgs{
-// Statements: pulumi.Array{
-// iam.GetPolicyDocumentStatement{
+// ecsEventsRunTaskWithAnyRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// Statements: []iam.GetPolicyDocumentStatement{
+// {
 // Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "iam:PassRole",
@@ -357,13 +349,17 @@ import (
 // "*",
 // },
 // },
-// iam.GetPolicyDocumentStatement{
+// {
 // Effect: pulumi.StringRef("Allow"),
 // Actions: []string{
 // "ecs:RunTask",
 // },
 // Resources: interface{}{
-// invokeReplace.Result,
+// std.Replace(ctx, {
+// Text: taskName.Arn,
+// Search: "/:\\d+$/",
+// Replace: ":*",
+// }, nil).Result,
 // },
 // },
 // },

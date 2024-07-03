@@ -13,11 +13,13 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'IndexTimeouts',
     'SearchResourceResult',
     'SearchResourceCountResult',
+    'SearchResourcePropertyResult',
     'ViewFilters',
     'ViewIncludedProperty',
 ]
@@ -71,7 +73,7 @@ class SearchResourceResult(dict):
                  arn: str,
                  last_reported_at: str,
                  owning_account_id: str,
-                 properties: Sequence[Any],
+                 properties: Sequence['outputs.SearchResourcePropertyResult'],
                  region: str,
                  resource_type: str,
                  service: str):
@@ -79,7 +81,7 @@ class SearchResourceResult(dict):
         :param str arn: Amazon resource name of resource.
         :param str last_reported_at: The date and time that the information about this resource property was last updated.
         :param str owning_account_id: Amazon Web Services account that owns the resource.
-        :param Sequence[Any] properties: Structure with additional type-specific details about the resource.  See `properties` below.
+        :param Sequence['SearchResourcePropertyArgs'] properties: Structure with additional type-specific details about the resource.  See `properties` below.
         :param str region: Amazon Web Services Region in which the resource was created and exists.
         :param str resource_type: Type of the resource.
         :param str service: Amazon Web Service that owns the resource and is responsible for creating and updating it.
@@ -118,7 +120,7 @@ class SearchResourceResult(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Sequence[Any]:
+    def properties(self) -> Sequence['outputs.SearchResourcePropertyResult']:
         """
         Structure with additional type-specific details about the resource.  See `properties` below.
         """
@@ -176,6 +178,46 @@ class SearchResourceCountResult(dict):
         Number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the Complete field is set to false. We recommend that you refine your query to return a smaller number of results.
         """
         return pulumi.get(self, "total_resources")
+
+
+@pulumi.output_type
+class SearchResourcePropertyResult(dict):
+    def __init__(__self__, *,
+                 data: str,
+                 last_reported_at: str,
+                 name: str):
+        """
+        :param str data: Details about this property. The content of this field is a JSON object that varies based on the resource type.
+        :param str last_reported_at: The date and time that the information about this resource property was last updated.
+        :param str name: Name of this property of the resource.
+        """
+        pulumi.set(__self__, "data", data)
+        pulumi.set(__self__, "last_reported_at", last_reported_at)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def data(self) -> str:
+        """
+        Details about this property. The content of this field is a JSON object that varies based on the resource type.
+        """
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter(name="lastReportedAt")
+    def last_reported_at(self) -> str:
+        """
+        The date and time that the information about this resource property was last updated.
+        """
+        return pulumi.get(self, "last_reported_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of this property of the resource.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
