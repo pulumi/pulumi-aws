@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Batch.Outputs
         /// <summary>
         /// The properties for the Kubernetes pod resources of a job.
         /// </summary>
-        public readonly ImmutableArray<object> PodProperties;
+        public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyResult> PodProperties;
 
         [OutputConstructor]
-        private GetJobDefinitionEksPropertyResult(ImmutableArray<object> podProperties)
+        private GetJobDefinitionEksPropertyResult(ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyResult> podProperties)
         {
             PodProperties = podProperties;
         }

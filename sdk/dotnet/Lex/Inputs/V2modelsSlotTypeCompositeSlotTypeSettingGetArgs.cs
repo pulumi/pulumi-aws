@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Lex.Inputs
     public sealed class V2modelsSlotTypeCompositeSlotTypeSettingGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("subSlots", required: true)]
-        private InputList<object>? _subSlots;
+        private InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotGetArgs>? _subSlots;
 
         /// <summary>
         /// Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
         /// </summary>
-        public InputList<object> SubSlots
+        public InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotGetArgs> SubSlots
         {
-            get => _subSlots ?? (_subSlots = new InputList<object>());
+            get => _subSlots ?? (_subSlots = new InputList<Inputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlotGetArgs>());
             set => _subSlots = value;
         }
 

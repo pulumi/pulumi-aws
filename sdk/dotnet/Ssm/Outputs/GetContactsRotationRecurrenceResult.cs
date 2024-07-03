@@ -13,26 +13,26 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class GetContactsRotationRecurrenceResult
     {
-        public readonly ImmutableArray<object> DailySettings;
-        public readonly ImmutableArray<object> MonthlySettings;
+        public readonly ImmutableArray<Outputs.GetContactsRotationRecurrenceDailySettingResult> DailySettings;
+        public readonly ImmutableArray<Outputs.GetContactsRotationRecurrenceMonthlySettingResult> MonthlySettings;
         public readonly int NumberOfOnCalls;
         public readonly int RecurrenceMultiplier;
-        public readonly ImmutableArray<object> ShiftCoverages;
-        public readonly ImmutableArray<object> WeeklySettings;
+        public readonly ImmutableArray<Outputs.GetContactsRotationRecurrenceShiftCoverageResult> ShiftCoverages;
+        public readonly ImmutableArray<Outputs.GetContactsRotationRecurrenceWeeklySettingResult> WeeklySettings;
 
         [OutputConstructor]
         private GetContactsRotationRecurrenceResult(
-            ImmutableArray<object> dailySettings,
+            ImmutableArray<Outputs.GetContactsRotationRecurrenceDailySettingResult> dailySettings,
 
-            ImmutableArray<object> monthlySettings,
+            ImmutableArray<Outputs.GetContactsRotationRecurrenceMonthlySettingResult> monthlySettings,
 
             int numberOfOnCalls,
 
             int recurrenceMultiplier,
 
-            ImmutableArray<object> shiftCoverages,
+            ImmutableArray<Outputs.GetContactsRotationRecurrenceShiftCoverageResult> shiftCoverages,
 
-            ImmutableArray<object> weeklySettings)
+            ImmutableArray<Outputs.GetContactsRotationRecurrenceWeeklySettingResult> weeklySettings)
         {
             DailySettings = dailySettings;
             MonthlySettings = monthlySettings;

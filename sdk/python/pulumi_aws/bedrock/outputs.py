@@ -22,6 +22,8 @@ __all__ = [
     'AgentAgentAliasRoutingConfiguration',
     'AgentAgentAliasTimeouts',
     'AgentAgentPromptOverrideConfiguration',
+    'AgentAgentPromptOverrideConfigurationPromptConfiguration',
+    'AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration',
     'AgentAgentTimeouts',
     'AgentDataSourceDataSourceConfiguration',
     'AgentDataSourceDataSourceConfigurationS3Configuration',
@@ -55,6 +57,7 @@ __all__ = [
     'GetCustomModelTrainingDataConfigResult',
     'GetCustomModelTrainingMetricResult',
     'GetCustomModelValidationDataConfigResult',
+    'GetCustomModelValidationDataConfigValidatorResult',
     'GetCustomModelValidationMetricResult',
     'GetCustomModelsModelSummaryResult',
 ]
@@ -277,10 +280,10 @@ class AgentAgentPromptOverrideConfiguration(dict):
 
     def __init__(__self__, *,
                  override_lambda: str,
-                 prompt_configurations: Sequence[Any]):
+                 prompt_configurations: Sequence['outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration']):
         """
         :param str override_lambda: ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the `prompt_configurations` block must contain a `parser_mode` value that is set to `OVERRIDDEN`.
-        :param Sequence[Any] prompt_configurations: Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
+        :param Sequence['AgentAgentPromptOverrideConfigurationPromptConfigurationArgs'] prompt_configurations: Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
         """
         pulumi.set(__self__, "override_lambda", override_lambda)
         pulumi.set(__self__, "prompt_configurations", prompt_configurations)
@@ -295,11 +298,196 @@ class AgentAgentPromptOverrideConfiguration(dict):
 
     @property
     @pulumi.getter(name="promptConfigurations")
-    def prompt_configurations(self) -> Sequence[Any]:
+    def prompt_configurations(self) -> Sequence['outputs.AgentAgentPromptOverrideConfigurationPromptConfiguration']:
         """
         Configurations to override a prompt template in one part of an agent sequence. See `prompt_configurations` block for details.
         """
         return pulumi.get(self, "prompt_configurations")
+
+
+@pulumi.output_type
+class AgentAgentPromptOverrideConfigurationPromptConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "basePromptTemplate":
+            suggest = "base_prompt_template"
+        elif key == "inferenceConfigurations":
+            suggest = "inference_configurations"
+        elif key == "parserMode":
+            suggest = "parser_mode"
+        elif key == "promptCreationMode":
+            suggest = "prompt_creation_mode"
+        elif key == "promptState":
+            suggest = "prompt_state"
+        elif key == "promptType":
+            suggest = "prompt_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentAgentPromptOverrideConfigurationPromptConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentAgentPromptOverrideConfigurationPromptConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentAgentPromptOverrideConfigurationPromptConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_prompt_template: str,
+                 inference_configurations: Sequence['outputs.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration'],
+                 parser_mode: str,
+                 prompt_creation_mode: str,
+                 prompt_state: str,
+                 prompt_type: str):
+        """
+        :param str base_prompt_template: prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+        :param Sequence['AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfigurationArgs'] inference_configurations: Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` block for details.
+        :param str parser_mode: Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        :param str prompt_creation_mode: Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        :param str prompt_state: Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+        :param str prompt_type: Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+        """
+        pulumi.set(__self__, "base_prompt_template", base_prompt_template)
+        pulumi.set(__self__, "inference_configurations", inference_configurations)
+        pulumi.set(__self__, "parser_mode", parser_mode)
+        pulumi.set(__self__, "prompt_creation_mode", prompt_creation_mode)
+        pulumi.set(__self__, "prompt_state", prompt_state)
+        pulumi.set(__self__, "prompt_type", prompt_type)
+
+    @property
+    @pulumi.getter(name="basePromptTemplate")
+    def base_prompt_template(self) -> str:
+        """
+        prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+        """
+        return pulumi.get(self, "base_prompt_template")
+
+    @property
+    @pulumi.getter(name="inferenceConfigurations")
+    def inference_configurations(self) -> Sequence['outputs.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration']:
+        """
+        Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `prompt_type`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inference_configuration` block for details.
+        """
+        return pulumi.get(self, "inference_configurations")
+
+    @property
+    @pulumi.getter(name="parserMode")
+    def parser_mode(self) -> str:
+        """
+        Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `prompt_type`. If you set the argument as `OVERRIDDEN`, the `override_lambda` argument in the `prompt_override_configuration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        """
+        return pulumi.get(self, "parser_mode")
+
+    @property
+    @pulumi.getter(name="promptCreationMode")
+    def prompt_creation_mode(self) -> str:
+        """
+        Whether to override the default prompt template for this `prompt_type`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `base_prompt_template`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+        """
+        return pulumi.get(self, "prompt_creation_mode")
+
+    @property
+    @pulumi.getter(name="promptState")
+    def prompt_state(self) -> str:
+        """
+        Whether to allow the agent to carry out the step specified in the `prompt_type`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "prompt_state")
+
+    @property
+    @pulumi.getter(name="promptType")
+    def prompt_type(self) -> str:
+        """
+        Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+        """
+        return pulumi.get(self, "prompt_type")
+
+
+@pulumi.output_type
+class AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxLength":
+            suggest = "max_length"
+        elif key == "stopSequences":
+            suggest = "stop_sequences"
+        elif key == "topK":
+            suggest = "top_k"
+        elif key == "topP":
+            suggest = "top_p"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_length: int,
+                 stop_sequences: Sequence[str],
+                 temperature: float,
+                 top_k: int,
+                 top_p: float):
+        """
+        :param int max_length: Maximum number of tokens to allow in the generated response.
+        :param Sequence[str] stop_sequences: List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+        :param float temperature: Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+        :param int top_k: Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+        :param float top_p: Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+        """
+        pulumi.set(__self__, "max_length", max_length)
+        pulumi.set(__self__, "stop_sequences", stop_sequences)
+        pulumi.set(__self__, "temperature", temperature)
+        pulumi.set(__self__, "top_k", top_k)
+        pulumi.set(__self__, "top_p", top_p)
+
+    @property
+    @pulumi.getter(name="maxLength")
+    def max_length(self) -> int:
+        """
+        Maximum number of tokens to allow in the generated response.
+        """
+        return pulumi.get(self, "max_length")
+
+    @property
+    @pulumi.getter(name="stopSequences")
+    def stop_sequences(self) -> Sequence[str]:
+        """
+        List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+        """
+        return pulumi.get(self, "stop_sequences")
+
+    @property
+    @pulumi.getter
+    def temperature(self) -> float:
+        """
+        Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+        """
+        return pulumi.get(self, "temperature")
+
+    @property
+    @pulumi.getter(name="topK")
+    def top_k(self) -> int:
+        """
+        Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+        """
+        return pulumi.get(self, "top_k")
+
+    @property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> float:
+        """
+        Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+        """
+        return pulumi.get(self, "top_p")
 
 
 @pulumi.output_type
@@ -1753,19 +1941,37 @@ class GetCustomModelTrainingMetricResult(dict):
 @pulumi.output_type
 class GetCustomModelValidationDataConfigResult(dict):
     def __init__(__self__, *,
-                 validators: Sequence[Any]):
+                 validators: Sequence['outputs.GetCustomModelValidationDataConfigValidatorResult']):
         """
-        :param Sequence[Any] validators: Information about the validators.
+        :param Sequence['GetCustomModelValidationDataConfigValidatorArgs'] validators: Information about the validators.
         """
         pulumi.set(__self__, "validators", validators)
 
     @property
     @pulumi.getter
-    def validators(self) -> Sequence[Any]:
+    def validators(self) -> Sequence['outputs.GetCustomModelValidationDataConfigValidatorResult']:
         """
         Information about the validators.
         """
         return pulumi.get(self, "validators")
+
+
+@pulumi.output_type
+class GetCustomModelValidationDataConfigValidatorResult(dict):
+    def __init__(__self__, *,
+                 s3_uri: str):
+        """
+        :param str s3_uri: The S3 URI where the validation data is stored..
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> str:
+        """
+        The S3 URI where the validation data is stored..
+        """
+        return pulumi.get(self, "s3_uri")
 
 
 @pulumi.output_type
