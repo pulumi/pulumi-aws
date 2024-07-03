@@ -9450,7 +9450,57 @@ export namespace bedrock {
         /**
          * Configurations to override a prompt template in one part of an agent sequence. See `promptConfigurations` block for details.
          */
-        promptConfigurations: pulumi.Input<any[]>;
+        promptConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfigurationPromptConfiguration>[]>;
+    }
+
+    export interface AgentAgentPromptOverrideConfigurationPromptConfiguration {
+        /**
+         * prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see [Prompt template placeholder variables](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html).
+         */
+        basePromptTemplate: pulumi.Input<string>;
+        /**
+         * Inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType`. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html). See `inferenceConfiguration` block for details.
+         */
+        inferenceConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration>[]>;
+        /**
+         * Whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType`. If you set the argument as `OVERRIDDEN`, the `overrideLambda` argument in the `promptOverrideConfiguration` block must be specified with the ARN of a Lambda function. Valid values: `DEFAULT`, `OVERRIDDEN`.
+         */
+        parserMode: pulumi.Input<string>;
+        /**
+         * Whether to override the default prompt template for this `promptType`. Set this argument to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate`. If you leave it as `DEFAULT`, the agent uses a default prompt template. Valid values: `DEFAULT`, `OVERRIDDEN`.
+         */
+        promptCreationMode: pulumi.Input<string>;
+        /**
+         * Whether to allow the agent to carry out the step specified in the `promptType`. If you set this argument to `DISABLED`, the agent skips that step. Valid Values: `ENABLED`, `DISABLED`.
+         */
+        promptState: pulumi.Input<string>;
+        /**
+         * Step in the agent sequence that this prompt configuration applies to. Valid values: `PRE_PROCESSING`, `ORCHESTRATION`, `POST_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`.
+         */
+        promptType: pulumi.Input<string>;
+    }
+
+    export interface AgentAgentPromptOverrideConfigurationPromptConfigurationInferenceConfiguration {
+        /**
+         * Maximum number of tokens to allow in the generated response.
+         */
+        maxLength: pulumi.Input<number>;
+        /**
+         * List of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.
+         */
+        stopSequences: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.
+         */
+        temperature: pulumi.Input<number>;
+        /**
+         * Number of top most-likely candidates, between 0 and 500, from which the model chooses the next token in the sequence.
+         */
+        topK: pulumi.Input<number>;
+        /**
+         * Top percentage of the probability distribution of next tokens, between 0 and 1 (denoting 0% and 100%), from which the model chooses the next token in the sequence.
+         */
+        topP: pulumi.Input<number>;
     }
 
     export interface AgentAgentTimeouts {
@@ -30010,7 +30060,14 @@ export namespace guardduty {
         /**
          * Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
          */
-        taggings: pulumi.Input<any[]>;
+        taggings: pulumi.Input<pulumi.Input<inputs.guardduty.MalwareProtectionPlanActionTagging>[]>;
+    }
+
+    export interface MalwareProtectionPlanActionTagging {
+        /**
+         * Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+         */
+        status: pulumi.Input<string>;
     }
 
     export interface MalwareProtectionPlanProtectedResource {
@@ -48110,7 +48167,17 @@ export namespace lex {
         /**
          * Subslots in the composite slot. Contains filtered or unexported fields. See [`subSlotTypeComposition` argument reference] below.
          */
-        subSlots: pulumi.Input<any[]>;
+        subSlots: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot>[]>;
+    }
+
+    export interface V2modelsSlotTypeCompositeSlotTypeSettingSubSlot {
+        /**
+         * Name of the slot type
+         *
+         * The following arguments are optional:
+         */
+        name: pulumi.Input<string>;
+        subSlotId: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotTypeExternalSourceSetting {
@@ -48137,11 +48204,15 @@ export namespace lex {
         /**
          * List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slotTypeValues` argument reference below.
          */
-        slotTypeValues: pulumi.Input<any[]>;
+        slotTypeValues: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValuesSlotTypeValue>[]>;
         /**
          * Additional values related to the slot type entry. See `sampleValue` argument reference below.
          */
         synonyms?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotTypeSlotTypeValuesSynonym>[]>;
+    }
+
+    export interface V2modelsSlotTypeSlotTypeValuesSlotTypeValue {
+        value: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotTypeSlotTypeValuesSynonym {
