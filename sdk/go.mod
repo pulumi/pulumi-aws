@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-aws/sdk/v6
 
-go 1.21
+go 1.21.12
 
 require (
 	github.com/blang/semver v3.5.1+incompatible
