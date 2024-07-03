@@ -3,27 +3,30 @@
 
 package com.pulumi.aws.ssm.outputs;
 
+import com.pulumi.aws.ssm.outputs.GetContactsRotationRecurrenceDailySetting;
+import com.pulumi.aws.ssm.outputs.GetContactsRotationRecurrenceMonthlySetting;
+import com.pulumi.aws.ssm.outputs.GetContactsRotationRecurrenceShiftCoverage;
+import com.pulumi.aws.ssm.outputs.GetContactsRotationRecurrenceWeeklySetting;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetContactsRotationRecurrence {
-    private List<Object> dailySettings;
-    private List<Object> monthlySettings;
+    private List<GetContactsRotationRecurrenceDailySetting> dailySettings;
+    private List<GetContactsRotationRecurrenceMonthlySetting> monthlySettings;
     private Integer numberOfOnCalls;
     private Integer recurrenceMultiplier;
-    private List<Object> shiftCoverages;
-    private List<Object> weeklySettings;
+    private List<GetContactsRotationRecurrenceShiftCoverage> shiftCoverages;
+    private List<GetContactsRotationRecurrenceWeeklySetting> weeklySettings;
 
     private GetContactsRotationRecurrence() {}
-    public List<Object> dailySettings() {
+    public List<GetContactsRotationRecurrenceDailySetting> dailySettings() {
         return this.dailySettings;
     }
-    public List<Object> monthlySettings() {
+    public List<GetContactsRotationRecurrenceMonthlySetting> monthlySettings() {
         return this.monthlySettings;
     }
     public Integer numberOfOnCalls() {
@@ -32,10 +35,10 @@ public final class GetContactsRotationRecurrence {
     public Integer recurrenceMultiplier() {
         return this.recurrenceMultiplier;
     }
-    public List<Object> shiftCoverages() {
+    public List<GetContactsRotationRecurrenceShiftCoverage> shiftCoverages() {
         return this.shiftCoverages;
     }
-    public List<Object> weeklySettings() {
+    public List<GetContactsRotationRecurrenceWeeklySetting> weeklySettings() {
         return this.weeklySettings;
     }
 
@@ -48,12 +51,12 @@ public final class GetContactsRotationRecurrence {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<Object> dailySettings;
-        private List<Object> monthlySettings;
+        private List<GetContactsRotationRecurrenceDailySetting> dailySettings;
+        private List<GetContactsRotationRecurrenceMonthlySetting> monthlySettings;
         private Integer numberOfOnCalls;
         private Integer recurrenceMultiplier;
-        private List<Object> shiftCoverages;
-        private List<Object> weeklySettings;
+        private List<GetContactsRotationRecurrenceShiftCoverage> shiftCoverages;
+        private List<GetContactsRotationRecurrenceWeeklySetting> weeklySettings;
         public Builder() {}
         public Builder(GetContactsRotationRecurrence defaults) {
     	      Objects.requireNonNull(defaults);
@@ -66,25 +69,25 @@ public final class GetContactsRotationRecurrence {
         }
 
         @CustomType.Setter
-        public Builder dailySettings(List<Object> dailySettings) {
+        public Builder dailySettings(List<GetContactsRotationRecurrenceDailySetting> dailySettings) {
             if (dailySettings == null) {
               throw new MissingRequiredPropertyException("GetContactsRotationRecurrence", "dailySettings");
             }
             this.dailySettings = dailySettings;
             return this;
         }
-        public Builder dailySettings(Object... dailySettings) {
+        public Builder dailySettings(GetContactsRotationRecurrenceDailySetting... dailySettings) {
             return dailySettings(List.of(dailySettings));
         }
         @CustomType.Setter
-        public Builder monthlySettings(List<Object> monthlySettings) {
+        public Builder monthlySettings(List<GetContactsRotationRecurrenceMonthlySetting> monthlySettings) {
             if (monthlySettings == null) {
               throw new MissingRequiredPropertyException("GetContactsRotationRecurrence", "monthlySettings");
             }
             this.monthlySettings = monthlySettings;
             return this;
         }
-        public Builder monthlySettings(Object... monthlySettings) {
+        public Builder monthlySettings(GetContactsRotationRecurrenceMonthlySetting... monthlySettings) {
             return monthlySettings(List.of(monthlySettings));
         }
         @CustomType.Setter
@@ -104,25 +107,25 @@ public final class GetContactsRotationRecurrence {
             return this;
         }
         @CustomType.Setter
-        public Builder shiftCoverages(List<Object> shiftCoverages) {
+        public Builder shiftCoverages(List<GetContactsRotationRecurrenceShiftCoverage> shiftCoverages) {
             if (shiftCoverages == null) {
               throw new MissingRequiredPropertyException("GetContactsRotationRecurrence", "shiftCoverages");
             }
             this.shiftCoverages = shiftCoverages;
             return this;
         }
-        public Builder shiftCoverages(Object... shiftCoverages) {
+        public Builder shiftCoverages(GetContactsRotationRecurrenceShiftCoverage... shiftCoverages) {
             return shiftCoverages(List.of(shiftCoverages));
         }
         @CustomType.Setter
-        public Builder weeklySettings(List<Object> weeklySettings) {
+        public Builder weeklySettings(List<GetContactsRotationRecurrenceWeeklySetting> weeklySettings) {
             if (weeklySettings == null) {
               throw new MissingRequiredPropertyException("GetContactsRotationRecurrence", "weeklySettings");
             }
             this.weeklySettings = weeklySettings;
             return this;
         }
-        public Builder weeklySettings(Object... weeklySettings) {
+        public Builder weeklySettings(GetContactsRotationRecurrenceWeeklySetting... weeklySettings) {
             return weeklySettings(List.of(weeklySettings));
         }
         public GetContactsRotationRecurrence build() {
