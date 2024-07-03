@@ -390,6 +390,10 @@ resources:
 // TestDefaultTagsImport tests the scenario where `tagsAll` and `tags` both
 // exist and the user is importing a resource.
 func TestDefaultTagsImport(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
+	}
+
 	bucketName := fmt.Sprintf("mybucket-%d", time.Now().UnixNano())
 	file1 := `
 name: default-tags
@@ -464,6 +468,10 @@ outputs:
 }
 
 func TestRegress4080(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
+	}
+
 	file1 := `
 name: test-aws-1655-pf
 runtime: yaml
