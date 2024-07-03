@@ -187,6 +187,7 @@ __all__ = [
     'MultiplexProgramMultiplexProgramSettingsVideoSettings',
     'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings',
     'GetInputDestinationResult',
+    'GetInputDestinationVpcResult',
     'GetInputInputDeviceResult',
     'GetInputMediaConnectFlowResult',
     'GetInputSourceResult',
@@ -11756,7 +11757,7 @@ class GetInputDestinationResult(dict):
                  ip: str,
                  port: str,
                  url: str,
-                 vpcs: Sequence[Any]):
+                 vpcs: Sequence['outputs.GetInputDestinationVpcResult']):
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "url", url)
@@ -11779,8 +11780,27 @@ class GetInputDestinationResult(dict):
 
     @property
     @pulumi.getter
-    def vpcs(self) -> Sequence[Any]:
+    def vpcs(self) -> Sequence['outputs.GetInputDestinationVpcResult']:
         return pulumi.get(self, "vpcs")
+
+
+@pulumi.output_type
+class GetInputDestinationVpcResult(dict):
+    def __init__(__self__, *,
+                 availability_zone: str,
+                 network_interface_id: str):
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "network_interface_id", network_interface_id)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> str:
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> str:
+        return pulumi.get(self, "network_interface_id")
 
 
 @pulumi.output_type

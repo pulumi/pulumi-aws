@@ -28,7 +28,7 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
         /// <summary>
         /// Structure with additional type-specific details about the resource.  See `properties` below.
         /// </summary>
-        public readonly ImmutableArray<object> Properties;
+        public readonly ImmutableArray<Outputs.SearchResourcePropertyResult> Properties;
         /// <summary>
         /// Amazon Web Services Region in which the resource was created and exists.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
 
             string owningAccountId,
 
-            ImmutableArray<object> properties,
+            ImmutableArray<Outputs.SearchResourcePropertyResult> properties,
 
             string region,
 
