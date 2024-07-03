@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Subslots in the composite slot. Contains filtered or unexported fields. See [`sub_slot_type_composition` argument reference] below.
         /// </summary>
-        public readonly ImmutableArray<object> SubSlots;
+        public readonly ImmutableArray<Outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> SubSlots;
 
         [OutputConstructor]
-        private V2modelsSlotTypeCompositeSlotTypeSetting(ImmutableArray<object> subSlots)
+        private V2modelsSlotTypeCompositeSlotTypeSetting(ImmutableArray<Outputs.V2modelsSlotTypeCompositeSlotTypeSettingSubSlot> subSlots)
         {
             SubSlots = subSlots;
         }

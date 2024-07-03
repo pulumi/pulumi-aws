@@ -3,11 +3,11 @@
 
 package com.pulumi.aws.lex.inputs;
 
+import com.pulumi.aws.lex.inputs.V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotTypeSlotTypeValuesSynonymArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -23,13 +23,13 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
      * 
      */
     @Import(name="slotTypeValues", required=true)
-    private Output<List<Object>> slotTypeValues;
+    private Output<List<V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs>> slotTypeValues;
 
     /**
      * @return List of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot. See `slot_type_values` argument reference below.
      * 
      */
-    public Output<List<Object>> slotTypeValues() {
+    public Output<List<V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs>> slotTypeValues() {
         return this.slotTypeValues;
     }
 
@@ -79,7 +79,7 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder slotTypeValues(Output<List<Object>> slotTypeValues) {
+        public Builder slotTypeValues(Output<List<V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs>> slotTypeValues) {
             $.slotTypeValues = slotTypeValues;
             return this;
         }
@@ -90,7 +90,7 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder slotTypeValues(List<Object> slotTypeValues) {
+        public Builder slotTypeValues(List<V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs> slotTypeValues) {
             return slotTypeValues(Output.of(slotTypeValues));
         }
 
@@ -100,7 +100,7 @@ public final class V2modelsSlotTypeSlotTypeValuesArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder slotTypeValues(Object... slotTypeValues) {
+        public Builder slotTypeValues(V2modelsSlotTypeSlotTypeValuesSlotTypeValueArgs... slotTypeValues) {
             return slotTypeValues(List.of(slotTypeValues));
         }
 

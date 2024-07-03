@@ -28,6 +28,7 @@ __all__ = [
     'GetGroupExternalIdResult',
     'GetGroupFilterResult',
     'GetGroupsGroupResult',
+    'GetGroupsGroupExternalIdResult',
     'GetUserAddressResult',
     'GetUserAlternateIdentifierResult',
     'GetUserAlternateIdentifierExternalIdResult',
@@ -571,13 +572,13 @@ class GetGroupsGroupResult(dict):
     def __init__(__self__, *,
                  description: str,
                  display_name: str,
-                 external_ids: Sequence[Any],
+                 external_ids: Sequence['outputs.GetGroupsGroupExternalIdResult'],
                  group_id: str,
                  identity_store_id: str):
         """
         :param str description: Description of the specified group.
         :param str display_name: Group's display name.
-        :param Sequence[Any] external_ids: List of identifiers issued to this resource by an external identity provider.
+        :param Sequence['GetGroupsGroupExternalIdArgs'] external_ids: List of identifiers issued to this resource by an external identity provider.
         :param str group_id: Identifier of the group in the Identity Store.
         :param str identity_store_id: Identity Store ID associated with the Single Sign-On (SSO) Instance.
         """
@@ -605,7 +606,7 @@ class GetGroupsGroupResult(dict):
 
     @property
     @pulumi.getter(name="externalIds")
-    def external_ids(self) -> Sequence[Any]:
+    def external_ids(self) -> Sequence['outputs.GetGroupsGroupExternalIdResult']:
         """
         List of identifiers issued to this resource by an external identity provider.
         """
@@ -626,6 +627,35 @@ class GetGroupsGroupResult(dict):
         Identity Store ID associated with the Single Sign-On (SSO) Instance.
         """
         return pulumi.get(self, "identity_store_id")
+
+
+@pulumi.output_type
+class GetGroupsGroupExternalIdResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 issuer: str):
+        """
+        :param str id: Identifier issued to this resource by an external identity provider.
+        :param str issuer: Issuer for an external identifier.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "issuer", issuer)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Identifier issued to this resource by an external identity provider.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        """
+        Issuer for an external identifier.
+        """
+        return pulumi.get(self, "issuer")
 
 
 @pulumi.output_type

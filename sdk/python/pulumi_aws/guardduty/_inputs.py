@@ -37,6 +37,8 @@ __all__ = [
     'FilterFindingCriteriaCriterionArgsDict',
     'MalwareProtectionPlanActionArgs',
     'MalwareProtectionPlanActionArgsDict',
+    'MalwareProtectionPlanActionTaggingArgs',
+    'MalwareProtectionPlanActionTaggingArgsDict',
     'MalwareProtectionPlanProtectedResourceArgs',
     'MalwareProtectionPlanProtectedResourceArgsDict',
     'MalwareProtectionPlanProtectedResourceS3BucketArgs',
@@ -571,7 +573,7 @@ class FilterFindingCriteriaCriterionArgs:
 
 if not MYPY:
     class MalwareProtectionPlanActionArgsDict(TypedDict):
-        taggings: pulumi.Input[Sequence[Any]]
+        taggings: pulumi.Input[Sequence[pulumi.Input['MalwareProtectionPlanActionTaggingArgsDict']]]
         """
         Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
         """
@@ -581,23 +583,54 @@ elif False:
 @pulumi.input_type
 class MalwareProtectionPlanActionArgs:
     def __init__(__self__, *,
-                 taggings: pulumi.Input[Sequence[Any]]):
+                 taggings: pulumi.Input[Sequence[pulumi.Input['MalwareProtectionPlanActionTaggingArgs']]]):
         """
-        :param pulumi.Input[Sequence[Any]] taggings: Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+        :param pulumi.Input[Sequence[pulumi.Input['MalwareProtectionPlanActionTaggingArgs']]] taggings: Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
         """
         pulumi.set(__self__, "taggings", taggings)
 
     @property
     @pulumi.getter
-    def taggings(self) -> pulumi.Input[Sequence[Any]]:
+    def taggings(self) -> pulumi.Input[Sequence[pulumi.Input['MalwareProtectionPlanActionTaggingArgs']]]:
         """
         Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
         """
         return pulumi.get(self, "taggings")
 
     @taggings.setter
-    def taggings(self, value: pulumi.Input[Sequence[Any]]):
+    def taggings(self, value: pulumi.Input[Sequence[pulumi.Input['MalwareProtectionPlanActionTaggingArgs']]]):
         pulumi.set(self, "taggings", value)
+
+
+if not MYPY:
+    class MalwareProtectionPlanActionTaggingArgsDict(TypedDict):
+        status: pulumi.Input[str]
+        """
+        Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+        """
+elif False:
+    MalwareProtectionPlanActionTaggingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MalwareProtectionPlanActionTaggingArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] status: Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        """
+        Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:
