@@ -50,6 +50,11 @@ export const getPeeringAttachment: typeof import("./getPeeringAttachment").getPe
 export const getPeeringAttachmentOutput: typeof import("./getPeeringAttachment").getPeeringAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getPeeringAttachment","getPeeringAttachmentOutput"], () => require("./getPeeringAttachment"));
 
+export { GetPeeringAttachmentsArgs, GetPeeringAttachmentsResult, GetPeeringAttachmentsOutputArgs } from "./getPeeringAttachments";
+export const getPeeringAttachments: typeof import("./getPeeringAttachments").getPeeringAttachments = null as any;
+export const getPeeringAttachmentsOutput: typeof import("./getPeeringAttachments").getPeeringAttachmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getPeeringAttachments","getPeeringAttachmentsOutput"], () => require("./getPeeringAttachments"));
+
 export { GetRouteTableArgs, GetRouteTableResult, GetRouteTableOutputArgs } from "./getRouteTable";
 export const getRouteTable: typeof import("./getRouteTable").getRouteTable = null as any;
 export const getRouteTableOutput: typeof import("./getRouteTable").getRouteTableOutput = null as any;

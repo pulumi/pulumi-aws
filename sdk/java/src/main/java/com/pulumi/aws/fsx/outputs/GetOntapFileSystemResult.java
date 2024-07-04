@@ -41,7 +41,7 @@ public final class GetOntapFileSystemResult {
      */
     private List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations;
     /**
-     * @return DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+     * @return DNS name for the file system.
      * 
      */
     private String dnsName;
@@ -168,7 +168,7 @@ public final class GetOntapFileSystemResult {
         return this.diskIopsConfigurations;
     }
     /**
-     * @return DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+     * @return DNS name for the file system.
      * 
      */
     public String dnsName() {

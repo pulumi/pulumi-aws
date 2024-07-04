@@ -736,6 +736,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        databrew: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         dataexchange: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
@@ -929,6 +933,10 @@ if not MYPY:
         Use this to override the default service endpoint URL
         """
         glue: NotRequired[pulumi.Input[str]]
+        """
+        Use this to override the default service endpoint URL
+        """
+        gluedatabrew: NotRequired[pulumi.Input[str]]
         """
         Use this to override the default service endpoint URL
         """
@@ -1630,6 +1638,7 @@ class ProviderEndpointArgs:
                  customerprofiles: Optional[pulumi.Input[str]] = None,
                  databasemigration: Optional[pulumi.Input[str]] = None,
                  databasemigrationservice: Optional[pulumi.Input[str]] = None,
+                 databrew: Optional[pulumi.Input[str]] = None,
                  dataexchange: Optional[pulumi.Input[str]] = None,
                  datapipeline: Optional[pulumi.Input[str]] = None,
                  datasync: Optional[pulumi.Input[str]] = None,
@@ -1679,6 +1688,7 @@ class ProviderEndpointArgs:
                  glacier: Optional[pulumi.Input[str]] = None,
                  globalaccelerator: Optional[pulumi.Input[str]] = None,
                  glue: Optional[pulumi.Input[str]] = None,
+                 gluedatabrew: Optional[pulumi.Input[str]] = None,
                  grafana: Optional[pulumi.Input[str]] = None,
                  greengrass: Optional[pulumi.Input[str]] = None,
                  groundstation: Optional[pulumi.Input[str]] = None,
@@ -1916,6 +1926,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] customerprofiles: Use this to override the default service endpoint URL
         :param pulumi.Input[str] databasemigration: Use this to override the default service endpoint URL
         :param pulumi.Input[str] databasemigrationservice: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] databrew: Use this to override the default service endpoint URL
         :param pulumi.Input[str] dataexchange: Use this to override the default service endpoint URL
         :param pulumi.Input[str] datapipeline: Use this to override the default service endpoint URL
         :param pulumi.Input[str] datasync: Use this to override the default service endpoint URL
@@ -1965,6 +1976,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] glacier: Use this to override the default service endpoint URL
         :param pulumi.Input[str] globalaccelerator: Use this to override the default service endpoint URL
         :param pulumi.Input[str] glue: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] gluedatabrew: Use this to override the default service endpoint URL
         :param pulumi.Input[str] grafana: Use this to override the default service endpoint URL
         :param pulumi.Input[str] greengrass: Use this to override the default service endpoint URL
         :param pulumi.Input[str] groundstation: Use this to override the default service endpoint URL
@@ -2286,6 +2298,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "databasemigration", databasemigration)
         if databasemigrationservice is not None:
             pulumi.set(__self__, "databasemigrationservice", databasemigrationservice)
+        if databrew is not None:
+            pulumi.set(__self__, "databrew", databrew)
         if dataexchange is not None:
             pulumi.set(__self__, "dataexchange", dataexchange)
         if datapipeline is not None:
@@ -2384,6 +2398,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "globalaccelerator", globalaccelerator)
         if glue is not None:
             pulumi.set(__self__, "glue", glue)
+        if gluedatabrew is not None:
+            pulumi.set(__self__, "gluedatabrew", gluedatabrew)
         if grafana is not None:
             pulumi.set(__self__, "grafana", grafana)
         if greengrass is not None:
@@ -3699,6 +3715,18 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def databrew(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "databrew")
+
+    @databrew.setter
+    def databrew(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "databrew", value)
+
+    @property
+    @pulumi.getter
     def dataexchange(self) -> Optional[pulumi.Input[str]]:
         """
         Use this to override the default service endpoint URL
@@ -4284,6 +4312,18 @@ class ProviderEndpointArgs:
     @glue.setter
     def glue(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "glue", value)
+
+    @property
+    @pulumi.getter
+    def gluedatabrew(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "gluedatabrew")
+
+    @gluedatabrew.setter
+    def gluedatabrew(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gluedatabrew", value)
 
     @property
     @pulumi.getter

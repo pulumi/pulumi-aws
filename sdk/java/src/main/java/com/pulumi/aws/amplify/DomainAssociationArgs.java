@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.amplify;
 
+import com.pulumi.aws.amplify.inputs.DomainAssociationCertificateSettingsArgs;
 import com.pulumi.aws.amplify.inputs.DomainAssociationSubDomainArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -32,6 +33,21 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
      */
     public Output<String> appId() {
         return this.appId;
+    }
+
+    /**
+     * The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     * 
+     */
+    @Import(name="certificateSettings")
+    private @Nullable Output<DomainAssociationCertificateSettingsArgs> certificateSettings;
+
+    /**
+     * @return The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     * 
+     */
+    public Optional<Output<DomainAssociationCertificateSettingsArgs>> certificateSettings() {
+        return Optional.ofNullable(this.certificateSettings);
     }
 
     /**
@@ -98,6 +114,7 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
 
     private DomainAssociationArgs(DomainAssociationArgs $) {
         this.appId = $.appId;
+        this.certificateSettings = $.certificateSettings;
         this.domainName = $.domainName;
         this.enableAutoSubDomain = $.enableAutoSubDomain;
         this.subDomains = $.subDomains;
@@ -141,6 +158,27 @@ public final class DomainAssociationArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder appId(String appId) {
             return appId(Output.of(appId));
+        }
+
+        /**
+         * @param certificateSettings The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateSettings(@Nullable Output<DomainAssociationCertificateSettingsArgs> certificateSettings) {
+            $.certificateSettings = certificateSettings;
+            return this;
+        }
+
+        /**
+         * @param certificateSettings The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateSettings(DomainAssociationCertificateSettingsArgs certificateSettings) {
+            return certificateSettings(Output.of(certificateSettings));
         }
 
         /**

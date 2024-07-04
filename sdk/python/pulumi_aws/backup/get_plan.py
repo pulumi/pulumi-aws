@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetPlanResult',
@@ -26,7 +27,7 @@ class GetPlanResult:
     """
     A collection of values returned by getPlan.
     """
-    def __init__(__self__, arn=None, id=None, name=None, plan_id=None, tags=None, version=None):
+    def __init__(__self__, arn=None, id=None, name=None, plan_id=None, rules=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +40,9 @@ class GetPlanResult:
         if plan_id and not isinstance(plan_id, str):
             raise TypeError("Expected argument 'plan_id' to be a str")
         pulumi.set(__self__, "plan_id", plan_id)
+        if rules and not isinstance(rules, list):
+            raise TypeError("Expected argument 'rules' to be a list")
+        pulumi.set(__self__, "rules", rules)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -77,6 +81,14 @@ class GetPlanResult:
 
     @property
     @pulumi.getter
+    def rules(self) -> Sequence['outputs.GetPlanRuleResult']:
+        """
+        Rules of a backup plan.
+        """
+        return pulumi.get(self, "rules")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
         Metadata that you can assign to help organize the plans you create.
@@ -102,6 +114,7 @@ class AwaitableGetPlanResult(GetPlanResult):
             id=self.id,
             name=self.name,
             plan_id=self.plan_id,
+            rules=self.rules,
             tags=self.tags,
             version=self.version)
 
@@ -136,6 +149,7 @@ def get_plan(plan_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         plan_id=pulumi.get(__ret__, 'plan_id'),
+        rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 

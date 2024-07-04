@@ -18,6 +18,8 @@ import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetMulticastDomainPlainArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentPlainArgs;
+import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
+import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsPlainArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableAssociationsArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.GetRouteTableAssociationsPlainArgs;
@@ -41,6 +43,7 @@ import com.pulumi.aws.ec2transitgateway.outputs.GetConnectResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetDirectConnectGatewayAttachmentResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetMulticastDomainResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetPeeringAttachmentResult;
+import com.pulumi.aws.ec2transitgateway.outputs.GetPeeringAttachmentsResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTableAssociationsResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTablePropagationsResult;
 import com.pulumi.aws.ec2transitgateway.outputs.GetRouteTableResult;
@@ -2677,6 +2680,288 @@ public final class Ec2transitgatewayFunctions {
      */
     public static CompletableFuture<GetPeeringAttachmentResult> getPeeringAttachmentPlain(GetPeeringAttachmentPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment", TypeShape.of(GetPeeringAttachmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information on EC2 Transit Gateway Peering Attachments.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Resources
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPeeringAttachmentsResult> getPeeringAttachments() {
+        return getPeeringAttachments(GetPeeringAttachmentsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get information on EC2 Transit Gateway Peering Attachments.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Resources
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetPeeringAttachmentsResult> getPeeringAttachmentsPlain() {
+        return getPeeringAttachmentsPlain(GetPeeringAttachmentsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Get information on EC2 Transit Gateway Peering Attachments.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Resources
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPeeringAttachmentsResult> getPeeringAttachments(GetPeeringAttachmentsArgs args) {
+        return getPeeringAttachments(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information on EC2 Transit Gateway Peering Attachments.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Resources
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetPeeringAttachmentsResult> getPeeringAttachmentsPlain(GetPeeringAttachmentsPlainArgs args) {
+        return getPeeringAttachmentsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get information on EC2 Transit Gateway Peering Attachments.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Resources
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetPeeringAttachmentsResult> getPeeringAttachments(GetPeeringAttachmentsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", TypeShape.of(GetPeeringAttachmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get information on EC2 Transit Gateway Peering Attachments.
+     * 
+     * ## Example Usage
+     * 
+     * ### All Resources
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2transitgateway.Ec2transitgatewayFunctions;
+     * import com.pulumi.aws.ec2transitgateway.inputs.GetPeeringAttachmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Ec2transitgatewayFunctions.getPeeringAttachments();
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetPeeringAttachmentsResult> getPeeringAttachmentsPlain(GetPeeringAttachmentsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2transitgateway/getPeeringAttachments:getPeeringAttachments", TypeShape.of(GetPeeringAttachmentsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Get information on an EC2 Transit Gateway Route Table.

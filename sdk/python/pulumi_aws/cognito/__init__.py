@@ -8,6 +8,7 @@ import typing
 from .get_identity_pool import *
 from .get_user_group import *
 from .get_user_groups import *
+from .get_user_pool import *
 from .get_user_pool_client import *
 from .get_user_pool_clients import *
 from .get_user_pool_signing_certificate import *

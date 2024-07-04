@@ -89,6 +89,10 @@ export class DomainAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     */
+    public readonly certificateSettings!: pulumi.Output<outputs.amplify.DomainAssociationCertificateSettings | undefined>;
+    /**
      * DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
      */
     public /*out*/ readonly certificateVerificationDnsRecord!: pulumi.Output<string>;
@@ -124,6 +128,7 @@ export class DomainAssociation extends pulumi.CustomResource {
             const state = argsOrState as DomainAssociationState | undefined;
             resourceInputs["appId"] = state ? state.appId : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateSettings"] = state ? state.certificateSettings : undefined;
             resourceInputs["certificateVerificationDnsRecord"] = state ? state.certificateVerificationDnsRecord : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["enableAutoSubDomain"] = state ? state.enableAutoSubDomain : undefined;
@@ -141,6 +146,7 @@ export class DomainAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subDomains'");
             }
             resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["certificateSettings"] = args ? args.certificateSettings : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["enableAutoSubDomain"] = args ? args.enableAutoSubDomain : undefined;
             resourceInputs["subDomains"] = args ? args.subDomains : undefined;
@@ -165,6 +171,10 @@ export interface DomainAssociationState {
      * ARN for the domain association.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     */
+    certificateSettings?: pulumi.Input<inputs.amplify.DomainAssociationCertificateSettings>;
     /**
      * DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
      */
@@ -195,6 +205,10 @@ export interface DomainAssociationArgs {
      * Unique ID for an Amplify app.
      */
     appId: pulumi.Input<string>;
+    /**
+     * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     */
+    certificateSettings?: pulumi.Input<inputs.amplify.DomainAssociationCertificateSettings>;
     /**
      * Domain name for the domain association.
      */

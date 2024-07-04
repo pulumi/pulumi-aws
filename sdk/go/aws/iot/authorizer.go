@@ -44,6 +44,9 @@ import (
 //				TokenSigningPublicKeys: pulumi.StringMap{
 //					"Key1": invokeFile.Result,
 //				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -76,6 +79,12 @@ type Authorizer struct {
 	SigningDisabled pulumi.BoolPtrOutput `pulumi:"signingDisabled"`
 	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 	TokenKeyName pulumi.StringPtrOutput `pulumi:"tokenKeyName"`
 	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
@@ -134,6 +143,12 @@ type authorizerState struct {
 	SigningDisabled *bool `pulumi:"signingDisabled"`
 	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
 	Status *string `pulumi:"status"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 	TokenKeyName *string `pulumi:"tokenKeyName"`
 	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
@@ -153,6 +168,12 @@ type AuthorizerState struct {
 	SigningDisabled pulumi.BoolPtrInput
 	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
 	Status pulumi.StringPtrInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 	TokenKeyName pulumi.StringPtrInput
 	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
@@ -174,6 +195,8 @@ type authorizerArgs struct {
 	SigningDisabled *bool `pulumi:"signingDisabled"`
 	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
 	Status *string `pulumi:"status"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 	TokenKeyName *string `pulumi:"tokenKeyName"`
 	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
@@ -192,6 +215,8 @@ type AuthorizerArgs struct {
 	SigningDisabled pulumi.BoolPtrInput
 	// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
 	Status pulumi.StringPtrInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
 	TokenKeyName pulumi.StringPtrInput
 	// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
@@ -313,6 +338,18 @@ func (o AuthorizerOutput) SigningDisabled() pulumi.BoolPtrOutput {
 // The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
 func (o AuthorizerOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o AuthorizerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o AuthorizerOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.

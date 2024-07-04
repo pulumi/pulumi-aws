@@ -852,6 +852,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Databasemigrationservice *string `pulumi:"databasemigrationservice"`
 	// Use this to override the default service endpoint URL
+	Databrew *string `pulumi:"databrew"`
+	// Use this to override the default service endpoint URL
 	Dataexchange *string `pulumi:"dataexchange"`
 	// Use this to override the default service endpoint URL
 	Datapipeline *string `pulumi:"datapipeline"`
@@ -949,6 +951,8 @@ type ProviderEndpoint struct {
 	Globalaccelerator *string `pulumi:"globalaccelerator"`
 	// Use this to override the default service endpoint URL
 	Glue *string `pulumi:"glue"`
+	// Use this to override the default service endpoint URL
+	Gluedatabrew *string `pulumi:"gluedatabrew"`
 	// Use this to override the default service endpoint URL
 	Grafana *string `pulumi:"grafana"`
 	// Use this to override the default service endpoint URL
@@ -1436,6 +1440,8 @@ type ProviderEndpointArgs struct {
 	// Use this to override the default service endpoint URL
 	Databasemigrationservice pulumi.StringPtrInput `pulumi:"databasemigrationservice"`
 	// Use this to override the default service endpoint URL
+	Databrew pulumi.StringPtrInput `pulumi:"databrew"`
+	// Use this to override the default service endpoint URL
 	Dataexchange pulumi.StringPtrInput `pulumi:"dataexchange"`
 	// Use this to override the default service endpoint URL
 	Datapipeline pulumi.StringPtrInput `pulumi:"datapipeline"`
@@ -1533,6 +1539,8 @@ type ProviderEndpointArgs struct {
 	Globalaccelerator pulumi.StringPtrInput `pulumi:"globalaccelerator"`
 	// Use this to override the default service endpoint URL
 	Glue pulumi.StringPtrInput `pulumi:"glue"`
+	// Use this to override the default service endpoint URL
+	Gluedatabrew pulumi.StringPtrInput `pulumi:"gluedatabrew"`
 	// Use this to override the default service endpoint URL
 	Grafana pulumi.StringPtrInput `pulumi:"grafana"`
 	// Use this to override the default service endpoint URL
@@ -2311,6 +2319,11 @@ func (o ProviderEndpointOutput) Databasemigrationservice() pulumi.StringPtrOutpu
 }
 
 // Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Databrew() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Databrew }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Dataexchange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Dataexchange }).(pulumi.StringPtrOutput)
 }
@@ -2553,6 +2566,11 @@ func (o ProviderEndpointOutput) Globalaccelerator() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Glue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Glue }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Gluedatabrew() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Gluedatabrew }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

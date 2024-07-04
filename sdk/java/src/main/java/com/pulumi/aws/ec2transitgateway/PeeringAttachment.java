@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2transitgateway;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2transitgateway.PeeringAttachmentArgs;
 import com.pulumi.aws.ec2transitgateway.inputs.PeeringAttachmentState;
+import com.pulumi.aws.ec2transitgateway.outputs.PeeringAttachmentOptions;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -83,6 +84,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:ec2transitgateway/peeringAttachment:PeeringAttachment")
 public class PeeringAttachment extends com.pulumi.resources.CustomResource {
+    /**
+     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * 
+     */
+    @Export(name="options", refs={PeeringAttachmentOptions.class}, tree="[0]")
+    private Output</* @Nullable */ PeeringAttachmentOptions> options;
+
+    /**
+     * @return Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * 
+     */
+    public Output<Optional<PeeringAttachmentOptions>> options() {
+        return Codegen.optional(this.options);
+    }
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      * 

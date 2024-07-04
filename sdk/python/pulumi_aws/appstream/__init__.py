@@ -8,6 +8,7 @@ import typing
 from .directory_config import *
 from .fleet import *
 from .fleet_stack_association import *
+from .get_image import *
 from .image_builder import *
 from .stack import *
 from .user import *
