@@ -48,13 +48,6 @@ jobs:
     - name: Validate skipGoSdk
       if: inputs.skipGoSdk && inputs.isPrerelease == false
       run: echo "Can't skip Go SDK for stable releases. This is likely a bug in the calling workflow." && exit 1
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@v1.3.1
-      with:
-        # this might remove tools that are actually needed,
-        # if set to "true" but frees about 6 GB
-        tool-cache: false
-        swap-storage: false
     - name: Checkout Repo
       uses: actions/checkout@v4
       with:
@@ -62,7 +55,7 @@ jobs:
     - name: Setup tools
       uses: ./.github/actions/setup-tools
       with:
-        tools: pulumictl, pulumicli, go
+        tools: pulumictl, pulumicli, go, schema-tools
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
@@ -73,25 +66,44 @@ jobs:
         role-external-id: upload-pulumi-release
         role-session-name: aws@githubActions
         role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
-    - name: Run GoReleaser
+    - name: Create dist directory
+      run: mkdir -p dist
+    - name: Download provider assets
+      uses: actions/download-artifact@v4
+      with:
+        pattern: pulumi-resource-aws-v${{ inputs.version }}-*
+        path: dist
+        # Don't create a directory for each artifact
+        merge-multiple: true
+    - name: Calculate checksums
+      working-directory: dist
+      run: shasum ./*.tar.gz > pulumi-aws_${{ inputs.version }}_checksums.txt
+    - name: Get Schema Change Summary
+      id: schema-summary
+      shell: bash
+      run: |
+        # Get latest stable release. Return only first column from result (tag).
+        LAST_VERSION=$(gh release view --repo pulumi/pulumi-aws --json tagName -q .tagName)
+        {
+          echo 'summary<<EOF'
+          schema-tools compare --provider="aws" --old-commit="$LAST_VERSION" --new-commit="--local-path=provider/cmd/pulumi-resource-aws/schema.json"
+          echo 'EOF'
+        } >> "$GITHUB_OUTPUT"
+    - name: Upload Provider Binaries
+      run: aws s3 cp dist s3://get.pulumi.com/releases/plugins/ --recursive
+    - name: Create GH Release
+      uses: softprops/action-gh-release@v1
       if: inputs.isPrerelease == false
-      uses: goreleaser/goreleaser-action@v5
-      env:
-        GORELEASER_CURRENT_TAG: v${{ inputs.version }}
-        PROVIDER_VERSION: ${{ inputs.version }}
       with:
-        args: -p 1 release --rm-dist --timeout 150m0s
-        version: latest
-    - name: Run GoReleaser (prerelease)
-      if: inputs.isPrerelease == true
-      uses: goreleaser/goreleaser-action@v5
+        tag_name: v${{ inputs.version }}
+        prerelease: ${{ inputs.isPrerelease }}
+        # We keep pre-releases as drafts so they're not visible until we manually publish them.
+        draft: ${{ inputs.isPrerelease }}
+        body: ${{ steps.schema-summary.outputs.summary }}
+        generate_release_notes: true
+        files: dist/*
       env:
-        GORELEASER_CURRENT_TAG: v${{ inputs.version }}
-        PROVIDER_VERSION: ${{ inputs.version }}
-      with:
-        args: -p 1 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
-          150m0s
-        version: latest
+        GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
 
   publish_sdk:
     name: publish_sdk

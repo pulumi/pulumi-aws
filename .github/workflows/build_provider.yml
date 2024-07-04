@@ -1,0 +1,61 @@
+name: "Build Provider"
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+        description: Version of the provider to build
+
+jobs:
+  build_provider:
+    name: Build ${{ matrix.platform.os }}-${{ matrix.platform.arch }}
+    runs-on: ubuntu-latest
+    env:
+      PROVIDER_VERSION: ${{ inputs.version }}
+    strategy:
+      fail-fast: true
+      matrix:
+        platform:
+          - os: linux
+            arch: amd64
+          - os: linux
+            arch: arm64
+          - os: darwin
+            arch: amd64
+          - os: darwin
+            arch: arm64
+          - os: windows
+            arch: amd64
+    steps:
+      # Run as first step so we don't delete things that have just been installed
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be
+        with:
+          tool-cache: false
+          swap-storage: false
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Setup tools
+        uses: ./.github/actions/setup-tools
+        with:
+          tools: pulumictl, go
+      - name: Download schema-embed.json
+        uses: actions/download-artifact@v4
+        with:
+          name: schema-embed.json
+          path: provider/cmd/pulumi-resource-aws/schema-embed.json
+      - name: Prepare for build
+        # This installs plugins and prepares upstream
+        run: make upstream
+      - name: Build & package provider
+        run: make provider_dist-${{ matrix.platform.os }}-${{ matrix.platform.arch }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pulumi-resource-aws-v${{ inputs.version }}-${{ matrix.platform.os }}-${{ matrix.platform.arch }}.tar.gz
+          path: bin/pulumi-resource-aws-v${{ inputs.version }}-${{ matrix.platform.os }}-${{ matrix.platform.arch }}.tar.gz
+          retention-days: 30
