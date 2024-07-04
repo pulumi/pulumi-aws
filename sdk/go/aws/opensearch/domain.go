@@ -243,8 +243,8 @@ import (
 // domain = param
 // }
 // example, err := ec2.LookupVpc(ctx, &ec2.LookupVpcArgs{
-// Tags: interface{}{
-// Name: vpc,
+// Tags: pulumi.StringMap{
+// "Name": vpc,
 // },
 // }, nil);
 // if err != nil {
