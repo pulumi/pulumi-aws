@@ -20,6 +20,11 @@ export type FleetStackAssociation = import("./fleetStackAssociation").FleetStack
 export const FleetStackAssociation: typeof import("./fleetStackAssociation").FleetStackAssociation = null as any;
 utilities.lazyLoad(exports, ["FleetStackAssociation"], () => require("./fleetStackAssociation"));
 
+export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
+export const getImage: typeof import("./getImage").getImage = null as any;
+export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
+utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
+
 export { ImageBuilderArgs, ImageBuilderState } from "./imageBuilder";
 export type ImageBuilder = import("./imageBuilder").ImageBuilder;
 export const ImageBuilder: typeof import("./imageBuilder").ImageBuilder = null as any;

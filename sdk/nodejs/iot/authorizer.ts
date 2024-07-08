@@ -25,6 +25,9 @@ import * as utilities from "../utilities";
  *             input: "test-fixtures/iot-authorizer-signing-key.pem",
  *         }).then(invoke => invoke.result),
  *     },
+ *     tags: {
+ *         Name: "example",
+ *     },
  * });
  * ```
  *
@@ -89,6 +92,16 @@ export class Authorizer extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
      */
     public readonly tokenKeyName!: pulumi.Output<string | undefined>;
@@ -116,6 +129,8 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["signingDisabled"] = state ? state.signingDisabled : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["tokenKeyName"] = state ? state.tokenKeyName : undefined;
             resourceInputs["tokenSigningPublicKeys"] = state ? state.tokenSigningPublicKeys : undefined;
         } else {
@@ -128,9 +143,11 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["signingDisabled"] = args ? args.signingDisabled : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tokenKeyName"] = args ? args.tokenKeyName : undefined;
             resourceInputs["tokenSigningPublicKeys"] = args?.tokenSigningPublicKeys ? pulumi.secret(args.tokenSigningPublicKeys) : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["tokenSigningPublicKeys"] };
@@ -168,6 +185,16 @@ export interface AuthorizerState {
      */
     status?: pulumi.Input<string>;
     /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
      */
     tokenKeyName?: pulumi.Input<string>;
@@ -201,6 +228,10 @@ export interface AuthorizerArgs {
      * The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
      */

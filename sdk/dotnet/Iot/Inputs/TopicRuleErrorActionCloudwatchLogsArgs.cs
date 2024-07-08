@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Iot.Inputs
     public sealed class TopicRuleErrorActionCloudwatchLogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+        /// </summary>
+        [Input("batchMode")]
+        public Input<bool>? BatchMode { get; set; }
+
+        /// <summary>
         /// The CloudWatch log group name.
         /// </summary>
         [Input("logGroupName", required: true)]

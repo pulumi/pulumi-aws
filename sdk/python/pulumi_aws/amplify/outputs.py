@@ -18,6 +18,7 @@ __all__ = [
     'AppAutoBranchCreationConfig',
     'AppCustomRule',
     'AppProductionBranch',
+    'DomainAssociationCertificateSettings',
     'DomainAssociationSubDomain',
 ]
 
@@ -306,6 +307,67 @@ class AppProductionBranch(dict):
         Thumbnail URL for the production branch.
         """
         return pulumi.get(self, "thumbnail_url")
+
+
+@pulumi.output_type
+class DomainAssociationCertificateSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateVerificationDnsRecord":
+            suggest = "certificate_verification_dns_record"
+        elif key == "customCertificateArn":
+            suggest = "custom_certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAssociationCertificateSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAssociationCertificateSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAssociationCertificateSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 certificate_verification_dns_record: Optional[str] = None,
+                 custom_certificate_arn: Optional[str] = None):
+        """
+        :param str type: The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+        :param str certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+        :param str custom_certificate_arn: The Amazon resource name (ARN) for the custom certificate.
+        """
+        pulumi.set(__self__, "type", type)
+        if certificate_verification_dns_record is not None:
+            pulumi.set(__self__, "certificate_verification_dns_record", certificate_verification_dns_record)
+        if custom_certificate_arn is not None:
+            pulumi.set(__self__, "custom_certificate_arn", custom_certificate_arn)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="certificateVerificationDnsRecord")
+    def certificate_verification_dns_record(self) -> Optional[str]:
+        """
+        DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+        """
+        return pulumi.get(self, "certificate_verification_dns_record")
+
+    @property
+    @pulumi.getter(name="customCertificateArn")
+    def custom_certificate_arn(self) -> Optional[str]:
+        """
+        The Amazon resource name (ARN) for the custom certificate.
+        """
+        return pulumi.get(self, "custom_certificate_arn")
 
 
 @pulumi.output_type

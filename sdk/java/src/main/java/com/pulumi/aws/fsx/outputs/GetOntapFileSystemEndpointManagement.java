@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetOntapFileSystemEndpointManagement {
     /**
-     * @return DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+     * @return DNS name for the file system.
      * 
      */
     private String dnsName;
@@ -20,7 +20,7 @@ public final class GetOntapFileSystemEndpointManagement {
 
     private GetOntapFileSystemEndpointManagement() {}
     /**
-     * @return DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+     * @return DNS name for the file system.
      * 
      */
     public String dnsName() {

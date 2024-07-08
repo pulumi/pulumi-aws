@@ -24,6 +24,7 @@ class AuthorizerArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -33,6 +34,7 @@ class AuthorizerArgs:
         :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] token_key_name: The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
@@ -45,6 +47,8 @@ class AuthorizerArgs:
             pulumi.set(__self__, "signing_disabled", signing_disabled)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if token_key_name is not None:
             pulumi.set(__self__, "token_key_name", token_key_name)
         if token_signing_public_keys is not None:
@@ -111,6 +115,18 @@ class AuthorizerArgs:
         pulumi.set(self, "status", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="tokenKeyName")
     def token_key_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -144,6 +160,8 @@ class _AuthorizerState:
                  name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -154,6 +172,8 @@ class _AuthorizerState:
         :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] token_key_name: The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
@@ -169,6 +189,13 @@ class _AuthorizerState:
             pulumi.set(__self__, "signing_disabled", signing_disabled)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if token_key_name is not None:
             pulumi.set(__self__, "token_key_name", token_key_name)
         if token_signing_public_keys is not None:
@@ -247,6 +274,31 @@ class _AuthorizerState:
         pulumi.set(self, "status", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="tokenKeyName")
     def token_key_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -281,6 +333,7 @@ class Authorizer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -302,6 +355,9 @@ class Authorizer(pulumi.CustomResource):
             token_key_name="Token-Header",
             token_signing_public_keys={
                 "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
+            },
+            tags={
+                "Name": "example",
             })
         ```
 
@@ -320,6 +376,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] token_key_name: The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
@@ -347,6 +404,9 @@ class Authorizer(pulumi.CustomResource):
             token_key_name="Token-Header",
             token_signing_public_keys={
                 "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
+            },
+            tags={
+                "Name": "example",
             })
         ```
 
@@ -378,6 +438,7 @@ class Authorizer(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
                  token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -396,9 +457,11 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["signing_disabled"] = signing_disabled
             __props__.__dict__["status"] = status
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["token_key_name"] = token_key_name
             __props__.__dict__["token_signing_public_keys"] = None if token_signing_public_keys is None else pulumi.Output.secret(token_signing_public_keys)
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tokenSigningPublicKeys"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Authorizer, __self__).__init__(
@@ -417,6 +480,8 @@ class Authorizer(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             signing_disabled: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             token_key_name: Optional[pulumi.Input[str]] = None,
             token_signing_public_keys: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Authorizer':
         """
@@ -432,6 +497,8 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] token_key_name: The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
@@ -445,6 +512,8 @@ class Authorizer(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["signing_disabled"] = signing_disabled
         __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["token_key_name"] = token_key_name
         __props__.__dict__["token_signing_public_keys"] = token_signing_public_keys
         return Authorizer(resource_name, opts=opts, __props__=__props__)
@@ -496,6 +565,23 @@ class Authorizer(pulumi.CustomResource):
         The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="tokenKeyName")

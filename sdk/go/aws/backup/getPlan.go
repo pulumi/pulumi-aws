@@ -65,6 +65,8 @@ type LookupPlanResult struct {
 	// Display name of a backup plan.
 	Name   string `pulumi:"name"`
 	PlanId string `pulumi:"planId"`
+	// Rules of a backup plan.
+	Rules []GetPlanRule `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create.
 	Tags map[string]string `pulumi:"tags"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
@@ -128,6 +130,11 @@ func (o LookupPlanResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupPlanResultOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.PlanId }).(pulumi.StringOutput)
+}
+
+// Rules of a backup plan.
+func (o LookupPlanResultOutput) Rules() GetPlanRuleArrayOutput {
+	return o.ApplyT(func(v LookupPlanResult) []GetPlanRule { return v.Rules }).(GetPlanRuleArrayOutput)
 }
 
 // Metadata that you can assign to help organize the plans you create.

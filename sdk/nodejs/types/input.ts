@@ -487,6 +487,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    databrew?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     dataexchange?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -680,6 +684,10 @@ export interface ProviderEndpoint {
      * Use this to override the default service endpoint URL
      */
     glue?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
+    gluedatabrew?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
      */
@@ -2294,6 +2302,21 @@ export namespace amplify {
          * Thumbnail URL for the production branch.
          */
         thumbnailUrl?: pulumi.Input<string>;
+    }
+
+    export interface DomainAssociationCertificateSettings {
+        /**
+         * DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+         */
+        certificateVerificationDnsRecord?: pulumi.Input<string>;
+        /**
+         * The Amazon resource name (ARN) for the custom certificate.
+         */
+        customCertificateArn?: pulumi.Input<string>;
+        /**
+         * The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface DomainAssociationSubDomain {
@@ -23675,6 +23698,28 @@ export namespace ec2transitgateway {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface GetPeeringAttachmentsFilter {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetPeeringAttachmentsFilterArgs {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+         */
+        name: pulumi.Input<string>;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface GetRouteTableAssociationsFilter {
         /**
          * Name of the field to filter by, as defined by
@@ -23870,6 +23915,13 @@ export namespace ec2transitgateway {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: pulumi.Input<string>;
+    }
+
+    export interface PeeringAttachmentOptions {
+        /**
+         * Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+         */
+        dynamicRouting?: pulumi.Input<string>;
     }
 }
 
@@ -31575,6 +31627,10 @@ export namespace iot {
 
     export interface TopicRuleCloudwatchLog {
         /**
+         * The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+         */
+        batchMode?: pulumi.Input<boolean>;
+        /**
          * The CloudWatch log group name.
          */
         logGroupName: pulumi.Input<string>;
@@ -31756,6 +31812,10 @@ export namespace iot {
     }
 
     export interface TopicRuleErrorActionCloudwatchLogs {
+        /**
+         * The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+         */
+        batchMode?: pulumi.Input<boolean>;
         /**
          * The CloudWatch log group name.
          */
@@ -62993,7 +63053,7 @@ export namespace sagemaker {
 
     export interface EndpointConfigurationDataCaptureConfigCaptureOption {
         /**
-         * Specifies the data to be captured. Should be one of `Input` or `Output`.
+         * Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
          */
         captureMode: pulumi.Input<string>;
     }

@@ -4,8 +4,11 @@
 package com.pulumi.aws.transfer;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.transfer.inputs.GetConnectorArgs;
+import com.pulumi.aws.transfer.inputs.GetConnectorPlainArgs;
 import com.pulumi.aws.transfer.inputs.GetServerArgs;
 import com.pulumi.aws.transfer.inputs.GetServerPlainArgs;
+import com.pulumi.aws.transfer.outputs.GetConnectorResult;
 import com.pulumi.aws.transfer.outputs.GetServerResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -14,6 +17,34 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class TransferFunctions {
+    /**
+     * Data source for managing an AWS Transfer Family Connector.
+     * 
+     */
+    public static Output<GetConnectorResult> getConnector(GetConnectorArgs args) {
+        return getConnector(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Transfer Family Connector.
+     * 
+     */
+    public static CompletableFuture<GetConnectorResult> getConnectorPlain(GetConnectorPlainArgs args) {
+        return getConnectorPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS Transfer Family Connector.
+     * 
+     */
+    public static Output<GetConnectorResult> getConnector(GetConnectorArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:transfer/getConnector:getConnector", TypeShape.of(GetConnectorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS Transfer Family Connector.
+     * 
+     */
+    public static CompletableFuture<GetConnectorResult> getConnectorPlain(GetConnectorPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:transfer/getConnector:getConnector", TypeShape.of(GetConnectorResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to get the ARN of an AWS Transfer Server for use in other
      * resources.

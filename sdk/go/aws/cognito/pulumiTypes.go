@@ -6908,6 +6908,440 @@ func (o GetUserGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetUserGroupsGro
 	}).(GetUserGroupsGroupOutput)
 }
 
+type GetUserPoolAccountRecoverySetting struct {
+	RecoveryMechanisms []GetUserPoolAccountRecoverySettingRecoveryMechanism `pulumi:"recoveryMechanisms"`
+}
+
+// GetUserPoolAccountRecoverySettingInput is an input type that accepts GetUserPoolAccountRecoverySettingArgs and GetUserPoolAccountRecoverySettingOutput values.
+// You can construct a concrete instance of `GetUserPoolAccountRecoverySettingInput` via:
+//
+//	GetUserPoolAccountRecoverySettingArgs{...}
+type GetUserPoolAccountRecoverySettingInput interface {
+	pulumi.Input
+
+	ToGetUserPoolAccountRecoverySettingOutput() GetUserPoolAccountRecoverySettingOutput
+	ToGetUserPoolAccountRecoverySettingOutputWithContext(context.Context) GetUserPoolAccountRecoverySettingOutput
+}
+
+type GetUserPoolAccountRecoverySettingArgs struct {
+	RecoveryMechanisms GetUserPoolAccountRecoverySettingRecoveryMechanismArrayInput `pulumi:"recoveryMechanisms"`
+}
+
+func (GetUserPoolAccountRecoverySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolAccountRecoverySetting)(nil)).Elem()
+}
+
+func (i GetUserPoolAccountRecoverySettingArgs) ToGetUserPoolAccountRecoverySettingOutput() GetUserPoolAccountRecoverySettingOutput {
+	return i.ToGetUserPoolAccountRecoverySettingOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolAccountRecoverySettingArgs) ToGetUserPoolAccountRecoverySettingOutputWithContext(ctx context.Context) GetUserPoolAccountRecoverySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolAccountRecoverySettingOutput)
+}
+
+// GetUserPoolAccountRecoverySettingArrayInput is an input type that accepts GetUserPoolAccountRecoverySettingArray and GetUserPoolAccountRecoverySettingArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolAccountRecoverySettingArrayInput` via:
+//
+//	GetUserPoolAccountRecoverySettingArray{ GetUserPoolAccountRecoverySettingArgs{...} }
+type GetUserPoolAccountRecoverySettingArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolAccountRecoverySettingArrayOutput() GetUserPoolAccountRecoverySettingArrayOutput
+	ToGetUserPoolAccountRecoverySettingArrayOutputWithContext(context.Context) GetUserPoolAccountRecoverySettingArrayOutput
+}
+
+type GetUserPoolAccountRecoverySettingArray []GetUserPoolAccountRecoverySettingInput
+
+func (GetUserPoolAccountRecoverySettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolAccountRecoverySetting)(nil)).Elem()
+}
+
+func (i GetUserPoolAccountRecoverySettingArray) ToGetUserPoolAccountRecoverySettingArrayOutput() GetUserPoolAccountRecoverySettingArrayOutput {
+	return i.ToGetUserPoolAccountRecoverySettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolAccountRecoverySettingArray) ToGetUserPoolAccountRecoverySettingArrayOutputWithContext(ctx context.Context) GetUserPoolAccountRecoverySettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolAccountRecoverySettingArrayOutput)
+}
+
+type GetUserPoolAccountRecoverySettingOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolAccountRecoverySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolAccountRecoverySetting)(nil)).Elem()
+}
+
+func (o GetUserPoolAccountRecoverySettingOutput) ToGetUserPoolAccountRecoverySettingOutput() GetUserPoolAccountRecoverySettingOutput {
+	return o
+}
+
+func (o GetUserPoolAccountRecoverySettingOutput) ToGetUserPoolAccountRecoverySettingOutputWithContext(ctx context.Context) GetUserPoolAccountRecoverySettingOutput {
+	return o
+}
+
+func (o GetUserPoolAccountRecoverySettingOutput) RecoveryMechanisms() GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return o.ApplyT(func(v GetUserPoolAccountRecoverySetting) []GetUserPoolAccountRecoverySettingRecoveryMechanism {
+		return v.RecoveryMechanisms
+	}).(GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput)
+}
+
+type GetUserPoolAccountRecoverySettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolAccountRecoverySettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolAccountRecoverySetting)(nil)).Elem()
+}
+
+func (o GetUserPoolAccountRecoverySettingArrayOutput) ToGetUserPoolAccountRecoverySettingArrayOutput() GetUserPoolAccountRecoverySettingArrayOutput {
+	return o
+}
+
+func (o GetUserPoolAccountRecoverySettingArrayOutput) ToGetUserPoolAccountRecoverySettingArrayOutputWithContext(ctx context.Context) GetUserPoolAccountRecoverySettingArrayOutput {
+	return o
+}
+
+func (o GetUserPoolAccountRecoverySettingArrayOutput) Index(i pulumi.IntInput) GetUserPoolAccountRecoverySettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolAccountRecoverySetting {
+		return vs[0].([]GetUserPoolAccountRecoverySetting)[vs[1].(int)]
+	}).(GetUserPoolAccountRecoverySettingOutput)
+}
+
+type GetUserPoolAccountRecoverySettingRecoveryMechanism struct {
+	// - Name of the attribute.
+	Name string `pulumi:"name"`
+	// - Priority of this mechanism in the recovery process (lower numbers are higher priority).
+	Priority int `pulumi:"priority"`
+}
+
+// GetUserPoolAccountRecoverySettingRecoveryMechanismInput is an input type that accepts GetUserPoolAccountRecoverySettingRecoveryMechanismArgs and GetUserPoolAccountRecoverySettingRecoveryMechanismOutput values.
+// You can construct a concrete instance of `GetUserPoolAccountRecoverySettingRecoveryMechanismInput` via:
+//
+//	GetUserPoolAccountRecoverySettingRecoveryMechanismArgs{...}
+type GetUserPoolAccountRecoverySettingRecoveryMechanismInput interface {
+	pulumi.Input
+
+	ToGetUserPoolAccountRecoverySettingRecoveryMechanismOutput() GetUserPoolAccountRecoverySettingRecoveryMechanismOutput
+	ToGetUserPoolAccountRecoverySettingRecoveryMechanismOutputWithContext(context.Context) GetUserPoolAccountRecoverySettingRecoveryMechanismOutput
+}
+
+type GetUserPoolAccountRecoverySettingRecoveryMechanismArgs struct {
+	// - Name of the attribute.
+	Name pulumi.StringInput `pulumi:"name"`
+	// - Priority of this mechanism in the recovery process (lower numbers are higher priority).
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (GetUserPoolAccountRecoverySettingRecoveryMechanismArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolAccountRecoverySettingRecoveryMechanism)(nil)).Elem()
+}
+
+func (i GetUserPoolAccountRecoverySettingRecoveryMechanismArgs) ToGetUserPoolAccountRecoverySettingRecoveryMechanismOutput() GetUserPoolAccountRecoverySettingRecoveryMechanismOutput {
+	return i.ToGetUserPoolAccountRecoverySettingRecoveryMechanismOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolAccountRecoverySettingRecoveryMechanismArgs) ToGetUserPoolAccountRecoverySettingRecoveryMechanismOutputWithContext(ctx context.Context) GetUserPoolAccountRecoverySettingRecoveryMechanismOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolAccountRecoverySettingRecoveryMechanismOutput)
+}
+
+// GetUserPoolAccountRecoverySettingRecoveryMechanismArrayInput is an input type that accepts GetUserPoolAccountRecoverySettingRecoveryMechanismArray and GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolAccountRecoverySettingRecoveryMechanismArrayInput` via:
+//
+//	GetUserPoolAccountRecoverySettingRecoveryMechanismArray{ GetUserPoolAccountRecoverySettingRecoveryMechanismArgs{...} }
+type GetUserPoolAccountRecoverySettingRecoveryMechanismArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput() GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput
+	ToGetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutputWithContext(context.Context) GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput
+}
+
+type GetUserPoolAccountRecoverySettingRecoveryMechanismArray []GetUserPoolAccountRecoverySettingRecoveryMechanismInput
+
+func (GetUserPoolAccountRecoverySettingRecoveryMechanismArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolAccountRecoverySettingRecoveryMechanism)(nil)).Elem()
+}
+
+func (i GetUserPoolAccountRecoverySettingRecoveryMechanismArray) ToGetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput() GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return i.ToGetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolAccountRecoverySettingRecoveryMechanismArray) ToGetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutputWithContext(ctx context.Context) GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput)
+}
+
+type GetUserPoolAccountRecoverySettingRecoveryMechanismOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolAccountRecoverySettingRecoveryMechanismOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolAccountRecoverySettingRecoveryMechanism)(nil)).Elem()
+}
+
+func (o GetUserPoolAccountRecoverySettingRecoveryMechanismOutput) ToGetUserPoolAccountRecoverySettingRecoveryMechanismOutput() GetUserPoolAccountRecoverySettingRecoveryMechanismOutput {
+	return o
+}
+
+func (o GetUserPoolAccountRecoverySettingRecoveryMechanismOutput) ToGetUserPoolAccountRecoverySettingRecoveryMechanismOutputWithContext(ctx context.Context) GetUserPoolAccountRecoverySettingRecoveryMechanismOutput {
+	return o
+}
+
+// - Name of the attribute.
+func (o GetUserPoolAccountRecoverySettingRecoveryMechanismOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolAccountRecoverySettingRecoveryMechanism) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// - Priority of this mechanism in the recovery process (lower numbers are higher priority).
+func (o GetUserPoolAccountRecoverySettingRecoveryMechanismOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserPoolAccountRecoverySettingRecoveryMechanism) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolAccountRecoverySettingRecoveryMechanism)(nil)).Elem()
+}
+
+func (o GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput) ToGetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput() GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return o
+}
+
+func (o GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput) ToGetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutputWithContext(ctx context.Context) GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput {
+	return o
+}
+
+func (o GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput) Index(i pulumi.IntInput) GetUserPoolAccountRecoverySettingRecoveryMechanismOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolAccountRecoverySettingRecoveryMechanism {
+		return vs[0].([]GetUserPoolAccountRecoverySettingRecoveryMechanism)[vs[1].(int)]
+	}).(GetUserPoolAccountRecoverySettingRecoveryMechanismOutput)
+}
+
+type GetUserPoolAdminCreateUserConfig struct {
+	// - Whether only admins can create users.
+	AllowAdminCreateUserOnly bool                                                    `pulumi:"allowAdminCreateUserOnly"`
+	InviteMessageTemplates   []GetUserPoolAdminCreateUserConfigInviteMessageTemplate `pulumi:"inviteMessageTemplates"`
+	// - Number of days an unconfirmed user account remains valid.
+	// * invite_message_template - Templates for invitation messages.
+	UnusedAccountValidityDays int `pulumi:"unusedAccountValidityDays"`
+}
+
+// GetUserPoolAdminCreateUserConfigInput is an input type that accepts GetUserPoolAdminCreateUserConfigArgs and GetUserPoolAdminCreateUserConfigOutput values.
+// You can construct a concrete instance of `GetUserPoolAdminCreateUserConfigInput` via:
+//
+//	GetUserPoolAdminCreateUserConfigArgs{...}
+type GetUserPoolAdminCreateUserConfigInput interface {
+	pulumi.Input
+
+	ToGetUserPoolAdminCreateUserConfigOutput() GetUserPoolAdminCreateUserConfigOutput
+	ToGetUserPoolAdminCreateUserConfigOutputWithContext(context.Context) GetUserPoolAdminCreateUserConfigOutput
+}
+
+type GetUserPoolAdminCreateUserConfigArgs struct {
+	// - Whether only admins can create users.
+	AllowAdminCreateUserOnly pulumi.BoolInput                                                `pulumi:"allowAdminCreateUserOnly"`
+	InviteMessageTemplates   GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayInput `pulumi:"inviteMessageTemplates"`
+	// - Number of days an unconfirmed user account remains valid.
+	// * invite_message_template - Templates for invitation messages.
+	UnusedAccountValidityDays pulumi.IntInput `pulumi:"unusedAccountValidityDays"`
+}
+
+func (GetUserPoolAdminCreateUserConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolAdminCreateUserConfig)(nil)).Elem()
+}
+
+func (i GetUserPoolAdminCreateUserConfigArgs) ToGetUserPoolAdminCreateUserConfigOutput() GetUserPoolAdminCreateUserConfigOutput {
+	return i.ToGetUserPoolAdminCreateUserConfigOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolAdminCreateUserConfigArgs) ToGetUserPoolAdminCreateUserConfigOutputWithContext(ctx context.Context) GetUserPoolAdminCreateUserConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolAdminCreateUserConfigOutput)
+}
+
+// GetUserPoolAdminCreateUserConfigArrayInput is an input type that accepts GetUserPoolAdminCreateUserConfigArray and GetUserPoolAdminCreateUserConfigArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolAdminCreateUserConfigArrayInput` via:
+//
+//	GetUserPoolAdminCreateUserConfigArray{ GetUserPoolAdminCreateUserConfigArgs{...} }
+type GetUserPoolAdminCreateUserConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolAdminCreateUserConfigArrayOutput() GetUserPoolAdminCreateUserConfigArrayOutput
+	ToGetUserPoolAdminCreateUserConfigArrayOutputWithContext(context.Context) GetUserPoolAdminCreateUserConfigArrayOutput
+}
+
+type GetUserPoolAdminCreateUserConfigArray []GetUserPoolAdminCreateUserConfigInput
+
+func (GetUserPoolAdminCreateUserConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolAdminCreateUserConfig)(nil)).Elem()
+}
+
+func (i GetUserPoolAdminCreateUserConfigArray) ToGetUserPoolAdminCreateUserConfigArrayOutput() GetUserPoolAdminCreateUserConfigArrayOutput {
+	return i.ToGetUserPoolAdminCreateUserConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolAdminCreateUserConfigArray) ToGetUserPoolAdminCreateUserConfigArrayOutputWithContext(ctx context.Context) GetUserPoolAdminCreateUserConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolAdminCreateUserConfigArrayOutput)
+}
+
+type GetUserPoolAdminCreateUserConfigOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolAdminCreateUserConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolAdminCreateUserConfig)(nil)).Elem()
+}
+
+func (o GetUserPoolAdminCreateUserConfigOutput) ToGetUserPoolAdminCreateUserConfigOutput() GetUserPoolAdminCreateUserConfigOutput {
+	return o
+}
+
+func (o GetUserPoolAdminCreateUserConfigOutput) ToGetUserPoolAdminCreateUserConfigOutputWithContext(ctx context.Context) GetUserPoolAdminCreateUserConfigOutput {
+	return o
+}
+
+// - Whether only admins can create users.
+func (o GetUserPoolAdminCreateUserConfigOutput) AllowAdminCreateUserOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserPoolAdminCreateUserConfig) bool { return v.AllowAdminCreateUserOnly }).(pulumi.BoolOutput)
+}
+
+func (o GetUserPoolAdminCreateUserConfigOutput) InviteMessageTemplates() GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput {
+	return o.ApplyT(func(v GetUserPoolAdminCreateUserConfig) []GetUserPoolAdminCreateUserConfigInviteMessageTemplate {
+		return v.InviteMessageTemplates
+	}).(GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput)
+}
+
+// - Number of days an unconfirmed user account remains valid.
+// * invite_message_template - Templates for invitation messages.
+func (o GetUserPoolAdminCreateUserConfigOutput) UnusedAccountValidityDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetUserPoolAdminCreateUserConfig) int { return v.UnusedAccountValidityDays }).(pulumi.IntOutput)
+}
+
+type GetUserPoolAdminCreateUserConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolAdminCreateUserConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolAdminCreateUserConfig)(nil)).Elem()
+}
+
+func (o GetUserPoolAdminCreateUserConfigArrayOutput) ToGetUserPoolAdminCreateUserConfigArrayOutput() GetUserPoolAdminCreateUserConfigArrayOutput {
+	return o
+}
+
+func (o GetUserPoolAdminCreateUserConfigArrayOutput) ToGetUserPoolAdminCreateUserConfigArrayOutputWithContext(ctx context.Context) GetUserPoolAdminCreateUserConfigArrayOutput {
+	return o
+}
+
+func (o GetUserPoolAdminCreateUserConfigArrayOutput) Index(i pulumi.IntInput) GetUserPoolAdminCreateUserConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolAdminCreateUserConfig {
+		return vs[0].([]GetUserPoolAdminCreateUserConfig)[vs[1].(int)]
+	}).(GetUserPoolAdminCreateUserConfigOutput)
+}
+
+type GetUserPoolAdminCreateUserConfigInviteMessageTemplate struct {
+	// - Email message content.
+	EmailMessage string `pulumi:"emailMessage"`
+	// - Email message subject.
+	EmailSubject string `pulumi:"emailSubject"`
+	// - SMS message content.
+	SmsMessage string `pulumi:"smsMessage"`
+}
+
+// GetUserPoolAdminCreateUserConfigInviteMessageTemplateInput is an input type that accepts GetUserPoolAdminCreateUserConfigInviteMessageTemplateArgs and GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput values.
+// You can construct a concrete instance of `GetUserPoolAdminCreateUserConfigInviteMessageTemplateInput` via:
+//
+//	GetUserPoolAdminCreateUserConfigInviteMessageTemplateArgs{...}
+type GetUserPoolAdminCreateUserConfigInviteMessageTemplateInput interface {
+	pulumi.Input
+
+	ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput() GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput
+	ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateOutputWithContext(context.Context) GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput
+}
+
+type GetUserPoolAdminCreateUserConfigInviteMessageTemplateArgs struct {
+	// - Email message content.
+	EmailMessage pulumi.StringInput `pulumi:"emailMessage"`
+	// - Email message subject.
+	EmailSubject pulumi.StringInput `pulumi:"emailSubject"`
+	// - SMS message content.
+	SmsMessage pulumi.StringInput `pulumi:"smsMessage"`
+}
+
+func (GetUserPoolAdminCreateUserConfigInviteMessageTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolAdminCreateUserConfigInviteMessageTemplate)(nil)).Elem()
+}
+
+func (i GetUserPoolAdminCreateUserConfigInviteMessageTemplateArgs) ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput() GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
+	return i.ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolAdminCreateUserConfigInviteMessageTemplateArgs) ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateOutputWithContext(ctx context.Context) GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput)
+}
+
+// GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayInput is an input type that accepts GetUserPoolAdminCreateUserConfigInviteMessageTemplateArray and GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayInput` via:
+//
+//	GetUserPoolAdminCreateUserConfigInviteMessageTemplateArray{ GetUserPoolAdminCreateUserConfigInviteMessageTemplateArgs{...} }
+type GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput() GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput
+	ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutputWithContext(context.Context) GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput
+}
+
+type GetUserPoolAdminCreateUserConfigInviteMessageTemplateArray []GetUserPoolAdminCreateUserConfigInviteMessageTemplateInput
+
+func (GetUserPoolAdminCreateUserConfigInviteMessageTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolAdminCreateUserConfigInviteMessageTemplate)(nil)).Elem()
+}
+
+func (i GetUserPoolAdminCreateUserConfigInviteMessageTemplateArray) ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput() GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput {
+	return i.ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolAdminCreateUserConfigInviteMessageTemplateArray) ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutputWithContext(ctx context.Context) GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput)
+}
+
+type GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolAdminCreateUserConfigInviteMessageTemplate)(nil)).Elem()
+}
+
+func (o GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput) ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput() GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
+	return o
+}
+
+func (o GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput) ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateOutputWithContext(ctx context.Context) GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
+	return o
+}
+
+// - Email message content.
+func (o GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput) EmailMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolAdminCreateUserConfigInviteMessageTemplate) string { return v.EmailMessage }).(pulumi.StringOutput)
+}
+
+// - Email message subject.
+func (o GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput) EmailSubject() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolAdminCreateUserConfigInviteMessageTemplate) string { return v.EmailSubject }).(pulumi.StringOutput)
+}
+
+// - SMS message content.
+func (o GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput) SmsMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolAdminCreateUserConfigInviteMessageTemplate) string { return v.SmsMessage }).(pulumi.StringOutput)
+}
+
+type GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolAdminCreateUserConfigInviteMessageTemplate)(nil)).Elem()
+}
+
+func (o GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput) ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput() GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput {
+	return o
+}
+
+func (o GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput) ToGetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutputWithContext(ctx context.Context) GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput {
+	return o
+}
+
+func (o GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput) Index(i pulumi.IntInput) GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolAdminCreateUserConfigInviteMessageTemplate {
+		return vs[0].([]GetUserPoolAdminCreateUserConfigInviteMessageTemplate)[vs[1].(int)]
+	}).(GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput)
+}
+
 type GetUserPoolClientAnalyticsConfiguration struct {
 	// (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
 	ApplicationArn string `pulumi:"applicationArn"`
@@ -7156,6 +7590,1106 @@ func (o GetUserPoolClientTokenValidityUnitArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetUserPoolClientTokenValidityUnitOutput)
 }
 
+type GetUserPoolDeviceConfiguration struct {
+	// - Whether a challenge is required on new devices.
+	ChallengeRequiredOnNewDevice bool `pulumi:"challengeRequiredOnNewDevice"`
+	// - Whether devices are only remembered if the user prompts it.
+	DeviceOnlyRememberedOnUserPrompt bool `pulumi:"deviceOnlyRememberedOnUserPrompt"`
+}
+
+// GetUserPoolDeviceConfigurationInput is an input type that accepts GetUserPoolDeviceConfigurationArgs and GetUserPoolDeviceConfigurationOutput values.
+// You can construct a concrete instance of `GetUserPoolDeviceConfigurationInput` via:
+//
+//	GetUserPoolDeviceConfigurationArgs{...}
+type GetUserPoolDeviceConfigurationInput interface {
+	pulumi.Input
+
+	ToGetUserPoolDeviceConfigurationOutput() GetUserPoolDeviceConfigurationOutput
+	ToGetUserPoolDeviceConfigurationOutputWithContext(context.Context) GetUserPoolDeviceConfigurationOutput
+}
+
+type GetUserPoolDeviceConfigurationArgs struct {
+	// - Whether a challenge is required on new devices.
+	ChallengeRequiredOnNewDevice pulumi.BoolInput `pulumi:"challengeRequiredOnNewDevice"`
+	// - Whether devices are only remembered if the user prompts it.
+	DeviceOnlyRememberedOnUserPrompt pulumi.BoolInput `pulumi:"deviceOnlyRememberedOnUserPrompt"`
+}
+
+func (GetUserPoolDeviceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolDeviceConfiguration)(nil)).Elem()
+}
+
+func (i GetUserPoolDeviceConfigurationArgs) ToGetUserPoolDeviceConfigurationOutput() GetUserPoolDeviceConfigurationOutput {
+	return i.ToGetUserPoolDeviceConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolDeviceConfigurationArgs) ToGetUserPoolDeviceConfigurationOutputWithContext(ctx context.Context) GetUserPoolDeviceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolDeviceConfigurationOutput)
+}
+
+// GetUserPoolDeviceConfigurationArrayInput is an input type that accepts GetUserPoolDeviceConfigurationArray and GetUserPoolDeviceConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolDeviceConfigurationArrayInput` via:
+//
+//	GetUserPoolDeviceConfigurationArray{ GetUserPoolDeviceConfigurationArgs{...} }
+type GetUserPoolDeviceConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolDeviceConfigurationArrayOutput() GetUserPoolDeviceConfigurationArrayOutput
+	ToGetUserPoolDeviceConfigurationArrayOutputWithContext(context.Context) GetUserPoolDeviceConfigurationArrayOutput
+}
+
+type GetUserPoolDeviceConfigurationArray []GetUserPoolDeviceConfigurationInput
+
+func (GetUserPoolDeviceConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolDeviceConfiguration)(nil)).Elem()
+}
+
+func (i GetUserPoolDeviceConfigurationArray) ToGetUserPoolDeviceConfigurationArrayOutput() GetUserPoolDeviceConfigurationArrayOutput {
+	return i.ToGetUserPoolDeviceConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolDeviceConfigurationArray) ToGetUserPoolDeviceConfigurationArrayOutputWithContext(ctx context.Context) GetUserPoolDeviceConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolDeviceConfigurationArrayOutput)
+}
+
+type GetUserPoolDeviceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolDeviceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolDeviceConfiguration)(nil)).Elem()
+}
+
+func (o GetUserPoolDeviceConfigurationOutput) ToGetUserPoolDeviceConfigurationOutput() GetUserPoolDeviceConfigurationOutput {
+	return o
+}
+
+func (o GetUserPoolDeviceConfigurationOutput) ToGetUserPoolDeviceConfigurationOutputWithContext(ctx context.Context) GetUserPoolDeviceConfigurationOutput {
+	return o
+}
+
+// - Whether a challenge is required on new devices.
+func (o GetUserPoolDeviceConfigurationOutput) ChallengeRequiredOnNewDevice() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserPoolDeviceConfiguration) bool { return v.ChallengeRequiredOnNewDevice }).(pulumi.BoolOutput)
+}
+
+// - Whether devices are only remembered if the user prompts it.
+func (o GetUserPoolDeviceConfigurationOutput) DeviceOnlyRememberedOnUserPrompt() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserPoolDeviceConfiguration) bool { return v.DeviceOnlyRememberedOnUserPrompt }).(pulumi.BoolOutput)
+}
+
+type GetUserPoolDeviceConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolDeviceConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolDeviceConfiguration)(nil)).Elem()
+}
+
+func (o GetUserPoolDeviceConfigurationArrayOutput) ToGetUserPoolDeviceConfigurationArrayOutput() GetUserPoolDeviceConfigurationArrayOutput {
+	return o
+}
+
+func (o GetUserPoolDeviceConfigurationArrayOutput) ToGetUserPoolDeviceConfigurationArrayOutputWithContext(ctx context.Context) GetUserPoolDeviceConfigurationArrayOutput {
+	return o
+}
+
+func (o GetUserPoolDeviceConfigurationArrayOutput) Index(i pulumi.IntInput) GetUserPoolDeviceConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolDeviceConfiguration {
+		return vs[0].([]GetUserPoolDeviceConfiguration)[vs[1].(int)]
+	}).(GetUserPoolDeviceConfigurationOutput)
+}
+
+type GetUserPoolEmailConfiguration struct {
+	// - Configuration set used for sending emails.
+	ConfigurationSet string `pulumi:"configurationSet"`
+	// - Email sending account.
+	EmailSendingAccount string `pulumi:"emailSendingAccount"`
+	// - Email sender address.
+	From string `pulumi:"from"`
+	// - Reply-to email address.
+	ReplyToEmailAddress string `pulumi:"replyToEmailAddress"`
+	// - Source Amazon Resource Name (ARN) for emails.
+	SourceArn string `pulumi:"sourceArn"`
+}
+
+// GetUserPoolEmailConfigurationInput is an input type that accepts GetUserPoolEmailConfigurationArgs and GetUserPoolEmailConfigurationOutput values.
+// You can construct a concrete instance of `GetUserPoolEmailConfigurationInput` via:
+//
+//	GetUserPoolEmailConfigurationArgs{...}
+type GetUserPoolEmailConfigurationInput interface {
+	pulumi.Input
+
+	ToGetUserPoolEmailConfigurationOutput() GetUserPoolEmailConfigurationOutput
+	ToGetUserPoolEmailConfigurationOutputWithContext(context.Context) GetUserPoolEmailConfigurationOutput
+}
+
+type GetUserPoolEmailConfigurationArgs struct {
+	// - Configuration set used for sending emails.
+	ConfigurationSet pulumi.StringInput `pulumi:"configurationSet"`
+	// - Email sending account.
+	EmailSendingAccount pulumi.StringInput `pulumi:"emailSendingAccount"`
+	// - Email sender address.
+	From pulumi.StringInput `pulumi:"from"`
+	// - Reply-to email address.
+	ReplyToEmailAddress pulumi.StringInput `pulumi:"replyToEmailAddress"`
+	// - Source Amazon Resource Name (ARN) for emails.
+	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
+}
+
+func (GetUserPoolEmailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolEmailConfiguration)(nil)).Elem()
+}
+
+func (i GetUserPoolEmailConfigurationArgs) ToGetUserPoolEmailConfigurationOutput() GetUserPoolEmailConfigurationOutput {
+	return i.ToGetUserPoolEmailConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolEmailConfigurationArgs) ToGetUserPoolEmailConfigurationOutputWithContext(ctx context.Context) GetUserPoolEmailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolEmailConfigurationOutput)
+}
+
+// GetUserPoolEmailConfigurationArrayInput is an input type that accepts GetUserPoolEmailConfigurationArray and GetUserPoolEmailConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolEmailConfigurationArrayInput` via:
+//
+//	GetUserPoolEmailConfigurationArray{ GetUserPoolEmailConfigurationArgs{...} }
+type GetUserPoolEmailConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolEmailConfigurationArrayOutput() GetUserPoolEmailConfigurationArrayOutput
+	ToGetUserPoolEmailConfigurationArrayOutputWithContext(context.Context) GetUserPoolEmailConfigurationArrayOutput
+}
+
+type GetUserPoolEmailConfigurationArray []GetUserPoolEmailConfigurationInput
+
+func (GetUserPoolEmailConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolEmailConfiguration)(nil)).Elem()
+}
+
+func (i GetUserPoolEmailConfigurationArray) ToGetUserPoolEmailConfigurationArrayOutput() GetUserPoolEmailConfigurationArrayOutput {
+	return i.ToGetUserPoolEmailConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolEmailConfigurationArray) ToGetUserPoolEmailConfigurationArrayOutputWithContext(ctx context.Context) GetUserPoolEmailConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolEmailConfigurationArrayOutput)
+}
+
+type GetUserPoolEmailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolEmailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolEmailConfiguration)(nil)).Elem()
+}
+
+func (o GetUserPoolEmailConfigurationOutput) ToGetUserPoolEmailConfigurationOutput() GetUserPoolEmailConfigurationOutput {
+	return o
+}
+
+func (o GetUserPoolEmailConfigurationOutput) ToGetUserPoolEmailConfigurationOutputWithContext(ctx context.Context) GetUserPoolEmailConfigurationOutput {
+	return o
+}
+
+// - Configuration set used for sending emails.
+func (o GetUserPoolEmailConfigurationOutput) ConfigurationSet() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolEmailConfiguration) string { return v.ConfigurationSet }).(pulumi.StringOutput)
+}
+
+// - Email sending account.
+func (o GetUserPoolEmailConfigurationOutput) EmailSendingAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolEmailConfiguration) string { return v.EmailSendingAccount }).(pulumi.StringOutput)
+}
+
+// - Email sender address.
+func (o GetUserPoolEmailConfigurationOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolEmailConfiguration) string { return v.From }).(pulumi.StringOutput)
+}
+
+// - Reply-to email address.
+func (o GetUserPoolEmailConfigurationOutput) ReplyToEmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolEmailConfiguration) string { return v.ReplyToEmailAddress }).(pulumi.StringOutput)
+}
+
+// - Source Amazon Resource Name (ARN) for emails.
+func (o GetUserPoolEmailConfigurationOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolEmailConfiguration) string { return v.SourceArn }).(pulumi.StringOutput)
+}
+
+type GetUserPoolEmailConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolEmailConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolEmailConfiguration)(nil)).Elem()
+}
+
+func (o GetUserPoolEmailConfigurationArrayOutput) ToGetUserPoolEmailConfigurationArrayOutput() GetUserPoolEmailConfigurationArrayOutput {
+	return o
+}
+
+func (o GetUserPoolEmailConfigurationArrayOutput) ToGetUserPoolEmailConfigurationArrayOutputWithContext(ctx context.Context) GetUserPoolEmailConfigurationArrayOutput {
+	return o
+}
+
+func (o GetUserPoolEmailConfigurationArrayOutput) Index(i pulumi.IntInput) GetUserPoolEmailConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolEmailConfiguration {
+		return vs[0].([]GetUserPoolEmailConfiguration)[vs[1].(int)]
+	}).(GetUserPoolEmailConfigurationOutput)
+}
+
+type GetUserPoolLambdaConfig struct {
+	CreateAuthChallenge         string                                            `pulumi:"createAuthChallenge"`
+	CustomEmailSenders          []GetUserPoolLambdaConfigCustomEmailSender        `pulumi:"customEmailSenders"`
+	CustomMessage               string                                            `pulumi:"customMessage"`
+	CustomSmsSenders            []GetUserPoolLambdaConfigCustomSmsSender          `pulumi:"customSmsSenders"`
+	DefineAuthChallenge         string                                            `pulumi:"defineAuthChallenge"`
+	KmsKeyId                    string                                            `pulumi:"kmsKeyId"`
+	PostAuthentication          string                                            `pulumi:"postAuthentication"`
+	PostConfirmation            string                                            `pulumi:"postConfirmation"`
+	PreAuthentication           string                                            `pulumi:"preAuthentication"`
+	PreSignUp                   string                                            `pulumi:"preSignUp"`
+	PreTokenGeneration          string                                            `pulumi:"preTokenGeneration"`
+	PreTokenGenerationConfigs   []GetUserPoolLambdaConfigPreTokenGenerationConfig `pulumi:"preTokenGenerationConfigs"`
+	UserMigration               string                                            `pulumi:"userMigration"`
+	VerifyAuthChallengeResponse string                                            `pulumi:"verifyAuthChallengeResponse"`
+}
+
+// GetUserPoolLambdaConfigInput is an input type that accepts GetUserPoolLambdaConfigArgs and GetUserPoolLambdaConfigOutput values.
+// You can construct a concrete instance of `GetUserPoolLambdaConfigInput` via:
+//
+//	GetUserPoolLambdaConfigArgs{...}
+type GetUserPoolLambdaConfigInput interface {
+	pulumi.Input
+
+	ToGetUserPoolLambdaConfigOutput() GetUserPoolLambdaConfigOutput
+	ToGetUserPoolLambdaConfigOutputWithContext(context.Context) GetUserPoolLambdaConfigOutput
+}
+
+type GetUserPoolLambdaConfigArgs struct {
+	CreateAuthChallenge         pulumi.StringInput                                        `pulumi:"createAuthChallenge"`
+	CustomEmailSenders          GetUserPoolLambdaConfigCustomEmailSenderArrayInput        `pulumi:"customEmailSenders"`
+	CustomMessage               pulumi.StringInput                                        `pulumi:"customMessage"`
+	CustomSmsSenders            GetUserPoolLambdaConfigCustomSmsSenderArrayInput          `pulumi:"customSmsSenders"`
+	DefineAuthChallenge         pulumi.StringInput                                        `pulumi:"defineAuthChallenge"`
+	KmsKeyId                    pulumi.StringInput                                        `pulumi:"kmsKeyId"`
+	PostAuthentication          pulumi.StringInput                                        `pulumi:"postAuthentication"`
+	PostConfirmation            pulumi.StringInput                                        `pulumi:"postConfirmation"`
+	PreAuthentication           pulumi.StringInput                                        `pulumi:"preAuthentication"`
+	PreSignUp                   pulumi.StringInput                                        `pulumi:"preSignUp"`
+	PreTokenGeneration          pulumi.StringInput                                        `pulumi:"preTokenGeneration"`
+	PreTokenGenerationConfigs   GetUserPoolLambdaConfigPreTokenGenerationConfigArrayInput `pulumi:"preTokenGenerationConfigs"`
+	UserMigration               pulumi.StringInput                                        `pulumi:"userMigration"`
+	VerifyAuthChallengeResponse pulumi.StringInput                                        `pulumi:"verifyAuthChallengeResponse"`
+}
+
+func (GetUserPoolLambdaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolLambdaConfig)(nil)).Elem()
+}
+
+func (i GetUserPoolLambdaConfigArgs) ToGetUserPoolLambdaConfigOutput() GetUserPoolLambdaConfigOutput {
+	return i.ToGetUserPoolLambdaConfigOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolLambdaConfigArgs) ToGetUserPoolLambdaConfigOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolLambdaConfigOutput)
+}
+
+// GetUserPoolLambdaConfigArrayInput is an input type that accepts GetUserPoolLambdaConfigArray and GetUserPoolLambdaConfigArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolLambdaConfigArrayInput` via:
+//
+//	GetUserPoolLambdaConfigArray{ GetUserPoolLambdaConfigArgs{...} }
+type GetUserPoolLambdaConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolLambdaConfigArrayOutput() GetUserPoolLambdaConfigArrayOutput
+	ToGetUserPoolLambdaConfigArrayOutputWithContext(context.Context) GetUserPoolLambdaConfigArrayOutput
+}
+
+type GetUserPoolLambdaConfigArray []GetUserPoolLambdaConfigInput
+
+func (GetUserPoolLambdaConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolLambdaConfig)(nil)).Elem()
+}
+
+func (i GetUserPoolLambdaConfigArray) ToGetUserPoolLambdaConfigArrayOutput() GetUserPoolLambdaConfigArrayOutput {
+	return i.ToGetUserPoolLambdaConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolLambdaConfigArray) ToGetUserPoolLambdaConfigArrayOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolLambdaConfigArrayOutput)
+}
+
+type GetUserPoolLambdaConfigOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolLambdaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolLambdaConfig)(nil)).Elem()
+}
+
+func (o GetUserPoolLambdaConfigOutput) ToGetUserPoolLambdaConfigOutput() GetUserPoolLambdaConfigOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigOutput) ToGetUserPoolLambdaConfigOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigOutput) CreateAuthChallenge() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.CreateAuthChallenge }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) CustomEmailSenders() GetUserPoolLambdaConfigCustomEmailSenderArrayOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) []GetUserPoolLambdaConfigCustomEmailSender {
+		return v.CustomEmailSenders
+	}).(GetUserPoolLambdaConfigCustomEmailSenderArrayOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) CustomMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.CustomMessage }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) CustomSmsSenders() GetUserPoolLambdaConfigCustomSmsSenderArrayOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) []GetUserPoolLambdaConfigCustomSmsSender { return v.CustomSmsSenders }).(GetUserPoolLambdaConfigCustomSmsSenderArrayOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) DefineAuthChallenge() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.DefineAuthChallenge }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) PostAuthentication() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.PostAuthentication }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) PostConfirmation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.PostConfirmation }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) PreAuthentication() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.PreAuthentication }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) PreSignUp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.PreSignUp }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) PreTokenGeneration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.PreTokenGeneration }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) PreTokenGenerationConfigs() GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) []GetUserPoolLambdaConfigPreTokenGenerationConfig {
+		return v.PreTokenGenerationConfigs
+	}).(GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) UserMigration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.UserMigration }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolLambdaConfigOutput) VerifyAuthChallengeResponse() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfig) string { return v.VerifyAuthChallengeResponse }).(pulumi.StringOutput)
+}
+
+type GetUserPoolLambdaConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolLambdaConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolLambdaConfig)(nil)).Elem()
+}
+
+func (o GetUserPoolLambdaConfigArrayOutput) ToGetUserPoolLambdaConfigArrayOutput() GetUserPoolLambdaConfigArrayOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigArrayOutput) ToGetUserPoolLambdaConfigArrayOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigArrayOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigArrayOutput) Index(i pulumi.IntInput) GetUserPoolLambdaConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolLambdaConfig {
+		return vs[0].([]GetUserPoolLambdaConfig)[vs[1].(int)]
+	}).(GetUserPoolLambdaConfigOutput)
+}
+
+type GetUserPoolLambdaConfigCustomEmailSender struct {
+	// - ARN of the Lambda function.
+	LambdaArn string `pulumi:"lambdaArn"`
+	// - Version of the Lambda function.
+	LambdaVersion string `pulumi:"lambdaVersion"`
+}
+
+// GetUserPoolLambdaConfigCustomEmailSenderInput is an input type that accepts GetUserPoolLambdaConfigCustomEmailSenderArgs and GetUserPoolLambdaConfigCustomEmailSenderOutput values.
+// You can construct a concrete instance of `GetUserPoolLambdaConfigCustomEmailSenderInput` via:
+//
+//	GetUserPoolLambdaConfigCustomEmailSenderArgs{...}
+type GetUserPoolLambdaConfigCustomEmailSenderInput interface {
+	pulumi.Input
+
+	ToGetUserPoolLambdaConfigCustomEmailSenderOutput() GetUserPoolLambdaConfigCustomEmailSenderOutput
+	ToGetUserPoolLambdaConfigCustomEmailSenderOutputWithContext(context.Context) GetUserPoolLambdaConfigCustomEmailSenderOutput
+}
+
+type GetUserPoolLambdaConfigCustomEmailSenderArgs struct {
+	// - ARN of the Lambda function.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// - Version of the Lambda function.
+	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
+}
+
+func (GetUserPoolLambdaConfigCustomEmailSenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolLambdaConfigCustomEmailSender)(nil)).Elem()
+}
+
+func (i GetUserPoolLambdaConfigCustomEmailSenderArgs) ToGetUserPoolLambdaConfigCustomEmailSenderOutput() GetUserPoolLambdaConfigCustomEmailSenderOutput {
+	return i.ToGetUserPoolLambdaConfigCustomEmailSenderOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolLambdaConfigCustomEmailSenderArgs) ToGetUserPoolLambdaConfigCustomEmailSenderOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigCustomEmailSenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolLambdaConfigCustomEmailSenderOutput)
+}
+
+// GetUserPoolLambdaConfigCustomEmailSenderArrayInput is an input type that accepts GetUserPoolLambdaConfigCustomEmailSenderArray and GetUserPoolLambdaConfigCustomEmailSenderArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolLambdaConfigCustomEmailSenderArrayInput` via:
+//
+//	GetUserPoolLambdaConfigCustomEmailSenderArray{ GetUserPoolLambdaConfigCustomEmailSenderArgs{...} }
+type GetUserPoolLambdaConfigCustomEmailSenderArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolLambdaConfigCustomEmailSenderArrayOutput() GetUserPoolLambdaConfigCustomEmailSenderArrayOutput
+	ToGetUserPoolLambdaConfigCustomEmailSenderArrayOutputWithContext(context.Context) GetUserPoolLambdaConfigCustomEmailSenderArrayOutput
+}
+
+type GetUserPoolLambdaConfigCustomEmailSenderArray []GetUserPoolLambdaConfigCustomEmailSenderInput
+
+func (GetUserPoolLambdaConfigCustomEmailSenderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolLambdaConfigCustomEmailSender)(nil)).Elem()
+}
+
+func (i GetUserPoolLambdaConfigCustomEmailSenderArray) ToGetUserPoolLambdaConfigCustomEmailSenderArrayOutput() GetUserPoolLambdaConfigCustomEmailSenderArrayOutput {
+	return i.ToGetUserPoolLambdaConfigCustomEmailSenderArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolLambdaConfigCustomEmailSenderArray) ToGetUserPoolLambdaConfigCustomEmailSenderArrayOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigCustomEmailSenderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolLambdaConfigCustomEmailSenderArrayOutput)
+}
+
+type GetUserPoolLambdaConfigCustomEmailSenderOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolLambdaConfigCustomEmailSenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolLambdaConfigCustomEmailSender)(nil)).Elem()
+}
+
+func (o GetUserPoolLambdaConfigCustomEmailSenderOutput) ToGetUserPoolLambdaConfigCustomEmailSenderOutput() GetUserPoolLambdaConfigCustomEmailSenderOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigCustomEmailSenderOutput) ToGetUserPoolLambdaConfigCustomEmailSenderOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigCustomEmailSenderOutput {
+	return o
+}
+
+// - ARN of the Lambda function.
+func (o GetUserPoolLambdaConfigCustomEmailSenderOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfigCustomEmailSender) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+// - Version of the Lambda function.
+func (o GetUserPoolLambdaConfigCustomEmailSenderOutput) LambdaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfigCustomEmailSender) string { return v.LambdaVersion }).(pulumi.StringOutput)
+}
+
+type GetUserPoolLambdaConfigCustomEmailSenderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolLambdaConfigCustomEmailSenderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolLambdaConfigCustomEmailSender)(nil)).Elem()
+}
+
+func (o GetUserPoolLambdaConfigCustomEmailSenderArrayOutput) ToGetUserPoolLambdaConfigCustomEmailSenderArrayOutput() GetUserPoolLambdaConfigCustomEmailSenderArrayOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigCustomEmailSenderArrayOutput) ToGetUserPoolLambdaConfigCustomEmailSenderArrayOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigCustomEmailSenderArrayOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigCustomEmailSenderArrayOutput) Index(i pulumi.IntInput) GetUserPoolLambdaConfigCustomEmailSenderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolLambdaConfigCustomEmailSender {
+		return vs[0].([]GetUserPoolLambdaConfigCustomEmailSender)[vs[1].(int)]
+	}).(GetUserPoolLambdaConfigCustomEmailSenderOutput)
+}
+
+type GetUserPoolLambdaConfigCustomSmsSender struct {
+	// - ARN of the Lambda function.
+	LambdaArn string `pulumi:"lambdaArn"`
+	// - Version of the Lambda function.
+	LambdaVersion string `pulumi:"lambdaVersion"`
+}
+
+// GetUserPoolLambdaConfigCustomSmsSenderInput is an input type that accepts GetUserPoolLambdaConfigCustomSmsSenderArgs and GetUserPoolLambdaConfigCustomSmsSenderOutput values.
+// You can construct a concrete instance of `GetUserPoolLambdaConfigCustomSmsSenderInput` via:
+//
+//	GetUserPoolLambdaConfigCustomSmsSenderArgs{...}
+type GetUserPoolLambdaConfigCustomSmsSenderInput interface {
+	pulumi.Input
+
+	ToGetUserPoolLambdaConfigCustomSmsSenderOutput() GetUserPoolLambdaConfigCustomSmsSenderOutput
+	ToGetUserPoolLambdaConfigCustomSmsSenderOutputWithContext(context.Context) GetUserPoolLambdaConfigCustomSmsSenderOutput
+}
+
+type GetUserPoolLambdaConfigCustomSmsSenderArgs struct {
+	// - ARN of the Lambda function.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// - Version of the Lambda function.
+	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
+}
+
+func (GetUserPoolLambdaConfigCustomSmsSenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolLambdaConfigCustomSmsSender)(nil)).Elem()
+}
+
+func (i GetUserPoolLambdaConfigCustomSmsSenderArgs) ToGetUserPoolLambdaConfigCustomSmsSenderOutput() GetUserPoolLambdaConfigCustomSmsSenderOutput {
+	return i.ToGetUserPoolLambdaConfigCustomSmsSenderOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolLambdaConfigCustomSmsSenderArgs) ToGetUserPoolLambdaConfigCustomSmsSenderOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigCustomSmsSenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolLambdaConfigCustomSmsSenderOutput)
+}
+
+// GetUserPoolLambdaConfigCustomSmsSenderArrayInput is an input type that accepts GetUserPoolLambdaConfigCustomSmsSenderArray and GetUserPoolLambdaConfigCustomSmsSenderArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolLambdaConfigCustomSmsSenderArrayInput` via:
+//
+//	GetUserPoolLambdaConfigCustomSmsSenderArray{ GetUserPoolLambdaConfigCustomSmsSenderArgs{...} }
+type GetUserPoolLambdaConfigCustomSmsSenderArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolLambdaConfigCustomSmsSenderArrayOutput() GetUserPoolLambdaConfigCustomSmsSenderArrayOutput
+	ToGetUserPoolLambdaConfigCustomSmsSenderArrayOutputWithContext(context.Context) GetUserPoolLambdaConfigCustomSmsSenderArrayOutput
+}
+
+type GetUserPoolLambdaConfigCustomSmsSenderArray []GetUserPoolLambdaConfigCustomSmsSenderInput
+
+func (GetUserPoolLambdaConfigCustomSmsSenderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolLambdaConfigCustomSmsSender)(nil)).Elem()
+}
+
+func (i GetUserPoolLambdaConfigCustomSmsSenderArray) ToGetUserPoolLambdaConfigCustomSmsSenderArrayOutput() GetUserPoolLambdaConfigCustomSmsSenderArrayOutput {
+	return i.ToGetUserPoolLambdaConfigCustomSmsSenderArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolLambdaConfigCustomSmsSenderArray) ToGetUserPoolLambdaConfigCustomSmsSenderArrayOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigCustomSmsSenderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolLambdaConfigCustomSmsSenderArrayOutput)
+}
+
+type GetUserPoolLambdaConfigCustomSmsSenderOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolLambdaConfigCustomSmsSenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolLambdaConfigCustomSmsSender)(nil)).Elem()
+}
+
+func (o GetUserPoolLambdaConfigCustomSmsSenderOutput) ToGetUserPoolLambdaConfigCustomSmsSenderOutput() GetUserPoolLambdaConfigCustomSmsSenderOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigCustomSmsSenderOutput) ToGetUserPoolLambdaConfigCustomSmsSenderOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigCustomSmsSenderOutput {
+	return o
+}
+
+// - ARN of the Lambda function.
+func (o GetUserPoolLambdaConfigCustomSmsSenderOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfigCustomSmsSender) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+// - Version of the Lambda function.
+func (o GetUserPoolLambdaConfigCustomSmsSenderOutput) LambdaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfigCustomSmsSender) string { return v.LambdaVersion }).(pulumi.StringOutput)
+}
+
+type GetUserPoolLambdaConfigCustomSmsSenderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolLambdaConfigCustomSmsSenderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolLambdaConfigCustomSmsSender)(nil)).Elem()
+}
+
+func (o GetUserPoolLambdaConfigCustomSmsSenderArrayOutput) ToGetUserPoolLambdaConfigCustomSmsSenderArrayOutput() GetUserPoolLambdaConfigCustomSmsSenderArrayOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigCustomSmsSenderArrayOutput) ToGetUserPoolLambdaConfigCustomSmsSenderArrayOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigCustomSmsSenderArrayOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigCustomSmsSenderArrayOutput) Index(i pulumi.IntInput) GetUserPoolLambdaConfigCustomSmsSenderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolLambdaConfigCustomSmsSender {
+		return vs[0].([]GetUserPoolLambdaConfigCustomSmsSender)[vs[1].(int)]
+	}).(GetUserPoolLambdaConfigCustomSmsSenderOutput)
+}
+
+type GetUserPoolLambdaConfigPreTokenGenerationConfig struct {
+	// - ARN of the Lambda function.
+	LambdaArn string `pulumi:"lambdaArn"`
+	// - Version of the Lambda function.
+	LambdaVersion string `pulumi:"lambdaVersion"`
+}
+
+// GetUserPoolLambdaConfigPreTokenGenerationConfigInput is an input type that accepts GetUserPoolLambdaConfigPreTokenGenerationConfigArgs and GetUserPoolLambdaConfigPreTokenGenerationConfigOutput values.
+// You can construct a concrete instance of `GetUserPoolLambdaConfigPreTokenGenerationConfigInput` via:
+//
+//	GetUserPoolLambdaConfigPreTokenGenerationConfigArgs{...}
+type GetUserPoolLambdaConfigPreTokenGenerationConfigInput interface {
+	pulumi.Input
+
+	ToGetUserPoolLambdaConfigPreTokenGenerationConfigOutput() GetUserPoolLambdaConfigPreTokenGenerationConfigOutput
+	ToGetUserPoolLambdaConfigPreTokenGenerationConfigOutputWithContext(context.Context) GetUserPoolLambdaConfigPreTokenGenerationConfigOutput
+}
+
+type GetUserPoolLambdaConfigPreTokenGenerationConfigArgs struct {
+	// - ARN of the Lambda function.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// - Version of the Lambda function.
+	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
+}
+
+func (GetUserPoolLambdaConfigPreTokenGenerationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolLambdaConfigPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (i GetUserPoolLambdaConfigPreTokenGenerationConfigArgs) ToGetUserPoolLambdaConfigPreTokenGenerationConfigOutput() GetUserPoolLambdaConfigPreTokenGenerationConfigOutput {
+	return i.ToGetUserPoolLambdaConfigPreTokenGenerationConfigOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolLambdaConfigPreTokenGenerationConfigArgs) ToGetUserPoolLambdaConfigPreTokenGenerationConfigOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigPreTokenGenerationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolLambdaConfigPreTokenGenerationConfigOutput)
+}
+
+// GetUserPoolLambdaConfigPreTokenGenerationConfigArrayInput is an input type that accepts GetUserPoolLambdaConfigPreTokenGenerationConfigArray and GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolLambdaConfigPreTokenGenerationConfigArrayInput` via:
+//
+//	GetUserPoolLambdaConfigPreTokenGenerationConfigArray{ GetUserPoolLambdaConfigPreTokenGenerationConfigArgs{...} }
+type GetUserPoolLambdaConfigPreTokenGenerationConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput() GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput
+	ToGetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutputWithContext(context.Context) GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput
+}
+
+type GetUserPoolLambdaConfigPreTokenGenerationConfigArray []GetUserPoolLambdaConfigPreTokenGenerationConfigInput
+
+func (GetUserPoolLambdaConfigPreTokenGenerationConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolLambdaConfigPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (i GetUserPoolLambdaConfigPreTokenGenerationConfigArray) ToGetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput() GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput {
+	return i.ToGetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolLambdaConfigPreTokenGenerationConfigArray) ToGetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput)
+}
+
+type GetUserPoolLambdaConfigPreTokenGenerationConfigOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolLambdaConfigPreTokenGenerationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolLambdaConfigPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (o GetUserPoolLambdaConfigPreTokenGenerationConfigOutput) ToGetUserPoolLambdaConfigPreTokenGenerationConfigOutput() GetUserPoolLambdaConfigPreTokenGenerationConfigOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigPreTokenGenerationConfigOutput) ToGetUserPoolLambdaConfigPreTokenGenerationConfigOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigPreTokenGenerationConfigOutput {
+	return o
+}
+
+// - ARN of the Lambda function.
+func (o GetUserPoolLambdaConfigPreTokenGenerationConfigOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfigPreTokenGenerationConfig) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+// - Version of the Lambda function.
+func (o GetUserPoolLambdaConfigPreTokenGenerationConfigOutput) LambdaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolLambdaConfigPreTokenGenerationConfig) string { return v.LambdaVersion }).(pulumi.StringOutput)
+}
+
+type GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolLambdaConfigPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (o GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput) ToGetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput() GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput) ToGetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutputWithContext(ctx context.Context) GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput {
+	return o
+}
+
+func (o GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput) Index(i pulumi.IntInput) GetUserPoolLambdaConfigPreTokenGenerationConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolLambdaConfigPreTokenGenerationConfig {
+		return vs[0].([]GetUserPoolLambdaConfigPreTokenGenerationConfig)[vs[1].(int)]
+	}).(GetUserPoolLambdaConfigPreTokenGenerationConfigOutput)
+}
+
+type GetUserPoolSchemaAttribute struct {
+	// - Data type of the attribute (e.g., string, number).
+	AttributeDataType string `pulumi:"attributeDataType"`
+	// - Whether the attribute is for developer use only.
+	DeveloperOnlyAttribute bool `pulumi:"developerOnlyAttribute"`
+	// - Whether the attribute can be changed after user creation.
+	Mutable bool `pulumi:"mutable"`
+	// - Name of the attribute.
+	Name                       string                                                `pulumi:"name"`
+	NumberAttributeConstraints []GetUserPoolSchemaAttributeNumberAttributeConstraint `pulumi:"numberAttributeConstraints"`
+	// - Whether the attribute is required during user registration.
+	// * number_attribute_constraints - Constraints for numeric attributes.
+	// * string_attribute_constraints - Constraints for string attributes.
+	Required                   bool                                                  `pulumi:"required"`
+	StringAttributeConstraints []GetUserPoolSchemaAttributeStringAttributeConstraint `pulumi:"stringAttributeConstraints"`
+}
+
+// GetUserPoolSchemaAttributeInput is an input type that accepts GetUserPoolSchemaAttributeArgs and GetUserPoolSchemaAttributeOutput values.
+// You can construct a concrete instance of `GetUserPoolSchemaAttributeInput` via:
+//
+//	GetUserPoolSchemaAttributeArgs{...}
+type GetUserPoolSchemaAttributeInput interface {
+	pulumi.Input
+
+	ToGetUserPoolSchemaAttributeOutput() GetUserPoolSchemaAttributeOutput
+	ToGetUserPoolSchemaAttributeOutputWithContext(context.Context) GetUserPoolSchemaAttributeOutput
+}
+
+type GetUserPoolSchemaAttributeArgs struct {
+	// - Data type of the attribute (e.g., string, number).
+	AttributeDataType pulumi.StringInput `pulumi:"attributeDataType"`
+	// - Whether the attribute is for developer use only.
+	DeveloperOnlyAttribute pulumi.BoolInput `pulumi:"developerOnlyAttribute"`
+	// - Whether the attribute can be changed after user creation.
+	Mutable pulumi.BoolInput `pulumi:"mutable"`
+	// - Name of the attribute.
+	Name                       pulumi.StringInput                                            `pulumi:"name"`
+	NumberAttributeConstraints GetUserPoolSchemaAttributeNumberAttributeConstraintArrayInput `pulumi:"numberAttributeConstraints"`
+	// - Whether the attribute is required during user registration.
+	// * number_attribute_constraints - Constraints for numeric attributes.
+	// * string_attribute_constraints - Constraints for string attributes.
+	Required                   pulumi.BoolInput                                              `pulumi:"required"`
+	StringAttributeConstraints GetUserPoolSchemaAttributeStringAttributeConstraintArrayInput `pulumi:"stringAttributeConstraints"`
+}
+
+func (GetUserPoolSchemaAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolSchemaAttribute)(nil)).Elem()
+}
+
+func (i GetUserPoolSchemaAttributeArgs) ToGetUserPoolSchemaAttributeOutput() GetUserPoolSchemaAttributeOutput {
+	return i.ToGetUserPoolSchemaAttributeOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolSchemaAttributeArgs) ToGetUserPoolSchemaAttributeOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolSchemaAttributeOutput)
+}
+
+// GetUserPoolSchemaAttributeArrayInput is an input type that accepts GetUserPoolSchemaAttributeArray and GetUserPoolSchemaAttributeArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolSchemaAttributeArrayInput` via:
+//
+//	GetUserPoolSchemaAttributeArray{ GetUserPoolSchemaAttributeArgs{...} }
+type GetUserPoolSchemaAttributeArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolSchemaAttributeArrayOutput() GetUserPoolSchemaAttributeArrayOutput
+	ToGetUserPoolSchemaAttributeArrayOutputWithContext(context.Context) GetUserPoolSchemaAttributeArrayOutput
+}
+
+type GetUserPoolSchemaAttributeArray []GetUserPoolSchemaAttributeInput
+
+func (GetUserPoolSchemaAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolSchemaAttribute)(nil)).Elem()
+}
+
+func (i GetUserPoolSchemaAttributeArray) ToGetUserPoolSchemaAttributeArrayOutput() GetUserPoolSchemaAttributeArrayOutput {
+	return i.ToGetUserPoolSchemaAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolSchemaAttributeArray) ToGetUserPoolSchemaAttributeArrayOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolSchemaAttributeArrayOutput)
+}
+
+type GetUserPoolSchemaAttributeOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolSchemaAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolSchemaAttribute)(nil)).Elem()
+}
+
+func (o GetUserPoolSchemaAttributeOutput) ToGetUserPoolSchemaAttributeOutput() GetUserPoolSchemaAttributeOutput {
+	return o
+}
+
+func (o GetUserPoolSchemaAttributeOutput) ToGetUserPoolSchemaAttributeOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeOutput {
+	return o
+}
+
+// - Data type of the attribute (e.g., string, number).
+func (o GetUserPoolSchemaAttributeOutput) AttributeDataType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttribute) string { return v.AttributeDataType }).(pulumi.StringOutput)
+}
+
+// - Whether the attribute is for developer use only.
+func (o GetUserPoolSchemaAttributeOutput) DeveloperOnlyAttribute() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttribute) bool { return v.DeveloperOnlyAttribute }).(pulumi.BoolOutput)
+}
+
+// - Whether the attribute can be changed after user creation.
+func (o GetUserPoolSchemaAttributeOutput) Mutable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttribute) bool { return v.Mutable }).(pulumi.BoolOutput)
+}
+
+// - Name of the attribute.
+func (o GetUserPoolSchemaAttributeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttribute) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolSchemaAttributeOutput) NumberAttributeConstraints() GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttribute) []GetUserPoolSchemaAttributeNumberAttributeConstraint {
+		return v.NumberAttributeConstraints
+	}).(GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput)
+}
+
+// - Whether the attribute is required during user registration.
+// * number_attribute_constraints - Constraints for numeric attributes.
+// * string_attribute_constraints - Constraints for string attributes.
+func (o GetUserPoolSchemaAttributeOutput) Required() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttribute) bool { return v.Required }).(pulumi.BoolOutput)
+}
+
+func (o GetUserPoolSchemaAttributeOutput) StringAttributeConstraints() GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttribute) []GetUserPoolSchemaAttributeStringAttributeConstraint {
+		return v.StringAttributeConstraints
+	}).(GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput)
+}
+
+type GetUserPoolSchemaAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolSchemaAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolSchemaAttribute)(nil)).Elem()
+}
+
+func (o GetUserPoolSchemaAttributeArrayOutput) ToGetUserPoolSchemaAttributeArrayOutput() GetUserPoolSchemaAttributeArrayOutput {
+	return o
+}
+
+func (o GetUserPoolSchemaAttributeArrayOutput) ToGetUserPoolSchemaAttributeArrayOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeArrayOutput {
+	return o
+}
+
+func (o GetUserPoolSchemaAttributeArrayOutput) Index(i pulumi.IntInput) GetUserPoolSchemaAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolSchemaAttribute {
+		return vs[0].([]GetUserPoolSchemaAttribute)[vs[1].(int)]
+	}).(GetUserPoolSchemaAttributeOutput)
+}
+
+type GetUserPoolSchemaAttributeNumberAttributeConstraint struct {
+	// - Maximum allowed value.
+	MaxValue string `pulumi:"maxValue"`
+	// - Minimum allowed value.
+	MinValue string `pulumi:"minValue"`
+}
+
+// GetUserPoolSchemaAttributeNumberAttributeConstraintInput is an input type that accepts GetUserPoolSchemaAttributeNumberAttributeConstraintArgs and GetUserPoolSchemaAttributeNumberAttributeConstraintOutput values.
+// You can construct a concrete instance of `GetUserPoolSchemaAttributeNumberAttributeConstraintInput` via:
+//
+//	GetUserPoolSchemaAttributeNumberAttributeConstraintArgs{...}
+type GetUserPoolSchemaAttributeNumberAttributeConstraintInput interface {
+	pulumi.Input
+
+	ToGetUserPoolSchemaAttributeNumberAttributeConstraintOutput() GetUserPoolSchemaAttributeNumberAttributeConstraintOutput
+	ToGetUserPoolSchemaAttributeNumberAttributeConstraintOutputWithContext(context.Context) GetUserPoolSchemaAttributeNumberAttributeConstraintOutput
+}
+
+type GetUserPoolSchemaAttributeNumberAttributeConstraintArgs struct {
+	// - Maximum allowed value.
+	MaxValue pulumi.StringInput `pulumi:"maxValue"`
+	// - Minimum allowed value.
+	MinValue pulumi.StringInput `pulumi:"minValue"`
+}
+
+func (GetUserPoolSchemaAttributeNumberAttributeConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolSchemaAttributeNumberAttributeConstraint)(nil)).Elem()
+}
+
+func (i GetUserPoolSchemaAttributeNumberAttributeConstraintArgs) ToGetUserPoolSchemaAttributeNumberAttributeConstraintOutput() GetUserPoolSchemaAttributeNumberAttributeConstraintOutput {
+	return i.ToGetUserPoolSchemaAttributeNumberAttributeConstraintOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolSchemaAttributeNumberAttributeConstraintArgs) ToGetUserPoolSchemaAttributeNumberAttributeConstraintOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeNumberAttributeConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolSchemaAttributeNumberAttributeConstraintOutput)
+}
+
+// GetUserPoolSchemaAttributeNumberAttributeConstraintArrayInput is an input type that accepts GetUserPoolSchemaAttributeNumberAttributeConstraintArray and GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolSchemaAttributeNumberAttributeConstraintArrayInput` via:
+//
+//	GetUserPoolSchemaAttributeNumberAttributeConstraintArray{ GetUserPoolSchemaAttributeNumberAttributeConstraintArgs{...} }
+type GetUserPoolSchemaAttributeNumberAttributeConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput() GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput
+	ToGetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutputWithContext(context.Context) GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput
+}
+
+type GetUserPoolSchemaAttributeNumberAttributeConstraintArray []GetUserPoolSchemaAttributeNumberAttributeConstraintInput
+
+func (GetUserPoolSchemaAttributeNumberAttributeConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolSchemaAttributeNumberAttributeConstraint)(nil)).Elem()
+}
+
+func (i GetUserPoolSchemaAttributeNumberAttributeConstraintArray) ToGetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput() GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput {
+	return i.ToGetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolSchemaAttributeNumberAttributeConstraintArray) ToGetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput)
+}
+
+type GetUserPoolSchemaAttributeNumberAttributeConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolSchemaAttributeNumberAttributeConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolSchemaAttributeNumberAttributeConstraint)(nil)).Elem()
+}
+
+func (o GetUserPoolSchemaAttributeNumberAttributeConstraintOutput) ToGetUserPoolSchemaAttributeNumberAttributeConstraintOutput() GetUserPoolSchemaAttributeNumberAttributeConstraintOutput {
+	return o
+}
+
+func (o GetUserPoolSchemaAttributeNumberAttributeConstraintOutput) ToGetUserPoolSchemaAttributeNumberAttributeConstraintOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeNumberAttributeConstraintOutput {
+	return o
+}
+
+// - Maximum allowed value.
+func (o GetUserPoolSchemaAttributeNumberAttributeConstraintOutput) MaxValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttributeNumberAttributeConstraint) string { return v.MaxValue }).(pulumi.StringOutput)
+}
+
+// - Minimum allowed value.
+func (o GetUserPoolSchemaAttributeNumberAttributeConstraintOutput) MinValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttributeNumberAttributeConstraint) string { return v.MinValue }).(pulumi.StringOutput)
+}
+
+type GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolSchemaAttributeNumberAttributeConstraint)(nil)).Elem()
+}
+
+func (o GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput) ToGetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput() GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput {
+	return o
+}
+
+func (o GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput) ToGetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput {
+	return o
+}
+
+func (o GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput) Index(i pulumi.IntInput) GetUserPoolSchemaAttributeNumberAttributeConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolSchemaAttributeNumberAttributeConstraint {
+		return vs[0].([]GetUserPoolSchemaAttributeNumberAttributeConstraint)[vs[1].(int)]
+	}).(GetUserPoolSchemaAttributeNumberAttributeConstraintOutput)
+}
+
+type GetUserPoolSchemaAttributeStringAttributeConstraint struct {
+	// - Maximum allowed length.
+	MaxLength string `pulumi:"maxLength"`
+	// - Minimum allowed length.
+	MinLength string `pulumi:"minLength"`
+}
+
+// GetUserPoolSchemaAttributeStringAttributeConstraintInput is an input type that accepts GetUserPoolSchemaAttributeStringAttributeConstraintArgs and GetUserPoolSchemaAttributeStringAttributeConstraintOutput values.
+// You can construct a concrete instance of `GetUserPoolSchemaAttributeStringAttributeConstraintInput` via:
+//
+//	GetUserPoolSchemaAttributeStringAttributeConstraintArgs{...}
+type GetUserPoolSchemaAttributeStringAttributeConstraintInput interface {
+	pulumi.Input
+
+	ToGetUserPoolSchemaAttributeStringAttributeConstraintOutput() GetUserPoolSchemaAttributeStringAttributeConstraintOutput
+	ToGetUserPoolSchemaAttributeStringAttributeConstraintOutputWithContext(context.Context) GetUserPoolSchemaAttributeStringAttributeConstraintOutput
+}
+
+type GetUserPoolSchemaAttributeStringAttributeConstraintArgs struct {
+	// - Maximum allowed length.
+	MaxLength pulumi.StringInput `pulumi:"maxLength"`
+	// - Minimum allowed length.
+	MinLength pulumi.StringInput `pulumi:"minLength"`
+}
+
+func (GetUserPoolSchemaAttributeStringAttributeConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolSchemaAttributeStringAttributeConstraint)(nil)).Elem()
+}
+
+func (i GetUserPoolSchemaAttributeStringAttributeConstraintArgs) ToGetUserPoolSchemaAttributeStringAttributeConstraintOutput() GetUserPoolSchemaAttributeStringAttributeConstraintOutput {
+	return i.ToGetUserPoolSchemaAttributeStringAttributeConstraintOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolSchemaAttributeStringAttributeConstraintArgs) ToGetUserPoolSchemaAttributeStringAttributeConstraintOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeStringAttributeConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolSchemaAttributeStringAttributeConstraintOutput)
+}
+
+// GetUserPoolSchemaAttributeStringAttributeConstraintArrayInput is an input type that accepts GetUserPoolSchemaAttributeStringAttributeConstraintArray and GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput values.
+// You can construct a concrete instance of `GetUserPoolSchemaAttributeStringAttributeConstraintArrayInput` via:
+//
+//	GetUserPoolSchemaAttributeStringAttributeConstraintArray{ GetUserPoolSchemaAttributeStringAttributeConstraintArgs{...} }
+type GetUserPoolSchemaAttributeStringAttributeConstraintArrayInput interface {
+	pulumi.Input
+
+	ToGetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput() GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput
+	ToGetUserPoolSchemaAttributeStringAttributeConstraintArrayOutputWithContext(context.Context) GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput
+}
+
+type GetUserPoolSchemaAttributeStringAttributeConstraintArray []GetUserPoolSchemaAttributeStringAttributeConstraintInput
+
+func (GetUserPoolSchemaAttributeStringAttributeConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolSchemaAttributeStringAttributeConstraint)(nil)).Elem()
+}
+
+func (i GetUserPoolSchemaAttributeStringAttributeConstraintArray) ToGetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput() GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput {
+	return i.ToGetUserPoolSchemaAttributeStringAttributeConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i GetUserPoolSchemaAttributeStringAttributeConstraintArray) ToGetUserPoolSchemaAttributeStringAttributeConstraintArrayOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput)
+}
+
+type GetUserPoolSchemaAttributeStringAttributeConstraintOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolSchemaAttributeStringAttributeConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolSchemaAttributeStringAttributeConstraint)(nil)).Elem()
+}
+
+func (o GetUserPoolSchemaAttributeStringAttributeConstraintOutput) ToGetUserPoolSchemaAttributeStringAttributeConstraintOutput() GetUserPoolSchemaAttributeStringAttributeConstraintOutput {
+	return o
+}
+
+func (o GetUserPoolSchemaAttributeStringAttributeConstraintOutput) ToGetUserPoolSchemaAttributeStringAttributeConstraintOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeStringAttributeConstraintOutput {
+	return o
+}
+
+// - Maximum allowed length.
+func (o GetUserPoolSchemaAttributeStringAttributeConstraintOutput) MaxLength() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttributeStringAttributeConstraint) string { return v.MaxLength }).(pulumi.StringOutput)
+}
+
+// - Minimum allowed length.
+func (o GetUserPoolSchemaAttributeStringAttributeConstraintOutput) MinLength() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolSchemaAttributeStringAttributeConstraint) string { return v.MinLength }).(pulumi.StringOutput)
+}
+
+type GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetUserPoolSchemaAttributeStringAttributeConstraint)(nil)).Elem()
+}
+
+func (o GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput) ToGetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput() GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput {
+	return o
+}
+
+func (o GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput) ToGetUserPoolSchemaAttributeStringAttributeConstraintArrayOutputWithContext(ctx context.Context) GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput {
+	return o
+}
+
+func (o GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput) Index(i pulumi.IntInput) GetUserPoolSchemaAttributeStringAttributeConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserPoolSchemaAttributeStringAttributeConstraint {
+		return vs[0].([]GetUserPoolSchemaAttributeStringAttributeConstraint)[vs[1].(int)]
+	}).(GetUserPoolSchemaAttributeStringAttributeConstraintOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolCognitoIdentityProviderInput)(nil)).Elem(), IdentityPoolCognitoIdentityProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolCognitoIdentityProviderArrayInput)(nil)).Elem(), IdentityPoolCognitoIdentityProviderArray{})
@@ -7241,10 +8775,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolCognitoIdentityProviderArrayInput)(nil)).Elem(), GetIdentityPoolCognitoIdentityProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserGroupsGroupInput)(nil)).Elem(), GetUserGroupsGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserGroupsGroupArrayInput)(nil)).Elem(), GetUserGroupsGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolAccountRecoverySettingInput)(nil)).Elem(), GetUserPoolAccountRecoverySettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolAccountRecoverySettingArrayInput)(nil)).Elem(), GetUserPoolAccountRecoverySettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolAccountRecoverySettingRecoveryMechanismInput)(nil)).Elem(), GetUserPoolAccountRecoverySettingRecoveryMechanismArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolAccountRecoverySettingRecoveryMechanismArrayInput)(nil)).Elem(), GetUserPoolAccountRecoverySettingRecoveryMechanismArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolAdminCreateUserConfigInput)(nil)).Elem(), GetUserPoolAdminCreateUserConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolAdminCreateUserConfigArrayInput)(nil)).Elem(), GetUserPoolAdminCreateUserConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolAdminCreateUserConfigInviteMessageTemplateInput)(nil)).Elem(), GetUserPoolAdminCreateUserConfigInviteMessageTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayInput)(nil)).Elem(), GetUserPoolAdminCreateUserConfigInviteMessageTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), GetUserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientAnalyticsConfigurationArrayInput)(nil)).Elem(), GetUserPoolClientAnalyticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientTokenValidityUnitInput)(nil)).Elem(), GetUserPoolClientTokenValidityUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientTokenValidityUnitArrayInput)(nil)).Elem(), GetUserPoolClientTokenValidityUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolDeviceConfigurationInput)(nil)).Elem(), GetUserPoolDeviceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolDeviceConfigurationArrayInput)(nil)).Elem(), GetUserPoolDeviceConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolEmailConfigurationInput)(nil)).Elem(), GetUserPoolEmailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolEmailConfigurationArrayInput)(nil)).Elem(), GetUserPoolEmailConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolLambdaConfigInput)(nil)).Elem(), GetUserPoolLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolLambdaConfigArrayInput)(nil)).Elem(), GetUserPoolLambdaConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolLambdaConfigCustomEmailSenderInput)(nil)).Elem(), GetUserPoolLambdaConfigCustomEmailSenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolLambdaConfigCustomEmailSenderArrayInput)(nil)).Elem(), GetUserPoolLambdaConfigCustomEmailSenderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolLambdaConfigCustomSmsSenderInput)(nil)).Elem(), GetUserPoolLambdaConfigCustomSmsSenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolLambdaConfigCustomSmsSenderArrayInput)(nil)).Elem(), GetUserPoolLambdaConfigCustomSmsSenderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolLambdaConfigPreTokenGenerationConfigInput)(nil)).Elem(), GetUserPoolLambdaConfigPreTokenGenerationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolLambdaConfigPreTokenGenerationConfigArrayInput)(nil)).Elem(), GetUserPoolLambdaConfigPreTokenGenerationConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolSchemaAttributeInput)(nil)).Elem(), GetUserPoolSchemaAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolSchemaAttributeArrayInput)(nil)).Elem(), GetUserPoolSchemaAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolSchemaAttributeNumberAttributeConstraintInput)(nil)).Elem(), GetUserPoolSchemaAttributeNumberAttributeConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolSchemaAttributeNumberAttributeConstraintArrayInput)(nil)).Elem(), GetUserPoolSchemaAttributeNumberAttributeConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolSchemaAttributeStringAttributeConstraintInput)(nil)).Elem(), GetUserPoolSchemaAttributeStringAttributeConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolSchemaAttributeStringAttributeConstraintArrayInput)(nil)).Elem(), GetUserPoolSchemaAttributeStringAttributeConstraintArray{})
 	pulumi.RegisterOutputType(IdentityPoolCognitoIdentityProviderOutput{})
 	pulumi.RegisterOutputType(IdentityPoolCognitoIdentityProviderArrayOutput{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingOutput{})
@@ -7329,8 +8889,34 @@ func init() {
 	pulumi.RegisterOutputType(GetIdentityPoolCognitoIdentityProviderArrayOutput{})
 	pulumi.RegisterOutputType(GetUserGroupsGroupOutput{})
 	pulumi.RegisterOutputType(GetUserGroupsGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolAccountRecoverySettingOutput{})
+	pulumi.RegisterOutputType(GetUserPoolAccountRecoverySettingArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolAccountRecoverySettingRecoveryMechanismOutput{})
+	pulumi.RegisterOutputType(GetUserPoolAccountRecoverySettingRecoveryMechanismArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolAdminCreateUserConfigOutput{})
+	pulumi.RegisterOutputType(GetUserPoolAdminCreateUserConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolAdminCreateUserConfigInviteMessageTemplateOutput{})
+	pulumi.RegisterOutputType(GetUserPoolAdminCreateUserConfigInviteMessageTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientAnalyticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientTokenValidityUnitOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientTokenValidityUnitArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolDeviceConfigurationOutput{})
+	pulumi.RegisterOutputType(GetUserPoolDeviceConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolEmailConfigurationOutput{})
+	pulumi.RegisterOutputType(GetUserPoolEmailConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolLambdaConfigOutput{})
+	pulumi.RegisterOutputType(GetUserPoolLambdaConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolLambdaConfigCustomEmailSenderOutput{})
+	pulumi.RegisterOutputType(GetUserPoolLambdaConfigCustomEmailSenderArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolLambdaConfigCustomSmsSenderOutput{})
+	pulumi.RegisterOutputType(GetUserPoolLambdaConfigCustomSmsSenderArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolLambdaConfigPreTokenGenerationConfigOutput{})
+	pulumi.RegisterOutputType(GetUserPoolLambdaConfigPreTokenGenerationConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolSchemaAttributeOutput{})
+	pulumi.RegisterOutputType(GetUserPoolSchemaAttributeArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolSchemaAttributeNumberAttributeConstraintOutput{})
+	pulumi.RegisterOutputType(GetUserPoolSchemaAttributeNumberAttributeConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetUserPoolSchemaAttributeStringAttributeConstraintOutput{})
+	pulumi.RegisterOutputType(GetUserPoolSchemaAttributeStringAttributeConstraintArrayOutput{})
 }

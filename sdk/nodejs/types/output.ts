@@ -1202,6 +1202,21 @@ export namespace amplify {
         thumbnailUrl: string;
     }
 
+    export interface DomainAssociationCertificateSettings {
+        /**
+         * DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+         */
+        certificateVerificationDnsRecord: string;
+        /**
+         * The Amazon resource name (ARN) for the custom certificate.
+         */
+        customCertificateArn?: string;
+        /**
+         * The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+         */
+        type: string;
+    }
+
     export interface DomainAssociationSubDomain {
         /**
          * Branch name setting for the subdomain.
@@ -7072,6 +7087,98 @@ export namespace appstream {
         subnetIds: string[];
     }
 
+    export interface GetImageApplication {
+        /**
+         * The app block ARN of the application.
+         */
+        appBlockArn: string;
+        /**
+         * Arn of the image being searched for. Cannot be used with nameRegex or name.
+         */
+        arn: string;
+        /**
+         * Time at which this image was created.
+         */
+        createdTime: string;
+        /**
+         * Description of image.
+         */
+        description: string;
+        /**
+         * Image name to display.
+         */
+        displayName: string;
+        /**
+         * Bool based on if the application is enabled.
+         */
+        enabled: boolean;
+        /**
+         * A list named iconS3Location that contains the following:
+         */
+        iconS3Locations: outputs.appstream.GetImageApplicationIconS3Location[];
+        /**
+         * URL of the application icon. This URL may be time-limited.
+         */
+        iconUrl: string;
+        /**
+         * List of the instance families of the application.
+         */
+        instanceFamilies: string[];
+        /**
+         * Arguments that are passed to the application at it's launch.
+         */
+        launchParameters: string;
+        /**
+         * Path to the application's excecutable in the instance.
+         */
+        launchPath: string;
+        /**
+         * String to string map that contains additional attributes used to describe the application.
+         * * `Name` - Name of the application.
+         */
+        metadata: {[key: string]: any};
+        /**
+         * Name of the image being searched for. Cannot be used with nameRegex or arn.
+         */
+        name: string;
+        /**
+         * Array of strings describing the platforms on which the application can run.
+         * Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+         */
+        platforms: string[];
+        /**
+         * Working directory for the application.
+         */
+        workingDirectory: string;
+    }
+
+    export interface GetImageApplicationIconS3Location {
+        /**
+         * S3 bucket of the S3 object.
+         */
+        s3Bucket: string;
+        /**
+         * S3 key of the S3 object.
+         */
+        s3Key: string;
+    }
+
+    export interface GetImageImagePermission {
+        /**
+         * Boolean indicating if the image can be used for a fleet.
+         */
+        allowFleet: boolean;
+        /**
+         * indicated whether the image can be used for an image builder.
+         */
+        allowImageBuilder: boolean;
+    }
+
+    export interface GetImageStateChangeReason {
+        code: string;
+        message: string;
+    }
+
     export interface ImageBuilderAccessEndpoint {
         /**
          * Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
@@ -9216,6 +9323,35 @@ export namespace backup {
          * Tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
          */
         tags: {[key: string]: string};
+    }
+
+    export interface GetPlanRule {
+        completionWindow: number;
+        copyActions: outputs.backup.GetPlanRuleCopyAction[];
+        enableContinuousBackup: boolean;
+        lifecycles: outputs.backup.GetPlanRuleLifecycle[];
+        recoveryPointTags?: {[key: string]: string};
+        ruleName: string;
+        schedule: string;
+        startWindow: number;
+        targetVaultName: string;
+    }
+
+    export interface GetPlanRuleCopyAction {
+        destinationVaultArn: string;
+        lifecycles: outputs.backup.GetPlanRuleCopyActionLifecycle[];
+    }
+
+    export interface GetPlanRuleCopyActionLifecycle {
+        coldStorageAfter: number;
+        deleteAfter: number;
+        optInToArchiveForSupportedResources: boolean;
+    }
+
+    export interface GetPlanRuleLifecycle {
+        coldStorageAfter: number;
+        deleteAfter: number;
+        optInToArchiveForSupportedResources: boolean;
     }
 
     export interface GetReportPlanReportDeliveryChannel {
@@ -15510,6 +15646,49 @@ export namespace cognito {
         roleArn: string;
     }
 
+    export interface GetUserPoolAccountRecoverySetting {
+        recoveryMechanisms: outputs.cognito.GetUserPoolAccountRecoverySettingRecoveryMechanism[];
+    }
+
+    export interface GetUserPoolAccountRecoverySettingRecoveryMechanism {
+        /**
+         * - Name of the attribute.
+         */
+        name: string;
+        /**
+         * - Priority of this mechanism in the recovery process (lower numbers are higher priority).
+         */
+        priority: number;
+    }
+
+    export interface GetUserPoolAdminCreateUserConfig {
+        /**
+         * - Whether only admins can create users.
+         */
+        allowAdminCreateUserOnly: boolean;
+        inviteMessageTemplates: outputs.cognito.GetUserPoolAdminCreateUserConfigInviteMessageTemplate[];
+        /**
+         * - Number of days an unconfirmed user account remains valid.
+         * * invite_message_template - Templates for invitation messages.
+         */
+        unusedAccountValidityDays: number;
+    }
+
+    export interface GetUserPoolAdminCreateUserConfigInviteMessageTemplate {
+        /**
+         * - Email message content.
+         */
+        emailMessage: string;
+        /**
+         * - Email message subject.
+         */
+        emailSubject: string;
+        /**
+         * - SMS message content.
+         */
+        smsMessage: string;
+    }
+
     export interface GetUserPoolClientAnalyticsConfiguration {
         /**
          * (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
@@ -15546,6 +15725,139 @@ export namespace cognito {
          * (Optional) Time unit in for the value in `refreshTokenValidity`, defaults to `days`.
          */
         refreshToken: string;
+    }
+
+    export interface GetUserPoolDeviceConfiguration {
+        /**
+         * - Whether a challenge is required on new devices.
+         */
+        challengeRequiredOnNewDevice: boolean;
+        /**
+         * - Whether devices are only remembered if the user prompts it.
+         */
+        deviceOnlyRememberedOnUserPrompt: boolean;
+    }
+
+    export interface GetUserPoolEmailConfiguration {
+        /**
+         * - Configuration set used for sending emails.
+         */
+        configurationSet: string;
+        /**
+         * - Email sending account.
+         */
+        emailSendingAccount: string;
+        /**
+         * - Email sender address.
+         */
+        from: string;
+        /**
+         * - Reply-to email address.
+         */
+        replyToEmailAddress: string;
+        /**
+         * - Source Amazon Resource Name (ARN) for emails.
+         */
+        sourceArn: string;
+    }
+
+    export interface GetUserPoolLambdaConfig {
+        createAuthChallenge: string;
+        customEmailSenders: outputs.cognito.GetUserPoolLambdaConfigCustomEmailSender[];
+        customMessage: string;
+        customSmsSenders: outputs.cognito.GetUserPoolLambdaConfigCustomSmsSender[];
+        defineAuthChallenge: string;
+        kmsKeyId: string;
+        postAuthentication: string;
+        postConfirmation: string;
+        preAuthentication: string;
+        preSignUp: string;
+        preTokenGeneration: string;
+        preTokenGenerationConfigs: outputs.cognito.GetUserPoolLambdaConfigPreTokenGenerationConfig[];
+        userMigration: string;
+        verifyAuthChallengeResponse: string;
+    }
+
+    export interface GetUserPoolLambdaConfigCustomEmailSender {
+        /**
+         * - ARN of the Lambda function.
+         */
+        lambdaArn: string;
+        /**
+         * - Version of the Lambda function.
+         */
+        lambdaVersion: string;
+    }
+
+    export interface GetUserPoolLambdaConfigCustomSmsSender {
+        /**
+         * - ARN of the Lambda function.
+         */
+        lambdaArn: string;
+        /**
+         * - Version of the Lambda function.
+         */
+        lambdaVersion: string;
+    }
+
+    export interface GetUserPoolLambdaConfigPreTokenGenerationConfig {
+        /**
+         * - ARN of the Lambda function.
+         */
+        lambdaArn: string;
+        /**
+         * - Version of the Lambda function.
+         */
+        lambdaVersion: string;
+    }
+
+    export interface GetUserPoolSchemaAttribute {
+        /**
+         * - Data type of the attribute (e.g., string, number).
+         */
+        attributeDataType: string;
+        /**
+         * - Whether the attribute is for developer use only.
+         */
+        developerOnlyAttribute: boolean;
+        /**
+         * - Whether the attribute can be changed after user creation.
+         */
+        mutable: boolean;
+        /**
+         * - Name of the attribute.
+         */
+        name: string;
+        numberAttributeConstraints: outputs.cognito.GetUserPoolSchemaAttributeNumberAttributeConstraint[];
+        /**
+         * - Whether the attribute is required during user registration.
+         * * number_attribute_constraints - Constraints for numeric attributes.
+         * * string_attribute_constraints - Constraints for string attributes.
+         */
+        required: boolean;
+        stringAttributeConstraints: outputs.cognito.GetUserPoolSchemaAttributeStringAttributeConstraint[];
+    }
+
+    export interface GetUserPoolSchemaAttributeNumberAttributeConstraint {
+        /**
+         * - Maximum allowed value.
+         */
+        maxValue: string;
+        /**
+         * - Minimum allowed value.
+         */
+        minValue: string;
+    }
+
+    export interface GetUserPoolSchemaAttributeStringAttributeConstraint {
+        /**
+         * - Maximum allowed length.
+         */
+        maxLength: string;
+        /**
+         * - Minimum allowed length.
+         */
+        minLength: string;
     }
 
     export interface IdentityPoolCognitoIdentityProvider {
@@ -16705,6 +17017,10 @@ export namespace config {
         /**
          * Use this to override the default service endpoint URL
          */
+        databrew?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
         dataexchange?: string;
         /**
          * Use this to override the default service endpoint URL
@@ -16898,6 +17214,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         glue?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        gluedatabrew?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -28915,6 +29235,17 @@ export namespace ec2transitgateway {
         values: string[];
     }
 
+    export interface GetPeeringAttachmentsFilter {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
     export interface GetRouteTableAssociationsFilter {
         /**
          * Name of the field to filter by, as defined by
@@ -29040,6 +29371,13 @@ export namespace ec2transitgateway {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
          */
         delete?: string;
+    }
+
+    export interface PeeringAttachmentOptions {
+        /**
+         * Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+         */
+        dynamicRouting?: string;
     }
 
 }
@@ -33594,7 +33932,7 @@ export namespace fsx {
 
     export interface GetOntapFileSystemEndpointIntercluster {
         /**
-         * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+         * DNS name for the file system.
          */
         dnsName: string;
         ipAddresses: string[];
@@ -33602,7 +33940,7 @@ export namespace fsx {
 
     export interface GetOntapFileSystemEndpointManagement {
         /**
-         * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+         * DNS name for the file system.
          */
         dnsName: string;
         ipAddresses: string[];
@@ -37875,6 +38213,10 @@ export namespace iot {
 
     export interface TopicRuleCloudwatchLog {
         /**
+         * The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+         */
+        batchMode?: boolean;
+        /**
          * The CloudWatch log group name.
          */
         logGroupName: string;
@@ -38056,6 +38398,10 @@ export namespace iot {
     }
 
     export interface TopicRuleErrorActionCloudwatchLogs {
+        /**
+         * The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+         */
+        batchMode?: boolean;
         /**
          * The CloudWatch log group name.
          */
@@ -70680,7 +71026,7 @@ export namespace sagemaker {
 
     export interface EndpointConfigurationDataCaptureConfigCaptureOption {
         /**
-         * Specifies the data to be captured. Should be one of `Input` or `Output`.
+         * Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
          */
         captureMode: string;
     }
@@ -76846,6 +77192,53 @@ export namespace transfer {
     export interface ConnectorSftpConfig {
         trustedHostKeys?: string[];
         userSecretId?: string;
+    }
+
+    export interface GetConnectorAs2Config {
+        /**
+         * Basic authentication for AS2 connector API. Returns a null value if not set.
+         */
+        basicAuthSecretId: string;
+        /**
+         * Specifies whether AS2 file is compressed. Will be ZLIB or DISABLED
+         */
+        compression: string;
+        /**
+         * Algorithm used to encrypt file. Will be AES128_CBC or AES192_CBC or AES256_CBC or DES_EDE3_CBC or NONE.
+         */
+        encryptionAlgorithm: string;
+        /**
+         * Unique identifier for AS2 local profile.
+         */
+        localProfileId: string;
+        /**
+         * Used for outbound requests to tell if response is asynchronous or not. Will be either SYNC or NONE.
+         */
+        mdnResponse: string;
+        /**
+         * Signing algorithm for MDN response. Will be SHA256 or SHA384 or SHA512 or SHA1 or NONE or DEFAULT.
+         */
+        mdnSigningAlgorithm: string;
+        /**
+         * Subject HTTP header attribute in outbound AS2 messages to the connector.
+         */
+        messageSubject: string;
+        /**
+         * Unique identifier used by connector for partner profile.
+         */
+        partnerProfileId: string;
+        singingAlgorithm: string;
+    }
+
+    export interface GetConnectorSftpConfig {
+        /**
+         * List of the public portions of the host keys that are used to identify the servers the connector is connected to.
+         */
+        trustedHostKeys: string[];
+        /**
+         * Identifer for the secret in AWS Secrets Manager that contains the SFTP user's private key, and/or password.
+         */
+        userSecretId: string;
     }
 
     export interface ServerEndpointDetails {

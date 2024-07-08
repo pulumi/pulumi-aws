@@ -21,6 +21,8 @@ __all__ = [
     'AppCustomRuleArgsDict',
     'AppProductionBranchArgs',
     'AppProductionBranchArgsDict',
+    'DomainAssociationCertificateSettingsArgs',
+    'DomainAssociationCertificateSettingsArgsDict',
     'DomainAssociationSubDomainArgs',
     'DomainAssociationSubDomainArgsDict',
 ]
@@ -419,6 +421,77 @@ class AppProductionBranchArgs:
     @thumbnail_url.setter
     def thumbnail_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbnail_url", value)
+
+
+if not MYPY:
+    class DomainAssociationCertificateSettingsArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+        """
+        certificate_verification_dns_record: NotRequired[pulumi.Input[str]]
+        """
+        DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+        """
+        custom_certificate_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon resource name (ARN) for the custom certificate.
+        """
+elif False:
+    DomainAssociationCertificateSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainAssociationCertificateSettingsArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 certificate_verification_dns_record: Optional[pulumi.Input[str]] = None,
+                 custom_certificate_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+        :param pulumi.Input[str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+        :param pulumi.Input[str] custom_certificate_arn: The Amazon resource name (ARN) for the custom certificate.
+        """
+        pulumi.set(__self__, "type", type)
+        if certificate_verification_dns_record is not None:
+            pulumi.set(__self__, "certificate_verification_dns_record", certificate_verification_dns_record)
+        if custom_certificate_arn is not None:
+            pulumi.set(__self__, "custom_certificate_arn", custom_certificate_arn)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="certificateVerificationDnsRecord")
+    def certificate_verification_dns_record(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+        """
+        return pulumi.get(self, "certificate_verification_dns_record")
+
+    @certificate_verification_dns_record.setter
+    def certificate_verification_dns_record(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_verification_dns_record", value)
+
+    @property
+    @pulumi.getter(name="customCertificateArn")
+    def custom_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon resource name (ARN) for the custom certificate.
+        """
+        return pulumi.get(self, "custom_certificate_arn")
+
+    @custom_certificate_arn.setter
+    def custom_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_certificate_arn", value)
 
 
 if not MYPY:
