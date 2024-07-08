@@ -37,6 +37,13 @@ jobs:
       is_pr: ${{ github.event_name == 'pull_request' }}
       is_automated: ${{ github.actor == 'dependabot[bot]' }}
 
+  build_provider:
+    uses: ./.github/workflows/build_provider.yml
+    needs: prerequisites
+    secrets: inherit
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
+
   build_sdk:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
