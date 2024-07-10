@@ -1382,6 +1382,8 @@ github.com/aws/aws-sdk-go-v2/service/costoptimizationhub v1.7.1 h1:xiY671HwhpknL
 github.com/aws/aws-sdk-go-v2/service/costoptimizationhub v1.7.1/go.mod h1:GYo8fQQfbh6IIxk26pN4x6Dn+pmiLkAcvLXmoDvt8h8=
 github.com/aws/aws-sdk-go-v2/service/customerprofiles v1.39.1 h1:GNt9or/jdZSuwOfjAcJa3OWNsWFmBEnaaa5zm3oXkOE=
 github.com/aws/aws-sdk-go-v2/service/customerprofiles v1.39.1/go.mod h1:Zm4sD1GoMIsgDONpLuVkSt/q0MiJr61ckXen5SUXFH8=
+github.com/aws/aws-sdk-go-v2/service/databrew v1.31.1 h1:A4pF8zI5mPHFbCHRCaY0PE6pY5RZWfqGFptEJ/VkBhU=
+github.com/aws/aws-sdk-go-v2/service/databrew v1.31.1/go.mod h1:zfR3fjCNYab5wbj84lDOT/BCfvYxgxzqpL/KUHgHht4=
 github.com/aws/aws-sdk-go-v2/service/datasync v1.40.1 h1:X4p3u+6ddLBGUeMBrY17SDEqKscJptDVutwb6nxU3Io=
 github.com/aws/aws-sdk-go-v2/service/datasync v1.40.1/go.mod h1:8oB4hGBkkFOl/IFS6KYld4XgtIga3nOkAW9SuNbxdv0=
 github.com/aws/aws-sdk-go-v2/service/datazone v1.12.1 h1:wro8aemBaIJtyqM8jYMN72ZNJ9ScQg/AvhkmWL6/Bg8=
@@ -1440,6 +1442,10 @@ github.com/aws/aws-sdk-go-v2/service/glacier v1.24.1 h1:KlpakUk4p2S9mRz0i15M5ONz
 github.com/aws/aws-sdk-go-v2/service/glacier v1.24.1/go.mod h1:o6UHomtBF7tyY30psg6hs0ZIlxkBK8SnhgtIrkKFoSA=
 github.com/aws/aws-sdk-go-v2/service/globalaccelerator v1.26.1 h1:ZF//0v9qJttmSjTyT3EK8UAvDNs0xQ6xZUtJpEDPgNI=
 github.com/aws/aws-sdk-go-v2/service/globalaccelerator v1.26.1/go.mod h1:bWwtuxoMnUPJAn7EjLscm0ddKzf++mnjCUF8J/gjxsA=
+github.com/aws/aws-sdk-go-v2/service/grafana v1.24.1 h1:9arpyvo+AHuSlfwd0B4+99mSauANa+ca4UR04TXpMC8=
+github.com/aws/aws-sdk-go-v2/service/grafana v1.24.1/go.mod h1:w3Do1roFlHxKtjWkjSwevSX4Vbia2CpZ32rfBa38xJs=
+github.com/aws/aws-sdk-go-v2/service/greengrass v1.25.1 h1:Fw4hUGV/H7uJUf+h/ZkwXHDUrCeRzy6T8JvzsM5J1yE=
+github.com/aws/aws-sdk-go-v2/service/greengrass v1.25.1/go.mod h1:sdnAwxQLduSCSlpqfPY8XSfcPNzT9uMG+h7+AmgPQ1w=
 github.com/aws/aws-sdk-go-v2/service/groundstation v1.29.1 h1:b7NYx+Wns7iVGWCoVDlYeJhmBvzYBrtCqbIkDxOrHE8=
 github.com/aws/aws-sdk-go-v2/service/groundstation v1.29.1/go.mod h1:AJdJPFZ2QWkkVn/zt+y9KcVTZiMCWQCgDyMRjxr6Rww=
 github.com/aws/aws-sdk-go-v2/service/guardduty v1.45.1 h1:+YYUnMwh5C8JIKCdwMjcamNqbId+vidg4Dri2Z+VSKA=
@@ -1464,6 +1470,12 @@ github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.17.13 h1:Eq2THzHt6P41m
 github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.17.13/go.mod h1:FgwTca6puegxgCInYwGjmd4tB9195Dd6LCuA+8MjpWw=
 github.com/aws/aws-sdk-go-v2/service/internetmonitor v1.16.1 h1:k/RKod+whF8SajBLtMbonnASqDH7cdcaV+dV4Y+Iy14=
 github.com/aws/aws-sdk-go-v2/service/internetmonitor v1.16.1/go.mod h1:XPMC1HSRRPuwRPyJxEOdmXDMwSzwuLRgJxWvruqOb1E=
+github.com/aws/aws-sdk-go-v2/service/iot v1.55.1 h1:vtcrAu71ib/I1HZMNT/Kse/EHOnoxsG72sqlkuCn7mE=
+github.com/aws/aws-sdk-go-v2/service/iot v1.55.1/go.mod h1:teEXCZKFcHzIeb3lp18Rg1UQNB1dFSza6xlnPySBUsE=
+github.com/aws/aws-sdk-go-v2/service/iotanalytics v1.24.1 h1:HgYcw25tNge1/t+QTaGP5snHG2Ktb/u4KlD/qkxyjk8=
+github.com/aws/aws-sdk-go-v2/service/iotanalytics v1.24.1/go.mod h1:7EAfulhWZOndeYQyqloMJoPK9YbInZ7MXsDRTB3QcU0=
+github.com/aws/aws-sdk-go-v2/service/iotevents v1.25.1 h1:5DFNTv6jUEMVK/XiO/kjFhJLALQUXhBxERUHqY2I1Fg=
+github.com/aws/aws-sdk-go-v2/service/iotevents v1.25.1/go.mod h1:aFAvBjoz1mujsaPHgVoj4Bhwg6xG7vzk1AfCOt7/u8I=
 github.com/aws/aws-sdk-go-v2/service/ivschat v1.14.1 h1:rmVLJaE6iqVSSeipZnhul8BMBm6PkVIWvFkPUnSLYcc=
 github.com/aws/aws-sdk-go-v2/service/ivschat v1.14.1/go.mod h1:IUQ9qdszWBPacNZ36JLkmOxGx/2LCzz/DOZjpg/8tz4=
 github.com/aws/aws-sdk-go-v2/service/kafka v1.35.1 h1:Q4Jr/gf+7LHjBFTdecQJn4ugVoVszCHzyq1EztrHHkc=
