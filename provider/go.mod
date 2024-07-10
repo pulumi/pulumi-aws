@@ -65,12 +65,12 @@ require (
 	github.com/armon/go-radix v1.0.0 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
 	github.com/aws/aws-sdk-go v1.54.8 // indirect
-	github.com/aws/aws-sdk-go-v2 v1.30.0 // indirect
+	github.com/aws/aws-sdk-go-v2 v1.30.1 // indirect
 	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.2 // indirect
 	github.com/aws/aws-sdk-go-v2/credentials v1.17.21 // indirect
 	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.1 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.12 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.12 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.13 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.13 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/ini v1.8.0 // indirect
 	github.com/aws/aws-sdk-go-v2/internal/v4a v1.3.12 // indirect
 	github.com/aws/aws-sdk-go-v2/service/accessanalyzer v1.31.1 // indirect
@@ -81,7 +81,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/amplify v1.22.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/apigateway v1.24.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/apigatewayv2 v1.21.1 // indirect
-	github.com/aws/aws-sdk-go-v2/service/appconfig v1.30.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/appconfig v1.31.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appfabric v1.8.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appflow v1.42.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/appintegrations v1.26.1 // indirect
@@ -263,7 +263,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/workspaces v1.40.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/workspacesweb v1.20.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/xray v1.26.1 // indirect
-	github.com/aws/smithy-go v1.20.2 // indirect
+	github.com/aws/smithy-go v1.20.3 // indirect
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
 	github.com/beevik/etree v1.4.0 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
