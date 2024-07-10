@@ -78,6 +78,8 @@ import (
 type PeeringAttachment struct {
 	pulumi.CustomResourceState
 
+	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+	Options PeeringAttachmentOptionsPtrOutput `pulumi:"options"`
 	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
 	PeerAccountId pulumi.StringOutput `pulumi:"peerAccountId"`
 	// Region of EC2 Transit Gateway to peer with.
@@ -134,6 +136,8 @@ func GetPeeringAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PeeringAttachment resources.
 type peeringAttachmentState struct {
+	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+	Options *PeeringAttachmentOptions `pulumi:"options"`
 	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
 	PeerAccountId *string `pulumi:"peerAccountId"`
 	// Region of EC2 Transit Gateway to peer with.
@@ -152,6 +156,8 @@ type peeringAttachmentState struct {
 }
 
 type PeeringAttachmentState struct {
+	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+	Options PeeringAttachmentOptionsPtrInput
 	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
 	PeerAccountId pulumi.StringPtrInput
 	// Region of EC2 Transit Gateway to peer with.
@@ -174,6 +180,8 @@ func (PeeringAttachmentState) ElementType() reflect.Type {
 }
 
 type peeringAttachmentArgs struct {
+	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+	Options *PeeringAttachmentOptions `pulumi:"options"`
 	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
 	PeerAccountId *string `pulumi:"peerAccountId"`
 	// Region of EC2 Transit Gateway to peer with.
@@ -188,6 +196,8 @@ type peeringAttachmentArgs struct {
 
 // The set of arguments for constructing a PeeringAttachment resource.
 type PeeringAttachmentArgs struct {
+	// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+	Options PeeringAttachmentOptionsPtrInput
 	// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
 	PeerAccountId pulumi.StringPtrInput
 	// Region of EC2 Transit Gateway to peer with.
@@ -285,6 +295,11 @@ func (o PeeringAttachmentOutput) ToPeeringAttachmentOutput() PeeringAttachmentOu
 
 func (o PeeringAttachmentOutput) ToPeeringAttachmentOutputWithContext(ctx context.Context) PeeringAttachmentOutput {
 	return o
+}
+
+// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+func (o PeeringAttachmentOutput) Options() PeeringAttachmentOptionsPtrOutput {
+	return o.ApplyT(func(v *PeeringAttachment) PeeringAttachmentOptionsPtrOutput { return v.Options }).(PeeringAttachmentOptionsPtrOutput)
 }
 
 // Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.

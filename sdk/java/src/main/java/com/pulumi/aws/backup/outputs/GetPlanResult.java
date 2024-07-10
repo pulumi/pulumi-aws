@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.backup.outputs;
 
+import com.pulumi.aws.backup.outputs.GetPlanRule;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -27,6 +29,11 @@ public final class GetPlanResult {
      */
     private String name;
     private String planId;
+    /**
+     * @return Rules of a backup plan.
+     * 
+     */
+    private List<GetPlanRule> rules;
     /**
      * @return Metadata that you can assign to help organize the plans you create.
      * 
@@ -64,6 +71,13 @@ public final class GetPlanResult {
         return this.planId;
     }
     /**
+     * @return Rules of a backup plan.
+     * 
+     */
+    public List<GetPlanRule> rules() {
+        return this.rules;
+    }
+    /**
      * @return Metadata that you can assign to help organize the plans you create.
      * 
      */
@@ -91,6 +105,7 @@ public final class GetPlanResult {
         private String id;
         private String name;
         private String planId;
+        private List<GetPlanRule> rules;
         private Map<String,String> tags;
         private String version;
         public Builder() {}
@@ -100,6 +115,7 @@ public final class GetPlanResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.planId = defaults.planId;
+    	      this.rules = defaults.rules;
     	      this.tags = defaults.tags;
     	      this.version = defaults.version;
         }
@@ -137,6 +153,17 @@ public final class GetPlanResult {
             return this;
         }
         @CustomType.Setter
+        public Builder rules(List<GetPlanRule> rules) {
+            if (rules == null) {
+              throw new MissingRequiredPropertyException("GetPlanResult", "rules");
+            }
+            this.rules = rules;
+            return this;
+        }
+        public Builder rules(GetPlanRule... rules) {
+            return rules(List.of(rules));
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetPlanResult", "tags");
@@ -158,6 +185,7 @@ public final class GetPlanResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.planId = planId;
+            _resultValue.rules = rules;
             _resultValue.tags = tags;
             _resultValue.version = version;
             return _resultValue;

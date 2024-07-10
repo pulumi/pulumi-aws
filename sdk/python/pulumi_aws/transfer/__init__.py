@@ -9,6 +9,7 @@ from .access import *
 from .agreement import *
 from .certificate import *
 from .connector import *
+from .get_connector import *
 from .get_server import *
 from .profile import *
 from .server import *

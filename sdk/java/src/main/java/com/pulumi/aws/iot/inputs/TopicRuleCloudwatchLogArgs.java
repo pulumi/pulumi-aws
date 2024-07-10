@@ -6,13 +6,31 @@ package com.pulumi.aws.iot.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class TopicRuleCloudwatchLogArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicRuleCloudwatchLogArgs Empty = new TopicRuleCloudwatchLogArgs();
+
+    /**
+     * The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+     * 
+     */
+    @Import(name="batchMode")
+    private @Nullable Output<Boolean> batchMode;
+
+    /**
+     * @return The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+     * 
+     */
+    public Optional<Output<Boolean>> batchMode() {
+        return Optional.ofNullable(this.batchMode);
+    }
 
     /**
      * The CloudWatch log group name.
@@ -47,6 +65,7 @@ public final class TopicRuleCloudwatchLogArgs extends com.pulumi.resources.Resou
     private TopicRuleCloudwatchLogArgs() {}
 
     private TopicRuleCloudwatchLogArgs(TopicRuleCloudwatchLogArgs $) {
+        this.batchMode = $.batchMode;
         this.logGroupName = $.logGroupName;
         this.roleArn = $.roleArn;
     }
@@ -67,6 +86,27 @@ public final class TopicRuleCloudwatchLogArgs extends com.pulumi.resources.Resou
 
         public Builder(TopicRuleCloudwatchLogArgs defaults) {
             $ = new TopicRuleCloudwatchLogArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param batchMode The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder batchMode(@Nullable Output<Boolean> batchMode) {
+            $.batchMode = batchMode;
+            return this;
+        }
+
+        /**
+         * @param batchMode The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder batchMode(Boolean batchMode) {
+            return batchMode(Output.of(batchMode));
         }
 
         /**

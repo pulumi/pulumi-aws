@@ -19,7 +19,6 @@ env:
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
 jobs:
   prerequisites:
@@ -29,6 +28,13 @@ jobs:
       default_branch: ${{ github.event.repository.default_branch }}
       is_pr: ${{ github.event_name == 'pull_request' }}
       is_automated: ${{ github.actor == 'dependabot[bot]' }}
+
+  build_provider:
+    uses: ./.github/workflows/build_provider.yml
+    needs: prerequisites
+    secrets: inherit
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
 
   build_sdk:
     name: build_sdk
@@ -61,26 +67,10 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_CORP_S3_UPLOAD_ACCESS_KEY_ID }}
         aws-region: us-west-2
         aws-secret-access-key: ${{ secrets.AWS_CORP_S3_UPLOAD_SECRET_ACCESS_KEY }}
-    - name: Install Go
-      uses: actions/setup-go@v5
+    - name: Setup tools
+      uses: ./.github/actions/setup-tools
       with:
-        go-version: "1.21.x"
-        cache-dependency-path: |
-          sdk/go.sum
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
-      with:
-        tag: v0.0.46
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/actions@v5
-      with:
-        pulumi-version: "dev"
-    - if: github.event_name == 'pull_request'
-      name: Install Schema Tools
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
-      with:
-        repo: pulumi/schema-tools
+        tools: pulumictl, pulumicli, go, schema-tools
     - name: Echo Coverage Output Dir
       run: 'echo "Coverage output directory: ${{ env.COVERAGE_OUTPUT_DIR }}"'
     - name: Generate Coverage Data
@@ -103,90 +93,23 @@ jobs:
     name: publish
     needs:
       - prerequisites
+      - build_provider
       - test
       - license_check
       - go_test_shim
       - provider_test
       - test_oidc
-    runs-on: ubuntu-latest
-    steps:
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@v1.3.1
-      with:
-        # this might remove tools that are actually needed,
-        # if set to "true" but frees about 6 GB
-        tool-cache: false
-        swap-storage: false
-    - name: Checkout Repo
-      uses: actions/checkout@v4
-      with:
-        submodules: true
-    - name: Install Go
-      uses: actions/setup-go@v5
-      with:
-        go-version: "1.21.x"
-        cache-dependency-path: |
-          sdk/go.sum
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
-      with:
-        tag: v0.0.46
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/actions@v5
-      with:
-        pulumi-version: "dev"
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-region: us-east-2
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 7200
-        role-external-id: upload-pulumi-release
-        role-session-name: aws@githubActions
-        role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
-    - name: Run GoReleaser
-      uses: goreleaser/goreleaser-action@v5
-      env:
-        GORELEASER_CURRENT_TAG: v${{ needs.prerequisites.outputs.version }}
-        PROVIDER_VERSION: ${{ needs.prerequisites.outputs.version }}
-      with:
-        args: -p 1 -f .goreleaser.prerelease.yml --rm-dist --skip-validate --timeout
-          150m0s
-        version: latest
-
-  publish_sdk:
-    name: publish_sdk
-    needs:
-      - prerequisites
-      - publish
-    runs-on: ubuntu-latest
-    steps:
-    - name: Publish SDKs
-      uses: pulumi/pulumi-package-publisher@v0.0.18
-      with:
-        sdk: all
-        version: ${{ needs.prerequisites.outputs.version }}
-        dotnet-version: "6.0.x"
-        java-version: "11"
-        node-version: "20.x"
-        python-version: "3.11.8"
-    - env:
-        SLACK_CHANNEL: provider-upgrade-publish-status
-        SLACK_COLOR: "#FF0000"
-        SLACK_ICON_EMOJI: ":taco:"
-        SLACK_MESSAGE: "Publish failed :x:"
-        SLACK_TITLE: ${{ github.event.repository.name }} upgrade result
-        SLACK_USERNAME: provider-bot
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-      if: failure()
-      name: Send Publish Failure To Slack
-      uses: rtCamp/action-slack-notify@v2
+      - upstream_lint
+    uses: ./.github/workflows/publish.yml
+    secrets: inherit
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
+      isPrerelease: true
+      skipGoSdk: true
 
   tag_release_if_labeled_needs_release:
     name: Tag release if labeled as needs-release
-    needs: publish_sdk
+    needs: publish
     runs-on: ubuntu-latest
     steps:
     - name: check if this commit needs release
@@ -223,64 +146,17 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: true
-    - name: Install Go
-      uses: actions/setup-go@v5
+    - name: Setup tools
+      uses: ./.github/actions/setup-tools
       with:
-        go-version: "1.21.x"
-        cache-dependency-path: |
-          sdk/go.sum
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
-      with:
-        tag: v0.0.46
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/actions@v5
-      with:
-        pulumi-version: "dev"
-    - name: Setup Node
-      uses: actions/setup-node@v4
-      with:
-        node-version: "20.x"
-        registry-url: https://registry.npmjs.org
-    - name: Setup DotNet
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: "6.0.x"
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: "3.11.8"
-    - name: Setup Java
-      uses: actions/setup-java@v4
-      with:
-        cache: gradle
-        distribution: temurin
-        java-version: "11"
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v3
-      with:
-        gradle-version: "7.6"
-    - name: Download provider + tfgen binaries
-      uses: actions/download-artifact@v4
-      with:
-        name: aws-provider.tar.gz
-        path: ${{ github.workspace }}/bin
-    - name: Untar provider binaries
-      run: >-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-        github.workspace}}/bin
-
-        find ${{ github.workspace }} -name "pulumi-*-aws" -print -exec chmod +x {} \;
+        tools: pulumictl, pulumicli, go, node, dotnet, python, java
+    - name: Download bin
+      uses: ./.github/actions/download-bin
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
-      uses: actions/download-artifact@v4
+      uses: ./.github/actions/download-sdk
       with:
-        name: ${{ matrix.language }}-sdk.tar.gz
-        path: ${{ github.workspace}}/sdk/
-    - name: Uncompress SDK folder
-      run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
-        github.workspace }}/sdk/${{ matrix.language }}
+        language: ${{ matrix.language }}
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
@@ -508,9 +384,36 @@ jobs:
           matrix:
               language:
                   - nodejs
+  upstream_lint:
+      name: Run upstream provider-lint
+      runs-on: ubuntu-latest
+      steps:
+          - name: Free Disk Space (Ubuntu)
+            uses: jlumbroso/free-disk-space@main
+            with:
+              swap-storage: false
+              tool-cache: false
+          - name: Checkout Repo
+            uses: actions/checkout@v4
+            with:
+              ref: ${{ env.PR_COMMIT_SHA }}
+              submodules: true
+          - name: Install Go
+            uses: actions/setup-go@v5
+            with:
+              cache: false
+              go-version: 1.22.x
+          - name: Make upstream
+            run: make upstream
+          - name: upstream lint
+            run: |
+              cd upstream
+              make provider-lint
+      timeout-minutes: 60
 
 name: master
 on:
+  workflow_dispatch: {}
   push:
     branches:
     - master

@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  *             .tokenSigningPublicKeys(Map.of("Key1", StdFunctions.file(FileArgs.builder()
  *                 .input("test-fixtures/iot-authorizer-signing-key.pem")
  *                 .build()).result()))
+ *             .tags(Map.of("Name", "example"))
  *             .build());
  * 
  *     }
@@ -156,6 +157,38 @@ public class Authorizer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
+    }
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
     /**
      * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.

@@ -778,6 +778,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Databrew { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Dataexchange { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
@@ -971,6 +975,10 @@ namespace Pulumi.Aws
             /// Use this to override the default service endpoint URL
             /// </summary>
                 public string? Glue { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
+                public string? Gluedatabrew { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>

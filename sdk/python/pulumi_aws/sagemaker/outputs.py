@@ -5222,7 +5222,7 @@ class EndpointConfigurationDataCaptureConfigCaptureOption(dict):
     def __init__(__self__, *,
                  capture_mode: str):
         """
-        :param str capture_mode: Specifies the data to be captured. Should be one of `Input` or `Output`.
+        :param str capture_mode: Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
         """
         pulumi.set(__self__, "capture_mode", capture_mode)
 
@@ -5230,7 +5230,7 @@ class EndpointConfigurationDataCaptureConfigCaptureOption(dict):
     @pulumi.getter(name="captureMode")
     def capture_mode(self) -> str:
         """
-        Specifies the data to be captured. Should be one of `Input` or `Output`.
+        Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
         """
         return pulumi.get(self, "capture_mode")
 

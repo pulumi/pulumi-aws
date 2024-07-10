@@ -24,6 +24,7 @@ class DomainAssociationArgs:
                  app_id: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
                  sub_domains: pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]],
+                 certificate_settings: Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
                  wait_for_verification: Optional[pulumi.Input[bool]] = None):
         """
@@ -31,12 +32,15 @@ class DomainAssociationArgs:
         :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
+        :param pulumi.Input['DomainAssociationCertificateSettingsArgs'] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "sub_domains", sub_domains)
+        if certificate_settings is not None:
+            pulumi.set(__self__, "certificate_settings", certificate_settings)
         if enable_auto_sub_domain is not None:
             pulumi.set(__self__, "enable_auto_sub_domain", enable_auto_sub_domain)
         if wait_for_verification is not None:
@@ -79,6 +83,18 @@ class DomainAssociationArgs:
         pulumi.set(self, "sub_domains", value)
 
     @property
+    @pulumi.getter(name="certificateSettings")
+    def certificate_settings(self) -> Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']]:
+        """
+        The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+        """
+        return pulumi.get(self, "certificate_settings")
+
+    @certificate_settings.setter
+    def certificate_settings(self, value: Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']]):
+        pulumi.set(self, "certificate_settings", value)
+
+    @property
     @pulumi.getter(name="enableAutoSubDomain")
     def enable_auto_sub_domain(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -108,6 +124,7 @@ class _DomainAssociationState:
     def __init__(__self__, *,
                  app_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 certificate_settings: Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']] = None,
                  certificate_verification_dns_record: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
@@ -117,6 +134,7 @@ class _DomainAssociationState:
         Input properties used for looking up and filtering DomainAssociation resources.
         :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[str] arn: ARN for the domain association.
+        :param pulumi.Input['DomainAssociationCertificateSettingsArgs'] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         :param pulumi.Input[str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
@@ -127,6 +145,8 @@ class _DomainAssociationState:
             pulumi.set(__self__, "app_id", app_id)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if certificate_settings is not None:
+            pulumi.set(__self__, "certificate_settings", certificate_settings)
         if certificate_verification_dns_record is not None:
             pulumi.set(__self__, "certificate_verification_dns_record", certificate_verification_dns_record)
         if domain_name is not None:
@@ -161,6 +181,18 @@ class _DomainAssociationState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="certificateSettings")
+    def certificate_settings(self) -> Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']]:
+        """
+        The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+        """
+        return pulumi.get(self, "certificate_settings")
+
+    @certificate_settings.setter
+    def certificate_settings(self, value: Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']]):
+        pulumi.set(self, "certificate_settings", value)
 
     @property
     @pulumi.getter(name="certificateVerificationDnsRecord")
@@ -229,6 +261,7 @@ class DomainAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
+                 certificate_settings: Optional[pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
                  sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
@@ -279,6 +312,7 @@ class DomainAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
+        :param pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]] sub_domains: Setting for the subdomain. Documented below.
@@ -348,6 +382,7 @@ class DomainAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: Optional[pulumi.Input[str]] = None,
+                 certificate_settings: Optional[pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
                  sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
@@ -364,6 +399,7 @@ class DomainAssociation(pulumi.CustomResource):
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
             __props__.__dict__["app_id"] = app_id
+            __props__.__dict__["certificate_settings"] = certificate_settings
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
@@ -386,6 +422,7 @@ class DomainAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            certificate_settings: Optional[pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
             certificate_verification_dns_record: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
@@ -400,6 +437,7 @@ class DomainAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[str] arn: ARN for the domain association.
+        :param pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         :param pulumi.Input[str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
@@ -412,6 +450,7 @@ class DomainAssociation(pulumi.CustomResource):
 
         __props__.__dict__["app_id"] = app_id
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["certificate_settings"] = certificate_settings
         __props__.__dict__["certificate_verification_dns_record"] = certificate_verification_dns_record
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["enable_auto_sub_domain"] = enable_auto_sub_domain
@@ -434,6 +473,14 @@ class DomainAssociation(pulumi.CustomResource):
         ARN for the domain association.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="certificateSettings")
+    def certificate_settings(self) -> pulumi.Output[Optional['outputs.DomainAssociationCertificateSettings']]:
+        """
+        The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+        """
+        return pulumi.get(self, "certificate_settings")
 
     @property
     @pulumi.getter(name="certificateVerificationDnsRecord")

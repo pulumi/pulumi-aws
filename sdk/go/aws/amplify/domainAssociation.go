@@ -85,6 +85,8 @@ type DomainAssociation struct {
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// ARN for the domain association.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+	CertificateSettings DomainAssociationCertificateSettingsPtrOutput `pulumi:"certificateSettings"`
 	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 	CertificateVerificationDnsRecord pulumi.StringOutput `pulumi:"certificateVerificationDnsRecord"`
 	// Domain name for the domain association.
@@ -140,6 +142,8 @@ type domainAssociationState struct {
 	AppId *string `pulumi:"appId"`
 	// ARN for the domain association.
 	Arn *string `pulumi:"arn"`
+	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+	CertificateSettings *DomainAssociationCertificateSettings `pulumi:"certificateSettings"`
 	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
 	// Domain name for the domain association.
@@ -157,6 +161,8 @@ type DomainAssociationState struct {
 	AppId pulumi.StringPtrInput
 	// ARN for the domain association.
 	Arn pulumi.StringPtrInput
+	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+	CertificateSettings DomainAssociationCertificateSettingsPtrInput
 	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 	CertificateVerificationDnsRecord pulumi.StringPtrInput
 	// Domain name for the domain association.
@@ -176,6 +182,8 @@ func (DomainAssociationState) ElementType() reflect.Type {
 type domainAssociationArgs struct {
 	// Unique ID for an Amplify app.
 	AppId string `pulumi:"appId"`
+	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+	CertificateSettings *DomainAssociationCertificateSettings `pulumi:"certificateSettings"`
 	// Domain name for the domain association.
 	DomainName string `pulumi:"domainName"`
 	// Enables the automated creation of subdomains for branches.
@@ -190,6 +198,8 @@ type domainAssociationArgs struct {
 type DomainAssociationArgs struct {
 	// Unique ID for an Amplify app.
 	AppId pulumi.StringInput
+	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+	CertificateSettings DomainAssociationCertificateSettingsPtrInput
 	// Domain name for the domain association.
 	DomainName pulumi.StringInput
 	// Enables the automated creation of subdomains for branches.
@@ -295,6 +305,11 @@ func (o DomainAssociationOutput) AppId() pulumi.StringOutput {
 // ARN for the domain association.
 func (o DomainAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+func (o DomainAssociationOutput) CertificateSettings() DomainAssociationCertificateSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainAssociation) DomainAssociationCertificateSettingsPtrOutput { return v.CertificateSettings }).(DomainAssociationCertificateSettingsPtrOutput)
 }
 
 // DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).

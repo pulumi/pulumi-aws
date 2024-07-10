@@ -14,6 +14,7 @@ from .get_connect_peer import *
 from .get_direct_connect_gateway_attachment import *
 from .get_multicast_domain import *
 from .get_peering_attachment import *
+from .get_peering_attachments import *
 from .get_route_table import *
 from .get_route_table_associations import *
 from .get_route_table_propagations import *

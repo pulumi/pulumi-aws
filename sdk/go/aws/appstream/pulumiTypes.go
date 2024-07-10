@@ -1756,6 +1756,547 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 	}).(StackUserSettingOutput)
 }
 
+type GetImageApplication struct {
+	// The app block ARN of the application.
+	AppBlockArn string `pulumi:"appBlockArn"`
+	// Arn of the image being searched for. Cannot be used with nameRegex or name.
+	Arn string `pulumi:"arn"`
+	// Time at which this image was created.
+	CreatedTime string `pulumi:"createdTime"`
+	// Description of image.
+	Description string `pulumi:"description"`
+	// Image name to display.
+	DisplayName string `pulumi:"displayName"`
+	// Bool based on if the application is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// A list named iconS3Location that contains the following:
+	IconS3Locations []GetImageApplicationIconS3Location `pulumi:"iconS3Locations"`
+	// URL of the application icon. This URL may be time-limited.
+	IconUrl string `pulumi:"iconUrl"`
+	// List of the instance families of the application.
+	InstanceFamilies []string `pulumi:"instanceFamilies"`
+	// Arguments that are passed to the application at it's launch.
+	LaunchParameters string `pulumi:"launchParameters"`
+	// Path to the application's excecutable in the instance.
+	LaunchPath string `pulumi:"launchPath"`
+	// String to string map that contains additional attributes used to describe the application.
+	// * `Name` - Name of the application.
+	Metadata map[string]interface{} `pulumi:"metadata"`
+	// Name of the image being searched for. Cannot be used with nameRegex or arn.
+	Name string `pulumi:"name"`
+	// Array of strings describing the platforms on which the application can run.
+	// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+	Platforms []string `pulumi:"platforms"`
+	// Working directory for the application.
+	WorkingDirectory string `pulumi:"workingDirectory"`
+}
+
+// GetImageApplicationInput is an input type that accepts GetImageApplicationArgs and GetImageApplicationOutput values.
+// You can construct a concrete instance of `GetImageApplicationInput` via:
+//
+//	GetImageApplicationArgs{...}
+type GetImageApplicationInput interface {
+	pulumi.Input
+
+	ToGetImageApplicationOutput() GetImageApplicationOutput
+	ToGetImageApplicationOutputWithContext(context.Context) GetImageApplicationOutput
+}
+
+type GetImageApplicationArgs struct {
+	// The app block ARN of the application.
+	AppBlockArn pulumi.StringInput `pulumi:"appBlockArn"`
+	// Arn of the image being searched for. Cannot be used with nameRegex or name.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Time at which this image was created.
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
+	// Description of image.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Image name to display.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Bool based on if the application is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A list named iconS3Location that contains the following:
+	IconS3Locations GetImageApplicationIconS3LocationArrayInput `pulumi:"iconS3Locations"`
+	// URL of the application icon. This URL may be time-limited.
+	IconUrl pulumi.StringInput `pulumi:"iconUrl"`
+	// List of the instance families of the application.
+	InstanceFamilies pulumi.StringArrayInput `pulumi:"instanceFamilies"`
+	// Arguments that are passed to the application at it's launch.
+	LaunchParameters pulumi.StringInput `pulumi:"launchParameters"`
+	// Path to the application's excecutable in the instance.
+	LaunchPath pulumi.StringInput `pulumi:"launchPath"`
+	// String to string map that contains additional attributes used to describe the application.
+	// * `Name` - Name of the application.
+	Metadata pulumi.MapInput `pulumi:"metadata"`
+	// Name of the image being searched for. Cannot be used with nameRegex or arn.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Array of strings describing the platforms on which the application can run.
+	// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+	Platforms pulumi.StringArrayInput `pulumi:"platforms"`
+	// Working directory for the application.
+	WorkingDirectory pulumi.StringInput `pulumi:"workingDirectory"`
+}
+
+func (GetImageApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageApplication)(nil)).Elem()
+}
+
+func (i GetImageApplicationArgs) ToGetImageApplicationOutput() GetImageApplicationOutput {
+	return i.ToGetImageApplicationOutputWithContext(context.Background())
+}
+
+func (i GetImageApplicationArgs) ToGetImageApplicationOutputWithContext(ctx context.Context) GetImageApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageApplicationOutput)
+}
+
+// GetImageApplicationArrayInput is an input type that accepts GetImageApplicationArray and GetImageApplicationArrayOutput values.
+// You can construct a concrete instance of `GetImageApplicationArrayInput` via:
+//
+//	GetImageApplicationArray{ GetImageApplicationArgs{...} }
+type GetImageApplicationArrayInput interface {
+	pulumi.Input
+
+	ToGetImageApplicationArrayOutput() GetImageApplicationArrayOutput
+	ToGetImageApplicationArrayOutputWithContext(context.Context) GetImageApplicationArrayOutput
+}
+
+type GetImageApplicationArray []GetImageApplicationInput
+
+func (GetImageApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageApplication)(nil)).Elem()
+}
+
+func (i GetImageApplicationArray) ToGetImageApplicationArrayOutput() GetImageApplicationArrayOutput {
+	return i.ToGetImageApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageApplicationArray) ToGetImageApplicationArrayOutputWithContext(ctx context.Context) GetImageApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageApplicationArrayOutput)
+}
+
+type GetImageApplicationOutput struct{ *pulumi.OutputState }
+
+func (GetImageApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageApplication)(nil)).Elem()
+}
+
+func (o GetImageApplicationOutput) ToGetImageApplicationOutput() GetImageApplicationOutput {
+	return o
+}
+
+func (o GetImageApplicationOutput) ToGetImageApplicationOutputWithContext(ctx context.Context) GetImageApplicationOutput {
+	return o
+}
+
+// The app block ARN of the application.
+func (o GetImageApplicationOutput) AppBlockArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplication) string { return v.AppBlockArn }).(pulumi.StringOutput)
+}
+
+// Arn of the image being searched for. Cannot be used with nameRegex or name.
+func (o GetImageApplicationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplication) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Time at which this image was created.
+func (o GetImageApplicationOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplication) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Description of image.
+func (o GetImageApplicationOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplication) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Image name to display.
+func (o GetImageApplicationOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplication) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Bool based on if the application is enabled.
+func (o GetImageApplicationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImageApplication) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A list named iconS3Location that contains the following:
+func (o GetImageApplicationOutput) IconS3Locations() GetImageApplicationIconS3LocationArrayOutput {
+	return o.ApplyT(func(v GetImageApplication) []GetImageApplicationIconS3Location { return v.IconS3Locations }).(GetImageApplicationIconS3LocationArrayOutput)
+}
+
+// URL of the application icon. This URL may be time-limited.
+func (o GetImageApplicationOutput) IconUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplication) string { return v.IconUrl }).(pulumi.StringOutput)
+}
+
+// List of the instance families of the application.
+func (o GetImageApplicationOutput) InstanceFamilies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetImageApplication) []string { return v.InstanceFamilies }).(pulumi.StringArrayOutput)
+}
+
+// Arguments that are passed to the application at it's launch.
+func (o GetImageApplicationOutput) LaunchParameters() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplication) string { return v.LaunchParameters }).(pulumi.StringOutput)
+}
+
+// Path to the application's excecutable in the instance.
+func (o GetImageApplicationOutput) LaunchPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplication) string { return v.LaunchPath }).(pulumi.StringOutput)
+}
+
+// String to string map that contains additional attributes used to describe the application.
+// * `Name` - Name of the application.
+func (o GetImageApplicationOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v GetImageApplication) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
+}
+
+// Name of the image being searched for. Cannot be used with nameRegex or arn.
+func (o GetImageApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplication) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Array of strings describing the platforms on which the application can run.
+// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+func (o GetImageApplicationOutput) Platforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetImageApplication) []string { return v.Platforms }).(pulumi.StringArrayOutput)
+}
+
+// Working directory for the application.
+func (o GetImageApplicationOutput) WorkingDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplication) string { return v.WorkingDirectory }).(pulumi.StringOutput)
+}
+
+type GetImageApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageApplication)(nil)).Elem()
+}
+
+func (o GetImageApplicationArrayOutput) ToGetImageApplicationArrayOutput() GetImageApplicationArrayOutput {
+	return o
+}
+
+func (o GetImageApplicationArrayOutput) ToGetImageApplicationArrayOutputWithContext(ctx context.Context) GetImageApplicationArrayOutput {
+	return o
+}
+
+func (o GetImageApplicationArrayOutput) Index(i pulumi.IntInput) GetImageApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageApplication {
+		return vs[0].([]GetImageApplication)[vs[1].(int)]
+	}).(GetImageApplicationOutput)
+}
+
+type GetImageApplicationIconS3Location struct {
+	// S3 bucket of the S3 object.
+	S3Bucket string `pulumi:"s3Bucket"`
+	// S3 key of the S3 object.
+	S3Key string `pulumi:"s3Key"`
+}
+
+// GetImageApplicationIconS3LocationInput is an input type that accepts GetImageApplicationIconS3LocationArgs and GetImageApplicationIconS3LocationOutput values.
+// You can construct a concrete instance of `GetImageApplicationIconS3LocationInput` via:
+//
+//	GetImageApplicationIconS3LocationArgs{...}
+type GetImageApplicationIconS3LocationInput interface {
+	pulumi.Input
+
+	ToGetImageApplicationIconS3LocationOutput() GetImageApplicationIconS3LocationOutput
+	ToGetImageApplicationIconS3LocationOutputWithContext(context.Context) GetImageApplicationIconS3LocationOutput
+}
+
+type GetImageApplicationIconS3LocationArgs struct {
+	// S3 bucket of the S3 object.
+	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
+	// S3 key of the S3 object.
+	S3Key pulumi.StringInput `pulumi:"s3Key"`
+}
+
+func (GetImageApplicationIconS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageApplicationIconS3Location)(nil)).Elem()
+}
+
+func (i GetImageApplicationIconS3LocationArgs) ToGetImageApplicationIconS3LocationOutput() GetImageApplicationIconS3LocationOutput {
+	return i.ToGetImageApplicationIconS3LocationOutputWithContext(context.Background())
+}
+
+func (i GetImageApplicationIconS3LocationArgs) ToGetImageApplicationIconS3LocationOutputWithContext(ctx context.Context) GetImageApplicationIconS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageApplicationIconS3LocationOutput)
+}
+
+// GetImageApplicationIconS3LocationArrayInput is an input type that accepts GetImageApplicationIconS3LocationArray and GetImageApplicationIconS3LocationArrayOutput values.
+// You can construct a concrete instance of `GetImageApplicationIconS3LocationArrayInput` via:
+//
+//	GetImageApplicationIconS3LocationArray{ GetImageApplicationIconS3LocationArgs{...} }
+type GetImageApplicationIconS3LocationArrayInput interface {
+	pulumi.Input
+
+	ToGetImageApplicationIconS3LocationArrayOutput() GetImageApplicationIconS3LocationArrayOutput
+	ToGetImageApplicationIconS3LocationArrayOutputWithContext(context.Context) GetImageApplicationIconS3LocationArrayOutput
+}
+
+type GetImageApplicationIconS3LocationArray []GetImageApplicationIconS3LocationInput
+
+func (GetImageApplicationIconS3LocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageApplicationIconS3Location)(nil)).Elem()
+}
+
+func (i GetImageApplicationIconS3LocationArray) ToGetImageApplicationIconS3LocationArrayOutput() GetImageApplicationIconS3LocationArrayOutput {
+	return i.ToGetImageApplicationIconS3LocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageApplicationIconS3LocationArray) ToGetImageApplicationIconS3LocationArrayOutputWithContext(ctx context.Context) GetImageApplicationIconS3LocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageApplicationIconS3LocationArrayOutput)
+}
+
+type GetImageApplicationIconS3LocationOutput struct{ *pulumi.OutputState }
+
+func (GetImageApplicationIconS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageApplicationIconS3Location)(nil)).Elem()
+}
+
+func (o GetImageApplicationIconS3LocationOutput) ToGetImageApplicationIconS3LocationOutput() GetImageApplicationIconS3LocationOutput {
+	return o
+}
+
+func (o GetImageApplicationIconS3LocationOutput) ToGetImageApplicationIconS3LocationOutputWithContext(ctx context.Context) GetImageApplicationIconS3LocationOutput {
+	return o
+}
+
+// S3 bucket of the S3 object.
+func (o GetImageApplicationIconS3LocationOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplicationIconS3Location) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+// S3 key of the S3 object.
+func (o GetImageApplicationIconS3LocationOutput) S3Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageApplicationIconS3Location) string { return v.S3Key }).(pulumi.StringOutput)
+}
+
+type GetImageApplicationIconS3LocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageApplicationIconS3LocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageApplicationIconS3Location)(nil)).Elem()
+}
+
+func (o GetImageApplicationIconS3LocationArrayOutput) ToGetImageApplicationIconS3LocationArrayOutput() GetImageApplicationIconS3LocationArrayOutput {
+	return o
+}
+
+func (o GetImageApplicationIconS3LocationArrayOutput) ToGetImageApplicationIconS3LocationArrayOutputWithContext(ctx context.Context) GetImageApplicationIconS3LocationArrayOutput {
+	return o
+}
+
+func (o GetImageApplicationIconS3LocationArrayOutput) Index(i pulumi.IntInput) GetImageApplicationIconS3LocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageApplicationIconS3Location {
+		return vs[0].([]GetImageApplicationIconS3Location)[vs[1].(int)]
+	}).(GetImageApplicationIconS3LocationOutput)
+}
+
+type GetImageImagePermission struct {
+	// Boolean indicating if the image can be used for a fleet.
+	AllowFleet bool `pulumi:"allowFleet"`
+	// indicated whether the image can be used for an image builder.
+	AllowImageBuilder bool `pulumi:"allowImageBuilder"`
+}
+
+// GetImageImagePermissionInput is an input type that accepts GetImageImagePermissionArgs and GetImageImagePermissionOutput values.
+// You can construct a concrete instance of `GetImageImagePermissionInput` via:
+//
+//	GetImageImagePermissionArgs{...}
+type GetImageImagePermissionInput interface {
+	pulumi.Input
+
+	ToGetImageImagePermissionOutput() GetImageImagePermissionOutput
+	ToGetImageImagePermissionOutputWithContext(context.Context) GetImageImagePermissionOutput
+}
+
+type GetImageImagePermissionArgs struct {
+	// Boolean indicating if the image can be used for a fleet.
+	AllowFleet pulumi.BoolInput `pulumi:"allowFleet"`
+	// indicated whether the image can be used for an image builder.
+	AllowImageBuilder pulumi.BoolInput `pulumi:"allowImageBuilder"`
+}
+
+func (GetImageImagePermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageImagePermission)(nil)).Elem()
+}
+
+func (i GetImageImagePermissionArgs) ToGetImageImagePermissionOutput() GetImageImagePermissionOutput {
+	return i.ToGetImageImagePermissionOutputWithContext(context.Background())
+}
+
+func (i GetImageImagePermissionArgs) ToGetImageImagePermissionOutputWithContext(ctx context.Context) GetImageImagePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageImagePermissionOutput)
+}
+
+// GetImageImagePermissionArrayInput is an input type that accepts GetImageImagePermissionArray and GetImageImagePermissionArrayOutput values.
+// You can construct a concrete instance of `GetImageImagePermissionArrayInput` via:
+//
+//	GetImageImagePermissionArray{ GetImageImagePermissionArgs{...} }
+type GetImageImagePermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetImageImagePermissionArrayOutput() GetImageImagePermissionArrayOutput
+	ToGetImageImagePermissionArrayOutputWithContext(context.Context) GetImageImagePermissionArrayOutput
+}
+
+type GetImageImagePermissionArray []GetImageImagePermissionInput
+
+func (GetImageImagePermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageImagePermission)(nil)).Elem()
+}
+
+func (i GetImageImagePermissionArray) ToGetImageImagePermissionArrayOutput() GetImageImagePermissionArrayOutput {
+	return i.ToGetImageImagePermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageImagePermissionArray) ToGetImageImagePermissionArrayOutputWithContext(ctx context.Context) GetImageImagePermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageImagePermissionArrayOutput)
+}
+
+type GetImageImagePermissionOutput struct{ *pulumi.OutputState }
+
+func (GetImageImagePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageImagePermission)(nil)).Elem()
+}
+
+func (o GetImageImagePermissionOutput) ToGetImageImagePermissionOutput() GetImageImagePermissionOutput {
+	return o
+}
+
+func (o GetImageImagePermissionOutput) ToGetImageImagePermissionOutputWithContext(ctx context.Context) GetImageImagePermissionOutput {
+	return o
+}
+
+// Boolean indicating if the image can be used for a fleet.
+func (o GetImageImagePermissionOutput) AllowFleet() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImageImagePermission) bool { return v.AllowFleet }).(pulumi.BoolOutput)
+}
+
+// indicated whether the image can be used for an image builder.
+func (o GetImageImagePermissionOutput) AllowImageBuilder() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImageImagePermission) bool { return v.AllowImageBuilder }).(pulumi.BoolOutput)
+}
+
+type GetImageImagePermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageImagePermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageImagePermission)(nil)).Elem()
+}
+
+func (o GetImageImagePermissionArrayOutput) ToGetImageImagePermissionArrayOutput() GetImageImagePermissionArrayOutput {
+	return o
+}
+
+func (o GetImageImagePermissionArrayOutput) ToGetImageImagePermissionArrayOutputWithContext(ctx context.Context) GetImageImagePermissionArrayOutput {
+	return o
+}
+
+func (o GetImageImagePermissionArrayOutput) Index(i pulumi.IntInput) GetImageImagePermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageImagePermission {
+		return vs[0].([]GetImageImagePermission)[vs[1].(int)]
+	}).(GetImageImagePermissionOutput)
+}
+
+type GetImageStateChangeReason struct {
+	Code    string `pulumi:"code"`
+	Message string `pulumi:"message"`
+}
+
+// GetImageStateChangeReasonInput is an input type that accepts GetImageStateChangeReasonArgs and GetImageStateChangeReasonOutput values.
+// You can construct a concrete instance of `GetImageStateChangeReasonInput` via:
+//
+//	GetImageStateChangeReasonArgs{...}
+type GetImageStateChangeReasonInput interface {
+	pulumi.Input
+
+	ToGetImageStateChangeReasonOutput() GetImageStateChangeReasonOutput
+	ToGetImageStateChangeReasonOutputWithContext(context.Context) GetImageStateChangeReasonOutput
+}
+
+type GetImageStateChangeReasonArgs struct {
+	Code    pulumi.StringInput `pulumi:"code"`
+	Message pulumi.StringInput `pulumi:"message"`
+}
+
+func (GetImageStateChangeReasonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageStateChangeReason)(nil)).Elem()
+}
+
+func (i GetImageStateChangeReasonArgs) ToGetImageStateChangeReasonOutput() GetImageStateChangeReasonOutput {
+	return i.ToGetImageStateChangeReasonOutputWithContext(context.Background())
+}
+
+func (i GetImageStateChangeReasonArgs) ToGetImageStateChangeReasonOutputWithContext(ctx context.Context) GetImageStateChangeReasonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageStateChangeReasonOutput)
+}
+
+// GetImageStateChangeReasonArrayInput is an input type that accepts GetImageStateChangeReasonArray and GetImageStateChangeReasonArrayOutput values.
+// You can construct a concrete instance of `GetImageStateChangeReasonArrayInput` via:
+//
+//	GetImageStateChangeReasonArray{ GetImageStateChangeReasonArgs{...} }
+type GetImageStateChangeReasonArrayInput interface {
+	pulumi.Input
+
+	ToGetImageStateChangeReasonArrayOutput() GetImageStateChangeReasonArrayOutput
+	ToGetImageStateChangeReasonArrayOutputWithContext(context.Context) GetImageStateChangeReasonArrayOutput
+}
+
+type GetImageStateChangeReasonArray []GetImageStateChangeReasonInput
+
+func (GetImageStateChangeReasonArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageStateChangeReason)(nil)).Elem()
+}
+
+func (i GetImageStateChangeReasonArray) ToGetImageStateChangeReasonArrayOutput() GetImageStateChangeReasonArrayOutput {
+	return i.ToGetImageStateChangeReasonArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageStateChangeReasonArray) ToGetImageStateChangeReasonArrayOutputWithContext(ctx context.Context) GetImageStateChangeReasonArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageStateChangeReasonArrayOutput)
+}
+
+type GetImageStateChangeReasonOutput struct{ *pulumi.OutputState }
+
+func (GetImageStateChangeReasonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageStateChangeReason)(nil)).Elem()
+}
+
+func (o GetImageStateChangeReasonOutput) ToGetImageStateChangeReasonOutput() GetImageStateChangeReasonOutput {
+	return o
+}
+
+func (o GetImageStateChangeReasonOutput) ToGetImageStateChangeReasonOutputWithContext(ctx context.Context) GetImageStateChangeReasonOutput {
+	return o
+}
+
+func (o GetImageStateChangeReasonOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageStateChangeReason) string { return v.Code }).(pulumi.StringOutput)
+}
+
+func (o GetImageStateChangeReasonOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageStateChangeReason) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type GetImageStateChangeReasonArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageStateChangeReasonArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageStateChangeReason)(nil)).Elem()
+}
+
+func (o GetImageStateChangeReasonArrayOutput) ToGetImageStateChangeReasonArrayOutput() GetImageStateChangeReasonArrayOutput {
+	return o
+}
+
+func (o GetImageStateChangeReasonArrayOutput) ToGetImageStateChangeReasonArrayOutputWithContext(ctx context.Context) GetImageStateChangeReasonArrayOutput {
+	return o
+}
+
+func (o GetImageStateChangeReasonArrayOutput) Index(i pulumi.IntInput) GetImageStateChangeReasonOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageStateChangeReason {
+		return vs[0].([]GetImageStateChangeReason)[vs[1].(int)]
+	}).(GetImageStateChangeReasonOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsPtrInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
@@ -1781,6 +2322,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStreamingExperienceSettingsPtrInput)(nil)).Elem(), StackStreamingExperienceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingInput)(nil)).Elem(), StackUserSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingArrayInput)(nil)).Elem(), StackUserSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageApplicationInput)(nil)).Elem(), GetImageApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageApplicationArrayInput)(nil)).Elem(), GetImageApplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageApplicationIconS3LocationInput)(nil)).Elem(), GetImageApplicationIconS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageApplicationIconS3LocationArrayInput)(nil)).Elem(), GetImageApplicationIconS3LocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageImagePermissionInput)(nil)).Elem(), GetImageImagePermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageImagePermissionArrayInput)(nil)).Elem(), GetImageImagePermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageStateChangeReasonInput)(nil)).Elem(), GetImageStateChangeReasonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageStateChangeReasonArrayInput)(nil)).Elem(), GetImageStateChangeReasonArray{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsOutput{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(FleetComputeCapacityOutput{})
@@ -1805,4 +2354,12 @@ func init() {
 	pulumi.RegisterOutputType(StackStreamingExperienceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(StackUserSettingOutput{})
 	pulumi.RegisterOutputType(StackUserSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetImageApplicationOutput{})
+	pulumi.RegisterOutputType(GetImageApplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetImageApplicationIconS3LocationOutput{})
+	pulumi.RegisterOutputType(GetImageApplicationIconS3LocationArrayOutput{})
+	pulumi.RegisterOutputType(GetImageImagePermissionOutput{})
+	pulumi.RegisterOutputType(GetImageImagePermissionArrayOutput{})
+	pulumi.RegisterOutputType(GetImageStateChangeReasonOutput{})
+	pulumi.RegisterOutputType(GetImageStateChangeReasonArrayOutput{})
 }

@@ -326,6 +326,7 @@ class Endpoints(dict):
                  customerprofiles: Optional[str] = None,
                  databasemigration: Optional[str] = None,
                  databasemigrationservice: Optional[str] = None,
+                 databrew: Optional[str] = None,
                  dataexchange: Optional[str] = None,
                  datapipeline: Optional[str] = None,
                  datasync: Optional[str] = None,
@@ -375,6 +376,7 @@ class Endpoints(dict):
                  glacier: Optional[str] = None,
                  globalaccelerator: Optional[str] = None,
                  glue: Optional[str] = None,
+                 gluedatabrew: Optional[str] = None,
                  grafana: Optional[str] = None,
                  greengrass: Optional[str] = None,
                  groundstation: Optional[str] = None,
@@ -612,6 +614,7 @@ class Endpoints(dict):
         :param str customerprofiles: Use this to override the default service endpoint URL
         :param str databasemigration: Use this to override the default service endpoint URL
         :param str databasemigrationservice: Use this to override the default service endpoint URL
+        :param str databrew: Use this to override the default service endpoint URL
         :param str dataexchange: Use this to override the default service endpoint URL
         :param str datapipeline: Use this to override the default service endpoint URL
         :param str datasync: Use this to override the default service endpoint URL
@@ -661,6 +664,7 @@ class Endpoints(dict):
         :param str glacier: Use this to override the default service endpoint URL
         :param str globalaccelerator: Use this to override the default service endpoint URL
         :param str glue: Use this to override the default service endpoint URL
+        :param str gluedatabrew: Use this to override the default service endpoint URL
         :param str grafana: Use this to override the default service endpoint URL
         :param str greengrass: Use this to override the default service endpoint URL
         :param str groundstation: Use this to override the default service endpoint URL
@@ -982,6 +986,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "databasemigration", databasemigration)
         if databasemigrationservice is not None:
             pulumi.set(__self__, "databasemigrationservice", databasemigrationservice)
+        if databrew is not None:
+            pulumi.set(__self__, "databrew", databrew)
         if dataexchange is not None:
             pulumi.set(__self__, "dataexchange", dataexchange)
         if datapipeline is not None:
@@ -1080,6 +1086,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "globalaccelerator", globalaccelerator)
         if glue is not None:
             pulumi.set(__self__, "glue", glue)
+        if gluedatabrew is not None:
+            pulumi.set(__self__, "gluedatabrew", gluedatabrew)
         if grafana is not None:
             pulumi.set(__self__, "grafana", grafana)
         if greengrass is not None:
@@ -2059,6 +2067,14 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def databrew(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "databrew")
+
+    @property
+    @pulumi.getter
     def dataexchange(self) -> Optional[str]:
         """
         Use this to override the default service endpoint URL
@@ -2448,6 +2464,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "glue")
+
+    @property
+    @pulumi.getter
+    def gluedatabrew(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "gluedatabrew")
 
     @property
     @pulumi.getter

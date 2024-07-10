@@ -6,6 +6,7 @@ package com.pulumi.aws.amplify;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.amplify.DomainAssociationArgs;
 import com.pulumi.aws.amplify.inputs.DomainAssociationState;
+import com.pulumi.aws.amplify.outputs.DomainAssociationCertificateSettings;
 import com.pulumi.aws.amplify.outputs.DomainAssociationSubDomain;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -123,6 +124,20 @@ public class DomainAssociation extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     * 
+     */
+    @Export(name="certificateSettings", refs={DomainAssociationCertificateSettings.class}, tree="[0]")
+    private Output</* @Nullable */ DomainAssociationCertificateSettings> certificateSettings;
+
+    /**
+     * @return The type of SSL/TLS certificate to use for your custom domain. If you don&#39;t specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
+     * 
+     */
+    public Output<Optional<DomainAssociationCertificateSettings>> certificateSettings() {
+        return Codegen.optional(this.certificateSettings);
     }
     /**
      * DNS records for certificate verification in a space-delimited format (`&lt;record&gt; CNAME &lt;target&gt;`).

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ec2transitgateway.inputs;
 
+import com.pulumi.aws.ec2transitgateway.inputs.PeeringAttachmentOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class PeeringAttachmentState extends com.pulumi.resources.ResourceArgs {
 
     public static final PeeringAttachmentState Empty = new PeeringAttachmentState();
+
+    /**
+     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * 
+     */
+    @Import(name="options")
+    private @Nullable Output<PeeringAttachmentOptionsArgs> options;
+
+    /**
+     * @return Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * 
+     */
+    public Optional<Output<PeeringAttachmentOptionsArgs>> options() {
+        return Optional.ofNullable(this.options);
+    }
 
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
@@ -124,6 +140,7 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
     private PeeringAttachmentState() {}
 
     private PeeringAttachmentState(PeeringAttachmentState $) {
+        this.options = $.options;
         this.peerAccountId = $.peerAccountId;
         this.peerRegion = $.peerRegion;
         this.peerTransitGatewayId = $.peerTransitGatewayId;
@@ -149,6 +166,27 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
 
         public Builder(PeeringAttachmentState defaults) {
             $ = new PeeringAttachmentState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param options Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+         * 
+         * @return builder
+         * 
+         */
+        public Builder options(@Nullable Output<PeeringAttachmentOptionsArgs> options) {
+            $.options = options;
+            return this;
+        }
+
+        /**
+         * @param options Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+         * 
+         * @return builder
+         * 
+         */
+        public Builder options(PeeringAttachmentOptionsArgs options) {
+            return options(Output.of(options));
         }
 
         /**

@@ -71,7 +71,7 @@ export interface GetOntapFileSystemResult {
      */
     readonly diskIopsConfigurations: outputs.fsx.GetOntapFileSystemDiskIopsConfiguration[];
     /**
-     * DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+     * DNS name for the file system.
      */
     readonly dnsName: string;
     /**
