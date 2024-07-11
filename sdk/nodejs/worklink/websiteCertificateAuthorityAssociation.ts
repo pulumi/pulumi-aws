@@ -105,7 +105,7 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
             resourceInputs["websiteCaId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WebsiteCertificateAuthorityAssociation.__pulumiType, name, resourceInputs, opts);
+        super(WebsiteCertificateAuthorityAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -151,7 +151,7 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
             resourceInputs["managedPolicyName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedPolicyAttachment.__pulumiType, name, resourceInputs, opts);
+        super(ManagedPolicyAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

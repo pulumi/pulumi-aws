@@ -149,7 +149,7 @@ export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["bundleId", "certificate", "privateKey", "teamId", "tokenKey", "tokenKeyId"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ApnsVoipSandboxChannel.__pulumiType, name, resourceInputs, opts);
+        super(ApnsVoipSandboxChannel.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

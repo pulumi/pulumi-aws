@@ -101,7 +101,7 @@ export class XssMatchSet extends pulumi.CustomResource {
             resourceInputs["xssMatchTuples"] = args ? args.xssMatchTuples : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(XssMatchSet.__pulumiType, name, resourceInputs, opts);
+        super(XssMatchSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

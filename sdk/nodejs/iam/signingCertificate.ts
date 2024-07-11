@@ -124,7 +124,7 @@ export class SigningCertificate extends pulumi.CustomResource {
             resourceInputs["certificateId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SigningCertificate.__pulumiType, name, resourceInputs, opts);
+        super(SigningCertificate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

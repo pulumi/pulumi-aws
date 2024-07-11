@@ -125,7 +125,7 @@ export class DomainPermissions extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DomainPermissions.__pulumiType, name, resourceInputs, opts);
+        super(DomainPermissions.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

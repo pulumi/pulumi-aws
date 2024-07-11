@@ -177,7 +177,7 @@ export class CertificateValidation extends pulumi.CustomResource {
             resourceInputs["validationRecordFqdns"] = args ? args.validationRecordFqdns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CertificateValidation.__pulumiType, name, resourceInputs, opts);
+        super(CertificateValidation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

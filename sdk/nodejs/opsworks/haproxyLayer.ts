@@ -245,7 +245,7 @@ export class HaproxyLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HaproxyLayer.__pulumiType, name, resourceInputs, opts);
+        super(HaproxyLayer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

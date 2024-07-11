@@ -99,7 +99,7 @@ export class VpcEndpointSubnetAssociation extends pulumi.CustomResource {
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcEndpointSubnetAssociation.__pulumiType, name, resourceInputs, opts);
+        super(VpcEndpointSubnetAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

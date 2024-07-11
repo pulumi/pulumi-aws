@@ -103,7 +103,7 @@ export class IndexingConfiguration extends pulumi.CustomResource {
             resourceInputs["thingIndexingConfiguration"] = args ? args.thingIndexingConfiguration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IndexingConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(IndexingConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

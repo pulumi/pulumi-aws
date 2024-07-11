@@ -157,7 +157,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServerlessCollection.__pulumiType, name, resourceInputs, opts);
+        super(ServerlessCollection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

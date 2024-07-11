@@ -124,7 +124,7 @@ export class LicenseGrant extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LicenseGrant.__pulumiType, name, resourceInputs, opts);
+        super(LicenseGrant.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

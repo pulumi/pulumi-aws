@@ -170,7 +170,7 @@ export class PodIdentityAssociation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PodIdentityAssociation.__pulumiType, name, resourceInputs, opts);
+        super(PodIdentityAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

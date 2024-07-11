@@ -239,7 +239,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["whoisServer"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegisteredDomain.__pulumiType, name, resourceInputs, opts);
+        super(RegisteredDomain.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

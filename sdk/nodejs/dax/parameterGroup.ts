@@ -103,7 +103,7 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
+        super(ParameterGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -177,7 +177,7 @@ export class PublishingDestination extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PublishingDestination.__pulumiType, name, resourceInputs, opts);
+        super(PublishingDestination.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

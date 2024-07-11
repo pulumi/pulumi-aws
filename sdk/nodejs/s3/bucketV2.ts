@@ -292,7 +292,7 @@ export class BucketV2 extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:s3/bucket:Bucket" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BucketV2.__pulumiType, name, resourceInputs, opts);
+        super(BucketV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

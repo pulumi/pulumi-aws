@@ -103,7 +103,7 @@ export class MetricsDestination extends pulumi.CustomResource {
             resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MetricsDestination.__pulumiType, name, resourceInputs, opts);
+        super(MetricsDestination.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

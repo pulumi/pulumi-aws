@@ -172,7 +172,7 @@ export class ConformancePack extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConformancePack.__pulumiType, name, resourceInputs, opts);
+        super(ConformancePack.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

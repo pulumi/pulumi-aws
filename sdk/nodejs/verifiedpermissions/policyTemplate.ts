@@ -113,7 +113,7 @@ export class PolicyTemplate extends pulumi.CustomResource {
             resourceInputs["policyTemplateId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PolicyTemplate.__pulumiType, name, resourceInputs, opts);
+        super(PolicyTemplate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

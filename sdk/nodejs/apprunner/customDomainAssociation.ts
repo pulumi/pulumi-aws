@@ -120,7 +120,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomDomainAssociation.__pulumiType, name, resourceInputs, opts);
+        super(CustomDomainAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

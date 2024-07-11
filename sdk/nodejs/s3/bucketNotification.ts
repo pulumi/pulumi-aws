@@ -360,7 +360,7 @@ export class BucketNotification extends pulumi.CustomResource {
             resourceInputs["topics"] = args ? args.topics : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketNotification.__pulumiType, name, resourceInputs, opts);
+        super(BucketNotification.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

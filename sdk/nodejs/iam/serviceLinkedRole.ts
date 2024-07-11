@@ -135,7 +135,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServiceLinkedRole.__pulumiType, name, resourceInputs, opts);
+        super(ServiceLinkedRole.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

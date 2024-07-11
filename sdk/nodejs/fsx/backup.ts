@@ -173,7 +173,7 @@ export class Backup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Backup.__pulumiType, name, resourceInputs, opts);
+        super(Backup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

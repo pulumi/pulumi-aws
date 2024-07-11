@@ -581,7 +581,7 @@ export class EventTarget extends pulumi.CustomResource {
             resourceInputs["targetId"] = args ? args.targetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventTarget.__pulumiType, name, resourceInputs, opts);
+        super(EventTarget.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

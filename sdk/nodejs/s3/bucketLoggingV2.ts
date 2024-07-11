@@ -147,7 +147,7 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
             resourceInputs["targetPrefix"] = args ? args.targetPrefix : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketLoggingV2.__pulumiType, name, resourceInputs, opts);
+        super(BucketLoggingV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

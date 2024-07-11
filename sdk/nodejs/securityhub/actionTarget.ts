@@ -107,7 +107,7 @@ export class ActionTarget extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ActionTarget.__pulumiType, name, resourceInputs, opts);
+        super(ActionTarget.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

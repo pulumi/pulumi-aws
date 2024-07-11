@@ -148,7 +148,7 @@ export class BotAssociation extends pulumi.CustomResource {
             resourceInputs["lexBot"] = args ? args.lexBot : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BotAssociation.__pulumiType, name, resourceInputs, opts);
+        super(BotAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

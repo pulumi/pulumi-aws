@@ -105,7 +105,7 @@ export class HsmClientCertificate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HsmClientCertificate.__pulumiType, name, resourceInputs, opts);
+        super(HsmClientCertificate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

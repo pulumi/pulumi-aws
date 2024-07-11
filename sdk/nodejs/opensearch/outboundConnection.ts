@@ -141,7 +141,7 @@ export class OutboundConnection extends pulumi.CustomResource {
             resourceInputs["connectionStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OutboundConnection.__pulumiType, name, resourceInputs, opts);
+        super(OutboundConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

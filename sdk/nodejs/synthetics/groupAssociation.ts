@@ -102,7 +102,7 @@ export class GroupAssociation extends pulumi.CustomResource {
             resourceInputs["groupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GroupAssociation.__pulumiType, name, resourceInputs, opts);
+        super(GroupAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

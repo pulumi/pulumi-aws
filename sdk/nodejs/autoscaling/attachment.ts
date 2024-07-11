@@ -100,7 +100,7 @@ export class Attachment extends pulumi.CustomResource {
             resourceInputs["lbTargetGroupArn"] = args ? args.lbTargetGroupArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Attachment.__pulumiType, name, resourceInputs, opts);
+        super(Attachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

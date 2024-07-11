@@ -98,7 +98,7 @@ export class BackupPolicy extends pulumi.CustomResource {
             resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackupPolicy.__pulumiType, name, resourceInputs, opts);
+        super(BackupPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

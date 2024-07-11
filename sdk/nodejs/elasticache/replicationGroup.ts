@@ -546,7 +546,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["authToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ReplicationGroup.__pulumiType, name, resourceInputs, opts);
+        super(ReplicationGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

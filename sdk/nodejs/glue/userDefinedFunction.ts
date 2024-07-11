@@ -151,7 +151,7 @@ export class UserDefinedFunction extends pulumi.CustomResource {
             resourceInputs["createTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserDefinedFunction.__pulumiType, name, resourceInputs, opts);
+        super(UserDefinedFunction.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

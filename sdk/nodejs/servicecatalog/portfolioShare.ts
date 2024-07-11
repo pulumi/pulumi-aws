@@ -143,7 +143,7 @@ export class PortfolioShare extends pulumi.CustomResource {
             resourceInputs["accepted"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PortfolioShare.__pulumiType, name, resourceInputs, opts);
+        super(PortfolioShare.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

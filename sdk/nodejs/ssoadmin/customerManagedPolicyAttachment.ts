@@ -126,7 +126,7 @@ export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
             resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomerManagedPolicyAttachment.__pulumiType, name, resourceInputs, opts);
+        super(CustomerManagedPolicyAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

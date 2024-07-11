@@ -112,7 +112,7 @@ export class BackendEnvironment extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackendEnvironment.__pulumiType, name, resourceInputs, opts);
+        super(BackendEnvironment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

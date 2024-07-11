@@ -151,7 +151,7 @@ export class RateBasedRule extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RateBasedRule.__pulumiType, name, resourceInputs, opts);
+        super(RateBasedRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

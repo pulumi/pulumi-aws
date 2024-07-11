@@ -114,7 +114,7 @@ export class KeyPolicy extends pulumi.CustomResource {
             resourceInputs["policy"] = args ? args.policy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KeyPolicy.__pulumiType, name, resourceInputs, opts);
+        super(KeyPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

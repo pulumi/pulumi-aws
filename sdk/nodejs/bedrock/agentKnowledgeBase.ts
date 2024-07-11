@@ -167,7 +167,7 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AgentKnowledgeBase.__pulumiType, name, resourceInputs, opts);
+        super(AgentKnowledgeBase.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

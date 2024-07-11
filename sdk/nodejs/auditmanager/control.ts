@@ -145,7 +145,7 @@ export class Control extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Control.__pulumiType, name, resourceInputs, opts);
+        super(Control.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

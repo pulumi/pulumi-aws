@@ -291,7 +291,7 @@ export class ComputeEnvironment extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ComputeEnvironment.__pulumiType, name, resourceInputs, opts);
+        super(ComputeEnvironment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -164,7 +164,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Agent.__pulumiType, name, resourceInputs, opts);
+        super(Agent.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

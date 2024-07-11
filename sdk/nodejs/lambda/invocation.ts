@@ -156,7 +156,7 @@ export class Invocation extends pulumi.CustomResource {
             resourceInputs["result"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Invocation.__pulumiType, name, resourceInputs, opts);
+        super(Invocation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

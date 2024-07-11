@@ -152,7 +152,7 @@ export class Space extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Space.__pulumiType, name, resourceInputs, opts);
+        super(Space.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

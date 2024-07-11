@@ -138,7 +138,7 @@ export class PermissionSet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PermissionSet.__pulumiType, name, resourceInputs, opts);
+        super(PermissionSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

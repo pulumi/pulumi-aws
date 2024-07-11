@@ -136,7 +136,7 @@ export class Map extends pulumi.CustomResource {
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Map.__pulumiType, name, resourceInputs, opts);
+        super(Map.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

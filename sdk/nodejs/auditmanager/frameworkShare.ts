@@ -117,7 +117,7 @@ export class FrameworkShare extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrameworkShare.__pulumiType, name, resourceInputs, opts);
+        super(FrameworkShare.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
