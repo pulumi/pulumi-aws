@@ -160,7 +160,7 @@ export class MaintenanceWindowTarget extends pulumi.CustomResource {
             resourceInputs["windowId"] = args ? args.windowId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MaintenanceWindowTarget.__pulumiType, name, resourceInputs, opts);
+        super(MaintenanceWindowTarget.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

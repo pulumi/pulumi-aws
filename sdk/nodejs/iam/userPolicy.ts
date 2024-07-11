@@ -120,7 +120,7 @@ export class UserPolicy extends pulumi.CustomResource {
             resourceInputs["user"] = args ? args.user : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserPolicy.__pulumiType, name, resourceInputs, opts);
+        super(UserPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

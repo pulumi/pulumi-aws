@@ -190,7 +190,7 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RemediationConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(RemediationConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

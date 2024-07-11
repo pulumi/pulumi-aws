@@ -94,7 +94,7 @@ export class MulticastGroupMember extends pulumi.CustomResource {
             resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MulticastGroupMember.__pulumiType, name, resourceInputs, opts);
+        super(MulticastGroupMember.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

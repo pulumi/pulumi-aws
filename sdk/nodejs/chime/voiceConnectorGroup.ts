@@ -109,7 +109,7 @@ export class VoiceConnectorGroup extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VoiceConnectorGroup.__pulumiType, name, resourceInputs, opts);
+        super(VoiceConnectorGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

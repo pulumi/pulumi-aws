@@ -145,7 +145,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PeeringAttachment.__pulumiType, name, resourceInputs, opts);
+        super(PeeringAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -127,7 +127,7 @@ export class JobTemplate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(JobTemplate.__pulumiType, name, resourceInputs, opts);
+        super(JobTemplate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -198,7 +198,7 @@ export class EntityRecognizer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EntityRecognizer.__pulumiType, name, resourceInputs, opts);
+        super(EntityRecognizer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

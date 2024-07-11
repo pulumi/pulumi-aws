@@ -208,7 +208,7 @@ export class Stage extends pulumi.CustomResource {
             resourceInputs["webAclArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Stage.__pulumiType, name, resourceInputs, opts);
+        super(Stage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

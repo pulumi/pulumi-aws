@@ -172,7 +172,7 @@ export class CloudFormationType extends pulumi.CustomResource {
             resourceInputs["visibility"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CloudFormationType.__pulumiType, name, resourceInputs, opts);
+        super(CloudFormationType.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

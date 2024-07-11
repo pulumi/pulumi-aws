@@ -132,7 +132,7 @@ export class RegistryScanningConfiguration extends pulumi.CustomResource {
             resourceInputs["registryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegistryScanningConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(RegistryScanningConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

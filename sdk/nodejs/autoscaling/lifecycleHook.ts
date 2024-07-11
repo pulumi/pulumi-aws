@@ -158,7 +158,7 @@ export class LifecycleHook extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LifecycleHook.__pulumiType, name, resourceInputs, opts);
+        super(LifecycleHook.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

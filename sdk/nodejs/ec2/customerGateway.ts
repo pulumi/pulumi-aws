@@ -137,7 +137,7 @@ export class CustomerGateway extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomerGateway.__pulumiType, name, resourceInputs, opts);
+        super(CustomerGateway.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

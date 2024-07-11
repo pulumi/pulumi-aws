@@ -127,7 +127,7 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LoadBalancerBackendServerPolicy.__pulumiType, name, resourceInputs, opts);
+        super(LoadBalancerBackendServerPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

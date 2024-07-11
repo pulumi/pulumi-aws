@@ -99,7 +99,7 @@ export class ResolverFirewallConfig extends pulumi.CustomResource {
             resourceInputs["ownerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResolverFirewallConfig.__pulumiType, name, resourceInputs, opts);
+        super(ResolverFirewallConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

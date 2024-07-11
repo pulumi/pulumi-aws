@@ -259,7 +259,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OpenZfsFileSystem.__pulumiType, name, resourceInputs, opts);
+        super(OpenZfsFileSystem.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

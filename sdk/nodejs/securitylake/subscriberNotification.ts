@@ -118,7 +118,7 @@ export class SubscriberNotification extends pulumi.CustomResource {
             resourceInputs["subscriberEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SubscriberNotification.__pulumiType, name, resourceInputs, opts);
+        super(SubscriberNotification.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

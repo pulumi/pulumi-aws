@@ -93,7 +93,7 @@ export class TrackerAssociation extends pulumi.CustomResource {
             resourceInputs["trackerName"] = args ? args.trackerName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrackerAssociation.__pulumiType, name, resourceInputs, opts);
+        super(TrackerAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

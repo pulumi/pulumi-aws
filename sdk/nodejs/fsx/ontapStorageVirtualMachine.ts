@@ -176,7 +176,7 @@ export class OntapStorageVirtualMachine extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["svmAdminPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(OntapStorageVirtualMachine.__pulumiType, name, resourceInputs, opts);
+        super(OntapStorageVirtualMachine.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

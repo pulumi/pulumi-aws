@@ -110,7 +110,7 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["lastModified"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Resource.__pulumiType, name, resourceInputs, opts);
+        super(Resource.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

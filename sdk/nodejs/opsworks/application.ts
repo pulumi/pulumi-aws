@@ -214,7 +214,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Application.__pulumiType, name, resourceInputs, opts);
+        super(Application.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

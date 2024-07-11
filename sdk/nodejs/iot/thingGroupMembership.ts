@@ -98,7 +98,7 @@ export class ThingGroupMembership extends pulumi.CustomResource {
             resourceInputs["thingName"] = args ? args.thingName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ThingGroupMembership.__pulumiType, name, resourceInputs, opts);
+        super(ThingGroupMembership.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

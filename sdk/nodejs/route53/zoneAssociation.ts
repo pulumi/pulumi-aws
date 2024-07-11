@@ -132,7 +132,7 @@ export class ZoneAssociation extends pulumi.CustomResource {
             resourceInputs["owningAccount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ZoneAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ZoneAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

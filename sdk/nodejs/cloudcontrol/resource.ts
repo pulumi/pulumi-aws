@@ -117,7 +117,7 @@ export class Resource extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["schema"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Resource.__pulumiType, name, resourceInputs, opts);
+        super(Resource.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

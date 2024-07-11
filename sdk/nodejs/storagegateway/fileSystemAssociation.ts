@@ -203,7 +203,7 @@ export class FileSystemAssociation extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(FileSystemAssociation.__pulumiType, name, resourceInputs, opts);
+        super(FileSystemAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

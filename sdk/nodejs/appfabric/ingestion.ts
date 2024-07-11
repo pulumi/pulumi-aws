@@ -137,7 +137,7 @@ export class Ingestion extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Ingestion.__pulumiType, name, resourceInputs, opts);
+        super(Ingestion.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

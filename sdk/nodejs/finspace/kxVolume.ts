@@ -196,7 +196,7 @@ export class KxVolume extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KxVolume.__pulumiType, name, resourceInputs, opts);
+        super(KxVolume.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

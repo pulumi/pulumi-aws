@@ -130,7 +130,7 @@ export class LbCertificate extends pulumi.CustomResource {
             resourceInputs["supportCode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LbCertificate.__pulumiType, name, resourceInputs, opts);
+        super(LbCertificate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

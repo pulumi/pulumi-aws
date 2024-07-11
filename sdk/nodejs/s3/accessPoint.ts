@@ -195,7 +195,7 @@ export class AccessPoint extends pulumi.CustomResource {
             resourceInputs["networkOrigin"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccessPoint.__pulumiType, name, resourceInputs, opts);
+        super(AccessPoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

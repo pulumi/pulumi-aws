@@ -186,7 +186,7 @@ export class DataLakeSettings extends pulumi.CustomResource {
             resourceInputs["trustedResourceOwners"] = args ? args.trustedResourceOwners : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataLakeSettings.__pulumiType, name, resourceInputs, opts);
+        super(DataLakeSettings.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

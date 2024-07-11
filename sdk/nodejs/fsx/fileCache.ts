@@ -222,7 +222,7 @@ export class FileCache extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FileCache.__pulumiType, name, resourceInputs, opts);
+        super(FileCache.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

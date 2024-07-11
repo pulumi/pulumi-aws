@@ -110,7 +110,7 @@ export class SmsChannel extends pulumi.CustomResource {
             resourceInputs["transactionalMessagesPerSecond"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SmsChannel.__pulumiType, name, resourceInputs, opts);
+        super(SmsChannel.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

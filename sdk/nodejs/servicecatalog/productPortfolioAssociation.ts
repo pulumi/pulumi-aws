@@ -107,7 +107,7 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
             resourceInputs["sourcePortfolioId"] = args ? args.sourcePortfolioId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProductPortfolioAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ProductPortfolioAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

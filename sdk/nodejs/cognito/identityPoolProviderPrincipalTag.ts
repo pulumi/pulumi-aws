@@ -91,7 +91,7 @@ export class IdentityPoolProviderPrincipalTag extends pulumi.CustomResource {
             resourceInputs["useDefaults"] = args ? args.useDefaults : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IdentityPoolProviderPrincipalTag.__pulumiType, name, resourceInputs, opts);
+        super(IdentityPoolProviderPrincipalTag.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

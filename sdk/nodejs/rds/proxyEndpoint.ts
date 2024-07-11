@@ -150,7 +150,7 @@ export class ProxyEndpoint extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProxyEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(ProxyEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

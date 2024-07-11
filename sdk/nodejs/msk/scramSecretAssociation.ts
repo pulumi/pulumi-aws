@@ -139,7 +139,7 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
             resourceInputs["secretArnLists"] = args ? args.secretArnLists : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ScramSecretAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ScramSecretAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

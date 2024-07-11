@@ -157,7 +157,7 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WebAclLoggingConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(WebAclLoggingConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -123,7 +123,7 @@ export class TableItem extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TableItem.__pulumiType, name, resourceInputs, opts);
+        super(TableItem.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

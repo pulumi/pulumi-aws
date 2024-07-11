@@ -173,7 +173,7 @@ export class ResourceLfTags extends pulumi.CustomResource {
             resourceInputs["tableWithColumns"] = args ? args.tableWithColumns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceLfTags.__pulumiType, name, resourceInputs, opts);
+        super(ResourceLfTags.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

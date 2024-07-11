@@ -95,7 +95,7 @@ export class LogStream extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LogStream.__pulumiType, name, resourceInputs, opts);
+        super(LogStream.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

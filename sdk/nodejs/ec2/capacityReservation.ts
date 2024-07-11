@@ -188,7 +188,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CapacityReservation.__pulumiType, name, resourceInputs, opts);
+        super(CapacityReservation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

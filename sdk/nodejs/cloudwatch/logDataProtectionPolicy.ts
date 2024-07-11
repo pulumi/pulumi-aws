@@ -122,7 +122,7 @@ export class LogDataProtectionPolicy extends pulumi.CustomResource {
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LogDataProtectionPolicy.__pulumiType, name, resourceInputs, opts);
+        super(LogDataProtectionPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

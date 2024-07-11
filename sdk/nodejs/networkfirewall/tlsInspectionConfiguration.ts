@@ -313,7 +313,7 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
             resourceInputs["updateToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TlsInspectionConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(TlsInspectionConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

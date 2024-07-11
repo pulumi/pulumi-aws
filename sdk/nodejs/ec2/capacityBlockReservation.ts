@@ -173,7 +173,7 @@ export class CapacityBlockReservation extends pulumi.CustomResource {
             resourceInputs["tenancy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CapacityBlockReservation.__pulumiType, name, resourceInputs, opts);
+        super(CapacityBlockReservation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -147,7 +147,7 @@ export class Mesh extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Mesh.__pulumiType, name, resourceInputs, opts);
+        super(Mesh.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

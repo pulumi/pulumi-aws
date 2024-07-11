@@ -188,7 +188,7 @@ export class ElasticCluster extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["adminUserPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ElasticCluster.__pulumiType, name, resourceInputs, opts);
+        super(ElasticCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

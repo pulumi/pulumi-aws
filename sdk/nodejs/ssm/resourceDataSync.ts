@@ -128,7 +128,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
             resourceInputs["s3Destination"] = args ? args.s3Destination : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceDataSync.__pulumiType, name, resourceInputs, opts);
+        super(ResourceDataSync.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

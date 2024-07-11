@@ -178,7 +178,7 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
             resourceInputs["eventDestinationName"] = args ? args.eventDestinationName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConfigurationSetEventDestination.__pulumiType, name, resourceInputs, opts);
+        super(ConfigurationSetEventDestination.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -145,7 +145,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LoggingConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(LoggingConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

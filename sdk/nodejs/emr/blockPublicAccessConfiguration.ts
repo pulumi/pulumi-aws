@@ -145,7 +145,7 @@ export class BlockPublicAccessConfiguration extends pulumi.CustomResource {
             resourceInputs["permittedPublicSecurityGroupRuleRanges"] = args ? args.permittedPublicSecurityGroupRuleRanges : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BlockPublicAccessConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(BlockPublicAccessConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

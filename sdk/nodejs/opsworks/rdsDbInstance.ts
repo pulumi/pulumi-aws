@@ -105,7 +105,7 @@ export class RdsDbInstance extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["dbPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(RdsDbInstance.__pulumiType, name, resourceInputs, opts);
+        super(RdsDbInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

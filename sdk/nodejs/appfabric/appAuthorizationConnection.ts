@@ -109,7 +109,7 @@ export class AppAuthorizationConnection extends pulumi.CustomResource {
             resourceInputs["tenants"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AppAuthorizationConnection.__pulumiType, name, resourceInputs, opts);
+        super(AppAuthorizationConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -148,7 +148,7 @@ export class InstanceProfile extends pulumi.CustomResource {
             resourceInputs["uniqueId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InstanceProfile.__pulumiType, name, resourceInputs, opts);
+        super(InstanceProfile.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

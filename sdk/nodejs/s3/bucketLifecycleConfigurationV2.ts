@@ -408,7 +408,7 @@ export class BucketLifecycleConfigurationV2 extends pulumi.CustomResource {
             resourceInputs["rules"] = args ? args.rules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketLifecycleConfigurationV2.__pulumiType, name, resourceInputs, opts);
+        super(BucketLifecycleConfigurationV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

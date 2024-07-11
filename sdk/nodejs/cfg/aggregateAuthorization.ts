@@ -111,7 +111,7 @@ export class AggregateAuthorization extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AggregateAuthorization.__pulumiType, name, resourceInputs, opts);
+        super(AggregateAuthorization.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

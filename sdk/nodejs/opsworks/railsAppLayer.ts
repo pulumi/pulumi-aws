@@ -239,7 +239,7 @@ export class RailsAppLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RailsAppLayer.__pulumiType, name, resourceInputs, opts);
+        super(RailsAppLayer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

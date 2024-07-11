@@ -121,7 +121,7 @@ export class AgentAgentKnowledgeBaseAssociation extends pulumi.CustomResource {
             resourceInputs["knowledgeBaseState"] = args ? args.knowledgeBaseState : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AgentAgentKnowledgeBaseAssociation.__pulumiType, name, resourceInputs, opts);
+        super(AgentAgentKnowledgeBaseAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

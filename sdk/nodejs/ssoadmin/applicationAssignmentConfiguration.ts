@@ -98,7 +98,7 @@ export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {
             resourceInputs["assignmentRequired"] = args ? args.assignmentRequired : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApplicationAssignmentConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(ApplicationAssignmentConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

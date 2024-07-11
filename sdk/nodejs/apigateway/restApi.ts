@@ -183,7 +183,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RestApi.__pulumiType, name, resourceInputs, opts);
+        super(RestApi.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

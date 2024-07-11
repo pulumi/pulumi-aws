@@ -164,7 +164,7 @@ export class Classifier extends pulumi.CustomResource {
             resourceInputs["xmlClassifier"] = args ? args.xmlClassifier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Classifier.__pulumiType, name, resourceInputs, opts);
+        super(Classifier.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

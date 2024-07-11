@@ -93,7 +93,7 @@ export class AvailabilityZoneGroup extends pulumi.CustomResource {
             resourceInputs["optInStatus"] = args ? args.optInStatus : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AvailabilityZoneGroup.__pulumiType, name, resourceInputs, opts);
+        super(AvailabilityZoneGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

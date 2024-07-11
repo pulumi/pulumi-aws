@@ -105,7 +105,7 @@ export class ClusterCapacityProviders extends pulumi.CustomResource {
             resourceInputs["defaultCapacityProviderStrategies"] = args ? args.defaultCapacityProviderStrategies : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterCapacityProviders.__pulumiType, name, resourceInputs, opts);
+        super(ClusterCapacityProviders.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -112,7 +112,7 @@ export class QueuePolicy extends pulumi.CustomResource {
             resourceInputs["queueUrl"] = args ? args.queueUrl : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(QueuePolicy.__pulumiType, name, resourceInputs, opts);
+        super(QueuePolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

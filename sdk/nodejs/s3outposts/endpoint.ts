@@ -140,7 +140,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["networkInterfaces"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Endpoint.__pulumiType, name, resourceInputs, opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

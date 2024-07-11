@@ -128,7 +128,7 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MultiRegionAccessPoint.__pulumiType, name, resourceInputs, opts);
+        super(MultiRegionAccessPoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

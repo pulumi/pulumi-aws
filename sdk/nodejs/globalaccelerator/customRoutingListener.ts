@@ -107,7 +107,7 @@ export class CustomRoutingListener extends pulumi.CustomResource {
             resourceInputs["portRanges"] = args ? args.portRanges : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomRoutingListener.__pulumiType, name, resourceInputs, opts);
+        super(CustomRoutingListener.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

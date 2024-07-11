@@ -120,7 +120,7 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
             resourceInputs["revocationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrustStoreRevocation.__pulumiType, name, resourceInputs, opts);
+        super(TrustStoreRevocation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

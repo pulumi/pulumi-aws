@@ -158,7 +158,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CatalogDatabase.__pulumiType, name, resourceInputs, opts);
+        super(CatalogDatabase.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

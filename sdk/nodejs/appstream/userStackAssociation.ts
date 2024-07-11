@@ -114,7 +114,7 @@ export class UserStackAssociation extends pulumi.CustomResource {
             resourceInputs["userName"] = args ? args.userName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserStackAssociation.__pulumiType, name, resourceInputs, opts);
+        super(UserStackAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

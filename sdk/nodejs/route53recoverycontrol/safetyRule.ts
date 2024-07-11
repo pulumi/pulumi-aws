@@ -166,7 +166,7 @@ export class SafetyRule extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SafetyRule.__pulumiType, name, resourceInputs, opts);
+        super(SafetyRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

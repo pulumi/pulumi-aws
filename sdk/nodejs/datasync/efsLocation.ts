@@ -148,7 +148,7 @@ export class EfsLocation extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EfsLocation.__pulumiType, name, resourceInputs, opts);
+        super(EfsLocation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

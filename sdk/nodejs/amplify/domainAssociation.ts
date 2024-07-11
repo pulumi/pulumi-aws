@@ -155,7 +155,7 @@ export class DomainAssociation extends pulumi.CustomResource {
             resourceInputs["certificateVerificationDnsRecord"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DomainAssociation.__pulumiType, name, resourceInputs, opts);
+        super(DomainAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
