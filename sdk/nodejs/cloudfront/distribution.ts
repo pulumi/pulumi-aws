@@ -341,10 +341,8 @@ export class Distribution extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
      */
@@ -437,6 +435,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
             resourceInputs["staging"] = args ? args.staging : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
             resourceInputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
             resourceInputs["webAclId"] = args ? args.webAclId : undefined;
@@ -448,7 +447,6 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["inProgressValidationBatches"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["trustedKeyGroups"] = undefined /*out*/;
             resourceInputs["trustedSigners"] = undefined /*out*/;
         }
@@ -516,8 +514,6 @@ export interface DistributionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -558,6 +554,10 @@ export interface DistributionArgs {
     retainOnDelete?: pulumi.Input<boolean>;
     staging?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     viewerCertificate: pulumi.Input<inputs.cloudfront.DistributionViewerCertificate>;
     waitForDeployment?: pulumi.Input<boolean>;
     webAclId?: pulumi.Input<string>;

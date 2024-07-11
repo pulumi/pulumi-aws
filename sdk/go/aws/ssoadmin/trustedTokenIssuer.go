@@ -77,8 +77,6 @@ type TrustedTokenIssuer struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
 	TrustedTokenIssuerConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput `pulumi:"trustedTokenIssuerConfiguration"`
@@ -135,8 +133,6 @@ type trustedTokenIssuerState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
 	TrustedTokenIssuerConfiguration *TrustedTokenIssuerTrustedTokenIssuerConfiguration `pulumi:"trustedTokenIssuerConfiguration"`
@@ -158,8 +154,6 @@ type TrustedTokenIssuerState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
 	TrustedTokenIssuerConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrInput
@@ -321,8 +315,6 @@ func (o TrustedTokenIssuerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o TrustedTokenIssuerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustedTokenIssuer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

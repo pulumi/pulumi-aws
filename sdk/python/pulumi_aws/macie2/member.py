@@ -25,7 +25,8 @@ class MemberArgs:
                  invitation_message: Optional[pulumi.Input[str]] = None,
                  invite: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Member resource.
         :param pulumi.Input[str] account_id: The AWS account ID for the account.
@@ -48,6 +49,8 @@ class MemberArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accountId")
@@ -133,6 +136,15 @@ class MemberArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _MemberState:
@@ -190,9 +202,6 @@ class _MemberState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if updated_at is not None:
@@ -341,7 +350,6 @@ class _MemberState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -374,6 +382,7 @@ class Member(pulumi.CustomResource):
                  invite: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [Amazon Macie Member](https://docs.aws.amazon.com/macie/latest/APIReference/members-id.html).
@@ -467,6 +476,7 @@ class Member(pulumi.CustomResource):
                  invite: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -487,12 +497,12 @@ class Member(pulumi.CustomResource):
             __props__.__dict__["invite"] = invite
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["administrator_account_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["invited_at"] = None
             __props__.__dict__["master_account_id"] = None
             __props__.__dict__["relationship_status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["updated_at"] = None
         super(Member, __self__).__init__(
             'aws:macie2/member:Member',
@@ -653,7 +663,6 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

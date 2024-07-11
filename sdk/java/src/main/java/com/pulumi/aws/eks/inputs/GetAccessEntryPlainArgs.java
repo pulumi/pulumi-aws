@@ -53,12 +53,28 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Map<String,String> tagsAll;
+
+    /**
+     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Map<String,String>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private GetAccessEntryPlainArgs() {}
 
     private GetAccessEntryPlainArgs(GetAccessEntryPlainArgs $) {
         this.clusterName = $.clusterName;
         this.principalArn = $.principalArn;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -103,6 +119,17 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
 
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
+            $.tagsAll = tagsAll;
             return this;
         }
 

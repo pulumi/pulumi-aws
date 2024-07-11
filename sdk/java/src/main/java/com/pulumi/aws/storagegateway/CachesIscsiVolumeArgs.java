@@ -125,6 +125,21 @@ public final class CachesIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      * 
      */
@@ -164,6 +179,7 @@ public final class CachesIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         this.snapshotId = $.snapshotId;
         this.sourceVolumeArn = $.sourceVolumeArn;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.targetName = $.targetName;
         this.volumeSizeInBytes = $.volumeSizeInBytes;
     }
@@ -331,6 +347,27 @@ public final class CachesIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

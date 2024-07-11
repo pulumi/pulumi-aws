@@ -128,10 +128,8 @@ export class NodejsAppLayer extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to use EBS-optimized instances.
      */
@@ -204,9 +202,9 @@ export class NodejsAppLayer extends pulumi.CustomResource {
             resourceInputs["stackId"] = args ? args.stackId : undefined;
             resourceInputs["systemPackages"] = args ? args.systemPackages : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NodejsAppLayer.__pulumiType, name, resourceInputs, opts);
@@ -298,8 +296,6 @@ export interface NodejsAppLayerState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -387,6 +383,10 @@ export interface NodejsAppLayerArgs {
      * lifecycle events, if custom cookbooks are enabled on the layer's stack:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to use EBS-optimized instances.
      */

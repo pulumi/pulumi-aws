@@ -44,6 +44,7 @@ class SmbFileShareArgs:
                  requester_pays: Optional[pulumi.Input[bool]] = None,
                  smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None):
         """
@@ -73,6 +74,7 @@ class SmbFileShareArgs:
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
         """
@@ -119,6 +121,8 @@ class SmbFileShareArgs:
             pulumi.set(__self__, "smb_acl_enabled", smb_acl_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if valid_user_lists is not None:
             pulumi.set(__self__, "valid_user_lists", valid_user_lists)
         if vpc_endpoint_dns_name is not None:
@@ -403,6 +407,18 @@ class SmbFileShareArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="validUserLists")
     def valid_user_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -545,9 +561,6 @@ class _SmbFileShareState:
             pulumi.set(__self__, "smb_acl_enabled", smb_acl_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if valid_user_lists is not None:
@@ -871,7 +884,6 @@ class _SmbFileShareState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -935,6 +947,7 @@ class SmbFileShare(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1008,6 +1021,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
         """
@@ -1098,6 +1112,7 @@ class SmbFileShare(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1138,12 +1153,12 @@ class SmbFileShare(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["smb_acl_enabled"] = smb_acl_enabled
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["valid_user_lists"] = valid_user_lists
             __props__.__dict__["vpc_endpoint_dns_name"] = vpc_endpoint_dns_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["fileshare_id"] = None
             __props__.__dict__["path"] = None
-            __props__.__dict__["tags_all"] = None
         super(SmbFileShare, __self__).__init__(
             'aws:storagegateway/smbFileShare:SmbFileShare',
             resource_name,
@@ -1469,7 +1484,6 @@ class SmbFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

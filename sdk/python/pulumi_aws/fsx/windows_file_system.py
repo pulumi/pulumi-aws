@@ -40,6 +40,7 @@ class WindowsFileSystemArgs:
                  storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WindowsFileSystem resource.
@@ -64,6 +65,7 @@ class WindowsFileSystemArgs:
         :param pulumi.Input[int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         :param pulumi.Input[str] storage_type: Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -102,6 +104,8 @@ class WindowsFileSystemArgs:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if weekly_maintenance_start_time is not None:
             pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
@@ -336,6 +340,18 @@ class WindowsFileSystemArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
     def weekly_maintenance_start_time(self) -> Optional[pulumi.Input[str]]:
         """
@@ -460,9 +476,6 @@ class _WindowsFileSystemState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if throughput_capacity is not None:
@@ -762,7 +775,6 @@ class _WindowsFileSystemState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -835,6 +847,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -914,6 +927,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] storage_type: Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
                
                The following arguments are optional:
@@ -1014,6 +1028,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1045,6 +1060,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if throughput_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'throughput_capacity'")
             __props__.__dict__["throughput_capacity"] = throughput_capacity
@@ -1055,7 +1071,6 @@ class WindowsFileSystem(pulumi.CustomResource):
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["preferred_file_server_ip"] = None
             __props__.__dict__["remote_administration_endpoint"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(WindowsFileSystem, __self__).__init__(
             'aws:fsx/windowsFileSystem:WindowsFileSystem',
@@ -1361,7 +1376,6 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -27,7 +27,8 @@ class SpaceArgs:
                  space_display_name: Optional[pulumi.Input[str]] = None,
                  space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArgs']] = None,
                  space_sharing_settings: Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Space resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
@@ -37,6 +38,7 @@ class SpaceArgs:
         :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See Space Settings below.
         :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. See Space Sharing Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "space_name", space_name)
@@ -50,6 +52,8 @@ class SpaceArgs:
             pulumi.set(__self__, "space_sharing_settings", space_sharing_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="domainId")
@@ -135,6 +139,18 @@ class SpaceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _SpaceState:
@@ -182,9 +198,6 @@ class _SpaceState:
             pulumi.set(__self__, "space_sharing_settings", space_sharing_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
@@ -300,7 +313,6 @@ class _SpaceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -336,6 +348,7 @@ class Space(pulumi.CustomResource):
                  space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
                  space_sharing_settings: Optional[pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a SageMaker Space resource.
@@ -370,6 +383,7 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See Space Settings below.
         :param pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']] space_sharing_settings: A collection of space sharing settings. See Space Sharing Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -423,6 +437,7 @@ class Space(pulumi.CustomResource):
                  space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
                  space_sharing_settings: Optional[pulumi.Input[Union['SpaceSpaceSharingSettingsArgs', 'SpaceSpaceSharingSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -443,9 +458,9 @@ class Space(pulumi.CustomResource):
             __props__.__dict__["space_settings"] = space_settings
             __props__.__dict__["space_sharing_settings"] = space_sharing_settings
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["home_efs_file_system_uid"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["url"] = None
         super(Space, __self__).__init__(
             'aws:sagemaker/space:Space',
@@ -578,7 +593,6 @@ class Space(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

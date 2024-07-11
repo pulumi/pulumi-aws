@@ -90,10 +90,7 @@ export class VpcIpamScope extends pulumi.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VpcIpamScope resource with the given unique name, arguments, and options.
@@ -125,12 +122,12 @@ export class VpcIpamScope extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ipamId"] = args ? args.ipamId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamArn"] = undefined /*out*/;
             resourceInputs["ipamScopeType"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["poolCount"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcIpamScope.__pulumiType, name, resourceInputs, opts);
@@ -170,9 +167,6 @@ export interface VpcIpamScopeState {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -192,4 +186,5 @@ export interface VpcIpamScopeArgs {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -2183,7 +2183,7 @@ class GetOntapFileSystemEndpointInterclusterResult(dict):
                  dns_name: str,
                  ip_addresses: Sequence[str]):
         """
-        :param str dns_name: DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+        :param str dns_name: DNS name for the file system.
         """
         pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -2192,7 +2192,7 @@ class GetOntapFileSystemEndpointInterclusterResult(dict):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         """
-        DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+        DNS name for the file system.
         """
         return pulumi.get(self, "dns_name")
 
@@ -2208,7 +2208,7 @@ class GetOntapFileSystemEndpointManagementResult(dict):
                  dns_name: str,
                  ip_addresses: Sequence[str]):
         """
-        :param str dns_name: DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+        :param str dns_name: DNS name for the file system.
         """
         pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -2217,7 +2217,7 @@ class GetOntapFileSystemEndpointManagementResult(dict):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         """
-        DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+        DNS name for the file system.
         """
         return pulumi.get(self, "dns_name")
 

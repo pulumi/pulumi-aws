@@ -36,6 +36,7 @@ class OntapFileSystemArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[int]] = None,
                  throughput_capacity_per_ha_pair: Optional[pulumi.Input[int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
@@ -56,6 +57,7 @@ class OntapFileSystemArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[str] storage_type: The filesystem storage type. defaults to `SSD`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         :param pulumi.Input[int] throughput_capacity_per_ha_pair: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
@@ -86,6 +88,8 @@ class OntapFileSystemArgs:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if throughput_capacity is not None:
             pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if throughput_capacity_per_ha_pair is not None:
@@ -274,6 +278,18 @@ class OntapFileSystemArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="throughputCapacity")
     def throughput_capacity(self) -> Optional[pulumi.Input[int]]:
         """
@@ -406,9 +422,6 @@ class _OntapFileSystemState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if throughput_capacity is not None:
@@ -662,7 +675,6 @@ class _OntapFileSystemState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -742,6 +754,7 @@ class OntapFileSystem(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[int]] = None,
                  throughput_capacity_per_ha_pair: Optional[pulumi.Input[int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
@@ -805,6 +818,7 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] storage_type: The filesystem storage type. defaults to `SSD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         :param pulumi.Input[int] throughput_capacity_per_ha_pair: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
@@ -887,6 +901,7 @@ class OntapFileSystem(pulumi.CustomResource):
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_capacity: Optional[pulumi.Input[int]] = None,
                  throughput_capacity_per_ha_pair: Optional[pulumi.Input[int]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
@@ -922,6 +937,7 @@ class OntapFileSystem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["throughput_capacity"] = throughput_capacity
             __props__.__dict__["throughput_capacity_per_ha_pair"] = throughput_capacity_per_ha_pair
             __props__.__dict__["weekly_maintenance_start_time"] = weekly_maintenance_start_time
@@ -930,7 +946,6 @@ class OntapFileSystem(pulumi.CustomResource):
             __props__.__dict__["endpoints"] = None
             __props__.__dict__["network_interface_ids"] = None
             __props__.__dict__["owner_id"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["fsxAdminPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -1195,7 +1210,6 @@ class OntapFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

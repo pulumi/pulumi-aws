@@ -118,10 +118,7 @@ export class Replicator extends pulumi.CustomResource {
      */
     public readonly serviceExecutionRoleArn!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Replicator resource with the given unique name, arguments, and options.
@@ -165,9 +162,9 @@ export class Replicator extends pulumi.CustomResource {
             resourceInputs["replicatorName"] = args ? args.replicatorName : undefined;
             resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Replicator.__pulumiType, name, resourceInputs, opts);
@@ -204,9 +201,6 @@ export interface ReplicatorState {
      */
     serviceExecutionRoleArn?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -235,4 +229,5 @@ export interface ReplicatorArgs {
      */
     serviceExecutionRoleArn: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

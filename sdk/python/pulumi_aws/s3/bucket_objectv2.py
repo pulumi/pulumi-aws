@@ -46,6 +46,7 @@ class BucketObjectv2Args:
                  source_hash: Optional[pulumi.Input[str]] = None,
                  storage_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  website_redirect: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketObjectv2 resource.
@@ -76,6 +77,7 @@ class BucketObjectv2Args:
         :param pulumi.Input[str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
                If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
@@ -131,6 +133,8 @@ class BucketObjectv2Args:
             pulumi.set(__self__, "storage_class", storage_class)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if website_redirect is not None:
             pulumi.set(__self__, "website_redirect", website_redirect)
 
@@ -437,6 +441,18 @@ class BucketObjectv2Args:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="websiteRedirect")
     def website_redirect(self) -> Optional[pulumi.Input[str]]:
         """
@@ -591,9 +607,6 @@ class _BucketObjectv2State:
             pulumi.set(__self__, "storage_class", storage_class)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version_id is not None:
@@ -965,7 +978,6 @@ class _BucketObjectv2State:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1035,6 +1047,7 @@ class BucketObjectv2(pulumi.CustomResource):
                  source_hash: Optional[pulumi.Input[str]] = None,
                  storage_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  website_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -1210,6 +1223,7 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
         :param pulumi.Input[str] storage_class: [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
                
                If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
@@ -1406,6 +1420,7 @@ class BucketObjectv2(pulumi.CustomResource):
                  source_hash: Optional[pulumi.Input[str]] = None,
                  storage_class: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  website_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1443,13 +1458,13 @@ class BucketObjectv2(pulumi.CustomResource):
             __props__.__dict__["source_hash"] = source_hash
             __props__.__dict__["storage_class"] = storage_class
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["website_redirect"] = website_redirect
             __props__.__dict__["arn"] = None
             __props__.__dict__["checksum_crc32"] = None
             __props__.__dict__["checksum_crc32c"] = None
             __props__.__dict__["checksum_sha1"] = None
             __props__.__dict__["checksum_sha256"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/BucketObject:BucketObject")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -1826,7 +1841,6 @@ class BucketObjectv2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

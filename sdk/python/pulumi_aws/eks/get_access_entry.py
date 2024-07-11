@@ -163,6 +163,7 @@ class AwaitableGetAccessEntryResult(GetAccessEntryResult):
 def get_access_entry(cluster_name: Optional[str] = None,
                      principal_arn: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
+                     tags_all: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessEntryResult:
     """
     Access Entry Configurations for an EKS Cluster.
@@ -181,11 +182,13 @@ def get_access_entry(cluster_name: Optional[str] = None,
 
     :param str cluster_name: Name of the EKS Cluster.
     :param str principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+    :param Mapping[str, str] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['principalArn'] = principal_arn
     __args__['tags'] = tags
+    __args__['tagsAll'] = tags_all
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:eks/getAccessEntry:getAccessEntry', __args__, opts=opts, typ=GetAccessEntryResult).value
 
@@ -207,6 +210,7 @@ def get_access_entry(cluster_name: Optional[str] = None,
 def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
                             principal_arn: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                            tags_all: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessEntryResult]:
     """
     Access Entry Configurations for an EKS Cluster.
@@ -225,5 +229,6 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     :param str cluster_name: Name of the EKS Cluster.
     :param str principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+    :param Mapping[str, str] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
     """
     ...

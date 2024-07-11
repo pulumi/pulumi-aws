@@ -146,8 +146,6 @@ type Task struct {
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 	TaskReportConfig TaskTaskReportConfigPtrOutput `pulumi:"taskReportConfig"`
@@ -210,8 +208,6 @@ type taskState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 	TaskReportConfig *TaskTaskReportConfig `pulumi:"taskReportConfig"`
@@ -239,8 +235,6 @@ type TaskState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 	TaskReportConfig TaskTaskReportConfigPtrInput
@@ -269,6 +263,8 @@ type taskArgs struct {
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 	TaskReportConfig *TaskTaskReportConfig `pulumi:"taskReportConfig"`
 }
@@ -293,6 +289,8 @@ type TaskArgs struct {
 	SourceLocationArn pulumi.StringInput
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
 	TaskReportConfig TaskTaskReportConfigPtrInput
 }
@@ -435,8 +433,6 @@ func (o TaskOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o TaskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

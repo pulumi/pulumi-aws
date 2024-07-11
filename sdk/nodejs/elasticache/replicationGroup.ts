@@ -413,10 +413,8 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to enable encryption in transit.
      * Changing this argument with an `engineVersion` < `7.0.5` will force a replacement.
@@ -531,6 +529,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
             resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             resourceInputs["transitEncryptionMode"] = args ? args.transitEncryptionMode : undefined;
             resourceInputs["userGroupIds"] = args ? args.userGroupIds : undefined;
@@ -541,7 +540,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["memberClusters"] = undefined /*out*/;
             resourceInputs["primaryEndpointAddress"] = undefined /*out*/;
             resourceInputs["readerEndpointAddress"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["authToken"] };
@@ -736,8 +734,6 @@ export interface ReplicationGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -915,6 +911,10 @@ export interface ReplicationGroupArgs {
      * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
      * Changing this argument with an `engineVersion` < `7.0.5` will force a replacement.

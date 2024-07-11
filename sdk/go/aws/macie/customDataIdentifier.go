@@ -84,8 +84,7 @@ type CustomDataIdentifier struct {
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex pulumi.StringPtrOutput `pulumi:"regex"`
 	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -138,8 +137,7 @@ type customDataIdentifierState struct {
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex *string `pulumi:"regex"`
 	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -163,8 +161,7 @@ type CustomDataIdentifierState struct {
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex pulumi.StringPtrInput
 	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -188,7 +185,8 @@ type customDataIdentifierArgs struct {
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex *string `pulumi:"regex"`
 	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a CustomDataIdentifier resource.
@@ -208,7 +206,8 @@ type CustomDataIdentifierArgs struct {
 	// The regular expression (regex) that defines the pattern to match. The expression can contain as many as 512 characters.
 	Regex pulumi.StringPtrInput
 	// A map of key-value pairs that specifies the tags to associate with the custom data identifier.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (CustomDataIdentifierArgs) ElementType() reflect.Type {
@@ -348,7 +347,6 @@ func (o CustomDataIdentifierOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o CustomDataIdentifierOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomDataIdentifier) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -105,8 +105,6 @@ type Snapshot struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Provides the VPC ID associated with the DB snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -187,8 +185,6 @@ type snapshotState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Provides the VPC ID associated with the DB snapshot.
 	VpcId *string `pulumi:"vpcId"`
@@ -234,8 +230,6 @@ type SnapshotState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Provides the VPC ID associated with the DB snapshot.
 	VpcId pulumi.StringPtrInput
@@ -254,6 +248,8 @@ type snapshotArgs struct {
 	SharedAccounts []string `pulumi:"sharedAccounts"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Snapshot resource.
@@ -266,6 +262,8 @@ type SnapshotArgs struct {
 	SharedAccounts pulumi.StringArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (SnapshotArgs) ElementType() reflect.Type {
@@ -454,8 +452,6 @@ func (o SnapshotOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o SnapshotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

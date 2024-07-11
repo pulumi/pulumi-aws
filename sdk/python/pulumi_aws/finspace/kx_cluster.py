@@ -40,6 +40,7 @@ class KxClusterArgs:
                  savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
                  scaling_group_configuration: Optional[pulumi.Input['KxClusterScalingGroupConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a KxCluster resource.
@@ -71,6 +72,7 @@ class KxClusterArgs:
         :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input['KxClusterScalingGroupConfigurationArgs'] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]] tickerplant_log_configurations: A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         """
         pulumi.set(__self__, "az_mode", az_mode)
@@ -106,6 +108,8 @@ class KxClusterArgs:
             pulumi.set(__self__, "scaling_group_configuration", scaling_group_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if tickerplant_log_configurations is not None:
             pulumi.set(__self__, "tickerplant_log_configurations", tickerplant_log_configurations)
 
@@ -347,6 +351,18 @@ class KxClusterArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="tickerplantLogConfigurations")
     def tickerplant_log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterTickerplantLogConfigurationArgs']]]]:
         """
@@ -468,9 +484,6 @@ class _KxClusterState:
             pulumi.set(__self__, "status_reason", status_reason)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tickerplant_log_configurations is not None:
@@ -742,7 +755,6 @@ class _KxClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -819,6 +831,7 @@ class KxCluster(pulumi.CustomResource):
                  savedown_storage_configuration: Optional[pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
                  scaling_group_configuration: Optional[pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpc_configuration: Optional[pulumi.Input[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']]] = None,
@@ -857,6 +870,7 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']] scaling_group_configuration: The structure that stores the configuration details of a scaling group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]] tickerplant_log_configurations: A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
@@ -919,6 +933,7 @@ class KxCluster(pulumi.CustomResource):
                  savedown_storage_configuration: Optional[pulumi.Input[Union['KxClusterSavedownStorageConfigurationArgs', 'KxClusterSavedownStorageConfigurationArgsDict']]] = None,
                  scaling_group_configuration: Optional[pulumi.Input[Union['KxClusterScalingGroupConfigurationArgs', 'KxClusterScalingGroupConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tickerplant_log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxClusterTickerplantLogConfigurationArgs', 'KxClusterTickerplantLogConfigurationArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpc_configuration: Optional[pulumi.Input[Union['KxClusterVpcConfigurationArgs', 'KxClusterVpcConfigurationArgsDict']]] = None,
@@ -954,6 +969,7 @@ class KxCluster(pulumi.CustomResource):
             __props__.__dict__["savedown_storage_configuration"] = savedown_storage_configuration
             __props__.__dict__["scaling_group_configuration"] = scaling_group_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tickerplant_log_configurations"] = tickerplant_log_configurations
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -966,7 +982,6 @@ class KxCluster(pulumi.CustomResource):
             __props__.__dict__["last_modified_timestamp"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_reason"] = None
-            __props__.__dict__["tags_all"] = None
         super(KxCluster, __self__).__init__(
             'aws:finspace/kxCluster:KxCluster',
             resource_name,
@@ -1250,7 +1265,6 @@ class KxCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

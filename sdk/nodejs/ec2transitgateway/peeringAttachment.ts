@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -69,6 +72,10 @@ export class PeeringAttachment extends pulumi.CustomResource {
     }
 
     /**
+     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     */
+    public readonly options!: pulumi.Output<outputs.ec2transitgateway.PeeringAttachmentOptions | undefined>;
+    /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      */
     public readonly peerAccountId!: pulumi.Output<string>;
@@ -87,10 +94,8 @@ export class PeeringAttachment extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -109,6 +114,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PeeringAttachmentState | undefined;
+            resourceInputs["options"] = state ? state.options : undefined;
             resourceInputs["peerAccountId"] = state ? state.peerAccountId : undefined;
             resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
             resourceInputs["peerTransitGatewayId"] = state ? state.peerTransitGatewayId : undefined;
@@ -127,13 +133,14 @@ export class PeeringAttachment extends pulumi.CustomResource {
             if ((!args || args.transitGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
+            resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["peerAccountId"] = args ? args.peerAccountId : undefined;
             resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
             resourceInputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["state"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PeeringAttachment.__pulumiType, name, resourceInputs, opts);
@@ -144,6 +151,10 @@ export class PeeringAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PeeringAttachment resources.
  */
 export interface PeeringAttachmentState {
+    /**
+     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     */
+    options?: pulumi.Input<inputs.ec2transitgateway.PeeringAttachmentOptions>;
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      */
@@ -163,8 +174,6 @@ export interface PeeringAttachmentState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -177,6 +186,10 @@ export interface PeeringAttachmentState {
  * The set of arguments for constructing a PeeringAttachment resource.
  */
 export interface PeeringAttachmentArgs {
+    /**
+     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     */
+    options?: pulumi.Input<inputs.ec2transitgateway.PeeringAttachmentOptions>;
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
      */
@@ -193,6 +206,10 @@ export interface PeeringAttachmentArgs {
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

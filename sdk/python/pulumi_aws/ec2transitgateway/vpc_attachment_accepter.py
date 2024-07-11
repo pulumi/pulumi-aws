@@ -21,18 +21,22 @@ class VpcAttachmentAccepterArgs:
     def __init__(__self__, *,
                  transit_gateway_attachment_id: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VpcAttachmentAccepter resource.
         :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the EC2 Transit Gateway Attachment to manage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_default_route_table_association is not None:
             pulumi.set(__self__, "transit_gateway_default_route_table_association", transit_gateway_default_route_table_association)
         if transit_gateway_default_route_table_propagation is not None:
@@ -61,6 +65,18 @@ class VpcAttachmentAccepterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="transitGatewayDefaultRouteTableAssociation")
@@ -127,9 +143,6 @@ class _VpcAttachmentAccepterState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_attachment_id is not None:
@@ -207,7 +220,6 @@ class _VpcAttachmentAccepterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -297,6 +309,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[bool]] = None,
@@ -334,6 +347,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the EC2 Transit Gateway Attachment to manage.
         :param pulumi.Input[bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
         :param pulumi.Input[bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
@@ -390,6 +404,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[bool]] = None,
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[bool]] = None,
@@ -403,6 +418,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
             __props__ = VpcAttachmentAccepterArgs.__new__(VpcAttachmentAccepterArgs)
 
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if transit_gateway_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_attachment_id'")
             __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
@@ -412,7 +428,6 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
             __props__.__dict__["dns_support"] = None
             __props__.__dict__["ipv6_support"] = None
             __props__.__dict__["subnet_ids"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["transit_gateway_id"] = None
             __props__.__dict__["vpc_id"] = None
             __props__.__dict__["vpc_owner_id"] = None
@@ -518,7 +533,6 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

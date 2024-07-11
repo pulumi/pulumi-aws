@@ -26,7 +26,8 @@ class RuleArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  lock_configuration: Optional[pulumi.Input['RuleLockConfigurationArgs']] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input[str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
@@ -47,6 +48,8 @@ class RuleArgs:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -119,6 +122,15 @@ class RuleArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _RuleState:
@@ -167,9 +179,6 @@ class _RuleState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -291,7 +300,6 @@ class _RuleState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -311,6 +319,7 @@ class Rule(pulumi.CustomResource):
                  resource_type: Optional[pulumi.Input[str]] = None,
                  retention_period: Optional[pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS RBin Rule.
@@ -419,6 +428,7 @@ class Rule(pulumi.CustomResource):
                  resource_type: Optional[pulumi.Input[str]] = None,
                  retention_period: Optional[pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -438,11 +448,11 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'retention_period'")
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["lock_end_time"] = None
             __props__.__dict__["lock_state"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
         super(Rule, __self__).__init__(
             'aws:rbin/rule:Rule',
             resource_name,
@@ -577,7 +587,6 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

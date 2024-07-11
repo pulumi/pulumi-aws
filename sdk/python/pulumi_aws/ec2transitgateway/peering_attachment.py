@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['PeeringAttachmentArgs', 'PeeringAttachment']
 
@@ -22,23 +24,31 @@ class PeeringAttachmentArgs:
                  peer_region: pulumi.Input[str],
                  peer_transit_gateway_id: pulumi.Input[str],
                  transit_gateway_id: pulumi.Input[str],
+                 options: Optional[pulumi.Input['PeeringAttachmentOptionsArgs']] = None,
                  peer_account_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PeeringAttachment resource.
         :param pulumi.Input[str] peer_region: Region of EC2 Transit Gateway to peer with.
         :param pulumi.Input[str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
+        :param pulumi.Input['PeeringAttachmentOptionsArgs'] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         :param pulumi.Input[str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "peer_region", peer_region)
         pulumi.set(__self__, "peer_transit_gateway_id", peer_transit_gateway_id)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if peer_account_id is not None:
             pulumi.set(__self__, "peer_account_id", peer_account_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="peerRegion")
@@ -77,6 +87,18 @@ class PeeringAttachmentArgs:
         pulumi.set(self, "transit_gateway_id", value)
 
     @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['PeeringAttachmentOptionsArgs']]:
+        """
+        Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['PeeringAttachmentOptionsArgs']]):
+        pulumi.set(self, "options", value)
+
+    @property
     @pulumi.getter(name="peerAccountId")
     def peer_account_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -100,10 +122,23 @@ class PeeringAttachmentArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _PeeringAttachmentState:
     def __init__(__self__, *,
+                 options: Optional[pulumi.Input['PeeringAttachmentOptionsArgs']] = None,
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -113,6 +148,7 @@ class _PeeringAttachmentState:
                  transit_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PeeringAttachment resources.
+        :param pulumi.Input['PeeringAttachmentOptionsArgs'] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         :param pulumi.Input[str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] peer_region: Region of EC2 Transit Gateway to peer with.
         :param pulumi.Input[str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
@@ -120,6 +156,8 @@ class _PeeringAttachmentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         """
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if peer_account_id is not None:
             pulumi.set(__self__, "peer_account_id", peer_account_id)
         if peer_region is not None:
@@ -131,12 +169,21 @@ class _PeeringAttachmentState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['PeeringAttachmentOptionsArgs']]:
+        """
+        Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['PeeringAttachmentOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter(name="peerAccountId")
@@ -197,7 +244,6 @@ class _PeeringAttachmentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -226,10 +272,12 @@ class PeeringAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 options: Optional[pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']]] = None,
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -269,10 +317,12 @@ class PeeringAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         :param pulumi.Input[str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] peer_region: Region of EC2 Transit Gateway to peer with.
         :param pulumi.Input[str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         """
         ...
@@ -331,10 +381,12 @@ class PeeringAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 options: Optional[pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']]] = None,
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -345,6 +397,7 @@ class PeeringAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PeeringAttachmentArgs.__new__(PeeringAttachmentArgs)
 
+            __props__.__dict__["options"] = options
             __props__.__dict__["peer_account_id"] = peer_account_id
             if peer_region is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_region'")
@@ -353,11 +406,11 @@ class PeeringAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'peer_transit_gateway_id'")
             __props__.__dict__["peer_transit_gateway_id"] = peer_transit_gateway_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["state"] = None
-            __props__.__dict__["tags_all"] = None
         super(PeeringAttachment, __self__).__init__(
             'aws:ec2transitgateway/peeringAttachment:PeeringAttachment',
             resource_name,
@@ -368,6 +421,7 @@ class PeeringAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            options: Optional[pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']]] = None,
             peer_account_id: Optional[pulumi.Input[str]] = None,
             peer_region: Optional[pulumi.Input[str]] = None,
             peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -382,6 +436,7 @@ class PeeringAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['PeeringAttachmentOptionsArgs', 'PeeringAttachmentOptionsArgsDict']] options: Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
         :param pulumi.Input[str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] peer_region: Region of EC2 Transit Gateway to peer with.
         :param pulumi.Input[str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
@@ -393,6 +448,7 @@ class PeeringAttachment(pulumi.CustomResource):
 
         __props__ = _PeeringAttachmentState.__new__(_PeeringAttachmentState)
 
+        __props__.__dict__["options"] = options
         __props__.__dict__["peer_account_id"] = peer_account_id
         __props__.__dict__["peer_region"] = peer_region
         __props__.__dict__["peer_transit_gateway_id"] = peer_transit_gateway_id
@@ -401,6 +457,14 @@ class PeeringAttachment(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["transit_gateway_id"] = transit_gateway_id
         return PeeringAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def options(self) -> pulumi.Output[Optional['outputs.PeeringAttachmentOptions']]:
+        """
+        Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        """
+        return pulumi.get(self, "options")
 
     @property
     @pulumi.getter(name="peerAccountId")
@@ -441,7 +505,6 @@ class PeeringAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

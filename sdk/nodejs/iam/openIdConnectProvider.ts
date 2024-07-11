@@ -70,10 +70,8 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
@@ -115,10 +113,10 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             }
             resourceInputs["clientIdLists"] = args ? args.clientIdLists : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["thumbprintLists"] = args ? args.thumbprintLists : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OpenIdConnectProvider.__pulumiType, name, resourceInputs, opts);
@@ -143,8 +141,6 @@ export interface OpenIdConnectProviderState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -169,6 +165,10 @@ export interface OpenIdConnectProviderArgs {
      * Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */

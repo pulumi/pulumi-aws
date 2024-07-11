@@ -22,19 +22,23 @@ class VpcConnectorArgs:
                  security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_connector_name: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcConnector resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
         :param pulumi.Input[str] vpc_connector_name: Name for the VPC connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "vpc_connector_name", vpc_connector_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="securityGroups")
@@ -84,6 +88,18 @@ class VpcConnectorArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _VpcConnectorState:
@@ -117,9 +133,6 @@ class _VpcConnectorState:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_connector_name is not None:
@@ -189,7 +202,6 @@ class _VpcConnectorState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -233,6 +245,7 @@ class VpcConnector(pulumi.CustomResource):
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_connector_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -269,6 +282,7 @@ class VpcConnector(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_connector_name: Name for the VPC connector.
         """
         ...
@@ -324,6 +338,7 @@ class VpcConnector(pulumi.CustomResource):
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_connector_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -341,12 +356,12 @@ class VpcConnector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnets'")
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if vpc_connector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_connector_name'")
             __props__.__dict__["vpc_connector_name"] = vpc_connector_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_connector_revision"] = None
         super(VpcConnector, __self__).__init__(
             'aws:apprunner/vpcConnector:VpcConnector',
@@ -438,7 +453,6 @@ class VpcConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

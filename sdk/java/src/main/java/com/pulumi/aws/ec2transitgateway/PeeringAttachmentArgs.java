@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ec2transitgateway;
 
+import com.pulumi.aws.ec2transitgateway.inputs.PeeringAttachmentOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class PeeringAttachmentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PeeringAttachmentArgs Empty = new PeeringAttachmentArgs();
+
+    /**
+     * Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * 
+     */
+    @Import(name="options")
+    private @Nullable Output<PeeringAttachmentOptionsArgs> options;
+
+    /**
+     * @return Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+     * 
+     */
+    public Optional<Output<PeeringAttachmentOptionsArgs>> options() {
+        return Optional.ofNullable(this.options);
+    }
 
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
@@ -78,6 +94,21 @@ public final class PeeringAttachmentArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Identifier of EC2 Transit Gateway.
      * 
      */
@@ -95,10 +126,12 @@ public final class PeeringAttachmentArgs extends com.pulumi.resources.ResourceAr
     private PeeringAttachmentArgs() {}
 
     private PeeringAttachmentArgs(PeeringAttachmentArgs $) {
+        this.options = $.options;
         this.peerAccountId = $.peerAccountId;
         this.peerRegion = $.peerRegion;
         this.peerTransitGatewayId = $.peerTransitGatewayId;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.transitGatewayId = $.transitGatewayId;
     }
 
@@ -118,6 +151,27 @@ public final class PeeringAttachmentArgs extends com.pulumi.resources.ResourceAr
 
         public Builder(PeeringAttachmentArgs defaults) {
             $ = new PeeringAttachmentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param options Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+         * 
+         * @return builder
+         * 
+         */
+        public Builder options(@Nullable Output<PeeringAttachmentOptionsArgs> options) {
+            $.options = options;
+            return this;
+        }
+
+        /**
+         * @param options Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+         * 
+         * @return builder
+         * 
+         */
+        public Builder options(PeeringAttachmentOptionsArgs options) {
+            return options(Output.of(options));
         }
 
         /**
@@ -202,6 +256,27 @@ public final class PeeringAttachmentArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

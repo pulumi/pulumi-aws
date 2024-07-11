@@ -33,6 +33,7 @@ class FleetArgs:
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_options: Optional[pulumi.Input['FleetSpotOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_instances: Optional[pulumi.Input[bool]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -52,6 +53,7 @@ class FleetArgs:
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         :param pulumi.Input['FleetSpotOptionsArgs'] spot_options: Nested argument containing Spot configurations. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         :param pulumi.Input[str] type: The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`, `instant`. Defaults to `maintain`.
@@ -80,6 +82,8 @@ class FleetArgs:
             pulumi.set(__self__, "spot_options", spot_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if terminate_instances is not None:
             pulumi.set(__self__, "terminate_instances", terminate_instances)
         if terminate_instances_with_expiration is not None:
@@ -236,6 +240,18 @@ class FleetArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="terminateInstances")
     def terminate_instances(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -364,9 +380,6 @@ class _FleetState:
             pulumi.set(__self__, "spot_options", spot_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_capacity_specification is not None:
@@ -528,7 +541,6 @@ class _FleetState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -628,6 +640,7 @@ class Fleet(pulumi.CustomResource):
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_options: Optional[pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity_specification: Optional[pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
                  terminate_instances: Optional[pulumi.Input[bool]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -678,6 +691,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
         :param pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']] spot_options: Nested argument containing Spot configurations. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
@@ -747,6 +761,7 @@ class Fleet(pulumi.CustomResource):
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_options: Optional[pulumi.Input[Union['FleetSpotOptionsArgs', 'FleetSpotOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity_specification: Optional[pulumi.Input[Union['FleetTargetCapacitySpecificationArgs', 'FleetTargetCapacitySpecificationArgsDict']]] = None,
                  terminate_instances: Optional[pulumi.Input[bool]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -775,6 +790,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
             __props__.__dict__["spot_options"] = spot_options
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if target_capacity_specification is None and not opts.urn:
                 raise TypeError("Missing required property 'target_capacity_specification'")
             __props__.__dict__["target_capacity_specification"] = target_capacity_specification
@@ -784,7 +800,6 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["valid_from"] = valid_from
             __props__.__dict__["valid_until"] = valid_until
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(Fleet, __self__).__init__(
             'aws:ec2/fleet:Fleet',
             resource_name,
@@ -964,7 +979,6 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

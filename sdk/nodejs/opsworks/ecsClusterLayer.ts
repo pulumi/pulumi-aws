@@ -129,10 +129,7 @@ export class EcsClusterLayer extends pulumi.CustomResource {
      * lifecycle events, if custom cookbooks are enabled on the layer's stack:
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to use EBS-optimized instances.
      */
@@ -208,9 +205,9 @@ export class EcsClusterLayer extends pulumi.CustomResource {
             resourceInputs["stackId"] = args ? args.stackId : undefined;
             resourceInputs["systemPackages"] = args ? args.systemPackages : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EcsClusterLayer.__pulumiType, name, resourceInputs, opts);
@@ -300,9 +297,6 @@ export interface EcsClusterLayerState {
      * lifecycle events, if custom cookbooks are enabled on the layer's stack:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to use EBS-optimized instances.
@@ -389,6 +383,7 @@ export interface EcsClusterLayerArgs {
      * lifecycle events, if custom cookbooks are enabled on the layer's stack:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to use EBS-optimized instances.
      */

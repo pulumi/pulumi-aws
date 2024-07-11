@@ -699,6 +699,21 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Column to add with timestamp information to the endpoint data for an Amazon S3 target.
      * 
      */
@@ -791,6 +806,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.serviceAccessRoleArn = $.serviceAccessRoleArn;
         this.sslMode = $.sslMode;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.timestampColumnName = $.timestampColumnName;
         this.useCsvNoSupValue = $.useCsvNoSupValue;
         this.useTaskStartTimeForFullLoadTimestamp = $.useTaskStartTimeForFullLoadTimestamp;
@@ -1761,6 +1777,27 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

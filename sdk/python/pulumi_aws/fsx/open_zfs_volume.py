@@ -33,6 +33,7 @@ class OpenZfsVolumeArgs:
                  storage_capacity_quota_gib: Optional[pulumi.Input[int]] = None,
                  storage_capacity_reservation_gib: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
@@ -49,6 +50,7 @@ class OpenZfsVolumeArgs:
         :param pulumi.Input[int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         :param pulumi.Input[int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
         """
         pulumi.set(__self__, "parent_volume_id", parent_volume_id)
@@ -74,6 +76,8 @@ class OpenZfsVolumeArgs:
             pulumi.set(__self__, "storage_capacity_reservation_gib", storage_capacity_reservation_gib)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_and_group_quotas is not None:
             pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
         if volume_type is not None:
@@ -224,6 +228,18 @@ class OpenZfsVolumeArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="userAndGroupQuotas")
     def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeUserAndGroupQuotaArgs']]]]:
         """
@@ -308,9 +324,6 @@ class _OpenZfsVolumeState:
             pulumi.set(__self__, "storage_capacity_reservation_gib", storage_capacity_reservation_gib)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if user_and_group_quotas is not None:
@@ -476,7 +489,6 @@ class _OpenZfsVolumeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -526,6 +538,7 @@ class OpenZfsVolume(pulumi.CustomResource):
                  storage_capacity_quota_gib: Optional[pulumi.Input[int]] = None,
                  storage_capacity_reservation_gib: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OpenZfsVolumeUserAndGroupQuotaArgs', 'OpenZfsVolumeUserAndGroupQuotaArgsDict']]]]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -566,6 +579,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         :param pulumi.Input[int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         :param pulumi.Input[int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OpenZfsVolumeUserAndGroupQuotaArgs', 'OpenZfsVolumeUserAndGroupQuotaArgsDict']]]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
         """
         ...
@@ -624,6 +638,7 @@ class OpenZfsVolume(pulumi.CustomResource):
                  storage_capacity_quota_gib: Optional[pulumi.Input[int]] = None,
                  storage_capacity_reservation_gib: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OpenZfsVolumeUserAndGroupQuotaArgs', 'OpenZfsVolumeUserAndGroupQuotaArgsDict']]]]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -649,10 +664,10 @@ class OpenZfsVolume(pulumi.CustomResource):
             __props__.__dict__["storage_capacity_quota_gib"] = storage_capacity_quota_gib
             __props__.__dict__["storage_capacity_reservation_gib"] = storage_capacity_reservation_gib
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["user_and_group_quotas"] = user_and_group_quotas
             __props__.__dict__["volume_type"] = volume_type
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(OpenZfsVolume, __self__).__init__(
             'aws:fsx/openZfsVolume:OpenZfsVolume',
             resource_name,
@@ -830,7 +845,6 @@ class OpenZfsVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

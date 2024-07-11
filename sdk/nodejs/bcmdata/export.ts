@@ -91,9 +91,6 @@ export class Export extends pulumi.CustomResource {
      */
     public readonly export!: pulumi.Output<outputs.bcmdata.ExportExport | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.bcmdata.ExportTimeouts | undefined>;
 
@@ -135,9 +132,6 @@ export interface ExportState {
      */
     export?: pulumi.Input<inputs.bcmdata.ExportExport>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
 }

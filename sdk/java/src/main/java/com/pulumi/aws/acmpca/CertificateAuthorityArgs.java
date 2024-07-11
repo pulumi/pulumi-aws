@@ -112,6 +112,21 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      * 
      */
@@ -150,6 +165,7 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
         this.permanentDeletionTimeInDays = $.permanentDeletionTimeInDays;
         this.revocationConfiguration = $.revocationConfiguration;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.type = $.type;
         this.usageMode = $.usageMode;
     }
@@ -296,6 +312,27 @@ public final class CertificateAuthorityArgs extends com.pulumi.resources.Resourc
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

@@ -36,6 +36,7 @@ class OntapVolumeArgs:
                  snapshot_policy: Optional[pulumi.Input[str]] = None,
                  storage_efficiency_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tiering_policy: Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']] = None,
                  volume_style: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
@@ -56,6 +57,7 @@ class OntapVolumeArgs:
         :param pulumi.Input[str] snapshot_policy: Specifies the snapshot policy for the volume. See [snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx ONTAP User Guide
         :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['OntapVolumeTieringPolicyArgs'] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
         :param pulumi.Input[str] volume_style: Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
@@ -89,6 +91,8 @@ class OntapVolumeArgs:
             pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if tiering_policy is not None:
             pulumi.set(__self__, "tiering_policy", tiering_policy)
         if volume_style is not None:
@@ -277,6 +281,18 @@ class OntapVolumeArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="tieringPolicy")
     def tiering_policy(self) -> Optional[pulumi.Input['OntapVolumeTieringPolicyArgs']]:
         """
@@ -401,9 +417,6 @@ class _OntapVolumeState:
             pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tiering_policy is not None:
@@ -633,7 +646,6 @@ class _OntapVolumeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -713,6 +725,7 @@ class OntapVolume(pulumi.CustomResource):
                  storage_efficiency_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tiering_policy: Optional[pulumi.Input[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']]] = None,
                  volume_style: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
@@ -782,6 +795,7 @@ class OntapVolume(pulumi.CustomResource):
         :param pulumi.Input[bool] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume.
         :param pulumi.Input[str] storage_virtual_machine_id: Specifies the storage virtual machine in which to create the volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the volume. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']] tiering_policy: The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
         :param pulumi.Input[str] volume_style: Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
         :param pulumi.Input[str] volume_type: The type of volume, currently the only valid value is `ONTAP`.
@@ -870,6 +884,7 @@ class OntapVolume(pulumi.CustomResource):
                  storage_efficiency_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tiering_policy: Optional[pulumi.Input[Union['OntapVolumeTieringPolicyArgs', 'OntapVolumeTieringPolicyArgsDict']]] = None,
                  volume_style: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
@@ -899,13 +914,13 @@ class OntapVolume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_virtual_machine_id'")
             __props__.__dict__["storage_virtual_machine_id"] = storage_virtual_machine_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tiering_policy"] = tiering_policy
             __props__.__dict__["volume_style"] = volume_style
             __props__.__dict__["volume_type"] = volume_type
             __props__.__dict__["arn"] = None
             __props__.__dict__["file_system_id"] = None
             __props__.__dict__["flexcache_endpoint_type"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["uuid"] = None
         super(OntapVolume, __self__).__init__(
             'aws:fsx/ontapVolume:OntapVolume',
@@ -1146,7 +1161,6 @@ class OntapVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -237,8 +237,6 @@ type TargetGroup struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayOutput `pulumi:"targetFailovers"`
@@ -342,8 +340,6 @@ type targetGroupState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
@@ -412,8 +408,6 @@ type TargetGroupState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayInput
@@ -479,6 +473,8 @@ type targetGroupArgs struct {
 	Stickiness *TargetGroupStickiness `pulumi:"stickiness"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers []TargetGroupTargetFailover `pulumi:"targetFailovers"`
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
@@ -540,6 +536,8 @@ type TargetGroupArgs struct {
 	Stickiness TargetGroupStickinessPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Target failover block. Only applicable for Gateway Load Balancer target groups. See targetFailover for more information.
 	TargetFailovers TargetGroupTargetFailoverArrayInput
 	// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See targetHealthState for more information.
@@ -756,8 +754,6 @@ func (o TargetGroupOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o TargetGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

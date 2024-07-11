@@ -26,7 +26,8 @@ class RouteArgs:
                  virtual_router_name: pulumi.Input[str],
                  mesh_owner: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Route resource.
         :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
@@ -35,6 +36,7 @@ class RouteArgs:
         :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "mesh_name", mesh_name)
         pulumi.set(__self__, "spec", spec)
@@ -45,6 +47,8 @@ class RouteArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="meshName")
@@ -118,6 +122,18 @@ class RouteArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _RouteState:
@@ -165,9 +181,6 @@ class _RouteState:
             pulumi.set(__self__, "spec", spec)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if virtual_router_name is not None:
@@ -283,7 +296,6 @@ class _RouteState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -317,6 +329,7 @@ class Route(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  spec: Optional[pulumi.Input[Union['RouteSpecArgs', 'RouteSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -458,6 +471,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
         :param pulumi.Input[Union['RouteSpecArgs', 'RouteSpecArgsDict']] spec: Route specification to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] virtual_router_name: Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         """
         ...
@@ -618,6 +632,7 @@ class Route(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  spec: Optional[pulumi.Input[Union['RouteSpecArgs', 'RouteSpecArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -637,6 +652,7 @@ class Route(pulumi.CustomResource):
                 raise TypeError("Missing required property 'spec'")
             __props__.__dict__["spec"] = spec
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if virtual_router_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_router_name'")
             __props__.__dict__["virtual_router_name"] = virtual_router_name
@@ -644,7 +660,6 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["created_date"] = None
             __props__.__dict__["last_updated_date"] = None
             __props__.__dict__["resource_owner"] = None
-            __props__.__dict__["tags_all"] = None
         super(Route, __self__).__init__(
             'aws:appmesh/route:Route',
             resource_name,
@@ -776,7 +791,6 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

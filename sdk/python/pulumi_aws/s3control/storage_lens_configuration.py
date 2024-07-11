@@ -24,13 +24,15 @@ class StorageLensConfigurationArgs:
                  config_id: pulumi.Input[str],
                  storage_lens_configuration: pulumi.Input['StorageLensConfigurationStorageLensConfigurationArgs'],
                  account_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StorageLensConfiguration resource.
         :param pulumi.Input[str] config_id: The ID of the S3 Storage Lens configuration.
         :param pulumi.Input['StorageLensConfigurationStorageLensConfigurationArgs'] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[str] account_id: The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "config_id", config_id)
         pulumi.set(__self__, "storage_lens_configuration", storage_lens_configuration)
@@ -38,6 +40,8 @@ class StorageLensConfigurationArgs:
             pulumi.set(__self__, "account_id", account_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="configId")
@@ -87,6 +91,18 @@ class StorageLensConfigurationArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _StorageLensConfigurationState:
@@ -116,9 +132,6 @@ class _StorageLensConfigurationState:
             pulumi.set(__self__, "storage_lens_configuration", storage_lens_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -184,7 +197,6 @@ class _StorageLensConfigurationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -205,6 +217,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
                  config_id: Optional[pulumi.Input[str]] = None,
                  storage_lens_configuration: Optional[pulumi.Input[Union['StorageLensConfigurationStorageLensConfigurationArgs', 'StorageLensConfigurationStorageLensConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage an S3 Storage Lens configuration.
@@ -268,6 +281,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] config_id: The ID of the S3 Storage Lens configuration.
         :param pulumi.Input[Union['StorageLensConfigurationStorageLensConfigurationArgs', 'StorageLensConfigurationStorageLensConfigurationArgsDict']] storage_lens_configuration: The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -350,6 +364,7 @@ class StorageLensConfiguration(pulumi.CustomResource):
                  config_id: Optional[pulumi.Input[str]] = None,
                  storage_lens_configuration: Optional[pulumi.Input[Union['StorageLensConfigurationStorageLensConfigurationArgs', 'StorageLensConfigurationStorageLensConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -367,8 +382,8 @@ class StorageLensConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_lens_configuration'")
             __props__.__dict__["storage_lens_configuration"] = storage_lens_configuration
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(StorageLensConfiguration, __self__).__init__(
             'aws:s3control/storageLensConfiguration:StorageLensConfiguration',
             resource_name,
@@ -453,7 +468,6 @@ class StorageLensConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

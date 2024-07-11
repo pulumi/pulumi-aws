@@ -24,7 +24,8 @@ class RouteTableArgs:
                  vpc_id: pulumi.Input[str],
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RouteTable resource.
         :param pulumi.Input[str] vpc_id: The VPC ID.
@@ -32,6 +33,7 @@ class RouteTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]] routes: A list of route objects. Their keys are documented below.
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if propagating_vgws is not None:
@@ -40,6 +42,8 @@ class RouteTableArgs:
             pulumi.set(__self__, "routes", routes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -90,6 +94,18 @@ class RouteTableArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _RouteTableState:
@@ -122,9 +138,6 @@ class _RouteTableState:
             pulumi.set(__self__, "routes", routes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_id is not None:
@@ -193,7 +206,6 @@ class _RouteTableState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -225,6 +237,7 @@ class RouteTable(pulumi.CustomResource):
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -342,6 +355,7 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]] routes: A list of route objects. Their keys are documented below.
                This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID.
         """
         ...
@@ -477,6 +491,7 @@ class RouteTable(pulumi.CustomResource):
                  propagating_vgws: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteTableRouteArgs', 'RouteTableRouteArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -490,12 +505,12 @@ class RouteTable(pulumi.CustomResource):
             __props__.__dict__["propagating_vgws"] = propagating_vgws
             __props__.__dict__["routes"] = routes
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
-            __props__.__dict__["tags_all"] = None
         super(RouteTable, __self__).__init__(
             'aws:ec2/routeTable:RouteTable',
             resource_name,
@@ -585,7 +600,6 @@ class RouteTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

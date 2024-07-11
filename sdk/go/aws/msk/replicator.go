@@ -109,8 +109,7 @@ type Replicator struct {
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
 	ServiceExecutionRoleArn pulumi.StringOutput    `pulumi:"serviceExecutionRoleArn"`
 	Tags                    pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll                 pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewReplicator registers a new resource with the given unique name, arguments, and options.
@@ -169,8 +168,7 @@ type replicatorState struct {
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
 	ServiceExecutionRoleArn *string           `pulumi:"serviceExecutionRoleArn"`
 	Tags                    map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll                 map[string]string `pulumi:"tagsAll"`
 }
 
 type ReplicatorState struct {
@@ -188,8 +186,7 @@ type ReplicatorState struct {
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
 	ServiceExecutionRoleArn pulumi.StringPtrInput
 	Tags                    pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
 }
 
 func (ReplicatorState) ElementType() reflect.Type {
@@ -208,6 +205,7 @@ type replicatorArgs struct {
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
 	ServiceExecutionRoleArn string            `pulumi:"serviceExecutionRoleArn"`
 	Tags                    map[string]string `pulumi:"tags"`
+	TagsAll                 map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Replicator resource.
@@ -223,6 +221,7 @@ type ReplicatorArgs struct {
 	// The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
 	ServiceExecutionRoleArn pulumi.StringInput
 	Tags                    pulumi.StringMapInput
+	TagsAll                 pulumi.StringMapInput
 }
 
 func (ReplicatorArgs) ElementType() reflect.Type {
@@ -350,7 +349,6 @@ func (o ReplicatorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Replicator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ReplicatorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Replicator) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -81,10 +81,7 @@ export class Group extends pulumi.CustomResource {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of this verified acess group.
      */
@@ -134,12 +131,12 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["sseConfiguration"] = args ? args.sseConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["verifiedaccessInstanceId"] = args ? args.verifiedaccessInstanceId : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["deletionTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["verifiedaccessGroupArn"] = undefined /*out*/;
             resourceInputs["verifiedaccessGroupId"] = undefined /*out*/;
         }
@@ -184,9 +181,6 @@ export interface GroupState {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARN of this verified acess group.
@@ -224,6 +218,7 @@ export interface GroupArgs {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The id of the verified access instance this group is associated with.
      *

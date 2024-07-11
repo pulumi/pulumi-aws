@@ -677,22 +677,14 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -1792,11 +1784,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -1807,11 +1795,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

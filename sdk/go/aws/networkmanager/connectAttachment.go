@@ -166,8 +166,6 @@ type ConnectAttachment struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the attachment between the two connections.
 	TransportAttachmentId pulumi.StringOutput `pulumi:"transportAttachmentId"`
@@ -243,8 +241,6 @@ type connectAttachmentState struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the attachment between the two connections.
 	TransportAttachmentId *string `pulumi:"transportAttachmentId"`
@@ -279,8 +275,6 @@ type ConnectAttachmentState struct {
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The ID of the attachment between the two connections.
 	TransportAttachmentId pulumi.StringPtrInput
@@ -301,6 +295,8 @@ type connectAttachmentArgs struct {
 	Options ConnectAttachmentOptions `pulumi:"options"`
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the attachment between the two connections.
 	TransportAttachmentId string `pulumi:"transportAttachmentId"`
 }
@@ -317,6 +313,8 @@ type ConnectAttachmentArgs struct {
 	Options ConnectAttachmentOptionsInput
 	// Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The ID of the attachment between the two connections.
 	TransportAttachmentId pulumi.StringInput
 }
@@ -475,8 +473,6 @@ func (o ConnectAttachmentOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ConnectAttachmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

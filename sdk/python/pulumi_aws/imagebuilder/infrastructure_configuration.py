@@ -33,6 +33,7 @@ class InfrastructureConfigurationArgs:
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a InfrastructureConfiguration resource.
@@ -50,6 +51,7 @@ class InfrastructureConfigurationArgs:
         :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
         :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
         pulumi.set(__self__, "instance_profile_name", instance_profile_name)
@@ -75,6 +77,8 @@ class InfrastructureConfigurationArgs:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if terminate_instance_on_failure is not None:
             pulumi.set(__self__, "terminate_instance_on_failure", terminate_instance_on_failure)
 
@@ -225,6 +229,18 @@ class InfrastructureConfigurationArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="terminateInstanceOnFailure")
     def terminate_instance_on_failure(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -309,9 +325,6 @@ class _InfrastructureConfigurationState:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if terminate_instance_on_failure is not None:
@@ -501,7 +514,6 @@ class _InfrastructureConfigurationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -542,6 +554,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -601,6 +614,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
         :param pulumi.Input[str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
         """
         ...
@@ -677,6 +691,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -701,11 +716,11 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["terminate_instance_on_failure"] = terminate_instance_on_failure
             __props__.__dict__["arn"] = None
             __props__.__dict__["date_created"] = None
             __props__.__dict__["date_updated"] = None
-            __props__.__dict__["tags_all"] = None
         super(InfrastructureConfiguration, __self__).__init__(
             'aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration',
             resource_name,
@@ -907,7 +922,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -110,8 +110,7 @@ type Fleet struct {
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView pulumi.StringOutput `pulumi:"streamView"`
 	// Map of tags to attach to AppStream instances.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig FleetVpcConfigOutput `pulumi:"vpcConfig"`
@@ -194,8 +193,7 @@ type fleetState struct {
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView *string `pulumi:"streamView"`
 	// Map of tags to attach to AppStream instances.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig *FleetVpcConfig `pulumi:"vpcConfig"`
@@ -243,8 +241,7 @@ type FleetState struct {
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView pulumi.StringPtrInput
 	// Map of tags to attach to AppStream instances.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig FleetVpcConfigPtrInput
@@ -290,7 +287,8 @@ type fleetArgs struct {
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView *string `pulumi:"streamView"`
 	// Map of tags to attach to AppStream instances.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig *FleetVpcConfig `pulumi:"vpcConfig"`
 }
@@ -332,7 +330,8 @@ type FleetArgs struct {
 	// AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
 	StreamView pulumi.StringPtrInput
 	// Map of tags to attach to AppStream instances.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Configuration block for the VPC configuration for the image builder. See below.
 	VpcConfig FleetVpcConfigPtrInput
 }
@@ -526,7 +525,6 @@ func (o FleetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o FleetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

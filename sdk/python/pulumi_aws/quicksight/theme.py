@@ -28,6 +28,7 @@ class ThemeArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Theme resource.
@@ -40,6 +41,7 @@ class ThemeArgs:
         :param pulumi.Input[str] name: Display name of the theme.
         :param pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version_description: A description of the current theme version being created/updated.
         """
         pulumi.set(__self__, "base_theme_id", base_theme_id)
@@ -54,6 +56,8 @@ class ThemeArgs:
             pulumi.set(__self__, "permissions", permissions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if version_description is not None:
             pulumi.set(__self__, "version_description", version_description)
 
@@ -144,6 +148,18 @@ class ThemeArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -212,9 +228,6 @@ class _ThemeState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if theme_id is not None:
@@ -348,7 +361,6 @@ class _ThemeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -407,6 +419,7 @@ class Theme(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -466,6 +479,7 @@ class Theme(pulumi.CustomResource):
         :param pulumi.Input[str] name: Display name of the theme.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] theme_id: Identifier of the theme.
         :param pulumi.Input[str] version_description: A description of the current theme version being created/updated.
         """
@@ -542,6 +556,7 @@ class Theme(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ThemePermissionArgs', 'ThemePermissionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -561,6 +576,7 @@ class Theme(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if theme_id is None and not opts.urn:
                 raise TypeError("Missing required property 'theme_id'")
             __props__.__dict__["theme_id"] = theme_id
@@ -569,7 +585,6 @@ class Theme(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_number"] = None
         super(Theme, __self__).__init__(
             'aws:quicksight/theme:Theme',
@@ -723,7 +738,6 @@ class Theme(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

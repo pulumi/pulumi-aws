@@ -22,19 +22,23 @@ class StudioLifecycleConfigArgs:
                  studio_lifecycle_config_app_type: pulumi.Input[str],
                  studio_lifecycle_config_content: pulumi.Input[str],
                  studio_lifecycle_config_name: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StudioLifecycleConfig resource.
         :param pulumi.Input[str] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "studio_lifecycle_config_app_type", studio_lifecycle_config_app_type)
         pulumi.set(__self__, "studio_lifecycle_config_content", studio_lifecycle_config_content)
         pulumi.set(__self__, "studio_lifecycle_config_name", studio_lifecycle_config_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="studioLifecycleConfigAppType")
@@ -84,6 +88,18 @@ class StudioLifecycleConfigArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _StudioLifecycleConfigState:
@@ -113,9 +129,6 @@ class _StudioLifecycleConfigState:
             pulumi.set(__self__, "studio_lifecycle_config_name", studio_lifecycle_config_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -181,7 +194,6 @@ class _StudioLifecycleConfigState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -202,6 +214,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                  studio_lifecycle_config_content: Optional[pulumi.Input[str]] = None,
                  studio_lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a SageMaker Studio Lifecycle Config resource.
@@ -235,6 +248,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Studio Lifecycle Configuration to create.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -287,6 +301,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                  studio_lifecycle_config_content: Optional[pulumi.Input[str]] = None,
                  studio_lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -306,8 +321,8 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'studio_lifecycle_config_name'")
             __props__.__dict__["studio_lifecycle_config_name"] = studio_lifecycle_config_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(StudioLifecycleConfig, __self__).__init__(
             'aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig',
             resource_name,
@@ -392,7 +407,6 @@ class StudioLifecycleConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

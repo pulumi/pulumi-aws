@@ -110,6 +110,21 @@ public final class ProvisioningTemplateArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * The JSON formatted contents of the fleet provisioning template.
      * 
      */
@@ -148,6 +163,7 @@ public final class ProvisioningTemplateArgs extends com.pulumi.resources.Resourc
         this.preProvisioningHook = $.preProvisioningHook;
         this.provisioningRoleArn = $.provisioningRoleArn;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.templateBody = $.templateBody;
         this.type = $.type;
     }
@@ -294,6 +310,27 @@ public final class ProvisioningTemplateArgs extends com.pulumi.resources.Resourc
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

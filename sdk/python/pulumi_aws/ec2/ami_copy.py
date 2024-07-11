@@ -31,7 +31,8 @@ class AmiCopyArgs:
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AmiCopy resource.
         :param pulumi.Input[str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
@@ -71,6 +72,8 @@ class AmiCopyArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="sourceAmiId")
@@ -209,6 +212,15 @@ class AmiCopyArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _AmiCopyState:
@@ -344,9 +356,6 @@ class _AmiCopyState:
             pulumi.set(__self__, "sriov_net_support", sriov_net_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tpm_support is not None:
@@ -700,7 +709,6 @@ class _AmiCopyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -760,6 +768,7 @@ class AmiCopy(pulumi.CustomResource):
                  source_ami_id: Optional[pulumi.Input[str]] = None,
                  source_ami_region: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
@@ -870,6 +879,7 @@ class AmiCopy(pulumi.CustomResource):
                  source_ami_id: Optional[pulumi.Input[str]] = None,
                  source_ami_region: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -894,6 +904,7 @@ class AmiCopy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_ami_region'")
             __props__.__dict__["source_ami_region"] = source_ami_region
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["architecture"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["boot_mode"] = None
@@ -913,7 +924,6 @@ class AmiCopy(pulumi.CustomResource):
             __props__.__dict__["root_device_name"] = None
             __props__.__dict__["root_snapshot_id"] = None
             __props__.__dict__["sriov_net_support"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["tpm_support"] = None
             __props__.__dict__["usage_operation"] = None
             __props__.__dict__["virtualization_type"] = None
@@ -1267,7 +1277,6 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

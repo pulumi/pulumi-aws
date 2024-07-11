@@ -89,10 +89,7 @@ export class MedicalVocabulary extends pulumi.CustomResource {
      * A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      */
@@ -137,11 +134,11 @@ export class MedicalVocabulary extends pulumi.CustomResource {
             }
             resourceInputs["languageCode"] = args ? args.languageCode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["vocabularyFileUri"] = args ? args.vocabularyFileUri : undefined;
             resourceInputs["vocabularyName"] = args ? args.vocabularyName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["downloadUri"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MedicalVocabulary.__pulumiType, name, resourceInputs, opts);
@@ -168,9 +165,6 @@ export interface MedicalVocabularyState {
      * A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
@@ -196,6 +190,7 @@ export interface MedicalVocabularyArgs {
      * A map of tags to assign to the MedicalVocabulary. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon S3 location (URI) of the text file that contains your custom medical vocabulary.
      */

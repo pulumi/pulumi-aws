@@ -101,8 +101,6 @@ type ReservedInstance struct {
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Hourly price charged for this reserved DB instance.
 	UsagePrice pulumi.Float64Output `pulumi:"usagePrice"`
@@ -176,8 +174,6 @@ type reservedInstanceState struct {
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Hourly price charged for this reserved DB instance.
 	UsagePrice *float64 `pulumi:"usagePrice"`
@@ -219,8 +215,6 @@ type ReservedInstanceState struct {
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Hourly price charged for this reserved DB instance.
 	UsagePrice pulumi.Float64PtrInput
@@ -241,6 +235,8 @@ type reservedInstanceArgs struct {
 	ReservationId *string `pulumi:"reservationId"`
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ReservedInstance resource.
@@ -255,6 +251,8 @@ type ReservedInstanceArgs struct {
 	ReservationId pulumi.StringPtrInput
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ReservedInstanceArgs) ElementType() reflect.Type {
@@ -427,8 +425,6 @@ func (o ReservedInstanceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ReservedInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -27,6 +27,7 @@ export function getAccessEntry(args: GetAccessEntryArgs, opts?: pulumi.InvokeOpt
         "clusterName": args.clusterName,
         "principalArn": args.principalArn,
         "tags": args.tags,
+        "tagsAll": args.tagsAll,
     }, opts);
 }
 
@@ -43,6 +44,10 @@ export interface GetAccessEntryArgs {
      */
     principalArn: string;
     tags?: {[key: string]: string};
+    /**
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: {[key: string]: string};
 }
 
 /**
@@ -118,4 +123,8 @@ export interface GetAccessEntryOutputArgs {
      */
     principalArn: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

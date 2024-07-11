@@ -130,8 +130,6 @@ type OntapVolume struct {
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy OntapVolumeTieringPolicyPtrOutput `pulumi:"tieringPolicy"`
@@ -213,8 +211,6 @@ type ontapVolumeState struct {
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
@@ -264,8 +260,6 @@ type OntapVolumeState struct {
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy OntapVolumeTieringPolicyPtrInput
@@ -312,6 +306,8 @@ type ontapVolumeArgs struct {
 	StorageVirtualMachineId string `pulumi:"storageVirtualMachineId"`
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy *OntapVolumeTieringPolicy `pulumi:"tieringPolicy"`
 	// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
@@ -352,6 +348,8 @@ type OntapVolumeArgs struct {
 	StorageVirtualMachineId pulumi.StringInput
 	// A map of tags to assign to the volume. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The data tiering policy for an FSx for ONTAP volume. See Tiering Policy below.
 	TieringPolicy OntapVolumeTieringPolicyPtrInput
 	// Specifies the styles of volume, valid values are `FLEXVOL`, `FLEXGROUP`. Default value is `FLEXVOL`. FLEXGROUPS have a larger minimum and maximum size. See Volume Styles for more details. [Volume Styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html)
@@ -538,8 +536,6 @@ func (o OntapVolumeOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o OntapVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

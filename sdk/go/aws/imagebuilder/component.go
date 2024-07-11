@@ -85,8 +85,6 @@ type Component struct {
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of the component.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -163,8 +161,6 @@ type componentState struct {
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of the component.
 	Type *string `pulumi:"type"`
@@ -206,8 +202,6 @@ type ComponentState struct {
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Type of the component.
 	Type pulumi.StringPtrInput
@@ -244,6 +238,8 @@ type componentArgs struct {
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
 	//
 	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
@@ -274,6 +270,8 @@ type ComponentArgs struct {
 	SupportedOsVersions pulumi.StringArrayInput
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
 	//
 	// > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skipDestroy` argument can be used to retain the old version.
@@ -437,8 +435,6 @@ func (o ComponentOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ComponentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

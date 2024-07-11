@@ -28,7 +28,8 @@ class FlowArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Flow resource.
         :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_configs: A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
@@ -39,6 +40,7 @@ class FlowArgs:
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[str] name: Name of the flow.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "destination_flow_configs", destination_flow_configs)
         pulumi.set(__self__, "source_flow_config", source_flow_config)
@@ -52,6 +54,8 @@ class FlowArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="destinationFlowConfigs")
@@ -149,6 +153,18 @@ class FlowArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _FlowState:
@@ -194,9 +210,6 @@ class _FlowState:
             pulumi.set(__self__, "source_flow_config", source_flow_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tasks is not None:
@@ -302,7 +315,6 @@ class _FlowState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -349,6 +361,7 @@ class Flow(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  source_flow_config: Optional[pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
                  trigger_config: Optional[pulumi.Input[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None,
                  __props__=None):
@@ -462,6 +475,7 @@ class Flow(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the flow.
         :param pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']] source_flow_config: The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]] tasks: A Task that Amazon AppFlow performs while transferring the data in the flow run.
         :param pulumi.Input[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']] trigger_config: A Trigger that determine how and when the flow runs.
         """
@@ -594,6 +608,7 @@ class Flow(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  source_flow_config: Optional[pulumi.Input[Union['FlowSourceFlowConfigArgs', 'FlowSourceFlowConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FlowTaskArgs', 'FlowTaskArgsDict']]]]] = None,
                  trigger_config: Optional[pulumi.Input[Union['FlowTriggerConfigArgs', 'FlowTriggerConfigArgsDict']]] = None,
                  __props__=None):
@@ -615,6 +630,7 @@ class Flow(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_flow_config'")
             __props__.__dict__["source_flow_config"] = source_flow_config
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if tasks is None and not opts.urn:
                 raise TypeError("Missing required property 'tasks'")
             __props__.__dict__["tasks"] = tasks
@@ -623,7 +639,6 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["trigger_config"] = trigger_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["flow_status"] = None
-            __props__.__dict__["tags_all"] = None
         super(Flow, __self__).__init__(
             'aws:appflow/flow:Flow',
             resource_name,
@@ -747,7 +762,6 @@ class Flow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

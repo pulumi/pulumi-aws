@@ -28,6 +28,7 @@ class DomainConfigurationArgs:
                  service_type: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls_config: Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']] = None,
                  validation_certificate_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -39,6 +40,7 @@ class DomainConfigurationArgs:
         :param pulumi.Input[str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         :param pulumi.Input[str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
@@ -56,6 +58,8 @@ class DomainConfigurationArgs:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if tls_config is not None:
             pulumi.set(__self__, "tls_config", tls_config)
         if validation_certificate_arn is not None:
@@ -146,6 +150,18 @@ class DomainConfigurationArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="tlsConfig")
     def tls_config(self) -> Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']]:
         """
@@ -218,9 +234,6 @@ class _DomainConfigurationState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tls_config is not None:
@@ -338,7 +351,6 @@ class _DomainConfigurationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -386,6 +398,7 @@ class DomainConfiguration(pulumi.CustomResource):
                  service_type: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls_config: Optional[pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']]] = None,
                  validation_certificate_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -422,6 +435,7 @@ class DomainConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] service_type: The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         :param pulumi.Input[str] status: The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']] tls_config: An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         """
@@ -477,6 +491,7 @@ class DomainConfiguration(pulumi.CustomResource):
                  service_type: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls_config: Optional[pulumi.Input[Union['DomainConfigurationTlsConfigArgs', 'DomainConfigurationTlsConfigArgsDict']]] = None,
                  validation_certificate_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -495,11 +510,11 @@ class DomainConfiguration(pulumi.CustomResource):
             __props__.__dict__["service_type"] = service_type
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tls_config"] = tls_config
             __props__.__dict__["validation_certificate_arn"] = validation_certificate_arn
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_type"] = None
-            __props__.__dict__["tags_all"] = None
         super(DomainConfiguration, __self__).__init__(
             'aws:iot/domainConfiguration:DomainConfiguration',
             resource_name,
@@ -634,7 +649,6 @@ class DomainConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

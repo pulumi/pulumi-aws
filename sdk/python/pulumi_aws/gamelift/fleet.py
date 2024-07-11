@@ -34,7 +34,8 @@ class FleetArgs:
                  resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
                  runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input[str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
@@ -51,6 +52,7 @@ class FleetArgs:
         :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[str] script_id: ID of the GameLift Script to be deployed on the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "ec2_instance_type", ec2_instance_type)
         if build_id is not None:
@@ -79,6 +81,8 @@ class FleetArgs:
             pulumi.set(__self__, "script_id", script_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="ec2InstanceType")
@@ -248,6 +252,18 @@ class FleetArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _FleetState:
@@ -332,9 +348,6 @@ class _FleetState:
             pulumi.set(__self__, "script_id", script_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -565,7 +578,6 @@ class _FleetState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -596,6 +608,7 @@ class Fleet(pulumi.CustomResource):
                  runtime_configuration: Optional[pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a GameLift Fleet resource.
@@ -643,6 +656,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[str] script_id: ID of the GameLift Script to be deployed on the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -709,6 +723,7 @@ class Fleet(pulumi.CustomResource):
                  runtime_configuration: Optional[pulumi.Input[Union['FleetRuntimeConfigurationArgs', 'FleetRuntimeConfigurationArgsDict']]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -734,12 +749,12 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["runtime_configuration"] = runtime_configuration
             __props__.__dict__["script_id"] = script_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["build_arn"] = None
             __props__.__dict__["log_paths"] = None
             __props__.__dict__["operating_system"] = None
             __props__.__dict__["script_arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(Fleet, __self__).__init__(
             'aws:gamelift/fleet:Fleet',
             resource_name,
@@ -974,7 +989,6 @@ class Fleet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

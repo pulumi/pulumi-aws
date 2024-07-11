@@ -14005,7 +14005,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
 
 type EndpointConfigurationDataCaptureConfigCaptureOption struct {
-	// Specifies the data to be captured. Should be one of `Input` or `Output`.
+	// Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
 	CaptureMode string `pulumi:"captureMode"`
 }
 
@@ -14021,7 +14021,7 @@ type EndpointConfigurationDataCaptureConfigCaptureOptionInput interface {
 }
 
 type EndpointConfigurationDataCaptureConfigCaptureOptionArgs struct {
-	// Specifies the data to be captured. Should be one of `Input` or `Output`.
+	// Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
 	CaptureMode pulumi.StringInput `pulumi:"captureMode"`
 }
 
@@ -14076,7 +14076,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureOptionOutput) ToEndpointCon
 	return o
 }
 
-// Specifies the data to be captured. Should be one of `Input` or `Output`.
+// Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
 func (o EndpointConfigurationDataCaptureConfigCaptureOptionOutput) CaptureMode() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureOption) string { return v.CaptureMode }).(pulumi.StringOutput)
 }

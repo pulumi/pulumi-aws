@@ -86,8 +86,6 @@ type Fleet struct {
 	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecificationOutput `pulumi:"targetCapacitySpecification"`
@@ -164,8 +162,6 @@ type fleetState struct {
 	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification *FleetTargetCapacitySpecification `pulumi:"targetCapacitySpecification"`
@@ -207,8 +203,6 @@ type FleetState struct {
 	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecificationPtrInput
@@ -251,6 +245,8 @@ type fleetArgs struct {
 	SpotOptions *FleetSpotOptions `pulumi:"spotOptions"`
 	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecification `pulumi:"targetCapacitySpecification"`
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -289,6 +285,8 @@ type FleetArgs struct {
 	SpotOptions FleetSpotOptionsPtrInput
 	// Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecificationInput
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -451,8 +449,6 @@ func (o FleetOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o FleetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

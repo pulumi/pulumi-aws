@@ -22,7 +22,8 @@ class VoiceConnectorArgs:
                  require_encryption: pulumi.Input[bool],
                  aws_region: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VoiceConnector resource.
         :param pulumi.Input[bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
@@ -31,6 +32,7 @@ class VoiceConnectorArgs:
         :param pulumi.Input[str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "require_encryption", require_encryption)
         if aws_region is not None:
@@ -39,6 +41,8 @@ class VoiceConnectorArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="requireEncryption")
@@ -90,6 +94,18 @@ class VoiceConnectorArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _VoiceConnectorState:
@@ -125,9 +141,6 @@ class _VoiceConnectorState:
             pulumi.set(__self__, "require_encryption", require_encryption)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -207,7 +220,6 @@ class _VoiceConnectorState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -228,6 +240,7 @@ class VoiceConnector(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  require_encryption: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
@@ -260,6 +273,7 @@ class VoiceConnector(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -309,6 +323,7 @@ class VoiceConnector(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  require_encryption: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -324,9 +339,9 @@ class VoiceConnector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'require_encryption'")
             __props__.__dict__["require_encryption"] = require_encryption
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["outbound_host_name"] = None
-            __props__.__dict__["tags_all"] = None
         super(VoiceConnector, __self__).__init__(
             'aws:chime/voiceConnector:VoiceConnector',
             resource_name,
@@ -426,7 +441,6 @@ class VoiceConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -25,7 +25,8 @@ class QuickConnectArgs:
                  quick_connect_config: pulumi.Input['QuickConnectQuickConnectConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a QuickConnect resource.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
@@ -33,6 +34,7 @@ class QuickConnectArgs:
         :param pulumi.Input[str] description: Specifies the description of the Quick Connect.
         :param pulumi.Input[str] name: Specifies the name of the Quick Connect.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "quick_connect_config", quick_connect_config)
@@ -42,6 +44,8 @@ class QuickConnectArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -103,6 +107,18 @@ class QuickConnectArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _QuickConnectState:
@@ -140,9 +156,6 @@ class _QuickConnectState:
             pulumi.set(__self__, "quick_connect_id", quick_connect_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -232,7 +245,6 @@ class _QuickConnectState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -254,6 +266,7 @@ class QuickConnect(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  quick_connect_config: Optional[pulumi.Input[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an Amazon Connect Quick Connect resource. For more information see
@@ -295,6 +308,7 @@ class QuickConnect(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Quick Connect.
         :param pulumi.Input[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict']] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -355,6 +369,7 @@ class QuickConnect(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  quick_connect_config: Optional[pulumi.Input[Union['QuickConnectQuickConnectConfigArgs', 'QuickConnectQuickConnectConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -373,9 +388,9 @@ class QuickConnect(pulumi.CustomResource):
                 raise TypeError("Missing required property 'quick_connect_config'")
             __props__.__dict__["quick_connect_config"] = quick_connect_config
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["quick_connect_id"] = None
-            __props__.__dict__["tags_all"] = None
         super(QuickConnect, __self__).__init__(
             'aws:connect/quickConnect:QuickConnect',
             resource_name,
@@ -482,7 +497,6 @@ class QuickConnect(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

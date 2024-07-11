@@ -191,10 +191,8 @@ export class BucketV2 extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      *
@@ -278,6 +276,7 @@ export class BucketV2 extends pulumi.CustomResource {
             resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
             resourceInputs["serverSideEncryptionConfigurations"] = args ? args.serverSideEncryptionConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["versionings"] = args ? args.versionings : undefined;
             resourceInputs["websites"] = args ? args.websites : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -285,7 +284,6 @@ export class BucketV2 extends pulumi.CustomResource {
             resourceInputs["bucketRegionalDomainName"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["websiteDomain"] = undefined /*out*/;
             resourceInputs["websiteEndpoint"] = undefined /*out*/;
         }
@@ -424,8 +422,6 @@ export interface BucketV2State {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -561,6 +557,10 @@ export interface BucketV2Args {
      * The following arguments are deprecated, and will be removed in a future major version:
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      *

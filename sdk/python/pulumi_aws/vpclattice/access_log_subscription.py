@@ -21,7 +21,8 @@ class AccessLogSubscriptionArgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str],
                  resource_identifier: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AccessLogSubscription resource.
         :param pulumi.Input[str] destination_arn: Amazon Resource Name (ARN) of the log destination.
@@ -31,6 +32,8 @@ class AccessLogSubscriptionArgs:
         pulumi.set(__self__, "resource_identifier", resource_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -65,6 +68,15 @@ class AccessLogSubscriptionArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _AccessLogSubscriptionState:
@@ -92,9 +104,6 @@ class _AccessLogSubscriptionState:
             pulumi.set(__self__, "resource_identifier", resource_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -157,7 +166,6 @@ class _AccessLogSubscriptionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -174,6 +182,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
@@ -252,6 +261,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -268,9 +278,9 @@ class AccessLogSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_identifier'")
             __props__.__dict__["resource_identifier"] = resource_identifier
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["resource_arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(AccessLogSubscription, __self__).__init__(
             'aws:vpclattice/accessLogSubscription:AccessLogSubscription',
             resource_name,
@@ -350,7 +360,6 @@ class AccessLogSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

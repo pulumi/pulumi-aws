@@ -27,7 +27,8 @@ class CachesIscsiVolumeArgs:
                  kms_key: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  source_volume_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CachesIscsiVolume resource.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
@@ -39,6 +40,7 @@ class CachesIscsiVolumeArgs:
         :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "gateway_arn", gateway_arn)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
@@ -54,6 +56,8 @@ class CachesIscsiVolumeArgs:
             pulumi.set(__self__, "source_volume_arn", source_volume_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="gatewayArn")
@@ -163,6 +167,18 @@ class CachesIscsiVolumeArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _CachesIscsiVolumeState:
@@ -226,9 +242,6 @@ class _CachesIscsiVolumeState:
             pulumi.set(__self__, "source_volume_arn", source_volume_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_arn is not None:
@@ -376,7 +389,6 @@ class _CachesIscsiVolumeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -460,6 +472,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  source_volume_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  volume_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -532,6 +545,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[str] source_volume_arn: The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         :param pulumi.Input[int] volume_size_in_bytes: The size of the volume in bytes.
         """
@@ -623,6 +637,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  source_volume_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  volume_size_in_bytes: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -645,6 +660,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
             __props__.__dict__["snapshot_id"] = snapshot_id
             __props__.__dict__["source_volume_arn"] = source_volume_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if target_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_name'")
             __props__.__dict__["target_name"] = target_name
@@ -655,7 +671,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
             __props__.__dict__["chap_enabled"] = None
             __props__.__dict__["lun_number"] = None
             __props__.__dict__["network_interface_port"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["target_arn"] = None
             __props__.__dict__["volume_arn"] = None
             __props__.__dict__["volume_id"] = None
@@ -824,7 +839,6 @@ class CachesIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

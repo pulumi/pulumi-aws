@@ -49,6 +49,7 @@ class HaproxyLayerArgs:
                  stats_user: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a HaproxyLayer resource.
@@ -77,6 +78,7 @@ class HaproxyLayerArgs:
                The following extra optional arguments, all lists of Chef recipe names, allow
                custom Chef recipes to be applied to layer instances at the five different
                lifecycle events, if custom cookbooks are enabled on the layer's stack:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
         pulumi.set(__self__, "stack_id", stack_id)
@@ -133,6 +135,8 @@ class HaproxyLayerArgs:
             pulumi.set(__self__, "system_packages", system_packages)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if use_ebs_optimized_instances is not None:
             pulumi.set(__self__, "use_ebs_optimized_instances", use_ebs_optimized_instances)
 
@@ -456,6 +460,18 @@ class HaproxyLayerArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="useEbsOptimizedInstances")
     def use_ebs_optimized_instances(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -591,9 +607,6 @@ class _HaproxyLayerState:
             pulumi.set(__self__, "system_packages", system_packages)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if use_ebs_optimized_instances is not None:
@@ -932,7 +945,6 @@ class _HaproxyLayerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -989,6 +1001,7 @@ class HaproxyLayer(pulumi.CustomResource):
                  stats_user: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -1032,6 +1045,7 @@ class HaproxyLayer(pulumi.CustomResource):
                The following extra optional arguments, all lists of Chef recipe names, allow
                custom Chef recipes to be applied to layer instances at the five different
                lifecycle events, if custom cookbooks are enabled on the layer's stack:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         """
         ...
@@ -1097,6 +1111,7 @@ class HaproxyLayer(pulumi.CustomResource):
                  stats_user: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1139,9 +1154,9 @@ class HaproxyLayer(pulumi.CustomResource):
             __props__.__dict__["stats_user"] = stats_user
             __props__.__dict__["system_packages"] = system_packages
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(HaproxyLayer, __self__).__init__(
             'aws:opsworks/haproxyLayer:HaproxyLayer',
             resource_name,
@@ -1473,7 +1488,6 @@ class HaproxyLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

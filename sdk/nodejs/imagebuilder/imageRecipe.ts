@@ -126,10 +126,8 @@ export class ImageRecipe extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
      */
@@ -191,6 +189,7 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["parentImage"] = args ? args.parentImage : undefined;
             resourceInputs["systemsManagerAgent"] = args ? args.systemsManagerAgent : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workingDirectory"] = args ? args.workingDirectory : undefined;
@@ -198,7 +197,6 @@ export class ImageRecipe extends pulumi.CustomResource {
             resourceInputs["dateCreated"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
             resourceInputs["platform"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ImageRecipe.__pulumiType, name, resourceInputs, opts);
@@ -255,8 +253,6 @@ export interface ImageRecipeState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -307,6 +303,10 @@ export interface ImageRecipeArgs {
      * Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
      */

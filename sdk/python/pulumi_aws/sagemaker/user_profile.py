@@ -26,6 +26,7 @@ class UserProfileArgs:
                  single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
         """
         The set of arguments for constructing a UserProfile resource.
@@ -34,6 +35,7 @@ class UserProfileArgs:
         :param pulumi.Input[str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: The user settings. See User Settings below.
         """
         pulumi.set(__self__, "domain_id", domain_id)
@@ -44,6 +46,8 @@ class UserProfileArgs:
             pulumi.set(__self__, "single_sign_on_user_value", single_sign_on_user_value)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if user_settings is not None:
             pulumi.set(__self__, "user_settings", user_settings)
 
@@ -108,6 +112,18 @@ class UserProfileArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsArgs']]:
         """
@@ -156,9 +172,6 @@ class _UserProfileState:
             pulumi.set(__self__, "single_sign_on_user_value", single_sign_on_user_value)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if user_profile_name is not None:
@@ -240,7 +253,6 @@ class _UserProfileState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -285,6 +297,7 @@ class UserProfile(pulumi.CustomResource):
                  single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  user_settings: Optional[pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None,
                  __props__=None):
@@ -318,6 +331,7 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.Input[str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_profile_name: The name for the User Profile.
         :param pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']] user_settings: The user settings. See User Settings below.
         """
@@ -370,6 +384,7 @@ class UserProfile(pulumi.CustomResource):
                  single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  user_settings: Optional[pulumi.Input[Union['UserProfileUserSettingsArgs', 'UserProfileUserSettingsArgsDict']]] = None,
                  __props__=None):
@@ -387,13 +402,13 @@ class UserProfile(pulumi.CustomResource):
             __props__.__dict__["single_sign_on_user_identifier"] = single_sign_on_user_identifier
             __props__.__dict__["single_sign_on_user_value"] = single_sign_on_user_value
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if user_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_profile_name'")
             __props__.__dict__["user_profile_name"] = user_profile_name
             __props__.__dict__["user_settings"] = user_settings
             __props__.__dict__["arn"] = None
             __props__.__dict__["home_efs_file_system_uid"] = None
-            __props__.__dict__["tags_all"] = None
         super(UserProfile, __self__).__init__(
             'aws:sagemaker/userProfile:UserProfile',
             resource_name,
@@ -495,7 +510,6 @@ class UserProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

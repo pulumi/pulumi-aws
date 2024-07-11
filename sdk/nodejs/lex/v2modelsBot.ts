@@ -98,9 +98,6 @@ export class V2modelsBot extends pulumi.CustomResource {
      * List of tags to add to the bot. You can only add tags when you create a bot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
@@ -198,9 +195,6 @@ export interface V2modelsBotState {
      * List of tags to add to the bot. You can only add tags when you create a bot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of tags to add to the test alias for a bot. You can only add tags when you create a bot.

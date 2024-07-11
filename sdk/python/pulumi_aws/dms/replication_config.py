@@ -31,7 +31,8 @@ class ReplicationConfigArgs:
                  resource_identifier: Optional[pulumi.Input[str]] = None,
                  start_replication: Optional[pulumi.Input[bool]] = None,
                  supplemental_settings: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReplicationConfig resource.
         :param pulumi.Input['ReplicationConfigComputeConfigArgs'] compute_config: Configuration block for provisioning an DMS Serverless replication.
@@ -45,6 +46,7 @@ class ReplicationConfigArgs:
         :param pulumi.Input[bool] start_replication: Whether to run or stop the serverless replication, default is false.
         :param pulumi.Input[str] supplemental_settings: JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "compute_config", compute_config)
         pulumi.set(__self__, "replication_config_identifier", replication_config_identifier)
@@ -62,6 +64,8 @@ class ReplicationConfigArgs:
             pulumi.set(__self__, "supplemental_settings", supplemental_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="computeConfig")
@@ -195,6 +199,18 @@ class ReplicationConfigArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ReplicationConfigState:
@@ -250,9 +266,6 @@ class _ReplicationConfigState:
             pulumi.set(__self__, "table_mappings", table_mappings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_endpoint_arn is not None:
@@ -392,7 +405,6 @@ class _ReplicationConfigState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -431,6 +443,7 @@ class ReplicationConfig(pulumi.CustomResource):
                  supplemental_settings: Optional[pulumi.Input[str]] = None,
                  table_mappings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -483,6 +496,7 @@ class ReplicationConfig(pulumi.CustomResource):
         :param pulumi.Input[str] supplemental_settings: JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
         :param pulumi.Input[str] table_mappings: An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
         """
         ...
@@ -554,6 +568,7 @@ class ReplicationConfig(pulumi.CustomResource):
                  supplemental_settings: Optional[pulumi.Input[str]] = None,
                  table_mappings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -584,11 +599,11 @@ class ReplicationConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'table_mappings'")
             __props__.__dict__["table_mappings"] = table_mappings
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if target_endpoint_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_endpoint_arn'")
             __props__.__dict__["target_endpoint_arn"] = target_endpoint_arn
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(ReplicationConfig, __self__).__init__(
             'aws:dms/replicationConfig:ReplicationConfig',
             resource_name,
@@ -742,7 +757,6 @@ class ReplicationConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

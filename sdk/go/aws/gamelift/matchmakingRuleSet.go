@@ -32,8 +32,6 @@ type MatchmakingRuleSet struct {
 	RuleSetBody pulumi.StringOutput    `pulumi:"ruleSetBody"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -78,8 +76,6 @@ type matchmakingRuleSetState struct {
 	RuleSetBody *string           `pulumi:"ruleSetBody"`
 	Tags        map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -92,8 +88,6 @@ type MatchmakingRuleSetState struct {
 	RuleSetBody pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -107,6 +101,8 @@ type matchmakingRuleSetArgs struct {
 	// JSON encoded string containing rule set data.
 	RuleSetBody string            `pulumi:"ruleSetBody"`
 	Tags        map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a MatchmakingRuleSet resource.
@@ -116,6 +112,8 @@ type MatchmakingRuleSetArgs struct {
 	// JSON encoded string containing rule set data.
 	RuleSetBody pulumi.StringInput
 	Tags        pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (MatchmakingRuleSetArgs) ElementType() reflect.Type {
@@ -225,8 +223,6 @@ func (o MatchmakingRuleSetOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o MatchmakingRuleSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

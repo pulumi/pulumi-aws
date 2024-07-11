@@ -22,6 +22,7 @@ class VocabularyFilterArgs:
                  language_code: pulumi.Input[str],
                  vocabulary_filter_name: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vocabulary_filter_file_uri: Optional[pulumi.Input[str]] = None,
                  words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -38,6 +39,8 @@ class VocabularyFilterArgs:
         pulumi.set(__self__, "vocabulary_filter_name", vocabulary_filter_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vocabulary_filter_file_uri is not None:
             pulumi.set(__self__, "vocabulary_filter_file_uri", vocabulary_filter_file_uri)
         if words is not None:
@@ -80,6 +83,15 @@ class VocabularyFilterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vocabularyFilterFileUri")
@@ -137,9 +149,6 @@ class _VocabularyFilterState:
             pulumi.set(__self__, "language_code", language_code)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vocabulary_filter_file_uri is not None:
@@ -199,7 +208,6 @@ class _VocabularyFilterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -253,6 +261,7 @@ class VocabularyFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vocabulary_filter_file_uri: Optional[pulumi.Input[str]] = None,
                  vocabulary_filter_name: Optional[pulumi.Input[str]] = None,
                  words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -354,6 +363,7 @@ class VocabularyFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vocabulary_filter_file_uri: Optional[pulumi.Input[str]] = None,
                  vocabulary_filter_name: Optional[pulumi.Input[str]] = None,
                  words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -370,6 +380,7 @@ class VocabularyFilter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'language_code'")
             __props__.__dict__["language_code"] = language_code
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vocabulary_filter_file_uri"] = vocabulary_filter_file_uri
             if vocabulary_filter_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vocabulary_filter_name'")
@@ -377,7 +388,6 @@ class VocabularyFilter(pulumi.CustomResource):
             __props__.__dict__["words"] = words
             __props__.__dict__["arn"] = None
             __props__.__dict__["download_uri"] = None
-            __props__.__dict__["tags_all"] = None
         super(VocabularyFilter, __self__).__init__(
             'aws:transcribe/vocabularyFilter:VocabularyFilter',
             resource_name,
@@ -461,7 +471,6 @@ class VocabularyFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

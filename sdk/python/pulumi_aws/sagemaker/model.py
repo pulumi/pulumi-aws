@@ -28,6 +28,7 @@ class ModelArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input['ModelPrimaryContainerArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input['ModelVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Model resource.
@@ -38,6 +39,7 @@ class ModelArgs:
         :param pulumi.Input[str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input['ModelPrimaryContainerArgs'] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ModelVpcConfigArgs'] vpc_config: Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
         """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -53,6 +55,8 @@ class ModelArgs:
             pulumi.set(__self__, "primary_container", primary_container)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
@@ -141,6 +145,18 @@ class ModelArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ModelVpcConfigArgs']]:
         """
@@ -195,9 +211,6 @@ class _ModelState:
             pulumi.set(__self__, "primary_container", primary_container)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
@@ -301,7 +314,6 @@ class _ModelState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -337,6 +349,7 @@ class Model(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
@@ -388,6 +401,7 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict']] vpc_config: Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
         """
         ...
@@ -458,6 +472,7 @@ class Model(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input[Union['ModelPrimaryContainerArgs', 'ModelPrimaryContainerArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_config: Optional[pulumi.Input[Union['ModelVpcConfigArgs', 'ModelVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -477,9 +492,9 @@ class Model(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["primary_container"] = primary_container
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(Model, __self__).__init__(
             'aws:sagemaker/model:Model',
             resource_name,
@@ -600,7 +615,6 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

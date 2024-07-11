@@ -34,6 +34,7 @@ class TaskSetArgs:
                  scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
                  service_registries: Optional[pulumi.Input['TaskSetServiceRegistriesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_until_stable: Optional[pulumi.Input[bool]] = None,
                  wait_until_stable_timeout: Optional[pulumi.Input[str]] = None):
         """
@@ -53,6 +54,7 @@ class TaskSetArgs:
         :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         :param pulumi.Input['TaskSetServiceRegistriesArgs'] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
         """
@@ -79,6 +81,8 @@ class TaskSetArgs:
             pulumi.set(__self__, "service_registries", service_registries)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if wait_until_stable is not None:
             pulumi.set(__self__, "wait_until_stable", wait_until_stable)
         if wait_until_stable_timeout is not None:
@@ -243,6 +247,18 @@ class TaskSetArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="waitUntilStable")
     def wait_until_stable(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -345,9 +361,6 @@ class _TaskSetState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if task_definition is not None:
@@ -541,7 +554,6 @@ class _TaskSetState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -620,6 +632,7 @@ class TaskSet(pulumi.CustomResource):
                  service: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  wait_until_stable: Optional[pulumi.Input[bool]] = None,
                  wait_until_stable_timeout: Optional[pulumi.Input[str]] = None,
@@ -681,6 +694,7 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[str] service: The short name or ARN of the ECS service.
         :param pulumi.Input[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
                
                The following arguments are optional:
@@ -763,6 +777,7 @@ class TaskSet(pulumi.CustomResource):
                  service: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  wait_until_stable: Optional[pulumi.Input[bool]] = None,
                  wait_until_stable_timeout: Optional[pulumi.Input[str]] = None,
@@ -791,6 +806,7 @@ class TaskSet(pulumi.CustomResource):
             __props__.__dict__["service"] = service
             __props__.__dict__["service_registries"] = service_registries
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if task_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'task_definition'")
             __props__.__dict__["task_definition"] = task_definition
@@ -799,7 +815,6 @@ class TaskSet(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["stability_status"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["task_set_id"] = None
         super(TaskSet, __self__).__init__(
             'aws:ecs/taskSet:TaskSet',
@@ -1009,7 +1024,6 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

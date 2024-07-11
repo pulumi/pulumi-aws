@@ -337,10 +337,7 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
      * Key-value map of tags for the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a MediaInsightsPipelineConfiguration resource with the given unique name, arguments, and options.
@@ -375,8 +372,8 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
             resourceInputs["realTimeAlertConfiguration"] = args ? args.realTimeAlertConfiguration : undefined;
             resourceInputs["resourceAccessRoleArn"] = args ? args.resourceAccessRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MediaInsightsPipelineConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -411,9 +408,6 @@ export interface MediaInsightsPipelineConfigurationState {
      * Key-value map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -441,4 +435,5 @@ export interface MediaInsightsPipelineConfigurationArgs {
      * Key-value map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

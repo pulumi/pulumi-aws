@@ -83,8 +83,7 @@ type ConfigurationSet struct {
 	// An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrOutput `pulumi:"suppressionOptions"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrOutput `pulumi:"trackingOptions"`
@@ -138,8 +137,7 @@ type configurationSetState struct {
 	// An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
 	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
@@ -161,8 +159,7 @@ type ConfigurationSetState struct {
 	// An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
@@ -186,7 +183,8 @@ type configurationSetArgs struct {
 	// An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
 	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
 	// An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdmOptions` Block for details.
@@ -206,7 +204,8 @@ type ConfigurationSetArgs struct {
 	// An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
 	// An object that defines the VDM settings that apply to emails that you send using the configuration set. See `vdmOptions` Block for details.
@@ -335,7 +334,6 @@ func (o ConfigurationSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ConfigurationSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

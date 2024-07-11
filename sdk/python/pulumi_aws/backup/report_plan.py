@@ -25,7 +25,8 @@ class ReportPlanArgs:
                  report_setting: pulumi.Input['ReportPlanReportSettingArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReportPlan resource.
         :param pulumi.Input['ReportPlanReportDeliveryChannelArgs'] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
@@ -33,6 +34,7 @@ class ReportPlanArgs:
         :param pulumi.Input[str] description: The description of the report plan with a maximum of 1,024 characters
         :param pulumi.Input[str] name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "report_delivery_channel", report_delivery_channel)
         pulumi.set(__self__, "report_setting", report_setting)
@@ -42,6 +44,8 @@ class ReportPlanArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="reportDeliveryChannel")
@@ -103,6 +107,18 @@ class ReportPlanArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ReportPlanState:
@@ -144,9 +160,6 @@ class _ReportPlanState:
             pulumi.set(__self__, "report_setting", report_setting)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -248,7 +261,6 @@ class _ReportPlanState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -270,6 +282,7 @@ class ReportPlan(pulumi.CustomResource):
                  report_delivery_channel: Optional[pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']]] = None,
                  report_setting: Optional[pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an AWS Backup Report Plan resource.
@@ -313,6 +326,7 @@ class ReportPlan(pulumi.CustomResource):
         :param pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']] report_delivery_channel: An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         :param pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']] report_setting: An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -375,6 +389,7 @@ class ReportPlan(pulumi.CustomResource):
                  report_delivery_channel: Optional[pulumi.Input[Union['ReportPlanReportDeliveryChannelArgs', 'ReportPlanReportDeliveryChannelArgsDict']]] = None,
                  report_setting: Optional[pulumi.Input[Union['ReportPlanReportSettingArgs', 'ReportPlanReportSettingArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -393,10 +408,10 @@ class ReportPlan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'report_setting'")
             __props__.__dict__["report_setting"] = report_setting
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["deployment_status"] = None
-            __props__.__dict__["tags_all"] = None
         super(ReportPlan, __self__).__init__(
             'aws:backup/reportPlan:ReportPlan',
             resource_name,
@@ -514,7 +529,6 @@ class ReportPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

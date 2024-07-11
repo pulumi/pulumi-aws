@@ -44,6 +44,7 @@ class EcsClusterLayerArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a EcsClusterLayer resource.
@@ -113,6 +114,8 @@ class EcsClusterLayerArgs:
             pulumi.set(__self__, "system_packages", system_packages)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if use_ebs_optimized_instances is not None:
             pulumi.set(__self__, "use_ebs_optimized_instances", use_ebs_optimized_instances)
 
@@ -376,6 +379,15 @@ class EcsClusterLayerArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="useEbsOptimizedInstances")
     def use_ebs_optimized_instances(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -490,9 +502,6 @@ class _EcsClusterLayerState:
             pulumi.set(__self__, "system_packages", system_packages)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if use_ebs_optimized_instances is not None:
@@ -771,7 +780,6 @@ class _EcsClusterLayerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -820,6 +828,7 @@ class EcsClusterLayer(pulumi.CustomResource):
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -918,6 +927,7 @@ class EcsClusterLayer(pulumi.CustomResource):
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -955,9 +965,9 @@ class EcsClusterLayer(pulumi.CustomResource):
             __props__.__dict__["stack_id"] = stack_id
             __props__.__dict__["system_packages"] = system_packages
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(EcsClusterLayer, __self__).__init__(
             'aws:opsworks/ecsClusterLayer:EcsClusterLayer',
             resource_name,
@@ -1233,7 +1243,6 @@ class EcsClusterLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

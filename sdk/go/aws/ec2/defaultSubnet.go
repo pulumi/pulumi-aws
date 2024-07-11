@@ -89,8 +89,7 @@ type DefaultSubnet struct {
 	OwnerId                        pulumi.StringOutput    `pulumi:"ownerId"`
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringOutput    `pulumi:"privateDnsHostnameTypeOnLaunch"`
 	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll                        pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet is in
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -157,8 +156,7 @@ type defaultSubnetState struct {
 	OwnerId                        *string           `pulumi:"ownerId"`
 	PrivateDnsHostnameTypeOnLaunch *string           `pulumi:"privateDnsHostnameTypeOnLaunch"`
 	Tags                           map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll                        map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet is in
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -193,8 +191,7 @@ type DefaultSubnetState struct {
 	OwnerId                        pulumi.StringPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
 	Tags                           pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 	// The ID of the VPC the subnet is in
 	VpcId pulumi.StringPtrInput
 }
@@ -223,6 +220,7 @@ type defaultSubnetArgs struct {
 	MapPublicIpOnLaunch            *bool             `pulumi:"mapPublicIpOnLaunch"`
 	PrivateDnsHostnameTypeOnLaunch *string           `pulumi:"privateDnsHostnameTypeOnLaunch"`
 	Tags                           map[string]string `pulumi:"tags"`
+	TagsAll                        map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DefaultSubnet resource.
@@ -246,6 +244,7 @@ type DefaultSubnetArgs struct {
 	MapPublicIpOnLaunch            pulumi.BoolPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
 	Tags                           pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 }
 
 func (DefaultSubnetArgs) ElementType() reflect.Type {
@@ -427,7 +426,6 @@ func (o DefaultSubnetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o DefaultSubnetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

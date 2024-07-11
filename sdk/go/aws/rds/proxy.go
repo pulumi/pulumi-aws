@@ -94,8 +94,6 @@ type Proxy struct {
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -166,8 +164,6 @@ type proxyState struct {
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -197,8 +193,6 @@ type ProxyState struct {
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -227,6 +221,8 @@ type proxyArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 	// One or more VPC subnet IDs to associate with the new proxy.
@@ -251,6 +247,8 @@ type ProxyArgs struct {
 	RoleArn pulumi.StringInput
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 	// One or more VPC subnet IDs to associate with the new proxy.
@@ -395,8 +393,6 @@ func (o ProxyOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ProxyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Proxy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

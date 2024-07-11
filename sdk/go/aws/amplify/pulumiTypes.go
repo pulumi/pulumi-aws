@@ -569,6 +569,181 @@ func (o AppProductionBranchArrayOutput) Index(i pulumi.IntInput) AppProductionBr
 	}).(AppProductionBranchOutput)
 }
 
+type DomainAssociationCertificateSettings struct {
+	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
+	// The Amazon resource name (ARN) for the custom certificate.
+	CustomCertificateArn *string `pulumi:"customCertificateArn"`
+	// The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+	Type string `pulumi:"type"`
+}
+
+// DomainAssociationCertificateSettingsInput is an input type that accepts DomainAssociationCertificateSettingsArgs and DomainAssociationCertificateSettingsOutput values.
+// You can construct a concrete instance of `DomainAssociationCertificateSettingsInput` via:
+//
+//	DomainAssociationCertificateSettingsArgs{...}
+type DomainAssociationCertificateSettingsInput interface {
+	pulumi.Input
+
+	ToDomainAssociationCertificateSettingsOutput() DomainAssociationCertificateSettingsOutput
+	ToDomainAssociationCertificateSettingsOutputWithContext(context.Context) DomainAssociationCertificateSettingsOutput
+}
+
+type DomainAssociationCertificateSettingsArgs struct {
+	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+	CertificateVerificationDnsRecord pulumi.StringPtrInput `pulumi:"certificateVerificationDnsRecord"`
+	// The Amazon resource name (ARN) for the custom certificate.
+	CustomCertificateArn pulumi.StringPtrInput `pulumi:"customCertificateArn"`
+	// The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (DomainAssociationCertificateSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAssociationCertificateSettings)(nil)).Elem()
+}
+
+func (i DomainAssociationCertificateSettingsArgs) ToDomainAssociationCertificateSettingsOutput() DomainAssociationCertificateSettingsOutput {
+	return i.ToDomainAssociationCertificateSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainAssociationCertificateSettingsArgs) ToDomainAssociationCertificateSettingsOutputWithContext(ctx context.Context) DomainAssociationCertificateSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationCertificateSettingsOutput)
+}
+
+func (i DomainAssociationCertificateSettingsArgs) ToDomainAssociationCertificateSettingsPtrOutput() DomainAssociationCertificateSettingsPtrOutput {
+	return i.ToDomainAssociationCertificateSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAssociationCertificateSettingsArgs) ToDomainAssociationCertificateSettingsPtrOutputWithContext(ctx context.Context) DomainAssociationCertificateSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationCertificateSettingsOutput).ToDomainAssociationCertificateSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainAssociationCertificateSettingsPtrInput is an input type that accepts DomainAssociationCertificateSettingsArgs, DomainAssociationCertificateSettingsPtr and DomainAssociationCertificateSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainAssociationCertificateSettingsPtrInput` via:
+//
+//	        DomainAssociationCertificateSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAssociationCertificateSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAssociationCertificateSettingsPtrOutput() DomainAssociationCertificateSettingsPtrOutput
+	ToDomainAssociationCertificateSettingsPtrOutputWithContext(context.Context) DomainAssociationCertificateSettingsPtrOutput
+}
+
+type domainAssociationCertificateSettingsPtrType DomainAssociationCertificateSettingsArgs
+
+func DomainAssociationCertificateSettingsPtr(v *DomainAssociationCertificateSettingsArgs) DomainAssociationCertificateSettingsPtrInput {
+	return (*domainAssociationCertificateSettingsPtrType)(v)
+}
+
+func (*domainAssociationCertificateSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAssociationCertificateSettings)(nil)).Elem()
+}
+
+func (i *domainAssociationCertificateSettingsPtrType) ToDomainAssociationCertificateSettingsPtrOutput() DomainAssociationCertificateSettingsPtrOutput {
+	return i.ToDomainAssociationCertificateSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAssociationCertificateSettingsPtrType) ToDomainAssociationCertificateSettingsPtrOutputWithContext(ctx context.Context) DomainAssociationCertificateSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationCertificateSettingsPtrOutput)
+}
+
+type DomainAssociationCertificateSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainAssociationCertificateSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAssociationCertificateSettings)(nil)).Elem()
+}
+
+func (o DomainAssociationCertificateSettingsOutput) ToDomainAssociationCertificateSettingsOutput() DomainAssociationCertificateSettingsOutput {
+	return o
+}
+
+func (o DomainAssociationCertificateSettingsOutput) ToDomainAssociationCertificateSettingsOutputWithContext(ctx context.Context) DomainAssociationCertificateSettingsOutput {
+	return o
+}
+
+func (o DomainAssociationCertificateSettingsOutput) ToDomainAssociationCertificateSettingsPtrOutput() DomainAssociationCertificateSettingsPtrOutput {
+	return o.ToDomainAssociationCertificateSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAssociationCertificateSettingsOutput) ToDomainAssociationCertificateSettingsPtrOutputWithContext(ctx context.Context) DomainAssociationCertificateSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAssociationCertificateSettings) *DomainAssociationCertificateSettings {
+		return &v
+	}).(DomainAssociationCertificateSettingsPtrOutput)
+}
+
+// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+func (o DomainAssociationCertificateSettingsOutput) CertificateVerificationDnsRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAssociationCertificateSettings) *string { return v.CertificateVerificationDnsRecord }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon resource name (ARN) for the custom certificate.
+func (o DomainAssociationCertificateSettingsOutput) CustomCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAssociationCertificateSettings) *string { return v.CustomCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+func (o DomainAssociationCertificateSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAssociationCertificateSettings) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type DomainAssociationCertificateSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAssociationCertificateSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAssociationCertificateSettings)(nil)).Elem()
+}
+
+func (o DomainAssociationCertificateSettingsPtrOutput) ToDomainAssociationCertificateSettingsPtrOutput() DomainAssociationCertificateSettingsPtrOutput {
+	return o
+}
+
+func (o DomainAssociationCertificateSettingsPtrOutput) ToDomainAssociationCertificateSettingsPtrOutputWithContext(ctx context.Context) DomainAssociationCertificateSettingsPtrOutput {
+	return o
+}
+
+func (o DomainAssociationCertificateSettingsPtrOutput) Elem() DomainAssociationCertificateSettingsOutput {
+	return o.ApplyT(func(v *DomainAssociationCertificateSettings) DomainAssociationCertificateSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAssociationCertificateSettings
+		return ret
+	}).(DomainAssociationCertificateSettingsOutput)
+}
+
+// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+func (o DomainAssociationCertificateSettingsPtrOutput) CertificateVerificationDnsRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAssociationCertificateSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateVerificationDnsRecord
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon resource name (ARN) for the custom certificate.
+func (o DomainAssociationCertificateSettingsPtrOutput) CustomCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAssociationCertificateSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The certificate type. Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+func (o DomainAssociationCertificateSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAssociationCertificateSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainAssociationSubDomain struct {
 	// Branch name setting for the subdomain.
 	BranchName string `pulumi:"branchName"`
@@ -700,6 +875,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleArrayInput)(nil)).Elem(), AppCustomRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppProductionBranchInput)(nil)).Elem(), AppProductionBranchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppProductionBranchArrayInput)(nil)).Elem(), AppProductionBranchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationCertificateSettingsInput)(nil)).Elem(), DomainAssociationCertificateSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationCertificateSettingsPtrInput)(nil)).Elem(), DomainAssociationCertificateSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationSubDomainInput)(nil)).Elem(), DomainAssociationSubDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationSubDomainArrayInput)(nil)).Elem(), DomainAssociationSubDomainArray{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigOutput{})
@@ -708,6 +885,8 @@ func init() {
 	pulumi.RegisterOutputType(AppCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(AppProductionBranchOutput{})
 	pulumi.RegisterOutputType(AppProductionBranchArrayOutput{})
+	pulumi.RegisterOutputType(DomainAssociationCertificateSettingsOutput{})
+	pulumi.RegisterOutputType(DomainAssociationCertificateSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAssociationSubDomainOutput{})
 	pulumi.RegisterOutputType(DomainAssociationSubDomainArrayOutput{})
 }

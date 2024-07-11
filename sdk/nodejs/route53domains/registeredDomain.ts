@@ -146,10 +146,8 @@ export class RegisteredDomain extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      */
@@ -223,6 +221,7 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["registrantContact"] = args ? args.registrantContact : undefined;
             resourceInputs["registrantPrivacy"] = args ? args.registrantPrivacy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["techContact"] = args ? args.techContact : undefined;
             resourceInputs["techPrivacy"] = args ? args.techPrivacy : undefined;
             resourceInputs["transferLock"] = args ? args.transferLock : undefined;
@@ -234,7 +233,6 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["registrarUrl"] = undefined /*out*/;
             resourceInputs["reseller"] = undefined /*out*/;
             resourceInputs["statusLists"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["updatedDate"] = undefined /*out*/;
             resourceInputs["whoisServer"] = undefined /*out*/;
         }
@@ -321,8 +319,6 @@ export interface RegisteredDomainState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -391,6 +387,10 @@ export interface RegisteredDomainArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      */

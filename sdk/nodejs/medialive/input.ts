@@ -124,10 +124,7 @@ export class Input extends pulumi.CustomResource {
      * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
      *
@@ -181,6 +178,7 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["vpc"] = args ? args.vpc : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -188,7 +186,6 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["inputClass"] = undefined /*out*/;
             resourceInputs["inputPartnerIds"] = undefined /*out*/;
             resourceInputs["inputSourceType"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Input.__pulumiType, name, resourceInputs, opts);
@@ -251,9 +248,6 @@ export interface InputState {
      * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
@@ -303,6 +297,7 @@ export interface InputArgs {
      * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
      *

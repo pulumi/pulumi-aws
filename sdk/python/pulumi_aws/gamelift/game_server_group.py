@@ -31,6 +31,7 @@ class GameServerGroupArgs:
                  balancing_strategy: Optional[pulumi.Input[str]] = None,
                  game_server_protection_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GameServerGroup resource.
@@ -67,6 +68,8 @@ class GameServerGroupArgs:
             pulumi.set(__self__, "game_server_protection_policy", game_server_protection_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_subnets is not None:
             pulumi.set(__self__, "vpc_subnets", vpc_subnets)
 
@@ -191,6 +194,15 @@ class GameServerGroupArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="vpcSubnets")
     def vpc_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -268,9 +280,6 @@ class _GameServerGroupState:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_subnets is not None:
@@ -422,7 +431,6 @@ class _GameServerGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -459,6 +467,7 @@ class GameServerGroup(pulumi.CustomResource):
                  min_size: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -723,6 +732,7 @@ class GameServerGroup(pulumi.CustomResource):
                  min_size: Optional[pulumi.Input[int]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -755,10 +765,10 @@ class GameServerGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_subnets"] = vpc_subnets
             __props__.__dict__["arn"] = None
             __props__.__dict__["auto_scaling_group_arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(GameServerGroup, __self__).__init__(
             'aws:gamelift/gameServerGroup:GameServerGroup',
             resource_name,
@@ -929,7 +939,6 @@ class GameServerGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

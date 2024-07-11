@@ -29,7 +29,8 @@ class NamespaceArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  manage_admin_password: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
         :param pulumi.Input[str] namespace_name: The name of the namespace.
@@ -45,6 +46,7 @@ class NamespaceArgs:
         :param pulumi.Input[bool] manage_admin_password: Whether to use AWS SecretManager to manage namespace's admin credentials.
                Conflicts with `admin_user_password`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         if admin_password_secret_kms_key_id is not None:
@@ -67,6 +69,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "manage_admin_password", manage_admin_password)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -202,6 +206,18 @@ class NamespaceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _NamespaceState:
@@ -268,9 +284,6 @@ class _NamespaceState:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -443,7 +456,6 @@ class _NamespaceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -471,6 +483,7 @@ class Namespace(pulumi.CustomResource):
                  manage_admin_password: Optional[pulumi.Input[bool]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Creates a new Amazon Redshift Serverless Namespace.
@@ -507,6 +520,7 @@ class Namespace(pulumi.CustomResource):
                Conflicts with `admin_user_password`.
         :param pulumi.Input[str] namespace_name: The name of the namespace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -560,6 +574,7 @@ class Namespace(pulumi.CustomResource):
                  manage_admin_password: Optional[pulumi.Input[bool]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -582,10 +597,10 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["admin_password_secret_arn"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["namespace_id"] = None
-            __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminUserPassword", "adminUsername"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Namespace, __self__).__init__(
@@ -771,7 +786,6 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

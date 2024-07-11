@@ -31,7 +31,8 @@ class DefaultSubnetArgs:
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DefaultSubnet resource.
         :param pulumi.Input[str] availability_zone: is required
@@ -66,6 +67,8 @@ class DefaultSubnetArgs:
             pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -194,6 +197,15 @@ class DefaultSubnetArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _DefaultSubnetState:
@@ -275,9 +287,6 @@ class _DefaultSubnetState:
             pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_id is not None:
@@ -490,7 +499,6 @@ class _DefaultSubnetState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -529,6 +537,7 @@ class DefaultSubnet(pulumi.CustomResource):
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
@@ -635,6 +644,7 @@ class DefaultSubnet(pulumi.CustomResource):
                  map_public_ip_on_launch: Optional[pulumi.Input[bool]] = None,
                  private_dns_hostname_type_on_launch: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -659,6 +669,7 @@ class DefaultSubnet(pulumi.CustomResource):
             __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
             __props__.__dict__["private_dns_hostname_type_on_launch"] = private_dns_hostname_type_on_launch
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zone_id"] = None
             __props__.__dict__["cidr_block"] = None
@@ -667,7 +678,6 @@ class DefaultSubnet(pulumi.CustomResource):
             __props__.__dict__["ipv6_cidr_block_association_id"] = None
             __props__.__dict__["outpost_arn"] = None
             __props__.__dict__["owner_id"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["vpc_id"] = None
         super(DefaultSubnet, __self__).__init__(
             'aws:ec2/defaultSubnet:DefaultSubnet',
@@ -871,7 +881,6 @@ class DefaultSubnet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

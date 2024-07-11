@@ -75,8 +75,7 @@ type DefaultVpcDhcpOptions struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -123,8 +122,7 @@ type defaultVpcDhcpOptionsState struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -142,8 +140,7 @@ type DefaultVpcDhcpOptionsState struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -155,7 +152,8 @@ type defaultVpcDhcpOptionsArgs struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DefaultVpcDhcpOptions resource.
@@ -163,7 +161,8 @@ type DefaultVpcDhcpOptionsArgs struct {
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (DefaultVpcDhcpOptionsArgs) ElementType() reflect.Type {
@@ -294,7 +293,6 @@ func (o DefaultVpcDhcpOptionsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultVpcDhcpOptions) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o DefaultVpcDhcpOptionsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultVpcDhcpOptions) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

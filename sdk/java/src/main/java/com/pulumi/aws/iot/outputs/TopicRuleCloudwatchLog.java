@@ -5,11 +5,19 @@ package com.pulumi.aws.iot.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleCloudwatchLog {
+    /**
+     * @return The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+     * 
+     */
+    private @Nullable Boolean batchMode;
     /**
      * @return The CloudWatch log group name.
      * 
@@ -22,6 +30,13 @@ public final class TopicRuleCloudwatchLog {
     private String roleArn;
 
     private TopicRuleCloudwatchLog() {}
+    /**
+     * @return The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+     * 
+     */
+    public Optional<Boolean> batchMode() {
+        return Optional.ofNullable(this.batchMode);
+    }
     /**
      * @return The CloudWatch log group name.
      * 
@@ -46,15 +61,23 @@ public final class TopicRuleCloudwatchLog {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean batchMode;
         private String logGroupName;
         private String roleArn;
         public Builder() {}
         public Builder(TopicRuleCloudwatchLog defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.batchMode = defaults.batchMode;
     	      this.logGroupName = defaults.logGroupName;
     	      this.roleArn = defaults.roleArn;
         }
 
+        @CustomType.Setter
+        public Builder batchMode(@Nullable Boolean batchMode) {
+
+            this.batchMode = batchMode;
+            return this;
+        }
         @CustomType.Setter
         public Builder logGroupName(String logGroupName) {
             if (logGroupName == null) {
@@ -73,6 +96,7 @@ public final class TopicRuleCloudwatchLog {
         }
         public TopicRuleCloudwatchLog build() {
             final var _resultValue = new TopicRuleCloudwatchLog();
+            _resultValue.batchMode = batchMode;
             _resultValue.logGroupName = logGroupName;
             _resultValue.roleArn = roleArn;
             return _resultValue;

@@ -21,17 +21,21 @@ class TransitGatewayPeeringArgs:
     def __init__(__self__, *,
                  core_network_id: pulumi.Input[str],
                  transit_gateway_arn: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a TransitGatewayPeering resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network.
         :param pulumi.Input[str] transit_gateway_arn: The ARN of the transit gateway for the peering request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="coreNetworkId")
@@ -68,6 +72,18 @@ class TransitGatewayPeeringArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -114,9 +130,6 @@ class _TransitGatewayPeeringState:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_arn is not None:
@@ -222,7 +235,6 @@ class _TransitGatewayPeeringState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -265,6 +277,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -293,6 +306,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_arn: The ARN of the transit gateway for the peering request.
         """
         ...
@@ -340,6 +354,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -354,6 +369,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
                 raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if transit_gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_arn'")
             __props__.__dict__["transit_gateway_arn"] = transit_gateway_arn
@@ -363,7 +379,6 @@ class TransitGatewayPeering(pulumi.CustomResource):
             __props__.__dict__["owner_account_id"] = None
             __props__.__dict__["peering_type"] = None
             __props__.__dict__["resource_arn"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["transit_gateway_peering_attachment_id"] = None
         super(TransitGatewayPeering, __self__).__init__(
             'aws:networkmanager/transitGatewayPeering:TransitGatewayPeering',
@@ -488,7 +503,6 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

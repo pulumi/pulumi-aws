@@ -100,10 +100,8 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VpcIpamResourceDiscoveryAssociation resource with the given unique name, arguments, and options.
@@ -139,13 +137,13 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
             resourceInputs["ipamId"] = args ? args.ipamId : undefined;
             resourceInputs["ipamResourceDiscoveryId"] = args ? args.ipamResourceDiscoveryId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamArn"] = undefined /*out*/;
             resourceInputs["ipamRegion"] = undefined /*out*/;
             resourceInputs["isDefault"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcIpamResourceDiscoveryAssociation.__pulumiType, name, resourceInputs, opts);
@@ -194,8 +192,6 @@ export interface VpcIpamResourceDiscoveryAssociationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -216,4 +212,8 @@ export interface VpcIpamResourceDiscoveryAssociationArgs {
      * A map of tags to add to the IPAM resource discovery association resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

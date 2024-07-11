@@ -27,7 +27,8 @@ class FlowDefinitionArgs:
                  role_arn: pulumi.Input[str],
                  human_loop_activation_config: Optional[pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs']] = None,
                  human_loop_request_source: Optional[pulumi.Input['FlowDefinitionHumanLoopRequestSourceArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FlowDefinition resource.
         :param pulumi.Input[str] flow_definition_name: The name of your flow definition.
@@ -37,6 +38,7 @@ class FlowDefinitionArgs:
         :param pulumi.Input['FlowDefinitionHumanLoopActivationConfigArgs'] human_loop_activation_config: An object containing information about the events that trigger a human workflow. See Human Loop Activation Config details below.
         :param pulumi.Input['FlowDefinitionHumanLoopRequestSourceArgs'] human_loop_request_source: Container for configuring the source of human task requests. Use to specify if Amazon Rekognition or Amazon Textract is used as an integration source. See Human Loop Request Source details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "flow_definition_name", flow_definition_name)
         pulumi.set(__self__, "human_loop_config", human_loop_config)
@@ -48,6 +50,8 @@ class FlowDefinitionArgs:
             pulumi.set(__self__, "human_loop_request_source", human_loop_request_source)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="flowDefinitionName")
@@ -133,6 +137,18 @@ class FlowDefinitionArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _FlowDefinitionState:
@@ -174,9 +190,6 @@ class _FlowDefinitionState:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -278,7 +291,6 @@ class _FlowDefinitionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -302,6 +314,7 @@ class FlowDefinition(pulumi.CustomResource):
                  output_config: Optional[pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a SageMaker Flow Definition resource.
@@ -415,6 +428,7 @@ class FlowDefinition(pulumi.CustomResource):
         :param pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']] output_config: An object containing information about where the human review results will be uploaded. See Output Config details below.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -547,6 +561,7 @@ class FlowDefinition(pulumi.CustomResource):
                  output_config: Optional[pulumi.Input[Union['FlowDefinitionOutputConfigArgs', 'FlowDefinitionOutputConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -571,8 +586,8 @@ class FlowDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(FlowDefinition, __self__).__init__(
             'aws:sagemaker/flowDefinition:FlowDefinition',
             resource_name,
@@ -690,7 +705,6 @@ class FlowDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -23,7 +23,8 @@ class RepositoryArgs:
                  default_branch: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
@@ -31,6 +32,7 @@ class RepositoryArgs:
         :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
         :param pulumi.Input[str] kms_key_id: The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         if default_branch is not None:
@@ -41,6 +43,8 @@ class RepositoryArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -102,6 +106,18 @@ class RepositoryArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _RepositoryState:
@@ -147,9 +163,6 @@ class _RepositoryState:
             pulumi.set(__self__, "repository_name", repository_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -263,7 +276,6 @@ class _RepositoryState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -285,6 +297,7 @@ class Repository(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a CodeCommit Repository Resource.
@@ -330,6 +343,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN of the encryption key. If no key is specified, the default `aws/codecommit` Amazon Web Services managed key is used.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -394,6 +408,7 @@ class Repository(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,11 +425,11 @@ class Repository(pulumi.CustomResource):
                 raise TypeError("Missing required property 'repository_name'")
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["clone_url_http"] = None
             __props__.__dict__["clone_url_ssh"] = None
             __props__.__dict__["repository_id"] = None
-            __props__.__dict__["tags_all"] = None
         super(Repository, __self__).__init__(
             'aws:codecommit/repository:Repository',
             resource_name,
@@ -543,7 +558,6 @@ class Repository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

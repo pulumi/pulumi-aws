@@ -33,6 +33,7 @@ class VpcEndpointArgs:
                  subnet_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointSubnetConfigurationArgs']]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VpcEndpoint resource.
@@ -50,6 +51,7 @@ class VpcEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointSubnetConfigurationArgs']]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         """
         pulumi.set(__self__, "service_name", service_name)
@@ -74,6 +76,8 @@ class VpcEndpointArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_endpoint_type is not None:
             pulumi.set(__self__, "vpc_endpoint_type", vpc_endpoint_type)
 
@@ -224,6 +228,18 @@ class VpcEndpointArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -326,9 +342,6 @@ class _VpcEndpointState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_endpoint_type is not None:
@@ -568,7 +581,6 @@ class _VpcEndpointState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -620,6 +632,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  subnet_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -742,6 +755,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         """
@@ -881,6 +895,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  subnet_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -905,6 +920,7 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__.__dict__["subnet_configurations"] = subnet_configurations
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_endpoint_type"] = vpc_endpoint_type
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -917,7 +933,6 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__.__dict__["prefix_list_id"] = None
             __props__.__dict__["requester_managed"] = None
             __props__.__dict__["state"] = None
-            __props__.__dict__["tags_all"] = None
         super(VpcEndpoint, __self__).__init__(
             'aws:ec2/vpcEndpoint:VpcEndpoint',
             resource_name,
@@ -1166,7 +1181,6 @@ class VpcEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

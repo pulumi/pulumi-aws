@@ -30,6 +30,7 @@ class ImageArgs:
                  image_scanning_configuration: Optional[pulumi.Input['ImageImageScanningConfigurationArgs']] = None,
                  image_tests_configuration: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowArgs']]]] = None):
         """
         The set of arguments for constructing a Image resource.
@@ -44,6 +45,7 @@ class ImageArgs:
         :param pulumi.Input['ImageImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
         :param pulumi.Input['ImageImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['ImageWorkflowArgs']]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
@@ -63,6 +65,8 @@ class ImageArgs:
             pulumi.set(__self__, "image_tests_configuration", image_tests_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if workflows is not None:
             pulumi.set(__self__, "workflows", workflows)
 
@@ -177,6 +181,18 @@ class ImageArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def workflows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowArgs']]]]:
         """
@@ -263,9 +279,6 @@ class _ImageState:
             pulumi.set(__self__, "platform", platform)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
@@ -457,7 +470,6 @@ class _ImageState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -507,6 +519,7 @@ class Image(pulumi.CustomResource):
                  image_tests_configuration: Optional[pulumi.Input[Union['ImageImageTestsConfigurationArgs', 'ImageImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageWorkflowArgs', 'ImageWorkflowArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -545,6 +558,7 @@ class Image(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageWorkflowArgs', 'ImageWorkflowArgsDict']]]] workflows: Configuration block with the workflow configuration. Detailed below.
         """
         ...
@@ -600,6 +614,7 @@ class Image(pulumi.CustomResource):
                  image_tests_configuration: Optional[pulumi.Input[Union['ImageImageTestsConfigurationArgs', 'ImageImageTestsConfigurationArgsDict']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageWorkflowArgs', 'ImageWorkflowArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -621,6 +636,7 @@ class Image(pulumi.CustomResource):
                 raise TypeError("Missing required property 'infrastructure_configuration_arn'")
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["workflows"] = workflows
             __props__.__dict__["arn"] = None
             __props__.__dict__["date_created"] = None
@@ -628,7 +644,6 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["os_version"] = None
             __props__.__dict__["output_resources"] = None
             __props__.__dict__["platform"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
         super(Image, __self__).__init__(
             'aws:imagebuilder/image:Image',
@@ -834,7 +849,6 @@ class Image(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

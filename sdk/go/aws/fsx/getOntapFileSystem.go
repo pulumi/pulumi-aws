@@ -70,7 +70,7 @@ type LookupOntapFileSystemResult struct {
 	DeploymentType string `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
 	DiskIopsConfigurations []GetOntapFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfigurations"`
-	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+	// DNS name for the file system.
 	DnsName string `pulumi:"dnsName"`
 	// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system exist.
 	EndpointIpAddressRange string `pulumi:"endpointIpAddressRange"`
@@ -175,7 +175,7 @@ func (o LookupOntapFileSystemResultOutput) DiskIopsConfigurations() GetOntapFile
 	}).(GetOntapFileSystemDiskIopsConfigurationArrayOutput)
 }
 
-// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+// DNS name for the file system.
 func (o LookupOntapFileSystemResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.DnsName }).(pulumi.StringOutput)
 }

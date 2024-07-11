@@ -31,6 +31,7 @@ class PrivateVirtualInterfaceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  sitelink_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateVirtualInterface resource.
@@ -47,6 +48,7 @@ class PrivateVirtualInterfaceArgs:
         :param pulumi.Input[str] name: The name for the virtual interface.
         :param pulumi.Input[bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
         pulumi.set(__self__, "address_family", address_family)
@@ -69,6 +71,8 @@ class PrivateVirtualInterfaceArgs:
             pulumi.set(__self__, "sitelink_enabled", sitelink_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpn_gateway_id is not None:
             pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
 
@@ -218,6 +222,18 @@ class PrivateVirtualInterfaceArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="vpnGatewayId")
     def vpn_gateway_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -302,9 +318,6 @@ class _PrivateVirtualInterfaceState:
             pulumi.set(__self__, "sitelink_enabled", sitelink_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vlan is not None:
@@ -492,7 +505,6 @@ class _PrivateVirtualInterfaceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -544,6 +556,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  sitelink_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vlan: Optional[pulumi.Input[int]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -586,6 +599,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the virtual interface.
         :param pulumi.Input[bool] sitelink_enabled: Indicates whether to enable or disable SiteLink.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] vlan: The VLAN ID.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the virtual private gateway to which to connect the virtual interface.
         """
@@ -646,6 +660,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  sitelink_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vlan: Optional[pulumi.Input[int]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -674,6 +689,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["sitelink_enabled"] = sitelink_enabled
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if vlan is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan'")
             __props__.__dict__["vlan"] = vlan
@@ -682,7 +698,6 @@ class PrivateVirtualInterface(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_device"] = None
             __props__.__dict__["jumbo_frame_capable"] = None
-            __props__.__dict__["tags_all"] = None
         super(PrivateVirtualInterface, __self__).__init__(
             'aws:directconnect/privateVirtualInterface:PrivateVirtualInterface',
             resource_name,
@@ -881,7 +896,6 @@ class PrivateVirtualInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -74,8 +74,6 @@ type Thesaurus struct {
 	Status pulumi.StringOutput    `pulumi:"status"`
 	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 	ThesaurusId pulumi.StringOutput    `pulumi:"thesaurusId"`
 }
@@ -134,8 +132,6 @@ type thesaurusState struct {
 	Status *string           `pulumi:"status"`
 	Tags   map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll     map[string]string `pulumi:"tagsAll"`
 	ThesaurusId *string           `pulumi:"thesaurusId"`
 }
@@ -156,8 +152,6 @@ type ThesaurusState struct {
 	Status pulumi.StringPtrInput
 	Tags   pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapInput
 	ThesaurusId pulumi.StringPtrInput
 }
@@ -177,6 +171,8 @@ type thesaurusArgs struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
 	Tags         map[string]string     `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Thesaurus resource.
@@ -191,6 +187,8 @@ type ThesaurusArgs struct {
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
 	SourceS3Path ThesaurusSourceS3PathInput
 	Tags         pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (ThesaurusArgs) ElementType() reflect.Type {
@@ -319,8 +317,6 @@ func (o ThesaurusOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ThesaurusOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

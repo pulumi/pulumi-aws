@@ -27,7 +27,8 @@ class ListenerArgs:
                  port: Optional[pulumi.Input[int]] = None,
                  service_arn: Optional[pulumi.Input[str]] = None,
                  service_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Listener resource.
         :param pulumi.Input['ListenerDefaultActionArgs'] default_action: Default action block for the default listener rule. Default action blocks are defined below.
@@ -51,6 +52,8 @@ class ListenerArgs:
             pulumi.set(__self__, "service_identifier", service_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -137,6 +140,15 @@ class ListenerArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ListenerState:
@@ -189,9 +201,6 @@ class _ListenerState:
             pulumi.set(__self__, "service_identifier", service_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -327,7 +336,6 @@ class _ListenerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -348,6 +356,7 @@ class Listener(pulumi.CustomResource):
                  service_arn: Optional[pulumi.Input[str]] = None,
                  service_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS VPC Lattice Listener.
@@ -592,6 +601,7 @@ class Listener(pulumi.CustomResource):
                  service_arn: Optional[pulumi.Input[str]] = None,
                  service_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -612,11 +622,11 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["service_arn"] = service_arn
             __props__.__dict__["service_identifier"] = service_identifier
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["last_updated_at"] = None
             __props__.__dict__["listener_id"] = None
-            __props__.__dict__["tags_all"] = None
         super(Listener, __self__).__init__(
             'aws:vpclattice/listener:Listener',
             resource_name,
@@ -764,7 +774,6 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

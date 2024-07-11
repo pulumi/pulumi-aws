@@ -89,8 +89,6 @@ type GangliaLayer struct {
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url pulumi.StringPtrOutput `pulumi:"url"`
@@ -182,8 +180,6 @@ type gangliaLayerState struct {
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url *string `pulumi:"url"`
@@ -240,8 +236,6 @@ type GangliaLayerState struct {
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url pulumi.StringPtrInput
@@ -299,6 +293,8 @@ type gangliaLayerArgs struct {
 	// custom Chef recipes to be applied to layer instances at the five different
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url *string `pulumi:"url"`
 	// Whether to use EBS-optimized instances.
@@ -352,6 +348,8 @@ type GangliaLayerArgs struct {
 	// custom Chef recipes to be applied to layer instances at the five different
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The URL path to use for Ganglia. Defaults to "/ganglia".
 	Url pulumi.StringPtrInput
 	// Whether to use EBS-optimized instances.
@@ -565,8 +563,6 @@ func (o GangliaLayerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o GangliaLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GangliaLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

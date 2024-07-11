@@ -126,8 +126,7 @@ type Stack struct {
 	// See `streamingExperienceSettings` below.
 	StreamingExperienceSettings StackStreamingExperienceSettingsOutput `pulumi:"streamingExperienceSettings"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
@@ -195,8 +194,7 @@ type stackState struct {
 	// See `streamingExperienceSettings` below.
 	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
@@ -235,8 +233,7 @@ type StackState struct {
 	// See `streamingExperienceSettings` below.
 	StreamingExperienceSettings StackStreamingExperienceSettingsPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
@@ -275,7 +272,8 @@ type stackArgs struct {
 	// See `streamingExperienceSettings` below.
 	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
 	UserSettings []StackUserSetting `pulumi:"userSettings"`
@@ -310,7 +308,8 @@ type StackArgs struct {
 	// See `streamingExperienceSettings` below.
 	StreamingExperienceSettings StackStreamingExperienceSettingsPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
 	UserSettings StackUserSettingArrayInput
@@ -474,7 +473,6 @@ func (o StackOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o StackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

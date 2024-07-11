@@ -39,6 +39,7 @@ class TargetGroupArgs:
                  slow_start: Optional[pulumi.Input[int]] = None,
                  stickiness: Optional[pulumi.Input['TargetGroupStickinessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]] = None,
                  target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
@@ -66,6 +67,7 @@ class TargetGroupArgs:
         :param pulumi.Input[int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input['TargetGroupStickinessArgs'] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group.
@@ -117,6 +119,8 @@ class TargetGroupArgs:
             pulumi.set(__self__, "stickiness", stickiness)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if target_failovers is not None:
             pulumi.set(__self__, "target_failovers", target_failovers)
         if target_health_states is not None:
@@ -346,6 +350,18 @@ class TargetGroupArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="targetFailovers")
     def target_failovers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]]:
         """
@@ -517,9 +533,6 @@ class _TargetGroupState:
             pulumi.set(__self__, "stickiness", stickiness)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_failovers is not None:
@@ -788,7 +801,6 @@ class _TargetGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -881,6 +893,7 @@ class TargetGroup(pulumi.CustomResource):
                  slow_start: Optional[pulumi.Input[int]] = None,
                  stickiness: Optional[pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]]] = None,
                  target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
@@ -994,6 +1007,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         :param pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group.
@@ -1133,6 +1147,7 @@ class TargetGroup(pulumi.CustomResource):
                  slow_start: Optional[pulumi.Input[int]] = None,
                  stickiness: Optional[pulumi.Input[Union['TargetGroupStickinessArgs', 'TargetGroupStickinessArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetFailoverArgs', 'TargetGroupTargetFailoverArgsDict']]]]] = None,
                  target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetGroupTargetHealthStateArgs', 'TargetGroupTargetHealthStateArgsDict']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
@@ -1164,6 +1179,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["slow_start"] = slow_start
             __props__.__dict__["stickiness"] = stickiness
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["target_failovers"] = target_failovers
             __props__.__dict__["target_health_states"] = target_health_states
             __props__.__dict__["target_type"] = target_type
@@ -1171,7 +1187,6 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["arn_suffix"] = None
             __props__.__dict__["load_balancer_arns"] = None
-            __props__.__dict__["tags_all"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:applicationloadbalancing/targetGroup:TargetGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TargetGroup, __self__).__init__(
@@ -1462,7 +1477,6 @@ class TargetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

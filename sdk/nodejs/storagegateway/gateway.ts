@@ -239,10 +239,8 @@ export class Gateway extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
@@ -309,6 +307,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["smbGuestPassword"] = args?.smbGuestPassword ? pulumi.secret(args.smbGuestPassword) : undefined;
             resourceInputs["smbSecurityStrategy"] = args ? args.smbSecurityStrategy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ec2InstanceId"] = undefined /*out*/;
@@ -316,7 +315,6 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayId"] = undefined /*out*/;
             resourceInputs["gatewayNetworkInterfaces"] = undefined /*out*/;
             resourceInputs["hostEnvironment"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["smbGuestPassword"] };
@@ -419,8 +417,6 @@ export interface GatewayState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -497,6 +493,10 @@ export interface GatewayArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */

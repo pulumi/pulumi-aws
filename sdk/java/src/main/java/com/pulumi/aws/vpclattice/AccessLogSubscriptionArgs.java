@@ -54,12 +54,20 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private AccessLogSubscriptionArgs() {}
 
     private AccessLogSubscriptionArgs(AccessLogSubscriptionArgs $) {
         this.destinationArn = $.destinationArn;
         this.resourceIdentifier = $.resourceIdentifier;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -129,6 +137,15 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
 
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public AccessLogSubscriptionArgs build() {

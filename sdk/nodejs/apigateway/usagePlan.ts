@@ -73,10 +73,8 @@ export class UsagePlan extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Throttling limits of the usage plan.
      */
@@ -112,9 +110,9 @@ export class UsagePlan extends pulumi.CustomResource {
             resourceInputs["productCode"] = args ? args.productCode : undefined;
             resourceInputs["quotaSettings"] = args ? args.quotaSettings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["throttleSettings"] = args ? args.throttleSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UsagePlan.__pulumiType, name, resourceInputs, opts);
@@ -152,8 +150,6 @@ export interface UsagePlanState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -187,6 +183,10 @@ export interface UsagePlanArgs {
      */
     quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throttling limits of the usage plan.
      */

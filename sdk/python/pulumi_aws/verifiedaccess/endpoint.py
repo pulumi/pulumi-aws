@@ -33,7 +33,8 @@ class EndpointArgs:
                  policy_document: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sse_specification: Optional[pulumi.Input['EndpointSseSpecificationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[str] application_domain: The DNS name for users to reach your application.
@@ -72,6 +73,8 @@ class EndpointArgs:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="applicationDomain")
@@ -231,6 +234,15 @@ class EndpointArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _EndpointState:
@@ -300,9 +312,6 @@ class _EndpointState:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if verified_access_group_id is not None:
@@ -480,7 +489,6 @@ class _EndpointState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -529,6 +537,7 @@ class Endpoint(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  verified_access_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -698,6 +707,7 @@ class Endpoint(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['EndpointSseSpecificationArgs', 'EndpointSseSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  verified_access_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -730,12 +740,12 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if verified_access_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'verified_access_group_id'")
             __props__.__dict__["verified_access_group_id"] = verified_access_group_id
             __props__.__dict__["device_validation_domain"] = None
             __props__.__dict__["endpoint_domain"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["verified_access_instance_id"] = None
         super(Endpoint, __self__).__init__(
             'aws:verifiedaccess/endpoint:Endpoint',
@@ -926,7 +936,6 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

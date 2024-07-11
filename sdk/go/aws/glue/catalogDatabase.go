@@ -104,8 +104,6 @@ type CatalogDatabase struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
 	TargetDatabase CatalogDatabaseTargetDatabasePtrOutput `pulumi:"targetDatabase"`
@@ -160,8 +158,6 @@ type catalogDatabaseState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
 	TargetDatabase *CatalogDatabaseTargetDatabase `pulumi:"targetDatabase"`
@@ -187,8 +183,6 @@ type CatalogDatabaseState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
 	TargetDatabase CatalogDatabaseTargetDatabasePtrInput
@@ -215,6 +209,8 @@ type catalogDatabaseArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
 	TargetDatabase *CatalogDatabaseTargetDatabase `pulumi:"targetDatabase"`
 }
@@ -237,6 +233,8 @@ type CatalogDatabaseArgs struct {
 	Parameters pulumi.StringMapInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
 	TargetDatabase CatalogDatabaseTargetDatabasePtrInput
 }
@@ -376,8 +374,6 @@ func (o CatalogDatabaseOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o CatalogDatabaseOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

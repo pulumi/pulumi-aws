@@ -116,6 +116,13 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     /**
      * Target of an action. See below.
      * 
@@ -140,6 +147,7 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
         this.roleArn = $.roleArn;
         this.stopConditions = $.stopConditions;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.targets = $.targets;
     }
 
@@ -311,6 +319,15 @@ public final class ExperimentTemplateArgs extends com.pulumi.resources.ResourceA
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

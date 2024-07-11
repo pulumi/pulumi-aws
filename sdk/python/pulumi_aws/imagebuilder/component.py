@@ -29,6 +29,7 @@ class ComponentArgs:
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Component resource.
@@ -44,6 +45,7 @@ class ComponentArgs:
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
                
                > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
@@ -66,6 +68,8 @@ class ComponentArgs:
             pulumi.set(__self__, "supported_os_versions", supported_os_versions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
 
@@ -192,6 +196,18 @@ class ComponentArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
@@ -276,9 +292,6 @@ class _ComponentState:
             pulumi.set(__self__, "supported_os_versions", supported_os_versions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -446,7 +459,6 @@ class _ComponentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -512,6 +524,7 @@ class Component(pulumi.CustomResource):
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -553,6 +566,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
                
                > **NOTE:** Updating `data` or `uri` requires specifying a new `version`. This causes replacement of the resource. The `skip_destroy` argument can be used to retain the old version.
@@ -617,6 +631,7 @@ class Component(pulumi.CustomResource):
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -639,6 +654,7 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["supported_os_versions"] = supported_os_versions
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["uri"] = uri
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
@@ -647,7 +663,6 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["date_created"] = None
             __props__.__dict__["encrypted"] = None
             __props__.__dict__["owner"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
         super(Component, __self__).__init__(
             'aws:imagebuilder/component:Component',
@@ -834,7 +849,6 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

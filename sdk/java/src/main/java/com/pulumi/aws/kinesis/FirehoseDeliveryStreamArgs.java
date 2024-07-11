@@ -264,6 +264,21 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     @Import(name="versionId")
     private @Nullable Output<String> versionId;
 
@@ -290,6 +305,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         this.snowflakeConfiguration = $.snowflakeConfiguration;
         this.splunkConfiguration = $.splunkConfiguration;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.versionId = $.versionId;
     }
 
@@ -637,6 +653,27 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public Builder versionId(@Nullable Output<String> versionId) {

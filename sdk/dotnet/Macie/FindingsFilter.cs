@@ -211,6 +211,14 @@ namespace Pulumi.Aws.Macie
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         public FindingsFilterArgs()
         {
         }
@@ -275,7 +283,6 @@ namespace Pulumi.Aws.Macie
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

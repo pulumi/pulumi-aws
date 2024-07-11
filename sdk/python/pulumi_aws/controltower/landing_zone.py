@@ -23,17 +23,21 @@ class LandingZoneArgs:
     def __init__(__self__, *,
                  manifest_json: pulumi.Input[str],
                  version: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LandingZone resource.
         :param pulumi.Input[str] manifest_json: The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
         :param pulumi.Input[str] version: The landing zone version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "manifest_json", manifest_json)
         pulumi.set(__self__, "version", version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="manifestJson")
@@ -71,6 +75,18 @@ class LandingZoneArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _LandingZoneState:
@@ -102,9 +118,6 @@ class _LandingZoneState:
             pulumi.set(__self__, "manifest_json", manifest_json)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
@@ -172,7 +185,6 @@ class _LandingZoneState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
@@ -203,6 +215,7 @@ class LandingZone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  manifest_json: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -221,6 +234,7 @@ class LandingZone(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] manifest_json: The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: The landing zone version.
         """
         ...
@@ -258,6 +272,7 @@ class LandingZone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  manifest_json: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -272,13 +287,13 @@ class LandingZone(pulumi.CustomResource):
                 raise TypeError("Missing required property 'manifest_json'")
             __props__.__dict__["manifest_json"] = manifest_json
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
             __props__.__dict__["drift_statuses"] = None
             __props__.__dict__["latest_available_version"] = None
-            __props__.__dict__["tags_all"] = None
         super(LandingZone, __self__).__init__(
             'aws:controltower/landingZone:LandingZone',
             resource_name,
@@ -366,7 +381,6 @@ class LandingZone(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.

@@ -37,8 +37,6 @@ type UsagePlan struct {
 	QuotaSettings UsagePlanQuotaSettingsPtrOutput `pulumi:"quotaSettings"`
 	Tags          pulumi.StringMapOutput          `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrOutput `pulumi:"throttleSettings"`
@@ -88,8 +86,6 @@ type usagePlanState struct {
 	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
 	Tags          map[string]string       `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throttling limits of the usage plan.
 	ThrottleSettings *UsagePlanThrottleSettings `pulumi:"throttleSettings"`
@@ -110,8 +106,6 @@ type UsagePlanState struct {
 	QuotaSettings UsagePlanQuotaSettingsPtrInput
 	Tags          pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrInput
@@ -133,6 +127,8 @@ type usagePlanArgs struct {
 	// Quota of the usage plan.
 	QuotaSettings *UsagePlanQuotaSettings `pulumi:"quotaSettings"`
 	Tags          map[string]string       `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throttling limits of the usage plan.
 	ThrottleSettings *UsagePlanThrottleSettings `pulumi:"throttleSettings"`
 }
@@ -150,6 +146,8 @@ type UsagePlanArgs struct {
 	// Quota of the usage plan.
 	QuotaSettings UsagePlanQuotaSettingsPtrInput
 	Tags          pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Throttling limits of the usage plan.
 	ThrottleSettings UsagePlanThrottleSettingsPtrInput
 }
@@ -276,8 +274,6 @@ func (o UsagePlanOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o UsagePlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UsagePlan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -27,7 +27,8 @@ class StoredIscsiVolumeArgs:
                  kms_encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StoredIscsiVolume resource.
         :param pulumi.Input[str] disk_id: The unique identifier for the gateway local disk that is configured as a stored volume.
@@ -39,6 +40,7 @@ class StoredIscsiVolumeArgs:
         :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
         :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "gateway_arn", gateway_arn)
@@ -53,6 +55,8 @@ class StoredIscsiVolumeArgs:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="diskId")
@@ -162,6 +166,18 @@ class StoredIscsiVolumeArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _StoredIscsiVolumeState:
@@ -233,9 +249,6 @@ class _StoredIscsiVolumeState:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_arn is not None:
@@ -399,7 +412,6 @@ class _StoredIscsiVolumeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -508,6 +520,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
                  preserve_existing_data: Optional[pulumi.Input[bool]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -564,6 +577,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[bool] preserve_existing_data: Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
         :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         """
         ...
@@ -639,6 +653,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
                  preserve_existing_data: Optional[pulumi.Input[bool]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -665,6 +680,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
             __props__.__dict__["preserve_existing_data"] = preserve_existing_data
             __props__.__dict__["snapshot_id"] = snapshot_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if target_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_name'")
             __props__.__dict__["target_name"] = target_name
@@ -672,7 +688,6 @@ class StoredIscsiVolume(pulumi.CustomResource):
             __props__.__dict__["chap_enabled"] = None
             __props__.__dict__["lun_number"] = None
             __props__.__dict__["network_interface_port"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["target_arn"] = None
             __props__.__dict__["volume_attachment_status"] = None
             __props__.__dict__["volume_id"] = None
@@ -861,7 +876,6 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

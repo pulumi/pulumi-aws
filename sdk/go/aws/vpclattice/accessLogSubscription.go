@@ -62,8 +62,7 @@ type AccessLogSubscription struct {
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	ResourceIdentifier pulumi.StringOutput    `pulumi:"resourceIdentifier"`
 	Tags               pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll            pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAccessLogSubscription registers a new resource with the given unique name, arguments, and options.
@@ -111,8 +110,7 @@ type accessLogSubscriptionState struct {
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	ResourceIdentifier *string           `pulumi:"resourceIdentifier"`
 	Tags               map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
 }
 
 type AccessLogSubscriptionState struct {
@@ -125,8 +123,7 @@ type AccessLogSubscriptionState struct {
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	ResourceIdentifier pulumi.StringPtrInput
 	Tags               pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 }
 
 func (AccessLogSubscriptionState) ElementType() reflect.Type {
@@ -139,6 +136,7 @@ type accessLogSubscriptionArgs struct {
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	ResourceIdentifier string            `pulumi:"resourceIdentifier"`
 	Tags               map[string]string `pulumi:"tags"`
+	TagsAll            map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a AccessLogSubscription resource.
@@ -148,6 +146,7 @@ type AccessLogSubscriptionArgs struct {
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	ResourceIdentifier pulumi.StringInput
 	Tags               pulumi.StringMapInput
+	TagsAll            pulumi.StringMapInput
 }
 
 func (AccessLogSubscriptionArgs) ElementType() reflect.Type {
@@ -261,7 +260,6 @@ func (o AccessLogSubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o AccessLogSubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

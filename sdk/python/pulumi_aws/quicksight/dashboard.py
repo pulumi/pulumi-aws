@@ -30,6 +30,7 @@ class DashboardArgs:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]]] = None,
                  source_entity: Optional[pulumi.Input['DashboardSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Dashboard resource.
@@ -44,6 +45,7 @@ class DashboardArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
         :param pulumi.Input['DashboardSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         """
         pulumi.set(__self__, "dashboard_id", dashboard_id)
@@ -62,6 +64,8 @@ class DashboardArgs:
             pulumi.set(__self__, "source_entity", source_entity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if theme_arn is not None:
             pulumi.set(__self__, "theme_arn", theme_arn)
 
@@ -176,6 +180,18 @@ class DashboardArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -259,9 +275,6 @@ class _DashboardState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if theme_arn is not None:
@@ -438,7 +451,6 @@ class _DashboardState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -501,6 +513,7 @@ class Dashboard(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]]] = None,
                  source_entity: Optional[pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -548,6 +561,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
         :param pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         :param pulumi.Input[str] version_description: A description of the current dashboard version being created/updated.
                
@@ -616,6 +630,7 @@ class Dashboard(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]]] = None,
                  source_entity: Optional[pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -637,6 +652,7 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["theme_arn"] = theme_arn
             if version_description is None and not opts.urn:
                 raise TypeError("Missing required property 'version_description'")
@@ -647,7 +663,6 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["source_entity_arn"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version_number"] = None
         super(Dashboard, __self__).__init__(
             'aws:quicksight/dashboard:Dashboard',
@@ -839,7 +854,6 @@ class Dashboard(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

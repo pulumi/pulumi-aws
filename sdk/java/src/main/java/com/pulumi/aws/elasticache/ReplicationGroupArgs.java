@@ -570,6 +570,21 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Whether to enable encryption in transit.
      * Changing this argument with an `engine_version` &lt; `7.0.5` will force a replacement.
      * Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
@@ -662,6 +677,7 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
         this.snapshotWindow = $.snapshotWindow;
         this.subnetGroupName = $.subnetGroupName;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.transitEncryptionEnabled = $.transitEncryptionEnabled;
         this.transitEncryptionMode = $.transitEncryptionMode;
         this.userGroupIds = $.userGroupIds;
@@ -1492,6 +1508,27 @@ public final class ReplicationGroupArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

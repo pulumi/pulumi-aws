@@ -87,8 +87,7 @@ type EcsClusterLayer struct {
 	// The following extra optional arguments, all lists of Chef recipe names, allow
 	// custom Chef recipes to be applied to layer instances at the five different
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrOutput `pulumi:"useEbsOptimizedInstances"`
@@ -174,8 +173,7 @@ type ecsClusterLayerState struct {
 	// The following extra optional arguments, all lists of Chef recipe names, allow
 	// custom Chef recipes to be applied to layer instances at the five different
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
@@ -226,8 +224,7 @@ type EcsClusterLayerState struct {
 	// The following extra optional arguments, all lists of Chef recipe names, allow
 	// custom Chef recipes to be applied to layer instances at the five different
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
@@ -280,7 +277,8 @@ type ecsClusterLayerArgs struct {
 	// The following extra optional arguments, all lists of Chef recipe names, allow
 	// custom Chef recipes to be applied to layer instances at the five different
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances *bool `pulumi:"useEbsOptimizedInstances"`
 }
@@ -329,7 +327,8 @@ type EcsClusterLayerArgs struct {
 	// The following extra optional arguments, all lists of Chef recipe names, allow
 	// custom Chef recipes to be applied to layer instances at the five different
 	// lifecycle events, if custom cookbooks are enabled on the layer's stack:
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Whether to use EBS-optimized instances.
 	UseEbsOptimizedInstances pulumi.BoolPtrInput
 }
@@ -540,7 +539,6 @@ func (o EcsClusterLayerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o EcsClusterLayerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EcsClusterLayer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -22,7 +22,8 @@ class MedicalVocabularyArgs:
                  language_code: pulumi.Input[str],
                  vocabulary_file_uri: pulumi.Input[str],
                  vocabulary_name: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MedicalVocabulary resource.
         :param pulumi.Input[str] language_code: The language code you selected for your medical vocabulary. US English (en-US) is the only language supported with Amazon Transcribe Medical.
@@ -37,6 +38,8 @@ class MedicalVocabularyArgs:
         pulumi.set(__self__, "vocabulary_name", vocabulary_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="languageCode")
@@ -88,6 +91,15 @@ class MedicalVocabularyArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _MedicalVocabularyState:
@@ -118,9 +130,6 @@ class _MedicalVocabularyState:
             pulumi.set(__self__, "language_code", language_code)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vocabulary_file_uri is not None:
@@ -178,7 +187,6 @@ class _MedicalVocabularyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -220,6 +228,7 @@ class MedicalVocabulary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vocabulary_file_uri: Optional[pulumi.Input[str]] = None,
                  vocabulary_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -329,6 +338,7 @@ class MedicalVocabulary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vocabulary_file_uri: Optional[pulumi.Input[str]] = None,
                  vocabulary_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -344,6 +354,7 @@ class MedicalVocabulary(pulumi.CustomResource):
                 raise TypeError("Missing required property 'language_code'")
             __props__.__dict__["language_code"] = language_code
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if vocabulary_file_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'vocabulary_file_uri'")
             __props__.__dict__["vocabulary_file_uri"] = vocabulary_file_uri
@@ -352,7 +363,6 @@ class MedicalVocabulary(pulumi.CustomResource):
             __props__.__dict__["vocabulary_name"] = vocabulary_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["download_uri"] = None
-            __props__.__dict__["tags_all"] = None
         super(MedicalVocabulary, __self__).__init__(
             'aws:transcribe/medicalVocabulary:MedicalVocabulary',
             resource_name,
@@ -433,7 +443,6 @@ class MedicalVocabulary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
 

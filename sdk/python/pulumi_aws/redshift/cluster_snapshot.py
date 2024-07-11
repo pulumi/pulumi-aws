@@ -22,13 +22,15 @@ class ClusterSnapshotArgs:
                  cluster_identifier: pulumi.Input[str],
                  snapshot_identifier: pulumi.Input[str],
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClusterSnapshot resource.
         :param pulumi.Input[str] cluster_identifier: The cluster identifier for which you want a snapshot.
         :param pulumi.Input[str] snapshot_identifier: A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
         :param pulumi.Input[int] manual_snapshot_retention_period: The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
@@ -36,6 +38,8 @@ class ClusterSnapshotArgs:
             pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -85,6 +89,18 @@ class ClusterSnapshotArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ClusterSnapshotState:
@@ -122,9 +138,6 @@ class _ClusterSnapshotState:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -214,7 +227,6 @@ class _ClusterSnapshotState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -235,6 +247,7 @@ class ClusterSnapshot(pulumi.CustomResource):
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Creates a Redshift cluster snapshot
@@ -253,6 +266,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[int] manual_snapshot_retention_period: The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
         :param pulumi.Input[str] snapshot_identifier: A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -290,6 +304,7 @@ class ClusterSnapshot(pulumi.CustomResource):
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -307,10 +322,10 @@ class ClusterSnapshot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'snapshot_identifier'")
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["kms_key_id"] = None
             __props__.__dict__["owner_account"] = None
-            __props__.__dict__["tags_all"] = None
         super(ClusterSnapshot, __self__).__init__(
             'aws:redshift/clusterSnapshot:ClusterSnapshot',
             resource_name,
@@ -417,7 +432,6 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -169,6 +169,143 @@ func (o InstanceConnectEndpointTimeoutsPtrOutput) Delete() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type PeeringAttachmentOptions struct {
+	// Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+	DynamicRouting *string `pulumi:"dynamicRouting"`
+}
+
+// PeeringAttachmentOptionsInput is an input type that accepts PeeringAttachmentOptionsArgs and PeeringAttachmentOptionsOutput values.
+// You can construct a concrete instance of `PeeringAttachmentOptionsInput` via:
+//
+//	PeeringAttachmentOptionsArgs{...}
+type PeeringAttachmentOptionsInput interface {
+	pulumi.Input
+
+	ToPeeringAttachmentOptionsOutput() PeeringAttachmentOptionsOutput
+	ToPeeringAttachmentOptionsOutputWithContext(context.Context) PeeringAttachmentOptionsOutput
+}
+
+type PeeringAttachmentOptionsArgs struct {
+	// Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+	DynamicRouting pulumi.StringPtrInput `pulumi:"dynamicRouting"`
+}
+
+func (PeeringAttachmentOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (i PeeringAttachmentOptionsArgs) ToPeeringAttachmentOptionsOutput() PeeringAttachmentOptionsOutput {
+	return i.ToPeeringAttachmentOptionsOutputWithContext(context.Background())
+}
+
+func (i PeeringAttachmentOptionsArgs) ToPeeringAttachmentOptionsOutputWithContext(ctx context.Context) PeeringAttachmentOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentOptionsOutput)
+}
+
+func (i PeeringAttachmentOptionsArgs) ToPeeringAttachmentOptionsPtrOutput() PeeringAttachmentOptionsPtrOutput {
+	return i.ToPeeringAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i PeeringAttachmentOptionsArgs) ToPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) PeeringAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentOptionsOutput).ToPeeringAttachmentOptionsPtrOutputWithContext(ctx)
+}
+
+// PeeringAttachmentOptionsPtrInput is an input type that accepts PeeringAttachmentOptionsArgs, PeeringAttachmentOptionsPtr and PeeringAttachmentOptionsPtrOutput values.
+// You can construct a concrete instance of `PeeringAttachmentOptionsPtrInput` via:
+//
+//	        PeeringAttachmentOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PeeringAttachmentOptionsPtrInput interface {
+	pulumi.Input
+
+	ToPeeringAttachmentOptionsPtrOutput() PeeringAttachmentOptionsPtrOutput
+	ToPeeringAttachmentOptionsPtrOutputWithContext(context.Context) PeeringAttachmentOptionsPtrOutput
+}
+
+type peeringAttachmentOptionsPtrType PeeringAttachmentOptionsArgs
+
+func PeeringAttachmentOptionsPtr(v *PeeringAttachmentOptionsArgs) PeeringAttachmentOptionsPtrInput {
+	return (*peeringAttachmentOptionsPtrType)(v)
+}
+
+func (*peeringAttachmentOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (i *peeringAttachmentOptionsPtrType) ToPeeringAttachmentOptionsPtrOutput() PeeringAttachmentOptionsPtrOutput {
+	return i.ToPeeringAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *peeringAttachmentOptionsPtrType) ToPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) PeeringAttachmentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentOptionsPtrOutput)
+}
+
+type PeeringAttachmentOptionsOutput struct{ *pulumi.OutputState }
+
+func (PeeringAttachmentOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (o PeeringAttachmentOptionsOutput) ToPeeringAttachmentOptionsOutput() PeeringAttachmentOptionsOutput {
+	return o
+}
+
+func (o PeeringAttachmentOptionsOutput) ToPeeringAttachmentOptionsOutputWithContext(ctx context.Context) PeeringAttachmentOptionsOutput {
+	return o
+}
+
+func (o PeeringAttachmentOptionsOutput) ToPeeringAttachmentOptionsPtrOutput() PeeringAttachmentOptionsPtrOutput {
+	return o.ToPeeringAttachmentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o PeeringAttachmentOptionsOutput) ToPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) PeeringAttachmentOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringAttachmentOptions) *PeeringAttachmentOptions {
+		return &v
+	}).(PeeringAttachmentOptionsPtrOutput)
+}
+
+// Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+func (o PeeringAttachmentOptionsOutput) DynamicRouting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PeeringAttachmentOptions) *string { return v.DynamicRouting }).(pulumi.StringPtrOutput)
+}
+
+type PeeringAttachmentOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (PeeringAttachmentOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PeeringAttachmentOptions)(nil)).Elem()
+}
+
+func (o PeeringAttachmentOptionsPtrOutput) ToPeeringAttachmentOptionsPtrOutput() PeeringAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o PeeringAttachmentOptionsPtrOutput) ToPeeringAttachmentOptionsPtrOutputWithContext(ctx context.Context) PeeringAttachmentOptionsPtrOutput {
+	return o
+}
+
+func (o PeeringAttachmentOptionsPtrOutput) Elem() PeeringAttachmentOptionsOutput {
+	return o.ApplyT(func(v *PeeringAttachmentOptions) PeeringAttachmentOptions {
+		if v != nil {
+			return *v
+		}
+		var ret PeeringAttachmentOptions
+		return ret
+	}).(PeeringAttachmentOptionsOutput)
+}
+
+// Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+func (o PeeringAttachmentOptionsPtrOutput) DynamicRouting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringAttachmentOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicRouting
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetAttachmentFilter struct {
 	// Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
 	Name string `pulumi:"name"`
@@ -1235,6 +1372,112 @@ func (o GetPeeringAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetPeeri
 	}).(GetPeeringAttachmentFilterOutput)
 }
 
+type GetPeeringAttachmentsFilter struct {
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetPeeringAttachmentsFilterInput is an input type that accepts GetPeeringAttachmentsFilterArgs and GetPeeringAttachmentsFilterOutput values.
+// You can construct a concrete instance of `GetPeeringAttachmentsFilterInput` via:
+//
+//	GetPeeringAttachmentsFilterArgs{...}
+type GetPeeringAttachmentsFilterInput interface {
+	pulumi.Input
+
+	ToGetPeeringAttachmentsFilterOutput() GetPeeringAttachmentsFilterOutput
+	ToGetPeeringAttachmentsFilterOutputWithContext(context.Context) GetPeeringAttachmentsFilterOutput
+}
+
+type GetPeeringAttachmentsFilterArgs struct {
+	// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetPeeringAttachmentsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringAttachmentsFilter)(nil)).Elem()
+}
+
+func (i GetPeeringAttachmentsFilterArgs) ToGetPeeringAttachmentsFilterOutput() GetPeeringAttachmentsFilterOutput {
+	return i.ToGetPeeringAttachmentsFilterOutputWithContext(context.Background())
+}
+
+func (i GetPeeringAttachmentsFilterArgs) ToGetPeeringAttachmentsFilterOutputWithContext(ctx context.Context) GetPeeringAttachmentsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAttachmentsFilterOutput)
+}
+
+// GetPeeringAttachmentsFilterArrayInput is an input type that accepts GetPeeringAttachmentsFilterArray and GetPeeringAttachmentsFilterArrayOutput values.
+// You can construct a concrete instance of `GetPeeringAttachmentsFilterArrayInput` via:
+//
+//	GetPeeringAttachmentsFilterArray{ GetPeeringAttachmentsFilterArgs{...} }
+type GetPeeringAttachmentsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetPeeringAttachmentsFilterArrayOutput() GetPeeringAttachmentsFilterArrayOutput
+	ToGetPeeringAttachmentsFilterArrayOutputWithContext(context.Context) GetPeeringAttachmentsFilterArrayOutput
+}
+
+type GetPeeringAttachmentsFilterArray []GetPeeringAttachmentsFilterInput
+
+func (GetPeeringAttachmentsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringAttachmentsFilter)(nil)).Elem()
+}
+
+func (i GetPeeringAttachmentsFilterArray) ToGetPeeringAttachmentsFilterArrayOutput() GetPeeringAttachmentsFilterArrayOutput {
+	return i.ToGetPeeringAttachmentsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetPeeringAttachmentsFilterArray) ToGetPeeringAttachmentsFilterArrayOutputWithContext(ctx context.Context) GetPeeringAttachmentsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPeeringAttachmentsFilterArrayOutput)
+}
+
+type GetPeeringAttachmentsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringAttachmentsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPeeringAttachmentsFilter)(nil)).Elem()
+}
+
+func (o GetPeeringAttachmentsFilterOutput) ToGetPeeringAttachmentsFilterOutput() GetPeeringAttachmentsFilterOutput {
+	return o
+}
+
+func (o GetPeeringAttachmentsFilterOutput) ToGetPeeringAttachmentsFilterOutputWithContext(ctx context.Context) GetPeeringAttachmentsFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+func (o GetPeeringAttachmentsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPeeringAttachmentsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetPeeringAttachmentsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPeeringAttachmentsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetPeeringAttachmentsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPeeringAttachmentsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPeeringAttachmentsFilter)(nil)).Elem()
+}
+
+func (o GetPeeringAttachmentsFilterArrayOutput) ToGetPeeringAttachmentsFilterArrayOutput() GetPeeringAttachmentsFilterArrayOutput {
+	return o
+}
+
+func (o GetPeeringAttachmentsFilterArrayOutput) ToGetPeeringAttachmentsFilterArrayOutputWithContext(ctx context.Context) GetPeeringAttachmentsFilterArrayOutput {
+	return o
+}
+
+func (o GetPeeringAttachmentsFilterArrayOutput) Index(i pulumi.IntInput) GetPeeringAttachmentsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPeeringAttachmentsFilter {
+		return vs[0].([]GetPeeringAttachmentsFilter)[vs[1].(int)]
+	}).(GetPeeringAttachmentsFilterOutput)
+}
+
 type GetRouteTableAssociationsFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
@@ -2234,6 +2477,8 @@ func (o GetVpnAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpnAttach
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectEndpointTimeoutsInput)(nil)).Elem(), InstanceConnectEndpointTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceConnectEndpointTimeoutsPtrInput)(nil)).Elem(), InstanceConnectEndpointTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentOptionsInput)(nil)).Elem(), PeeringAttachmentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentOptionsPtrInput)(nil)).Elem(), PeeringAttachmentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterInput)(nil)).Elem(), GetAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentFilterArrayInput)(nil)).Elem(), GetAttachmentFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAttachmentsFilterInput)(nil)).Elem(), GetAttachmentsFilterArgs{})
@@ -2254,6 +2499,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMulticastDomainSourceArrayInput)(nil)).Elem(), GetMulticastDomainSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAttachmentFilterInput)(nil)).Elem(), GetPeeringAttachmentFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAttachmentFilterArrayInput)(nil)).Elem(), GetPeeringAttachmentFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAttachmentsFilterInput)(nil)).Elem(), GetPeeringAttachmentsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAttachmentsFilterArrayInput)(nil)).Elem(), GetPeeringAttachmentsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableAssociationsFilterInput)(nil)).Elem(), GetRouteTableAssociationsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableAssociationsFilterArrayInput)(nil)).Elem(), GetRouteTableAssociationsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableFilterInput)(nil)).Elem(), GetRouteTableFilterArgs{})
@@ -2274,6 +2521,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterArrayInput)(nil)).Elem(), GetVpnAttachmentFilterArray{})
 	pulumi.RegisterOutputType(InstanceConnectEndpointTimeoutsOutput{})
 	pulumi.RegisterOutputType(InstanceConnectEndpointTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(PeeringAttachmentOptionsOutput{})
+	pulumi.RegisterOutputType(PeeringAttachmentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetAttachmentFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetAttachmentsFilterOutput{})
@@ -2294,6 +2543,8 @@ func init() {
 	pulumi.RegisterOutputType(GetMulticastDomainSourceArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetPeeringAttachmentFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetPeeringAttachmentsFilterOutput{})
+	pulumi.RegisterOutputType(GetPeeringAttachmentsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableAssociationsFilterOutput{})
 	pulumi.RegisterOutputType(GetRouteTableAssociationsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableFilterOutput{})

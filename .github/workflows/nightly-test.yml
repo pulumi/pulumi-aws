@@ -29,6 +29,13 @@ jobs:
       is_pr: ${{ github.event_name == 'pull_request' }}
       is_automated: ${{ github.actor == 'dependabot[bot]' }}
 
+  build_provider:
+    uses: ./.github/workflows/build_provider.yml
+    needs: prerequisites
+    secrets: inherit
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
+
   build_sdk:
     name: build_sdk
     needs: prerequisites

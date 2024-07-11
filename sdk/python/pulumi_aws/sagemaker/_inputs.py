@@ -6139,7 +6139,7 @@ if not MYPY:
     class EndpointConfigurationDataCaptureConfigCaptureOptionArgsDict(TypedDict):
         capture_mode: pulumi.Input[str]
         """
-        Specifies the data to be captured. Should be one of `Input` or `Output`.
+        Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
         """
 elif False:
     EndpointConfigurationDataCaptureConfigCaptureOptionArgsDict: TypeAlias = Mapping[str, Any]
@@ -6149,7 +6149,7 @@ class EndpointConfigurationDataCaptureConfigCaptureOptionArgs:
     def __init__(__self__, *,
                  capture_mode: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] capture_mode: Specifies the data to be captured. Should be one of `Input` or `Output`.
+        :param pulumi.Input[str] capture_mode: Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
         """
         pulumi.set(__self__, "capture_mode", capture_mode)
 
@@ -6157,7 +6157,7 @@ class EndpointConfigurationDataCaptureConfigCaptureOptionArgs:
     @pulumi.getter(name="captureMode")
     def capture_mode(self) -> pulumi.Input[str]:
         """
-        Specifies the data to be captured. Should be one of `Input` or `Output`.
+        Specifies the data to be captured. Should be one of `Input`, `Output` or `InputAndOutput`.
         """
         return pulumi.get(self, "capture_mode")
 

@@ -43,8 +43,7 @@ type Certificate struct {
 	// The private key associated with the certificate being imported.
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 	Usage pulumi.StringOutput `pulumi:"usage"`
@@ -118,8 +117,7 @@ type certificateState struct {
 	// The private key associated with the certificate being imported.
 	PrivateKey *string `pulumi:"privateKey"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 	Usage *string `pulumi:"usage"`
@@ -143,8 +141,7 @@ type CertificateState struct {
 	// The private key associated with the certificate being imported.
 	PrivateKey pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 	Usage pulumi.StringPtrInput
@@ -164,7 +161,8 @@ type certificateArgs struct {
 	// The private key associated with the certificate being imported.
 	PrivateKey *string `pulumi:"privateKey"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 	Usage string `pulumi:"usage"`
 }
@@ -180,7 +178,8 @@ type CertificateArgs struct {
 	// The private key associated with the certificate being imported.
 	PrivateKey pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
 	Usage pulumi.StringInput
 }
@@ -317,7 +316,6 @@ func (o CertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o CertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

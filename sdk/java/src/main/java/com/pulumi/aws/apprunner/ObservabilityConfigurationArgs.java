@@ -49,6 +49,21 @@ public final class ObservabilityConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
      * Configuration of the tracing feature within this observability configuration. If you don&#39;t specify it, App Runner doesn&#39;t enable tracing. See Trace Configuration below for more details.
      * 
      */
@@ -68,6 +83,7 @@ public final class ObservabilityConfigurationArgs extends com.pulumi.resources.R
     private ObservabilityConfigurationArgs(ObservabilityConfigurationArgs $) {
         this.observabilityConfigurationName = $.observabilityConfigurationName;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
         this.traceConfiguration = $.traceConfiguration;
     }
 
@@ -129,6 +145,27 @@ public final class ObservabilityConfigurationArgs extends com.pulumi.resources.R
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         /**

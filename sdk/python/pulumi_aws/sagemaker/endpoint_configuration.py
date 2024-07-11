@@ -28,7 +28,8 @@ class EndpointConfigurationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EndpointConfiguration resource.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
@@ -39,6 +40,7 @@ class EndpointConfigurationArgs:
         :param pulumi.Input[str] name_prefix: Creates a unique endpoint configuration name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantArgs']]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "production_variants", production_variants)
         if async_inference_config is not None:
@@ -55,6 +57,8 @@ class EndpointConfigurationArgs:
             pulumi.set(__self__, "shadow_production_variants", shadow_production_variants)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="productionVariants")
@@ -152,6 +156,18 @@ class EndpointConfigurationArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _EndpointConfigurationState:
@@ -197,9 +213,6 @@ class _EndpointConfigurationState:
             pulumi.set(__self__, "shadow_production_variants", shadow_production_variants)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -313,7 +326,6 @@ class _EndpointConfigurationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -338,6 +350,7 @@ class EndpointConfiguration(pulumi.CustomResource):
                  production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]]] = None,
                  shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a SageMaker endpoint configuration resource.
@@ -381,6 +394,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]] production_variants: An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]] shadow_production_variants: Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants. If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -443,6 +457,7 @@ class EndpointConfiguration(pulumi.CustomResource):
                  production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationProductionVariantArgs', 'EndpointConfigurationProductionVariantArgsDict']]]]] = None,
                  shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointConfigurationShadowProductionVariantArgs', 'EndpointConfigurationShadowProductionVariantArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -462,8 +477,8 @@ class EndpointConfiguration(pulumi.CustomResource):
             __props__.__dict__["production_variants"] = production_variants
             __props__.__dict__["shadow_production_variants"] = shadow_production_variants
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(EndpointConfiguration, __self__).__init__(
             'aws:sagemaker/endpointConfiguration:EndpointConfiguration',
             resource_name,
@@ -592,7 +607,6 @@ class EndpointConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

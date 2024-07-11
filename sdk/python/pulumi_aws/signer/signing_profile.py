@@ -26,13 +26,15 @@ class SigningProfileArgs:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
                  signing_material: Optional[pulumi.Input['SigningProfileSigningMaterialArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SigningProfile resource.
         :param pulumi.Input[str] platform_id: The ID of the platform that is used by the target signing profile.
         :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
         :param pulumi.Input['SigningProfileSigningMaterialArgs'] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "platform_id", platform_id)
         if name is not None:
@@ -45,6 +47,8 @@ class SigningProfileArgs:
             pulumi.set(__self__, "signing_material", signing_material)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="platformId")
@@ -112,6 +116,18 @@ class SigningProfileArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _SigningProfileState:
@@ -163,9 +179,6 @@ class _SigningProfileState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
@@ -289,7 +302,6 @@ class _SigningProfileState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -336,6 +348,7 @@ class SigningProfile(pulumi.CustomResource):
                  signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
                  signing_material: Optional[pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Creates a Signer Signing Profile. A signing profile contains information about the code signing configuration parameters that can be used by a given code signing user.
@@ -374,6 +387,7 @@ class SigningProfile(pulumi.CustomResource):
         :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
         :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -433,6 +447,7 @@ class SigningProfile(pulumi.CustomResource):
                  signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
                  signing_material: Optional[pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -450,11 +465,11 @@ class SigningProfile(pulumi.CustomResource):
             __props__.__dict__["signature_validity_period"] = signature_validity_period
             __props__.__dict__["signing_material"] = signing_material
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["platform_display_name"] = None
             __props__.__dict__["revocation_records"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
             __props__.__dict__["version_arn"] = None
         super(SigningProfile, __self__).__init__(
@@ -594,7 +609,6 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

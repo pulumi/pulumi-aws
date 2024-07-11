@@ -87,10 +87,7 @@ export class SdkvoiceVoiceProfileDomain extends pulumi.CustomResource {
      */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a SdkvoiceVoiceProfileDomain resource with the given unique name, arguments, and options.
@@ -120,8 +117,8 @@ export class SdkvoiceVoiceProfileDomain extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SdkvoiceVoiceProfileDomain.__pulumiType, name, resourceInputs, opts);
@@ -149,9 +146,6 @@ export interface SdkvoiceVoiceProfileDomainState {
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -172,4 +166,5 @@ export interface SdkvoiceVoiceProfileDomainArgs {
      */
     serverSideEncryptionConfiguration: pulumi.Input<inputs.chime.SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

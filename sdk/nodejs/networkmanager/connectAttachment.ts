@@ -153,10 +153,8 @@ export class ConnectAttachment extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the attachment between the two connections.
      */
@@ -208,6 +206,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["edgeLocation"] = args ? args.edgeLocation : undefined;
             resourceInputs["options"] = args ? args.options : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["transportAttachmentId"] = args ? args.transportAttachmentId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["attachmentId"] = undefined /*out*/;
@@ -218,7 +217,6 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConnectAttachment.__pulumiType, name, resourceInputs, opts);
@@ -282,8 +280,6 @@ export interface ConnectAttachmentState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -314,6 +310,10 @@ export interface ConnectAttachmentArgs {
      * Key-value tags for the attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the attachment between the two connections.
      */

@@ -68,6 +68,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class PeeringAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        /// </summary>
+        [Output("options")]
+        public Output<Outputs.PeeringAttachmentOptions?> Options { get; private set; } = null!;
+
+        /// <summary>
         /// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
         [Output("peerAccountId")]
@@ -153,6 +159,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class PeeringAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        /// </summary>
+        [Input("options")]
+        public Input<Inputs.PeeringAttachmentOptionsArgs>? Options { get; set; }
+
+        /// <summary>
         /// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
         [Input("peerAccountId")]
@@ -182,6 +194,18 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         /// <summary>
         /// Identifier of EC2 Transit Gateway.
         /// </summary>
@@ -196,6 +220,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class PeeringAttachmentState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes whether dynamic routing is enabled or disabled for the transit gateway peering request. See options below for more details!
+        /// </summary>
+        [Input("options")]
+        public Input<Inputs.PeeringAttachmentOptionsGetArgs>? Options { get; set; }
+
         /// <summary>
         /// Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the AWS provider is currently connected to.
         /// </summary>
@@ -235,7 +265,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

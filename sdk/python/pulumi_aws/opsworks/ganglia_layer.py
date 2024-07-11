@@ -44,6 +44,7 @@ class GangliaLayerArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None):
@@ -69,6 +70,7 @@ class GangliaLayerArgs:
                The following extra optional arguments, all lists of Chef recipe names, allow
                custom Chef recipes to be applied to layer instances at the five different
                lifecycle events, if custom cookbooks are enabled on the layer's stack:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
@@ -117,6 +119,8 @@ class GangliaLayerArgs:
             pulumi.set(__self__, "system_packages", system_packages)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
             pulumi.set(__self__, "url", url)
         if use_ebs_optimized_instances is not None:
@@ -384,6 +388,18 @@ class GangliaLayerArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -527,9 +543,6 @@ class _GangliaLayerState:
             pulumi.set(__self__, "system_packages", system_packages)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
@@ -812,7 +825,6 @@ class _GangliaLayerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -888,6 +900,7 @@ class GangliaLayer(pulumi.CustomResource):
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -928,6 +941,7 @@ class GangliaLayer(pulumi.CustomResource):
                The following extra optional arguments, all lists of Chef recipe names, allow
                custom Chef recipes to be applied to layer instances at the five different
                lifecycle events, if custom cookbooks are enabled on the layer's stack:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
         :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
         :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
@@ -990,6 +1004,7 @@ class GangliaLayer(pulumi.CustomResource):
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[str]] = None,
@@ -1029,11 +1044,11 @@ class GangliaLayer(pulumi.CustomResource):
             __props__.__dict__["stack_id"] = stack_id
             __props__.__dict__["system_packages"] = system_packages
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["url"] = url
             __props__.__dict__["use_ebs_optimized_instances"] = use_ebs_optimized_instances
             __props__.__dict__["username"] = username
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(GangliaLayer, __self__).__init__(
             'aws:opsworks/gangliaLayer:GangliaLayer',
             resource_name,
@@ -1316,7 +1331,6 @@ class GangliaLayer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

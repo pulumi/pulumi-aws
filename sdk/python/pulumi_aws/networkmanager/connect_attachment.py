@@ -25,7 +25,8 @@ class ConnectAttachmentArgs:
                  edge_location: pulumi.Input[str],
                  options: pulumi.Input['ConnectAttachmentOptionsArgs'],
                  transport_attachment_id: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ConnectAttachment resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
@@ -35,6 +36,7 @@ class ConnectAttachmentArgs:
                The following arguments are optional:
         :param pulumi.Input[str] transport_attachment_id: The ID of the attachment between the two connections.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "edge_location", edge_location)
@@ -42,6 +44,8 @@ class ConnectAttachmentArgs:
         pulumi.set(__self__, "transport_attachment_id", transport_attachment_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="coreNetworkId")
@@ -104,6 +108,18 @@ class ConnectAttachmentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -169,9 +185,6 @@ class _ConnectAttachmentState:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transport_attachment_id is not None:
@@ -334,7 +347,6 @@ class _ConnectAttachmentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -367,6 +379,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  edge_location: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -435,6 +448,7 @@ class ConnectAttachment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transport_attachment_id: The ID of the attachment between the two connections.
         """
         ...
@@ -520,6 +534,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  edge_location: Optional[pulumi.Input[str]] = None,
                  options: Optional[pulumi.Input[Union['ConnectAttachmentOptionsArgs', 'ConnectAttachmentOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -540,6 +555,7 @@ class ConnectAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'options'")
             __props__.__dict__["options"] = options
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             if transport_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transport_attachment_id'")
             __props__.__dict__["transport_attachment_id"] = transport_attachment_id
@@ -552,7 +568,6 @@ class ConnectAttachment(pulumi.CustomResource):
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
-            __props__.__dict__["tags_all"] = None
         super(ConnectAttachment, __self__).__init__(
             'aws:networkmanager/connectAttachment:ConnectAttachment',
             resource_name,
@@ -728,7 +743,6 @@ class ConnectAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

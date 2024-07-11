@@ -28,6 +28,7 @@ class PipelineArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  pipeline_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]]] = None):
         """
@@ -41,6 +42,7 @@ class PipelineArgs:
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineVariableArgs']]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         """
@@ -55,6 +57,8 @@ class PipelineArgs:
             pulumi.set(__self__, "pipeline_type", pipeline_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
         if variables is not None:
@@ -147,6 +151,18 @@ class PipelineArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerArgs']]]]:
         """
@@ -217,9 +233,6 @@ class _PipelineState:
             pulumi.set(__self__, "stages", stages)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if triggers is not None:
@@ -327,7 +340,6 @@ class _PipelineState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -375,6 +387,7 @@ class Pipeline(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]]] = None,
                  __props__=None):
@@ -525,6 +538,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]] variables: A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
         """
@@ -692,6 +706,7 @@ class Pipeline(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  triggers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableArgs', 'PipelineVariableArgsDict']]]]] = None,
                  __props__=None):
@@ -716,10 +731,10 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stages'")
             __props__.__dict__["stages"] = stages
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["variables"] = variables
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(Pipeline, __self__).__init__(
             'aws:codepipeline/pipeline:Pipeline',
             resource_name,
@@ -847,7 +862,6 @@ class Pipeline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -154,6 +154,7 @@ func TestSecretVersionUpgrade(t *testing.T) {
 }
 
 func TestRdsParameterGroupUnclearDiff(t *testing.T) {
+	t.Parallel()
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
 	}
@@ -243,6 +244,7 @@ resources:
 		tc := tc
 
 		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
 			workdir := t.TempDir()
 
 			err := os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), []byte(tc.file1), 0o600)
@@ -303,6 +305,7 @@ func randSeq(n int) string {
 }
 
 func TestNonIdempotentSnsTopic(t *testing.T) {
+	t.Parallel()
 	ptest := pulumiTest(t, filepath.Join("test-programs", "non-idempotent-sns-topic"))
 
 	ptest.InstallStack("test")
@@ -315,6 +318,7 @@ func TestNonIdempotentSnsTopic(t *testing.T) {
 }
 
 func TestOpenZfsFileSystemUpgrade(t *testing.T) {
+	t.Parallel()
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
 	}
@@ -353,6 +357,7 @@ resources:
 	// test that we can upgrade from the previous version which accepted a string for `subnetIds`
 	// to the new version which accepts a list
 	t.Run("upgrade", func(t *testing.T) {
+		t.Parallel()
 		pulumiTest := testProviderCodeChanges(t, &testProviderCodeChangesOptions{
 			firstProgram: firstProgram,
 			firstProgramOptions: []opttest.Option{
@@ -378,6 +383,7 @@ resources:
 	// we use a test with a snapshot since this test is only useful the first time, once
 	// we know it works it should continue to work.
 	t.Run("new-version", func(t *testing.T) {
+		t.Parallel()
 		err = os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), secondProgram, 0o600)
 		assert.NoError(t, err)
 		pulumiTest := pulumitest.NewPulumiTest(t, workdir,
@@ -393,6 +399,7 @@ resources:
 
 // Make sure that legacy Bucket supports deleting tags out of band and detecting drift.
 func TestRegress3674(t *testing.T) {
+	t.Parallel()
 	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-3674"), opttest.SkipInstall())
 	upResult := ptest.Up()
 	bucketName := upResult.Outputs["bucketName"].Value.(string)
@@ -408,6 +415,7 @@ func TestRegress3674(t *testing.T) {
 // Ensure that pulumi-aws can authenticate using IMDS API when Pulumi is running in a context where that is made
 // available such as an EC2 instance.
 func TestIMDSAuth(t *testing.T) {
+	t.Parallel()
 	var localProviderBuild string
 	actual := fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH)
 	expected := "linux/amd64"
@@ -446,6 +454,7 @@ func TestIMDSAuth(t *testing.T) {
 		}
 	}
 	t.Run("IDMSv2", func(t *testing.T) {
+		t.Parallel()
 		ptest := pulumiTest(t, filepath.Join("test-programs", "imds-auth", "imds-v2"), opttest.SkipInstall())
 		ptest.SetConfig("localProviderBuild", localProviderBuild)
 		result := ptest.Up()
@@ -461,6 +470,7 @@ func TestIMDSAuth(t *testing.T) {
 //
 // See https://github.com/pulumi/pulumi-aws/issues/2796
 func TestS3BucketObjectDeprecation(t *testing.T) {
+	t.Parallel()
 	ptest := pulumiTest(t, filepath.Join("test-programs", "regress-2796"), opttest.SkipInstall())
 	result := ptest.Up()
 	t.Logf("STDOUT: %v", result.StdOut)
@@ -522,10 +532,10 @@ func TestAccDefaultTags(t *testing.T) {
 		v, ok := val.(map[string]interface{})
 		return ok && len(v) == 0
 	}
-	validateOutputTags := func(outputs auto.OutputMap, expectedTags map[string]interface{}) {
-		stackOutputTags := outputs["actual"]
-		if !isNil(expectedTags) || !isNil(stackOutputTags) {
-			assert.Equal(t, expectedTags, stackOutputTags.Value)
+	validateOutputTags := func(outputs auto.OutputMap, expectedTagsAll map[string]interface{}) {
+		stackOutputTagsAll := outputs["actualAll"]
+		if !isNil(expectedTagsAll) || !isNil(stackOutputTagsAll) {
+			assert.Equal(t, expectedTagsAll, stackOutputTagsAll.Value)
 		}
 	}
 
@@ -739,6 +749,8 @@ func testTagsPulumiLifecycle(t *testing.T, step tagsTestStep) {
 	t.Log("Initial deployment...")
 	upRes, err := stack.Up(ctx)
 	assert.NoError(t, err)
+	t.Logf("stderr: %s", upRes.StdErr)
+	t.Logf("stdout: %s", upRes.StdOut)
 	outputs := upRes.Outputs
 	urn := outputs["urn"].Value.(string)
 	id := outputs["id"].Value.(string)
@@ -803,6 +815,7 @@ resources:
     type: %s%s%s
 outputs:
   actual: ${res.tags}
+  actualAll: ${res.tagsAll}
   urn: ${res.urn}
   id: ${res.id}
   resArn: ${res.arn}

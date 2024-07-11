@@ -26,7 +26,8 @@ class NatGatewayArgs:
                  secondary_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
                  secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NatGateway resource.
         :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway.
@@ -37,6 +38,7 @@ class NatGatewayArgs:
         :param pulumi.Input[int] secondary_private_ip_address_count: [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if allocation_id is not None:
@@ -53,6 +55,8 @@ class NatGatewayArgs:
             pulumi.set(__self__, "secondary_private_ip_addresses", secondary_private_ip_addresses)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -150,6 +154,18 @@ class NatGatewayArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _NatGatewayState:
@@ -203,9 +219,6 @@ class _NatGatewayState:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -343,7 +356,6 @@ class _NatGatewayState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -368,6 +380,7 @@ class NatGateway(pulumi.CustomResource):
                  secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a resource to create a VPC NAT Gateway.
@@ -443,6 +456,7 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ip_addresses: A list of secondary private IPv4 addresses to assign to the NAT Gateway.
         :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the NAT Gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -537,6 +551,7 @@ class NatGateway(pulumi.CustomResource):
                  secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -556,10 +571,10 @@ class NatGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["association_id"] = None
             __props__.__dict__["network_interface_id"] = None
             __props__.__dict__["public_ip"] = None
-            __props__.__dict__["tags_all"] = None
         super(NatGateway, __self__).__init__(
             'aws:ec2/natGateway:NatGateway',
             resource_name,
@@ -710,7 +725,6 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

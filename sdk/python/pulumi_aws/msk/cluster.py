@@ -32,7 +32,8 @@ class ClusterArgs:
                  logging_info: Optional[pulumi.Input['ClusterLoggingInfoArgs']] = None,
                  open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
                  storage_mode: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input['ClusterBrokerNodeGroupInfoArgs'] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
@@ -47,6 +48,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterOpenMonitoringArgs'] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         :param pulumi.Input[str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "broker_node_group_info", broker_node_group_info)
         pulumi.set(__self__, "kafka_version", kafka_version)
@@ -69,6 +71,8 @@ class ClusterArgs:
             pulumi.set(__self__, "storage_mode", storage_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="brokerNodeGroupInfo")
@@ -214,6 +218,18 @@ class ClusterArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ClusterState:
@@ -327,9 +343,6 @@ class _ClusterState:
             pulumi.set(__self__, "storage_mode", storage_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if zookeeper_connect_string is not None:
@@ -639,7 +652,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -692,6 +704,7 @@ class Cluster(pulumi.CustomResource):
                  open_monitoring: Optional[pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
                  storage_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages an Amazon MSK cluster.
@@ -855,6 +868,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']] open_monitoring: Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         :param pulumi.Input[str] storage_mode: Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -1037,6 +1051,7 @@ class Cluster(pulumi.CustomResource):
                  open_monitoring: Optional[pulumi.Input[Union['ClusterOpenMonitoringArgs', 'ClusterOpenMonitoringArgsDict']]] = None,
                  storage_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1064,6 +1079,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["open_monitoring"] = open_monitoring
             __props__.__dict__["storage_mode"] = storage_mode
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["bootstrap_brokers"] = None
             __props__.__dict__["bootstrap_brokers_public_sasl_iam"] = None
@@ -1077,7 +1093,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["bootstrap_brokers_vpc_connectivity_tls"] = None
             __props__.__dict__["cluster_uuid"] = None
             __props__.__dict__["current_version"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["zookeeper_connect_string"] = None
             __props__.__dict__["zookeeper_connect_string_tls"] = None
         super(Cluster, __self__).__init__(
@@ -1390,7 +1405,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

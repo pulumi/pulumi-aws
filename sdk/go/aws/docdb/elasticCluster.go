@@ -82,8 +82,7 @@ type ElasticCluster struct {
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapOutput          `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput          `pulumi:"tagsAll"`
 	Timeouts ElasticClusterTimeoutsPtrOutput `pulumi:"timeouts"`
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -167,8 +166,7 @@ type elasticClusterState struct {
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     map[string]string       `pulumi:"tags"`
 	TagsAll  map[string]string       `pulumi:"tagsAll"`
 	Timeouts *ElasticClusterTimeouts `pulumi:"timeouts"`
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -201,8 +199,7 @@ type ElasticClusterState struct {
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ElasticClusterTimeoutsPtrInput
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -419,7 +416,6 @@ func (o ElasticClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ElasticClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -36,6 +36,7 @@ class WorkspaceArgs:
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
@@ -56,6 +57,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['WorkspaceVpcConfigurationArgs'] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         pulumi.set(__self__, "account_access_type", account_access_type)
@@ -85,6 +87,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "stack_set_name", stack_set_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_configuration is not None:
             pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
@@ -271,6 +275,18 @@ class WorkspaceArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']]:
         """
@@ -366,9 +382,6 @@ class _WorkspaceState:
             pulumi.set(__self__, "stack_set_name", stack_set_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_configuration is not None:
@@ -591,7 +604,6 @@ class _WorkspaceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -635,6 +647,7 @@ class Workspace(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_configuration: Optional[pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         """
@@ -696,6 +709,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']] vpc_configuration: The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         """
         ...
@@ -774,6 +788,7 @@ class Workspace(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_configuration: Optional[pulumi.Input[Union['WorkspaceVpcConfigurationArgs', 'WorkspaceVpcConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -805,11 +820,11 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["stack_set_name"] = stack_set_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["saml_configuration_status"] = None
-            __props__.__dict__["tags_all"] = None
         super(Workspace, __self__).__init__(
             'aws:grafana/workspace:Workspace',
             resource_name,
@@ -1040,7 +1055,6 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

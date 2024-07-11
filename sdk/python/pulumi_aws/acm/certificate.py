@@ -31,6 +31,7 @@ class CertificateArgs:
                  private_key: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None,
                  validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None):
         """
@@ -51,6 +52,7 @@ class CertificateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
                To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
@@ -75,6 +77,8 @@ class CertificateArgs:
             pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if validation_method is not None:
             pulumi.set(__self__, "validation_method", validation_method)
         if validation_options is not None:
@@ -207,6 +211,18 @@ class CertificateArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="validationMethod")
     def validation_method(self) -> Optional[pulumi.Input[str]]:
         """
@@ -329,9 +345,6 @@ class _CertificateState:
             pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -569,7 +582,6 @@ class _CertificateState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -645,6 +657,7 @@ class Certificate(pulumi.CustomResource):
                  private_key: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None,
                  validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None,
                  __props__=None):
@@ -779,6 +792,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.
                To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
                * Importing an existing certificate
@@ -927,6 +941,7 @@ class Certificate(pulumi.CustomResource):
                  private_key: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None,
                  validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]]] = None,
                  __props__=None):
@@ -948,6 +963,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["validation_method"] = validation_method
             __props__.__dict__["validation_options"] = validation_options
             __props__.__dict__["arn"] = None
@@ -958,7 +974,6 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["renewal_eligibility"] = None
             __props__.__dict__["renewal_summaries"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_emails"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey"])
@@ -1219,7 +1234,6 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

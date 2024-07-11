@@ -106,10 +106,7 @@ export class Member extends pulumi.CustomResource {
      * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
      */
@@ -157,12 +154,12 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["invite"] = args ? args.invite : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["administratorAccountId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["invitedAt"] = undefined /*out*/;
             resourceInputs["masterAccountId"] = undefined /*out*/;
             resourceInputs["relationshipStatus"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -219,9 +216,6 @@ export interface MemberState {
      * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
@@ -261,4 +255,5 @@ export interface MemberArgs {
      * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

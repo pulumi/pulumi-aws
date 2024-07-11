@@ -93,6 +93,21 @@ public final class AutoScalingConfigurationVersionArgs extends com.pulumi.resour
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private AutoScalingConfigurationVersionArgs() {}
 
     private AutoScalingConfigurationVersionArgs(AutoScalingConfigurationVersionArgs $) {
@@ -101,6 +116,7 @@ public final class AutoScalingConfigurationVersionArgs extends com.pulumi.resour
         this.maxSize = $.maxSize;
         this.minSize = $.minSize;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -224,6 +240,27 @@ public final class AutoScalingConfigurationVersionArgs extends com.pulumi.resour
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public AutoScalingConfigurationVersionArgs build() {

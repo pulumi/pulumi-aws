@@ -73,8 +73,7 @@ type ProxyEndpoint struct {
 	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole pulumi.StringPtrOutput `pulumi:"targetRole"`
@@ -136,8 +135,7 @@ type proxyEndpointState struct {
 	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
 	IsDefault *bool `pulumi:"isDefault"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole *string `pulumi:"targetRole"`
@@ -161,8 +159,7 @@ type ProxyEndpointState struct {
 	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
 	IsDefault pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole pulumi.StringPtrInput
@@ -184,7 +181,8 @@ type proxyEndpointArgs struct {
 	// The name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName string `pulumi:"dbProxyName"`
 	// A mapping of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole *string `pulumi:"targetRole"`
 	// One or more VPC security group IDs to associate with the new proxy.
@@ -200,7 +198,8 @@ type ProxyEndpointArgs struct {
 	// The name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole pulumi.StringPtrInput
 	// One or more VPC security group IDs to associate with the new proxy.
@@ -326,7 +325,6 @@ func (o ProxyEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ProxyEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

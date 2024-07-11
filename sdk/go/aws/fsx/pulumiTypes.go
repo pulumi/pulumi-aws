@@ -6306,7 +6306,7 @@ func (o GetOntapFileSystemEndpointArrayOutput) Index(i pulumi.IntInput) GetOntap
 }
 
 type GetOntapFileSystemEndpointIntercluster struct {
-	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+	// DNS name for the file system.
 	DnsName     string   `pulumi:"dnsName"`
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
@@ -6323,7 +6323,7 @@ type GetOntapFileSystemEndpointInterclusterInput interface {
 }
 
 type GetOntapFileSystemEndpointInterclusterArgs struct {
-	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+	// DNS name for the file system.
 	DnsName     pulumi.StringInput      `pulumi:"dnsName"`
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
@@ -6379,7 +6379,7 @@ func (o GetOntapFileSystemEndpointInterclusterOutput) ToGetOntapFileSystemEndpoi
 	return o
 }
 
-// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+// DNS name for the file system.
 func (o GetOntapFileSystemEndpointInterclusterOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOntapFileSystemEndpointIntercluster) string { return v.DnsName }).(pulumi.StringOutput)
 }
@@ -6409,7 +6409,7 @@ func (o GetOntapFileSystemEndpointInterclusterArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetOntapFileSystemEndpointManagement struct {
-	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+	// DNS name for the file system.
 	DnsName     string   `pulumi:"dnsName"`
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
@@ -6426,7 +6426,7 @@ type GetOntapFileSystemEndpointManagementInput interface {
 }
 
 type GetOntapFileSystemEndpointManagementArgs struct {
-	// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+	// DNS name for the file system.
 	DnsName     pulumi.StringInput      `pulumi:"dnsName"`
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
@@ -6482,7 +6482,7 @@ func (o GetOntapFileSystemEndpointManagementOutput) ToGetOntapFileSystemEndpoint
 	return o
 }
 
-// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
+// DNS name for the file system.
 func (o GetOntapFileSystemEndpointManagementOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOntapFileSystemEndpointManagement) string { return v.DnsName }).(pulumi.StringOutput)
 }

@@ -26,7 +26,8 @@ class OntapStorageVirtualMachineArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  root_volume_security_style: Optional[pulumi.Input[str]] = None,
                  svm_admin_password: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OntapStorageVirtualMachine resource.
         :param pulumi.Input[str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
@@ -34,6 +35,7 @@ class OntapStorageVirtualMachineArgs:
         :param pulumi.Input[str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if active_directory_configuration is not None:
@@ -46,6 +48,8 @@ class OntapStorageVirtualMachineArgs:
             pulumi.set(__self__, "svm_admin_password", svm_admin_password)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -116,6 +120,18 @@ class OntapStorageVirtualMachineArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _OntapStorageVirtualMachineState:
@@ -162,9 +178,6 @@ class _OntapStorageVirtualMachineState:
             pulumi.set(__self__, "svm_admin_password", svm_admin_password)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uuid is not None:
@@ -277,7 +290,6 @@ class _OntapStorageVirtualMachineState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -312,6 +324,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
                  root_volume_security_style: Optional[pulumi.Input[str]] = None,
                  svm_admin_password: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages a FSx Storage Virtual Machine.
@@ -371,6 +384,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -450,6 +464,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
                  root_volume_security_style: Optional[pulumi.Input[str]] = None,
                  svm_admin_password: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -467,10 +482,10 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["root_volume_security_style"] = root_volume_security_style
             __props__.__dict__["svm_admin_password"] = None if svm_admin_password is None else pulumi.Output.secret(svm_admin_password)
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoints"] = None
             __props__.__dict__["subtype"] = None
-            __props__.__dict__["tags_all"] = None
             __props__.__dict__["uuid"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["svmAdminPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -601,7 +616,6 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

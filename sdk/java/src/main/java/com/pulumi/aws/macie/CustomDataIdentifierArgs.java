@@ -138,6 +138,13 @@ public final class CustomDataIdentifierArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private CustomDataIdentifierArgs() {}
 
     private CustomDataIdentifierArgs(CustomDataIdentifierArgs $) {
@@ -149,6 +156,7 @@ public final class CustomDataIdentifierArgs extends com.pulumi.resources.Resourc
         this.namePrefix = $.namePrefix;
         this.regex = $.regex;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -355,6 +363,15 @@ public final class CustomDataIdentifierArgs extends com.pulumi.resources.Resourc
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public CustomDataIdentifierArgs build() {

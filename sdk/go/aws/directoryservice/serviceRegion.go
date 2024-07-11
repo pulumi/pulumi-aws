@@ -185,8 +185,6 @@ type ServiceRegion struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// VPC information in the replicated Region. Detailed below.
 	VpcSettings ServiceRegionVpcSettingsOutput `pulumi:"vpcSettings"`
@@ -240,8 +238,6 @@ type serviceRegionState struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC information in the replicated Region. Detailed below.
 	VpcSettings *ServiceRegionVpcSettings `pulumi:"vpcSettings"`
@@ -257,8 +253,6 @@ type ServiceRegionState struct {
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// VPC information in the replicated Region. Detailed below.
 	VpcSettings ServiceRegionVpcSettingsPtrInput
@@ -277,6 +271,8 @@ type serviceRegionArgs struct {
 	RegionName string `pulumi:"regionName"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// VPC information in the replicated Region. Detailed below.
 	VpcSettings ServiceRegionVpcSettings `pulumi:"vpcSettings"`
 }
@@ -291,6 +287,8 @@ type ServiceRegionArgs struct {
 	RegionName pulumi.StringInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// VPC information in the replicated Region. Detailed below.
 	VpcSettings ServiceRegionVpcSettingsInput
 }
@@ -403,8 +401,6 @@ func (o ServiceRegionOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ServiceRegionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceRegion) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

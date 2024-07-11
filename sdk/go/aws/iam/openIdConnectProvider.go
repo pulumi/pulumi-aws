@@ -63,8 +63,6 @@ type OpenIdConnectProvider struct {
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists pulumi.StringArrayOutput `pulumi:"thumbprintLists"`
@@ -118,8 +116,6 @@ type openIdConnectProviderState struct {
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists []string `pulumi:"thumbprintLists"`
@@ -135,8 +131,6 @@ type OpenIdConnectProviderState struct {
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists pulumi.StringArrayInput
@@ -153,6 +147,8 @@ type openIdConnectProviderArgs struct {
 	ClientIdLists []string `pulumi:"clientIdLists"`
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists []string `pulumi:"thumbprintLists"`
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
@@ -165,6 +161,8 @@ type OpenIdConnectProviderArgs struct {
 	ClientIdLists pulumi.StringArrayInput
 	// Map of resource tags for the IAM OIDC provider. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
 	ThumbprintLists pulumi.StringArrayInput
 	// The URL of the identity provider. Corresponds to the _iss_ claim.
@@ -274,8 +272,6 @@ func (o OpenIdConnectProviderOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o OpenIdConnectProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

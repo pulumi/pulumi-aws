@@ -110,10 +110,8 @@ export class Snapshot extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      */
@@ -165,6 +163,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["permanentRestore"] = args ? args.permanentRestore : undefined;
             resourceInputs["storageTier"] = args ? args.storageTier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["temporaryRestoreDays"] = args ? args.temporaryRestoreDays : undefined;
             resourceInputs["volumeId"] = args ? args.volumeId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -173,7 +172,6 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["ownerAlias"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
-            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["volumeSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -231,8 +229,6 @@ export interface SnapshotState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -273,6 +269,10 @@ export interface SnapshotArgs {
      * A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
      */

@@ -21,12 +21,14 @@ class TrafficMirrorFilterArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  network_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a TrafficMirrorFilter resource.
         :param pulumi.Input[str] description: A description of the filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -34,6 +36,8 @@ class TrafficMirrorFilterArgs:
             pulumi.set(__self__, "network_services", network_services)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -71,6 +75,18 @@ class TrafficMirrorFilterArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _TrafficMirrorFilterState:
@@ -96,9 +112,6 @@ class _TrafficMirrorFilterState:
             pulumi.set(__self__, "network_services", network_services)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -152,7 +165,6 @@ class _TrafficMirrorFilterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -172,6 +184,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  network_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an Traffic mirror filter.\\
@@ -203,6 +216,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the filter.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -253,6 +267,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  network_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,8 +280,8 @@ class TrafficMirrorFilter(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["network_services"] = network_services
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
-            __props__.__dict__["tags_all"] = None
         super(TrafficMirrorFilter, __self__).__init__(
             'aws:ec2/trafficMirrorFilter:TrafficMirrorFilter',
             resource_name,
@@ -340,7 +355,6 @@ class TrafficMirrorFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
