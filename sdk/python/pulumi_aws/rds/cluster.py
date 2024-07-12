@@ -29,6 +29,7 @@ class ClusterArgs:
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backtrack_window: Optional[pulumi.Input[int]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
                  cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -87,6 +88,7 @@ class ClusterArgs:
                A maximum of 3 AZs can be configured.
         :param pulumi.Input[int] backtrack_window: Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         :param pulumi.Input[int] backup_retention_period: Days to retain backups for. Default `1`
+        :param pulumi.Input[str] ca_certificate_identifier: The CA certificate identifier to use for the DB cluster's server certificate.
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of RDS Instances that are a part of this cluster
@@ -149,6 +151,8 @@ class ClusterArgs:
             pulumi.set(__self__, "backtrack_window", backtrack_window)
         if backup_retention_period is not None:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+        if ca_certificate_identifier is not None:
+            pulumi.set(__self__, "ca_certificate_identifier", ca_certificate_identifier)
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if cluster_identifier_prefix is not None:
@@ -328,6 +332,18 @@ class ClusterArgs:
     @backup_retention_period.setter
     def backup_retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_period", value)
+
+    @property
+    @pulumi.getter(name="caCertificateIdentifier")
+    def ca_certificate_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CA certificate identifier to use for the DB cluster's server certificate.
+        """
+        return pulumi.get(self, "ca_certificate_identifier")
+
+    @ca_certificate_identifier.setter
+    def ca_certificate_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_certificate_identifier", value)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -892,6 +908,8 @@ class _ClusterState:
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backtrack_window: Optional[pulumi.Input[int]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_valid_till: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
                  cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -958,6 +976,8 @@ class _ClusterState:
                A maximum of 3 AZs can be configured.
         :param pulumi.Input[int] backtrack_window: Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         :param pulumi.Input[int] backup_retention_period: Days to retain backups for. Default `1`
+        :param pulumi.Input[str] ca_certificate_identifier: The CA certificate identifier to use for the DB cluster's server certificate.
+        :param pulumi.Input[str] ca_certificate_valid_till: Expiration date of the DB instance’s server certificate
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of RDS Instances that are a part of this cluster
@@ -1030,6 +1050,10 @@ class _ClusterState:
             pulumi.set(__self__, "backtrack_window", backtrack_window)
         if backup_retention_period is not None:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+        if ca_certificate_identifier is not None:
+            pulumi.set(__self__, "ca_certificate_identifier", ca_certificate_identifier)
+        if ca_certificate_valid_till is not None:
+            pulumi.set(__self__, "ca_certificate_valid_till", ca_certificate_valid_till)
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if cluster_identifier_prefix is not None:
@@ -1228,6 +1252,30 @@ class _ClusterState:
     @backup_retention_period.setter
     def backup_retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_period", value)
+
+    @property
+    @pulumi.getter(name="caCertificateIdentifier")
+    def ca_certificate_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CA certificate identifier to use for the DB cluster's server certificate.
+        """
+        return pulumi.get(self, "ca_certificate_identifier")
+
+    @ca_certificate_identifier.setter
+    def ca_certificate_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_certificate_identifier", value)
+
+    @property
+    @pulumi.getter(name="caCertificateValidTill")
+    def ca_certificate_valid_till(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expiration date of the DB instance’s server certificate
+        """
+        return pulumi.get(self, "ca_certificate_valid_till")
+
+    @ca_certificate_valid_till.setter
+    def ca_certificate_valid_till(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_certificate_valid_till", value)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -1891,6 +1939,7 @@ class Cluster(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backtrack_window: Optional[pulumi.Input[int]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
                  cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1947,6 +1996,8 @@ class Cluster(pulumi.CustomResource):
         Changes to an RDS Cluster can occur when you manually change a parameter, such as `port`, and are reflected in the next maintenance window. Because of this, this provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `apply_immediately` flag to instruct the service to apply the change immediately (see documentation below).
 
         > **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
+
+        > **Note:** `ca_certificate_identifier` is only supported for Multi-AZ DB clusters.
 
         > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
 
@@ -2151,6 +2202,7 @@ class Cluster(pulumi.CustomResource):
                A maximum of 3 AZs can be configured.
         :param pulumi.Input[int] backtrack_window: Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         :param pulumi.Input[int] backup_retention_period: Days to retain backups for. Default `1`
+        :param pulumi.Input[str] ca_certificate_identifier: The CA certificate identifier to use for the DB cluster's server certificate.
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of RDS Instances that are a part of this cluster
@@ -2215,6 +2267,8 @@ class Cluster(pulumi.CustomResource):
         Changes to an RDS Cluster can occur when you manually change a parameter, such as `port`, and are reflected in the next maintenance window. Because of this, this provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `apply_immediately` flag to instruct the service to apply the change immediately (see documentation below).
 
         > **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
+
+        > **Note:** `ca_certificate_identifier` is only supported for Multi-AZ DB clusters.
 
         > **Note:** using `apply_immediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
 
@@ -2429,6 +2483,7 @@ class Cluster(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backtrack_window: Optional[pulumi.Input[int]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
                  cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2491,6 +2546,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["backtrack_window"] = backtrack_window
             __props__.__dict__["backup_retention_period"] = backup_retention_period
+            __props__.__dict__["ca_certificate_identifier"] = ca_certificate_identifier
             __props__.__dict__["cluster_identifier"] = cluster_identifier
             __props__.__dict__["cluster_identifier_prefix"] = cluster_identifier_prefix
             __props__.__dict__["cluster_members"] = cluster_members
@@ -2541,6 +2597,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
+            __props__.__dict__["ca_certificate_valid_till"] = None
             __props__.__dict__["cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["engine_version_actual"] = None
@@ -2567,6 +2624,8 @@ class Cluster(pulumi.CustomResource):
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             backtrack_window: Optional[pulumi.Input[int]] = None,
             backup_retention_period: Optional[pulumi.Input[int]] = None,
+            ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
+            ca_certificate_valid_till: Optional[pulumi.Input[str]] = None,
             cluster_identifier: Optional[pulumi.Input[str]] = None,
             cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
             cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2638,6 +2697,8 @@ class Cluster(pulumi.CustomResource):
                A maximum of 3 AZs can be configured.
         :param pulumi.Input[int] backtrack_window: Target backtrack window, in seconds. Only available for `aurora` and `aurora-mysql` engines currently. To disable backtracking, set this value to `0`. Defaults to `0`. Must be between `0` and `259200` (72 hours)
         :param pulumi.Input[int] backup_retention_period: Days to retain backups for. Default `1`
+        :param pulumi.Input[str] ca_certificate_identifier: The CA certificate identifier to use for the DB cluster's server certificate.
+        :param pulumi.Input[str] ca_certificate_valid_till: Expiration date of the DB instance’s server certificate
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of RDS Instances that are a part of this cluster
@@ -2707,6 +2768,8 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["availability_zones"] = availability_zones
         __props__.__dict__["backtrack_window"] = backtrack_window
         __props__.__dict__["backup_retention_period"] = backup_retention_period
+        __props__.__dict__["ca_certificate_identifier"] = ca_certificate_identifier
+        __props__.__dict__["ca_certificate_valid_till"] = ca_certificate_valid_till
         __props__.__dict__["cluster_identifier"] = cluster_identifier
         __props__.__dict__["cluster_identifier_prefix"] = cluster_identifier_prefix
         __props__.__dict__["cluster_members"] = cluster_members
@@ -2821,6 +2884,22 @@ class Cluster(pulumi.CustomResource):
         Days to retain backups for. Default `1`
         """
         return pulumi.get(self, "backup_retention_period")
+
+    @property
+    @pulumi.getter(name="caCertificateIdentifier")
+    def ca_certificate_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The CA certificate identifier to use for the DB cluster's server certificate.
+        """
+        return pulumi.get(self, "ca_certificate_identifier")
+
+    @property
+    @pulumi.getter(name="caCertificateValidTill")
+    def ca_certificate_valid_till(self) -> pulumi.Output[str]:
+        """
+        Expiration date of the DB instance’s server certificate
+        """
+        return pulumi.get(self, "ca_certificate_valid_till")
 
     @property
     @pulumi.getter(name="clusterIdentifier")

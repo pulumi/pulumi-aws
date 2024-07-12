@@ -21,7 +21,8 @@ class WorkerConfigurationArgs:
     def __init__(__self__, *,
                  properties_file_content: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a WorkerConfiguration resource.
         :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
@@ -29,12 +30,15 @@ class WorkerConfigurationArgs:
                The following arguments are optional:
         :param pulumi.Input[str] description: A summary description of the worker configuration.
         :param pulumi.Input[str] name: The name of the worker configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "properties_file_content", properties_file_content)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="propertiesFileContent")
@@ -74,6 +78,18 @@ class WorkerConfigurationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _WorkerConfigurationState:
@@ -82,7 +98,9 @@ class _WorkerConfigurationState:
                  description: Optional[pulumi.Input[str]] = None,
                  latest_revision: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties_file_content: Optional[pulumi.Input[str]] = None):
+                 properties_file_content: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering WorkerConfiguration resources.
         :param pulumi.Input[str] arn: the Amazon Resource Name (ARN) of the worker configuration.
@@ -92,6 +110,8 @@ class _WorkerConfigurationState:
         :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -103,6 +123,13 @@ class _WorkerConfigurationState:
             pulumi.set(__self__, "name", name)
         if properties_file_content is not None:
             pulumi.set(__self__, "properties_file_content", properties_file_content)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -166,6 +193,31 @@ class _WorkerConfigurationState:
     def properties_file_content(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "properties_file_content", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 class WorkerConfiguration(pulumi.CustomResource):
     @overload
@@ -175,6 +227,7 @@ class WorkerConfiguration(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties_file_content: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an Amazon MSK Connect Worker Configuration Resource.
@@ -209,6 +262,7 @@ class WorkerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -260,6 +314,7 @@ class WorkerConfiguration(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties_file_content: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -274,8 +329,10 @@ class WorkerConfiguration(pulumi.CustomResource):
             if properties_file_content is None and not opts.urn:
                 raise TypeError("Missing required property 'properties_file_content'")
             __props__.__dict__["properties_file_content"] = properties_file_content
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["latest_revision"] = None
+            __props__.__dict__["tags_all"] = None
         super(WorkerConfiguration, __self__).__init__(
             'aws:mskconnect/workerConfiguration:WorkerConfiguration',
             resource_name,
@@ -290,7 +347,9 @@ class WorkerConfiguration(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             latest_revision: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            properties_file_content: Optional[pulumi.Input[str]] = None) -> 'WorkerConfiguration':
+            properties_file_content: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'WorkerConfiguration':
         """
         Get an existing WorkerConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -305,6 +364,8 @@ class WorkerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] properties_file_content: Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -315,6 +376,8 @@ class WorkerConfiguration(pulumi.CustomResource):
         __props__.__dict__["latest_revision"] = latest_revision
         __props__.__dict__["name"] = name
         __props__.__dict__["properties_file_content"] = properties_file_content
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return WorkerConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -358,4 +421,21 @@ class WorkerConfiguration(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "properties_file_content")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 

@@ -24,15 +24,17 @@ class CustomPluginArgs:
                  content_type: pulumi.Input[str],
                  location: pulumi.Input['CustomPluginLocationArgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CustomPlugin resource.
         :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See below.
-               
-               The following arguments are optional:
+        :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[str] description: A summary description of the custom plugin.
         :param pulumi.Input[str] name: The name of the custom plugin..
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following arguments are optional:
         """
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "location", location)
@@ -40,6 +42,8 @@ class CustomPluginArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="contentType")
@@ -57,9 +61,7 @@ class CustomPluginArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input['CustomPluginLocationArgs']:
         """
-        Information about the location of a custom plugin. See below.
-
-        The following arguments are optional:
+        Information about the location of a custom plugin. See `location` Block for details.
         """
         return pulumi.get(self, "location")
 
@@ -91,6 +93,20 @@ class CustomPluginArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _CustomPluginState:
@@ -101,18 +117,22 @@ class _CustomPluginState:
                  latest_revision: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input['CustomPluginLocationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None):
+                 state: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CustomPlugin resources.
         :param pulumi.Input[str] arn: the Amazon Resource Name (ARN) of the custom plugin.
         :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[str] description: A summary description of the custom plugin.
         :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
-        :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See below.
-               
-               The following arguments are optional:
+        :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[str] name: The name of the custom plugin..
         :param pulumi.Input[str] state: the state of the custom plugin.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -128,6 +148,13 @@ class _CustomPluginState:
             pulumi.set(__self__, "name", name)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
+            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -181,9 +208,7 @@ class _CustomPluginState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['CustomPluginLocationArgs']]:
         """
-        Information about the location of a custom plugin. See below.
-
-        The following arguments are optional:
+        Information about the location of a custom plugin. See `location` Block for details.
         """
         return pulumi.get(self, "location")
 
@@ -215,6 +240,33 @@ class _CustomPluginState:
     def state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "state", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 class CustomPlugin(pulumi.CustomResource):
     @overload
@@ -225,6 +277,7 @@ class CustomPlugin(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an Amazon MSK Connect Custom Plugin Resource.
@@ -265,10 +318,11 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[str] description: A summary description of the custom plugin.
-        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See below.
+        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See `location` Block for details.
+        :param pulumi.Input[str] name: The name of the custom plugin..
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                The following arguments are optional:
-        :param pulumi.Input[str] name: The name of the custom plugin..
         """
         ...
     @overload
@@ -330,6 +384,7 @@ class CustomPlugin(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -347,9 +402,11 @@ class CustomPlugin(pulumi.CustomResource):
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["latest_revision"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
         super(CustomPlugin, __self__).__init__(
             'aws:mskconnect/customPlugin:CustomPlugin',
             resource_name,
@@ -366,7 +423,9 @@ class CustomPlugin(pulumi.CustomResource):
             latest_revision: Optional[pulumi.Input[int]] = None,
             location: Optional[pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            state: Optional[pulumi.Input[str]] = None) -> 'CustomPlugin':
+            state: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CustomPlugin':
         """
         Get an existing CustomPlugin resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -378,11 +437,13 @@ class CustomPlugin(pulumi.CustomResource):
         :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[str] description: A summary description of the custom plugin.
         :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
-        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See below.
-               
-               The following arguments are optional:
+        :param pulumi.Input[Union['CustomPluginLocationArgs', 'CustomPluginLocationArgsDict']] location: Information about the location of a custom plugin. See `location` Block for details.
         :param pulumi.Input[str] name: The name of the custom plugin..
         :param pulumi.Input[str] state: the state of the custom plugin.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -395,6 +456,8 @@ class CustomPlugin(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["state"] = state
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return CustomPlugin(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -433,9 +496,7 @@ class CustomPlugin(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output['outputs.CustomPluginLocation']:
         """
-        Information about the location of a custom plugin. See below.
-
-        The following arguments are optional:
+        Information about the location of a custom plugin. See `location` Block for details.
         """
         return pulumi.get(self, "location")
 
@@ -454,4 +515,23 @@ class CustomPlugin(pulumi.CustomResource):
         the state of the custom plugin.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    @_utilities.deprecated("""Please use `tags` instead.""")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 

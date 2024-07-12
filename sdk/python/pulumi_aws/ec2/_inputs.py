@@ -8231,6 +8231,7 @@ if not MYPY:
         """
         The ID of the network interface to attach.
         """
+        primary_ipv6: NotRequired[pulumi.Input[str]]
         private_ip_address: NotRequired[pulumi.Input[str]]
         """
         The primary private IPv4 address.
@@ -8265,6 +8266,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  ipv6_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_card_index: Optional[pulumi.Input[int]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
+                 primary_ipv6: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
@@ -8324,6 +8326,8 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "network_card_index", network_card_index)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if primary_ipv6 is not None:
+            pulumi.set(__self__, "primary_ipv6", primary_ipv6)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if security_groups is not None:
@@ -8525,6 +8529,15 @@ class LaunchTemplateNetworkInterfaceArgs:
     @network_interface_id.setter
     def network_interface_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_interface_id", value)
+
+    @property
+    @pulumi.getter(name="primaryIpv6")
+    def primary_ipv6(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "primary_ipv6")
+
+    @primary_ipv6.setter
+    def primary_ipv6(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_ipv6", value)
 
     @property
     @pulumi.getter(name="privateIpAddress")

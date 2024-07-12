@@ -26,7 +26,7 @@ class GetWorkerConfigurationResult:
     """
     A collection of values returned by getWorkerConfiguration.
     """
-    def __init__(__self__, arn=None, description=None, id=None, latest_revision=None, name=None, properties_file_content=None):
+    def __init__(__self__, arn=None, description=None, id=None, latest_revision=None, name=None, properties_file_content=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetWorkerConfigurationResult:
         if properties_file_content and not isinstance(properties_file_content, str):
             raise TypeError("Expected argument 'properties_file_content' to be a str")
         pulumi.set(__self__, "properties_file_content", properties_file_content)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -91,6 +94,14 @@ class GetWorkerConfigurationResult:
         """
         return pulumi.get(self, "properties_file_content")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetWorkerConfigurationResult(GetWorkerConfigurationResult):
     # pylint: disable=using-constant-test
@@ -103,10 +114,12 @@ class AwaitableGetWorkerConfigurationResult(GetWorkerConfigurationResult):
             id=self.id,
             latest_revision=self.latest_revision,
             name=self.name,
-            properties_file_content=self.properties_file_content)
+            properties_file_content=self.properties_file_content,
+            tags=self.tags)
 
 
 def get_worker_configuration(name: Optional[str] = None,
+                             tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkerConfigurationResult:
     """
     Get information on an Amazon MSK Connect Worker Configuration.
@@ -122,9 +135,11 @@ def get_worker_configuration(name: Optional[str] = None,
 
 
     :param str name: Name of the worker configuration.
+    :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration', __args__, opts=opts, typ=GetWorkerConfigurationResult).value
 
@@ -134,11 +149,13 @@ def get_worker_configuration(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         latest_revision=pulumi.get(__ret__, 'latest_revision'),
         name=pulumi.get(__ret__, 'name'),
-        properties_file_content=pulumi.get(__ret__, 'properties_file_content'))
+        properties_file_content=pulumi.get(__ret__, 'properties_file_content'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_worker_configuration)
 def get_worker_configuration_output(name: Optional[pulumi.Input[str]] = None,
+                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkerConfigurationResult]:
     """
     Get information on an Amazon MSK Connect Worker Configuration.
@@ -154,5 +171,6 @@ def get_worker_configuration_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of the worker configuration.
+    :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
     ...

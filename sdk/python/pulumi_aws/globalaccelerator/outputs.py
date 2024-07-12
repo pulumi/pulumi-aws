@@ -151,7 +151,9 @@ class CrossAccountAttachmentResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "endpointId":
+        if key == "cidrBlock":
+            suggest = "cidr_block"
+        elif key == "endpointId":
             suggest = "endpoint_id"
 
         if suggest:
@@ -166,16 +168,28 @@ class CrossAccountAttachmentResource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cidr_block: Optional[str] = None,
                  endpoint_id: Optional[str] = None,
                  region: Optional[str] = None):
         """
+        :param str cidr_block: IP address range, in CIDR format, that is specified as resource.
         :param str endpoint_id: The endpoint ID for the endpoint that is specified as a AWS resource.
         :param str region: The AWS Region where a shared endpoint resource is located.
         """
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> Optional[str]:
+        """
+        IP address range, in CIDR format, that is specified as resource.
+        """
+        return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter(name="endpointId")
