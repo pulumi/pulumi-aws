@@ -163,6 +163,13 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.remediationEnabled);
     }
 
+    @Import(name="resourceSetIds")
+    private @Nullable Output<List<String>> resourceSetIds;
+
+    public Optional<Output<List<String>>> resourceSetIds() {
+        return Optional.ofNullable(this.resourceSetIds);
+    }
+
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      * 
@@ -274,6 +281,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.policyUpdateToken = $.policyUpdateToken;
         this.remediationEnabled = $.remediationEnabled;
+        this.resourceSetIds = $.resourceSetIds;
         this.resourceTags = $.resourceTags;
         this.resourceType = $.resourceType;
         this.resourceTypeLists = $.resourceTypeLists;
@@ -496,6 +504,19 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder remediationEnabled(Boolean remediationEnabled) {
             return remediationEnabled(Output.of(remediationEnabled));
+        }
+
+        public Builder resourceSetIds(@Nullable Output<List<String>> resourceSetIds) {
+            $.resourceSetIds = resourceSetIds;
+            return this;
+        }
+
+        public Builder resourceSetIds(List<String> resourceSetIds) {
+            return resourceSetIds(Output.of(resourceSetIds));
+        }
+
+        public Builder resourceSetIds(String... resourceSetIds) {
+            return resourceSetIds(List.of(resourceSetIds));
         }
 
         /**

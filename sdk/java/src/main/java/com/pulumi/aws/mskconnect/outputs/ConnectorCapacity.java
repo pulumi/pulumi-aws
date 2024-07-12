@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConnectorCapacity {
     /**
-     * @return Information about the auto scaling parameters for the connector. See below.
+     * @return Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
      * 
      */
     private @Nullable ConnectorCapacityAutoscaling autoscaling;
     /**
-     * @return Details about a fixed capacity allocated to a connector. See below.
+     * @return Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
      * 
      */
     private @Nullable ConnectorCapacityProvisionedCapacity provisionedCapacity;
 
     private ConnectorCapacity() {}
     /**
-     * @return Information about the auto scaling parameters for the connector. See below.
+     * @return Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
      * 
      */
     public Optional<ConnectorCapacityAutoscaling> autoscaling() {
         return Optional.ofNullable(this.autoscaling);
     }
     /**
-     * @return Details about a fixed capacity allocated to a connector. See below.
+     * @return Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
      * 
      */
     public Optional<ConnectorCapacityProvisionedCapacity> provisionedCapacity() {

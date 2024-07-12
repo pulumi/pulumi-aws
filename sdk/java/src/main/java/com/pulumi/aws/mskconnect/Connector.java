@@ -144,14 +144,14 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Information about the capacity allocated to the connector. See below.
+     * Information about the capacity allocated to the connector. See `capacity` Block for details.
      * 
      */
     @Export(name="capacity", refs={ConnectorCapacity.class}, tree="[0]")
     private Output<ConnectorCapacity> capacity;
 
     /**
-     * @return Information about the capacity allocated to the connector. See below.
+     * @return Information about the capacity allocated to the connector. See `capacity` Block for details.
      * 
      */
     public Output<ConnectorCapacity> capacity() {
@@ -186,42 +186,42 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Specifies which Apache Kafka cluster to connect to. See below.
+     * Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
      * 
      */
     @Export(name="kafkaCluster", refs={ConnectorKafkaCluster.class}, tree="[0]")
     private Output<ConnectorKafkaCluster> kafkaCluster;
 
     /**
-     * @return Specifies which Apache Kafka cluster to connect to. See below.
+     * @return Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
      * 
      */
     public Output<ConnectorKafkaCluster> kafkaCluster() {
         return this.kafkaCluster;
     }
     /**
-     * Details of the client authentication used by the Apache Kafka cluster. See below.
+     * Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
      * 
      */
     @Export(name="kafkaClusterClientAuthentication", refs={ConnectorKafkaClusterClientAuthentication.class}, tree="[0]")
     private Output<ConnectorKafkaClusterClientAuthentication> kafkaClusterClientAuthentication;
 
     /**
-     * @return Details of the client authentication used by the Apache Kafka cluster. See below.
+     * @return Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
      * 
      */
     public Output<ConnectorKafkaClusterClientAuthentication> kafkaClusterClientAuthentication() {
         return this.kafkaClusterClientAuthentication;
     }
     /**
-     * Details of encryption in transit to the Apache Kafka cluster. See below.
+     * Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
      * 
      */
     @Export(name="kafkaClusterEncryptionInTransit", refs={ConnectorKafkaClusterEncryptionInTransit.class}, tree="[0]")
     private Output<ConnectorKafkaClusterEncryptionInTransit> kafkaClusterEncryptionInTransit;
 
     /**
-     * @return Details of encryption in transit to the Apache Kafka cluster. See below.
+     * @return Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
      * 
      */
     public Output<ConnectorKafkaClusterEncryptionInTransit> kafkaClusterEncryptionInTransit() {
@@ -242,14 +242,14 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.kafkaconnectVersion;
     }
     /**
-     * Details about log delivery. See below.
+     * Details about log delivery. See `log_delivery` Block for details.
      * 
      */
     @Export(name="logDelivery", refs={ConnectorLogDelivery.class}, tree="[0]")
     private Output</* @Nullable */ ConnectorLogDelivery> logDelivery;
 
     /**
-     * @return Details about log delivery. See below.
+     * @return Details about log delivery. See `log_delivery` Block for details.
      * 
      */
     public Output<Optional<ConnectorLogDelivery>> logDelivery() {
@@ -270,14 +270,14 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies which plugins to use for the connector. See below.
+     * Specifies which plugins to use for the connector. See `plugin` Block for details.
      * 
      */
     @Export(name="plugins", refs={List.class,ConnectorPlugin.class}, tree="[0,1]")
     private Output<List<ConnectorPlugin>> plugins;
 
     /**
-     * @return Specifies which plugins to use for the connector. See below.
+     * @return Specifies which plugins to use for the connector. See `plugin` Block for details.
      * 
      */
     public Output<List<ConnectorPlugin>> plugins() {
@@ -286,6 +286,8 @@ public class Connector extends com.pulumi.resources.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="serviceExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceExecutionRoleArn;
@@ -293,9 +295,43 @@ public class Connector extends com.pulumi.resources.CustomResource {
     /**
      * @return The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> serviceExecutionRoleArn() {
         return this.serviceExecutionRoleArn;
+    }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
     /**
      * The current version of the connector.
@@ -312,14 +348,14 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.version;
     }
     /**
-     * Specifies which worker configuration to use with the connector. See below.
+     * Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
      * 
      */
     @Export(name="workerConfiguration", refs={ConnectorWorkerConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ConnectorWorkerConfiguration> workerConfiguration;
 
     /**
-     * @return Specifies which worker configuration to use with the connector. See below.
+     * @return Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
      * 
      */
     public Output<Optional<ConnectorWorkerConfiguration>> workerConfiguration() {

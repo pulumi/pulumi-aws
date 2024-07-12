@@ -166,16 +166,16 @@ public class BucketObjectLockConfigurationV2 extends com.pulumi.resources.Custom
         return Codegen.optional(this.rule);
     }
     /**
-     * Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
-     * The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
+     * This argument is deprecated and no longer needed to enable Object Lock.
+     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      * 
      */
     @Export(name="token", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> token;
 
     /**
-     * @return Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket&#39;s &#34;Object Lock token&#34;.
-     * The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
+     * @return This argument is deprecated and no longer needed to enable Object Lock.
+     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      * 
      */
     public Output<Optional<String>> token() {

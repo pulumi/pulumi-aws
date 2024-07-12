@@ -31,6 +31,7 @@ public final class GetLaunchTemplateNetworkInterface {
     private List<String> ipv6Prefixes;
     private Integer networkCardIndex;
     private String networkInterfaceId;
+    private String primaryIpv6;
     private String privateIpAddress;
     private List<String> securityGroups;
     private String subnetId;
@@ -84,6 +85,9 @@ public final class GetLaunchTemplateNetworkInterface {
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
+    public String primaryIpv6() {
+        return this.primaryIpv6;
+    }
     public String privateIpAddress() {
         return this.privateIpAddress;
     }
@@ -119,6 +123,7 @@ public final class GetLaunchTemplateNetworkInterface {
         private List<String> ipv6Prefixes;
         private Integer networkCardIndex;
         private String networkInterfaceId;
+        private String primaryIpv6;
         private String privateIpAddress;
         private List<String> securityGroups;
         private String subnetId;
@@ -141,6 +146,7 @@ public final class GetLaunchTemplateNetworkInterface {
     	      this.ipv6Prefixes = defaults.ipv6Prefixes;
     	      this.networkCardIndex = defaults.networkCardIndex;
     	      this.networkInterfaceId = defaults.networkInterfaceId;
+    	      this.primaryIpv6 = defaults.primaryIpv6;
     	      this.privateIpAddress = defaults.privateIpAddress;
     	      this.securityGroups = defaults.securityGroups;
     	      this.subnetId = defaults.subnetId;
@@ -283,6 +289,14 @@ public final class GetLaunchTemplateNetworkInterface {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryIpv6(String primaryIpv6) {
+            if (primaryIpv6 == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "primaryIpv6");
+            }
+            this.primaryIpv6 = primaryIpv6;
+            return this;
+        }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             if (privateIpAddress == null) {
               throw new MissingRequiredPropertyException("GetLaunchTemplateNetworkInterface", "privateIpAddress");
@@ -327,6 +341,7 @@ public final class GetLaunchTemplateNetworkInterface {
             _resultValue.ipv6Prefixes = ipv6Prefixes;
             _resultValue.networkCardIndex = networkCardIndex;
             _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.primaryIpv6 = primaryIpv6;
             _resultValue.privateIpAddress = privateIpAddress;
             _resultValue.securityGroups = securityGroups;
             _resultValue.subnetId = subnetId;

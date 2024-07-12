@@ -233,6 +233,12 @@ public class Policy extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> remediationEnabled() {
         return Codegen.optional(this.remediationEnabled);
     }
+    @Export(name="resourceSetIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> resourceSetIds;
+
+    public Output<List<String>> resourceSetIds() {
+        return this.resourceSetIds;
+    }
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      * 

@@ -36,6 +36,21 @@ public final class EventDataStoreArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+     * 
+     */
+    @Import(name="billingMode")
+    private @Nullable Output<String> billingMode;
+
+    /**
+     * @return The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+     * 
+     */
+    public Optional<Output<String>> billingMode() {
+        return Optional.ofNullable(this.billingMode);
+    }
+
+    /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      * 
      */
@@ -144,6 +159,7 @@ public final class EventDataStoreArgs extends com.pulumi.resources.ResourceArgs 
 
     private EventDataStoreArgs(EventDataStoreArgs $) {
         this.advancedEventSelectors = $.advancedEventSelectors;
+        this.billingMode = $.billingMode;
         this.kmsKeyId = $.kmsKeyId;
         this.multiRegionEnabled = $.multiRegionEnabled;
         this.name = $.name;
@@ -200,6 +216,27 @@ public final class EventDataStoreArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder advancedEventSelectors(EventDataStoreAdvancedEventSelectorArgs... advancedEventSelectors) {
             return advancedEventSelectors(List.of(advancedEventSelectors));
+        }
+
+        /**
+         * @param billingMode The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingMode(@Nullable Output<String> billingMode) {
+            $.billingMode = billingMode;
+            return this;
+        }
+
+        /**
+         * @param billingMode The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingMode(String billingMode) {
+            return billingMode(Output.of(billingMode));
         }
 
         /**

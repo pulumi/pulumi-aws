@@ -52,14 +52,14 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+     * AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
      * 
      */
     @Import(name="deploymentTargets")
     private @Nullable Output<StackSetInstanceDeploymentTargetsArgs> deploymentTargets;
 
     /**
-     * @return The AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+     * @return AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
      * 
      */
     public Optional<Output<StackSetInstanceDeploymentTargetsArgs>> deploymentTargets() {
@@ -263,7 +263,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentTargets The AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+         * @param deploymentTargets AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class StackSetInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentTargets The AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+         * @param deploymentTargets AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
          * 
          * @return builder
          * 

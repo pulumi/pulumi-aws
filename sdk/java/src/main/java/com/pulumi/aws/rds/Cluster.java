@@ -32,6 +32,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
  * 
+ * &gt; **Note:** `ca_certificate_identifier` is only supported for Multi-AZ DB clusters.
+ * 
  * &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
  * 
  * &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -545,6 +547,34 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> backupRetentionPeriod() {
         return this.backupRetentionPeriod;
+    }
+    /**
+     * The CA certificate identifier to use for the DB cluster&#39;s server certificate.
+     * 
+     */
+    @Export(name="caCertificateIdentifier", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> caCertificateIdentifier;
+
+    /**
+     * @return The CA certificate identifier to use for the DB cluster&#39;s server certificate.
+     * 
+     */
+    public Output<Optional<String>> caCertificateIdentifier() {
+        return Codegen.optional(this.caCertificateIdentifier);
+    }
+    /**
+     * Expiration date of the DB instance’s server certificate
+     * 
+     */
+    @Export(name="caCertificateValidTill", refs={String.class}, tree="[0]")
+    private Output<String> caCertificateValidTill;
+
+    /**
+     * @return Expiration date of the DB instance’s server certificate
+     * 
+     */
+    public Output<String> caCertificateValidTill() {
+        return this.caCertificateValidTill;
     }
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.

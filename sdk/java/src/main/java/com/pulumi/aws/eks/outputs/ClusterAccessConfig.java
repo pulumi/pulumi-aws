@@ -18,7 +18,7 @@ public final class ClusterAccessConfig {
      */
     private @Nullable String authenticationMode;
     /**
-     * @return Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+     * @return Whether or not to bootstrap the access config values to the cluster. Default is `false`.
      * 
      */
     private @Nullable Boolean bootstrapClusterCreatorAdminPermissions;
@@ -32,7 +32,7 @@ public final class ClusterAccessConfig {
         return Optional.ofNullable(this.authenticationMode);
     }
     /**
-     * @return Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+     * @return Whether or not to bootstrap the access config values to the cluster. Default is `false`.
      * 
      */
     public Optional<Boolean> bootstrapClusterCreatorAdminPermissions() {

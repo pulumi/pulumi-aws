@@ -230,14 +230,14 @@ public class StackSetInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.callAs);
     }
     /**
-     * The AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+     * AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
      * 
      */
     @Export(name="deploymentTargets", refs={StackSetInstanceDeploymentTargets.class}, tree="[0]")
     private Output</* @Nullable */ StackSetInstanceDeploymentTargets> deploymentTargets;
 
     /**
-     * @return The AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+     * @return AWS Organizations accounts to which StackSets deploys. StackSets doesn&#39;t deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
      * 
      */
     public Output<Optional<StackSetInstanceDeploymentTargets>> deploymentTargets() {
