@@ -295,6 +295,8 @@ func (o AcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) AcceleratorIpSetOu
 }
 
 type CrossAccountAttachmentResource struct {
+	// IP address range, in CIDR format, that is specified as resource.
+	CidrBlock *string `pulumi:"cidrBlock"`
 	// The endpoint ID for the endpoint that is specified as a AWS resource.
 	EndpointId *string `pulumi:"endpointId"`
 	// The AWS Region where a shared endpoint resource is located.
@@ -313,6 +315,8 @@ type CrossAccountAttachmentResourceInput interface {
 }
 
 type CrossAccountAttachmentResourceArgs struct {
+	// IP address range, in CIDR format, that is specified as resource.
+	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
 	// The endpoint ID for the endpoint that is specified as a AWS resource.
 	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
 	// The AWS Region where a shared endpoint resource is located.
@@ -368,6 +372,11 @@ func (o CrossAccountAttachmentResourceOutput) ToCrossAccountAttachmentResourceOu
 
 func (o CrossAccountAttachmentResourceOutput) ToCrossAccountAttachmentResourceOutputWithContext(ctx context.Context) CrossAccountAttachmentResourceOutput {
 	return o
+}
+
+// IP address range, in CIDR format, that is specified as resource.
+func (o CrossAccountAttachmentResourceOutput) CidrBlock() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrossAccountAttachmentResource) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
 }
 
 // The endpoint ID for the endpoint that is specified as a AWS resource.

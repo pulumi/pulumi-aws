@@ -371,8 +371,10 @@ type Cluster struct {
 	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
 	AccessConfig ClusterAccessConfigOutput `pulumi:"accessConfig"`
 	// ARN of the cluster.
-	Arn                    pulumi.StringOutput                    `pulumi:"arn"`
-	CertificateAuthorities ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+	BootstrapSelfManagedAddons pulumi.BoolPtrOutput                   `pulumi:"bootstrapSelfManagedAddons"`
+	CertificateAuthorities     ClusterCertificateAuthorityArrayOutput `pulumi:"certificateAuthorities"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
 	CertificateAuthority ClusterCertificateAuthorityOutput `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -453,8 +455,10 @@ type clusterState struct {
 	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// ARN of the cluster.
-	Arn                    *string                       `pulumi:"arn"`
-	CertificateAuthorities []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
+	Arn *string `pulumi:"arn"`
+	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+	BootstrapSelfManagedAddons *bool                         `pulumi:"bootstrapSelfManagedAddons"`
+	CertificateAuthorities     []ClusterCertificateAuthority `pulumi:"certificateAuthorities"`
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
 	CertificateAuthority *ClusterCertificateAuthority `pulumi:"certificateAuthority"`
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -500,8 +504,10 @@ type ClusterState struct {
 	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
 	AccessConfig ClusterAccessConfigPtrInput
 	// ARN of the cluster.
-	Arn                    pulumi.StringPtrInput
-	CertificateAuthorities ClusterCertificateAuthorityArrayInput
+	Arn pulumi.StringPtrInput
+	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+	BootstrapSelfManagedAddons pulumi.BoolPtrInput
+	CertificateAuthorities     ClusterCertificateAuthorityArrayInput
 	// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
 	CertificateAuthority ClusterCertificateAuthorityPtrInput
 	// The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
@@ -549,8 +555,10 @@ func (ClusterState) ElementType() reflect.Type {
 
 type clusterArgs struct {
 	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
-	AccessConfig           *ClusterAccessConfig `pulumi:"accessConfig"`
-	DefaultAddonsToRemoves []string             `pulumi:"defaultAddonsToRemoves"`
+	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
+	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+	BootstrapSelfManagedAddons *bool    `pulumi:"bootstrapSelfManagedAddons"`
+	DefaultAddonsToRemoves     []string `pulumi:"defaultAddonsToRemoves"`
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes []string `pulumi:"enabledClusterLogTypes"`
 	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
@@ -576,8 +584,10 @@ type clusterArgs struct {
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
 	// Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
-	AccessConfig           ClusterAccessConfigPtrInput
-	DefaultAddonsToRemoves pulumi.StringArrayInput
+	AccessConfig ClusterAccessConfigPtrInput
+	// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+	BootstrapSelfManagedAddons pulumi.BoolPtrInput
+	DefaultAddonsToRemoves     pulumi.StringArrayInput
 	// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
 	EnabledClusterLogTypes pulumi.StringArrayInput
 	// Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
@@ -695,6 +705,11 @@ func (o ClusterOutput) AccessConfig() ClusterAccessConfigOutput {
 // ARN of the cluster.
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+func (o ClusterOutput) BootstrapSelfManagedAddons() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.BootstrapSelfManagedAddons }).(pulumi.BoolPtrOutput)
 }
 
 func (o ClusterOutput) CertificateAuthorities() ClusterCertificateAuthorityArrayOutput {

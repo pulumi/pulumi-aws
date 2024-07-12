@@ -49,6 +49,76 @@ import (
 //
 // ```
 //
+// ### Log Group Filtering
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := oam.NewLink(ctx, "example", &oam.LinkArgs{
+//				LabelTemplate: pulumi.String("$AccountName"),
+//				LinkConfiguration: &oam.LinkLinkConfigurationArgs{
+//					LogGroupConfiguration: &oam.LinkLinkConfigurationLogGroupConfigurationArgs{
+//						Filter: pulumi.String("LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'"),
+//					},
+//				},
+//				ResourceTypes: pulumi.StringArray{
+//					pulumi.String("AWS::Logs::LogGroup"),
+//				},
+//				SinkIdentifier: pulumi.Any(test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Metric Filtering
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := oam.NewLink(ctx, "example", &oam.LinkArgs{
+//				LabelTemplate: pulumi.String("$AccountName"),
+//				LinkConfiguration: &oam.LinkLinkConfigurationArgs{
+//					MetricConfiguration: &oam.LinkLinkConfigurationMetricConfigurationArgs{
+//						Filter: pulumi.String("Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')"),
+//					},
+//				},
+//				ResourceTypes: pulumi.StringArray{
+//					pulumi.String("AWS::CloudWatch::Metric"),
+//				},
+//				SinkIdentifier: pulumi.Any(test.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
@@ -65,6 +135,8 @@ type Link struct {
 	Label pulumi.StringOutput `pulumi:"label"`
 	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate pulumi.StringOutput `pulumi:"labelTemplate"`
+	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	LinkConfiguration LinkLinkConfigurationPtrOutput `pulumi:"linkConfiguration"`
 	// ID string that AWS generated as part of the link ARN.
 	LinkId pulumi.StringOutput `pulumi:"linkId"`
 	// Types of data that the source account shares with the monitoring account.
@@ -126,6 +198,8 @@ type linkState struct {
 	Label *string `pulumi:"label"`
 	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate *string `pulumi:"labelTemplate"`
+	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	LinkConfiguration *LinkLinkConfiguration `pulumi:"linkConfiguration"`
 	// ID string that AWS generated as part of the link ARN.
 	LinkId *string `pulumi:"linkId"`
 	// Types of data that the source account shares with the monitoring account.
@@ -149,6 +223,8 @@ type LinkState struct {
 	Label pulumi.StringPtrInput
 	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate pulumi.StringPtrInput
+	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	LinkConfiguration LinkLinkConfigurationPtrInput
 	// ID string that AWS generated as part of the link ARN.
 	LinkId pulumi.StringPtrInput
 	// Types of data that the source account shares with the monitoring account.
@@ -172,6 +248,8 @@ func (LinkState) ElementType() reflect.Type {
 type linkArgs struct {
 	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate string `pulumi:"labelTemplate"`
+	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	LinkConfiguration *LinkLinkConfiguration `pulumi:"linkConfiguration"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// Identifier of the sink to use to create this link.
@@ -186,6 +264,8 @@ type linkArgs struct {
 type LinkArgs struct {
 	// Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate pulumi.StringInput
+	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	LinkConfiguration LinkLinkConfigurationPtrInput
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes pulumi.StringArrayInput
 	// Identifier of the sink to use to create this link.
@@ -296,6 +376,11 @@ func (o LinkOutput) Label() pulumi.StringOutput {
 // Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
 func (o LinkOutput) LabelTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LabelTemplate }).(pulumi.StringOutput)
+}
+
+// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+func (o LinkOutput) LinkConfiguration() LinkLinkConfigurationPtrOutput {
+	return o.ApplyT(func(v *Link) LinkLinkConfigurationPtrOutput { return v.LinkConfiguration }).(LinkLinkConfigurationPtrOutput)
 }
 
 // ID string that AWS generated as part of the link ARN.

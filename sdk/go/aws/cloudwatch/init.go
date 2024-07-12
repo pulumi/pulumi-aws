@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventTarget{}
 	case "aws:cloudwatch/internetMonitor:InternetMonitor":
 		r = &InternetMonitor{}
+	case "aws:cloudwatch/logAccountPolicy:LogAccountPolicy":
+		r = &LogAccountPolicy{}
 	case "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy":
 		r = &LogDataProtectionPolicy{}
 	case "aws:cloudwatch/logDestination:LogDestination":
@@ -138,6 +140,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatch/internetMonitor",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/logAccountPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -52,6 +52,8 @@ func LookupWorkerConfiguration(ctx *pulumi.Context, args *LookupWorkerConfigurat
 type LookupWorkerConfigurationArgs struct {
 	// Name of the worker configuration.
 	Name string `pulumi:"name"`
+	// A map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getWorkerConfiguration.
@@ -67,6 +69,8 @@ type LookupWorkerConfigurationResult struct {
 	Name           string `pulumi:"name"`
 	// contents of connect-distributed.properties file.
 	PropertiesFileContent string `pulumi:"propertiesFileContent"`
+	// A map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupWorkerConfigurationOutput(ctx *pulumi.Context, args LookupWorkerConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupWorkerConfigurationResultOutput {
@@ -86,6 +90,8 @@ func LookupWorkerConfigurationOutput(ctx *pulumi.Context, args LookupWorkerConfi
 type LookupWorkerConfigurationOutputArgs struct {
 	// Name of the worker configuration.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A map of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupWorkerConfigurationOutputArgs) ElementType() reflect.Type {
@@ -134,6 +140,11 @@ func (o LookupWorkerConfigurationResultOutput) Name() pulumi.StringOutput {
 // contents of connect-distributed.properties file.
 func (o LookupWorkerConfigurationResultOutput) PropertiesFileContent() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkerConfigurationResult) string { return v.PropertiesFileContent }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the resource.
+func (o LookupWorkerConfigurationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkerConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

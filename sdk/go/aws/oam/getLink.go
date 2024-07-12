@@ -67,6 +67,8 @@ type LookupLinkResult struct {
 	Label string `pulumi:"label"`
 	// Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
 	LabelTemplate string `pulumi:"labelTemplate"`
+	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+	LinkConfigurations []GetLinkLinkConfiguration `pulumi:"linkConfigurations"`
 	// ID string that AWS generated as part of the link ARN.
 	LinkId         string `pulumi:"linkId"`
 	LinkIdentifier string `pulumi:"linkIdentifier"`
@@ -134,6 +136,11 @@ func (o LookupLinkResultOutput) Label() pulumi.StringOutput {
 // Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
 func (o LookupLinkResultOutput) LabelTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.LabelTemplate }).(pulumi.StringOutput)
+}
+
+// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+func (o LookupLinkResultOutput) LinkConfigurations() GetLinkLinkConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupLinkResult) []GetLinkLinkConfiguration { return v.LinkConfigurations }).(GetLinkLinkConfigurationArrayOutput)
 }
 
 // ID string that AWS generated as part of the link ARN.

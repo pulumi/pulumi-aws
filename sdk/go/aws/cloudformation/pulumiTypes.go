@@ -326,7 +326,13 @@ func (o StackSetAutoDeploymentPtrOutput) RetainStacksOnAccountRemoval() pulumi.B
 }
 
 type StackSetInstanceDeploymentTargets struct {
-	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+	// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+	AccountFilterType *string `pulumi:"accountFilterType"`
+	// List of accounts to deploy stack set updates.
+	Accounts []string `pulumi:"accounts"`
+	// S3 URL of the file containing the list of accounts.
+	AccountsUrl *string `pulumi:"accountsUrl"`
+	// Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	OrganizationalUnitIds []string `pulumi:"organizationalUnitIds"`
 }
 
@@ -342,7 +348,13 @@ type StackSetInstanceDeploymentTargetsInput interface {
 }
 
 type StackSetInstanceDeploymentTargetsArgs struct {
-	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+	// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+	AccountFilterType pulumi.StringPtrInput `pulumi:"accountFilterType"`
+	// List of accounts to deploy stack set updates.
+	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
+	// S3 URL of the file containing the list of accounts.
+	AccountsUrl pulumi.StringPtrInput `pulumi:"accountsUrl"`
+	// Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	OrganizationalUnitIds pulumi.StringArrayInput `pulumi:"organizationalUnitIds"`
 }
 
@@ -423,7 +435,22 @@ func (o StackSetInstanceDeploymentTargetsOutput) ToStackSetInstanceDeploymentTar
 	}).(StackSetInstanceDeploymentTargetsPtrOutput)
 }
 
-// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+func (o StackSetInstanceDeploymentTargetsOutput) AccountFilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceDeploymentTargets) *string { return v.AccountFilterType }).(pulumi.StringPtrOutput)
+}
+
+// List of accounts to deploy stack set updates.
+func (o StackSetInstanceDeploymentTargetsOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetInstanceDeploymentTargets) []string { return v.Accounts }).(pulumi.StringArrayOutput)
+}
+
+// S3 URL of the file containing the list of accounts.
+func (o StackSetInstanceDeploymentTargetsOutput) AccountsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceDeploymentTargets) *string { return v.AccountsUrl }).(pulumi.StringPtrOutput)
+}
+
+// Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 func (o StackSetInstanceDeploymentTargetsOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetInstanceDeploymentTargets) []string { return v.OrganizationalUnitIds }).(pulumi.StringArrayOutput)
 }
@@ -452,7 +479,37 @@ func (o StackSetInstanceDeploymentTargetsPtrOutput) Elem() StackSetInstanceDeplo
 	}).(StackSetInstanceDeploymentTargetsOutput)
 }
 
-// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+func (o StackSetInstanceDeploymentTargetsPtrOutput) AccountFilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetInstanceDeploymentTargets) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountFilterType
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of accounts to deploy stack set updates.
+func (o StackSetInstanceDeploymentTargetsPtrOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackSetInstanceDeploymentTargets) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// S3 URL of the file containing the list of accounts.
+func (o StackSetInstanceDeploymentTargetsPtrOutput) AccountsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetInstanceDeploymentTargets) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountsUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 func (o StackSetInstanceDeploymentTargetsPtrOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StackSetInstanceDeploymentTargets) []string {
 		if v == nil {
@@ -463,17 +520,17 @@ func (o StackSetInstanceDeploymentTargetsPtrOutput) OrganizationalUnitIds() pulu
 }
 
 type StackSetInstanceOperationPreferences struct {
-	// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+	// Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
 	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
-	// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+	// Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	FailureTolerancePercentage *int `pulumi:"failureTolerancePercentage"`
-	// The maximum number of accounts in which to perform this operation at one time.
+	// Maximum number of accounts in which to perform this operation at one time.
 	MaxConcurrentCount *int `pulumi:"maxConcurrentCount"`
-	// The maximum percentage of accounts in which to perform this operation at one time.
+	// Maximum percentage of accounts in which to perform this operation at one time.
 	MaxConcurrentPercentage *int `pulumi:"maxConcurrentPercentage"`
-	// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+	// Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
 	RegionConcurrencyType *string `pulumi:"regionConcurrencyType"`
-	// The order of the Regions in where you want to perform the stack operation.
+	// Order of the Regions in where you want to perform the stack operation.
 	RegionOrders []string `pulumi:"regionOrders"`
 }
 
@@ -489,17 +546,17 @@ type StackSetInstanceOperationPreferencesInput interface {
 }
 
 type StackSetInstanceOperationPreferencesArgs struct {
-	// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+	// Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
 	FailureToleranceCount pulumi.IntPtrInput `pulumi:"failureToleranceCount"`
-	// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+	// Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 	FailureTolerancePercentage pulumi.IntPtrInput `pulumi:"failureTolerancePercentage"`
-	// The maximum number of accounts in which to perform this operation at one time.
+	// Maximum number of accounts in which to perform this operation at one time.
 	MaxConcurrentCount pulumi.IntPtrInput `pulumi:"maxConcurrentCount"`
-	// The maximum percentage of accounts in which to perform this operation at one time.
+	// Maximum percentage of accounts in which to perform this operation at one time.
 	MaxConcurrentPercentage pulumi.IntPtrInput `pulumi:"maxConcurrentPercentage"`
-	// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+	// Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
 	RegionConcurrencyType pulumi.StringPtrInput `pulumi:"regionConcurrencyType"`
-	// The order of the Regions in where you want to perform the stack operation.
+	// Order of the Regions in where you want to perform the stack operation.
 	RegionOrders pulumi.StringArrayInput `pulumi:"regionOrders"`
 }
 
@@ -580,32 +637,32 @@ func (o StackSetInstanceOperationPreferencesOutput) ToStackSetInstanceOperationP
 	}).(StackSetInstanceOperationPreferencesPtrOutput)
 }
 
-// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+// Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
 func (o StackSetInstanceOperationPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
 }
 
-// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+// Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 func (o StackSetInstanceOperationPreferencesOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *int { return v.FailureTolerancePercentage }).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of accounts in which to perform this operation at one time.
+// Maximum number of accounts in which to perform this operation at one time.
 func (o StackSetInstanceOperationPreferencesOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *int { return v.MaxConcurrentCount }).(pulumi.IntPtrOutput)
 }
 
-// The maximum percentage of accounts in which to perform this operation at one time.
+// Maximum percentage of accounts in which to perform this operation at one time.
 func (o StackSetInstanceOperationPreferencesOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *int { return v.MaxConcurrentPercentage }).(pulumi.IntPtrOutput)
 }
 
-// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+// Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
 func (o StackSetInstanceOperationPreferencesOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *string { return v.RegionConcurrencyType }).(pulumi.StringPtrOutput)
 }
 
-// The order of the Regions in where you want to perform the stack operation.
+// Order of the Regions in where you want to perform the stack operation.
 func (o StackSetInstanceOperationPreferencesOutput) RegionOrders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetInstanceOperationPreferences) []string { return v.RegionOrders }).(pulumi.StringArrayOutput)
 }
@@ -634,7 +691,7 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) Elem() StackSetInstanceOp
 	}).(StackSetInstanceOperationPreferencesOutput)
 }
 
-// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+// Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
 func (o StackSetInstanceOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *int {
 		if v == nil {
@@ -644,7 +701,7 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) FailureToleranceCount() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+// Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
 func (o StackSetInstanceOperationPreferencesPtrOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *int {
 		if v == nil {
@@ -654,7 +711,7 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) FailureTolerancePercentag
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum number of accounts in which to perform this operation at one time.
+// Maximum number of accounts in which to perform this operation at one time.
 func (o StackSetInstanceOperationPreferencesPtrOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *int {
 		if v == nil {
@@ -664,7 +721,7 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) MaxConcurrentCount() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum percentage of accounts in which to perform this operation at one time.
+// Maximum percentage of accounts in which to perform this operation at one time.
 func (o StackSetInstanceOperationPreferencesPtrOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *int {
 		if v == nil {
@@ -674,7 +731,7 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) MaxConcurrentPercentage()
 	}).(pulumi.IntPtrOutput)
 }
 
-// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+// Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
 func (o StackSetInstanceOperationPreferencesPtrOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *string {
 		if v == nil {
@@ -684,7 +741,7 @@ func (o StackSetInstanceOperationPreferencesPtrOutput) RegionConcurrencyType() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The order of the Regions in where you want to perform the stack operation.
+// Order of the Regions in where you want to perform the stack operation.
 func (o StackSetInstanceOperationPreferencesPtrOutput) RegionOrders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) []string {
 		if v == nil {

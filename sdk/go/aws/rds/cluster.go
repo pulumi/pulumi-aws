@@ -20,6 +20,8 @@ import (
 //
 // > **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
 //
+// > **Note:** `caCertificateIdentifier` is only supported for Multi-AZ DB clusters.
+//
 // > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
 //
 // > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -378,6 +380,10 @@ type Cluster struct {
 	BacktrackWindow pulumi.IntPtrOutput `pulumi:"backtrackWindow"`
 	// Days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntOutput `pulumi:"backupRetentionPeriod"`
+	// The CA certificate identifier to use for the DB cluster's server certificate.
+	CaCertificateIdentifier pulumi.StringPtrOutput `pulumi:"caCertificateIdentifier"`
+	// Expiration date of the DB instance’s server certificate
+	CaCertificateValidTill pulumi.StringOutput `pulumi:"caCertificateValidTill"`
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
@@ -550,6 +556,10 @@ type clusterState struct {
 	BacktrackWindow *int `pulumi:"backtrackWindow"`
 	// Days to retain backups for. Default `1`
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// The CA certificate identifier to use for the DB cluster's server certificate.
+	CaCertificateIdentifier *string `pulumi:"caCertificateIdentifier"`
+	// Expiration date of the DB instance’s server certificate
+	CaCertificateValidTill *string `pulumi:"caCertificateValidTill"`
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
@@ -683,6 +693,10 @@ type ClusterState struct {
 	BacktrackWindow pulumi.IntPtrInput
 	// Days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrInput
+	// The CA certificate identifier to use for the DB cluster's server certificate.
+	CaCertificateIdentifier pulumi.StringPtrInput
+	// Expiration date of the DB instance’s server certificate
+	CaCertificateValidTill pulumi.StringPtrInput
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
@@ -818,6 +832,8 @@ type clusterArgs struct {
 	BacktrackWindow *int `pulumi:"backtrackWindow"`
 	// Days to retain backups for. Default `1`
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// The CA certificate identifier to use for the DB cluster's server certificate.
+	CaCertificateIdentifier *string `pulumi:"caCertificateIdentifier"`
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
@@ -933,6 +949,8 @@ type ClusterArgs struct {
 	BacktrackWindow pulumi.IntPtrInput
 	// Days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrInput
+	// The CA certificate identifier to use for the DB cluster's server certificate.
+	CaCertificateIdentifier pulumi.StringPtrInput
 	// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
 	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
@@ -1154,6 +1172,16 @@ func (o ClusterOutput) BacktrackWindow() pulumi.IntPtrOutput {
 // Days to retain backups for. Default `1`
 func (o ClusterOutput) BackupRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.BackupRetentionPeriod }).(pulumi.IntOutput)
+}
+
+// The CA certificate identifier to use for the DB cluster's server certificate.
+func (o ClusterOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Expiration date of the DB instance’s server certificate
+func (o ClusterOutput) CaCertificateValidTill() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CaCertificateValidTill }).(pulumi.StringOutput)
 }
 
 // The cluster identifier. If omitted, this provider will assign a random, unique identifier.

@@ -89,7 +89,7 @@ type Fleet struct {
 	FleetType pulumi.StringOutput `pulumi:"fleetType"`
 	// ARN of the IAM role to apply to the fleet.
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
-	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
+	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
 	IdleDisconnectTimeoutInSeconds pulumi.IntPtrOutput `pulumi:"idleDisconnectTimeoutInSeconds"`
 	// ARN of the public, private, or shared image to use.
 	ImageArn pulumi.StringOutput `pulumi:"imageArn"`
@@ -173,7 +173,7 @@ type fleetState struct {
 	FleetType *string `pulumi:"fleetType"`
 	// ARN of the IAM role to apply to the fleet.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
+	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
 	IdleDisconnectTimeoutInSeconds *int `pulumi:"idleDisconnectTimeoutInSeconds"`
 	// ARN of the public, private, or shared image to use.
 	ImageArn *string `pulumi:"imageArn"`
@@ -222,7 +222,7 @@ type FleetState struct {
 	FleetType pulumi.StringPtrInput
 	// ARN of the IAM role to apply to the fleet.
 	IamRoleArn pulumi.StringPtrInput
-	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
+	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
 	IdleDisconnectTimeoutInSeconds pulumi.IntPtrInput
 	// ARN of the public, private, or shared image to use.
 	ImageArn pulumi.StringPtrInput
@@ -271,7 +271,7 @@ type fleetArgs struct {
 	FleetType *string `pulumi:"fleetType"`
 	// ARN of the IAM role to apply to the fleet.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
-	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
+	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
 	IdleDisconnectTimeoutInSeconds *int `pulumi:"idleDisconnectTimeoutInSeconds"`
 	// ARN of the public, private, or shared image to use.
 	ImageArn *string `pulumi:"imageArn"`
@@ -313,7 +313,7 @@ type FleetArgs struct {
 	FleetType pulumi.StringPtrInput
 	// ARN of the IAM role to apply to the fleet.
 	IamRoleArn pulumi.StringPtrInput
-	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
+	// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
 	IdleDisconnectTimeoutInSeconds pulumi.IntPtrInput
 	// ARN of the public, private, or shared image to use.
 	ImageArn pulumi.StringPtrInput
@@ -474,7 +474,7 @@ func (o FleetOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
-// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to 60 seconds.
+// Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnectTimeoutInSeconds` time interval begins. Defaults to `0`. Valid value is between `60` and ` 3600  `seconds.
 func (o FleetOutput) IdleDisconnectTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.IdleDisconnectTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }

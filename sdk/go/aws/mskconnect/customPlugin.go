@@ -82,14 +82,20 @@ type CustomPlugin struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// an ID of the latest successfully created revision of the custom plugin.
 	LatestRevision pulumi.IntOutput `pulumi:"latestRevision"`
-	// Information about the location of a custom plugin. See below.
-	//
-	// The following arguments are optional:
+	// Information about the location of a custom plugin. See `location` Block for details.
 	Location CustomPluginLocationOutput `pulumi:"location"`
 	// The name of the custom plugin..
 	Name pulumi.StringOutput `pulumi:"name"`
 	// the state of the custom plugin.
 	State pulumi.StringOutput `pulumi:"state"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following arguments are optional:
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCustomPlugin registers a new resource with the given unique name, arguments, and options.
@@ -136,14 +142,20 @@ type customPluginState struct {
 	Description *string `pulumi:"description"`
 	// an ID of the latest successfully created revision of the custom plugin.
 	LatestRevision *int `pulumi:"latestRevision"`
-	// Information about the location of a custom plugin. See below.
-	//
-	// The following arguments are optional:
+	// Information about the location of a custom plugin. See `location` Block for details.
 	Location *CustomPluginLocation `pulumi:"location"`
 	// The name of the custom plugin..
 	Name *string `pulumi:"name"`
 	// the state of the custom plugin.
 	State *string `pulumi:"state"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following arguments are optional:
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CustomPluginState struct {
@@ -155,14 +167,20 @@ type CustomPluginState struct {
 	Description pulumi.StringPtrInput
 	// an ID of the latest successfully created revision of the custom plugin.
 	LatestRevision pulumi.IntPtrInput
-	// Information about the location of a custom plugin. See below.
-	//
-	// The following arguments are optional:
+	// Information about the location of a custom plugin. See `location` Block for details.
 	Location CustomPluginLocationPtrInput
 	// The name of the custom plugin..
 	Name pulumi.StringPtrInput
 	// the state of the custom plugin.
 	State pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following arguments are optional:
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 }
 
 func (CustomPluginState) ElementType() reflect.Type {
@@ -174,12 +192,14 @@ type customPluginArgs struct {
 	ContentType string `pulumi:"contentType"`
 	// A summary description of the custom plugin.
 	Description *string `pulumi:"description"`
-	// Information about the location of a custom plugin. See below.
-	//
-	// The following arguments are optional:
+	// Information about the location of a custom plugin. See `location` Block for details.
 	Location CustomPluginLocation `pulumi:"location"`
 	// The name of the custom plugin..
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following arguments are optional:
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomPlugin resource.
@@ -188,12 +208,14 @@ type CustomPluginArgs struct {
 	ContentType pulumi.StringInput
 	// A summary description of the custom plugin.
 	Description pulumi.StringPtrInput
-	// Information about the location of a custom plugin. See below.
-	//
-	// The following arguments are optional:
+	// Information about the location of a custom plugin. See `location` Block for details.
 	Location CustomPluginLocationInput
 	// The name of the custom plugin..
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	//
+	// The following arguments are optional:
+	Tags pulumi.StringMapInput
 }
 
 func (CustomPluginArgs) ElementType() reflect.Type {
@@ -303,9 +325,7 @@ func (o CustomPluginOutput) LatestRevision() pulumi.IntOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.IntOutput { return v.LatestRevision }).(pulumi.IntOutput)
 }
 
-// Information about the location of a custom plugin. See below.
-//
-// The following arguments are optional:
+// Information about the location of a custom plugin. See `location` Block for details.
 func (o CustomPluginOutput) Location() CustomPluginLocationOutput {
 	return o.ApplyT(func(v *CustomPlugin) CustomPluginLocationOutput { return v.Location }).(CustomPluginLocationOutput)
 }
@@ -318,6 +338,20 @@ func (o CustomPluginOutput) Name() pulumi.StringOutput {
 // the state of the custom plugin.
 func (o CustomPluginOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+//
+// The following arguments are optional:
+func (o CustomPluginOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CustomPlugin) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o CustomPluginOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CustomPlugin) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type CustomPluginArrayOutput struct{ *pulumi.OutputState }
