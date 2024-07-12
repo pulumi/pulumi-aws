@@ -16,6 +16,8 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
  *
+ * > **Note:** `caCertificateIdentifier` is only supported for Multi-AZ DB clusters.
+ *
  * > **Note:** using `applyImmediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
  *
  * > **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -280,6 +282,14 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number>;
     /**
+     * The CA certificate identifier to use for the DB cluster's server certificate.
+     */
+    public readonly caCertificateIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * Expiration date of the DB instance’s server certificate
+     */
+    public /*out*/ readonly caCertificateValidTill!: pulumi.Output<string>;
+    /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
@@ -519,6 +529,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             resourceInputs["backtrackWindow"] = state ? state.backtrackWindow : undefined;
             resourceInputs["backupRetentionPeriod"] = state ? state.backupRetentionPeriod : undefined;
+            resourceInputs["caCertificateIdentifier"] = state ? state.caCertificateIdentifier : undefined;
+            resourceInputs["caCertificateValidTill"] = state ? state.caCertificateValidTill : undefined;
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             resourceInputs["clusterIdentifierPrefix"] = state ? state.clusterIdentifierPrefix : undefined;
             resourceInputs["clusterMembers"] = state ? state.clusterMembers : undefined;
@@ -584,6 +596,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["backtrackWindow"] = args ? args.backtrackWindow : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
+            resourceInputs["caCertificateIdentifier"] = args ? args.caCertificateIdentifier : undefined;
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["clusterIdentifierPrefix"] = args ? args.clusterIdentifierPrefix : undefined;
             resourceInputs["clusterMembers"] = args ? args.clusterMembers : undefined;
@@ -632,6 +645,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["caCertificateValidTill"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["engineVersionActual"] = undefined /*out*/;
@@ -682,6 +696,14 @@ export interface ClusterState {
      * Days to retain backups for. Default `1`
      */
     backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The CA certificate identifier to use for the DB cluster's server certificate.
+     */
+    caCertificateIdentifier?: pulumi.Input<string>;
+    /**
+     * Expiration date of the DB instance’s server certificate
+     */
+    caCertificateValidTill?: pulumi.Input<string>;
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
@@ -934,6 +956,10 @@ export interface ClusterArgs {
      * Days to retain backups for. Default `1`
      */
     backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * The CA certificate identifier to use for the DB cluster's server certificate.
+     */
+    caCertificateIdentifier?: pulumi.Input<string>;
     /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      */
