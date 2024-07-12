@@ -5,17 +5,17 @@ Subject: [PATCH] restore ECRConn
 
 
 diff --git a/internal/conns/awsclient_gen.go b/internal/conns/awsclient_gen.go
-index 376b5d52b1..d8d7b71f2c 100644
+index 4692319a34..1c3a36a170 100644
 --- a/internal/conns/awsclient_gen.go
 +++ b/internal/conns/awsclient_gen.go
-@@ -201,6 +201,7 @@ import (
+@@ -210,6 +210,7 @@ import (
+ 	detective_sdkv1 "github.com/aws/aws-sdk-go/service/detective"
  	directconnect_sdkv1 "github.com/aws/aws-sdk-go/service/directconnect"
- 	directoryservice_sdkv1 "github.com/aws/aws-sdk-go/service/directoryservice"
  	ec2_sdkv1 "github.com/aws/aws-sdk-go/service/ec2"
 +	ecr_sdkv1 "github.com/aws/aws-sdk-go/service/ecr"
  	ecs_sdkv1 "github.com/aws/aws-sdk-go/service/ecs"
- 	efs_sdkv1 "github.com/aws/aws-sdk-go/service/efs"
  	elasticache_sdkv1 "github.com/aws/aws-sdk-go/service/elasticache"
+ 	elasticsearchservice_sdkv1 "github.com/aws/aws-sdk-go/service/elasticsearchservice"
 @@ -597,6 +598,10 @@ func (c *AWSClient) EC2Client(ctx context.Context) *ec2_sdkv2.Client {
  	return errs.Must(client[*ec2_sdkv2.Client](ctx, c, names.EC2, make(map[string]any)))
  }

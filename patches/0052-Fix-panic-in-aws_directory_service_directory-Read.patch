@@ -10,27 +10,24 @@ One case where this seems to happen (but difficult to reproduce) is importing a 
 https://github.com/pulumi/pulumi-aws/issues/1152
 
 diff --git a/internal/service/ds/directory.go b/internal/service/ds/directory.go
-index 4b08a2b7a9..584c095788 100644
+index 2e297cf7d4..eca090d1d2 100644
 --- a/internal/service/ds/directory.go
 +++ b/internal/service/ds/directory.go
-@@ -295,6 +295,11 @@ func resourceDirectoryRead(ctx context.Context, d *schema.ResourceData, meta int
+@@ -300,6 +300,11 @@ func resourceDirectoryRead(ctx context.Context, d *schema.ResourceData, meta int
  	if err != nil {
  		return sdkdiag.AppendErrorf(diags, "reading Directory Service Directory (%s): %s", d.Id(), err)
  	}
 +	return resourceDirectoryReadDescription(d, dir)
 +}
 +
-+func resourceDirectoryReadDescription(d *schema.ResourceData, dir *directoryservice.DirectoryDescription) diag.Diagnostics {
++func resourceDirectoryReadDescription(d *schema.ResourceData, dir *awstypes.DirectoryDescription) diag.Diagnostics {
 +	var diags diag.Diagnostics
  
  	d.Set("access_url", dir.AccessUrl)
  	d.Set(names.AttrAlias, dir.Alias)
-@@ -315,10 +320,16 @@ func resourceDirectoryRead(ctx context.Context, d *schema.ResourceData, meta int
- 	d.Set("edition", dir.Edition)
- 	d.Set("enable_sso", dir.SsoEnabled)
+@@ -322,8 +327,13 @@ func resourceDirectoryRead(ctx context.Context, d *schema.ResourceData, meta int
  	d.Set(names.AttrName, dir.Name)
-+
- 	if aws.StringValue(dir.Type) == directoryservice.DirectoryTypeAdconnector {
+ 	if dir.Type == awstypes.DirectoryTypeAdConnector {
  		d.Set("security_group_id", dir.ConnectSettings.SecurityGroupId)
 -	} else {
 +	} else if dir.VpcSettings != nil {
@@ -45,7 +42,7 @@ index 4b08a2b7a9..584c095788 100644
  	d.Set(names.AttrSize, dir.Size)
 diff --git a/internal/service/ds/directory_internal_test.go b/internal/service/ds/directory_internal_test.go
 new file mode 100644
-index 0000000000..91a06d96b5
+index 0000000000..a5107ef3e1
 --- /dev/null
 +++ b/internal/service/ds/directory_internal_test.go
 @@ -0,0 +1,22 @@
@@ -57,12 +54,12 @@ index 0000000000..91a06d96b5
 +import (
 +	"testing"
 +
-+	"github.com/aws/aws-sdk-go/service/directoryservice"
++	awstypes "github.com/aws/aws-sdk-go-v2/service/directoryservice/types"
 +)
 +
 +func TestResourceDirectoryReadDoesNotPanicOnMissingVpcSettings(t *testing.T) {
 +	d := ResourceDirectory().TestResourceData()
-+	dir := &directoryservice.DirectoryDescription{
++	dir := &awstypes.DirectoryDescription{
 +		VpcSettings: nil,
 +	}
 +	diags := resourceDirectoryReadDescription(d, dir)
