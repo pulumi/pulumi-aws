@@ -5929,8 +5929,8 @@ compatibility shim in favor of the new "name" field.`)
 			return true
 		}
 
-		// We have ensured that this resource is using upstream's generic tagging
-		// mechanism, so override check so it works.
+		// The bridge applies and cannot handle a `__defaults: []` tag
+		// so remote that from the tags
 		if callback := prov.Resources[key].PreCheckCallback; callback != nil {
 			prov.Resources[key].PreCheckCallback = func(
 				ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
@@ -5944,21 +5944,6 @@ compatibility shim in favor of the new "name" field.`)
 		} else {
 			prov.Resources[key].PreCheckCallback = applyTags
 		}
-
-		if prov.Resources[key].GetFields() == nil {
-			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
-		}
-		fields := prov.Resources[key].GetFields()
-
-		if _, ok := fields["tags_all"]; !ok {
-			fields["tags_all"] = &tfbridge.SchemaInfo{}
-		}
-
-		// Upstream provider is edited to unmark tags_all as computed internally so that
-		// Pulumi provider internals can set it, but the user should not be able to set it.
-		fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
-		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
-		fields["tags_all"].MarkAsOptional = tfbridge.False()
 
 		return true
 	})

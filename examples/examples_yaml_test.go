@@ -210,7 +210,11 @@ func TestAccDefaultTags(t *testing.T) {
 		if !ok {
 			continue
 		}
-		v.expected = v.defaultTags
+		allTags := v.defaultTags
+		for k, v := range v.tags {
+			allTags[k] = v
+		}
+		v.expected = allTags
 		steps[i] = v
 	}
 
@@ -267,11 +271,9 @@ func testTags(t *testing.T, dir string, steps []tagsStep) {
 		Dir:                    dir,
 		ExtraRuntimeValidation: editDirs[0].ExtraRuntimeValidation,
 		EditDirs:               editDirs[1:],
-		// see https://github.com/pulumi/pulumi-aws/issues/4080
-		ExpectRefreshChanges: true,
-		Config:               map[string]string{"aws:region": getEnvRegion(t)},
-		Quick:                true,
-		DestroyOnCleanup:     true,
+		Config:                 map[string]string{"aws:region": getEnvRegion(t)},
+		Quick:                  true,
+		DestroyOnCleanup:       true,
 	})
 }
 
@@ -288,7 +290,7 @@ resources:
     options:
       provider: ${aws-provider}
 outputs:
-  actual: ${res.tags}`
+  actual: ${res.tagsAll}`
 
 	var expandMap func(level int, v interface{}) string
 	expandMap = func(level int, v interface{}) string {
