@@ -13,6 +13,12 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
     public sealed class CrossAccountAttachmentResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// IP address range, in CIDR format, that is specified as resource.
+        /// </summary>
+        [Input("cidrBlock")]
+        public Input<string>? CidrBlock { get; set; }
+
+        /// <summary>
         /// The endpoint ID for the endpoint that is specified as a AWS resource.
         /// </summary>
         [Input("endpointId")]

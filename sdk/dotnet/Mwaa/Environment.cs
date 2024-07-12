@@ -220,6 +220,9 @@ namespace Pulumi.Aws.Mwaa
         [Output("databaseVpcEndpointService")]
         public Output<string> DatabaseVpcEndpointService { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+        /// </summary>
         [Output("endpointManagement")]
         public Output<string> EndpointManagement { get; private set; } = null!;
 
@@ -454,6 +457,9 @@ namespace Pulumi.Aws.Mwaa
         [Input("dagS3Path", required: true)]
         public Input<string> DagS3Path { get; set; } = null!;
 
+        /// <summary>
+        /// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+        /// </summary>
         [Input("endpointManagement")]
         public Input<string>? EndpointManagement { get; set; }
 
@@ -638,6 +644,9 @@ namespace Pulumi.Aws.Mwaa
         [Input("databaseVpcEndpointService")]
         public Input<string>? DatabaseVpcEndpointService { get; set; }
 
+        /// <summary>
+        /// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+        /// </summary>
         [Input("endpointManagement")]
         public Input<string>? EndpointManagement { get; set; }
 

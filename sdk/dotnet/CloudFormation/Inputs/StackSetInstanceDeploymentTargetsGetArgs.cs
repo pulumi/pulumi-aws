@@ -12,11 +12,35 @@ namespace Pulumi.Aws.CloudFormation.Inputs
 
     public sealed class StackSetInstanceDeploymentTargetsGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+        /// </summary>
+        [Input("accountFilterType")]
+        public Input<string>? AccountFilterType { get; set; }
+
+        [Input("accounts")]
+        private InputList<string>? _accounts;
+
+        /// <summary>
+        /// List of accounts to deploy stack set updates.
+        /// </summary>
+        public InputList<string> Accounts
+        {
+            get => _accounts ?? (_accounts = new InputList<string>());
+            set => _accounts = value;
+        }
+
+        /// <summary>
+        /// S3 URL of the file containing the list of accounts.
+        /// </summary>
+        [Input("accountsUrl")]
+        public Input<string>? AccountsUrl { get; set; }
+
         [Input("organizationalUnitIds")]
         private InputList<string>? _organizationalUnitIds;
 
         /// <summary>
-        /// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+        /// Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         /// </summary>
         public InputList<string> OrganizationalUnitIds
         {
