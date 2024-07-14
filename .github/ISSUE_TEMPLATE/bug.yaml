@@ -39,8 +39,6 @@ body:
         We may also ask you to supply us with debug output following [these steps](https://www.pulumi.com/docs/using-pulumi/pulumi-packages/debugging-provider-packages/).
         **Note:** If the log output is more than a few lines, please send us a Gist or a link to a file.
         </details>
-    validations:
-      required: true
   - type: textarea
     id: resources
     attributes:

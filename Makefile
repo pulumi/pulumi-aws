@@ -180,14 +180,6 @@ endif
 	# Apply all automated changes
 	cd upstream-tools && yarn --silent run apply
 
-upstream.finalize:
-	echo "Deprecated: Use `./upstream.sh format_patches` instead"
-	scripts/upstream_old.sh "$@" end_rebase
-
-upstream.rebase:
-	echo "Deprecated: Use `./upstream.sh checkout` and `./upstream.sh rebase` instead"
-	scripts/upstream_old.sh "$@" start_rebase
-
 bin/pulumi-java-gen: .pulumi-java-gen.version
 	pulumictl download-binary -n pulumi-language-java -v v$(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
