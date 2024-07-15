@@ -140,7 +140,7 @@ func TestApplyTags(t *testing.T) {
 			},
 		},
 		{
-			name:   "provier sets a tag",
+			name:   "provider sets a tag",
 			config: resource.PropertyMap{},
 			meta: resource.PropertyMap{
 				"defaultTags": resource.NewObjectProperty(resource.PropertyMap{
@@ -332,7 +332,7 @@ func TestApplyTagsOutputs(t *testing.T) {
 			},
 		},
 		{
-			name: "provier sets a tag",
+			name: "provider sets a tag",
 			config: resource.PropertyMap{
 				"tagsAll": resource.NewObjectProperty(resource.PropertyMap{
 					"tag2": resource.NewStringProperty("tag2v"),
