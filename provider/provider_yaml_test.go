@@ -21,6 +21,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	appconfigsdk "github.com/aws/aws-sdk-go-v2/service/appconfig"
+	tagsdk "github.com/aws/aws-sdk-go-v2/service/resourcegroupstaggingapi"
 	s3sdk "github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/aws/aws-sdk-go-v2/service/s3/types"
 	"github.com/pulumi/providertest/pulumitest"
@@ -357,7 +358,6 @@ resources:
 	// test that we can upgrade from the previous version which accepted a string for `subnetIds`
 	// to the new version which accepts a list
 	t.Run("upgrade", func(t *testing.T) {
-		t.Parallel()
 		pulumiTest := testProviderCodeChanges(t, &testProviderCodeChangesOptions{
 			firstProgram: firstProgram,
 			firstProgramOptions: []opttest.Option{
@@ -580,8 +580,8 @@ func TestAccDefaultTags(t *testing.T) {
 			ignoreTagKeys: []string{"IgnoreKey"},
 			preImportHook: func(t *testing.T, outputs auto.OutputMap) {
 				t.Helper()
-				resArn := outputs["id"].Value.(string)
-				addBucketTags(context.Background(), resArn, map[string]string{
+				resArn := outputs["resArn"].Value.(string)
+				addResourceTags(context.Background(), resArn, map[string]string{
 					"IgnoreKey": "foo",
 				})
 			},
@@ -631,8 +631,8 @@ func TestAccDefaultTags(t *testing.T) {
 			ignoreTagKeys: []string{"IgnoreKey"},
 			preImportHook: func(t *testing.T, outputs auto.OutputMap) {
 				t.Helper()
-				resArn := outputs["id"].Value.(string)
-				addBucketTags(context.Background(), resArn, map[string]string{
+				resArn := outputs["resArn"].Value.(string)
+				addResourceTags(context.Background(), resArn, map[string]string{
 					"IgnoreKey": "foo",
 				})
 			},
@@ -690,7 +690,7 @@ func TestAccDefaultTags(t *testing.T) {
 			preImportHook: func(t *testing.T, outputs auto.OutputMap) {
 				t.Helper()
 				resArn := outputs["resArn"].Value.(string)
-				addAppconfigEnvironmentTags(context.Background(), resArn, map[string]string{
+				addResourceTags(context.Background(), resArn, map[string]string{
 					"IgnoreKey": "foo",
 				})
 			},
@@ -924,6 +924,20 @@ func configureS3() *s3sdk.Client {
 func configureAppconfig() *appconfigsdk.Client {
 	cfg := loadAwsDefaultConfig()
 	return appconfigsdk.NewFromConfig(cfg)
+}
+
+func configureTagSdk() *tagsdk.Client {
+	cfg := loadAwsDefaultConfig()
+	return tagsdk.NewFromConfig(cfg)
+}
+
+func addResourceTags(ctx context.Context, arn string, tags map[string]string) {
+	tag := configureTagSdk()
+	_, err := tag.TagResources(ctx, &tagsdk.TagResourcesInput{
+		ResourceARNList: []string{arn},
+		Tags:            tags,
+	})
+	contract.AssertNoErrorf(err, "error tagging resource")
 }
 
 func addAppconfigEnvironmentTags(ctx context.Context, envArn string, tags map[string]string) {
