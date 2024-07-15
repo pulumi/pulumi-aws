@@ -49,14 +49,14 @@ public final class GetLifecyclePolicyDocumentRule extends com.pulumi.resources.I
     }
 
     /**
-     * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of any must have the highest value for `priority` and be evaluated last.
+     * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of &#34;any&#34; must have the highest value for `priority` and be evaluated last.
      * 
      */
     @Import(name="priority", required=true)
     private Integer priority;
 
     /**
-     * @return Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of any must have the highest value for `priority` and be evaluated last.
+     * @return Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of &#34;any&#34; must have the highest value for `priority` and be evaluated last.
      * 
      */
     public Integer priority() {
@@ -128,7 +128,7 @@ public final class GetLifecyclePolicyDocumentRule extends com.pulumi.resources.I
         }
 
         /**
-         * @param priority Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of any must have the highest value for `priority` and be evaluated last.
+         * @param priority Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tag_status` value of &#34;any&#34; must have the highest value for `priority` and be evaluated last.
          * 
          * @return builder
          * 

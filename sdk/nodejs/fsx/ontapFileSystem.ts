@@ -36,8 +36,40 @@ import * as utilities from "../utilities";
  * const testhapairs = new aws.fsx.OntapFileSystem("testhapairs", {
  *     storageCapacity: 2048,
  *     subnetIds: [test1.id],
+ *     deploymentType: "SINGLE_AZ_1",
+ *     haPairs: 2,
+ *     throughputCapacityPerHaPair: 128,
+ *     preferredSubnetId: test1.id,
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testsingleazgen2 = new aws.fsx.OntapFileSystem("testsingleazgen2", {
+ *     storageCapacity: 4096,
+ *     subnetIds: [test1.id],
  *     deploymentType: "SINGLE_AZ_2",
- *     throughputCapacityPerHaPair: 3072,
+ *     haPairs: 4,
+ *     throughputCapacityPerHaPair: 384,
+ *     preferredSubnetId: test1.id,
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testmultiazgen2 = new aws.fsx.OntapFileSystem("testmultiazgen2", {
+ *     storageCapacity: 1024,
+ *     subnetIds: [
+ *         test1.id,
+ *         test2.id,
+ *     ],
+ *     deploymentType: "MULTI_AZ_2",
+ *     haPairs: 1,
+ *     throughputCapacityPerHaPair: 384,
  *     preferredSubnetId: test1.id,
  * });
  * ```
@@ -92,7 +124,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
-     * The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      */
     public readonly deploymentType!: pulumi.Output<string>;
     /**
@@ -116,7 +148,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly fsxAdminPassword!: pulumi.Output<string | undefined>;
     /**
-     * The number of haPairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
+     * The number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      */
     public readonly haPairs!: pulumi.Output<number>;
     /**
@@ -144,7 +176,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`.
+     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      */
     public readonly storageCapacity!: pulumi.Output<number>;
     /**
@@ -170,7 +202,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly throughputCapacity!: pulumi.Output<number>;
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 haPair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more haPairs are `3072`,`6144`. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+     * Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughputCapacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `haPairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `haPairs` is greater than 1. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
      */
     public readonly throughputCapacityPerHaPair!: pulumi.Output<number>;
     /**
@@ -284,7 +316,7 @@ export interface OntapFileSystemState {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      */
     deploymentType?: pulumi.Input<string>;
     /**
@@ -308,7 +340,7 @@ export interface OntapFileSystemState {
      */
     fsxAdminPassword?: pulumi.Input<string>;
     /**
-     * The number of haPairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
+     * The number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      */
     haPairs?: pulumi.Input<number>;
     /**
@@ -336,7 +368,7 @@ export interface OntapFileSystemState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`.
+     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      */
     storageCapacity?: pulumi.Input<number>;
     /**
@@ -362,7 +394,7 @@ export interface OntapFileSystemState {
      */
     throughputCapacity?: pulumi.Input<number>;
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 haPair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more haPairs are `3072`,`6144`. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+     * Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughputCapacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `haPairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `haPairs` is greater than 1. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
      */
     throughputCapacityPerHaPair?: pulumi.Input<number>;
     /**
@@ -388,7 +420,7 @@ export interface OntapFileSystemArgs {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      */
     deploymentType: pulumi.Input<string>;
     /**
@@ -404,7 +436,7 @@ export interface OntapFileSystemArgs {
      */
     fsxAdminPassword?: pulumi.Input<string>;
     /**
-     * The number of haPairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
+     * The number of haPairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      */
     haPairs?: pulumi.Input<number>;
     /**
@@ -424,7 +456,7 @@ export interface OntapFileSystemArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`.
+     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deploymentType `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deploymentType `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      */
     storageCapacity: pulumi.Input<number>;
     /**
@@ -444,7 +476,7 @@ export interface OntapFileSystemArgs {
      */
     throughputCapacity?: pulumi.Input<number>;
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid value when using 1 haPair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more haPairs are `3072`,`6144`. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
+     * Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughputCapacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `haPairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `haPairs` is greater than 1. This parameter is only supported when specifying the haPairs parameter. Either throughputCapacity or throughputCapacityPerHaPair must be specified.
      */
     throughputCapacityPerHaPair?: pulumi.Input<number>;
     /**

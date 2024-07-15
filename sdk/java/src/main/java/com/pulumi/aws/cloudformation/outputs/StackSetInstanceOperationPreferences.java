@@ -14,74 +14,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StackSetInstanceOperationPreferences {
     /**
-     * @return The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+     * @return Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     private @Nullable Integer failureToleranceCount;
     /**
-     * @return The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+     * @return Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     private @Nullable Integer failureTolerancePercentage;
     /**
-     * @return The maximum number of accounts in which to perform this operation at one time.
+     * @return Maximum number of accounts in which to perform this operation at one time.
      * 
      */
     private @Nullable Integer maxConcurrentCount;
     /**
-     * @return The maximum percentage of accounts in which to perform this operation at one time.
+     * @return Maximum percentage of accounts in which to perform this operation at one time.
      * 
      */
     private @Nullable Integer maxConcurrentPercentage;
     /**
-     * @return The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+     * @return Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
      * 
      */
     private @Nullable String regionConcurrencyType;
     /**
-     * @return The order of the Regions in where you want to perform the stack operation.
+     * @return Order of the Regions in where you want to perform the stack operation.
      * 
      */
     private @Nullable List<String> regionOrders;
 
     private StackSetInstanceOperationPreferences() {}
     /**
-     * @return The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+     * @return Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     public Optional<Integer> failureToleranceCount() {
         return Optional.ofNullable(this.failureToleranceCount);
     }
     /**
-     * @return The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+     * @return Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     public Optional<Integer> failureTolerancePercentage() {
         return Optional.ofNullable(this.failureTolerancePercentage);
     }
     /**
-     * @return The maximum number of accounts in which to perform this operation at one time.
+     * @return Maximum number of accounts in which to perform this operation at one time.
      * 
      */
     public Optional<Integer> maxConcurrentCount() {
         return Optional.ofNullable(this.maxConcurrentCount);
     }
     /**
-     * @return The maximum percentage of accounts in which to perform this operation at one time.
+     * @return Maximum percentage of accounts in which to perform this operation at one time.
      * 
      */
     public Optional<Integer> maxConcurrentPercentage() {
         return Optional.ofNullable(this.maxConcurrentPercentage);
     }
     /**
-     * @return The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+     * @return Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
      * 
      */
     public Optional<String> regionConcurrencyType() {
         return Optional.ofNullable(this.regionConcurrencyType);
     }
     /**
-     * @return The order of the Regions in where you want to perform the stack operation.
+     * @return Order of the Regions in where you want to perform the stack operation.
      * 
      */
     public List<String> regionOrders() {

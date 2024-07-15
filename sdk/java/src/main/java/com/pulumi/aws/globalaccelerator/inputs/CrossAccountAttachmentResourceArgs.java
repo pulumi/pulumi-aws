@@ -16,6 +16,21 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
     public static final CrossAccountAttachmentResourceArgs Empty = new CrossAccountAttachmentResourceArgs();
 
     /**
+     * IP address range, in CIDR format, that is specified as resource.
+     * 
+     */
+    @Import(name="cidrBlock")
+    private @Nullable Output<String> cidrBlock;
+
+    /**
+     * @return IP address range, in CIDR format, that is specified as resource.
+     * 
+     */
+    public Optional<Output<String>> cidrBlock() {
+        return Optional.ofNullable(this.cidrBlock);
+    }
+
+    /**
      * The endpoint ID for the endpoint that is specified as a AWS resource.
      * 
      */
@@ -48,6 +63,7 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
     private CrossAccountAttachmentResourceArgs() {}
 
     private CrossAccountAttachmentResourceArgs(CrossAccountAttachmentResourceArgs $) {
+        this.cidrBlock = $.cidrBlock;
         this.endpointId = $.endpointId;
         this.region = $.region;
     }
@@ -68,6 +84,27 @@ public final class CrossAccountAttachmentResourceArgs extends com.pulumi.resourc
 
         public Builder(CrossAccountAttachmentResourceArgs defaults) {
             $ = new CrossAccountAttachmentResourceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cidrBlock IP address range, in CIDR format, that is specified as resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrBlock(@Nullable Output<String> cidrBlock) {
+            $.cidrBlock = cidrBlock;
+            return this;
+        }
+
+        /**
+         * @param cidrBlock IP address range, in CIDR format, that is specified as resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cidrBlock(String cidrBlock) {
+            return cidrBlock(Output.of(cidrBlock));
         }
 
         /**

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.MskConnect.Inputs
         public Input<string> BootstrapServers { get; set; } = null!;
 
         /// <summary>
-        /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
         /// </summary>
         [Input("vpc", required: true)]
         public Input<Inputs.ConnectorKafkaClusterApacheKafkaClusterVpcGetArgs> Vpc { get; set; } = null!;

@@ -240,6 +240,10 @@ export class Cluster extends pulumi.CustomResource {
      * ARN of the cluster.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     */
+    public readonly bootstrapSelfManagedAddons!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[]>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
@@ -330,6 +334,7 @@ export class Cluster extends pulumi.CustomResource {
             const state = argsOrState as ClusterState | undefined;
             resourceInputs["accessConfig"] = state ? state.accessConfig : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bootstrapSelfManagedAddons"] = state ? state.bootstrapSelfManagedAddons : undefined;
             resourceInputs["certificateAuthorities"] = state ? state.certificateAuthorities : undefined;
             resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             resourceInputs["clusterId"] = state ? state.clusterId : undefined;
@@ -358,6 +363,7 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcConfig'");
             }
             resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
+            resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
             resourceInputs["defaultAddonsToRemoves"] = args ? args.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
@@ -396,6 +402,10 @@ export interface ClusterState {
      * ARN of the cluster.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     */
+    bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
     certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterCertificateAuthority>[]>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
@@ -480,6 +490,10 @@ export interface ClusterArgs {
      * Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
      */
     accessConfig?: pulumi.Input<inputs.eks.ClusterAccessConfig>;
+    /**
+     * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     */
+    bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
     defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).

@@ -97,6 +97,11 @@ export type InternetMonitor = import("./internetMonitor").InternetMonitor;
 export const InternetMonitor: typeof import("./internetMonitor").InternetMonitor = null as any;
 utilities.lazyLoad(exports, ["InternetMonitor"], () => require("./internetMonitor"));
 
+export { LogAccountPolicyArgs, LogAccountPolicyState } from "./logAccountPolicy";
+export type LogAccountPolicy = import("./logAccountPolicy").LogAccountPolicy;
+export const LogAccountPolicy: typeof import("./logAccountPolicy").LogAccountPolicy = null as any;
+utilities.lazyLoad(exports, ["LogAccountPolicy"], () => require("./logAccountPolicy"));
+
 export { LogDataProtectionPolicyArgs, LogDataProtectionPolicyState } from "./logDataProtectionPolicy";
 export type LogDataProtectionPolicy = import("./logDataProtectionPolicy").LogDataProtectionPolicy;
 export const LogDataProtectionPolicy: typeof import("./logDataProtectionPolicy").LogDataProtectionPolicy = null as any;
@@ -182,6 +187,8 @@ const _module = {
                 return new EventTarget(name, <any>undefined, { urn })
             case "aws:cloudwatch/internetMonitor:InternetMonitor":
                 return new InternetMonitor(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logAccountPolicy:LogAccountPolicy":
+                return new LogAccountPolicy(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy":
                 return new LogDataProtectionPolicy(name, <any>undefined, { urn })
             case "aws:cloudwatch/logDestination:LogDestination":
@@ -221,6 +228,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventPermission", _modu
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventTarget", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/internetMonitor", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logAccountPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDataProtectionPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logDestinationPolicy", _module)

@@ -18,14 +18,14 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
     public static final StackSetInstanceOperationPreferencesArgs Empty = new StackSetInstanceOperationPreferencesArgs();
 
     /**
-     * The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+     * Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     @Import(name="failureToleranceCount")
     private @Nullable Output<Integer> failureToleranceCount;
 
     /**
-     * @return The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+     * @return Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     public Optional<Output<Integer>> failureToleranceCount() {
@@ -33,14 +33,14 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
     }
 
     /**
-     * The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+     * Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     @Import(name="failureTolerancePercentage")
     private @Nullable Output<Integer> failureTolerancePercentage;
 
     /**
-     * @return The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+     * @return Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
      * 
      */
     public Optional<Output<Integer>> failureTolerancePercentage() {
@@ -48,14 +48,14 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
     }
 
     /**
-     * The maximum number of accounts in which to perform this operation at one time.
+     * Maximum number of accounts in which to perform this operation at one time.
      * 
      */
     @Import(name="maxConcurrentCount")
     private @Nullable Output<Integer> maxConcurrentCount;
 
     /**
-     * @return The maximum number of accounts in which to perform this operation at one time.
+     * @return Maximum number of accounts in which to perform this operation at one time.
      * 
      */
     public Optional<Output<Integer>> maxConcurrentCount() {
@@ -63,14 +63,14 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
     }
 
     /**
-     * The maximum percentage of accounts in which to perform this operation at one time.
+     * Maximum percentage of accounts in which to perform this operation at one time.
      * 
      */
     @Import(name="maxConcurrentPercentage")
     private @Nullable Output<Integer> maxConcurrentPercentage;
 
     /**
-     * @return The maximum percentage of accounts in which to perform this operation at one time.
+     * @return Maximum percentage of accounts in which to perform this operation at one time.
      * 
      */
     public Optional<Output<Integer>> maxConcurrentPercentage() {
@@ -78,14 +78,14 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
     }
 
     /**
-     * The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+     * Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
      * 
      */
     @Import(name="regionConcurrencyType")
     private @Nullable Output<String> regionConcurrencyType;
 
     /**
-     * @return The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+     * @return Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
      * 
      */
     public Optional<Output<String>> regionConcurrencyType() {
@@ -93,14 +93,14 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
     }
 
     /**
-     * The order of the Regions in where you want to perform the stack operation.
+     * Order of the Regions in where you want to perform the stack operation.
      * 
      */
     @Import(name="regionOrders")
     private @Nullable Output<List<String>> regionOrders;
 
     /**
-     * @return The order of the Regions in where you want to perform the stack operation.
+     * @return Order of the Regions in where you want to perform the stack operation.
      * 
      */
     public Optional<Output<List<String>>> regionOrders() {
@@ -137,7 +137,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param failureToleranceCount The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+         * @param failureToleranceCount Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param failureToleranceCount The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+         * @param failureToleranceCount Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param failureTolerancePercentage The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+         * @param failureTolerancePercentage Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param failureTolerancePercentage The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+         * @param failureTolerancePercentage Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param maxConcurrentCount The maximum number of accounts in which to perform this operation at one time.
+         * @param maxConcurrentCount Maximum number of accounts in which to perform this operation at one time.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param maxConcurrentCount The maximum number of accounts in which to perform this operation at one time.
+         * @param maxConcurrentCount Maximum number of accounts in which to perform this operation at one time.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param maxConcurrentPercentage The maximum percentage of accounts in which to perform this operation at one time.
+         * @param maxConcurrentPercentage Maximum percentage of accounts in which to perform this operation at one time.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param maxConcurrentPercentage The maximum percentage of accounts in which to perform this operation at one time.
+         * @param maxConcurrentPercentage Maximum percentage of accounts in which to perform this operation at one time.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param regionConcurrencyType The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+         * @param regionConcurrencyType Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param regionConcurrencyType The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+         * @param regionConcurrencyType Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param regionOrders The order of the Regions in where you want to perform the stack operation.
+         * @param regionOrders Order of the Regions in where you want to perform the stack operation.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param regionOrders The order of the Regions in where you want to perform the stack operation.
+         * @param regionOrders Order of the Regions in where you want to perform the stack operation.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class StackSetInstanceOperationPreferencesArgs extends com.pulumi.r
         }
 
         /**
-         * @param regionOrders The order of the Regions in where you want to perform the stack operation.
+         * @param regionOrders Order of the Regions in where you want to perform the stack operation.
          * 
          * @return builder
          * 

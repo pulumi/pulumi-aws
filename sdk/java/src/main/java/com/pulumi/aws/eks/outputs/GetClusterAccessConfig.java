@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 
@@ -15,6 +16,11 @@ public final class GetClusterAccessConfig {
      * 
      */
     private String authenticationMode;
+    /**
+     * @return Default to `true`.
+     * 
+     */
+    private Boolean bootstrapClusterCreatorAdminPermissions;
 
     private GetClusterAccessConfig() {}
     /**
@@ -23,6 +29,13 @@ public final class GetClusterAccessConfig {
      */
     public String authenticationMode() {
         return this.authenticationMode;
+    }
+    /**
+     * @return Default to `true`.
+     * 
+     */
+    public Boolean bootstrapClusterCreatorAdminPermissions() {
+        return this.bootstrapClusterCreatorAdminPermissions;
     }
 
     public static Builder builder() {
@@ -35,10 +48,12 @@ public final class GetClusterAccessConfig {
     @CustomType.Builder
     public static final class Builder {
         private String authenticationMode;
+        private Boolean bootstrapClusterCreatorAdminPermissions;
         public Builder() {}
         public Builder(GetClusterAccessConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationMode = defaults.authenticationMode;
+    	      this.bootstrapClusterCreatorAdminPermissions = defaults.bootstrapClusterCreatorAdminPermissions;
         }
 
         @CustomType.Setter
@@ -49,9 +64,18 @@ public final class GetClusterAccessConfig {
             this.authenticationMode = authenticationMode;
             return this;
         }
+        @CustomType.Setter
+        public Builder bootstrapClusterCreatorAdminPermissions(Boolean bootstrapClusterCreatorAdminPermissions) {
+            if (bootstrapClusterCreatorAdminPermissions == null) {
+              throw new MissingRequiredPropertyException("GetClusterAccessConfig", "bootstrapClusterCreatorAdminPermissions");
+            }
+            this.bootstrapClusterCreatorAdminPermissions = bootstrapClusterCreatorAdminPermissions;
+            return this;
+        }
         public GetClusterAccessConfig build() {
             final var _resultValue = new GetClusterAccessConfig();
             _resultValue.authenticationMode = authenticationMode;
+            _resultValue.bootstrapClusterCreatorAdminPermissions = bootstrapClusterCreatorAdminPermissions;
             return _resultValue;
         }
     }

@@ -12,6 +12,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CrossAccountAttachmentResource {
     /**
+     * @return IP address range, in CIDR format, that is specified as resource.
+     * 
+     */
+    private @Nullable String cidrBlock;
+    /**
      * @return The endpoint ID for the endpoint that is specified as a AWS resource.
      * 
      */
@@ -23,6 +28,13 @@ public final class CrossAccountAttachmentResource {
     private @Nullable String region;
 
     private CrossAccountAttachmentResource() {}
+    /**
+     * @return IP address range, in CIDR format, that is specified as resource.
+     * 
+     */
+    public Optional<String> cidrBlock() {
+        return Optional.ofNullable(this.cidrBlock);
+    }
     /**
      * @return The endpoint ID for the endpoint that is specified as a AWS resource.
      * 
@@ -47,15 +59,23 @@ public final class CrossAccountAttachmentResource {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String cidrBlock;
         private @Nullable String endpointId;
         private @Nullable String region;
         public Builder() {}
         public Builder(CrossAccountAttachmentResource defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.cidrBlock = defaults.cidrBlock;
     	      this.endpointId = defaults.endpointId;
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
+        public Builder cidrBlock(@Nullable String cidrBlock) {
+
+            this.cidrBlock = cidrBlock;
+            return this;
+        }
         @CustomType.Setter
         public Builder endpointId(@Nullable String endpointId) {
 
@@ -70,6 +90,7 @@ public final class CrossAccountAttachmentResource {
         }
         public CrossAccountAttachmentResource build() {
             final var _resultValue = new CrossAccountAttachmentResource();
+            _resultValue.cidrBlock = cidrBlock;
             _resultValue.endpointId = endpointId;
             _resultValue.region = region;
             return _resultValue;

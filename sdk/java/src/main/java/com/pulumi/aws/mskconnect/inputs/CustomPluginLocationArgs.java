@@ -15,14 +15,14 @@ public final class CustomPluginLocationArgs extends com.pulumi.resources.Resourc
     public static final CustomPluginLocationArgs Empty = new CustomPluginLocationArgs();
 
     /**
-     * Information of the plugin file stored in Amazon S3. See below.
+     * Information of the plugin file stored in Amazon S3. See `s3` Block for details..
      * 
      */
     @Import(name="s3", required=true)
     private Output<CustomPluginLocationS3Args> s3;
 
     /**
-     * @return Information of the plugin file stored in Amazon S3. See below.
+     * @return Information of the plugin file stored in Amazon S3. See `s3` Block for details..
      * 
      */
     public Output<CustomPluginLocationS3Args> s3() {
@@ -54,7 +54,7 @@ public final class CustomPluginLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param s3 Information of the plugin file stored in Amazon S3. See below.
+         * @param s3 Information of the plugin file stored in Amazon S3. See `s3` Block for details..
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class CustomPluginLocationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param s3 Information of the plugin file stored in Amazon S3. See below.
+         * @param s3 Information of the plugin file stored in Amazon S3. See `s3` Block for details..
          * 
          * @return builder
          * 

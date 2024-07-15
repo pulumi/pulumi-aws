@@ -96,6 +96,7 @@ public final class LaunchTemplateNetworkInterface {
      * 
      */
     private @Nullable String networkInterfaceId;
+    private @Nullable String primaryIpv6;
     /**
      * @return The primary private IPv4 address.
      * 
@@ -228,6 +229,9 @@ public final class LaunchTemplateNetworkInterface {
     public Optional<String> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
+    public Optional<String> primaryIpv6() {
+        return Optional.ofNullable(this.primaryIpv6);
+    }
     /**
      * @return The primary private IPv4 address.
      * 
@@ -275,6 +279,7 @@ public final class LaunchTemplateNetworkInterface {
         private @Nullable List<String> ipv6Prefixes;
         private @Nullable Integer networkCardIndex;
         private @Nullable String networkInterfaceId;
+        private @Nullable String primaryIpv6;
         private @Nullable String privateIpAddress;
         private @Nullable List<String> securityGroups;
         private @Nullable String subnetId;
@@ -297,6 +302,7 @@ public final class LaunchTemplateNetworkInterface {
     	      this.ipv6Prefixes = defaults.ipv6Prefixes;
     	      this.networkCardIndex = defaults.networkCardIndex;
     	      this.networkInterfaceId = defaults.networkInterfaceId;
+    	      this.primaryIpv6 = defaults.primaryIpv6;
     	      this.privateIpAddress = defaults.privateIpAddress;
     	      this.securityGroups = defaults.securityGroups;
     	      this.subnetId = defaults.subnetId;
@@ -411,6 +417,12 @@ public final class LaunchTemplateNetworkInterface {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryIpv6(@Nullable String primaryIpv6) {
+
+            this.primaryIpv6 = primaryIpv6;
+            return this;
+        }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
 
             this.privateIpAddress = privateIpAddress;
@@ -449,6 +461,7 @@ public final class LaunchTemplateNetworkInterface {
             _resultValue.ipv6Prefixes = ipv6Prefixes;
             _resultValue.networkCardIndex = networkCardIndex;
             _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.primaryIpv6 = primaryIpv6;
             _resultValue.privateIpAddress = privateIpAddress;
             _resultValue.securityGroups = securityGroups;
             _resultValue.subnetId = subnetId;

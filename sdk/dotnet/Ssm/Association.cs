@@ -239,6 +239,18 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> SyncCompliance { get; private set; } = null!;
 
         /// <summary>
+        /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
         /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         /// </summary>
         [Output("targets")]
@@ -382,6 +394,18 @@ namespace Pulumi.Aws.Ssm
         [Input("syncCompliance")]
         public Input<string>? SyncCompliance { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         [Input("targets")]
         private InputList<Inputs.AssociationTargetArgs>? _targets;
 
@@ -505,6 +529,31 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("syncCompliance")]
         public Input<string>? SyncCompliance { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        [Obsolete(@"Please use `tags` instead.")]
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         [Input("targets")]
         private InputList<Inputs.AssociationTargetGetArgs>? _targets;

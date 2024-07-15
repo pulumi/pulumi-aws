@@ -13,6 +13,1312 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type IdentitySourceConfiguration struct {
+	// Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+	CognitoUserPoolConfiguration *IdentitySourceConfigurationCognitoUserPoolConfiguration `pulumi:"cognitoUserPoolConfiguration"`
+	// Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+	OpenIdConnectConfiguration *IdentitySourceConfigurationOpenIdConnectConfiguration `pulumi:"openIdConnectConfiguration"`
+}
+
+// IdentitySourceConfigurationInput is an input type that accepts IdentitySourceConfigurationArgs and IdentitySourceConfigurationOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationInput` via:
+//
+//	IdentitySourceConfigurationArgs{...}
+type IdentitySourceConfigurationInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOutput() IdentitySourceConfigurationOutput
+	ToIdentitySourceConfigurationOutputWithContext(context.Context) IdentitySourceConfigurationOutput
+}
+
+type IdentitySourceConfigurationArgs struct {
+	// Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+	CognitoUserPoolConfiguration IdentitySourceConfigurationCognitoUserPoolConfigurationPtrInput `pulumi:"cognitoUserPoolConfiguration"`
+	// Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+	OpenIdConnectConfiguration IdentitySourceConfigurationOpenIdConnectConfigurationPtrInput `pulumi:"openIdConnectConfiguration"`
+}
+
+func (IdentitySourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfiguration)(nil)).Elem()
+}
+
+func (i IdentitySourceConfigurationArgs) ToIdentitySourceConfigurationOutput() IdentitySourceConfigurationOutput {
+	return i.ToIdentitySourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationArgs) ToIdentitySourceConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOutput)
+}
+
+func (i IdentitySourceConfigurationArgs) ToIdentitySourceConfigurationPtrOutput() IdentitySourceConfigurationPtrOutput {
+	return i.ToIdentitySourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationArgs) ToIdentitySourceConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOutput).ToIdentitySourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceConfigurationPtrInput is an input type that accepts IdentitySourceConfigurationArgs, IdentitySourceConfigurationPtr and IdentitySourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationPtrInput` via:
+//
+//	        IdentitySourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationPtrOutput() IdentitySourceConfigurationPtrOutput
+	ToIdentitySourceConfigurationPtrOutputWithContext(context.Context) IdentitySourceConfigurationPtrOutput
+}
+
+type identitySourceConfigurationPtrType IdentitySourceConfigurationArgs
+
+func IdentitySourceConfigurationPtr(v *IdentitySourceConfigurationArgs) IdentitySourceConfigurationPtrInput {
+	return (*identitySourceConfigurationPtrType)(v)
+}
+
+func (*identitySourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfiguration)(nil)).Elem()
+}
+
+func (i *identitySourceConfigurationPtrType) ToIdentitySourceConfigurationPtrOutput() IdentitySourceConfigurationPtrOutput {
+	return i.ToIdentitySourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceConfigurationPtrType) ToIdentitySourceConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationPtrOutput)
+}
+
+type IdentitySourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationOutput() IdentitySourceConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationPtrOutput() IdentitySourceConfigurationPtrOutput {
+	return o.ToIdentitySourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceConfiguration) *IdentitySourceConfiguration {
+		return &v
+	}).(IdentitySourceConfigurationPtrOutput)
+}
+
+// Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+func (o IdentitySourceConfigurationOutput) CognitoUserPoolConfiguration() IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
+	return o.ApplyT(func(v IdentitySourceConfiguration) *IdentitySourceConfigurationCognitoUserPoolConfiguration {
+		return v.CognitoUserPoolConfiguration
+	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput)
+}
+
+// Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+func (o IdentitySourceConfigurationOutput) OpenIdConnectConfiguration() IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
+	return o.ApplyT(func(v IdentitySourceConfiguration) *IdentitySourceConfigurationOpenIdConnectConfiguration {
+		return v.OpenIdConnectConfiguration
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput)
+}
+
+type IdentitySourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationPtrOutput) ToIdentitySourceConfigurationPtrOutput() IdentitySourceConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationPtrOutput) ToIdentitySourceConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationPtrOutput) Elem() IdentitySourceConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySourceConfiguration) IdentitySourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceConfiguration
+		return ret
+	}).(IdentitySourceConfigurationOutput)
+}
+
+// Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+func (o IdentitySourceConfigurationPtrOutput) CognitoUserPoolConfiguration() IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfiguration) *IdentitySourceConfigurationCognitoUserPoolConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CognitoUserPoolConfiguration
+	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput)
+}
+
+// Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+func (o IdentitySourceConfigurationPtrOutput) OpenIdConnectConfiguration() IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfiguration) *IdentitySourceConfigurationOpenIdConnectConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OpenIdConnectConfiguration
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput)
+}
+
+type IdentitySourceConfigurationCognitoUserPoolConfiguration struct {
+	// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+	ClientIds []string `pulumi:"clientIds"`
+	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+	GroupConfiguration *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration `pulumi:"groupConfiguration"`
+	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+	UserPoolArn string `pulumi:"userPoolArn"`
+}
+
+// IdentitySourceConfigurationCognitoUserPoolConfigurationInput is an input type that accepts IdentitySourceConfigurationCognitoUserPoolConfigurationArgs and IdentitySourceConfigurationCognitoUserPoolConfigurationOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationCognitoUserPoolConfigurationInput` via:
+//
+//	IdentitySourceConfigurationCognitoUserPoolConfigurationArgs{...}
+type IdentitySourceConfigurationCognitoUserPoolConfigurationInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationCognitoUserPoolConfigurationOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationOutput
+	ToIdentitySourceConfigurationCognitoUserPoolConfigurationOutputWithContext(context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationOutput
+}
+
+type IdentitySourceConfigurationCognitoUserPoolConfigurationArgs struct {
+	// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+	ClientIds pulumi.StringArrayInput `pulumi:"clientIds"`
+	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+	GroupConfiguration IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrInput `pulumi:"groupConfiguration"`
+	// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+	UserPoolArn pulumi.StringInput `pulumi:"userPoolArn"`
+}
+
+func (IdentitySourceConfigurationCognitoUserPoolConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationCognitoUserPoolConfiguration)(nil)).Elem()
+}
+
+func (i IdentitySourceConfigurationCognitoUserPoolConfigurationArgs) ToIdentitySourceConfigurationCognitoUserPoolConfigurationOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationOutput {
+	return i.ToIdentitySourceConfigurationCognitoUserPoolConfigurationOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationCognitoUserPoolConfigurationArgs) ToIdentitySourceConfigurationCognitoUserPoolConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationCognitoUserPoolConfigurationOutput)
+}
+
+func (i IdentitySourceConfigurationCognitoUserPoolConfigurationArgs) ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
+	return i.ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationCognitoUserPoolConfigurationArgs) ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationCognitoUserPoolConfigurationOutput).ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceConfigurationCognitoUserPoolConfigurationPtrInput is an input type that accepts IdentitySourceConfigurationCognitoUserPoolConfigurationArgs, IdentitySourceConfigurationCognitoUserPoolConfigurationPtr and IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationCognitoUserPoolConfigurationPtrInput` via:
+//
+//	        IdentitySourceConfigurationCognitoUserPoolConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceConfigurationCognitoUserPoolConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput
+	ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutputWithContext(context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput
+}
+
+type identitySourceConfigurationCognitoUserPoolConfigurationPtrType IdentitySourceConfigurationCognitoUserPoolConfigurationArgs
+
+func IdentitySourceConfigurationCognitoUserPoolConfigurationPtr(v *IdentitySourceConfigurationCognitoUserPoolConfigurationArgs) IdentitySourceConfigurationCognitoUserPoolConfigurationPtrInput {
+	return (*identitySourceConfigurationCognitoUserPoolConfigurationPtrType)(v)
+}
+
+func (*identitySourceConfigurationCognitoUserPoolConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationCognitoUserPoolConfiguration)(nil)).Elem()
+}
+
+func (i *identitySourceConfigurationCognitoUserPoolConfigurationPtrType) ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
+	return i.ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceConfigurationCognitoUserPoolConfigurationPtrType) ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput)
+}
+
+type IdentitySourceConfigurationCognitoUserPoolConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationCognitoUserPoolConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
+	return o.ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceConfigurationCognitoUserPoolConfiguration) *IdentitySourceConfigurationCognitoUserPoolConfiguration {
+		return &v
+	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput)
+}
+
+// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) ClientIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationCognitoUserPoolConfiguration) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) GroupConfiguration() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationCognitoUserPoolConfiguration) *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
+		return v.GroupConfiguration
+	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationOutput) UserPoolArn() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationCognitoUserPoolConfiguration) string { return v.UserPoolArn }).(pulumi.StringOutput)
+}
+
+type IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationCognitoUserPoolConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) Elem() IdentitySourceConfigurationCognitoUserPoolConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationCognitoUserPoolConfiguration) IdentitySourceConfigurationCognitoUserPoolConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceConfigurationCognitoUserPoolConfiguration
+		return ret
+	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationOutput)
+}
+
+// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) ClientIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationCognitoUserPoolConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) GroupConfiguration() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationCognitoUserPoolConfiguration) *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GroupConfiguration
+	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationCognitoUserPoolConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserPoolArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration struct {
+	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+	GroupEntityType string `pulumi:"groupEntityType"`
+}
+
+// IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationInput is an input type that accepts IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs and IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationInput` via:
+//
+//	IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs{...}
+type IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput
+	ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutputWithContext(context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput
+}
+
+type IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs struct {
+	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+	GroupEntityType pulumi.StringInput `pulumi:"groupEntityType"`
+}
+
+func (IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration)(nil)).Elem()
+}
+
+func (i IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput {
+	return i.ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput)
+}
+
+func (i IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
+	return i.ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput).ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrInput is an input type that accepts IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs, IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtr and IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrInput` via:
+//
+//	        IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput
+	ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutputWithContext(context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput
+}
+
+type identitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrType IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs
+
+func IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtr(v *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs) IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrInput {
+	return (*identitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrType)(v)
+}
+
+func (*identitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration)(nil)).Elem()
+}
+
+func (i *identitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrType) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
+	return i.ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrType) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput)
+}
+
+type IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
+	return o.ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration) *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
+		return &v
+	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput)
+}
+
+// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput) GroupEntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration) string {
+		return v.GroupEntityType
+	}).(pulumi.StringOutput)
+}
+
+type IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput) ToIdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput) Elem() IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration) IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration
+		return ret
+	}).(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput)
+}
+
+// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+func (o IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput) GroupEntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupEntityType
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfiguration struct {
+	// A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+	EntityIdPrefix *string `pulumi:"entityIdPrefix"`
+	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+	GroupConfiguration *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration `pulumi:"groupConfiguration"`
+	// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+	Issuer string `pulumi:"issuer"`
+	// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+	TokenSelection *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection `pulumi:"tokenSelection"`
+}
+
+// IdentitySourceConfigurationOpenIdConnectConfigurationInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationArgs and IdentitySourceConfigurationOpenIdConnectConfigurationOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationOpenIdConnectConfigurationInput` via:
+//
+//	IdentitySourceConfigurationOpenIdConnectConfigurationArgs{...}
+type IdentitySourceConfigurationOpenIdConnectConfigurationInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationOutput() IdentitySourceConfigurationOpenIdConnectConfigurationOutput
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationOutputWithContext(context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationOutput
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationArgs struct {
+	// A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+	EntityIdPrefix pulumi.StringPtrInput `pulumi:"entityIdPrefix"`
+	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+	GroupConfiguration IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrInput `pulumi:"groupConfiguration"`
+	// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+	TokenSelection IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrInput `pulumi:"tokenSelection"`
+}
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfiguration)(nil)).Elem()
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationOutput() IdentitySourceConfigurationOpenIdConnectConfigurationOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationOutput)
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationOutput).ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceConfigurationOpenIdConnectConfigurationPtrInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationArgs, IdentitySourceConfigurationOpenIdConnectConfigurationPtr and IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationOpenIdConnectConfigurationPtrInput` via:
+//
+//	        IdentitySourceConfigurationOpenIdConnectConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceConfigurationOpenIdConnectConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutputWithContext(context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput
+}
+
+type identitySourceConfigurationOpenIdConnectConfigurationPtrType IdentitySourceConfigurationOpenIdConnectConfigurationArgs
+
+func IdentitySourceConfigurationOpenIdConnectConfigurationPtr(v *IdentitySourceConfigurationOpenIdConnectConfigurationArgs) IdentitySourceConfigurationOpenIdConnectConfigurationPtrInput {
+	return (*identitySourceConfigurationOpenIdConnectConfigurationPtrType)(v)
+}
+
+func (*identitySourceConfigurationOpenIdConnectConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationOpenIdConnectConfiguration)(nil)).Elem()
+}
+
+func (i *identitySourceConfigurationOpenIdConnectConfigurationPtrType) ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceConfigurationOpenIdConnectConfigurationPtrType) ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationOutput() IdentitySourceConfigurationOpenIdConnectConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
+	return o.ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceConfigurationOpenIdConnectConfiguration) *IdentitySourceConfigurationOpenIdConnectConfiguration {
+		return &v
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput)
+}
+
+// A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) EntityIdPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfiguration) *string { return v.EntityIdPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) GroupConfiguration() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfiguration) *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
+		return v.GroupConfiguration
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput)
+}
+
+// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfiguration) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationOutput) TokenSelection() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfiguration) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
+		return v.TokenSelection
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationOpenIdConnectConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) Elem() IdentitySourceConfigurationOpenIdConnectConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfiguration) IdentitySourceConfigurationOpenIdConnectConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceConfigurationOpenIdConnectConfiguration
+		return ret
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationOutput)
+}
+
+// A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) EntityIdPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EntityIdPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) GroupConfiguration() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfiguration) *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GroupConfiguration
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput)
+}
+
+// The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput) TokenSelection() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfiguration) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
+		if v == nil {
+			return nil
+		}
+		return v.TokenSelection
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration struct {
+	GroupClaim string `pulumi:"groupClaim"`
+	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+	GroupEntityType string `pulumi:"groupEntityType"`
+}
+
+// IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs and IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationInput` via:
+//
+//	IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs{...}
+type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutputWithContext(context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs struct {
+	GroupClaim pulumi.StringInput `pulumi:"groupClaim"`
+	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+	GroupEntityType pulumi.StringInput `pulumi:"groupEntityType"`
+}
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration)(nil)).Elem()
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput)
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput).ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs, IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtr and IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrInput` via:
+//
+//	        IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutputWithContext(context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput
+}
+
+type identitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrType IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs
+
+func IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtr(v *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs) IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrInput {
+	return (*identitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrType)(v)
+}
+
+func (*identitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration)(nil)).Elem()
+}
+
+func (i *identitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrType) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrType) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
+	return o.ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
+		return &v
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput)
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput) GroupClaim() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) string {
+		return v.GroupClaim
+	}).(pulumi.StringOutput)
+}
+
+// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput) GroupEntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) string {
+		return v.GroupEntityType
+	}).(pulumi.StringOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput) Elem() IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration
+		return ret
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput)
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput) GroupClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupClaim
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput) GroupEntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupEntityType
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection struct {
+	// The OIDC configuration for processing access tokens. See Access Token Only below.
+	AccessTokenOnly *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly `pulumi:"accessTokenOnly"`
+	// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+	IdentityTokenOnly *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly `pulumi:"identityTokenOnly"`
+}
+
+// IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs and IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionInput` via:
+//
+//	IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs{...}
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutputWithContext(context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs struct {
+	// The OIDC configuration for processing access tokens. See Access Token Only below.
+	AccessTokenOnly IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrInput `pulumi:"accessTokenOnly"`
+	// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+	IdentityTokenOnly IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrInput `pulumi:"identityTokenOnly"`
+}
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection)(nil)).Elem()
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput)
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput).ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs, IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtr and IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrInput` via:
+//
+//	        IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutputWithContext(context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput
+}
+
+type identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrType IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs
+
+func IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtr(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrInput {
+	return (*identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrType)(v)
+}
+
+func (*identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection)(nil)).Elem()
+}
+
+func (i *identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrType) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrType) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
+	return o.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
+		return &v
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput)
+}
+
+// The OIDC configuration for processing access tokens. See Access Token Only below.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput) AccessTokenOnly() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
+		return v.AccessTokenOnly
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput)
+}
+
+// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput) IdentityTokenOnly() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
+		return v.IdentityTokenOnly
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput) Elem() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection
+		return ret
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput)
+}
+
+// The OIDC configuration for processing access tokens. See Access Token Only below.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput) AccessTokenOnly() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
+		if v == nil {
+			return nil
+		}
+		return v.AccessTokenOnly
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput)
+}
+
+// The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput) IdentityTokenOnly() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityTokenOnly
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly struct {
+	// The access token aud claim values that you want to accept in your policy store.
+	Audiences []string `pulumi:"audiences"`
+	// The claim that determines the principal in OIDC access tokens.
+	PrincipalIdClaim *string `pulumi:"principalIdClaim"`
+}
+
+// IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs and IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyInput` via:
+//
+//	IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs{...}
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutputWithContext(context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs struct {
+	// The access token aud claim values that you want to accept in your policy store.
+	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
+	// The claim that determines the principal in OIDC access tokens.
+	PrincipalIdClaim pulumi.StringPtrInput `pulumi:"principalIdClaim"`
+}
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly)(nil)).Elem()
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput)
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput).ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs, IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtr and IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrInput` via:
+//
+//	        IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutputWithContext(context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput
+}
+
+type identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrType IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs
+
+func IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtr(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrInput {
+	return (*identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrType)(v)
+}
+
+func (*identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly)(nil)).Elem()
+}
+
+func (i *identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrType) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrType) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
+	return o.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
+		return &v
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput)
+}
+
+// The access token aud claim values that you want to accept in your policy store.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly) []string {
+		return v.Audiences
+	}).(pulumi.StringArrayOutput)
+}
+
+// The claim that determines the principal in OIDC access tokens.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly) *string {
+		return v.PrincipalIdClaim
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput) Elem() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly
+		return ret
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput)
+}
+
+// The access token aud claim values that you want to accept in your policy store.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Audiences
+	}).(pulumi.StringArrayOutput)
+}
+
+// The claim that determines the principal in OIDC access tokens.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalIdClaim
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly struct {
+	// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+	ClientIds        []string `pulumi:"clientIds"`
+	PrincipalIdClaim *string  `pulumi:"principalIdClaim"`
+}
+
+// IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs and IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyInput` via:
+//
+//	IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs{...}
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutputWithContext(context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs struct {
+	// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+	ClientIds        pulumi.StringArrayInput `pulumi:"clientIds"`
+	PrincipalIdClaim pulumi.StringPtrInput   `pulumi:"principalIdClaim"`
+}
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly)(nil)).Elem()
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput)
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutputWithContext(context.Background())
+}
+
+func (i IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput).ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutputWithContext(ctx)
+}
+
+// IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrInput is an input type that accepts IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs, IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtr and IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrInput` via:
+//
+//	        IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs{...}
+//
+//	or:
+//
+//	        nil
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput
+	ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutputWithContext(context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput
+}
+
+type identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrType IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs
+
+func IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtr(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrInput {
+	return (*identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrType)(v)
+}
+
+func (*identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly)(nil)).Elem()
+}
+
+func (i *identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrType) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
+	return i.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutputWithContext(context.Background())
+}
+
+func (i *identitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrType) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
+	return o.ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutputWithContext(context.Background())
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
+		return &v
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput)
+}
+
+// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) ClientIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) []string {
+		return v.ClientIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) *string {
+		return v.PrincipalIdClaim
+	}).(pulumi.StringPtrOutput)
+}
+
+type IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly)(nil)).Elem()
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput) ToIdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput {
+	return o
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput) Elem() IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
+		if v != nil {
+			return *v
+		}
+		var ret IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly
+		return ret
+	}).(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput)
+}
+
+// The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput) ClientIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput) PrincipalIdClaim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalIdClaim
+	}).(pulumi.StringPtrOutput)
+}
+
 type PolicyDefinition struct {
 	// The static policy statement. See Static below.
 	Static *PolicyDefinitionStatic `pulumi:"static"`
@@ -1189,6 +2495,22 @@ func (o GetPolicyStoreValidationSettingArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationInput)(nil)).Elem(), IdentitySourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationPtrInput)(nil)).Elem(), IdentitySourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationCognitoUserPoolConfigurationInput)(nil)).Elem(), IdentitySourceConfigurationCognitoUserPoolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationCognitoUserPoolConfigurationPtrInput)(nil)).Elem(), IdentitySourceConfigurationCognitoUserPoolConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationInput)(nil)).Elem(), IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrInput)(nil)).Elem(), IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationInput)(nil)).Elem(), IdentitySourceConfigurationOpenIdConnectConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationPtrInput)(nil)).Elem(), IdentitySourceConfigurationOpenIdConnectConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationInput)(nil)).Elem(), IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrInput)(nil)).Elem(), IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionInput)(nil)).Elem(), IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrInput)(nil)).Elem(), IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyInput)(nil)).Elem(), IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrInput)(nil)).Elem(), IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyInput)(nil)).Elem(), IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrInput)(nil)).Elem(), IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionInput)(nil)).Elem(), PolicyDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionPtrInput)(nil)).Elem(), PolicyDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinitionStaticInput)(nil)).Elem(), PolicyDefinitionStaticArgs{})
@@ -1205,6 +2527,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDefinitionPtrInput)(nil)).Elem(), SchemaDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyStoreValidationSettingInput)(nil)).Elem(), GetPolicyStoreValidationSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyStoreValidationSettingArrayInput)(nil)).Elem(), GetPolicyStoreValidationSettingArray{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationCognitoUserPoolConfigurationOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationCognitoUserPoolConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOpenIdConnectConfigurationOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOpenIdConnectConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionStaticOutput{})

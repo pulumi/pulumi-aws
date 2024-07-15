@@ -118,7 +118,7 @@ if not MYPY:
         """
         bootstrap_cluster_creator_admin_permissions: NotRequired[pulumi.Input[bool]]
         """
-        Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        Whether or not to bootstrap the access config values to the cluster. Default is `false`.
         """
 elif False:
     ClusterAccessConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -130,7 +130,7 @@ class ClusterAccessConfigArgs:
                  bootstrap_cluster_creator_admin_permissions: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] authentication_mode: The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-        :param pulumi.Input[bool] bootstrap_cluster_creator_admin_permissions: Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        :param pulumi.Input[bool] bootstrap_cluster_creator_admin_permissions: Whether or not to bootstrap the access config values to the cluster. Default is `false`.
         """
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
@@ -153,7 +153,7 @@ class ClusterAccessConfigArgs:
     @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
     def bootstrap_cluster_creator_admin_permissions(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        Whether or not to bootstrap the access config values to the cluster. Default is `false`.
         """
         return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
 

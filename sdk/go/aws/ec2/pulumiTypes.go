@@ -13997,6 +13997,7 @@ type LaunchTemplateNetworkInterface struct {
 	NetworkCardIndex *int `pulumi:"networkCardIndex"`
 	// The ID of the network interface to attach.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	PrimaryIpv6        *string `pulumi:"primaryIpv6"`
 	// The primary private IPv4 address.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// A list of security group IDs to associate.
@@ -14052,6 +14053,7 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	NetworkCardIndex pulumi.IntPtrInput `pulumi:"networkCardIndex"`
 	// The ID of the network interface to attach.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	PrimaryIpv6        pulumi.StringPtrInput `pulumi:"primaryIpv6"`
 	// The primary private IPv4 address.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// A list of security group IDs to associate.
@@ -14192,6 +14194,10 @@ func (o LaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOu
 // The ID of the network interface to attach.
 func (o LaunchTemplateNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) PrimaryIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.PrimaryIpv6 }).(pulumi.StringPtrOutput)
 }
 
 // The primary private IPv4 address.
@@ -40884,6 +40890,7 @@ type GetLaunchTemplateNetworkInterface struct {
 	Ipv6Prefixes              []string `pulumi:"ipv6Prefixes"`
 	NetworkCardIndex          int      `pulumi:"networkCardIndex"`
 	NetworkInterfaceId        string   `pulumi:"networkInterfaceId"`
+	PrimaryIpv6               string   `pulumi:"primaryIpv6"`
 	PrivateIpAddress          string   `pulumi:"privateIpAddress"`
 	SecurityGroups            []string `pulumi:"securityGroups"`
 	SubnetId                  string   `pulumi:"subnetId"`
@@ -40917,6 +40924,7 @@ type GetLaunchTemplateNetworkInterfaceArgs struct {
 	Ipv6Prefixes              pulumi.StringArrayInput `pulumi:"ipv6Prefixes"`
 	NetworkCardIndex          pulumi.IntInput         `pulumi:"networkCardIndex"`
 	NetworkInterfaceId        pulumi.StringInput      `pulumi:"networkInterfaceId"`
+	PrimaryIpv6               pulumi.StringInput      `pulumi:"primaryIpv6"`
 	PrivateIpAddress          pulumi.StringInput      `pulumi:"privateIpAddress"`
 	SecurityGroups            pulumi.StringArrayInput `pulumi:"securityGroups"`
 	SubnetId                  pulumi.StringInput      `pulumi:"subnetId"`
@@ -41035,6 +41043,10 @@ func (o GetLaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntOu
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchTemplateNetworkInterfaceOutput) PrimaryIpv6() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) string { return v.PrimaryIpv6 }).(pulumi.StringOutput)
 }
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringOutput {

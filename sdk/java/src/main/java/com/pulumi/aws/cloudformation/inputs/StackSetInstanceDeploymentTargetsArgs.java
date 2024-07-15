@@ -17,14 +17,59 @@ public final class StackSetInstanceDeploymentTargetsArgs extends com.pulumi.reso
     public static final StackSetInstanceDeploymentTargetsArgs Empty = new StackSetInstanceDeploymentTargetsArgs();
 
     /**
-     * The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+     * Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+     * 
+     */
+    @Import(name="accountFilterType")
+    private @Nullable Output<String> accountFilterType;
+
+    /**
+     * @return Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+     * 
+     */
+    public Optional<Output<String>> accountFilterType() {
+        return Optional.ofNullable(this.accountFilterType);
+    }
+
+    /**
+     * List of accounts to deploy stack set updates.
+     * 
+     */
+    @Import(name="accounts")
+    private @Nullable Output<List<String>> accounts;
+
+    /**
+     * @return List of accounts to deploy stack set updates.
+     * 
+     */
+    public Optional<Output<List<String>>> accounts() {
+        return Optional.ofNullable(this.accounts);
+    }
+
+    /**
+     * S3 URL of the file containing the list of accounts.
+     * 
+     */
+    @Import(name="accountsUrl")
+    private @Nullable Output<String> accountsUrl;
+
+    /**
+     * @return S3 URL of the file containing the list of accounts.
+     * 
+     */
+    public Optional<Output<String>> accountsUrl() {
+        return Optional.ofNullable(this.accountsUrl);
+    }
+
+    /**
+     * Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
      * 
      */
     @Import(name="organizationalUnitIds")
     private @Nullable Output<List<String>> organizationalUnitIds;
 
     /**
-     * @return The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+     * @return Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
      * 
      */
     public Optional<Output<List<String>>> organizationalUnitIds() {
@@ -34,6 +79,9 @@ public final class StackSetInstanceDeploymentTargetsArgs extends com.pulumi.reso
     private StackSetInstanceDeploymentTargetsArgs() {}
 
     private StackSetInstanceDeploymentTargetsArgs(StackSetInstanceDeploymentTargetsArgs $) {
+        this.accountFilterType = $.accountFilterType;
+        this.accounts = $.accounts;
+        this.accountsUrl = $.accountsUrl;
         this.organizationalUnitIds = $.organizationalUnitIds;
     }
 
@@ -56,7 +104,80 @@ public final class StackSetInstanceDeploymentTargetsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param organizationalUnitIds The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+         * @param accountFilterType Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountFilterType(@Nullable Output<String> accountFilterType) {
+            $.accountFilterType = accountFilterType;
+            return this;
+        }
+
+        /**
+         * @param accountFilterType Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountFilterType(String accountFilterType) {
+            return accountFilterType(Output.of(accountFilterType));
+        }
+
+        /**
+         * @param accounts List of accounts to deploy stack set updates.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accounts(@Nullable Output<List<String>> accounts) {
+            $.accounts = accounts;
+            return this;
+        }
+
+        /**
+         * @param accounts List of accounts to deploy stack set updates.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accounts(List<String> accounts) {
+            return accounts(Output.of(accounts));
+        }
+
+        /**
+         * @param accounts List of accounts to deploy stack set updates.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accounts(String... accounts) {
+            return accounts(List.of(accounts));
+        }
+
+        /**
+         * @param accountsUrl S3 URL of the file containing the list of accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountsUrl(@Nullable Output<String> accountsUrl) {
+            $.accountsUrl = accountsUrl;
+            return this;
+        }
+
+        /**
+         * @param accountsUrl S3 URL of the file containing the list of accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accountsUrl(String accountsUrl) {
+            return accountsUrl(Output.of(accountsUrl));
+        }
+
+        /**
+         * @param organizationalUnitIds Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
          * 
          * @return builder
          * 
@@ -67,7 +188,7 @@ public final class StackSetInstanceDeploymentTargetsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param organizationalUnitIds The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+         * @param organizationalUnitIds Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
          * 
          * @return builder
          * 
@@ -77,7 +198,7 @@ public final class StackSetInstanceDeploymentTargetsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param organizationalUnitIds The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+         * @param organizationalUnitIds Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
          * 
          * @return builder
          * 

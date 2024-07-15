@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Efs
         /// <summary>
         /// Key-value mapping of resource tags.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetAccessPointResult(
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Efs
 
             ImmutableArray<Outputs.GetAccessPointRootDirectoryResult> rootDirectories,
 
-            ImmutableDictionary<string, string>? tags)
+            ImmutableDictionary<string, string> tags)
         {
             AccessPointId = accessPointId;
             Arn = arn;

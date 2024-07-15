@@ -12,6 +12,7 @@ import com.pulumi.aws.eks.inputs.ClusterOutpostConfigArgs;
 import com.pulumi.aws.eks.inputs.ClusterVpcConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -52,6 +53,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     * 
+     */
+    @Import(name="bootstrapSelfManagedAddons")
+    private @Nullable Output<Boolean> bootstrapSelfManagedAddons;
+
+    /**
+     * @return Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> bootstrapSelfManagedAddons() {
+        return Optional.ofNullable(this.bootstrapSelfManagedAddons);
     }
 
     @Import(name="certificateAuthorities")
@@ -340,6 +356,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     private ClusterState(ClusterState $) {
         this.accessConfig = $.accessConfig;
         this.arn = $.arn;
+        this.bootstrapSelfManagedAddons = $.bootstrapSelfManagedAddons;
         this.certificateAuthorities = $.certificateAuthorities;
         this.certificateAuthority = $.certificateAuthority;
         this.clusterId = $.clusterId;
@@ -419,6 +436,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param bootstrapSelfManagedAddons Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapSelfManagedAddons(@Nullable Output<Boolean> bootstrapSelfManagedAddons) {
+            $.bootstrapSelfManagedAddons = bootstrapSelfManagedAddons;
+            return this;
+        }
+
+        /**
+         * @param bootstrapSelfManagedAddons Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bootstrapSelfManagedAddons(Boolean bootstrapSelfManagedAddons) {
+            return bootstrapSelfManagedAddons(Output.of(bootstrapSelfManagedAddons));
         }
 
         public Builder certificateAuthorities(@Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthorities) {

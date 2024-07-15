@@ -334,9 +334,17 @@ public class Environment extends com.pulumi.resources.CustomResource {
     public Output<String> databaseVpcEndpointService() {
         return this.databaseVpcEndpointService;
     }
+    /**
+     * Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+     * 
+     */
     @Export(name="endpointManagement", refs={String.class}, tree="[0]")
     private Output<String> endpointManagement;
 
+    /**
+     * @return Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+     * 
+     */
     public Output<String> endpointManagement() {
         return this.endpointManagement;
     }

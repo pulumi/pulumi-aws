@@ -41,6 +41,66 @@ namespace Pulumi.Aws.Oam
     /// });
     /// ```
     /// 
+    /// ### Log Group Filtering
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Oam.Link("example", new()
+    ///     {
+    ///         LabelTemplate = "$AccountName",
+    ///         LinkConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationArgs
+    ///         {
+    ///             LogGroupConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationLogGroupConfigurationArgs
+    ///             {
+    ///                 Filter = "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
+    ///             },
+    ///         },
+    ///         ResourceTypes = new[]
+    ///         {
+    ///             "AWS::Logs::LogGroup",
+    ///         },
+    ///         SinkIdentifier = test.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Metric Filtering
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Oam.Link("example", new()
+    ///     {
+    ///         LabelTemplate = "$AccountName",
+    ///         LinkConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationArgs
+    ///         {
+    ///             MetricConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationMetricConfigurationArgs
+    ///             {
+    ///                 Filter = "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
+    ///             },
+    ///         },
+    ///         ResourceTypes = new[]
+    ///         {
+    ///             "AWS::CloudWatch::Metric",
+    ///         },
+    ///         SinkIdentifier = test.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
@@ -69,6 +129,12 @@ namespace Pulumi.Aws.Oam
         /// </summary>
         [Output("labelTemplate")]
         public Output<string> LabelTemplate { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        /// </summary>
+        [Output("linkConfiguration")]
+        public Output<Outputs.LinkLinkConfiguration?> LinkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// ID string that AWS generated as part of the link ARN.
@@ -157,6 +223,12 @@ namespace Pulumi.Aws.Oam
         [Input("labelTemplate", required: true)]
         public Input<string> LabelTemplate { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        /// </summary>
+        [Input("linkConfiguration")]
+        public Input<Inputs.LinkLinkConfigurationArgs>? LinkConfiguration { get; set; }
+
         [Input("resourceTypes", required: true)]
         private InputList<string>? _resourceTypes;
 
@@ -214,6 +286,12 @@ namespace Pulumi.Aws.Oam
         /// </summary>
         [Input("labelTemplate")]
         public Input<string>? LabelTemplate { get; set; }
+
+        /// <summary>
+        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        /// </summary>
+        [Input("linkConfiguration")]
+        public Input<Inputs.LinkLinkConfigurationGetArgs>? LinkConfiguration { get; set; }
 
         /// <summary>
         /// ID string that AWS generated as part of the link ARN.

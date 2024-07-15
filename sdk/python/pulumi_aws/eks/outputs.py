@@ -108,7 +108,7 @@ class ClusterAccessConfig(dict):
                  bootstrap_cluster_creator_admin_permissions: Optional[bool] = None):
         """
         :param str authentication_mode: The authentication mode for the cluster. Valid values are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
-        :param bool bootstrap_cluster_creator_admin_permissions: Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        :param bool bootstrap_cluster_creator_admin_permissions: Whether or not to bootstrap the access config values to the cluster. Default is `false`.
         """
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
@@ -127,7 +127,7 @@ class ClusterAccessConfig(dict):
     @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
     def bootstrap_cluster_creator_admin_permissions(self) -> Optional[bool]:
         """
-        Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+        Whether or not to bootstrap the access config values to the cluster. Default is `false`.
         """
         return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
 
@@ -1044,11 +1044,14 @@ class NodeGroupUpdateConfig(dict):
 @pulumi.output_type
 class GetClusterAccessConfigResult(dict):
     def __init__(__self__, *,
-                 authentication_mode: str):
+                 authentication_mode: str,
+                 bootstrap_cluster_creator_admin_permissions: bool):
         """
         :param str authentication_mode: Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
+        :param bool bootstrap_cluster_creator_admin_permissions: Default to `true`.
         """
         pulumi.set(__self__, "authentication_mode", authentication_mode)
+        pulumi.set(__self__, "bootstrap_cluster_creator_admin_permissions", bootstrap_cluster_creator_admin_permissions)
 
     @property
     @pulumi.getter(name="authenticationMode")
@@ -1057,6 +1060,14 @@ class GetClusterAccessConfigResult(dict):
         Values returned are `CONFIG_MAP`, `API` or `API_AND_CONFIG_MAP`
         """
         return pulumi.get(self, "authentication_mode")
+
+    @property
+    @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
+    def bootstrap_cluster_creator_admin_permissions(self) -> bool:
+        """
+        Default to `true`.
+        """
+        return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
 
 
 @pulumi.output_type

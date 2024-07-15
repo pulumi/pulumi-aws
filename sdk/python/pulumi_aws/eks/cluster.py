@@ -24,6 +24,7 @@ class ClusterArgs:
                  role_arn: pulumi.Input[str],
                  vpc_config: pulumi.Input['ClusterVpcConfigArgs'],
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
+                 bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
@@ -39,6 +40,7 @@ class ClusterArgs:
                
                The following arguments are optional:
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+        :param pulumi.Input[bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
@@ -51,6 +53,8 @@ class ClusterArgs:
         pulumi.set(__self__, "vpc_config", vpc_config)
         if access_config is not None:
             pulumi.set(__self__, "access_config", access_config)
+        if bootstrap_self_managed_addons is not None:
+            pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
         if default_addons_to_removes is not None:
             pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
         if enabled_cluster_log_types is not None:
@@ -105,6 +109,18 @@ class ClusterArgs:
     @access_config.setter
     def access_config(self, value: Optional[pulumi.Input['ClusterAccessConfigArgs']]):
         pulumi.set(self, "access_config", value)
+
+    @property
+    @pulumi.getter(name="bootstrapSelfManagedAddons")
+    def bootstrap_self_managed_addons(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+        """
+        return pulumi.get(self, "bootstrap_self_managed_addons")
+
+    @bootstrap_self_managed_addons.setter
+    def bootstrap_self_managed_addons(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bootstrap_self_managed_addons", value)
 
     @property
     @pulumi.getter(name="defaultAddonsToRemoves")
@@ -205,6 +221,7 @@ class _ClusterState:
     def __init__(__self__, *,
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]] = None,
                  certificate_authority: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
@@ -228,6 +245,7 @@ class _ClusterState:
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
         :param pulumi.Input[str] arn: ARN of the cluster.
+        :param pulumi.Input[bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input['ClusterCertificateAuthorityArgs'] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
@@ -252,6 +270,8 @@ class _ClusterState:
             pulumi.set(__self__, "access_config", access_config)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if bootstrap_self_managed_addons is not None:
+            pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
         if certificate_authorities is not None:
             pulumi.set(__self__, "certificate_authorities", certificate_authorities)
         if certificate_authority is not None:
@@ -317,6 +337,18 @@ class _ClusterState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="bootstrapSelfManagedAddons")
+    def bootstrap_self_managed_addons(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+        """
+        return pulumi.get(self, "bootstrap_self_managed_addons")
+
+    @bootstrap_self_managed_addons.setter
+    def bootstrap_self_managed_addons(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bootstrap_self_managed_addons", value)
 
     @property
     @pulumi.getter(name="certificateAuthorities")
@@ -550,6 +582,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
+                 bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
@@ -737,6 +770,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
+        :param pulumi.Input[bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
@@ -944,6 +978,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
+                 bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
                  default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
@@ -964,6 +999,7 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["access_config"] = access_config
+            __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
             __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
             __props__.__dict__["encryption_config"] = encryption_config
@@ -1000,6 +1036,7 @@ class Cluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
             certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]]]] = None,
             certificate_authority: Optional[pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
@@ -1028,6 +1065,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: Configuration block for the access config associated with your cluster, see [Amazon EKS Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
         :param pulumi.Input[str] arn: ARN of the cluster.
+        :param pulumi.Input[bool] bootstrap_self_managed_addons: Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
         :param pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']] certificate_authority: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[str] cluster_id: The ID of your local Amazon EKS cluster on the AWS Outpost. This attribute isn't available for an AWS EKS cluster on AWS cloud.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
@@ -1054,6 +1092,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__.__dict__["access_config"] = access_config
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
         __props__.__dict__["certificate_authorities"] = certificate_authorities
         __props__.__dict__["certificate_authority"] = certificate_authority
         __props__.__dict__["cluster_id"] = cluster_id
@@ -1090,6 +1129,14 @@ class Cluster(pulumi.CustomResource):
         ARN of the cluster.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="bootstrapSelfManagedAddons")
+    def bootstrap_self_managed_addons(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+        """
+        return pulumi.get(self, "bootstrap_self_managed_addons")
 
     @property
     @pulumi.getter(name="certificateAuthorities")

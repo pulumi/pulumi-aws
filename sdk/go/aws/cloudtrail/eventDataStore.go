@@ -130,6 +130,8 @@ type EventDataStore struct {
 	AdvancedEventSelectors EventDataStoreAdvancedEventSelectorArrayOutput `pulumi:"advancedEventSelectors"`
 	// ARN of the event data store.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+	BillingMode pulumi.StringPtrOutput `pulumi:"billingMode"`
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
@@ -184,6 +186,8 @@ type eventDataStoreState struct {
 	AdvancedEventSelectors []EventDataStoreAdvancedEventSelector `pulumi:"advancedEventSelectors"`
 	// ARN of the event data store.
 	Arn *string `pulumi:"arn"`
+	// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+	BillingMode *string `pulumi:"billingMode"`
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
@@ -209,6 +213,8 @@ type EventDataStoreState struct {
 	AdvancedEventSelectors EventDataStoreAdvancedEventSelectorArrayInput
 	// ARN of the event data store.
 	Arn pulumi.StringPtrInput
+	// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+	BillingMode pulumi.StringPtrInput
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
@@ -236,6 +242,8 @@ func (EventDataStoreState) ElementType() reflect.Type {
 type eventDataStoreArgs struct {
 	// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
 	AdvancedEventSelectors []EventDataStoreAdvancedEventSelector `pulumi:"advancedEventSelectors"`
+	// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+	BillingMode *string `pulumi:"billingMode"`
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
@@ -256,6 +264,8 @@ type eventDataStoreArgs struct {
 type EventDataStoreArgs struct {
 	// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
 	AdvancedEventSelectors EventDataStoreAdvancedEventSelectorArrayInput
+	// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+	BillingMode pulumi.StringPtrInput
 	// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
@@ -369,6 +379,11 @@ func (o EventDataStoreOutput) AdvancedEventSelectors() EventDataStoreAdvancedEve
 // ARN of the event data store.
 func (o EventDataStoreOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+func (o EventDataStoreOutput) BillingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDataStore) pulumi.StringPtrOutput { return v.BillingMode }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.

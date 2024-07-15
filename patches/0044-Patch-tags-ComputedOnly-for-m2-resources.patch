@@ -5,10 +5,10 @@ Subject: [PATCH] Patch tags ComputedOnly for m2 resources
 
 
 diff --git a/internal/service/m2/application.go b/internal/service/m2/application.go
-index 48e32e3a3e..5f4eb3e856 100644
+index 221abb4dd5..75ac5b4c94 100644
 --- a/internal/service/m2/application.go
 +++ b/internal/service/m2/application.go
-@@ -104,7 +104,7 @@ func (r *applicationResource) Schema(ctx context.Context, request resource.Schem
+@@ -105,7 +105,7 @@ func (r *applicationResource) Schema(ctx context.Context, request resource.Schem
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -18,7 +18,7 @@ index 48e32e3a3e..5f4eb3e856 100644
  		Blocks: map[string]schema.Block{
  			"definition": schema.ListNestedBlock{
 diff --git a/internal/service/m2/environment.go b/internal/service/m2/environment.go
-index 8d7b5d9ccd..ea3de1ce1b 100644
+index e0ab54314a..c30d3b0386 100644
 --- a/internal/service/m2/environment.go
 +++ b/internal/service/m2/environment.go
 @@ -174,7 +174,7 @@ func (r *environmentResource) Schema(ctx context.Context, request resource.Schem

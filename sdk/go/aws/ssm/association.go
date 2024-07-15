@@ -200,6 +200,12 @@ type Association struct {
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
 	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
 	SyncCompliance pulumi.StringPtrOutput `pulumi:"syncCompliance"`
+	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayOutput `pulumi:"targets"`
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -270,6 +276,12 @@ type associationState struct {
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
 	SyncCompliance *string `pulumi:"syncCompliance"`
+	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets []AssociationTarget `pulumi:"targets"`
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -311,6 +323,12 @@ type AssociationState struct {
 	ScheduleExpression pulumi.StringPtrInput
 	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
 	SyncCompliance pulumi.StringPtrInput
+	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayInput
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -352,6 +370,8 @@ type associationArgs struct {
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
 	SyncCompliance *string `pulumi:"syncCompliance"`
+	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets []AssociationTarget `pulumi:"targets"`
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -390,6 +410,8 @@ type AssociationArgs struct {
 	ScheduleExpression pulumi.StringPtrInput
 	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
 	SyncCompliance pulumi.StringPtrInput
+	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayInput
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -560,6 +582,18 @@ func (o AssociationOutput) ScheduleExpression() pulumi.StringPtrOutput {
 // The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
 func (o AssociationOutput) SyncCompliance() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.SyncCompliance }).(pulumi.StringPtrOutput)
+}
+
+// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o AssociationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o AssociationOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.

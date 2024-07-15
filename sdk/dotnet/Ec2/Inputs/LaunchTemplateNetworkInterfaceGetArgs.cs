@@ -135,6 +135,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
 
+        [Input("primaryIpv6")]
+        public Input<string>? PrimaryIpv6 { get; set; }
+
         /// <summary>
         /// The primary private IPv4 address.
         /// </summary>

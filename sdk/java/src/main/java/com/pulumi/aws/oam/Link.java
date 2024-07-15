@@ -6,6 +6,7 @@ package com.pulumi.aws.oam;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.oam.LinkArgs;
 import com.pulumi.aws.oam.inputs.LinkState;
+import com.pulumi.aws.oam.outputs.LinkLinkConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -51,6 +52,94 @@ import javax.annotation.Nullable;
  *             .resourceTypes("AWS::CloudWatch::Metric")
  *             .sinkIdentifier(test.id())
  *             .tags(Map.of("Env", "prod"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Log Group Filtering
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.oam.Link;
+ * import com.pulumi.aws.oam.LinkArgs;
+ * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationArgs;
+ * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationLogGroupConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Link("example", LinkArgs.builder()
+ *             .labelTemplate("$AccountName")
+ *             .linkConfiguration(LinkLinkConfigurationArgs.builder()
+ *                 .logGroupConfiguration(LinkLinkConfigurationLogGroupConfigurationArgs.builder()
+ *                     .filter("LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'")
+ *                     .build())
+ *                 .build())
+ *             .resourceTypes("AWS::Logs::LogGroup")
+ *             .sinkIdentifier(test.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Metric Filtering
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.oam.Link;
+ * import com.pulumi.aws.oam.LinkArgs;
+ * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationArgs;
+ * import com.pulumi.aws.oam.inputs.LinkLinkConfigurationMetricConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Link("example", LinkArgs.builder()
+ *             .labelTemplate("$AccountName")
+ *             .linkConfiguration(LinkLinkConfigurationArgs.builder()
+ *                 .metricConfiguration(LinkLinkConfigurationMetricConfigurationArgs.builder()
+ *                     .filter("Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')")
+ *                     .build())
+ *                 .build())
+ *             .resourceTypes("AWS::CloudWatch::Metric")
+ *             .sinkIdentifier(test.id())
  *             .build());
  * 
  *     }
@@ -111,6 +200,20 @@ public class Link extends com.pulumi.resources.CustomResource {
      */
     public Output<String> labelTemplate() {
         return this.labelTemplate;
+    }
+    /**
+     * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+     * 
+     */
+    @Export(name="linkConfiguration", refs={LinkLinkConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ LinkLinkConfiguration> linkConfiguration;
+
+    /**
+     * @return Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+     * 
+     */
+    public Output<Optional<LinkLinkConfiguration>> linkConfiguration() {
+        return Codegen.optional(this.linkConfiguration);
     }
     /**
      * ID string that AWS generated as part of the link ARN.

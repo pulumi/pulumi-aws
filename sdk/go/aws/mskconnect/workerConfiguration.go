@@ -65,6 +65,12 @@ type WorkerConfiguration struct {
 	//
 	// The following arguments are optional:
 	PropertiesFileContent pulumi.StringOutput `pulumi:"propertiesFileContent"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewWorkerConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -112,6 +118,12 @@ type workerConfigurationState struct {
 	//
 	// The following arguments are optional:
 	PropertiesFileContent *string `pulumi:"propertiesFileContent"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type WorkerConfigurationState struct {
@@ -127,6 +139,12 @@ type WorkerConfigurationState struct {
 	//
 	// The following arguments are optional:
 	PropertiesFileContent pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	//
+	// Deprecated: Please use `tags` instead.
+	TagsAll pulumi.StringMapInput
 }
 
 func (WorkerConfigurationState) ElementType() reflect.Type {
@@ -142,6 +160,8 @@ type workerConfigurationArgs struct {
 	//
 	// The following arguments are optional:
 	PropertiesFileContent string `pulumi:"propertiesFileContent"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a WorkerConfiguration resource.
@@ -154,6 +174,8 @@ type WorkerConfigurationArgs struct {
 	//
 	// The following arguments are optional:
 	PropertiesFileContent pulumi.StringInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (WorkerConfigurationArgs) ElementType() reflect.Type {
@@ -268,6 +290,18 @@ func (o WorkerConfigurationOutput) Name() pulumi.StringOutput {
 // The following arguments are optional:
 func (o WorkerConfigurationOutput) PropertiesFileContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringOutput { return v.PropertiesFileContent }).(pulumi.StringOutput)
+}
+
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o WorkerConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+//
+// Deprecated: Please use `tags` instead.
+func (o WorkerConfigurationOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkerConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type WorkerConfigurationArrayOutput struct{ *pulumi.OutputState }

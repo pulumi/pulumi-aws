@@ -13,31 +13,31 @@ namespace Pulumi.Aws.CloudFormation.Inputs
     public sealed class StackSetInstanceOperationPreferencesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+        /// Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
         /// </summary>
         [Input("failureToleranceCount")]
         public Input<int>? FailureToleranceCount { get; set; }
 
         /// <summary>
-        /// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+        /// Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
         /// </summary>
         [Input("failureTolerancePercentage")]
         public Input<int>? FailureTolerancePercentage { get; set; }
 
         /// <summary>
-        /// The maximum number of accounts in which to perform this operation at one time.
+        /// Maximum number of accounts in which to perform this operation at one time.
         /// </summary>
         [Input("maxConcurrentCount")]
         public Input<int>? MaxConcurrentCount { get; set; }
 
         /// <summary>
-        /// The maximum percentage of accounts in which to perform this operation at one time.
+        /// Maximum percentage of accounts in which to perform this operation at one time.
         /// </summary>
         [Input("maxConcurrentPercentage")]
         public Input<int>? MaxConcurrentPercentage { get; set; }
 
         /// <summary>
-        /// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+        /// Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
         /// </summary>
         [Input("regionConcurrencyType")]
         public Input<string>? RegionConcurrencyType { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.CloudFormation.Inputs
         private InputList<string>? _regionOrders;
 
         /// <summary>
-        /// The order of the Regions in where you want to perform the stack operation.
+        /// Order of the Regions in where you want to perform the stack operation.
         /// </summary>
         public InputList<string> RegionOrders
         {

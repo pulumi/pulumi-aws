@@ -18,7 +18,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
         /// </summary>
         public readonly string BootstrapServers;
         /// <summary>
-        /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorKafkaClusterApacheKafkaClusterVpc Vpc;
 

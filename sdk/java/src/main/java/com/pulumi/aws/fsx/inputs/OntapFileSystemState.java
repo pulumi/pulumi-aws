@@ -66,14 +66,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+     * The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      * 
      */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
     /**
-     * @return The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+     * @return The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
      * 
      */
     public Optional<Output<String>> deploymentType() {
@@ -156,14 +156,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
+     * The number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      * 
      */
     @Import(name="haPairs")
     private @Nullable Output<Integer> haPairs;
 
     /**
-     * @return The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
+     * @return The number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
      * 
      */
     public Optional<Output<Integer>> haPairs() {
@@ -261,14 +261,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
+     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      * 
      */
     @Import(name="storageCapacity")
     private @Nullable Output<Integer> storageCapacity;
 
     /**
-     * @return The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
+     * @return The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
      * 
      */
     public Optional<Output<Integer>> storageCapacity() {
@@ -359,14 +359,14 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * Sets the per-HA-pair throughput capacity (in MBps) for the file system that you&#39;re creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
     @Import(name="throughputCapacityPerHaPair")
     private @Nullable Output<Integer> throughputCapacityPerHaPair;
 
     /**
-     * @return Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+     * @return Sets the per-HA-pair throughput capacity (in MBps) for the file system that you&#39;re creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
      * 
      */
     public Optional<Output<Integer>> throughputCapacityPerHaPair() {
@@ -515,7 +515,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+         * @param deploymentType The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. Supports `MULTI_AZ_1`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
+         * @param deploymentType The filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -651,7 +651,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param haPairs The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
+         * @param haPairs The number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param haPairs The number of ha_pairs to deploy for the file system. Valid values are 1 through 12. Value of 2 or greater required for `SINGLE_AZ_2`. Only value of 1 is supported with `SINGLE_AZ_1` or `MULTI_AZ_1` but not required.
+         * @param haPairs The number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
          * 
          * @return builder
          * 
@@ -828,7 +828,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
+         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
          * 
          * @return builder
          * 
@@ -839,7 +839,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values between `2048` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`.
+         * @param storageCapacity The storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
          * 
          * @return builder
          * 
@@ -972,7 +972,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param throughputCapacityPerHaPair Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+         * @param throughputCapacityPerHaPair Sets the per-HA-pair throughput capacity (in MBps) for the file system that you&#39;re creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
          * 
          * @return builder
          * 
@@ -983,7 +983,7 @@ public final class OntapFileSystemState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param throughputCapacityPerHaPair Sets the throughput capacity (in MBps) for the file system that you&#39;re creating. Valid value when using 1 ha_pair are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values when using 2 or more ha_pairs are `3072`,`6144`. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
+         * @param throughputCapacityPerHaPair Sets the per-HA-pair throughput capacity (in MBps) for the file system that you&#39;re creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
          * 
          * @return builder
          * 

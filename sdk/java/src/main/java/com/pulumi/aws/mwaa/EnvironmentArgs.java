@@ -65,9 +65,17 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         return this.dagS3Path;
     }
 
+    /**
+     * Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+     * 
+     */
     @Import(name="endpointManagement")
     private @Nullable Output<String> endpointManagement;
 
+    /**
+     * @return Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+     * 
+     */
     public Optional<Output<String>> endpointManagement() {
         return Optional.ofNullable(this.endpointManagement);
     }
@@ -482,11 +490,23 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
             return dagS3Path(Output.of(dagS3Path));
         }
 
+        /**
+         * @param endpointManagement Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpointManagement(@Nullable Output<String> endpointManagement) {
             $.endpointManagement = endpointManagement;
             return this;
         }
 
+        /**
+         * @param endpointManagement Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpointManagement(String endpointManagement) {
             return endpointManagement(Output.of(endpointManagement));
         }

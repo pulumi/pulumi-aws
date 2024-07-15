@@ -167,6 +167,10 @@ class AcceleratorIpSetArgs:
 
 if not MYPY:
     class CrossAccountAttachmentResourceArgsDict(TypedDict):
+        cidr_block: NotRequired[pulumi.Input[str]]
+        """
+        IP address range, in CIDR format, that is specified as resource.
+        """
         endpoint_id: NotRequired[pulumi.Input[str]]
         """
         The endpoint ID for the endpoint that is specified as a AWS resource.
@@ -181,16 +185,32 @@ elif False:
 @pulumi.input_type
 class CrossAccountAttachmentResourceArgs:
     def __init__(__self__, *,
+                 cidr_block: Optional[pulumi.Input[str]] = None,
                  endpoint_id: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] cidr_block: IP address range, in CIDR format, that is specified as resource.
         :param pulumi.Input[str] endpoint_id: The endpoint ID for the endpoint that is specified as a AWS resource.
         :param pulumi.Input[str] region: The AWS Region where a shared endpoint resource is located.
         """
+        if cidr_block is not None:
+            pulumi.set(__self__, "cidr_block", cidr_block)
         if endpoint_id is not None:
             pulumi.set(__self__, "endpoint_id", endpoint_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address range, in CIDR format, that is specified as resource.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @cidr_block.setter
+    def cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_block", value)
 
     @property
     @pulumi.getter(name="endpointId")

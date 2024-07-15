@@ -205,7 +205,8 @@ type Environment struct {
 	// The VPC endpoint for the environment's Amazon RDS database
 	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	DatabaseVpcEndpointService pulumi.StringOutput `pulumi:"databaseVpcEndpointService"`
-	EndpointManagement         pulumi.StringOutput `pulumi:"endpointManagement"`
+	// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+	EndpointManagement pulumi.StringOutput `pulumi:"endpointManagement"`
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringOutput `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -323,7 +324,8 @@ type environmentState struct {
 	// The VPC endpoint for the environment's Amazon RDS database
 	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	DatabaseVpcEndpointService *string `pulumi:"databaseVpcEndpointService"`
-	EndpointManagement         *string `pulumi:"endpointManagement"`
+	// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+	EndpointManagement *string `pulumi:"endpointManagement"`
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass *string `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -393,7 +395,8 @@ type EnvironmentState struct {
 	// The VPC endpoint for the environment's Amazon RDS database
 	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
 	DatabaseVpcEndpointService pulumi.StringPtrInput
-	EndpointManagement         pulumi.StringPtrInput
+	// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
+	EndpointManagement pulumi.StringPtrInput
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
@@ -459,7 +462,8 @@ type environmentArgs struct {
 	// Airflow version of your environment, will be set by default to the latest version that MWAA supports.
 	AirflowVersion *string `pulumi:"airflowVersion"`
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
-	DagS3Path          string  `pulumi:"dagS3Path"`
+	DagS3Path string `pulumi:"dagS3Path"`
+	// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
 	EndpointManagement *string `pulumi:"endpointManagement"`
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass *string `pulumi:"environmentClass"`
@@ -510,7 +514,8 @@ type EnvironmentArgs struct {
 	// Airflow version of your environment, will be set by default to the latest version that MWAA supports.
 	AirflowVersion pulumi.StringPtrInput
 	// The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
-	DagS3Path          pulumi.StringInput
+	DagS3Path pulumi.StringInput
+	// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
 	EndpointManagement pulumi.StringPtrInput
 	// Environment class for the cluster. Possible options are `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
 	EnvironmentClass pulumi.StringPtrInput
@@ -672,6 +677,7 @@ func (o EnvironmentOutput) DatabaseVpcEndpointService() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DatabaseVpcEndpointService }).(pulumi.StringOutput)
 }
 
+// Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
 func (o EnvironmentOutput) EndpointManagement() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.EndpointManagement }).(pulumi.StringOutput)
 }
