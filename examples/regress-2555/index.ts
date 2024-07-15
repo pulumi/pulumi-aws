@@ -42,7 +42,6 @@ let content = doc.replace("{STEP}", String(step));
 
 // Create the SSM Automation Runbook
 const nodeBuildRunbookDoc = new aws.ssm.Document('nodeBuildRunbook-doc', {
-    name: 'nodeBuildRunbook',
     content: content,
     documentType: 'Automation',
     documentFormat: 'YAML',
