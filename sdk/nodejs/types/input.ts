@@ -10804,34 +10804,46 @@ export namespace cloudformation {
 
     export interface StackSetInstanceDeploymentTargets {
         /**
-         * The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+         * Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+         */
+        accountFilterType?: pulumi.Input<string>;
+        /**
+         * List of accounts to deploy stack set updates.
+         */
+        accounts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * S3 URL of the file containing the list of accounts.
+         */
+        accountsUrl?: pulumi.Input<string>;
+        /**
+         * Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
          */
         organizationalUnitIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface StackSetInstanceOperationPreferences {
         /**
-         * The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+         * Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
          */
         failureToleranceCount?: pulumi.Input<number>;
         /**
-         * The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+         * Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
          */
         failureTolerancePercentage?: pulumi.Input<number>;
         /**
-         * The maximum number of accounts in which to perform this operation at one time.
+         * Maximum number of accounts in which to perform this operation at one time.
          */
         maxConcurrentCount?: pulumi.Input<number>;
         /**
-         * The maximum percentage of accounts in which to perform this operation at one time.
+         * Maximum percentage of accounts in which to perform this operation at one time.
          */
         maxConcurrentPercentage?: pulumi.Input<number>;
         /**
-         * The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+         * Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
          */
         regionConcurrencyType?: pulumi.Input<string>;
         /**
-         * The order of the Regions in where you want to perform the stack operation.
+         * Order of the Regions in where you want to perform the stack operation.
          */
         regionOrders?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -21432,6 +21444,7 @@ export namespace ec2 {
          * The ID of the network interface to attach.
          */
         networkInterfaceId?: pulumi.Input<string>;
+        primaryIpv6?: pulumi.Input<string>;
         /**
          * The primary private IPv4 address.
          */
@@ -23936,7 +23949,7 @@ export namespace ecr {
          */
         description?: string;
         /**
-         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of any must have the highest value for `priority` and be evaluated last.
+         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
          */
         priority: number;
         /**
@@ -23955,7 +23968,7 @@ export namespace ecr {
          */
         description?: pulumi.Input<string>;
         /**
-         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of any must have the highest value for `priority` and be evaluated last.
+         * Sets the order in which rules are evaluated, lowest to highest. When you add rules to a lifecycle policy, you must give them each a unique value for `priority`. Values do not need to be sequential across rules in a policy. A rule with a `tagStatus` value of "any" must have the highest value for `priority` and be evaluated last.
          */
         priority: pulumi.Input<number>;
         /**
@@ -23980,11 +23993,11 @@ export namespace ecr {
 
     export interface GetLifecyclePolicyDocumentRuleSelection {
         /**
-         * Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
+         * Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
          */
         countNumber: number;
         /**
-         * Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+         * Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
          */
         countType: string;
         /**
@@ -23992,26 +24005,26 @@ export namespace ecr {
          */
         countUnit?: string;
         /**
-         * You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+         * You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
          */
         tagPatternLists?: string[];
         /**
-         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
          */
         tagPrefixLists?: string[];
         /**
-         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
+         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
          */
         tagStatus: string;
     }
 
     export interface GetLifecyclePolicyDocumentRuleSelectionArgs {
         /**
-         * Specify a count number. If the `countType` used is imageCountMoreThan, then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is sinceImagePushed, then the value is the maximum age limit for your images.
+         * Specify a count number. If the `countType` used is "imageCountMoreThan", then the value is the maximum number of images that you want to retain in your repository. If the `countType` used is "sinceImagePushed", then the value is the maximum age limit for your images.
          */
         countNumber: pulumi.Input<number>;
         /**
-         * Specify a count type to apply to the images. If `countType` is set to imageCountMoreThan, you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to sinceImagePushed, you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
+         * Specify a count type to apply to the images. If `countType` is set to "imageCountMoreThan", you also specify `countNumber` to create a rule that sets a limit on the number of images that exist in your repository. If `countType` is set to "sinceImagePushed", you also specify `countUnit` and `countNumber` to specify a time limit on the images that exist in your repository.
          */
         countType: pulumi.Input<string>;
         /**
@@ -24019,15 +24032,15 @@ export namespace ecr {
          */
         countUnit?: pulumi.Input<string>;
         /**
-         * You must specify a comma-separated list of image tag patterns that may contain wildcards (*) on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag pattern list prod* to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (*) per string. For example, ["*test*1*2*3", "test*1*2*3*"] is valid but ["test*1*2*3*4*5*6"] is invalid.
+         * You must specify a comma-separated list of image tag patterns that may contain wildcards (\*) on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag pattern list `["prod\*"]` to specify all of them. If you specify multiple tags, only the images with all specified tags are selected. There is a maximum limit of four wildcards (\*) per string. For example, `["*test*1*2*3", "test*1*2*3*"]` is valid but `["test*1*2*3*4*5*6"]` is invalid.
          */
         tagPatternLists?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as prod, prod1, prod2, and so on, you would use the tag prefix prod to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
+         * You must specify a comma-separated list of image tag prefixes on which to take action with your lifecycle policy. For example, if your images are tagged as `prod`, `prod1`, `prod2`, and so on, you would use the tag prefix "prod" to specify all of them. If you specify multiple tags, only images with all specified tags are selected.
          */
         tagPrefixLists?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are tagged, untagged, or any. If you specify any, then all images have the rule applied to them. If you specify tagged, then you must also specify a `tagPrefixList` value. If you specify untagged, then you must omit `tagPrefixList`.
+         * Determines whether the lifecycle policy rule that you are adding specifies a tag for an image. Acceptable options are "tagged", "untagged", or "any". If you specify "any", then all images have the rule applied to them. If you specify "tagged", then you must also specify a `tagPrefixList` value. If you specify "untagged", then you must omit `tagPrefixList`.
          */
         tagStatus: pulumi.Input<string>;
     }
@@ -25224,7 +25237,7 @@ export namespace eks {
          */
         authenticationMode?: pulumi.Input<string>;
         /**
-         * Whether or not to bootstrap the access config values to the cluster. Default is `true`.
+         * Whether or not to bootstrap the access config values to the cluster. Default is `false`.
          */
         bootstrapClusterCreatorAdminPermissions?: pulumi.Input<boolean>;
     }
@@ -28839,6 +28852,10 @@ export namespace globalaccelerator {
     }
 
     export interface CrossAccountAttachmentResource {
+        /**
+         * IP address range, in CIDR format, that is specified as resource.
+         */
+        cidrBlock?: pulumi.Input<string>;
         /**
          * The endpoint ID for the endpoint that is specified as a AWS resource.
          */
@@ -52447,11 +52464,11 @@ export namespace msk {
 export namespace mskconnect {
     export interface ConnectorCapacity {
         /**
-         * Information about the auto scaling parameters for the connector. See below.
+         * Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
          */
         autoscaling?: pulumi.Input<inputs.mskconnect.ConnectorCapacityAutoscaling>;
         /**
-         * Details about a fixed capacity allocated to a connector. See below.
+         * Details about a fixed capacity allocated to a connector. See `provisionedCapacity` Block for details.
          */
         provisionedCapacity?: pulumi.Input<inputs.mskconnect.ConnectorCapacityProvisionedCapacity>;
     }
@@ -52470,11 +52487,11 @@ export namespace mskconnect {
          */
         minWorkerCount: pulumi.Input<number>;
         /**
-         * The scale-in policy for the connector. See below.
+         * The scale-in policy for the connector. See `scaleInPolicy` Block for details.
          */
         scaleInPolicy?: pulumi.Input<inputs.mskconnect.ConnectorCapacityAutoscalingScaleInPolicy>;
         /**
-         * The scale-out policy for the connector. See below.
+         * The scale-out policy for the connector. See `scaleOutPolicy` Block for details.
          */
         scaleOutPolicy?: pulumi.Input<inputs.mskconnect.ConnectorCapacityAutoscalingScaleOutPolicy>;
     }
@@ -52506,7 +52523,7 @@ export namespace mskconnect {
 
     export interface ConnectorKafkaCluster {
         /**
-         * The Apache Kafka cluster to which the connector is connected.
+         * The Apache Kafka cluster to which the connector is connected. See `apacheKafkaCluster` Block for details.
          */
         apacheKafkaCluster: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterApacheKafkaCluster>;
     }
@@ -52517,7 +52534,7 @@ export namespace mskconnect {
          */
         bootstrapServers: pulumi.Input<string>;
         /**
-         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
          */
         vpc: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpc>;
     }
@@ -52549,22 +52566,22 @@ export namespace mskconnect {
 
     export interface ConnectorLogDelivery {
         /**
-         * The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+         * The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `workerLogDelivery` Block for details.
          */
         workerLogDelivery: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDelivery>;
     }
 
     export interface ConnectorLogDeliveryWorkerLogDelivery {
         /**
-         * Details about delivering logs to Amazon CloudWatch Logs. See below.
+         * Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatchLogs` Block for details.
          */
         cloudwatchLogs?: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs>;
         /**
-         * Details about delivering logs to Amazon Kinesis Data Firehose. See below.
+         * Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
          */
         firehose?: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryFirehose>;
         /**
-         * Details about delivering logs to Amazon S3. See below.
+         * Details about delivering logs to Amazon S3. See `s3` Block for deetails.
          */
         s3?: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryS3>;
     }
@@ -52608,7 +52625,7 @@ export namespace mskconnect {
 
     export interface ConnectorPlugin {
         /**
-         * Details about a custom plugin. See below.
+         * Details about a custom plugin. See `customPlugin` Block for details.
          */
         customPlugin: pulumi.Input<inputs.mskconnect.ConnectorPluginCustomPlugin>;
     }
@@ -52637,14 +52654,23 @@ export namespace mskconnect {
 
     export interface CustomPluginLocation {
         /**
-         * Information of the plugin file stored in Amazon S3. See below.
+         * Information of the plugin file stored in Amazon S3. See `s3` Block for details..
          */
         s3: pulumi.Input<inputs.mskconnect.CustomPluginLocationS3>;
     }
 
     export interface CustomPluginLocationS3 {
+        /**
+         * The Amazon Resource Name (ARN) of an S3 bucket.
+         */
         bucketArn: pulumi.Input<string>;
+        /**
+         * The file key for an object in an S3 bucket.
+         */
         fileKey: pulumi.Input<string>;
+        /**
+         * The version of an object in an S3 bucket.
+         */
         objectVersion?: pulumi.Input<string>;
     }
 }
@@ -54060,6 +54086,33 @@ export namespace networkmanager {
          * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          */
         ipv6Support?: pulumi.Input<boolean>;
+    }
+}
+
+export namespace oam {
+    export interface LinkLinkConfiguration {
+        /**
+         * Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `logGroupConfiguration` Block for details.
+         */
+        logGroupConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfigurationLogGroupConfiguration>;
+        /**
+         * Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metricConfiguration` Block for details.
+         */
+        metricConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfigurationMetricConfiguration>;
+    }
+
+    export interface LinkLinkConfigurationLogGroupConfiguration {
+        /**
+         * Filter string that specifies which log groups are to share their log events with the monitoring account. See [LogGroupConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_LogGroupConfiguration.html) for details.
+         */
+        filter: pulumi.Input<string>;
+    }
+
+    export interface LinkLinkConfigurationMetricConfiguration {
+        /**
+         * Filter string that specifies  which metrics are to be shared with the monitoring account. See [MetricConfiguration](https://docs.aws.amazon.com/OAM/latest/APIReference/API_MetricConfiguration.html) for details.
+         */
+        filter: pulumi.Input<string>;
     }
 }
 
@@ -69341,6 +69394,96 @@ export namespace verifiedaccess {
 }
 
 export namespace verifiedpermissions {
+    export interface IdentitySourceConfiguration {
+        /**
+         * Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+         */
+        cognitoUserPoolConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfiguration>;
+        /**
+         * Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+         */
+        openIdConnectConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfiguration>;
+    }
+
+    export interface IdentitySourceConfigurationCognitoUserPoolConfiguration {
+        /**
+         * The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+         */
+        clientIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         */
+        groupConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration>;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+         */
+        userPoolArn: pulumi.Input<string>;
+    }
+
+    export interface IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration {
+        /**
+         * The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+         */
+        groupEntityType: pulumi.Input<string>;
+    }
+
+    export interface IdentitySourceConfigurationOpenIdConnectConfiguration {
+        /**
+         * A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+         */
+        entityIdPrefix?: pulumi.Input<string>;
+        /**
+         * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         */
+        groupConfiguration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration>;
+        /**
+         * The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+         */
+        issuer: pulumi.Input<string>;
+        /**
+         * The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+         */
+        tokenSelection?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection>;
+    }
+
+    export interface IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
+        groupClaim: pulumi.Input<string>;
+        /**
+         * The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+         */
+        groupEntityType: pulumi.Input<string>;
+    }
+
+    export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection {
+        /**
+         * The OIDC configuration for processing access tokens. See Access Token Only below.
+         */
+        accessTokenOnly?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly>;
+        /**
+         * The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+         */
+        identityTokenOnly?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly>;
+    }
+
+    export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnly {
+        /**
+         * The access token aud claim values that you want to accept in your policy store.
+         */
+        audiences?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The claim that determines the principal in OIDC access tokens.
+         */
+        principalIdClaim?: pulumi.Input<string>;
+    }
+
+    export interface IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnly {
+        /**
+         * The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+         */
+        clientIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalIdClaim?: pulumi.Input<string>;
+    }
+
     export interface PolicyDefinition {
         /**
          * The static policy statement. See Static below.

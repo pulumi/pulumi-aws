@@ -26,7 +26,7 @@ class GetConnectorResult:
     """
     A collection of values returned by getConnector.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, version=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetConnectorResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -74,6 +77,14 @@ class GetConnectorResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def version(self) -> str:
         """
         Current version of the connector.
@@ -91,10 +102,12 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             description=self.description,
             id=self.id,
             name=self.name,
+            tags=self.tags,
             version=self.version)
 
 
 def get_connector(name: Optional[str] = None,
+                  tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
     Get information on an Amazon MSK Connect Connector.
@@ -110,9 +123,11 @@ def get_connector(name: Optional[str] = None,
 
 
     :param str name: Name of the connector.
+    :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:mskconnect/getConnector:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
@@ -121,11 +136,13 @@ def get_connector(name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_connector)
 def get_connector_output(name: Optional[pulumi.Input[str]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Get information on an Amazon MSK Connect Connector.
@@ -141,5 +158,6 @@ def get_connector_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of the connector.
+    :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
     ...

@@ -12,3 +12,5 @@ from .get_sinks import *
 from .link import *
 from .sink import *
 from .sink_policy import *
+from ._inputs import *
+from . import outputs

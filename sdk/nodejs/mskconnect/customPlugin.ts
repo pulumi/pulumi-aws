@@ -89,9 +89,7 @@ export class CustomPlugin extends pulumi.CustomResource {
      */
     public /*out*/ readonly latestRevision!: pulumi.Output<number>;
     /**
-     * Information about the location of a custom plugin. See below.
-     *
-     * The following arguments are optional:
+     * Information about the location of a custom plugin. See `location` Block for details.
      */
     public readonly location!: pulumi.Output<outputs.mskconnect.CustomPluginLocation>;
     /**
@@ -102,6 +100,18 @@ export class CustomPlugin extends pulumi.CustomResource {
      * the state of the custom plugin.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following arguments are optional:
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CustomPlugin resource with the given unique name, arguments, and options.
@@ -123,6 +133,8 @@ export class CustomPlugin extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CustomPluginArgs | undefined;
             if ((!args || args.contentType === undefined) && !opts.urn) {
@@ -135,9 +147,11 @@ export class CustomPlugin extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["latestRevision"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomPlugin.__pulumiType, name, resourceInputs, opts);
@@ -165,9 +179,7 @@ export interface CustomPluginState {
      */
     latestRevision?: pulumi.Input<number>;
     /**
-     * Information about the location of a custom plugin. See below.
-     *
-     * The following arguments are optional:
+     * Information about the location of a custom plugin. See `location` Block for details.
      */
     location?: pulumi.Input<inputs.mskconnect.CustomPluginLocation>;
     /**
@@ -178,6 +190,18 @@ export interface CustomPluginState {
      * the state of the custom plugin.
      */
     state?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following arguments are optional:
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -193,13 +217,17 @@ export interface CustomPluginArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Information about the location of a custom plugin. See below.
-     *
-     * The following arguments are optional:
+     * Information about the location of a custom plugin. See `location` Block for details.
      */
     location: pulumi.Input<inputs.mskconnect.CustomPluginLocation>;
     /**
      * The name of the custom plugin..
      */
     name?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * The following arguments are optional:
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

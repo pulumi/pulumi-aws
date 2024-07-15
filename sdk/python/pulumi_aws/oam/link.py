@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['LinkArgs', 'Link']
 
@@ -22,6 +24,7 @@ class LinkArgs:
                  label_template: pulumi.Input[str],
                  resource_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  sink_identifier: pulumi.Input[str],
+                 link_configuration: Optional[pulumi.Input['LinkLinkConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Link resource.
@@ -30,11 +33,14 @@ class LinkArgs:
         :param pulumi.Input[str] sink_identifier: Identifier of the sink to use to create this link.
                
                The following arguments are optional:
+        :param pulumi.Input['LinkLinkConfigurationArgs'] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "label_template", label_template)
         pulumi.set(__self__, "resource_types", resource_types)
         pulumi.set(__self__, "sink_identifier", sink_identifier)
+        if link_configuration is not None:
+            pulumi.set(__self__, "link_configuration", link_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -77,6 +83,18 @@ class LinkArgs:
         pulumi.set(self, "sink_identifier", value)
 
     @property
+    @pulumi.getter(name="linkConfiguration")
+    def link_configuration(self) -> Optional[pulumi.Input['LinkLinkConfigurationArgs']]:
+        """
+        Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        """
+        return pulumi.get(self, "link_configuration")
+
+    @link_configuration.setter
+    def link_configuration(self, value: Optional[pulumi.Input['LinkLinkConfigurationArgs']]):
+        pulumi.set(self, "link_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -95,6 +113,7 @@ class _LinkState:
                  arn: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  label_template: Optional[pulumi.Input[str]] = None,
+                 link_configuration: Optional[pulumi.Input['LinkLinkConfigurationArgs']] = None,
                  link_id: Optional[pulumi.Input[str]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sink_arn: Optional[pulumi.Input[str]] = None,
@@ -106,6 +125,7 @@ class _LinkState:
         :param pulumi.Input[str] arn: ARN of the link.
         :param pulumi.Input[str] label: Label that is assigned to this link.
         :param pulumi.Input[str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+        :param pulumi.Input['LinkLinkConfigurationArgs'] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         :param pulumi.Input[str] link_id: ID string that AWS generated as part of the link ARN.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[str] sink_arn: ARN of the sink that is used for this link.
@@ -120,6 +140,8 @@ class _LinkState:
             pulumi.set(__self__, "label", label)
         if label_template is not None:
             pulumi.set(__self__, "label_template", label_template)
+        if link_configuration is not None:
+            pulumi.set(__self__, "link_configuration", link_configuration)
         if link_id is not None:
             pulumi.set(__self__, "link_id", link_id)
         if resource_types is not None:
@@ -171,6 +193,18 @@ class _LinkState:
     @label_template.setter
     def label_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label_template", value)
+
+    @property
+    @pulumi.getter(name="linkConfiguration")
+    def link_configuration(self) -> Optional[pulumi.Input['LinkLinkConfigurationArgs']]:
+        """
+        Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        """
+        return pulumi.get(self, "link_configuration")
+
+    @link_configuration.setter
+    def link_configuration(self, value: Optional[pulumi.Input['LinkLinkConfigurationArgs']]):
+        pulumi.set(self, "link_configuration", value)
 
     @property
     @pulumi.getter(name="linkId")
@@ -251,6 +285,7 @@ class Link(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: Optional[pulumi.Input[str]] = None,
+                 link_configuration: Optional[pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sink_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -275,6 +310,40 @@ class Link(pulumi.CustomResource):
             })
         ```
 
+        ### Log Group Filtering
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.oam.Link("example",
+            label_template="$AccountName",
+            link_configuration={
+                "logGroupConfiguration": {
+                    "filter": "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
+                },
+            },
+            resource_types=["AWS::Logs::LogGroup"],
+            sink_identifier=test["id"])
+        ```
+
+        ### Metric Filtering
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.oam.Link("example",
+            label_template="$AccountName",
+            link_configuration={
+                "metricConfiguration": {
+                    "filter": "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
+                },
+            },
+            resource_types=["AWS::CloudWatch::Metric"],
+            sink_identifier=test["id"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
@@ -286,6 +355,7 @@ class Link(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+        :param pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[str] sink_identifier: Identifier of the sink to use to create this link.
                
@@ -318,6 +388,40 @@ class Link(pulumi.CustomResource):
             })
         ```
 
+        ### Log Group Filtering
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.oam.Link("example",
+            label_template="$AccountName",
+            link_configuration={
+                "logGroupConfiguration": {
+                    "filter": "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
+                },
+            },
+            resource_types=["AWS::Logs::LogGroup"],
+            sink_identifier=test["id"])
+        ```
+
+        ### Metric Filtering
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.oam.Link("example",
+            label_template="$AccountName",
+            link_configuration={
+                "metricConfiguration": {
+                    "filter": "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
+                },
+            },
+            resource_types=["AWS::CloudWatch::Metric"],
+            sink_identifier=test["id"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
@@ -342,6 +446,7 @@ class Link(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: Optional[pulumi.Input[str]] = None,
+                 link_configuration: Optional[pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sink_identifier: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -357,6 +462,7 @@ class Link(pulumi.CustomResource):
             if label_template is None and not opts.urn:
                 raise TypeError("Missing required property 'label_template'")
             __props__.__dict__["label_template"] = label_template
+            __props__.__dict__["link_configuration"] = link_configuration
             if resource_types is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_types'")
             __props__.__dict__["resource_types"] = resource_types
@@ -382,6 +488,7 @@ class Link(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             label: Optional[pulumi.Input[str]] = None,
             label_template: Optional[pulumi.Input[str]] = None,
+            link_configuration: Optional[pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']]] = None,
             link_id: Optional[pulumi.Input[str]] = None,
             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             sink_arn: Optional[pulumi.Input[str]] = None,
@@ -398,6 +505,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the link.
         :param pulumi.Input[str] label: Label that is assigned to this link.
         :param pulumi.Input[str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
+        :param pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         :param pulumi.Input[str] link_id: ID string that AWS generated as part of the link ARN.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[str] sink_arn: ARN of the sink that is used for this link.
@@ -413,6 +521,7 @@ class Link(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["label"] = label
         __props__.__dict__["label_template"] = label_template
+        __props__.__dict__["link_configuration"] = link_configuration
         __props__.__dict__["link_id"] = link_id
         __props__.__dict__["resource_types"] = resource_types
         __props__.__dict__["sink_arn"] = sink_arn
@@ -444,6 +553,14 @@ class Link(pulumi.CustomResource):
         Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         """
         return pulumi.get(self, "label_template")
+
+    @property
+    @pulumi.getter(name="linkConfiguration")
+    def link_configuration(self) -> pulumi.Output[Optional['outputs.LinkLinkConfiguration']]:
+        """
+        Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        """
+        return pulumi.get(self, "link_configuration")
 
     @property
     @pulumi.getter(name="linkId")

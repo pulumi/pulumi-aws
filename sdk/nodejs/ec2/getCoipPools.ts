@@ -51,7 +51,7 @@ export interface GetCoipPoolsResult {
      * Set of COIP Pool Identifiers
      */
     readonly poolIds: string[];
-    readonly tags: {[key: string]: string};
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.

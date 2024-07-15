@@ -23,6 +23,7 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getConnector:getConnector", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -34,6 +35,10 @@ export interface GetConnectorArgs {
      * Name of the connector.
      */
     name: string;
+    /**
+     * A map of tags assigned to the resource.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -53,6 +58,10 @@ export interface GetConnectorResult {
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * A map of tags assigned to the resource.
+     */
+    readonly tags: {[key: string]: string};
     /**
      * Current version of the connector.
      */
@@ -84,4 +93,8 @@ export interface GetConnectorOutputArgs {
      * Name of the connector.
      */
     name: pulumi.Input<string>;
+    /**
+     * A map of tags assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

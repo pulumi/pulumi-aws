@@ -25,7 +25,7 @@ public final class GetCoipPoolsResult {
      * 
      */
     private List<String> poolIds;
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetCoipPoolsResult() {}
     public List<GetCoipPoolsFilter> filters() {
@@ -46,7 +46,7 @@ public final class GetCoipPoolsResult {
         return this.poolIds;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -61,7 +61,7 @@ public final class GetCoipPoolsResult {
         private @Nullable List<GetCoipPoolsFilter> filters;
         private String id;
         private List<String> poolIds;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetCoipPoolsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -100,10 +100,8 @@ public final class GetCoipPoolsResult {
             return poolIds(List.of(poolIds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            if (tags == null) {
-              throw new MissingRequiredPropertyException("GetCoipPoolsResult", "tags");
-            }
+        public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

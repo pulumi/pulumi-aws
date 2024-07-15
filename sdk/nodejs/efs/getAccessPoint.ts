@@ -77,7 +77,7 @@ export interface GetAccessPointResult {
     /**
      * Key-value mapping of resource tags.
      */
-    readonly tags?: {[key: string]: string};
+    readonly tags: {[key: string]: string};
 }
 /**
  * Provides information about an Elastic File System (EFS) Access Point.

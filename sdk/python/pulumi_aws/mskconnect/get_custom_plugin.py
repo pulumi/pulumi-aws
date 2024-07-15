@@ -26,7 +26,7 @@ class GetCustomPluginResult:
     """
     A collection of values returned by getCustomPlugin.
     """
-    def __init__(__self__, arn=None, description=None, id=None, latest_revision=None, name=None, state=None):
+    def __init__(__self__, arn=None, description=None, id=None, latest_revision=None, name=None, state=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetCustomPluginResult:
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -91,6 +94,14 @@ class GetCustomPluginResult:
         """
         return pulumi.get(self, "state")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags assigned to the resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetCustomPluginResult(GetCustomPluginResult):
     # pylint: disable=using-constant-test
@@ -103,10 +114,12 @@ class AwaitableGetCustomPluginResult(GetCustomPluginResult):
             id=self.id,
             latest_revision=self.latest_revision,
             name=self.name,
-            state=self.state)
+            state=self.state,
+            tags=self.tags)
 
 
 def get_custom_plugin(name: Optional[str] = None,
+                      tags: Optional[Mapping[str, str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomPluginResult:
     """
     Get information on an Amazon MSK Connect custom plugin.
@@ -122,9 +135,11 @@ def get_custom_plugin(name: Optional[str] = None,
 
 
     :param str name: Name of the custom plugin.
+    :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:mskconnect/getCustomPlugin:getCustomPlugin', __args__, opts=opts, typ=GetCustomPluginResult).value
 
@@ -134,11 +149,13 @@ def get_custom_plugin(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         latest_revision=pulumi.get(__ret__, 'latest_revision'),
         name=pulumi.get(__ret__, 'name'),
-        state=pulumi.get(__ret__, 'state'))
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_custom_plugin)
 def get_custom_plugin_output(name: Optional[pulumi.Input[str]] = None,
+                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomPluginResult]:
     """
     Get information on an Amazon MSK Connect custom plugin.
@@ -154,5 +171,6 @@ def get_custom_plugin_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: Name of the custom plugin.
+    :param Mapping[str, str] tags: A map of tags assigned to the resource.
     """
     ...

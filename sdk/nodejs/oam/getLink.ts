@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -60,6 +63,10 @@ export interface GetLinkResult {
      * Human-readable name used to identify this source account when you are viewing data from it in the monitoring account.
      */
     readonly labelTemplate: string;
+    /**
+     * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+     */
+    readonly linkConfigurations: outputs.oam.GetLinkLinkConfiguration[];
     /**
      * ID string that AWS generated as part of the link ARN.
      */

@@ -80,6 +80,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// The ID of the network interface to attach.
         /// </summary>
         public readonly string? NetworkInterfaceId;
+        public readonly string? PrimaryIpv6;
         /// <summary>
         /// The primary private IPv4 address.
         /// </summary>
@@ -127,6 +128,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? networkInterfaceId,
 
+            string? primaryIpv6,
+
             string? privateIpAddress,
 
             ImmutableArray<string> securityGroups,
@@ -149,6 +152,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Ipv6Prefixes = ipv6Prefixes;
             NetworkCardIndex = networkCardIndex;
             NetworkInterfaceId = networkInterfaceId;
+            PrimaryIpv6 = primaryIpv6;
             PrivateIpAddress = privateIpAddress;
             SecurityGroups = securityGroups;
             SubnetId = subnetId;

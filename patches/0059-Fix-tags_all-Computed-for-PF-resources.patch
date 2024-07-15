@@ -31,7 +31,7 @@ index 98a55920b8..e1085f4cc4 100644
  	}
  }
 diff --git a/internal/service/ec2/ec2_capacity_block_reservation.go b/internal/service/ec2/ec2_capacity_block_reservation.go
-index eecf8cf1a9..e27245f1fd 100644
+index d7955409e2..15cb526ab9 100644
 --- a/internal/service/ec2/ec2_capacity_block_reservation.go
 +++ b/internal/service/ec2/ec2_capacity_block_reservation.go
 @@ -150,7 +150,7 @@ func (r *resourceCapacityBlockReservation) Schema(ctx context.Context, _ resourc

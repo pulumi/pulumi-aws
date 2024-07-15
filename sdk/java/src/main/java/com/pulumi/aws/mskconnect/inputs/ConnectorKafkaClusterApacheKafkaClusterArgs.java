@@ -31,14 +31,14 @@ public final class ConnectorKafkaClusterApacheKafkaClusterArgs extends com.pulum
     }
 
     /**
-     * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+     * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
      * 
      */
     @Import(name="vpc", required=true)
     private Output<ConnectorKafkaClusterApacheKafkaClusterVpcArgs> vpc;
 
     /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
      * 
      */
     public Output<ConnectorKafkaClusterApacheKafkaClusterVpcArgs> vpc() {
@@ -92,7 +92,7 @@ public final class ConnectorKafkaClusterApacheKafkaClusterArgs extends com.pulum
         }
 
         /**
-         * @param vpc Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         * @param vpc Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ConnectorKafkaClusterApacheKafkaClusterArgs extends com.pulum
         }
 
         /**
-         * @param vpc Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         * @param vpc Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
          * 
          * @return builder
          * 

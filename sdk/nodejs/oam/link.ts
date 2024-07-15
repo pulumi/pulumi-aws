@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -22,6 +25,42 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Env: "prod",
  *     },
+ * });
+ * ```
+ *
+ * ### Log Group Filtering
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.oam.Link("example", {
+ *     labelTemplate: "$AccountName",
+ *     linkConfiguration: {
+ *         logGroupConfiguration: {
+ *             filter: "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
+ *         },
+ *     },
+ *     resourceTypes: ["AWS::Logs::LogGroup"],
+ *     sinkIdentifier: test.id,
+ * });
+ * ```
+ *
+ * ### Metric Filtering
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.oam.Link("example", {
+ *     labelTemplate: "$AccountName",
+ *     linkConfiguration: {
+ *         metricConfiguration: {
+ *             filter: "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
+ *         },
+ *     },
+ *     resourceTypes: ["AWS::CloudWatch::Metric"],
+ *     sinkIdentifier: test.id,
  * });
  * ```
  *
@@ -74,6 +113,10 @@ export class Link extends pulumi.CustomResource {
      */
     public readonly labelTemplate!: pulumi.Output<string>;
     /**
+     * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+     */
+    public readonly linkConfiguration!: pulumi.Output<outputs.oam.LinkLinkConfiguration | undefined>;
+    /**
      * ID string that AWS generated as part of the link ARN.
      */
     public /*out*/ readonly linkId!: pulumi.Output<string>;
@@ -116,6 +159,7 @@ export class Link extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["label"] = state ? state.label : undefined;
             resourceInputs["labelTemplate"] = state ? state.labelTemplate : undefined;
+            resourceInputs["linkConfiguration"] = state ? state.linkConfiguration : undefined;
             resourceInputs["linkId"] = state ? state.linkId : undefined;
             resourceInputs["resourceTypes"] = state ? state.resourceTypes : undefined;
             resourceInputs["sinkArn"] = state ? state.sinkArn : undefined;
@@ -134,6 +178,7 @@ export class Link extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sinkIdentifier'");
             }
             resourceInputs["labelTemplate"] = args ? args.labelTemplate : undefined;
+            resourceInputs["linkConfiguration"] = args ? args.linkConfiguration : undefined;
             resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
             resourceInputs["sinkIdentifier"] = args ? args.sinkIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -164,6 +209,10 @@ export interface LinkState {
      * Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
      */
     labelTemplate?: pulumi.Input<string>;
+    /**
+     * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+     */
+    linkConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfiguration>;
     /**
      * ID string that AWS generated as part of the link ARN.
      */
@@ -200,6 +249,10 @@ export interface LinkArgs {
      * Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
      */
     labelTemplate: pulumi.Input<string>;
+    /**
+     * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
+     */
+    linkConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfiguration>;
     /**
      * Types of data that the source account shares with the monitoring account.
      */

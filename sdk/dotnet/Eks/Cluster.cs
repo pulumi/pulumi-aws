@@ -339,6 +339,12 @@ namespace Pulumi.Aws.Eks
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+        /// </summary>
+        [Output("bootstrapSelfManagedAddons")]
+        public Output<bool?> BootstrapSelfManagedAddons { get; private set; } = null!;
+
         [Output("certificateAuthorities")]
         public Output<ImmutableArray<Outputs.ClusterCertificateAuthority>> CertificateAuthorities { get; private set; } = null!;
 
@@ -501,6 +507,12 @@ namespace Pulumi.Aws.Eks
         [Input("accessConfig")]
         public Input<Inputs.ClusterAccessConfigArgs>? AccessConfig { get; set; }
 
+        /// <summary>
+        /// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+        /// </summary>
+        [Input("bootstrapSelfManagedAddons")]
+        public Input<bool>? BootstrapSelfManagedAddons { get; set; }
+
         [Input("defaultAddonsToRemoves")]
         private InputList<string>? _defaultAddonsToRemoves;
         public InputList<string> DefaultAddonsToRemoves
@@ -596,6 +608,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+        /// </summary>
+        [Input("bootstrapSelfManagedAddons")]
+        public Input<bool>? BootstrapSelfManagedAddons { get; set; }
 
         [Input("certificateAuthorities")]
         private InputList<Inputs.ClusterCertificateAuthorityGetArgs>? _certificateAuthorities;

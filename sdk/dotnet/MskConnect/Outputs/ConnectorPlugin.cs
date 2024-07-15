@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorPlugin
     {
         /// <summary>
-        /// Details about a custom plugin. See below.
+        /// Details about a custom plugin. See `custom_plugin` Block for details.
         /// </summary>
         public readonly Outputs.ConnectorPluginCustomPlugin CustomPlugin;
 

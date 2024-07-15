@@ -132,6 +132,12 @@ namespace Pulumi.Aws.CloudTrail
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+        /// </summary>
+        [Output("billingMode")]
+        public Output<string?> BillingMode { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         /// </summary>
         [Output("kmsKeyId")]
@@ -238,6 +244,12 @@ namespace Pulumi.Aws.CloudTrail
         }
 
         /// <summary>
+        /// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+        /// </summary>
+        [Input("billingMode")]
+        public Input<string>? BillingMode { get; set; }
+
+        /// <summary>
         /// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         /// </summary>
         [Input("kmsKeyId")]
@@ -310,6 +322,12 @@ namespace Pulumi.Aws.CloudTrail
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+        /// </summary>
+        [Input("billingMode")]
+        public Input<string>? BillingMode { get; set; }
 
         /// <summary>
         /// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.

@@ -130,6 +130,10 @@ namespace Pulumi.Aws.Oam
         /// </summary>
         public readonly string LabelTemplate;
         /// <summary>
+        /// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLinkLinkConfigurationResult> LinkConfigurations;
+        /// <summary>
         /// ID string that AWS generated as part of the link ARN.
         /// </summary>
         public readonly string LinkId;
@@ -154,6 +158,8 @@ namespace Pulumi.Aws.Oam
 
             string labelTemplate,
 
+            ImmutableArray<Outputs.GetLinkLinkConfigurationResult> linkConfigurations,
+
             string linkId,
 
             string linkIdentifier,
@@ -168,6 +174,7 @@ namespace Pulumi.Aws.Oam
             Id = id;
             Label = label;
             LabelTemplate = labelTemplate;
+            LinkConfigurations = linkConfigurations;
             LinkId = linkId;
             LinkIdentifier = linkIdentifier;
             ResourceTypes = resourceTypes;

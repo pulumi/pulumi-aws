@@ -6275,6 +6275,8 @@ class LaunchTemplateNetworkInterface(dict):
             suggest = "network_card_index"
         elif key == "networkInterfaceId":
             suggest = "network_interface_id"
+        elif key == "primaryIpv6":
+            suggest = "primary_ipv6"
         elif key == "privateIpAddress":
             suggest = "private_ip_address"
         elif key == "securityGroups":
@@ -6310,6 +6312,7 @@ class LaunchTemplateNetworkInterface(dict):
                  ipv6_prefixes: Optional[Sequence[str]] = None,
                  network_card_index: Optional[int] = None,
                  network_interface_id: Optional[str] = None,
+                 primary_ipv6: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
                  security_groups: Optional[Sequence[str]] = None,
                  subnet_id: Optional[str] = None):
@@ -6369,6 +6372,8 @@ class LaunchTemplateNetworkInterface(dict):
             pulumi.set(__self__, "network_card_index", network_card_index)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if primary_ipv6 is not None:
+            pulumi.set(__self__, "primary_ipv6", primary_ipv6)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if security_groups is not None:
@@ -6506,6 +6511,11 @@ class LaunchTemplateNetworkInterface(dict):
         The ID of the network interface to attach.
         """
         return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter(name="primaryIpv6")
+    def primary_ipv6(self) -> Optional[str]:
+        return pulumi.get(self, "primary_ipv6")
 
     @property
     @pulumi.getter(name="privateIpAddress")
@@ -17631,6 +17641,7 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
                  ipv6_prefixes: Sequence[str],
                  network_card_index: int,
                  network_interface_id: str,
+                 primary_ipv6: str,
                  private_ip_address: str,
                  security_groups: Sequence[str],
                  subnet_id: str,
@@ -17650,6 +17661,7 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
         pulumi.set(__self__, "ipv6_prefixes", ipv6_prefixes)
         pulumi.set(__self__, "network_card_index", network_card_index)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
+        pulumi.set(__self__, "primary_ipv6", primary_ipv6)
         pulumi.set(__self__, "private_ip_address", private_ip_address)
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -17727,6 +17739,11 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> str:
         return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter(name="primaryIpv6")
+    def primary_ipv6(self) -> str:
+        return pulumi.get(self, "primary_ipv6")
 
     @property
     @pulumi.getter(name="privateIpAddress")

@@ -15,14 +15,14 @@ public final class ConnectorKafkaClusterArgs extends com.pulumi.resources.Resour
     public static final ConnectorKafkaClusterArgs Empty = new ConnectorKafkaClusterArgs();
 
     /**
-     * The Apache Kafka cluster to which the connector is connected.
+     * The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
      * 
      */
     @Import(name="apacheKafkaCluster", required=true)
     private Output<ConnectorKafkaClusterApacheKafkaClusterArgs> apacheKafkaCluster;
 
     /**
-     * @return The Apache Kafka cluster to which the connector is connected.
+     * @return The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
      * 
      */
     public Output<ConnectorKafkaClusterApacheKafkaClusterArgs> apacheKafkaCluster() {
@@ -54,7 +54,7 @@ public final class ConnectorKafkaClusterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param apacheKafkaCluster The Apache Kafka cluster to which the connector is connected.
+         * @param apacheKafkaCluster The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ConnectorKafkaClusterArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param apacheKafkaCluster The Apache Kafka cluster to which the connector is connected.
+         * @param apacheKafkaCluster The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
          * 
          * @return builder
          * 

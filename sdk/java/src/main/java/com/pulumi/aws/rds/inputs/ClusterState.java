@@ -139,6 +139,36 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The CA certificate identifier to use for the DB cluster&#39;s server certificate.
+     * 
+     */
+    @Import(name="caCertificateIdentifier")
+    private @Nullable Output<String> caCertificateIdentifier;
+
+    /**
+     * @return The CA certificate identifier to use for the DB cluster&#39;s server certificate.
+     * 
+     */
+    public Optional<Output<String>> caCertificateIdentifier() {
+        return Optional.ofNullable(this.caCertificateIdentifier);
+    }
+
+    /**
+     * Expiration date of the DB instance’s server certificate
+     * 
+     */
+    @Import(name="caCertificateValidTill")
+    private @Nullable Output<String> caCertificateValidTill;
+
+    /**
+     * @return Expiration date of the DB instance’s server certificate
+     * 
+     */
+    public Optional<Output<String>> caCertificateValidTill() {
+        return Optional.ofNullable(this.caCertificateValidTill);
+    }
+
+    /**
      * The cluster identifier. If omitted, this provider will assign a random, unique identifier.
      * 
      */
@@ -966,6 +996,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.availabilityZones = $.availabilityZones;
         this.backtrackWindow = $.backtrackWindow;
         this.backupRetentionPeriod = $.backupRetentionPeriod;
+        this.caCertificateIdentifier = $.caCertificateIdentifier;
+        this.caCertificateValidTill = $.caCertificateValidTill;
         this.clusterIdentifier = $.clusterIdentifier;
         this.clusterIdentifierPrefix = $.clusterIdentifierPrefix;
         this.clusterMembers = $.clusterMembers;
@@ -1204,6 +1236,48 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder backupRetentionPeriod(Integer backupRetentionPeriod) {
             return backupRetentionPeriod(Output.of(backupRetentionPeriod));
+        }
+
+        /**
+         * @param caCertificateIdentifier The CA certificate identifier to use for the DB cluster&#39;s server certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder caCertificateIdentifier(@Nullable Output<String> caCertificateIdentifier) {
+            $.caCertificateIdentifier = caCertificateIdentifier;
+            return this;
+        }
+
+        /**
+         * @param caCertificateIdentifier The CA certificate identifier to use for the DB cluster&#39;s server certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder caCertificateIdentifier(String caCertificateIdentifier) {
+            return caCertificateIdentifier(Output.of(caCertificateIdentifier));
+        }
+
+        /**
+         * @param caCertificateValidTill Expiration date of the DB instance’s server certificate
+         * 
+         * @return builder
+         * 
+         */
+        public Builder caCertificateValidTill(@Nullable Output<String> caCertificateValidTill) {
+            $.caCertificateValidTill = caCertificateValidTill;
+            return this;
+        }
+
+        /**
+         * @param caCertificateValidTill Expiration date of the DB instance’s server certificate
+         * 
+         * @return builder
+         * 
+         */
+        public Builder caCertificateValidTill(String caCertificateValidTill) {
+            return caCertificateValidTill(Output.of(caCertificateValidTill));
         }
 
         /**

@@ -107,8 +107,8 @@ export class BucketObjectLockConfigurationV2 extends pulumi.CustomResource {
      */
     public readonly rule!: pulumi.Output<outputs.s3.BucketObjectLockConfigurationV2Rule | undefined>;
     /**
-     * Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-     * The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
+     * This argument is deprecated and no longer needed to enable Object Lock.
+     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      */
     public readonly token!: pulumi.Output<string | undefined>;
 
@@ -169,8 +169,8 @@ export interface BucketObjectLockConfigurationV2State {
      */
     rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationV2Rule>;
     /**
-     * Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-     * The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
+     * This argument is deprecated and no longer needed to enable Object Lock.
+     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      */
     token?: pulumi.Input<string>;
 }
@@ -196,8 +196,8 @@ export interface BucketObjectLockConfigurationV2Args {
      */
     rule?: pulumi.Input<inputs.s3.BucketObjectLockConfigurationV2Rule>;
     /**
-     * Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
-     * The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
+     * This argument is deprecated and no longer needed to enable Object Lock.
+     * To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
      */
     token?: pulumi.Input<string>;
 }

@@ -18,6 +18,8 @@ namespace Pulumi.Aws.Rds
     /// 
     /// &gt; **Note:** Multi-AZ DB clusters are supported only for the MySQL and PostgreSQL DB engines.
     /// 
+    /// &gt; **Note:** `ca_certificate_identifier` is only supported for Multi-AZ DB clusters.
+    /// 
     /// &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots. See the AWS Docs on [RDS Maintenance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html) for more information.
     /// 
     /// &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
@@ -340,6 +342,18 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("backupRetentionPeriod")]
         public Output<int> BackupRetentionPeriod { get; private set; } = null!;
+
+        /// <summary>
+        /// The CA certificate identifier to use for the DB cluster's server certificate.
+        /// </summary>
+        [Output("caCertificateIdentifier")]
+        public Output<string?> CaCertificateIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Expiration date of the DB instance’s server certificate
+        /// </summary>
+        [Output("caCertificateValidTill")]
+        public Output<string> CaCertificateValidTill { get; private set; } = null!;
 
         /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
@@ -762,6 +776,12 @@ namespace Pulumi.Aws.Rds
         public Input<int>? BackupRetentionPeriod { get; set; }
 
         /// <summary>
+        /// The CA certificate identifier to use for the DB cluster's server certificate.
+        /// </summary>
+        [Input("caCertificateIdentifier")]
+        public Input<string>? CaCertificateIdentifier { get; set; }
+
+        /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Input("clusterIdentifier")]
@@ -1141,6 +1161,18 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("backupRetentionPeriod")]
         public Input<int>? BackupRetentionPeriod { get; set; }
+
+        /// <summary>
+        /// The CA certificate identifier to use for the DB cluster's server certificate.
+        /// </summary>
+        [Input("caCertificateIdentifier")]
+        public Input<string>? CaCertificateIdentifier { get; set; }
+
+        /// <summary>
+        /// Expiration date of the DB instance’s server certificate
+        /// </summary>
+        [Input("caCertificateValidTill")]
+        public Input<string>? CaCertificateValidTill { get; set; }
 
         /// <summary>
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.

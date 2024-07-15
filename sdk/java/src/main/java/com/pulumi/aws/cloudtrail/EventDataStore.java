@@ -172,6 +172,20 @@ public class EventDataStore extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+     * 
+     */
+    @Export(name="billingMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> billingMode;
+
+    /**
+     * @return The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
+     * 
+     */
+    public Output<Optional<String>> billingMode() {
+        return Codegen.optional(this.billingMode);
+    }
+    /**
      * Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      * 
      */

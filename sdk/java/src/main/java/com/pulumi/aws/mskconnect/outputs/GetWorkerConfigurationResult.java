@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -37,6 +38,11 @@ public final class GetWorkerConfigurationResult {
      * 
      */
     private String propertiesFileContent;
+    /**
+     * @return A map of tags assigned to the resource.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetWorkerConfigurationResult() {}
     /**
@@ -77,6 +83,13 @@ public final class GetWorkerConfigurationResult {
     public String propertiesFileContent() {
         return this.propertiesFileContent;
     }
+    /**
+     * @return A map of tags assigned to the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -93,6 +106,7 @@ public final class GetWorkerConfigurationResult {
         private Integer latestRevision;
         private String name;
         private String propertiesFileContent;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetWorkerConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -102,6 +116,7 @@ public final class GetWorkerConfigurationResult {
     	      this.latestRevision = defaults.latestRevision;
     	      this.name = defaults.name;
     	      this.propertiesFileContent = defaults.propertiesFileContent;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -152,6 +167,14 @@ public final class GetWorkerConfigurationResult {
             this.propertiesFileContent = propertiesFileContent;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetWorkerConfigurationResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetWorkerConfigurationResult build() {
             final var _resultValue = new GetWorkerConfigurationResult();
             _resultValue.arn = arn;
@@ -160,6 +183,7 @@ public final class GetWorkerConfigurationResult {
             _resultValue.latestRevision = latestRevision;
             _resultValue.name = name;
             _resultValue.propertiesFileContent = propertiesFileContent;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

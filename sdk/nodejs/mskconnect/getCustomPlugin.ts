@@ -23,6 +23,7 @@ export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getCustomPlugin:getCustomPlugin", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -34,6 +35,10 @@ export interface GetCustomPluginArgs {
      * Name of the custom plugin.
      */
     name: string;
+    /**
+     * A map of tags assigned to the resource.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -61,6 +66,10 @@ export interface GetCustomPluginResult {
      * the state of the custom plugin.
      */
     readonly state: string;
+    /**
+     * A map of tags assigned to the resource.
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * Get information on an Amazon MSK Connect custom plugin.
@@ -88,4 +97,8 @@ export interface GetCustomPluginOutputArgs {
      * Name of the custom plugin.
      */
     name: pulumi.Input<string>;
+    /**
+     * A map of tags assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

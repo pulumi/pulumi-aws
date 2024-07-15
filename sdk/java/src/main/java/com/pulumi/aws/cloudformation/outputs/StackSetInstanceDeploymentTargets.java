@@ -7,19 +7,56 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class StackSetInstanceDeploymentTargets {
     /**
-     * @return The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+     * @return Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+     * 
+     */
+    private @Nullable String accountFilterType;
+    /**
+     * @return List of accounts to deploy stack set updates.
+     * 
+     */
+    private @Nullable List<String> accounts;
+    /**
+     * @return S3 URL of the file containing the list of accounts.
+     * 
+     */
+    private @Nullable String accountsUrl;
+    /**
+     * @return Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
      * 
      */
     private @Nullable List<String> organizationalUnitIds;
 
     private StackSetInstanceDeploymentTargets() {}
     /**
-     * @return The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+     * @return Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+     * 
+     */
+    public Optional<String> accountFilterType() {
+        return Optional.ofNullable(this.accountFilterType);
+    }
+    /**
+     * @return List of accounts to deploy stack set updates.
+     * 
+     */
+    public List<String> accounts() {
+        return this.accounts == null ? List.of() : this.accounts;
+    }
+    /**
+     * @return S3 URL of the file containing the list of accounts.
+     * 
+     */
+    public Optional<String> accountsUrl() {
+        return Optional.ofNullable(this.accountsUrl);
+    }
+    /**
+     * @return Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
      * 
      */
     public List<String> organizationalUnitIds() {
@@ -35,13 +72,40 @@ public final class StackSetInstanceDeploymentTargets {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String accountFilterType;
+        private @Nullable List<String> accounts;
+        private @Nullable String accountsUrl;
         private @Nullable List<String> organizationalUnitIds;
         public Builder() {}
         public Builder(StackSetInstanceDeploymentTargets defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accountFilterType = defaults.accountFilterType;
+    	      this.accounts = defaults.accounts;
+    	      this.accountsUrl = defaults.accountsUrl;
     	      this.organizationalUnitIds = defaults.organizationalUnitIds;
         }
 
+        @CustomType.Setter
+        public Builder accountFilterType(@Nullable String accountFilterType) {
+
+            this.accountFilterType = accountFilterType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder accounts(@Nullable List<String> accounts) {
+
+            this.accounts = accounts;
+            return this;
+        }
+        public Builder accounts(String... accounts) {
+            return accounts(List.of(accounts));
+        }
+        @CustomType.Setter
+        public Builder accountsUrl(@Nullable String accountsUrl) {
+
+            this.accountsUrl = accountsUrl;
+            return this;
+        }
         @CustomType.Setter
         public Builder organizationalUnitIds(@Nullable List<String> organizationalUnitIds) {
 
@@ -53,6 +117,9 @@ public final class StackSetInstanceDeploymentTargets {
         }
         public StackSetInstanceDeploymentTargets build() {
             final var _resultValue = new StackSetInstanceDeploymentTargets();
+            _resultValue.accountFilterType = accountFilterType;
+            _resultValue.accounts = accounts;
+            _resultValue.accountsUrl = accountsUrl;
             _resultValue.organizationalUnitIds = organizationalUnitIds;
             return _resultValue;
         }

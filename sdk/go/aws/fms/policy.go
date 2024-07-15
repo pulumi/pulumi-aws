@@ -112,7 +112,8 @@ type Policy struct {
 	// A unique identifier for each update to the policy.
 	PolicyUpdateToken pulumi.StringOutput `pulumi:"policyUpdateToken"`
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-	RemediationEnabled pulumi.BoolPtrOutput `pulumi:"remediationEnabled"`
+	RemediationEnabled pulumi.BoolPtrOutput     `pulumi:"remediationEnabled"`
+	ResourceSetIds     pulumi.StringArrayOutput `pulumi:"resourceSetIds"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -183,7 +184,8 @@ type policyState struct {
 	// A unique identifier for each update to the policy.
 	PolicyUpdateToken *string `pulumi:"policyUpdateToken"`
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-	RemediationEnabled *bool `pulumi:"remediationEnabled"`
+	RemediationEnabled *bool    `pulumi:"remediationEnabled"`
+	ResourceSetIds     []string `pulumi:"resourceSetIds"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -220,6 +222,7 @@ type PolicyState struct {
 	PolicyUpdateToken pulumi.StringPtrInput
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrInput
+	ResourceSetIds     pulumi.StringArrayInput
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapInput
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -256,7 +259,8 @@ type policyArgs struct {
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name *string `pulumi:"name"`
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-	RemediationEnabled *bool `pulumi:"remediationEnabled"`
+	RemediationEnabled *bool    `pulumi:"remediationEnabled"`
+	ResourceSetIds     []string `pulumi:"resourceSetIds"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -287,6 +291,7 @@ type PolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrInput
+	ResourceSetIds     pulumi.StringArrayInput
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapInput
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -433,6 +438,10 @@ func (o PolicyOutput) PolicyUpdateToken() pulumi.StringOutput {
 // A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 func (o PolicyOutput) RemediationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.RemediationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o PolicyOutput) ResourceSetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.ResourceSetIds }).(pulumi.StringArrayOutput)
 }
 
 // A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.

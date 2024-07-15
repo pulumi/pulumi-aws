@@ -30,7 +30,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
      * 
      */
     private List<String> localGatewayVirtualInterfaceIds;
-    private Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
     private GetLocalGatewayVirtualInterfaceGroupsResult() {}
     public List<GetLocalGatewayVirtualInterfaceGroupsFilter> filters() {
@@ -58,7 +58,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
         return this.localGatewayVirtualInterfaceIds;
     }
     public Map<String,String> tags() {
-        return this.tags;
+        return this.tags == null ? Map.of() : this.tags;
     }
 
     public static Builder builder() {
@@ -74,7 +74,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
         private String id;
         private List<String> ids;
         private List<String> localGatewayVirtualInterfaceIds;
-        private Map<String,String> tags;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetLocalGatewayVirtualInterfaceGroupsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -125,10 +125,8 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
             return localGatewayVirtualInterfaceIds(List.of(localGatewayVirtualInterfaceIds));
         }
         @CustomType.Setter
-        public Builder tags(Map<String,String> tags) {
-            if (tags == null) {
-              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceGroupsResult", "tags");
-            }
+        public Builder tags(@Nullable Map<String,String> tags) {
+
             this.tags = tags;
             return this;
         }

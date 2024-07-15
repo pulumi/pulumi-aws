@@ -17,6 +17,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -415,6 +416,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     * 
+     */
+    @Export(name="bootstrapSelfManagedAddons", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> bootstrapSelfManagedAddons;
+
+    /**
+     * @return Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> bootstrapSelfManagedAddons() {
+        return Codegen.optional(this.bootstrapSelfManagedAddons);
     }
     @Export(name="certificateAuthorities", refs={List.class,ClusterCertificateAuthority.class}, tree="[0,1]")
     private Output<List<ClusterCertificateAuthority>> certificateAuthorities;

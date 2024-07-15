@@ -6,6 +6,7 @@ package com.pulumi.aws.mskconnect.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -26,6 +27,11 @@ public final class GetConnectorResult {
      */
     private String id;
     private String name;
+    /**
+     * @return A map of tags assigned to the resource.
+     * 
+     */
+    private Map<String,String> tags;
     /**
      * @return Current version of the connector.
      * 
@@ -58,6 +64,13 @@ public final class GetConnectorResult {
         return this.name;
     }
     /**
+     * @return A map of tags assigned to the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
+    /**
      * @return Current version of the connector.
      * 
      */
@@ -78,6 +91,7 @@ public final class GetConnectorResult {
         private String description;
         private String id;
         private String name;
+        private Map<String,String> tags;
         private String version;
         public Builder() {}
         public Builder(GetConnectorResult defaults) {
@@ -86,6 +100,7 @@ public final class GetConnectorResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.tags = defaults.tags;
     	      this.version = defaults.version;
         }
 
@@ -122,6 +137,14 @@ public final class GetConnectorResult {
             return this;
         }
         @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetConnectorResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
+        @CustomType.Setter
         public Builder version(String version) {
             if (version == null) {
               throw new MissingRequiredPropertyException("GetConnectorResult", "version");
@@ -135,6 +158,7 @@ public final class GetConnectorResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.tags = tags;
             _resultValue.version = version;
             return _resultValue;
         }

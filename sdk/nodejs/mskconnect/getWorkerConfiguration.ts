@@ -23,6 +23,7 @@ export function getWorkerConfiguration(args: GetWorkerConfigurationArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -34,6 +35,10 @@ export interface GetWorkerConfigurationArgs {
      * Name of the worker configuration.
      */
     name: string;
+    /**
+     * A map of tags assigned to the resource.
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -61,6 +66,10 @@ export interface GetWorkerConfigurationResult {
      * contents of connect-distributed.properties file.
      */
     readonly propertiesFileContent: string;
+    /**
+     * A map of tags assigned to the resource.
+     */
+    readonly tags: {[key: string]: string};
 }
 /**
  * Get information on an Amazon MSK Connect Worker Configuration.
@@ -88,4 +97,8 @@ export interface GetWorkerConfigurationOutputArgs {
      * Name of the worker configuration.
      */
     name: pulumi.Input<string>;
+    /**
+     * A map of tags assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -57,7 +57,7 @@ index 4c026280ed..99b1694b82 100644
  				CustomType: timetypes.RFC3339Type{},
  				Computed:   true,
 diff --git a/internal/service/globalaccelerator/cross_account_attachment.go b/internal/service/globalaccelerator/cross_account_attachment.go
-index c6204cfc63..f0d1a055dd 100644
+index 436858c258..a6cbfe5ab3 100644
 --- a/internal/service/globalaccelerator/cross_account_attachment.go
 +++ b/internal/service/globalaccelerator/cross_account_attachment.go
 @@ -72,7 +72,7 @@ func (r *crossAccountAttachmentResource) Schema(ctx context.Context, request res

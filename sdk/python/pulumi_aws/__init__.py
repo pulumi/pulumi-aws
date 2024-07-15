@@ -2519,6 +2519,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatch/logAccountPolicy",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logAccountPolicy:LogAccountPolicy": "LogAccountPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudwatch/logDataProtectionPolicy",
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
@@ -11307,6 +11315,14 @@ _utilities.register(
   "fqn": "pulumi_aws.verifiedaccess",
   "classes": {
    "aws:verifiedaccess/trustProvider:TrustProvider": "TrustProvider"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedpermissions/identitySource",
+  "fqn": "pulumi_aws.verifiedpermissions",
+  "classes": {
+   "aws:verifiedpermissions/identitySource:IdentitySource": "IdentitySource"
   }
  },
  {

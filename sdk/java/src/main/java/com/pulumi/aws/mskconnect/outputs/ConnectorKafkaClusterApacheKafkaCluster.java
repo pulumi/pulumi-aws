@@ -17,7 +17,7 @@ public final class ConnectorKafkaClusterApacheKafkaCluster {
      */
     private String bootstrapServers;
     /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
      * 
      */
     private ConnectorKafkaClusterApacheKafkaClusterVpc vpc;
@@ -31,7 +31,7 @@ public final class ConnectorKafkaClusterApacheKafkaCluster {
         return this.bootstrapServers;
     }
     /**
-     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+     * @return Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
      * 
      */
     public ConnectorKafkaClusterApacheKafkaClusterVpc vpc() {

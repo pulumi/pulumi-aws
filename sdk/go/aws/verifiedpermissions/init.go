@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:verifiedpermissions/identitySource:IdentitySource":
+		r = &IdentitySource{}
 	case "aws:verifiedpermissions/policy:Policy":
 		r = &Policy{}
 	case "aws:verifiedpermissions/policyStore:PolicyStore":
@@ -42,6 +44,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"verifiedpermissions/identitySource",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"verifiedpermissions/policy",

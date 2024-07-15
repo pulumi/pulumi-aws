@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -148,18 +149,14 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
         return this.latestRevision;
     }
     /**
-     * Information about the location of a custom plugin. See below.
-     * 
-     * The following arguments are optional:
+     * Information about the location of a custom plugin. See `location` Block for details.
      * 
      */
     @Export(name="location", refs={CustomPluginLocation.class}, tree="[0]")
     private Output<CustomPluginLocation> location;
 
     /**
-     * @return Information about the location of a custom plugin. See below.
-     * 
-     * The following arguments are optional:
+     * @return Information about the location of a custom plugin. See `location` Block for details.
      * 
      */
     public Output<CustomPluginLocation> location() {
@@ -192,6 +189,42 @@ public class CustomPlugin extends com.pulumi.resources.CustomResource {
      */
     public Output<String> state() {
         return this.state;
+    }
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * The following arguments are optional:
+     * 
+     */
+    @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> tags;
+
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * The following arguments are optional:
+     * 
+     */
+    public Output<Optional<Map<String,String>>> tags() {
+        return Codegen.optional(this.tags);
+    }
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     * @deprecated
+     * Please use `tags` instead.
+     * 
+     */
+    @Deprecated /* Please use `tags` instead. */
+    @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Output<Map<String,String>> tagsAll() {
+        return this.tagsAll;
     }
 
     /**
