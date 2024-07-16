@@ -10,7 +10,7 @@ require (
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.39.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3
-	github.com/pulumi/pulumi/pkg/v3 v3.124.1-0.20240716145332-ff5fe13fe205
+	github.com/pulumi/pulumi/pkg/v3 v3.124.1-0.20240716132715-1e77ed263d17
 	github.com/stretchr/testify v1.9.0
 )
 
