@@ -130,7 +130,7 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         tools: pulumictl, pulumicli, go, node, dotnet, python, java
-        cache_name: test
+        cache_name: test-examples
     - name: Download bin
       uses: ./.github/actions/download-bin
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
@@ -162,43 +162,68 @@ jobs:
         role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Make upstream
       run: make upstream
+    - name: Install gotestsum
+      run: go install gotest.tools/gotestsum@latest
+    - name: Download JUnit Summary from Previous Workflow
+      id: download-artifact
+      uses: dawidd6/action-download-artifact@v4
+      with:
+        workflow_conclusion: success
+        name: junit-test-summary
+        if_no_artifact_found: warn
+        # Uncomment the next line before pushing to main branch, that way all branches can
+        # benefit from timing data once it's established there.
+        # branch: main
     - name: Generate go test Slice
       id: test_split
       uses: hashicorp-forge/go-test-split-action@v2.0.0
       with:
         working-directory: examples
-        flags: "-tags=${{ matrix.language }} -skip TestPulumiExamples"
+        flags: "-tags=all"
         total: ${{ matrix.parallel }}
         index: ${{ matrix.index }}
+        junit-summary: ./junit-test-summary.xml
     - name: Run tests
       if: matrix.testTarget == 'local'
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
-        matrix.language }} -skip TestPulumiExamples -parallel 4 -run "${{ steps.test_split.outputs.run }}" . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      run: cd examples && gotestsum --junitfile node-summary.xml --format github-actions -- -v -count=1 -timeout 2h -tags=all -skip TestPulumiExamples -parallel 4 -run "${{ steps.test_split.outputs.run }}"
     - name: Run pulumi/examples tests
       if: matrix.testTarget == 'pulumiExamples'
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
-        matrix.language }} -run TestPulumiExamples -parallel 4 -run "${{ steps.test_split.outputs.run }}" . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      run: cd examples && gotestsum --junitfile node-summary.xml --format github-actions -- -v -count=1 -timeout 2h -tags=all -skip TestPulumiExamples -parallel 4 -run "${{ steps.test_split.outputs.run }}"
+    - name: Upload test artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: junit-test-summary-${{ matrix.index }}
+        path: node-summary.xml
+        retention-days: 1
     strategy:
       fail-fast: false
       matrix:
-        parallel: [3]
-        index: [0, 1, 2]
-        include:
-          - language: python
-            index: 0
-            parallel: 1
-          - language: dotnet
-            index: 0
-            parallel: 1
-          - language: go
-            index: 0
-            parallel: 1
-          - language: java
-            index: 0
-            parallel: 1
-        language:
-        - nodejs
+        parallel: [5]
+        index: [0, 1, 2, 3, 4]
         testTarget: [local]
+  tests-combine-summaries:
+    name: Combine Test Reports
+    needs: [ test ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Install junit-report-merger
+        run: npm install -g junit-report-merger
+
+      - name: Merge reports
+        run: jrm ./junit-test-summary.xml "junit-test-summary-0/*.xml" "junit-test-summary-1/*.xml" "junit-test-summary-2/*.xml" "junit-test-summary-3/*.xml" "junit-test-summary-4/*.xml"
+
+      - name: Upload test artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-test-summary
+          path: ./junit-test-summary.xml
   license_check:
     name: License Check
     uses: ./.github/workflows/license.yml
@@ -257,7 +282,7 @@ jobs:
             uses: ./.github/actions/setup-tools
             with:
               tools: pulumictl, pulumi, go, node, dotnet, python, java
-              cache_name: test
+              cache_name: test-provider
           - name: Make upstream
             run: make upstream
           - name: Download provider + tfgen binaries
@@ -344,6 +369,7 @@ jobs:
             uses: ./.github/actions/setup-tools
             with:
               tools: pulumictl, pulumi, go, node
+              cache_name: test-oidc
           - name: Download provider + tfgen binaries
             uses: actions/download-artifact@v4
             with:
@@ -409,11 +435,11 @@ jobs:
             with:
               ref: ${{ env.PR_COMMIT_SHA }}
               submodules: true
-          - name: Install Go
-            uses: actions/setup-go@v5
+          - name: Setup tools
+            uses: ./.github/actions/setup-tools
             with:
-              cache: false
-              go-version: 1.22.x
+              tools: go
+              cache_name: upstream-lint
           - name: Make upstream
             run: make upstream
           - name: upstream lint
