@@ -184,17 +184,17 @@ jobs:
         index: [0, 1, 2]
         include:
           - language: python
-            index: [0]
-            parallel: [1]
+            index: 0
+            parallel: 1
           - language: dotnet
-            index: [0]
-            parallel: [1]
+            index: 0
+            parallel: 1
           - language: go
-            index: [0]
-            parallel: [1]
+            index: 0
+            parallel: 1
           - language: java
-            index: [0]
-            parallel: [1]
+            index: 0
+            parallel: 1
         language:
         - nodejs
         testTarget: [local]
