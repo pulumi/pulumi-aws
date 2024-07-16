@@ -71,6 +71,14 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         tools: go, pulumictl, pulumicli, schema-tools
+    - name: Build schema generator binary
+      run: make tfgen_build_only
+    - name: Install plugins
+      run: make install_plugins
+    - name: Generate schema
+      run: make tfgen_no_deps
+    - name: Build provider binary
+      run: make provider_no_deps
     - name: populate cache
       run: |
         cd examples && \
@@ -82,14 +90,6 @@ jobs:
           go build -v && \
           go test ./... -list . -tags=all && \
           cd ../
-    - name: Build schema generator binary
-      run: make tfgen_build_only
-    - name: Install plugins
-      run: make install_plugins
-    - name: Generate schema
-      run: make tfgen_no_deps
-    - name: Build provider binary
-      run: make provider_no_deps
     - name: Unit-test provider code
       run: make test_provider
     - if: inputs.is_pr
