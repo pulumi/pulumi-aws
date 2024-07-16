@@ -10,7 +10,7 @@ require (
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.39.0
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3
-	github.com/pulumi/pulumi/pkg/v3 v3.121.0
+	github.com/pulumi/pulumi/pkg/v3 v3.124.1-0.20240716145332-ff5fe13fe205
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -388,7 +388,7 @@ require (
 	github.com/pulumi/inflector v0.1.1 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.86.0 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.121.0 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.124.0 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
