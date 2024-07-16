@@ -130,6 +130,7 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         tools: pulumictl, pulumicli, go, node, dotnet, python, java
+        cache_name: test
     - name: Download bin
       uses: ./.github/actions/download-bin
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
@@ -256,6 +257,7 @@ jobs:
             uses: ./.github/actions/setup-tools
             with:
               tools: pulumictl, pulumi, go, node, dotnet, python, java
+              cache_name: test
           - name: Make upstream
             run: make upstream
           - name: Download provider + tfgen binaries

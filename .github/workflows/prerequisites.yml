@@ -79,17 +79,6 @@ jobs:
       run: make tfgen_no_deps
     - name: Build provider binary
       run: make provider_no_deps
-    - name: populate cache
-      run: |
-        cd examples && \
-          go mod download && \
-          go test ./... -list . -tags=all && \
-          cd ../
-        cd provider && \
-          go mod download && \
-          go build -v && \
-          go test ./... -list . -tags=all && \
-          cd ../
     - name: Unit-test provider code
       run: make test_provider
     - if: inputs.is_pr

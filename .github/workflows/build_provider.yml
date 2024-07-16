@@ -43,6 +43,9 @@ jobs:
         uses: ./.github/actions/setup-tools
         with:
           tools: pulumictl, go
+          cache_name: build
+          goos: ${{ matrix.os }}
+          goarch: ${{ matrix.arch }}
       - name: Download schema-embed.json
         uses: actions/download-artifact@v4
         with:

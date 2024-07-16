@@ -14,6 +14,12 @@ inputs:
         dotnet
         java
     default: all
+  cache_name:
+    default: general
+  goos:
+    default: linux
+  goarch:
+    default: amd64
 
 runs:
   using: "composite"
@@ -23,10 +29,21 @@ runs:
       uses: actions/setup-go@v5
       with:
         go-version: "1.21.x"
-        cache-dependency-path: |
-          provider/*.sum
-          upstream/*.sum
-          sdk/*.sum
+        cache: false
+    - name: Get Go environment
+      run: |
+        echo "cache=$(go env GOCACHE)" >> $GITHUB_ENV
+        echo "modcache=$(go env GOMODCACHE)" >> $GITHUB_ENV
+    - name: Cache go
+      if: inputs.tools == 'all' || contains(inputs.tools, 'go')
+      uses: actions/cache@v4
+      with:
+        path: |
+          ${{ env.cache }}
+          ${{ env.modcache }}
+        key: ${{ inputs.cache_name }}-${{ inputs.goos }}-${{ inputs.goarch }}-${{ runner.os }}-go-${{ hashFiles('provider/*.sum', 'examples/*.sum', 'sdk/*.sum') }}
+        restore-keys: |
+          ${{ inputs.cache_name }}-${{ inputs.goos }}-${{ inputs.goarch }}-${{ runner.os }}-go-
 
     - name: Install pulumictl
       if: inputs.tools == 'all' || contains(inputs.tools, 'pulumictl')
