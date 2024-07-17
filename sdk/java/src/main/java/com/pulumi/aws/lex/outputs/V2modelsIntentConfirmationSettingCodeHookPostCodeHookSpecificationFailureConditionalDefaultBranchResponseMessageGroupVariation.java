@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation {
+    /**
+     * @return Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+     * 
+     */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload customPayload;
+    /**
+     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+     * 
+     */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard imageResponseCard;
+    /**
+     * @return Configuration block for a message in plain text format. See `plain_text_message`.
+     * 
+     */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage plainTextMessage;
+    /**
+     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+     * 
+     */
     private @Nullable V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage ssmlMessage;
 
     private V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation() {}
+    /**
+     * @return Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
+     * 
+     */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayload> customPayload() {
         return Optional.ofNullable(this.customPayload);
     }
+    /**
+     * @return Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
+     * 
+     */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCard> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
     }
+    /**
+     * @return Configuration block for a message in plain text format. See `plain_text_message`.
+     * 
+     */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessage> plainTextMessage() {
         return Optional.ofNullable(this.plainTextMessage);
     }
+    /**
+     * @return Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
+     * 
+     */
     public Optional<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessage> ssmlMessage() {
         return Optional.ofNullable(this.ssmlMessage);
     }

@@ -15,6 +15,9 @@ namespace Pulumi.Aws.Transfer.Inputs
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value that corresponds to the key.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

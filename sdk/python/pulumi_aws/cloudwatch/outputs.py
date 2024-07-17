@@ -2555,17 +2555,27 @@ class MetricStreamStatisticsConfiguration(dict):
     def __init__(__self__, *,
                  additional_statistics: Sequence[str],
                  include_metrics: Sequence['outputs.MetricStreamStatisticsConfigurationIncludeMetric']):
+        """
+        :param Sequence[str] additional_statistics: The additional statistics to stream for the metrics listed in `include_metrics`.
+        :param Sequence['MetricStreamStatisticsConfigurationIncludeMetricArgs'] include_metrics: An array that defines the metrics that are to have additional statistics streamed. See details below.
+        """
         pulumi.set(__self__, "additional_statistics", additional_statistics)
         pulumi.set(__self__, "include_metrics", include_metrics)
 
     @property
     @pulumi.getter(name="additionalStatistics")
     def additional_statistics(self) -> Sequence[str]:
+        """
+        The additional statistics to stream for the metrics listed in `include_metrics`.
+        """
         return pulumi.get(self, "additional_statistics")
 
     @property
     @pulumi.getter(name="includeMetrics")
     def include_metrics(self) -> Sequence['outputs.MetricStreamStatisticsConfigurationIncludeMetric']:
+        """
+        An array that defines the metrics that are to have additional statistics streamed. See details below.
+        """
         return pulumi.get(self, "include_metrics")
 
 
@@ -2591,12 +2601,18 @@ class MetricStreamStatisticsConfigurationIncludeMetric(dict):
     def __init__(__self__, *,
                  metric_name: str,
                  namespace: str):
+        """
+        :param str metric_name: The name of the metric.
+        """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> str:
+        """
+        The name of the metric.
+        """
         return pulumi.get(self, "metric_name")
 
     @property

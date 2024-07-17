@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ClusterLoggingInfoBrokerLogsFirehoseGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+        /// </summary>
         [Input("deliveryStream")]
         public Input<string>? DeliveryStream { get; set; }
 

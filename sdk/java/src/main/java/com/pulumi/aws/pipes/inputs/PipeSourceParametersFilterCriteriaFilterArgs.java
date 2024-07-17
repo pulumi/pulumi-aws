@@ -14,9 +14,17 @@ public final class PipeSourceParametersFilterCriteriaFilterArgs extends com.pulu
 
     public static final PipeSourceParametersFilterCriteriaFilterArgs Empty = new PipeSourceParametersFilterCriteriaFilterArgs();
 
+    /**
+     * The event pattern. At most 4096 characters.
+     * 
+     */
     @Import(name="pattern", required=true)
     private Output<String> pattern;
 
+    /**
+     * @return The event pattern. At most 4096 characters.
+     * 
+     */
     public Output<String> pattern() {
         return this.pattern;
     }
@@ -45,11 +53,23 @@ public final class PipeSourceParametersFilterCriteriaFilterArgs extends com.pulu
             $ = new PipeSourceParametersFilterCriteriaFilterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param pattern The event pattern. At most 4096 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(Output<String> pattern) {
             $.pattern = pattern;
             return this;
         }
 
+        /**
+         * @param pattern The event pattern. At most 4096 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
         }

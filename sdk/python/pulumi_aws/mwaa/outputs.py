@@ -240,6 +240,10 @@ class EnvironmentLoggingConfigurationDagProcessingLogs(dict):
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
                  log_level: Optional[str] = None):
+        """
+        :param bool enabled: Enabling or disabling the collection of logs
+        :param str log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -255,11 +259,17 @@ class EnvironmentLoggingConfigurationDagProcessingLogs(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Enabling or disabling the collection of logs
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[str]:
+        """
+        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         return pulumi.get(self, "log_level")
 
 
@@ -288,6 +298,10 @@ class EnvironmentLoggingConfigurationSchedulerLogs(dict):
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
                  log_level: Optional[str] = None):
+        """
+        :param bool enabled: Enabling or disabling the collection of logs
+        :param str log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -303,11 +317,17 @@ class EnvironmentLoggingConfigurationSchedulerLogs(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Enabling or disabling the collection of logs
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[str]:
+        """
+        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         return pulumi.get(self, "log_level")
 
 
@@ -336,6 +356,10 @@ class EnvironmentLoggingConfigurationTaskLogs(dict):
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
                  log_level: Optional[str] = None):
+        """
+        :param bool enabled: Enabling or disabling the collection of logs
+        :param str log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -351,11 +375,17 @@ class EnvironmentLoggingConfigurationTaskLogs(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Enabling or disabling the collection of logs
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[str]:
+        """
+        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         return pulumi.get(self, "log_level")
 
 
@@ -384,6 +414,10 @@ class EnvironmentLoggingConfigurationWebserverLogs(dict):
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
                  log_level: Optional[str] = None):
+        """
+        :param bool enabled: Enabling or disabling the collection of logs
+        :param str log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -399,11 +433,17 @@ class EnvironmentLoggingConfigurationWebserverLogs(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Enabling or disabling the collection of logs
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[str]:
+        """
+        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         return pulumi.get(self, "log_level")
 
 
@@ -432,6 +472,10 @@ class EnvironmentLoggingConfigurationWorkerLogs(dict):
                  cloud_watch_log_group_arn: Optional[str] = None,
                  enabled: Optional[bool] = None,
                  log_level: Optional[str] = None):
+        """
+        :param bool enabled: Enabling or disabling the collection of logs
+        :param str log_level: Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
@@ -447,11 +491,17 @@ class EnvironmentLoggingConfigurationWorkerLogs(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        Enabling or disabling the collection of logs
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[str]:
+        """
+        Logging level. Valid values: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`. Will be `INFO` by default.
+        """
         return pulumi.get(self, "log_level")
 
 

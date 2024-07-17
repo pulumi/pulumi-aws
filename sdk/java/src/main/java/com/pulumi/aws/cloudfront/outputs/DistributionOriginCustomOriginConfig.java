@@ -14,29 +14,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionOriginCustomOriginConfig {
+    /**
+     * @return HTTP port the custom origin listens on.
+     * 
+     */
     private Integer httpPort;
+    /**
+     * @return HTTPS port the custom origin listens on.
+     * 
+     */
     private Integer httpsPort;
+    /**
+     * @return The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
+     * 
+     */
     private @Nullable Integer originKeepaliveTimeout;
+    /**
+     * @return Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
+     * 
+     */
     private String originProtocolPolicy;
+    /**
+     * @return The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
+     * 
+     */
     private @Nullable Integer originReadTimeout;
+    /**
+     * @return List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
+     * 
+     */
     private List<String> originSslProtocols;
 
     private DistributionOriginCustomOriginConfig() {}
+    /**
+     * @return HTTP port the custom origin listens on.
+     * 
+     */
     public Integer httpPort() {
         return this.httpPort;
     }
+    /**
+     * @return HTTPS port the custom origin listens on.
+     * 
+     */
     public Integer httpsPort() {
         return this.httpsPort;
     }
+    /**
+     * @return The Custom KeepAlive timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `5`.
+     * 
+     */
     public Optional<Integer> originKeepaliveTimeout() {
         return Optional.ofNullable(this.originKeepaliveTimeout);
     }
+    /**
+     * @return Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
+     * 
+     */
     public String originProtocolPolicy() {
         return this.originProtocolPolicy;
     }
+    /**
+     * @return The Custom Read timeout, in seconds. By default, AWS enforces an upper limit of `60`. But you can request an [increase](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-request-timeout). Defaults to `30`.
+     * 
+     */
     public Optional<Integer> originReadTimeout() {
         return Optional.ofNullable(this.originReadTimeout);
     }
+    /**
+     * @return List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
+     * 
+     */
     public List<String> originSslProtocols() {
         return this.originSslProtocols;
     }

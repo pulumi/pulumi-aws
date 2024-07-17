@@ -56,13 +56,36 @@ MYPY = False
 if not MYPY:
     class LifecyclePolicyPolicyDetailsArgsDict(TypedDict):
         action: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsActionArgsDict']]
+        """
+        The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+        """
         event_source: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgsDict']]
+        """
+        The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
+        """
         parameters: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgsDict']]
         policy_type: NotRequired[pulumi.Input[str]]
+        """
+        The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+        """
         resource_locations: NotRequired[pulumi.Input[str]]
+        """
+        The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+        """
         resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
+        """
         schedules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgsDict']]]]
+        """
+        See the `schedule` configuration block.
+        """
         target_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
+
+        > Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
+        """
 elif False:
     LifecyclePolicyPolicyDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -77,6 +100,17 @@ class LifecyclePolicyPolicyDetailsArgs:
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]] = None,
                  target_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionArgs'] action: The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgs'] event_source: The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
+        :param pulumi.Input[str] policy_type: The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+        :param pulumi.Input[str] resource_locations: The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]] schedules: See the `schedule` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_tags: A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
+               
+               > Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
+        """
         if action is not None:
             pulumi.set(__self__, "action", action)
         if event_source is not None:
@@ -97,6 +131,9 @@ class LifecyclePolicyPolicyDetailsArgs:
     @property
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionArgs']]:
+        """
+        The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -106,6 +143,9 @@ class LifecyclePolicyPolicyDetailsArgs:
     @property
     @pulumi.getter(name="eventSource")
     def event_source(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgs']]:
+        """
+        The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
+        """
         return pulumi.get(self, "event_source")
 
     @event_source.setter
@@ -124,6 +164,9 @@ class LifecyclePolicyPolicyDetailsArgs:
     @property
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+        """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
@@ -133,6 +176,9 @@ class LifecyclePolicyPolicyDetailsArgs:
     @property
     @pulumi.getter(name="resourceLocations")
     def resource_locations(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+        """
         return pulumi.get(self, "resource_locations")
 
     @resource_locations.setter
@@ -142,6 +188,9 @@ class LifecyclePolicyPolicyDetailsArgs:
     @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
+        """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
@@ -151,6 +200,9 @@ class LifecyclePolicyPolicyDetailsArgs:
     @property
     @pulumi.getter
     def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]]:
+        """
+        See the `schedule` configuration block.
+        """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
@@ -160,6 +212,11 @@ class LifecyclePolicyPolicyDetailsArgs:
     @property
     @pulumi.getter(name="targetTags")
     def target_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
+
+        > Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
+        """
         return pulumi.get(self, "target_tags")
 
     @target_tags.setter
@@ -170,6 +227,9 @@ class LifecyclePolicyPolicyDetailsArgs:
 if not MYPY:
     class LifecyclePolicyPolicyDetailsActionArgsDict(TypedDict):
         cross_region_copies: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgsDict']]]
+        """
+        The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+        """
         name: pulumi.Input[str]
 elif False:
     LifecyclePolicyPolicyDetailsActionArgsDict: TypeAlias = Mapping[str, Any]
@@ -179,12 +239,18 @@ class LifecyclePolicyPolicyDetailsActionArgs:
     def __init__(__self__, *,
                  cross_region_copies: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]],
                  name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]] cross_region_copies: The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+        """
         pulumi.set(__self__, "cross_region_copies", cross_region_copies)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="crossRegionCopies")
     def cross_region_copies(self) -> pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]]:
+        """
+        The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+        """
         return pulumi.get(self, "cross_region_copies")
 
     @cross_region_copies.setter
@@ -204,6 +270,9 @@ class LifecyclePolicyPolicyDetailsActionArgs:
 if not MYPY:
     class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgsDict(TypedDict):
         encryption_configuration: pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgsDict']
+        """
+        The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+        """
         target: pulumi.Input[str]
         retain_rule: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgsDict']]
 elif False:
@@ -215,6 +284,9 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs:
                  encryption_configuration: pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs'],
                  target: pulumi.Input[str],
                  retain_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs']] = None):
+        """
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs'] encryption_configuration: The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+        """
         pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         pulumi.set(__self__, "target", target)
         if retain_rule is not None:
@@ -223,6 +295,9 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs']:
+        """
+        The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+        """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
@@ -322,6 +397,9 @@ if not MYPY:
     class LifecyclePolicyPolicyDetailsEventSourceArgsDict(TypedDict):
         parameters: pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgsDict']
         type: pulumi.Input[str]
+        """
+        The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+        """
 elif False:
     LifecyclePolicyPolicyDetailsEventSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -330,6 +408,9 @@ class LifecyclePolicyPolicyDetailsEventSourceArgs:
     def __init__(__self__, *,
                  parameters: pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgs'],
                  type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] type: The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+        """
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "type", type)
 
@@ -345,6 +426,9 @@ class LifecyclePolicyPolicyDetailsEventSourceArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -355,8 +439,17 @@ class LifecyclePolicyPolicyDetailsEventSourceArgs:
 if not MYPY:
     class LifecyclePolicyPolicyDetailsEventSourceParametersArgsDict(TypedDict):
         description_regex: pulumi.Input[str]
+        """
+        The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+        """
         event_type: pulumi.Input[str]
+        """
+        The type of event. Currently, only `shareSnapshot` events are supported.
+        """
         snapshot_owners: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+        """
 elif False:
     LifecyclePolicyPolicyDetailsEventSourceParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -366,6 +459,11 @@ class LifecyclePolicyPolicyDetailsEventSourceParametersArgs:
                  description_regex: pulumi.Input[str],
                  event_type: pulumi.Input[str],
                  snapshot_owners: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] description_regex: The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+        :param pulumi.Input[str] event_type: The type of event. Currently, only `shareSnapshot` events are supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_owners: The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+        """
         pulumi.set(__self__, "description_regex", description_regex)
         pulumi.set(__self__, "event_type", event_type)
         pulumi.set(__self__, "snapshot_owners", snapshot_owners)
@@ -373,6 +471,9 @@ class LifecyclePolicyPolicyDetailsEventSourceParametersArgs:
     @property
     @pulumi.getter(name="descriptionRegex")
     def description_regex(self) -> pulumi.Input[str]:
+        """
+        The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+        """
         return pulumi.get(self, "description_regex")
 
     @description_regex.setter
@@ -382,6 +483,9 @@ class LifecyclePolicyPolicyDetailsEventSourceParametersArgs:
     @property
     @pulumi.getter(name="eventType")
     def event_type(self) -> pulumi.Input[str]:
+        """
+        The type of event. Currently, only `shareSnapshot` events are supported.
+        """
         return pulumi.get(self, "event_type")
 
     @event_type.setter
@@ -391,6 +495,9 @@ class LifecyclePolicyPolicyDetailsEventSourceParametersArgs:
     @property
     @pulumi.getter(name="snapshotOwners")
     def snapshot_owners(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+        """
         return pulumi.get(self, "snapshot_owners")
 
     @snapshot_owners.setter
@@ -401,7 +508,13 @@ class LifecyclePolicyPolicyDetailsEventSourceParametersArgs:
 if not MYPY:
     class LifecyclePolicyPolicyDetailsParametersArgsDict(TypedDict):
         exclude_boot_volume: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+        """
         no_reboot: NotRequired[pulumi.Input[bool]]
+        """
+        Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+        """
 elif False:
     LifecyclePolicyPolicyDetailsParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -410,6 +523,10 @@ class LifecyclePolicyPolicyDetailsParametersArgs:
     def __init__(__self__, *,
                  exclude_boot_volume: Optional[pulumi.Input[bool]] = None,
                  no_reboot: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] exclude_boot_volume: Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+        :param pulumi.Input[bool] no_reboot: Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+        """
         if exclude_boot_volume is not None:
             pulumi.set(__self__, "exclude_boot_volume", exclude_boot_volume)
         if no_reboot is not None:
@@ -418,6 +535,9 @@ class LifecyclePolicyPolicyDetailsParametersArgs:
     @property
     @pulumi.getter(name="excludeBootVolume")
     def exclude_boot_volume(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+        """
         return pulumi.get(self, "exclude_boot_volume")
 
     @exclude_boot_volume.setter
@@ -427,6 +547,9 @@ class LifecyclePolicyPolicyDetailsParametersArgs:
     @property
     @pulumi.getter(name="noReboot")
     def no_reboot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+        """
         return pulumi.get(self, "no_reboot")
 
     @no_reboot.setter
@@ -437,15 +560,33 @@ class LifecyclePolicyPolicyDetailsParametersArgs:
 if not MYPY:
     class LifecyclePolicyPolicyDetailsScheduleArgsDict(TypedDict):
         create_rule: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArgsDict']
+        """
+        See the `create_rule` block. Max of 1 per schedule.
+        """
         name: pulumi.Input[str]
         retain_rule: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArgsDict']
         copy_tags: NotRequired[pulumi.Input[bool]]
         cross_region_copy_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgsDict']]]]
+        """
+        See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        """
         deprecate_rule: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgsDict']]
         fast_restore_rule: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgsDict']]
+        """
+        See the `fast_restore_rule` block. Max of 1 per schedule.
+        """
         share_rule: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgsDict']]
+        """
+        See the `share_rule` block. Max of 1 per schedule.
+        """
         tags_to_add: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+        """
         variable_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+        """
 elif False:
     LifecyclePolicyPolicyDetailsScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -462,6 +603,14 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
                  share_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs']] = None,
                  tags_to_add: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variable_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs'] create_rule: See the `create_rule` block. Max of 1 per schedule.
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs']]] cross_region_copy_rules: See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs'] fast_restore_rule: See the `fast_restore_rule` block. Max of 1 per schedule.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs'] share_rule: See the `share_rule` block. Max of 1 per schedule.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_to_add: A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variable_tags: A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+        """
         pulumi.set(__self__, "create_rule", create_rule)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "retain_rule", retain_rule)
@@ -483,6 +632,9 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
     @property
     @pulumi.getter(name="createRule")
     def create_rule(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs']:
+        """
+        See the `create_rule` block. Max of 1 per schedule.
+        """
         return pulumi.get(self, "create_rule")
 
     @create_rule.setter
@@ -519,6 +671,9 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
     @property
     @pulumi.getter(name="crossRegionCopyRules")
     def cross_region_copy_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs']]]]:
+        """
+        See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        """
         return pulumi.get(self, "cross_region_copy_rules")
 
     @cross_region_copy_rules.setter
@@ -537,6 +692,9 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
     @property
     @pulumi.getter(name="fastRestoreRule")
     def fast_restore_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs']]:
+        """
+        See the `fast_restore_rule` block. Max of 1 per schedule.
+        """
         return pulumi.get(self, "fast_restore_rule")
 
     @fast_restore_rule.setter
@@ -546,6 +704,9 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
     @property
     @pulumi.getter(name="shareRule")
     def share_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs']]:
+        """
+        See the `share_rule` block. Max of 1 per schedule.
+        """
         return pulumi.get(self, "share_rule")
 
     @share_rule.setter
@@ -555,6 +716,9 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
     @property
     @pulumi.getter(name="tagsToAdd")
     def tags_to_add(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+        """
         return pulumi.get(self, "tags_to_add")
 
     @tags_to_add.setter
@@ -564,6 +728,9 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
     @property
     @pulumi.getter(name="variableTags")
     def variable_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+        """
         return pulumi.get(self, "variable_tags")
 
     @variable_tags.setter
@@ -574,10 +741,19 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
 if not MYPY:
     class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgsDict(TypedDict):
         cron_expression: NotRequired[pulumi.Input[str]]
+        """
+        The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+        """
         interval: NotRequired[pulumi.Input[int]]
         interval_unit: NotRequired[pulumi.Input[str]]
         location: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
+        """
         times: NotRequired[pulumi.Input[str]]
+        """
+        A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
+        """
 elif False:
     LifecyclePolicyPolicyDetailsScheduleCreateRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -589,6 +765,11 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
                  interval_unit: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  times: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cron_expression: The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+        :param pulumi.Input[str] location: Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
+        :param pulumi.Input[str] times: A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
+        """
         if cron_expression is not None:
             pulumi.set(__self__, "cron_expression", cron_expression)
         if interval is not None:
@@ -603,6 +784,9 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
     @property
     @pulumi.getter(name="cronExpression")
     def cron_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year. Conflicts with `interval`, `interval_unit`, and `times`.
+        """
         return pulumi.get(self, "cron_expression")
 
     @cron_expression.setter
@@ -630,6 +814,9 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -639,6 +826,9 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
     @property
     @pulumi.getter
     def times(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1. Conflicts with `cron_expression`. Must be set if `interval` is set.
+        """
         return pulumi.get(self, "times")
 
     @times.setter
@@ -852,6 +1042,9 @@ class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs:
 if not MYPY:
     class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgsDict(TypedDict):
         availability_zones: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The Availability Zones in which to enable fast snapshot restore.
+        """
         count: NotRequired[pulumi.Input[int]]
         interval: NotRequired[pulumi.Input[int]]
         interval_unit: NotRequired[pulumi.Input[str]]
@@ -865,6 +1058,9 @@ class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs:
                  count: Optional[pulumi.Input[int]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  interval_unit: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The Availability Zones in which to enable fast snapshot restore.
+        """
         pulumi.set(__self__, "availability_zones", availability_zones)
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -876,6 +1072,9 @@ class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs:
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The Availability Zones in which to enable fast snapshot restore.
+        """
         return pulumi.get(self, "availability_zones")
 
     @availability_zones.setter
@@ -962,6 +1161,9 @@ class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs:
 if not MYPY:
     class LifecyclePolicyPolicyDetailsScheduleShareRuleArgsDict(TypedDict):
         target_accounts: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The IDs of the AWS accounts with which to share the snapshots.
+        """
         unshare_interval: NotRequired[pulumi.Input[int]]
         unshare_interval_unit: NotRequired[pulumi.Input[str]]
 elif False:
@@ -973,6 +1175,9 @@ class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs:
                  target_accounts: pulumi.Input[Sequence[pulumi.Input[str]]],
                  unshare_interval: Optional[pulumi.Input[int]] = None,
                  unshare_interval_unit: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_accounts: The IDs of the AWS accounts with which to share the snapshots.
+        """
         pulumi.set(__self__, "target_accounts", target_accounts)
         if unshare_interval is not None:
             pulumi.set(__self__, "unshare_interval", unshare_interval)
@@ -982,6 +1187,9 @@ class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs:
     @property
     @pulumi.getter(name="targetAccounts")
     def target_accounts(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The IDs of the AWS accounts with which to share the snapshots.
+        """
         return pulumi.get(self, "target_accounts")
 
     @target_accounts.setter

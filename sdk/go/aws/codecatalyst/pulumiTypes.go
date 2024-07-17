@@ -170,6 +170,7 @@ func (o DevEnvironmentIdesPtrOutput) Runtime() pulumi.StringPtrOutput {
 }
 
 type DevEnvironmentPersistentStorage struct {
+	// The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
 	Size int `pulumi:"size"`
 }
 
@@ -185,6 +186,7 @@ type DevEnvironmentPersistentStorageInput interface {
 }
 
 type DevEnvironmentPersistentStorageArgs struct {
+	// The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
 	Size pulumi.IntInput `pulumi:"size"`
 }
 
@@ -265,6 +267,7 @@ func (o DevEnvironmentPersistentStorageOutput) ToDevEnvironmentPersistentStorage
 	}).(DevEnvironmentPersistentStoragePtrOutput)
 }
 
+// The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
 func (o DevEnvironmentPersistentStorageOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v DevEnvironmentPersistentStorage) int { return v.Size }).(pulumi.IntOutput)
 }
@@ -293,6 +296,7 @@ func (o DevEnvironmentPersistentStoragePtrOutput) Elem() DevEnvironmentPersisten
 	}).(DevEnvironmentPersistentStorageOutput)
 }
 
+// The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
 func (o DevEnvironmentPersistentStoragePtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DevEnvironmentPersistentStorage) *int {
 		if v == nil {

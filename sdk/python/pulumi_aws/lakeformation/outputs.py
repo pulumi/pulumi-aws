@@ -1866,6 +1866,7 @@ class GetPermissionsTableWithColumnsResult(dict):
                The following arguments are optional:
         :param Sequence[str] column_names: Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
         :param Sequence[str] excluded_column_names: Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
+        :param bool wildcard: Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
@@ -1922,6 +1923,9 @@ class GetPermissionsTableWithColumnsResult(dict):
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[bool]:
+        """
+        Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+        """
         return pulumi.get(self, "wildcard")
 
 

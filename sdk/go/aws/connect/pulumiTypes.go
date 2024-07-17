@@ -3558,8 +3558,9 @@ type UserHierarchyStructureHierarchyStructureLevelFive struct {
 	// The Amazon Resource Name (ARN) of the hierarchy level.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id   *string `pulumi:"id"`
-	Name string  `pulumi:"name"`
+	Id *string `pulumi:"id"`
+	// The name of the user hierarchy level. Must not be more than 50 characters.
+	Name string `pulumi:"name"`
 }
 
 // UserHierarchyStructureHierarchyStructureLevelFiveInput is an input type that accepts UserHierarchyStructureHierarchyStructureLevelFiveArgs and UserHierarchyStructureHierarchyStructureLevelFiveOutput values.
@@ -3577,8 +3578,9 @@ type UserHierarchyStructureHierarchyStructureLevelFiveArgs struct {
 	// The Amazon Resource Name (ARN) of the hierarchy level.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
-	Name pulumi.StringInput    `pulumi:"name"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the user hierarchy level. Must not be more than 50 characters.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (UserHierarchyStructureHierarchyStructureLevelFiveArgs) ElementType() reflect.Type {
@@ -3668,6 +3670,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelFiveOutput) Id() pulumi.Str
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelFive) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the user hierarchy level. Must not be more than 50 characters.
 func (o UserHierarchyStructureHierarchyStructureLevelFiveOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelFive) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3716,6 +3719,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelFivePtrOutput) Id() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the user hierarchy level. Must not be more than 50 characters.
 func (o UserHierarchyStructureHierarchyStructureLevelFivePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructureLevelFive) *string {
 		if v == nil {
@@ -3729,8 +3733,9 @@ type UserHierarchyStructureHierarchyStructureLevelFour struct {
 	// The Amazon Resource Name (ARN) of the hierarchy level.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id   *string `pulumi:"id"`
-	Name string  `pulumi:"name"`
+	Id *string `pulumi:"id"`
+	// The name of the user hierarchy level. Must not be more than 50 characters.
+	Name string `pulumi:"name"`
 }
 
 // UserHierarchyStructureHierarchyStructureLevelFourInput is an input type that accepts UserHierarchyStructureHierarchyStructureLevelFourArgs and UserHierarchyStructureHierarchyStructureLevelFourOutput values.
@@ -3748,8 +3753,9 @@ type UserHierarchyStructureHierarchyStructureLevelFourArgs struct {
 	// The Amazon Resource Name (ARN) of the hierarchy level.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
-	Name pulumi.StringInput    `pulumi:"name"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the user hierarchy level. Must not be more than 50 characters.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (UserHierarchyStructureHierarchyStructureLevelFourArgs) ElementType() reflect.Type {
@@ -3839,6 +3845,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelFourOutput) Id() pulumi.Str
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelFour) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the user hierarchy level. Must not be more than 50 characters.
 func (o UserHierarchyStructureHierarchyStructureLevelFourOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelFour) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -3887,6 +3894,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelFourPtrOutput) Id() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the user hierarchy level. Must not be more than 50 characters.
 func (o UserHierarchyStructureHierarchyStructureLevelFourPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructureLevelFour) *string {
 		if v == nil {
@@ -3900,8 +3908,9 @@ type UserHierarchyStructureHierarchyStructureLevelOne struct {
 	// The Amazon Resource Name (ARN) of the hierarchy level.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id   *string `pulumi:"id"`
-	Name string  `pulumi:"name"`
+	Id *string `pulumi:"id"`
+	// The name of the user hierarchy level. Must not be more than 50 characters.
+	Name string `pulumi:"name"`
 }
 
 // UserHierarchyStructureHierarchyStructureLevelOneInput is an input type that accepts UserHierarchyStructureHierarchyStructureLevelOneArgs and UserHierarchyStructureHierarchyStructureLevelOneOutput values.
@@ -3919,8 +3928,9 @@ type UserHierarchyStructureHierarchyStructureLevelOneArgs struct {
 	// The Amazon Resource Name (ARN) of the hierarchy level.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
-	Name pulumi.StringInput    `pulumi:"name"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the user hierarchy level. Must not be more than 50 characters.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (UserHierarchyStructureHierarchyStructureLevelOneArgs) ElementType() reflect.Type {
@@ -4010,6 +4020,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelOneOutput) Id() pulumi.Stri
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelOne) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the user hierarchy level. Must not be more than 50 characters.
 func (o UserHierarchyStructureHierarchyStructureLevelOneOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelOne) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4058,6 +4069,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelOnePtrOutput) Id() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the user hierarchy level. Must not be more than 50 characters.
 func (o UserHierarchyStructureHierarchyStructureLevelOnePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructureLevelOne) *string {
 		if v == nil {
@@ -4071,8 +4083,9 @@ type UserHierarchyStructureHierarchyStructureLevelThree struct {
 	// The Amazon Resource Name (ARN) of the hierarchy level.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id   *string `pulumi:"id"`
-	Name string  `pulumi:"name"`
+	Id *string `pulumi:"id"`
+	// The name of the user hierarchy level. Must not be more than 50 characters.
+	Name string `pulumi:"name"`
 }
 
 // UserHierarchyStructureHierarchyStructureLevelThreeInput is an input type that accepts UserHierarchyStructureHierarchyStructureLevelThreeArgs and UserHierarchyStructureHierarchyStructureLevelThreeOutput values.
@@ -4090,8 +4103,9 @@ type UserHierarchyStructureHierarchyStructureLevelThreeArgs struct {
 	// The Amazon Resource Name (ARN) of the hierarchy level.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
-	Name pulumi.StringInput    `pulumi:"name"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the user hierarchy level. Must not be more than 50 characters.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (UserHierarchyStructureHierarchyStructureLevelThreeArgs) ElementType() reflect.Type {
@@ -4181,6 +4195,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelThreeOutput) Id() pulumi.St
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelThree) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the user hierarchy level. Must not be more than 50 characters.
 func (o UserHierarchyStructureHierarchyStructureLevelThreeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelThree) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4229,6 +4244,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelThreePtrOutput) Id() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the user hierarchy level. Must not be more than 50 characters.
 func (o UserHierarchyStructureHierarchyStructureLevelThreePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructureLevelThree) *string {
 		if v == nil {
@@ -4242,8 +4258,9 @@ type UserHierarchyStructureHierarchyStructureLevelTwo struct {
 	// The Amazon Resource Name (ARN) of the hierarchy level.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id   *string `pulumi:"id"`
-	Name string  `pulumi:"name"`
+	Id *string `pulumi:"id"`
+	// The name of the user hierarchy level. Must not be more than 50 characters.
+	Name string `pulumi:"name"`
 }
 
 // UserHierarchyStructureHierarchyStructureLevelTwoInput is an input type that accepts UserHierarchyStructureHierarchyStructureLevelTwoArgs and UserHierarchyStructureHierarchyStructureLevelTwoOutput values.
@@ -4261,8 +4278,9 @@ type UserHierarchyStructureHierarchyStructureLevelTwoArgs struct {
 	// The Amazon Resource Name (ARN) of the hierarchy level.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
-	Name pulumi.StringInput    `pulumi:"name"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the user hierarchy level. Must not be more than 50 characters.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (UserHierarchyStructureHierarchyStructureLevelTwoArgs) ElementType() reflect.Type {
@@ -4352,6 +4370,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelTwoOutput) Id() pulumi.Stri
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelTwo) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the user hierarchy level. Must not be more than 50 characters.
 func (o UserHierarchyStructureHierarchyStructureLevelTwoOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelTwo) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4400,6 +4419,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelTwoPtrOutput) Id() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the user hierarchy level. Must not be more than 50 characters.
 func (o UserHierarchyStructureHierarchyStructureLevelTwoPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructureLevelTwo) *string {
 		if v == nil {
