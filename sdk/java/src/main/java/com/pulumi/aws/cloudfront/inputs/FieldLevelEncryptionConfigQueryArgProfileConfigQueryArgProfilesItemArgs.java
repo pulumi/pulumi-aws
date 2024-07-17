@@ -21,9 +21,17 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
         return this.profileId;
     }
 
+    /**
+     * Query argument for field-level encryption query argument-profile mapping.
+     * 
+     */
     @Import(name="queryArg", required=true)
     private Output<String> queryArg;
 
+    /**
+     * @return Query argument for field-level encryption query argument-profile mapping.
+     * 
+     */
     public Output<String> queryArg() {
         return this.queryArg;
     }
@@ -62,11 +70,23 @@ public final class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfil
             return profileId(Output.of(profileId));
         }
 
+        /**
+         * @param queryArg Query argument for field-level encryption query argument-profile mapping.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryArg(Output<String> queryArg) {
             $.queryArg = queryArg;
             return this;
         }
 
+        /**
+         * @param queryArg Query argument for field-level encryption query argument-profile mapping.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryArg(String queryArg) {
             return queryArg(Output.of(queryArg));
         }

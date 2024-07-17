@@ -63,6 +63,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
         [Input("remixSettings")]
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs>? RemixSettings { get; set; }
 
+        /// <summary>
+        /// Stream name RTMP destinations (URLs of type rtmp://)
+        /// </summary>
         [Input("streamName")]
         public Input<string>? StreamName { get; set; }
 

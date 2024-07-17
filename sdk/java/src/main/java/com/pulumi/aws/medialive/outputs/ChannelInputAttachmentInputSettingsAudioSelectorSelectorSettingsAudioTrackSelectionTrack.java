@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack {
+    /**
+     * @return 1-based integer value that maps to a specific audio track.
+     * 
+     */
     private Integer track;
 
     private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack() {}
+    /**
+     * @return 1-based integer value that maps to a specific audio track.
+     * 
+     */
     public Integer track() {
         return this.track;
     }

@@ -12,12 +12,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SigningJobSignedObjectS3 {
     private @Nullable String bucket;
+    /**
+     * @return Key name of the object that contains your unsigned code.
+     * 
+     */
     private @Nullable String key;
 
     private SigningJobSignedObjectS3() {}
     public Optional<String> bucket() {
         return Optional.ofNullable(this.bucket);
     }
+    /**
+     * @return Key name of the object that contains your unsigned code.
+     * 
+     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }

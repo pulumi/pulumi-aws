@@ -1463,6 +1463,7 @@ class UserHierarchyStructureHierarchyStructureLevelFive(dict):
                  arn: Optional[str] = None,
                  id: Optional[str] = None):
         """
+        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param str id: The identifier of the hierarchy level.
         """
@@ -1475,6 +1476,9 @@ class UserHierarchyStructureHierarchyStructureLevelFive(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -1501,6 +1505,7 @@ class UserHierarchyStructureHierarchyStructureLevelFour(dict):
                  arn: Optional[str] = None,
                  id: Optional[str] = None):
         """
+        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param str id: The identifier of the hierarchy level.
         """
@@ -1513,6 +1518,9 @@ class UserHierarchyStructureHierarchyStructureLevelFour(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -1539,6 +1547,7 @@ class UserHierarchyStructureHierarchyStructureLevelOne(dict):
                  arn: Optional[str] = None,
                  id: Optional[str] = None):
         """
+        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param str id: The identifier of the hierarchy level.
         """
@@ -1551,6 +1560,9 @@ class UserHierarchyStructureHierarchyStructureLevelOne(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -1577,6 +1589,7 @@ class UserHierarchyStructureHierarchyStructureLevelThree(dict):
                  arn: Optional[str] = None,
                  id: Optional[str] = None):
         """
+        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param str id: The identifier of the hierarchy level.
         """
@@ -1589,6 +1602,9 @@ class UserHierarchyStructureHierarchyStructureLevelThree(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -1615,6 +1631,7 @@ class UserHierarchyStructureHierarchyStructureLevelTwo(dict):
                  arn: Optional[str] = None,
                  id: Optional[str] = None):
         """
+        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param str id: The identifier of the hierarchy level.
         """
@@ -1627,6 +1644,9 @@ class UserHierarchyStructureHierarchyStructureLevelTwo(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         return pulumi.get(self, "name")
 
     @property

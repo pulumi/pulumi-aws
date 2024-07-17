@@ -30,9 +30,17 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
         return Optional.ofNullable(this.codingMode);
     }
 
+    /**
+     * Sample rate in Hz.
+     * 
+     */
     @Import(name="sampleRate")
     private @Nullable Output<Double> sampleRate;
 
+    /**
+     * @return Sample rate in Hz.
+     * 
+     */
     public Optional<Output<Double>> sampleRate() {
         return Optional.ofNullable(this.sampleRate);
     }
@@ -81,11 +89,23 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Setting
             return codingMode(Output.of(codingMode));
         }
 
+        /**
+         * @param sampleRate Sample rate in Hz.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sampleRate(@Nullable Output<Double> sampleRate) {
             $.sampleRate = sampleRate;
             return this;
         }
 
+        /**
+         * @param sampleRate Sample rate in Hz.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sampleRate(Double sampleRate) {
             return sampleRate(Output.of(sampleRate));
         }

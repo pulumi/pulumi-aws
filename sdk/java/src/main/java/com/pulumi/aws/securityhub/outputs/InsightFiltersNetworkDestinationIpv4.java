@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class InsightFiltersNetworkDestinationIpv4 {
+    /**
+     * @return A finding&#39;s CIDR value.
+     * 
+     */
     private String cidr;
 
     private InsightFiltersNetworkDestinationIpv4() {}
+    /**
+     * @return A finding&#39;s CIDR value.
+     * 
+     */
     public String cidr() {
         return this.cidr;
     }

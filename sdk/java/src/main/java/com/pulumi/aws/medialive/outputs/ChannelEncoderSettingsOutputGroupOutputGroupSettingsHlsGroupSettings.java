@@ -18,6 +18,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings {
+    /**
+     * @return The ad marker type for this output group.
+     * 
+     */
     private @Nullable List<String> adMarkers;
     private @Nullable String baseUrlContent;
     private @Nullable String baseUrlContent1;
@@ -56,12 +60,20 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     private @Nullable Integer segmentLength;
     private @Nullable Integer segmentsPerSubdirectory;
     private @Nullable String streamInfResolution;
+    /**
+     * @return Indicates ID3 frame that has the timecode.
+     * 
+     */
     private @Nullable String timedMetadataId3Frame;
     private @Nullable Integer timedMetadataId3Period;
     private @Nullable Integer timestampDeltaMilliseconds;
     private @Nullable String tsFileMode;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings() {}
+    /**
+     * @return The ad marker type for this output group.
+     * 
+     */
     public List<String> adMarkers() {
         return this.adMarkers == null ? List.of() : this.adMarkers;
     }
@@ -176,6 +188,10 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public Optional<String> streamInfResolution() {
         return Optional.ofNullable(this.streamInfResolution);
     }
+    /**
+     * @return Indicates ID3 frame that has the timecode.
+     * 
+     */
     public Optional<String> timedMetadataId3Frame() {
         return Optional.ofNullable(this.timedMetadataId3Frame);
     }

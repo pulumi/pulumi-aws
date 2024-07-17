@@ -184,6 +184,11 @@ class ListenerDefaultActionForwardTargetGroup(dict):
     def __init__(__self__, *,
                  target_group_identifier: Optional[str] = None,
                  weight: Optional[int] = None):
+        """
+        :param str target_group_identifier: ID or Amazon Resource Name (ARN) of the target group.
+        :param int weight: Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+               weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        """
         if target_group_identifier is not None:
             pulumi.set(__self__, "target_group_identifier", target_group_identifier)
         if weight is not None:
@@ -192,11 +197,18 @@ class ListenerDefaultActionForwardTargetGroup(dict):
     @property
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> Optional[str]:
+        """
+        ID or Amazon Resource Name (ARN) of the target group.
+        """
         return pulumi.get(self, "target_group_identifier")
 
     @property
     @pulumi.getter
     def weight(self) -> Optional[int]:
+        """
+        Determines how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a
+        weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
+        """
         return pulumi.get(self, "weight")
 
 
