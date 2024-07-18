@@ -227,7 +227,7 @@ export class GangliaLayer extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GangliaLayer.__pulumiType, name, resourceInputs, opts);
+        super(GangliaLayer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

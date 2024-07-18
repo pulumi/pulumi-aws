@@ -227,7 +227,7 @@ class Rule(pulumi.CustomResource):
             metric_name="tfWAFRule",
             predicates=[{
                 "type": "IPMatch",
-                "dataId": ipset.id,
+                "data_id": ipset.id,
                 "negated": False,
             }])
         ```
@@ -285,7 +285,7 @@ class Rule(pulumi.CustomResource):
             metric_name="tfWAFRule",
             predicates=[{
                 "type": "IPMatch",
-                "dataId": ipset.id,
+                "data_id": ipset.id,
                 "negated": False,
             }])
         ```

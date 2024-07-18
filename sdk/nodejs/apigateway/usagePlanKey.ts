@@ -123,7 +123,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UsagePlanKey.__pulumiType, name, resourceInputs, opts);
+        super(UsagePlanKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

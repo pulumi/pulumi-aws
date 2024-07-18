@@ -186,13 +186,13 @@ class PartitionIndex(pulumi.CustomResource):
             view_expanded_text="view_expanded_text_1",
             view_original_text="view_original_text_1",
             storage_descriptor={
-                "bucketColumns": ["bucket_column_1"],
+                "bucket_columns": ["bucket_column_1"],
                 "compressed": False,
-                "inputFormat": "SequenceFileInputFormat",
+                "input_format": "SequenceFileInputFormat",
                 "location": "my_location",
-                "numberOfBuckets": 1,
-                "outputFormat": "SequenceFileInputFormat",
-                "storedAsSubDirectories": False,
+                "number_of_buckets": 1,
+                "output_format": "SequenceFileInputFormat",
+                "stored_as_sub_directories": False,
                 "parameters": {
                     "param1": "param1_val",
                 },
@@ -208,23 +208,23 @@ class PartitionIndex(pulumi.CustomResource):
                         "comment": "my_column2_comment",
                     },
                 ],
-                "serDeInfo": {
+                "ser_de_info": {
                     "name": "ser_de_name",
                     "parameters": {
                         "param1": "param_val_1",
                     },
-                    "serializationLibrary": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
                 },
-                "sortColumns": [{
+                "sort_columns": [{
                     "column": "my_column_1",
-                    "sortOrder": 1,
+                    "sort_order": 1,
                 }],
-                "skewedInfo": {
-                    "skewedColumnNames": ["my_column_1"],
-                    "skewedColumnValueLocationMaps": {
+                "skewed_info": {
+                    "skewed_column_names": ["my_column_1"],
+                    "skewed_column_value_location_maps": {
                         "my_column_1": "my_column_1_val_loc_map",
                     },
-                    "skewedColumnValues": ["skewed_val_1"],
+                    "skewed_column_values": ["skewed_val_1"],
                 },
             },
             partition_keys=[
@@ -246,7 +246,7 @@ class PartitionIndex(pulumi.CustomResource):
             database_name=example.name,
             table_name=example_catalog_table.name,
             partition_index={
-                "indexName": "example",
+                "index_name": "example",
                 "keys": [
                     "my_column_1",
                     "my_column_2",
@@ -292,13 +292,13 @@ class PartitionIndex(pulumi.CustomResource):
             view_expanded_text="view_expanded_text_1",
             view_original_text="view_original_text_1",
             storage_descriptor={
-                "bucketColumns": ["bucket_column_1"],
+                "bucket_columns": ["bucket_column_1"],
                 "compressed": False,
-                "inputFormat": "SequenceFileInputFormat",
+                "input_format": "SequenceFileInputFormat",
                 "location": "my_location",
-                "numberOfBuckets": 1,
-                "outputFormat": "SequenceFileInputFormat",
-                "storedAsSubDirectories": False,
+                "number_of_buckets": 1,
+                "output_format": "SequenceFileInputFormat",
+                "stored_as_sub_directories": False,
                 "parameters": {
                     "param1": "param1_val",
                 },
@@ -314,23 +314,23 @@ class PartitionIndex(pulumi.CustomResource):
                         "comment": "my_column2_comment",
                     },
                 ],
-                "serDeInfo": {
+                "ser_de_info": {
                     "name": "ser_de_name",
                     "parameters": {
                         "param1": "param_val_1",
                     },
-                    "serializationLibrary": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
                 },
-                "sortColumns": [{
+                "sort_columns": [{
                     "column": "my_column_1",
-                    "sortOrder": 1,
+                    "sort_order": 1,
                 }],
-                "skewedInfo": {
-                    "skewedColumnNames": ["my_column_1"],
-                    "skewedColumnValueLocationMaps": {
+                "skewed_info": {
+                    "skewed_column_names": ["my_column_1"],
+                    "skewed_column_value_location_maps": {
                         "my_column_1": "my_column_1_val_loc_map",
                     },
-                    "skewedColumnValues": ["skewed_val_1"],
+                    "skewed_column_values": ["skewed_val_1"],
                 },
             },
             partition_keys=[
@@ -352,7 +352,7 @@ class PartitionIndex(pulumi.CustomResource):
             database_name=example.name,
             table_name=example_catalog_table.name,
             partition_index={
-                "indexName": "example",
+                "index_name": "example",
                 "keys": [
                     "my_column_1",
                     "my_column_2",

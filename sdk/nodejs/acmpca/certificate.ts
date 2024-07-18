@@ -173,7 +173,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateChain"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Certificate.__pulumiType, name, resourceInputs, opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

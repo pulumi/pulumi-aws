@@ -160,7 +160,7 @@ export class AgentAgentActionGroup extends pulumi.CustomResource {
             resourceInputs["actionGroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AgentAgentActionGroup.__pulumiType, name, resourceInputs, opts);
+        super(AgentAgentActionGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

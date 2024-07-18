@@ -93,7 +93,7 @@ export class EventConfigurations extends pulumi.CustomResource {
             resourceInputs["eventConfigurations"] = args ? args.eventConfigurations : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventConfigurations.__pulumiType, name, resourceInputs, opts);
+        super(EventConfigurations.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

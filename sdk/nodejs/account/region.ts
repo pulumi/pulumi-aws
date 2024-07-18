@@ -103,7 +103,7 @@ export class Region extends pulumi.CustomResource {
             resourceInputs["optStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Region.__pulumiType, name, resourceInputs, opts);
+        super(Region.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

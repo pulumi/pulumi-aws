@@ -215,7 +215,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Api.__pulumiType, name, resourceInputs, opts);
+        super(Api.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -108,7 +108,7 @@ export class Ciphertext extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["plaintext"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Ciphertext.__pulumiType, name, resourceInputs, opts);
+        super(Ciphertext.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

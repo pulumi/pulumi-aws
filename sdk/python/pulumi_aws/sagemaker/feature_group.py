@@ -385,11 +385,11 @@ class FeatureGroup(pulumi.CustomResource):
             event_time_feature_name="example",
             role_arn=test["arn"],
             feature_definitions=[{
-                "featureName": "example",
-                "featureType": "String",
+                "feature_name": "example",
+                "feature_type": "String",
             }],
             online_store_config={
-                "enableOnlineStore": True,
+                "enable_online_store": True,
             })
         ```
 
@@ -436,11 +436,11 @@ class FeatureGroup(pulumi.CustomResource):
             event_time_feature_name="example",
             role_arn=test["arn"],
             feature_definitions=[{
-                "featureName": "example",
-                "featureType": "String",
+                "feature_name": "example",
+                "feature_type": "String",
             }],
             online_store_config={
-                "enableOnlineStore": True,
+                "enable_online_store": True,
             })
         ```
 

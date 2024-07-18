@@ -127,7 +127,7 @@ export class ApiCache extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApiCache.__pulumiType, name, resourceInputs, opts);
+        super(ApiCache.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

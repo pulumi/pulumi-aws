@@ -103,7 +103,7 @@ export class RegionSettings extends pulumi.CustomResource {
             resourceInputs["resourceTypeOptInPreference"] = args ? args.resourceTypeOptInPreference : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegionSettings.__pulumiType, name, resourceInputs, opts);
+        super(RegionSettings.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

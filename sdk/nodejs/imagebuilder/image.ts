@@ -192,7 +192,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Image.__pulumiType, name, resourceInputs, opts);
+        super(Image.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -164,7 +164,7 @@ export class DefaultRouteTable extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DefaultRouteTable.__pulumiType, name, resourceInputs, opts);
+        super(DefaultRouteTable.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

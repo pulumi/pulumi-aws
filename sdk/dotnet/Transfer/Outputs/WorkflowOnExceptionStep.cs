@@ -13,10 +13,25 @@ namespace Pulumi.Aws.Transfer.Outputs
     [OutputType]
     public sealed class WorkflowOnExceptionStep
     {
+        /// <summary>
+        /// Details for a step that performs a file copy. See Copy Step Details below.
+        /// </summary>
         public readonly Outputs.WorkflowOnExceptionStepCopyStepDetails? CopyStepDetails;
+        /// <summary>
+        /// Details for a step that invokes a lambda function.
+        /// </summary>
         public readonly Outputs.WorkflowOnExceptionStepCustomStepDetails? CustomStepDetails;
+        /// <summary>
+        /// Details for a step that decrypts the file.
+        /// </summary>
         public readonly Outputs.WorkflowOnExceptionStepDecryptStepDetails? DecryptStepDetails;
+        /// <summary>
+        /// Details for a step that deletes the file.
+        /// </summary>
         public readonly Outputs.WorkflowOnExceptionStepDeleteStepDetails? DeleteStepDetails;
+        /// <summary>
+        /// Details for a step that creates one or more tags.
+        /// </summary>
         public readonly Outputs.WorkflowOnExceptionStepTagStepDetails? TagStepDetails;
         public readonly string Type;
 

@@ -25,86 +25,182 @@ public final class PipeTargetParametersEcsTaskParametersArgs extends com.pulumi.
 
     public static final PipeTargetParametersEcsTaskParametersArgs Empty = new PipeTargetParametersEcsTaskParametersArgs();
 
+    /**
+     * List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+     * 
+     */
     @Import(name="capacityProviderStrategies")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs>> capacityProviderStrategies;
 
+    /**
+     * @return List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+     * 
+     */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs>>> capacityProviderStrategies() {
         return Optional.ofNullable(this.capacityProviderStrategies);
     }
 
+    /**
+     * Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+     * 
+     */
     @Import(name="enableEcsManagedTags")
     private @Nullable Output<Boolean> enableEcsManagedTags;
 
+    /**
+     * @return Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+     * 
+     */
     public Optional<Output<Boolean>> enableEcsManagedTags() {
         return Optional.ofNullable(this.enableEcsManagedTags);
     }
 
+    /**
+     * Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+     * 
+     */
     @Import(name="enableExecuteCommand")
     private @Nullable Output<Boolean> enableExecuteCommand;
 
+    /**
+     * @return Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+     * 
+     */
     public Optional<Output<Boolean>> enableExecuteCommand() {
         return Optional.ofNullable(this.enableExecuteCommand);
     }
 
+    /**
+     * Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+     * 
+     */
     @Import(name="group")
     private @Nullable Output<String> group;
 
+    /**
+     * @return Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+     * 
+     */
     public Optional<Output<String>> group() {
         return Optional.ofNullable(this.group);
     }
 
+    /**
+     * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+     * 
+     */
     @Import(name="launchType")
     private @Nullable Output<String> launchType;
 
+    /**
+     * @return Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+     * 
+     */
     public Optional<Output<String>> launchType() {
         return Optional.ofNullable(this.launchType);
     }
 
+    /**
+     * Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+     * 
+     */
     @Import(name="networkConfiguration")
     private @Nullable Output<PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs> networkConfiguration;
 
+    /**
+     * @return Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+     * 
+     */
     public Optional<Output<PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs>> networkConfiguration() {
         return Optional.ofNullable(this.networkConfiguration);
     }
 
+    /**
+     * The overrides that are associated with a task. Detailed below.
+     * 
+     */
     @Import(name="overrides")
     private @Nullable Output<PipeTargetParametersEcsTaskParametersOverridesArgs> overrides;
 
+    /**
+     * @return The overrides that are associated with a task. Detailed below.
+     * 
+     */
     public Optional<Output<PipeTargetParametersEcsTaskParametersOverridesArgs>> overrides() {
         return Optional.ofNullable(this.overrides);
     }
 
+    /**
+     * An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+     * 
+     */
     @Import(name="placementConstraints")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersPlacementConstraintArgs>> placementConstraints;
 
+    /**
+     * @return An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+     * 
+     */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersPlacementConstraintArgs>>> placementConstraints() {
         return Optional.ofNullable(this.placementConstraints);
     }
 
+    /**
+     * The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+     * 
+     */
     @Import(name="placementStrategies")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersPlacementStrategyArgs>> placementStrategies;
 
+    /**
+     * @return The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+     * 
+     */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersPlacementStrategyArgs>>> placementStrategies() {
         return Optional.ofNullable(this.placementStrategies);
     }
 
+    /**
+     * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+     * 
+     */
     @Import(name="platformVersion")
     private @Nullable Output<String> platformVersion;
 
+    /**
+     * @return Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+     * 
+     */
     public Optional<Output<String>> platformVersion() {
         return Optional.ofNullable(this.platformVersion);
     }
 
+    /**
+     * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+     * 
+     */
     @Import(name="propagateTags")
     private @Nullable Output<String> propagateTags;
 
+    /**
+     * @return Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+     * 
+     */
     public Optional<Output<String>> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }
 
+    /**
+     * The reference ID to use for the task. Maximum length of 1,024.
+     * 
+     */
     @Import(name="referenceId")
     private @Nullable Output<String> referenceId;
 
+    /**
+     * @return The reference ID to use for the task. Maximum length of 1,024.
+     * 
+     */
     public Optional<Output<String>> referenceId() {
         return Optional.ofNullable(this.referenceId);
     }
@@ -124,16 +220,32 @@ public final class PipeTargetParametersEcsTaskParametersArgs extends com.pulumi.
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The number of tasks to create based on TaskDefinition. The default is 1.
+     * 
+     */
     @Import(name="taskCount")
     private @Nullable Output<Integer> taskCount;
 
+    /**
+     * @return The number of tasks to create based on TaskDefinition. The default is 1.
+     * 
+     */
     public Optional<Output<Integer>> taskCount() {
         return Optional.ofNullable(this.taskCount);
     }
 
+    /**
+     * The ARN of the task definition to use if the event target is an Amazon ECS task.
+     * 
+     */
     @Import(name="taskDefinitionArn", required=true)
     private Output<String> taskDefinitionArn;
 
+    /**
+     * @return The ARN of the task definition to use if the event target is an Amazon ECS task.
+     * 
+     */
     public Output<String> taskDefinitionArn() {
         return this.taskDefinitionArn;
     }
@@ -176,122 +288,284 @@ public final class PipeTargetParametersEcsTaskParametersArgs extends com.pulumi.
             $ = new PipeTargetParametersEcsTaskParametersArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param capacityProviderStrategies List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder capacityProviderStrategies(@Nullable Output<List<PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs>> capacityProviderStrategies) {
             $.capacityProviderStrategies = capacityProviderStrategies;
             return this;
         }
 
+        /**
+         * @param capacityProviderStrategies List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder capacityProviderStrategies(List<PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs> capacityProviderStrategies) {
             return capacityProviderStrategies(Output.of(capacityProviderStrategies));
         }
 
+        /**
+         * @param capacityProviderStrategies List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder capacityProviderStrategies(PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs... capacityProviderStrategies) {
             return capacityProviderStrategies(List.of(capacityProviderStrategies));
         }
 
+        /**
+         * @param enableEcsManagedTags Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableEcsManagedTags(@Nullable Output<Boolean> enableEcsManagedTags) {
             $.enableEcsManagedTags = enableEcsManagedTags;
             return this;
         }
 
+        /**
+         * @param enableEcsManagedTags Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableEcsManagedTags(Boolean enableEcsManagedTags) {
             return enableEcsManagedTags(Output.of(enableEcsManagedTags));
         }
 
+        /**
+         * @param enableExecuteCommand Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableExecuteCommand(@Nullable Output<Boolean> enableExecuteCommand) {
             $.enableExecuteCommand = enableExecuteCommand;
             return this;
         }
 
+        /**
+         * @param enableExecuteCommand Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder enableExecuteCommand(Boolean enableExecuteCommand) {
             return enableExecuteCommand(Output.of(enableExecuteCommand));
         }
 
+        /**
+         * @param group Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder group(@Nullable Output<String> group) {
             $.group = group;
             return this;
         }
 
+        /**
+         * @param group Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder group(String group) {
             return group(Output.of(group));
         }
 
+        /**
+         * @param launchType Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+         * 
+         * @return builder
+         * 
+         */
         public Builder launchType(@Nullable Output<String> launchType) {
             $.launchType = launchType;
             return this;
         }
 
+        /**
+         * @param launchType Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+         * 
+         * @return builder
+         * 
+         */
         public Builder launchType(String launchType) {
             return launchType(Output.of(launchType));
         }
 
+        /**
+         * @param networkConfiguration Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkConfiguration(@Nullable Output<PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs> networkConfiguration) {
             $.networkConfiguration = networkConfiguration;
             return this;
         }
 
+        /**
+         * @param networkConfiguration Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkConfiguration(PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs networkConfiguration) {
             return networkConfiguration(Output.of(networkConfiguration));
         }
 
+        /**
+         * @param overrides The overrides that are associated with a task. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrides(@Nullable Output<PipeTargetParametersEcsTaskParametersOverridesArgs> overrides) {
             $.overrides = overrides;
             return this;
         }
 
+        /**
+         * @param overrides The overrides that are associated with a task. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder overrides(PipeTargetParametersEcsTaskParametersOverridesArgs overrides) {
             return overrides(Output.of(overrides));
         }
 
+        /**
+         * @param placementConstraints An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder placementConstraints(@Nullable Output<List<PipeTargetParametersEcsTaskParametersPlacementConstraintArgs>> placementConstraints) {
             $.placementConstraints = placementConstraints;
             return this;
         }
 
+        /**
+         * @param placementConstraints An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder placementConstraints(List<PipeTargetParametersEcsTaskParametersPlacementConstraintArgs> placementConstraints) {
             return placementConstraints(Output.of(placementConstraints));
         }
 
+        /**
+         * @param placementConstraints An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder placementConstraints(PipeTargetParametersEcsTaskParametersPlacementConstraintArgs... placementConstraints) {
             return placementConstraints(List.of(placementConstraints));
         }
 
+        /**
+         * @param placementStrategies The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder placementStrategies(@Nullable Output<List<PipeTargetParametersEcsTaskParametersPlacementStrategyArgs>> placementStrategies) {
             $.placementStrategies = placementStrategies;
             return this;
         }
 
+        /**
+         * @param placementStrategies The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder placementStrategies(List<PipeTargetParametersEcsTaskParametersPlacementStrategyArgs> placementStrategies) {
             return placementStrategies(Output.of(placementStrategies));
         }
 
+        /**
+         * @param placementStrategies The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder placementStrategies(PipeTargetParametersEcsTaskParametersPlacementStrategyArgs... placementStrategies) {
             return placementStrategies(List.of(placementStrategies));
         }
 
+        /**
+         * @param platformVersion Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+         * 
+         * @return builder
+         * 
+         */
         public Builder platformVersion(@Nullable Output<String> platformVersion) {
             $.platformVersion = platformVersion;
             return this;
         }
 
+        /**
+         * @param platformVersion Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+         * 
+         * @return builder
+         * 
+         */
         public Builder platformVersion(String platformVersion) {
             return platformVersion(Output.of(platformVersion));
         }
 
+        /**
+         * @param propagateTags Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+         * 
+         * @return builder
+         * 
+         */
         public Builder propagateTags(@Nullable Output<String> propagateTags) {
             $.propagateTags = propagateTags;
             return this;
         }
 
+        /**
+         * @param propagateTags Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+         * 
+         * @return builder
+         * 
+         */
         public Builder propagateTags(String propagateTags) {
             return propagateTags(Output.of(propagateTags));
         }
 
+        /**
+         * @param referenceId The reference ID to use for the task. Maximum length of 1,024.
+         * 
+         * @return builder
+         * 
+         */
         public Builder referenceId(@Nullable Output<String> referenceId) {
             $.referenceId = referenceId;
             return this;
         }
 
+        /**
+         * @param referenceId The reference ID to use for the task. Maximum length of 1,024.
+         * 
+         * @return builder
+         * 
+         */
         public Builder referenceId(String referenceId) {
             return referenceId(Output.of(referenceId));
         }
@@ -317,20 +591,44 @@ public final class PipeTargetParametersEcsTaskParametersArgs extends com.pulumi.
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param taskCount The number of tasks to create based on TaskDefinition. The default is 1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder taskCount(@Nullable Output<Integer> taskCount) {
             $.taskCount = taskCount;
             return this;
         }
 
+        /**
+         * @param taskCount The number of tasks to create based on TaskDefinition. The default is 1.
+         * 
+         * @return builder
+         * 
+         */
         public Builder taskCount(Integer taskCount) {
             return taskCount(Output.of(taskCount));
         }
 
+        /**
+         * @param taskDefinitionArn The ARN of the task definition to use if the event target is an Amazon ECS task.
+         * 
+         * @return builder
+         * 
+         */
         public Builder taskDefinitionArn(Output<String> taskDefinitionArn) {
             $.taskDefinitionArn = taskDefinitionArn;
             return this;
         }
 
+        /**
+         * @param taskDefinitionArn The ARN of the task definition to use if the event target is an Amazon ECS task.
+         * 
+         * @return builder
+         * 
+         */
         public Builder taskDefinitionArn(String taskDefinitionArn) {
             return taskDefinitionArn(Output.of(taskDefinitionArn));
         }

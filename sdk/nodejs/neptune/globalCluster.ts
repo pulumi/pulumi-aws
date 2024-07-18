@@ -188,7 +188,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GlobalCluster.__pulumiType, name, resourceInputs, opts);
+        super(GlobalCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

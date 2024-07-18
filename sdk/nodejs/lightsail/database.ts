@@ -401,7 +401,7 @@ export class Database extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["masterPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Database.__pulumiType, name, resourceInputs, opts);
+        super(Database.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

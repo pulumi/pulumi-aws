@@ -93,7 +93,7 @@ export class InternetGatewayAttachment extends pulumi.CustomResource {
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InternetGatewayAttachment.__pulumiType, name, resourceInputs, opts);
+        super(InternetGatewayAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

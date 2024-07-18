@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DataRepositoryAssociationS3 struct {
+	// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
 	AutoExportPolicy *DataRepositoryAssociationS3AutoExportPolicy `pulumi:"autoExportPolicy"`
+	// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
 	AutoImportPolicy *DataRepositoryAssociationS3AutoImportPolicy `pulumi:"autoImportPolicy"`
 }
 
@@ -30,7 +32,9 @@ type DataRepositoryAssociationS3Input interface {
 }
 
 type DataRepositoryAssociationS3Args struct {
+	// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
 	AutoExportPolicy DataRepositoryAssociationS3AutoExportPolicyPtrInput `pulumi:"autoExportPolicy"`
+	// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
 	AutoImportPolicy DataRepositoryAssociationS3AutoImportPolicyPtrInput `pulumi:"autoImportPolicy"`
 }
 
@@ -111,12 +115,14 @@ func (o DataRepositoryAssociationS3Output) ToDataRepositoryAssociationS3PtrOutpu
 	}).(DataRepositoryAssociationS3PtrOutput)
 }
 
+// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
 func (o DataRepositoryAssociationS3Output) AutoExportPolicy() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoExportPolicy {
 		return v.AutoExportPolicy
 	}).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
 }
 
+// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
 func (o DataRepositoryAssociationS3Output) AutoImportPolicy() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoImportPolicy {
 		return v.AutoImportPolicy
@@ -147,6 +153,7 @@ func (o DataRepositoryAssociationS3PtrOutput) Elem() DataRepositoryAssociationS3
 	}).(DataRepositoryAssociationS3Output)
 }
 
+// Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
 func (o DataRepositoryAssociationS3PtrOutput) AutoExportPolicy() DataRepositoryAssociationS3AutoExportPolicyPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoExportPolicy {
 		if v == nil {
@@ -156,6 +163,7 @@ func (o DataRepositoryAssociationS3PtrOutput) AutoExportPolicy() DataRepositoryA
 	}).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
 }
 
+// Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
 func (o DataRepositoryAssociationS3PtrOutput) AutoImportPolicy() DataRepositoryAssociationS3AutoImportPolicyPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3) *DataRepositoryAssociationS3AutoImportPolicy {
 		if v == nil {
@@ -166,6 +174,7 @@ func (o DataRepositoryAssociationS3PtrOutput) AutoImportPolicy() DataRepositoryA
 }
 
 type DataRepositoryAssociationS3AutoExportPolicy struct {
+	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 	Events []string `pulumi:"events"`
 }
 
@@ -181,6 +190,7 @@ type DataRepositoryAssociationS3AutoExportPolicyInput interface {
 }
 
 type DataRepositoryAssociationS3AutoExportPolicyArgs struct {
+	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 	Events pulumi.StringArrayInput `pulumi:"events"`
 }
 
@@ -261,6 +271,7 @@ func (o DataRepositoryAssociationS3AutoExportPolicyOutput) ToDataRepositoryAssoc
 	}).(DataRepositoryAssociationS3AutoExportPolicyPtrOutput)
 }
 
+// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 func (o DataRepositoryAssociationS3AutoExportPolicyOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3AutoExportPolicy) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
@@ -289,6 +300,7 @@ func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) Elem() DataReposit
 	}).(DataRepositoryAssociationS3AutoExportPolicyOutput)
 }
 
+// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3AutoExportPolicy) []string {
 		if v == nil {
@@ -299,6 +311,7 @@ func (o DataRepositoryAssociationS3AutoExportPolicyPtrOutput) Events() pulumi.St
 }
 
 type DataRepositoryAssociationS3AutoImportPolicy struct {
+	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 	Events []string `pulumi:"events"`
 }
 
@@ -314,6 +327,7 @@ type DataRepositoryAssociationS3AutoImportPolicyInput interface {
 }
 
 type DataRepositoryAssociationS3AutoImportPolicyArgs struct {
+	// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 	Events pulumi.StringArrayInput `pulumi:"events"`
 }
 
@@ -394,6 +408,7 @@ func (o DataRepositoryAssociationS3AutoImportPolicyOutput) ToDataRepositoryAssoc
 	}).(DataRepositoryAssociationS3AutoImportPolicyPtrOutput)
 }
 
+// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 func (o DataRepositoryAssociationS3AutoImportPolicyOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3AutoImportPolicy) []string { return v.Events }).(pulumi.StringArrayOutput)
 }
@@ -422,6 +437,7 @@ func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) Elem() DataReposit
 	}).(DataRepositoryAssociationS3AutoImportPolicyOutput)
 }
 
+// A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
 func (o DataRepositoryAssociationS3AutoImportPolicyPtrOutput) Events() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3AutoImportPolicy) []string {
 		if v == nil {
@@ -2151,12 +2167,18 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) SelfMan
 }
 
 type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration struct {
-	DnsIps                              []string `pulumi:"dnsIps"`
-	DomainName                          string   `pulumi:"domainName"`
-	FileSystemAdministratorsGroup       *string  `pulumi:"fileSystemAdministratorsGroup"`
-	OrganizationalUnitDistinguishedName *string  `pulumi:"organizationalUnitDistinguishedName"`
-	Password                            string   `pulumi:"password"`
-	Username                            string   `pulumi:"username"`
+	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+	DnsIps []string `pulumi:"dnsIps"`
+	// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+	DomainName string `pulumi:"domainName"`
+	// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+	FileSystemAdministratorsGroup *string `pulumi:"fileSystemAdministratorsGroup"`
+	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	Password string `pulumi:"password"`
+	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	Username string `pulumi:"username"`
 }
 
 // OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationInput is an input type that accepts OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs and OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput values.
@@ -2171,12 +2193,18 @@ type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDire
 }
 
 type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs struct {
-	DnsIps                              pulumi.StringArrayInput `pulumi:"dnsIps"`
-	DomainName                          pulumi.StringInput      `pulumi:"domainName"`
-	FileSystemAdministratorsGroup       pulumi.StringPtrInput   `pulumi:"fileSystemAdministratorsGroup"`
-	OrganizationalUnitDistinguishedName pulumi.StringPtrInput   `pulumi:"organizationalUnitDistinguishedName"`
-	Password                            pulumi.StringInput      `pulumi:"password"`
-	Username                            pulumi.StringInput      `pulumi:"username"`
+	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
+	// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+	FileSystemAdministratorsGroup pulumi.StringPtrInput `pulumi:"fileSystemAdministratorsGroup"`
+	// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 func (OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
@@ -2256,36 +2284,42 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput)
 }
 
+// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) []string {
 		return v.DnsIps
 	}).(pulumi.StringArrayOutput)
 }
 
+// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
 		return v.DomainName
 	}).(pulumi.StringOutput)
 }
 
+// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		return v.FileSystemAdministratorsGroup
 	}).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		return v.OrganizationalUnitDistinguishedName
 	}).(pulumi.StringPtrOutput)
 }
 
+// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
 		return v.Password
 	}).(pulumi.StringOutput)
 }
 
+// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
 		return v.Username
@@ -2316,6 +2350,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput)
 }
 
+// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) []string {
 		if v == nil {
@@ -2325,6 +2360,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringArrayOutput)
 }
 
+// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -2334,6 +2370,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -2343,6 +2380,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -2352,6 +2390,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringPtrOutput)
 }
 
+// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -2361,6 +2400,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -3488,8 +3528,11 @@ func (o OntapVolumeSnaplockConfigurationAutocommitPeriodPtrOutput) Value() pulum
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriod struct {
+	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
 	DefaultRetention *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention `pulumi:"defaultRetention"`
+	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
 	MaximumRetention *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention `pulumi:"maximumRetention"`
+	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
 	MinimumRetention *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention `pulumi:"minimumRetention"`
 }
 
@@ -3505,8 +3548,11 @@ type OntapVolumeSnaplockConfigurationRetentionPeriodInput interface {
 }
 
 type OntapVolumeSnaplockConfigurationRetentionPeriodArgs struct {
+	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
 	DefaultRetention OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrInput `pulumi:"defaultRetention"`
+	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
 	MaximumRetention OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrInput `pulumi:"maximumRetention"`
+	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
 	MinimumRetention OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrInput `pulumi:"minimumRetention"`
 }
 
@@ -3587,18 +3633,21 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) ToOntapVolumeSnap
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput)
 }
 
+// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) DefaultRetention() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
 		return v.DefaultRetention
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
 }
 
+// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) MaximumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
 		return v.MaximumRetention
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
 }
 
+// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodOutput) MinimumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
 	return o.ApplyT(func(v OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
 		return v.MinimumRetention
@@ -3629,6 +3678,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) Elem() OntapVo
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodOutput)
 }
 
+// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) DefaultRetention() OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention {
 		if v == nil {
@@ -3638,6 +3688,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) DefaultRetenti
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionPtrOutput)
 }
 
+// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MaximumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention {
 		if v == nil {
@@ -3647,6 +3698,7 @@ func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MaximumRetenti
 	}).(OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionPtrOutput)
 }
 
+// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
 func (o OntapVolumeSnaplockConfigurationRetentionPeriodPtrOutput) MinimumRetention() OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionPtrOutput {
 	return o.ApplyT(func(v *OntapVolumeSnaplockConfigurationRetentionPeriod) *OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention {
 		if v == nil {

@@ -129,7 +129,7 @@ export class DefaultPatchBaseline extends pulumi.CustomResource {
             resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DefaultPatchBaseline.__pulumiType, name, resourceInputs, opts);
+        super(DefaultPatchBaseline.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

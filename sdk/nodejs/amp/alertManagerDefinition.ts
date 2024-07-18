@@ -97,7 +97,7 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AlertManagerDefinition.__pulumiType, name, resourceInputs, opts);
+        super(AlertManagerDefinition.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -327,7 +327,7 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PatchBaseline.__pulumiType, name, resourceInputs, opts);
+        super(PatchBaseline.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

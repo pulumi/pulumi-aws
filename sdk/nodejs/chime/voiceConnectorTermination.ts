@@ -128,7 +128,7 @@ export class VoiceConnectorTermination extends pulumi.CustomResource {
             resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VoiceConnectorTermination.__pulumiType, name, resourceInputs, opts);
+        super(VoiceConnectorTermination.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

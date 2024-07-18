@@ -162,7 +162,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ExperimentTemplate.__pulumiType, name, resourceInputs, opts);
+        super(ExperimentTemplate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

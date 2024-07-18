@@ -127,7 +127,7 @@ export class Alias extends pulumi.CustomResource {
             resourceInputs["creationDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Alias.__pulumiType, name, resourceInputs, opts);
+        super(Alias.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

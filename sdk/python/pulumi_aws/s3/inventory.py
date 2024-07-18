@@ -325,7 +325,7 @@ class Inventory(pulumi.CustomResource):
             destination={
                 "bucket": {
                     "format": "ORC",
-                    "bucketArn": inventory.arn,
+                    "bucket_arn": inventory.arn,
                 },
             })
         ```
@@ -351,7 +351,7 @@ class Inventory(pulumi.CustomResource):
             destination={
                 "bucket": {
                     "format": "ORC",
-                    "bucketArn": inventory.arn,
+                    "bucket_arn": inventory.arn,
                     "prefix": "inventory",
                 },
             })
@@ -407,7 +407,7 @@ class Inventory(pulumi.CustomResource):
             destination={
                 "bucket": {
                     "format": "ORC",
-                    "bucketArn": inventory.arn,
+                    "bucket_arn": inventory.arn,
                 },
             })
         ```
@@ -433,7 +433,7 @@ class Inventory(pulumi.CustomResource):
             destination={
                 "bucket": {
                     "format": "ORC",
-                    "bucketArn": inventory.arn,
+                    "bucket_arn": inventory.arn,
                     "prefix": "inventory",
                 },
             })

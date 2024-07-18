@@ -16,7 +16,15 @@ import javax.annotation.Nullable;
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings {
     private @Nullable String acquisitionPointId;
     private @Nullable String audioOnlyTimecodeControl;
+    /**
+     * @return Setting to allow self signed or verified RTMP certificates.
+     * 
+     */
     private @Nullable String certificateMode;
+    /**
+     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * 
+     */
     private @Nullable Integer connectionRetryInterval;
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination destination;
     private @Nullable String eventId;
@@ -25,7 +33,15 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     private @Nullable Integer filecacheDuration;
     private @Nullable Integer fragmentLength;
     private @Nullable String inputLossAction;
+    /**
+     * @return Number of retry attempts.
+     * 
+     */
     private @Nullable Integer numRetries;
+    /**
+     * @return Number of seconds to wait until a restart is initiated.
+     * 
+     */
     private @Nullable Integer restartDelay;
     private @Nullable String segmentationMode;
     private @Nullable Integer sendDelayMs;
@@ -41,9 +57,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     public Optional<String> audioOnlyTimecodeControl() {
         return Optional.ofNullable(this.audioOnlyTimecodeControl);
     }
+    /**
+     * @return Setting to allow self signed or verified RTMP certificates.
+     * 
+     */
     public Optional<String> certificateMode() {
         return Optional.ofNullable(this.certificateMode);
     }
+    /**
+     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * 
+     */
     public Optional<Integer> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
@@ -68,9 +92,17 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
     public Optional<String> inputLossAction() {
         return Optional.ofNullable(this.inputLossAction);
     }
+    /**
+     * @return Number of retry attempts.
+     * 
+     */
     public Optional<Integer> numRetries() {
         return Optional.ofNullable(this.numRetries);
     }
+    /**
+     * @return Number of seconds to wait until a restart is initiated.
+     * 
+     */
     public Optional<Integer> restartDelay() {
         return Optional.ofNullable(this.restartDelay);
     }

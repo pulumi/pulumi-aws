@@ -143,7 +143,7 @@ export class Webhook extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["secret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Webhook.__pulumiType, name, resourceInputs, opts);
+        super(Webhook.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

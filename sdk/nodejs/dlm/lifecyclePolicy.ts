@@ -297,7 +297,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LifecyclePolicy.__pulumiType, name, resourceInputs, opts);
+        super(LifecyclePolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -160,7 +160,7 @@ export class Vocabulary extends pulumi.CustomResource {
             resourceInputs["vocabularyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Vocabulary.__pulumiType, name, resourceInputs, opts);
+        super(Vocabulary.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

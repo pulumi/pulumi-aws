@@ -186,7 +186,7 @@ export class BucketWebsiteConfigurationV2 extends pulumi.CustomResource {
             resourceInputs["websiteEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BucketWebsiteConfigurationV2.__pulumiType, name, resourceInputs, opts);
+        super(BucketWebsiteConfigurationV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

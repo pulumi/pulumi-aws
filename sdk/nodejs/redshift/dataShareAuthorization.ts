@@ -113,7 +113,7 @@ export class DataShareAuthorization extends pulumi.CustomResource {
             resourceInputs["producerArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataShareAuthorization.__pulumiType, name, resourceInputs, opts);
+        super(DataShareAuthorization.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

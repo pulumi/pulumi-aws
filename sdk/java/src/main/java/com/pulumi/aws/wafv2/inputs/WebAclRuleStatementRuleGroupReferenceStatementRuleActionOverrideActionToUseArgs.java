@@ -33,16 +33,32 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
         return Optional.ofNullable(this.block);
     }
 
+    /**
+     * Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+     * 
+     */
     @Import(name="captcha")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs> captcha;
 
+    /**
+     * @return Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+     * 
+     */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs>> captcha() {
         return Optional.ofNullable(this.captcha);
     }
 
+    /**
+     * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * 
+     */
     @Import(name="challenge")
     private @Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs> challenge;
 
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * 
+     */
     public Optional<Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs>> challenge() {
         return Optional.ofNullable(this.challenge);
     }
@@ -100,20 +116,44 @@ public final class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverr
             return block(Output.of(block));
         }
 
+        /**
+         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder captcha(@Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs> captcha) {
             $.captcha = captcha;
             return this;
         }
 
+        /**
+         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder captcha(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs captcha) {
             return captcha(Output.of(captcha));
         }
 
+        /**
+         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder challenge(@Nullable Output<WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs> challenge) {
             $.challenge = challenge;
             return this;
         }
 
+        /**
+         * @param challenge Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder challenge(WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs challenge) {
             return challenge(Output.of(challenge));
         }

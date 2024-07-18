@@ -98,7 +98,7 @@ export class DelegationSet extends pulumi.CustomResource {
             resourceInputs["nameServers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DelegationSet.__pulumiType, name, resourceInputs, opts);
+        super(DelegationSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

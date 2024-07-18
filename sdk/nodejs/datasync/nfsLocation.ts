@@ -137,7 +137,7 @@ export class NfsLocation extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NfsLocation.__pulumiType, name, resourceInputs, opts);
+        super(NfsLocation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

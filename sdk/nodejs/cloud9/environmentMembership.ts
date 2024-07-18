@@ -112,7 +112,7 @@ export class EnvironmentMembership extends pulumi.CustomResource {
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EnvironmentMembership.__pulumiType, name, resourceInputs, opts);
+        super(EnvironmentMembership.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

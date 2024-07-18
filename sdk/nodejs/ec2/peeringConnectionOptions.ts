@@ -166,7 +166,7 @@ export class PeeringConnectionOptions extends pulumi.CustomResource {
             resourceInputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PeeringConnectionOptions.__pulumiType, name, resourceInputs, opts);
+        super(PeeringConnectionOptions.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

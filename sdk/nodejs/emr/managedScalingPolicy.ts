@@ -110,7 +110,7 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
             resourceInputs["computeLimits"] = args ? args.computeLimits : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedScalingPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ManagedScalingPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

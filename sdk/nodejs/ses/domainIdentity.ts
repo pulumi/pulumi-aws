@@ -109,7 +109,7 @@ export class DomainIdentity extends pulumi.CustomResource {
             resourceInputs["verificationToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DomainIdentity.__pulumiType, name, resourceInputs, opts);
+        super(DomainIdentity.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

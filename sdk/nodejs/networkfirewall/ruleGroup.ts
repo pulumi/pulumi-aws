@@ -418,7 +418,7 @@ export class RuleGroup extends pulumi.CustomResource {
             resourceInputs["updateToken"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RuleGroup.__pulumiType, name, resourceInputs, opts);
+        super(RuleGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

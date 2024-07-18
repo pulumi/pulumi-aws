@@ -175,7 +175,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OpenZfsVolume.__pulumiType, name, resourceInputs, opts);
+        super(OpenZfsVolume.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

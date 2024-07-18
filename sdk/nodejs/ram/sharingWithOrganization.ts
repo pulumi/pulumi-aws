@@ -72,7 +72,7 @@ export class SharingWithOrganization extends pulumi.CustomResource {
             const args = argsOrState as SharingWithOrganizationArgs | undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SharingWithOrganization.__pulumiType, name, resourceInputs, opts);
+        super(SharingWithOrganization.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

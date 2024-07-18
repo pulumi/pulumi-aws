@@ -157,7 +157,7 @@ export class Workforce extends pulumi.CustomResource {
             resourceInputs["subdomain"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Workforce.__pulumiType, name, resourceInputs, opts);
+        super(Workforce.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

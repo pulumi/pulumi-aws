@@ -17,16 +17,32 @@ public final class CostCategoryRuleRuleNotOrArgs extends com.pulumi.resources.Re
 
     public static final CostCategoryRuleRuleNotOrArgs Empty = new CostCategoryRuleRuleNotOrArgs();
 
+    /**
+     * Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * 
+     */
     @Import(name="costCategory")
     private @Nullable Output<CostCategoryRuleRuleNotOrCostCategoryArgs> costCategory;
 
+    /**
+     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+     * 
+     */
     public Optional<Output<CostCategoryRuleRuleNotOrCostCategoryArgs>> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
 
+    /**
+     * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * 
+     */
     @Import(name="dimension")
     private @Nullable Output<CostCategoryRuleRuleNotOrDimensionArgs> dimension;
 
+    /**
+     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
+     * 
+     */
     public Optional<Output<CostCategoryRuleRuleNotOrDimensionArgs>> dimension() {
         return Optional.ofNullable(this.dimension);
     }
@@ -72,20 +88,44 @@ public final class CostCategoryRuleRuleNotOrArgs extends com.pulumi.resources.Re
             $ = new CostCategoryRuleRuleNotOrArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder costCategory(@Nullable Output<CostCategoryRuleRuleNotOrCostCategoryArgs> costCategory) {
             $.costCategory = costCategory;
             return this;
         }
 
+        /**
+         * @param costCategory Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder costCategory(CostCategoryRuleRuleNotOrCostCategoryArgs costCategory) {
             return costCategory(Output.of(costCategory));
         }
 
+        /**
+         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimension(@Nullable Output<CostCategoryRuleRuleNotOrDimensionArgs> dimension) {
             $.dimension = dimension;
             return this;
         }
 
+        /**
+         * @param dimension Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimension(CostCategoryRuleRuleNotOrDimensionArgs dimension) {
             return dimension(Output.of(dimension));
         }

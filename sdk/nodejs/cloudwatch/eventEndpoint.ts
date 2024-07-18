@@ -153,7 +153,7 @@ export class EventEndpoint extends pulumi.CustomResource {
             resourceInputs["endpointUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(EventEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

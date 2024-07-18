@@ -112,7 +112,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Monitor.__pulumiType, name, resourceInputs, opts);
+        super(Monitor.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

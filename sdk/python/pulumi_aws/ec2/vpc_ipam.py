@@ -337,7 +337,7 @@ class VpcIpam(pulumi.CustomResource):
         main = aws.ec2.VpcIpam("main",
             description="My IPAM",
             operating_regions=[{
-                "regionName": current.name,
+                "region_name": current.name,
             }],
             tags={
                 "Test": "Main",
@@ -383,7 +383,7 @@ class VpcIpam(pulumi.CustomResource):
         main = aws.ec2.VpcIpam("main",
             description="My IPAM",
             operating_regions=[{
-                "regionName": current.name,
+                "region_name": current.name,
             }],
             tags={
                 "Test": "Main",

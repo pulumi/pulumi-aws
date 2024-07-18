@@ -264,7 +264,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["writer"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterInstance.__pulumiType, name, resourceInputs, opts);
+        super(ClusterInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

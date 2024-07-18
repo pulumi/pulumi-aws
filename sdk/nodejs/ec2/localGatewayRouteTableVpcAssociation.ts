@@ -114,7 +114,7 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LocalGatewayRouteTableVpcAssociation.__pulumiType, name, resourceInputs, opts);
+        super(LocalGatewayRouteTableVpcAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

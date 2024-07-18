@@ -139,7 +139,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
             resourceInputs["extensionVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ExtensionAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ExtensionAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

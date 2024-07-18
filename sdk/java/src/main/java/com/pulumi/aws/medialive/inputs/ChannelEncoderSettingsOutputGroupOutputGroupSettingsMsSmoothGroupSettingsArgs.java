@@ -32,16 +32,32 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         return Optional.ofNullable(this.audioOnlyTimecodeControl);
     }
 
+    /**
+     * Setting to allow self signed or verified RTMP certificates.
+     * 
+     */
     @Import(name="certificateMode")
     private @Nullable Output<String> certificateMode;
 
+    /**
+     * @return Setting to allow self signed or verified RTMP certificates.
+     * 
+     */
     public Optional<Output<String>> certificateMode() {
         return Optional.ofNullable(this.certificateMode);
     }
 
+    /**
+     * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * 
+     */
     @Import(name="connectionRetryInterval")
     private @Nullable Output<Integer> connectionRetryInterval;
 
+    /**
+     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+     * 
+     */
     public Optional<Output<Integer>> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
@@ -95,16 +111,32 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
         return Optional.ofNullable(this.inputLossAction);
     }
 
+    /**
+     * Number of retry attempts.
+     * 
+     */
     @Import(name="numRetries")
     private @Nullable Output<Integer> numRetries;
 
+    /**
+     * @return Number of retry attempts.
+     * 
+     */
     public Optional<Output<Integer>> numRetries() {
         return Optional.ofNullable(this.numRetries);
     }
 
+    /**
+     * Number of seconds to wait until a restart is initiated.
+     * 
+     */
     @Import(name="restartDelay")
     private @Nullable Output<Integer> restartDelay;
 
+    /**
+     * @return Number of seconds to wait until a restart is initiated.
+     * 
+     */
     public Optional<Output<Integer>> restartDelay() {
         return Optional.ofNullable(this.restartDelay);
     }
@@ -211,20 +243,44 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return audioOnlyTimecodeControl(Output.of(audioOnlyTimecodeControl));
         }
 
+        /**
+         * @param certificateMode Setting to allow self signed or verified RTMP certificates.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateMode(@Nullable Output<String> certificateMode) {
             $.certificateMode = certificateMode;
             return this;
         }
 
+        /**
+         * @param certificateMode Setting to allow self signed or verified RTMP certificates.
+         * 
+         * @return builder
+         * 
+         */
         public Builder certificateMode(String certificateMode) {
             return certificateMode(Output.of(certificateMode));
         }
 
+        /**
+         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionRetryInterval(@Nullable Output<Integer> connectionRetryInterval) {
             $.connectionRetryInterval = connectionRetryInterval;
             return this;
         }
 
+        /**
+         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectionRetryInterval(Integer connectionRetryInterval) {
             return connectionRetryInterval(Output.of(connectionRetryInterval));
         }
@@ -292,20 +348,44 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothG
             return inputLossAction(Output.of(inputLossAction));
         }
 
+        /**
+         * @param numRetries Number of retry attempts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder numRetries(@Nullable Output<Integer> numRetries) {
             $.numRetries = numRetries;
             return this;
         }
 
+        /**
+         * @param numRetries Number of retry attempts.
+         * 
+         * @return builder
+         * 
+         */
         public Builder numRetries(Integer numRetries) {
             return numRetries(Output.of(numRetries));
         }
 
+        /**
+         * @param restartDelay Number of seconds to wait until a restart is initiated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restartDelay(@Nullable Output<Integer> restartDelay) {
             $.restartDelay = restartDelay;
             return this;
         }
 
+        /**
+         * @param restartDelay Number of seconds to wait until a restart is initiated.
+         * 
+         * @return builder
+         * 
+         */
         public Builder restartDelay(Integer restartDelay) {
             return restartDelay(Output.of(restartDelay));
         }

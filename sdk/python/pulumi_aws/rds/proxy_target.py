@@ -291,10 +291,10 @@ class ProxyTarget(pulumi.CustomResource):
             vpc_security_group_ids=[example_aws_security_group["id"]],
             vpc_subnet_ids=[example_aws_subnet["id"]],
             auths=[{
-                "authScheme": "SECRETS",
+                "auth_scheme": "SECRETS",
                 "description": "example",
-                "iamAuth": "DISABLED",
-                "secretArn": example_aws_secretsmanager_secret["arn"],
+                "iam_auth": "DISABLED",
+                "secret_arn": example_aws_secretsmanager_secret["arn"],
             }],
             tags={
                 "Name": "example",
@@ -303,11 +303,11 @@ class ProxyTarget(pulumi.CustomResource):
         example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("example",
             db_proxy_name=example.name,
             connection_pool_config={
-                "connectionBorrowTimeout": 120,
-                "initQuery": "SET x=1, y=2",
-                "maxConnectionsPercent": 100,
-                "maxIdleConnectionsPercent": 50,
-                "sessionPinningFilters": ["EXCLUDE_VARIABLE_SETS"],
+                "connection_borrow_timeout": 120,
+                "init_query": "SET x=1, y=2",
+                "max_connections_percent": 100,
+                "max_idle_connections_percent": 50,
+                "session_pinning_filters": ["EXCLUDE_VARIABLE_SETS"],
             })
         example_proxy_target = aws.rds.ProxyTarget("example",
             db_instance_identifier=example_aws_db_instance["identifier"],
@@ -366,10 +366,10 @@ class ProxyTarget(pulumi.CustomResource):
             vpc_security_group_ids=[example_aws_security_group["id"]],
             vpc_subnet_ids=[example_aws_subnet["id"]],
             auths=[{
-                "authScheme": "SECRETS",
+                "auth_scheme": "SECRETS",
                 "description": "example",
-                "iamAuth": "DISABLED",
-                "secretArn": example_aws_secretsmanager_secret["arn"],
+                "iam_auth": "DISABLED",
+                "secret_arn": example_aws_secretsmanager_secret["arn"],
             }],
             tags={
                 "Name": "example",
@@ -378,11 +378,11 @@ class ProxyTarget(pulumi.CustomResource):
         example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("example",
             db_proxy_name=example.name,
             connection_pool_config={
-                "connectionBorrowTimeout": 120,
-                "initQuery": "SET x=1, y=2",
-                "maxConnectionsPercent": 100,
-                "maxIdleConnectionsPercent": 50,
-                "sessionPinningFilters": ["EXCLUDE_VARIABLE_SETS"],
+                "connection_borrow_timeout": 120,
+                "init_query": "SET x=1, y=2",
+                "max_connections_percent": 100,
+                "max_idle_connections_percent": 50,
+                "session_pinning_filters": ["EXCLUDE_VARIABLE_SETS"],
             })
         example_proxy_target = aws.rds.ProxyTarget("example",
             db_instance_identifier=example_aws_db_instance["identifier"],

@@ -111,7 +111,7 @@ export class RouteTable extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RouteTable.__pulumiType, name, resourceInputs, opts);
+        super(RouteTable.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

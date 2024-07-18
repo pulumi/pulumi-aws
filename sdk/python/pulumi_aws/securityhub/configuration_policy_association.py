@@ -118,20 +118,20 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
             auto_enable=False,
             auto_enable_standards="NONE",
             organization_configuration={
-                "configurationType": "CENTRAL",
+                "configuration_type": "CENTRAL",
             },
             opts = pulumi.ResourceOptions(depends_on=[example]))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
             configuration_policy={
-                "serviceEnabled": True,
-                "enabledStandardArns": [
+                "service_enabled": True,
+                "enabled_standard_arns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                "securityControlsConfiguration": {
-                    "disabledControlIdentifiers": [],
+                "security_controls_configuration": {
+                    "disabled_control_identifiers": [],
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
@@ -181,20 +181,20 @@ class ConfigurationPolicyAssociation(pulumi.CustomResource):
             auto_enable=False,
             auto_enable_standards="NONE",
             organization_configuration={
-                "configurationType": "CENTRAL",
+                "configuration_type": "CENTRAL",
             },
             opts = pulumi.ResourceOptions(depends_on=[example]))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
             name="Example",
             description="This is an example configuration policy",
             configuration_policy={
-                "serviceEnabled": True,
-                "enabledStandardArns": [
+                "service_enabled": True,
+                "enabled_standard_arns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                "securityControlsConfiguration": {
-                    "disabledControlIdentifiers": [],
+                "security_controls_configuration": {
+                    "disabled_control_identifiers": [],
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_organization_configuration]))

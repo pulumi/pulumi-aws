@@ -131,7 +131,7 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProxyDefaultTargetGroup.__pulumiType, name, resourceInputs, opts);
+        super(ProxyDefaultTargetGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

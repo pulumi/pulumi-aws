@@ -97,7 +97,7 @@ export class EndpointServicePrivateDnsVerification extends pulumi.CustomResource
             resourceInputs["waitForVerification"] = args ? args.waitForVerification : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EndpointServicePrivateDnsVerification.__pulumiType, name, resourceInputs, opts);
+        super(EndpointServicePrivateDnsVerification.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

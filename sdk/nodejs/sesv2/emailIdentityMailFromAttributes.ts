@@ -98,7 +98,7 @@ export class EmailIdentityMailFromAttributes extends pulumi.CustomResource {
             resourceInputs["mailFromDomain"] = args ? args.mailFromDomain : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EmailIdentityMailFromAttributes.__pulumiType, name, resourceInputs, opts);
+        super(EmailIdentityMailFromAttributes.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

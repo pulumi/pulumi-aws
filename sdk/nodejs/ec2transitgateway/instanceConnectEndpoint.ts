@@ -153,7 +153,7 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InstanceConnectEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(InstanceConnectEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

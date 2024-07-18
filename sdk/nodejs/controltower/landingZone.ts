@@ -115,7 +115,7 @@ export class LandingZone extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LandingZone.__pulumiType, name, resourceInputs, opts);
+        super(LandingZone.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

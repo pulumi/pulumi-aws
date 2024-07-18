@@ -14,12 +14,19 @@ namespace Pulumi.Aws.CloudFront.Inputs
     {
         [Input("locations")]
         private InputList<string>? _locations;
+
+        /// <summary>
+        /// [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+        /// </summary>
         public InputList<string> Locations
         {
             get => _locations ?? (_locations = new InputList<string>());
             set => _locations = value;
         }
 
+        /// <summary>
+        /// Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
+        /// </summary>
         [Input("restrictionType", required: true)]
         public Input<string> RestrictionType { get; set; } = null!;
 

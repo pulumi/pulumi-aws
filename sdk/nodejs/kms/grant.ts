@@ -137,7 +137,7 @@ export class Grant extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["grantToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Grant.__pulumiType, name, resourceInputs, opts);
+        super(Grant.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -91,7 +91,7 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpcEndpointRouteTableAssociation.__pulumiType, name, resourceInputs, opts);
+        super(VpcEndpointRouteTableAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

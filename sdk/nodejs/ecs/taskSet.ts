@@ -230,7 +230,7 @@ export class TaskSet extends pulumi.CustomResource {
             resourceInputs["taskSetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TaskSet.__pulumiType, name, resourceInputs, opts);
+        super(TaskSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

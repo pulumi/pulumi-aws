@@ -265,7 +265,7 @@ export class Resolver extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Resolver.__pulumiType, name, resourceInputs, opts);
+        super(Resolver.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

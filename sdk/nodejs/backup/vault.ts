@@ -117,7 +117,7 @@ export class Vault extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Vault.__pulumiType, name, resourceInputs, opts);
+        super(Vault.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

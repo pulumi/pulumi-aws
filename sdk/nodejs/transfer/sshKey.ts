@@ -153,7 +153,7 @@ export class SshKey extends pulumi.CustomResource {
             resourceInputs["sshKeyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SshKey.__pulumiType, name, resourceInputs, opts);
+        super(SshKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

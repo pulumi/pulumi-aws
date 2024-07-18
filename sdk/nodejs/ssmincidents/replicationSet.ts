@@ -181,7 +181,7 @@ export class ReplicationSet extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReplicationSet.__pulumiType, name, resourceInputs, opts);
+        super(ReplicationSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

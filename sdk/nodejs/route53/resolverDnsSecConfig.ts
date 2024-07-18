@@ -102,7 +102,7 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
             resourceInputs["validationStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResolverDnsSecConfig.__pulumiType, name, resourceInputs, opts);
+        super(ResolverDnsSecConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

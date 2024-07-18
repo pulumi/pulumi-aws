@@ -273,7 +273,7 @@ export class DomainName extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["certificatePrivateKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DomainName.__pulumiType, name, resourceInputs, opts);
+        super(DomainName.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -276,7 +276,7 @@ export class Intent extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Intent.__pulumiType, name, resourceInputs, opts);
+        super(Intent.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

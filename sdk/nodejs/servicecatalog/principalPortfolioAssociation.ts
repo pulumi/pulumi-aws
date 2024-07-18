@@ -107,7 +107,7 @@ export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
             resourceInputs["principalType"] = args ? args.principalType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PrincipalPortfolioAssociation.__pulumiType, name, resourceInputs, opts);
+        super(PrincipalPortfolioAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

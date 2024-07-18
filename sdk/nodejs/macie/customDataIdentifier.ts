@@ -146,7 +146,7 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomDataIdentifier.__pulumiType, name, resourceInputs, opts);
+        super(CustomDataIdentifier.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

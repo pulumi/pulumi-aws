@@ -144,7 +144,7 @@ export class TableReplica extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TableReplica.__pulumiType, name, resourceInputs, opts);
+        super(TableReplica.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

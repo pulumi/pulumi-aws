@@ -179,7 +179,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Environment.__pulumiType, name, resourceInputs, opts);
+        super(Environment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

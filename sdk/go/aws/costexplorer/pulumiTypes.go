@@ -364,8 +364,10 @@ func (o AnomalySubscriptionThresholdExpressionPtrOutput) Tags() AnomalySubscript
 }
 
 type AnomalySubscriptionThresholdExpressionAnd struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory *AnomalySubscriptionThresholdExpressionAndCostCategory `pulumi:"costCategory"`
-	Dimension    *AnomalySubscriptionThresholdExpressionAndDimension    `pulumi:"dimension"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension *AnomalySubscriptionThresholdExpressionAndDimension `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *AnomalySubscriptionThresholdExpressionAndTags `pulumi:"tags"`
 }
@@ -382,8 +384,10 @@ type AnomalySubscriptionThresholdExpressionAndInput interface {
 }
 
 type AnomalySubscriptionThresholdExpressionAndArgs struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory AnomalySubscriptionThresholdExpressionAndCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    AnomalySubscriptionThresholdExpressionAndDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension AnomalySubscriptionThresholdExpressionAndDimensionPtrInput `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags AnomalySubscriptionThresholdExpressionAndTagsPtrInput `pulumi:"tags"`
 }
@@ -439,12 +443,14 @@ func (o AnomalySubscriptionThresholdExpressionAndOutput) ToAnomalySubscriptionTh
 	return o
 }
 
+// Configuration block for the filter that's based on  values. See Cost Category below.
 func (o AnomalySubscriptionThresholdExpressionAndOutput) CostCategory() AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAnd) *AnomalySubscriptionThresholdExpressionAndCostCategory {
 		return v.CostCategory
 	}).(AnomalySubscriptionThresholdExpressionAndCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific Dimension to use for.
 func (o AnomalySubscriptionThresholdExpressionAndOutput) Dimension() AnomalySubscriptionThresholdExpressionAndDimensionPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionAnd) *AnomalySubscriptionThresholdExpressionAndDimension {
 		return v.Dimension
@@ -1354,8 +1360,10 @@ func (o AnomalySubscriptionThresholdExpressionDimensionPtrOutput) Values() pulum
 }
 
 type AnomalySubscriptionThresholdExpressionNot struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory *AnomalySubscriptionThresholdExpressionNotCostCategory `pulumi:"costCategory"`
-	Dimension    *AnomalySubscriptionThresholdExpressionNotDimension    `pulumi:"dimension"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension *AnomalySubscriptionThresholdExpressionNotDimension `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *AnomalySubscriptionThresholdExpressionNotTags `pulumi:"tags"`
 }
@@ -1372,8 +1380,10 @@ type AnomalySubscriptionThresholdExpressionNotInput interface {
 }
 
 type AnomalySubscriptionThresholdExpressionNotArgs struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory AnomalySubscriptionThresholdExpressionNotCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    AnomalySubscriptionThresholdExpressionNotDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension AnomalySubscriptionThresholdExpressionNotDimensionPtrInput `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags AnomalySubscriptionThresholdExpressionNotTagsPtrInput `pulumi:"tags"`
 }
@@ -1455,12 +1465,14 @@ func (o AnomalySubscriptionThresholdExpressionNotOutput) ToAnomalySubscriptionTh
 	}).(AnomalySubscriptionThresholdExpressionNotPtrOutput)
 }
 
+// Configuration block for the filter that's based on  values. See Cost Category below.
 func (o AnomalySubscriptionThresholdExpressionNotOutput) CostCategory() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotCostCategory {
 		return v.CostCategory
 	}).(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific Dimension to use for.
 func (o AnomalySubscriptionThresholdExpressionNotOutput) Dimension() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotDimension {
 		return v.Dimension
@@ -1498,6 +1510,7 @@ func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) Elem() AnomalySubscr
 	}).(AnomalySubscriptionThresholdExpressionNotOutput)
 }
 
+// Configuration block for the filter that's based on  values. See Cost Category below.
 func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) CostCategory() AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotCostCategory {
 		if v == nil {
@@ -1507,6 +1520,7 @@ func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) CostCategory() Anoma
 	}).(AnomalySubscriptionThresholdExpressionNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific Dimension to use for.
 func (o AnomalySubscriptionThresholdExpressionNotPtrOutput) Dimension() AnomalySubscriptionThresholdExpressionNotDimensionPtrOutput {
 	return o.ApplyT(func(v *AnomalySubscriptionThresholdExpressionNot) *AnomalySubscriptionThresholdExpressionNotDimension {
 		if v == nil {
@@ -2052,8 +2066,10 @@ func (o AnomalySubscriptionThresholdExpressionNotTagsPtrOutput) Values() pulumi.
 }
 
 type AnomalySubscriptionThresholdExpressionOr struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory *AnomalySubscriptionThresholdExpressionOrCostCategory `pulumi:"costCategory"`
-	Dimension    *AnomalySubscriptionThresholdExpressionOrDimension    `pulumi:"dimension"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension *AnomalySubscriptionThresholdExpressionOrDimension `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *AnomalySubscriptionThresholdExpressionOrTags `pulumi:"tags"`
 }
@@ -2070,8 +2086,10 @@ type AnomalySubscriptionThresholdExpressionOrInput interface {
 }
 
 type AnomalySubscriptionThresholdExpressionOrArgs struct {
+	// Configuration block for the filter that's based on  values. See Cost Category below.
 	CostCategory AnomalySubscriptionThresholdExpressionOrCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    AnomalySubscriptionThresholdExpressionOrDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific Dimension to use for.
+	Dimension AnomalySubscriptionThresholdExpressionOrDimensionPtrInput `pulumi:"dimension"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags AnomalySubscriptionThresholdExpressionOrTagsPtrInput `pulumi:"tags"`
 }
@@ -2127,12 +2145,14 @@ func (o AnomalySubscriptionThresholdExpressionOrOutput) ToAnomalySubscriptionThr
 	return o
 }
 
+// Configuration block for the filter that's based on  values. See Cost Category below.
 func (o AnomalySubscriptionThresholdExpressionOrOutput) CostCategory() AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOr) *AnomalySubscriptionThresholdExpressionOrCostCategory {
 		return v.CostCategory
 	}).(AnomalySubscriptionThresholdExpressionOrCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific Dimension to use for.
 func (o AnomalySubscriptionThresholdExpressionOrOutput) Dimension() AnomalySubscriptionThresholdExpressionOrDimensionPtrOutput {
 	return o.ApplyT(func(v AnomalySubscriptionThresholdExpressionOr) *AnomalySubscriptionThresholdExpressionOrDimension {
 		return v.Dimension
@@ -3379,11 +3399,16 @@ func (o CostCategoryRuleRulePtrOutput) Tags() CostCategoryRuleRuleTagsPtrOutput 
 }
 
 type CostCategoryRuleRuleAnd struct {
-	Ands         []CostCategoryRuleRuleAndAnd         `pulumi:"ands"`
+	// Return results that match both `Dimension` objects.
+	Ands []CostCategoryRuleRuleAndAnd `pulumi:"ands"`
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleAndCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleAndDimension    `pulumi:"dimension"`
-	Not          *CostCategoryRuleRuleAndNot          `pulumi:"not"`
-	Ors          []CostCategoryRuleRuleAndOr          `pulumi:"ors"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleAndDimension `pulumi:"dimension"`
+	// Return results that match both `Dimension` object.
+	Not *CostCategoryRuleRuleAndNot `pulumi:"not"`
+	// Return results that match both `Dimension` object.
+	Ors []CostCategoryRuleRuleAndOr `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleAndTags `pulumi:"tags"`
 }
@@ -3400,11 +3425,16 @@ type CostCategoryRuleRuleAndInput interface {
 }
 
 type CostCategoryRuleRuleAndArgs struct {
-	Ands         CostCategoryRuleRuleAndAndArrayInput        `pulumi:"ands"`
+	// Return results that match both `Dimension` objects.
+	Ands CostCategoryRuleRuleAndAndArrayInput `pulumi:"ands"`
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleAndCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleAndDimensionPtrInput    `pulumi:"dimension"`
-	Not          CostCategoryRuleRuleAndNotPtrInput          `pulumi:"not"`
-	Ors          CostCategoryRuleRuleAndOrArrayInput         `pulumi:"ors"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleAndDimensionPtrInput `pulumi:"dimension"`
+	// Return results that match both `Dimension` object.
+	Not CostCategoryRuleRuleAndNotPtrInput `pulumi:"not"`
+	// Return results that match both `Dimension` object.
+	Ors CostCategoryRuleRuleAndOrArrayInput `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleAndTagsPtrInput `pulumi:"tags"`
 }
@@ -3460,22 +3490,27 @@ func (o CostCategoryRuleRuleAndOutput) ToCostCategoryRuleRuleAndOutputWithContex
 	return o
 }
 
+// Return results that match both `Dimension` objects.
 func (o CostCategoryRuleRuleAndOutput) Ands() CostCategoryRuleRuleAndAndArrayOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) []CostCategoryRuleRuleAndAnd { return v.Ands }).(CostCategoryRuleRuleAndAndArrayOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleAndOutput) CostCategory() CostCategoryRuleRuleAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndCostCategory { return v.CostCategory }).(CostCategoryRuleRuleAndCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleAndOutput) Dimension() CostCategoryRuleRuleAndDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndDimension { return v.Dimension }).(CostCategoryRuleRuleAndDimensionPtrOutput)
 }
 
+// Return results that match both `Dimension` object.
 func (o CostCategoryRuleRuleAndOutput) Not() CostCategoryRuleRuleAndNotPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndNot { return v.Not }).(CostCategoryRuleRuleAndNotPtrOutput)
 }
 
+// Return results that match both `Dimension` object.
 func (o CostCategoryRuleRuleAndOutput) Ors() CostCategoryRuleRuleAndOrArrayOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) []CostCategoryRuleRuleAndOr { return v.Ors }).(CostCategoryRuleRuleAndOrArrayOutput)
 }
@@ -3506,8 +3541,10 @@ func (o CostCategoryRuleRuleAndArrayOutput) Index(i pulumi.IntInput) CostCategor
 }
 
 type CostCategoryRuleRuleAndAnd struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleAndAndCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleAndAndDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleAndAndDimension `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleAndAndTags `pulumi:"tags"`
 }
@@ -3524,8 +3561,10 @@ type CostCategoryRuleRuleAndAndInput interface {
 }
 
 type CostCategoryRuleRuleAndAndArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleAndAndCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleAndAndDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleAndAndDimensionPtrInput `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleAndAndTagsPtrInput `pulumi:"tags"`
 }
@@ -3581,10 +3620,12 @@ func (o CostCategoryRuleRuleAndAndOutput) ToCostCategoryRuleRuleAndAndOutputWith
 	return o
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleAndAndOutput) CostCategory() CostCategoryRuleRuleAndAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAndAnd) *CostCategoryRuleRuleAndAndCostCategory { return v.CostCategory }).(CostCategoryRuleRuleAndAndCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleAndAndOutput) Dimension() CostCategoryRuleRuleAndAndDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAndAnd) *CostCategoryRuleRuleAndAndDimension { return v.Dimension }).(CostCategoryRuleRuleAndAndDimensionPtrOutput)
 }
@@ -4490,8 +4531,10 @@ func (o CostCategoryRuleRuleAndDimensionPtrOutput) Values() pulumi.StringArrayOu
 }
 
 type CostCategoryRuleRuleAndNot struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleAndNotCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleAndNotDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleAndNotDimension `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleAndNotTags `pulumi:"tags"`
 }
@@ -4508,8 +4551,10 @@ type CostCategoryRuleRuleAndNotInput interface {
 }
 
 type CostCategoryRuleRuleAndNotArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleAndNotCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleAndNotDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleAndNotDimensionPtrInput `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleAndNotTagsPtrInput `pulumi:"tags"`
 }
@@ -4591,10 +4636,12 @@ func (o CostCategoryRuleRuleAndNotOutput) ToCostCategoryRuleRuleAndNotPtrOutputW
 	}).(CostCategoryRuleRuleAndNotPtrOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleAndNotOutput) CostCategory() CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNotCostCategory { return v.CostCategory }).(CostCategoryRuleRuleAndNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleAndNotOutput) Dimension() CostCategoryRuleRuleAndNotDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNotDimension { return v.Dimension }).(CostCategoryRuleRuleAndNotDimensionPtrOutput)
 }
@@ -4628,6 +4675,7 @@ func (o CostCategoryRuleRuleAndNotPtrOutput) Elem() CostCategoryRuleRuleAndNotOu
 	}).(CostCategoryRuleRuleAndNotOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleAndNotPtrOutput) CostCategory() CostCategoryRuleRuleAndNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNotCostCategory {
 		if v == nil {
@@ -4637,6 +4685,7 @@ func (o CostCategoryRuleRuleAndNotPtrOutput) CostCategory() CostCategoryRuleRule
 	}).(CostCategoryRuleRuleAndNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleAndNotPtrOutput) Dimension() CostCategoryRuleRuleAndNotDimensionPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleAndNot) *CostCategoryRuleRuleAndNotDimension {
 		if v == nil {
@@ -5182,8 +5231,10 @@ func (o CostCategoryRuleRuleAndNotTagsPtrOutput) Values() pulumi.StringArrayOutp
 }
 
 type CostCategoryRuleRuleAndOr struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleAndOrCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleAndOrDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleAndOrDimension `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleAndOrTags `pulumi:"tags"`
 }
@@ -5200,8 +5251,10 @@ type CostCategoryRuleRuleAndOrInput interface {
 }
 
 type CostCategoryRuleRuleAndOrArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleAndOrCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleAndOrDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleAndOrDimensionPtrInput `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleAndOrTagsPtrInput `pulumi:"tags"`
 }
@@ -5257,10 +5310,12 @@ func (o CostCategoryRuleRuleAndOrOutput) ToCostCategoryRuleRuleAndOrOutputWithCo
 	return o
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleAndOrOutput) CostCategory() CostCategoryRuleRuleAndOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAndOr) *CostCategoryRuleRuleAndOrCostCategory { return v.CostCategory }).(CostCategoryRuleRuleAndOrCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleAndOrOutput) Dimension() CostCategoryRuleRuleAndOrDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAndOr) *CostCategoryRuleRuleAndOrDimension { return v.Dimension }).(CostCategoryRuleRuleAndOrDimensionPtrOutput)
 }
@@ -6341,11 +6396,16 @@ func (o CostCategoryRuleRuleDimensionPtrOutput) Values() pulumi.StringArrayOutpu
 }
 
 type CostCategoryRuleRuleNot struct {
-	Ands         []CostCategoryRuleRuleNotAnd         `pulumi:"ands"`
+	// Return results that match both `Dimension` objects.
+	Ands []CostCategoryRuleRuleNotAnd `pulumi:"ands"`
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleNotCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleNotDimension    `pulumi:"dimension"`
-	Not          *CostCategoryRuleRuleNotNot          `pulumi:"not"`
-	Ors          []CostCategoryRuleRuleNotOr          `pulumi:"ors"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleNotDimension `pulumi:"dimension"`
+	// Return results that match both `Dimension` object.
+	Not *CostCategoryRuleRuleNotNot `pulumi:"not"`
+	// Return results that match both `Dimension` object.
+	Ors []CostCategoryRuleRuleNotOr `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleNotTags `pulumi:"tags"`
 }
@@ -6362,11 +6422,16 @@ type CostCategoryRuleRuleNotInput interface {
 }
 
 type CostCategoryRuleRuleNotArgs struct {
-	Ands         CostCategoryRuleRuleNotAndArrayInput        `pulumi:"ands"`
+	// Return results that match both `Dimension` objects.
+	Ands CostCategoryRuleRuleNotAndArrayInput `pulumi:"ands"`
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleNotCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleNotDimensionPtrInput    `pulumi:"dimension"`
-	Not          CostCategoryRuleRuleNotNotPtrInput          `pulumi:"not"`
-	Ors          CostCategoryRuleRuleNotOrArrayInput         `pulumi:"ors"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleNotDimensionPtrInput `pulumi:"dimension"`
+	// Return results that match both `Dimension` object.
+	Not CostCategoryRuleRuleNotNotPtrInput `pulumi:"not"`
+	// Return results that match both `Dimension` object.
+	Ors CostCategoryRuleRuleNotOrArrayInput `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleNotTagsPtrInput `pulumi:"tags"`
 }
@@ -6448,22 +6513,27 @@ func (o CostCategoryRuleRuleNotOutput) ToCostCategoryRuleRuleNotPtrOutputWithCon
 	}).(CostCategoryRuleRuleNotPtrOutput)
 }
 
+// Return results that match both `Dimension` objects.
 func (o CostCategoryRuleRuleNotOutput) Ands() CostCategoryRuleRuleNotAndArrayOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) []CostCategoryRuleRuleNotAnd { return v.Ands }).(CostCategoryRuleRuleNotAndArrayOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleNotOutput) CostCategory() CostCategoryRuleRuleNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotCostCategory { return v.CostCategory }).(CostCategoryRuleRuleNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleNotOutput) Dimension() CostCategoryRuleRuleNotDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotDimension { return v.Dimension }).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
 
+// Return results that match both `Dimension` object.
 func (o CostCategoryRuleRuleNotOutput) Not() CostCategoryRuleRuleNotNotPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotNot { return v.Not }).(CostCategoryRuleRuleNotNotPtrOutput)
 }
 
+// Return results that match both `Dimension` object.
 func (o CostCategoryRuleRuleNotOutput) Ors() CostCategoryRuleRuleNotOrArrayOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) []CostCategoryRuleRuleNotOr { return v.Ors }).(CostCategoryRuleRuleNotOrArrayOutput)
 }
@@ -6497,6 +6567,7 @@ func (o CostCategoryRuleRuleNotPtrOutput) Elem() CostCategoryRuleRuleNotOutput {
 	}).(CostCategoryRuleRuleNotOutput)
 }
 
+// Return results that match both `Dimension` objects.
 func (o CostCategoryRuleRuleNotPtrOutput) Ands() CostCategoryRuleRuleNotAndArrayOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) []CostCategoryRuleRuleNotAnd {
 		if v == nil {
@@ -6506,6 +6577,7 @@ func (o CostCategoryRuleRuleNotPtrOutput) Ands() CostCategoryRuleRuleNotAndArray
 	}).(CostCategoryRuleRuleNotAndArrayOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleNotPtrOutput) CostCategory() CostCategoryRuleRuleNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotCostCategory {
 		if v == nil {
@@ -6515,6 +6587,7 @@ func (o CostCategoryRuleRuleNotPtrOutput) CostCategory() CostCategoryRuleRuleNot
 	}).(CostCategoryRuleRuleNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleNotPtrOutput) Dimension() CostCategoryRuleRuleNotDimensionPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotDimension {
 		if v == nil {
@@ -6524,6 +6597,7 @@ func (o CostCategoryRuleRuleNotPtrOutput) Dimension() CostCategoryRuleRuleNotDim
 	}).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
 
+// Return results that match both `Dimension` object.
 func (o CostCategoryRuleRuleNotPtrOutput) Not() CostCategoryRuleRuleNotNotPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotNot {
 		if v == nil {
@@ -6533,6 +6607,7 @@ func (o CostCategoryRuleRuleNotPtrOutput) Not() CostCategoryRuleRuleNotNotPtrOut
 	}).(CostCategoryRuleRuleNotNotPtrOutput)
 }
 
+// Return results that match both `Dimension` object.
 func (o CostCategoryRuleRuleNotPtrOutput) Ors() CostCategoryRuleRuleNotOrArrayOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) []CostCategoryRuleRuleNotOr {
 		if v == nil {
@@ -6553,8 +6628,10 @@ func (o CostCategoryRuleRuleNotPtrOutput) Tags() CostCategoryRuleRuleNotTagsPtrO
 }
 
 type CostCategoryRuleRuleNotAnd struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleNotAndCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleNotAndDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleNotAndDimension `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleNotAndTags `pulumi:"tags"`
 }
@@ -6571,8 +6648,10 @@ type CostCategoryRuleRuleNotAndInput interface {
 }
 
 type CostCategoryRuleRuleNotAndArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleNotAndCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleNotAndDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleNotAndDimensionPtrInput `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleNotAndTagsPtrInput `pulumi:"tags"`
 }
@@ -6628,10 +6707,12 @@ func (o CostCategoryRuleRuleNotAndOutput) ToCostCategoryRuleRuleNotAndOutputWith
 	return o
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleNotAndOutput) CostCategory() CostCategoryRuleRuleNotAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNotAnd) *CostCategoryRuleRuleNotAndCostCategory { return v.CostCategory }).(CostCategoryRuleRuleNotAndCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleNotAndOutput) Dimension() CostCategoryRuleRuleNotAndDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNotAnd) *CostCategoryRuleRuleNotAndDimension { return v.Dimension }).(CostCategoryRuleRuleNotAndDimensionPtrOutput)
 }
@@ -7537,8 +7618,10 @@ func (o CostCategoryRuleRuleNotDimensionPtrOutput) Values() pulumi.StringArrayOu
 }
 
 type CostCategoryRuleRuleNotNot struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleNotNotCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleNotNotDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleNotNotDimension `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleNotNotTags `pulumi:"tags"`
 }
@@ -7555,8 +7638,10 @@ type CostCategoryRuleRuleNotNotInput interface {
 }
 
 type CostCategoryRuleRuleNotNotArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleNotNotCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleNotNotDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleNotNotDimensionPtrInput `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleNotNotTagsPtrInput `pulumi:"tags"`
 }
@@ -7638,10 +7723,12 @@ func (o CostCategoryRuleRuleNotNotOutput) ToCostCategoryRuleRuleNotNotPtrOutputW
 	}).(CostCategoryRuleRuleNotNotPtrOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleNotNotOutput) CostCategory() CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNotCostCategory { return v.CostCategory }).(CostCategoryRuleRuleNotNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleNotNotOutput) Dimension() CostCategoryRuleRuleNotNotDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNotDimension { return v.Dimension }).(CostCategoryRuleRuleNotNotDimensionPtrOutput)
 }
@@ -7675,6 +7762,7 @@ func (o CostCategoryRuleRuleNotNotPtrOutput) Elem() CostCategoryRuleRuleNotNotOu
 	}).(CostCategoryRuleRuleNotNotOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleNotNotPtrOutput) CostCategory() CostCategoryRuleRuleNotNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNotCostCategory {
 		if v == nil {
@@ -7684,6 +7772,7 @@ func (o CostCategoryRuleRuleNotNotPtrOutput) CostCategory() CostCategoryRuleRule
 	}).(CostCategoryRuleRuleNotNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleNotNotPtrOutput) Dimension() CostCategoryRuleRuleNotNotDimensionPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNotNot) *CostCategoryRuleRuleNotNotDimension {
 		if v == nil {
@@ -8229,8 +8318,10 @@ func (o CostCategoryRuleRuleNotNotTagsPtrOutput) Values() pulumi.StringArrayOutp
 }
 
 type CostCategoryRuleRuleNotOr struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleNotOrCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleNotOrDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleNotOrDimension `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleNotOrTags `pulumi:"tags"`
 }
@@ -8247,8 +8338,10 @@ type CostCategoryRuleRuleNotOrInput interface {
 }
 
 type CostCategoryRuleRuleNotOrArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleNotOrCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleNotOrDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleNotOrDimensionPtrInput `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleNotOrTagsPtrInput `pulumi:"tags"`
 }
@@ -8304,10 +8397,12 @@ func (o CostCategoryRuleRuleNotOrOutput) ToCostCategoryRuleRuleNotOrOutputWithCo
 	return o
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleNotOrOutput) CostCategory() CostCategoryRuleRuleNotOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNotOr) *CostCategoryRuleRuleNotOrCostCategory { return v.CostCategory }).(CostCategoryRuleRuleNotOrCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleNotOrOutput) Dimension() CostCategoryRuleRuleNotOrDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNotOr) *CostCategoryRuleRuleNotOrDimension { return v.Dimension }).(CostCategoryRuleRuleNotOrDimensionPtrOutput)
 }
@@ -9038,11 +9133,16 @@ func (o CostCategoryRuleRuleNotTagsPtrOutput) Values() pulumi.StringArrayOutput 
 }
 
 type CostCategoryRuleRuleOr struct {
-	Ands         []CostCategoryRuleRuleOrAnd         `pulumi:"ands"`
+	// Return results that match both `Dimension` objects.
+	Ands []CostCategoryRuleRuleOrAnd `pulumi:"ands"`
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleOrCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleOrDimension    `pulumi:"dimension"`
-	Not          *CostCategoryRuleRuleOrNot          `pulumi:"not"`
-	Ors          []CostCategoryRuleRuleOrOr          `pulumi:"ors"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleOrDimension `pulumi:"dimension"`
+	// Return results that match both `Dimension` object.
+	Not *CostCategoryRuleRuleOrNot `pulumi:"not"`
+	// Return results that match both `Dimension` object.
+	Ors []CostCategoryRuleRuleOrOr `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleOrTags `pulumi:"tags"`
 }
@@ -9059,11 +9159,16 @@ type CostCategoryRuleRuleOrInput interface {
 }
 
 type CostCategoryRuleRuleOrArgs struct {
-	Ands         CostCategoryRuleRuleOrAndArrayInput        `pulumi:"ands"`
+	// Return results that match both `Dimension` objects.
+	Ands CostCategoryRuleRuleOrAndArrayInput `pulumi:"ands"`
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleOrCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleOrDimensionPtrInput    `pulumi:"dimension"`
-	Not          CostCategoryRuleRuleOrNotPtrInput          `pulumi:"not"`
-	Ors          CostCategoryRuleRuleOrOrArrayInput         `pulumi:"ors"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleOrDimensionPtrInput `pulumi:"dimension"`
+	// Return results that match both `Dimension` object.
+	Not CostCategoryRuleRuleOrNotPtrInput `pulumi:"not"`
+	// Return results that match both `Dimension` object.
+	Ors CostCategoryRuleRuleOrOrArrayInput `pulumi:"ors"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleOrTagsPtrInput `pulumi:"tags"`
 }
@@ -9119,22 +9224,27 @@ func (o CostCategoryRuleRuleOrOutput) ToCostCategoryRuleRuleOrOutputWithContext(
 	return o
 }
 
+// Return results that match both `Dimension` objects.
 func (o CostCategoryRuleRuleOrOutput) Ands() CostCategoryRuleRuleOrAndArrayOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) []CostCategoryRuleRuleOrAnd { return v.Ands }).(CostCategoryRuleRuleOrAndArrayOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleOrOutput) CostCategory() CostCategoryRuleRuleOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrCostCategory { return v.CostCategory }).(CostCategoryRuleRuleOrCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleOrOutput) Dimension() CostCategoryRuleRuleOrDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrDimension { return v.Dimension }).(CostCategoryRuleRuleOrDimensionPtrOutput)
 }
 
+// Return results that match both `Dimension` object.
 func (o CostCategoryRuleRuleOrOutput) Not() CostCategoryRuleRuleOrNotPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrNot { return v.Not }).(CostCategoryRuleRuleOrNotPtrOutput)
 }
 
+// Return results that match both `Dimension` object.
 func (o CostCategoryRuleRuleOrOutput) Ors() CostCategoryRuleRuleOrOrArrayOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) []CostCategoryRuleRuleOrOr { return v.Ors }).(CostCategoryRuleRuleOrOrArrayOutput)
 }
@@ -9165,8 +9275,10 @@ func (o CostCategoryRuleRuleOrArrayOutput) Index(i pulumi.IntInput) CostCategory
 }
 
 type CostCategoryRuleRuleOrAnd struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleOrAndCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleOrAndDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleOrAndDimension `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleOrAndTags `pulumi:"tags"`
 }
@@ -9183,8 +9295,10 @@ type CostCategoryRuleRuleOrAndInput interface {
 }
 
 type CostCategoryRuleRuleOrAndArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleOrAndCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleOrAndDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleOrAndDimensionPtrInput `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleOrAndTagsPtrInput `pulumi:"tags"`
 }
@@ -9240,10 +9354,12 @@ func (o CostCategoryRuleRuleOrAndOutput) ToCostCategoryRuleRuleOrAndOutputWithCo
 	return o
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleOrAndOutput) CostCategory() CostCategoryRuleRuleOrAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOrAnd) *CostCategoryRuleRuleOrAndCostCategory { return v.CostCategory }).(CostCategoryRuleRuleOrAndCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleOrAndOutput) Dimension() CostCategoryRuleRuleOrAndDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOrAnd) *CostCategoryRuleRuleOrAndDimension { return v.Dimension }).(CostCategoryRuleRuleOrAndDimensionPtrOutput)
 }
@@ -10149,8 +10265,10 @@ func (o CostCategoryRuleRuleOrDimensionPtrOutput) Values() pulumi.StringArrayOut
 }
 
 type CostCategoryRuleRuleOrNot struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleOrNotCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleOrNotDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleOrNotDimension `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleOrNotTags `pulumi:"tags"`
 }
@@ -10167,8 +10285,10 @@ type CostCategoryRuleRuleOrNotInput interface {
 }
 
 type CostCategoryRuleRuleOrNotArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleOrNotCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleOrNotDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleOrNotDimensionPtrInput `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleOrNotTagsPtrInput `pulumi:"tags"`
 }
@@ -10250,10 +10370,12 @@ func (o CostCategoryRuleRuleOrNotOutput) ToCostCategoryRuleRuleOrNotPtrOutputWit
 	}).(CostCategoryRuleRuleOrNotPtrOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleOrNotOutput) CostCategory() CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNotCostCategory { return v.CostCategory }).(CostCategoryRuleRuleOrNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleOrNotOutput) Dimension() CostCategoryRuleRuleOrNotDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNotDimension { return v.Dimension }).(CostCategoryRuleRuleOrNotDimensionPtrOutput)
 }
@@ -10287,6 +10409,7 @@ func (o CostCategoryRuleRuleOrNotPtrOutput) Elem() CostCategoryRuleRuleOrNotOutp
 	}).(CostCategoryRuleRuleOrNotOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleOrNotPtrOutput) CostCategory() CostCategoryRuleRuleOrNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNotCostCategory {
 		if v == nil {
@@ -10296,6 +10419,7 @@ func (o CostCategoryRuleRuleOrNotPtrOutput) CostCategory() CostCategoryRuleRuleO
 	}).(CostCategoryRuleRuleOrNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleOrNotPtrOutput) Dimension() CostCategoryRuleRuleOrNotDimensionPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleOrNot) *CostCategoryRuleRuleOrNotDimension {
 		if v == nil {
@@ -10841,8 +10965,10 @@ func (o CostCategoryRuleRuleOrNotTagsPtrOutput) Values() pulumi.StringArrayOutpu
 }
 
 type CostCategoryRuleRuleOrOr struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory *CostCategoryRuleRuleOrOrCostCategory `pulumi:"costCategory"`
-	Dimension    *CostCategoryRuleRuleOrOrDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension *CostCategoryRuleRuleOrOrDimension `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleOrOrTags `pulumi:"tags"`
 }
@@ -10859,8 +10985,10 @@ type CostCategoryRuleRuleOrOrInput interface {
 }
 
 type CostCategoryRuleRuleOrOrArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See below.
 	CostCategory CostCategoryRuleRuleOrOrCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    CostCategoryRuleRuleOrOrDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
+	Dimension CostCategoryRuleRuleOrOrDimensionPtrInput `pulumi:"dimension"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleOrOrTagsPtrInput `pulumi:"tags"`
 }
@@ -10916,10 +11044,12 @@ func (o CostCategoryRuleRuleOrOrOutput) ToCostCategoryRuleRuleOrOrOutputWithCont
 	return o
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See below.
 func (o CostCategoryRuleRuleOrOrOutput) CostCategory() CostCategoryRuleRuleOrOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOrOr) *CostCategoryRuleRuleOrOrCostCategory { return v.CostCategory }).(CostCategoryRuleRuleOrOrCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 func (o CostCategoryRuleRuleOrOrOutput) Dimension() CostCategoryRuleRuleOrOrDimensionPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOrOr) *CostCategoryRuleRuleOrOrDimension { return v.Dimension }).(CostCategoryRuleRuleOrOrDimensionPtrOutput)
 }
@@ -18851,8 +18981,10 @@ func (o GetTagsFilterPtrOutput) Tags() GetTagsFilterTagsPtrOutput {
 }
 
 type GetTagsFilterAnd struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory *GetTagsFilterAndCostCategory `pulumi:"costCategory"`
-	Dimension    *GetTagsFilterAndDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+	Dimension *GetTagsFilterAndDimension `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags *GetTagsFilterAndTags `pulumi:"tags"`
 }
@@ -18869,8 +19001,10 @@ type GetTagsFilterAndInput interface {
 }
 
 type GetTagsFilterAndArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory GetTagsFilterAndCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    GetTagsFilterAndDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+	Dimension GetTagsFilterAndDimensionPtrInput `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags GetTagsFilterAndTagsPtrInput `pulumi:"tags"`
 }
@@ -18926,10 +19060,12 @@ func (o GetTagsFilterAndOutput) ToGetTagsFilterAndOutputWithContext(ctx context.
 	return o
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterAndOutput) CostCategory() GetTagsFilterAndCostCategoryPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterAnd) *GetTagsFilterAndCostCategory { return v.CostCategory }).(GetTagsFilterAndCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterAndOutput) Dimension() GetTagsFilterAndDimensionPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterAnd) *GetTagsFilterAndDimension { return v.Dimension }).(GetTagsFilterAndDimensionPtrOutput)
 }
@@ -19823,8 +19959,10 @@ func (o GetTagsFilterDimensionPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsFilterNot struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory *GetTagsFilterNotCostCategory `pulumi:"costCategory"`
-	Dimension    *GetTagsFilterNotDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+	Dimension *GetTagsFilterNotDimension `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags *GetTagsFilterNotTags `pulumi:"tags"`
 }
@@ -19841,8 +19979,10 @@ type GetTagsFilterNotInput interface {
 }
 
 type GetTagsFilterNotArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory GetTagsFilterNotCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    GetTagsFilterNotDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+	Dimension GetTagsFilterNotDimensionPtrInput `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags GetTagsFilterNotTagsPtrInput `pulumi:"tags"`
 }
@@ -19924,10 +20064,12 @@ func (o GetTagsFilterNotOutput) ToGetTagsFilterNotPtrOutputWithContext(ctx conte
 	}).(GetTagsFilterNotPtrOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterNotOutput) CostCategory() GetTagsFilterNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterNot) *GetTagsFilterNotCostCategory { return v.CostCategory }).(GetTagsFilterNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterNotOutput) Dimension() GetTagsFilterNotDimensionPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterNot) *GetTagsFilterNotDimension { return v.Dimension }).(GetTagsFilterNotDimensionPtrOutput)
 }
@@ -19961,6 +20103,7 @@ func (o GetTagsFilterNotPtrOutput) Elem() GetTagsFilterNotOutput {
 	}).(GetTagsFilterNotOutput)
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterNotPtrOutput) CostCategory() GetTagsFilterNotCostCategoryPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilterNot) *GetTagsFilterNotCostCategory {
 		if v == nil {
@@ -19970,6 +20113,7 @@ func (o GetTagsFilterNotPtrOutput) CostCategory() GetTagsFilterNotCostCategoryPt
 	}).(GetTagsFilterNotCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterNotPtrOutput) Dimension() GetTagsFilterNotDimensionPtrOutput {
 	return o.ApplyT(func(v *GetTagsFilterNot) *GetTagsFilterNotDimension {
 		if v == nil {
@@ -20503,8 +20647,10 @@ func (o GetTagsFilterNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
 }
 
 type GetTagsFilterOr struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory *GetTagsFilterOrCostCategory `pulumi:"costCategory"`
-	Dimension    *GetTagsFilterOrDimension    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+	Dimension *GetTagsFilterOrDimension `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags *GetTagsFilterOrTags `pulumi:"tags"`
 }
@@ -20521,8 +20667,10 @@ type GetTagsFilterOrInput interface {
 }
 
 type GetTagsFilterOrArgs struct {
+	// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 	CostCategory GetTagsFilterOrCostCategoryPtrInput `pulumi:"costCategory"`
-	Dimension    GetTagsFilterOrDimensionPtrInput    `pulumi:"dimension"`
+	// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
+	Dimension GetTagsFilterOrDimensionPtrInput `pulumi:"dimension"`
 	// Tags that match your request.
 	Tags GetTagsFilterOrTagsPtrInput `pulumi:"tags"`
 }
@@ -20578,10 +20726,12 @@ func (o GetTagsFilterOrOutput) ToGetTagsFilterOrOutputWithContext(ctx context.Co
 	return o
 }
 
+// Configuration block for the filter that's based on `CostCategory` values. See `costCategory` block below for details.
 func (o GetTagsFilterOrOutput) CostCategory() GetTagsFilterOrCostCategoryPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterOr) *GetTagsFilterOrCostCategory { return v.CostCategory }).(GetTagsFilterOrCostCategoryPtrOutput)
 }
 
+// Configuration block for the specific `Dimension` to use for `Expression`. See `dimension` block below for details.
 func (o GetTagsFilterOrOutput) Dimension() GetTagsFilterOrDimensionPtrOutput {
 	return o.ApplyT(func(v GetTagsFilterOr) *GetTagsFilterOrDimension { return v.Dimension }).(GetTagsFilterOrDimensionPtrOutput)
 }

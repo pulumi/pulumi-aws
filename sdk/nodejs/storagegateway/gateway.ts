@@ -321,7 +321,7 @@ export class Gateway extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["smbGuestPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Gateway.__pulumiType, name, resourceInputs, opts);
+        super(Gateway.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

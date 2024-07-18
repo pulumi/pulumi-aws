@@ -116,7 +116,7 @@ export class CustomKeyStore extends pulumi.CustomResource {
             resourceInputs["trustAnchorCertificate"] = args ? args.trustAnchorCertificate : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomKeyStore.__pulumiType, name, resourceInputs, opts);
+        super(CustomKeyStore.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
