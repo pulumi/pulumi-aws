@@ -14,6 +14,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example <ruleset-id>
  * ```
+ *
+ * @deprecated This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead
  */
 export class MatchmakingRuleSet extends pulumi.CustomResource {
     /**
@@ -26,6 +28,7 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MatchmakingRuleSetState, opts?: pulumi.CustomResourceOptions): MatchmakingRuleSet {
+        pulumi.log.warn("MatchmakingRuleSet is deprecated: This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead")
         return new MatchmakingRuleSet(name, <any>state, { ...opts, id: id });
     }
 
@@ -70,8 +73,11 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead */
     constructor(name: string, args: MatchmakingRuleSetArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead */
     constructor(name: string, argsOrState?: MatchmakingRuleSetArgs | MatchmakingRuleSetState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MatchmakingRuleSet is deprecated: This resource will be removed in the next major version.Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

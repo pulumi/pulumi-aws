@@ -576,7 +576,12 @@ class _MatchmakingConfigurationState:
         pulumi.set(self, "tags_all", value)
 
 
+warnings.warn("""This resource will be removed in the next major version. Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead""", DeprecationWarning)
+
+
 class MatchmakingConfiguration(pulumi.CustomResource):
+    warnings.warn("""This resource will be removed in the next major version. Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -674,6 +679,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  rule_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""MatchmakingConfiguration is deprecated: This resource will be removed in the next major version. Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
