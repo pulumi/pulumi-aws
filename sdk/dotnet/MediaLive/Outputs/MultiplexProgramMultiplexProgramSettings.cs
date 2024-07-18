@@ -13,9 +13,21 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class MultiplexProgramMultiplexProgramSettings
     {
+        /// <summary>
+        /// Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
+        /// </summary>
         public readonly string PreferredChannelPipeline;
+        /// <summary>
+        /// Unique program number.
+        /// </summary>
         public readonly int ProgramNumber;
+        /// <summary>
+        /// Service Descriptor. See Service Descriptor for more details.
+        /// </summary>
         public readonly Outputs.MultiplexProgramMultiplexProgramSettingsServiceDescriptor? ServiceDescriptor;
+        /// <summary>
+        /// Video settings. See Video Settings for more details.
+        /// </summary>
         public readonly Outputs.MultiplexProgramMultiplexProgramSettingsVideoSettings? VideoSettings;
 
         [OutputConstructor]

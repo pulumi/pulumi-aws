@@ -166,7 +166,7 @@ def get_bucket(bucket: Optional[str] = None,
         type=aws.route53.RecordType.A,
         aliases=[{
             "name": selected.website_domain,
-            "zoneId": selected.hosted_zone_id,
+            "zone_id": selected.hosted_zone_id,
         }])
     ```
 
@@ -178,8 +178,8 @@ def get_bucket(bucket: Optional[str] = None,
 
     selected = aws.s3.get_bucket(bucket="a-test-bucket")
     test = aws.cloudfront.Distribution("test", origins=[{
-        "domainName": selected.bucket_domain_name,
-        "originId": "s3-selected-bucket",
+        "domain_name": selected.bucket_domain_name,
+        "origin_id": "s3-selected-bucket",
     }])
     ```
 
@@ -228,7 +228,7 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
         type=aws.route53.RecordType.A,
         aliases=[{
             "name": selected.website_domain,
-            "zoneId": selected.hosted_zone_id,
+            "zone_id": selected.hosted_zone_id,
         }])
     ```
 
@@ -240,8 +240,8 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
 
     selected = aws.s3.get_bucket(bucket="a-test-bucket")
     test = aws.cloudfront.Distribution("test", origins=[{
-        "domainName": selected.bucket_domain_name,
-        "originId": "s3-selected-bucket",
+        "domain_name": selected.bucket_domain_name,
+        "origin_id": "s3-selected-bucket",
     }])
     ```
 

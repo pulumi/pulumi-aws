@@ -2144,6 +2144,9 @@ if not MYPY:
         A friendly name of the rule group.
         """
         value: pulumi.Input[str]
+        """
+        The value of the custom header.
+        """
 elif False:
     RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2154,6 +2157,7 @@ class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[str] value: The value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -2173,6 +2177,9 @@ class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the custom header.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2290,6 +2297,9 @@ if not MYPY:
         A friendly name of the rule group.
         """
         value: pulumi.Input[str]
+        """
+        The value of the custom header.
+        """
 elif False:
     RuleGroupRuleActionBlockCustomResponseResponseHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2300,6 +2310,7 @@ class RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[str] value: The value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -2319,6 +2330,9 @@ class RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the custom header.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2396,6 +2410,9 @@ if not MYPY:
         A friendly name of the rule group.
         """
         value: pulumi.Input[str]
+        """
+        The value of the custom header.
+        """
 elif False:
     RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2406,6 +2423,7 @@ class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[str] value: The value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -2425,6 +2443,9 @@ class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the custom header.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2502,6 +2523,9 @@ if not MYPY:
         A friendly name of the rule group.
         """
         value: pulumi.Input[str]
+        """
+        The value of the custom header.
+        """
 elif False:
     RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2512,6 +2536,7 @@ class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[str] value: The value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -2531,6 +2556,9 @@ class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the custom header.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2608,6 +2636,9 @@ if not MYPY:
         A friendly name of the rule group.
         """
         value: pulumi.Input[str]
+        """
+        The value of the custom header.
+        """
 elif False:
     RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2618,6 +2649,7 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[str] name: A friendly name of the rule group.
+        :param pulumi.Input[str] value: The value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -2637,6 +2669,9 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value of the custom header.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3489,6 +3524,9 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesArgs:
 if not MYPY:
     class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -3500,6 +3538,9 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArg
                  all: Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -3510,6 +3551,9 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArg
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -3846,6 +3890,9 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs:
 if not MYPY:
     class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -3855,6 +3902,9 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAr
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -3863,6 +3913,9 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAr
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -5283,17 +5336,53 @@ class RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs:
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgsDict(TypedDict):
         and_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgsDict']]
+        """
+        A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        """
         byte_match_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgsDict']]
+        """
+        A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        """
         geo_match_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgsDict']]
+        """
+        A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        """
         ip_set_reference_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgsDict']]
+        """
+        A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        """
         label_match_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgsDict']]
+        """
+        A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        """
         not_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgsDict']]
+        """
+        A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+        """
         or_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgsDict']]
+        """
+        A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+        """
         regex_match_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgsDict']]
+        """
+        A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        """
         regex_pattern_set_reference_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgsDict']]
+        """
+        A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        """
         size_constraint_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgsDict']]
+        """
+        A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+        """
         sqli_match_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgsDict']]
+        """
+        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        """
         xss_match_statement: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgsDict']]
+        """
+        A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        """
 elif False:
     RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5312,6 +5401,20 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
                  size_constraint_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs']] = None,
                  sqli_match_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs']] = None,
                  xss_match_statement: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs']] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs'] and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs'] byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs'] geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs'] ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs'] label_match_statement: A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs'] not_statement: A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs'] or_statement: A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs'] regex_match_statement: A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs'] regex_pattern_set_reference_statement: A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs'] size_constraint_statement: A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs'] sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs'] xss_match_statement: A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
         if byte_match_statement is not None:
@@ -5340,6 +5443,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="andStatement")
     def and_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs']]:
+        """
+        A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        """
         return pulumi.get(self, "and_statement")
 
     @and_statement.setter
@@ -5349,6 +5455,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="byteMatchStatement")
     def byte_match_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs']]:
+        """
+        A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        """
         return pulumi.get(self, "byte_match_statement")
 
     @byte_match_statement.setter
@@ -5358,6 +5467,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="geoMatchStatement")
     def geo_match_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs']]:
+        """
+        A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        """
         return pulumi.get(self, "geo_match_statement")
 
     @geo_match_statement.setter
@@ -5367,6 +5479,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs']]:
+        """
+        A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        """
         return pulumi.get(self, "ip_set_reference_statement")
 
     @ip_set_reference_statement.setter
@@ -5376,6 +5491,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="labelMatchStatement")
     def label_match_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs']]:
+        """
+        A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        """
         return pulumi.get(self, "label_match_statement")
 
     @label_match_statement.setter
@@ -5385,6 +5503,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="notStatement")
     def not_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs']]:
+        """
+        A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+        """
         return pulumi.get(self, "not_statement")
 
     @not_statement.setter
@@ -5394,6 +5515,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="orStatement")
     def or_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs']]:
+        """
+        A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+        """
         return pulumi.get(self, "or_statement")
 
     @or_statement.setter
@@ -5403,6 +5527,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="regexMatchStatement")
     def regex_match_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs']]:
+        """
+        A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        """
         return pulumi.get(self, "regex_match_statement")
 
     @regex_match_statement.setter
@@ -5412,6 +5539,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs']]:
+        """
+        A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
     @regex_pattern_set_reference_statement.setter
@@ -5421,6 +5551,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="sizeConstraintStatement")
     def size_constraint_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs']]:
+        """
+        A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+        """
         return pulumi.get(self, "size_constraint_statement")
 
     @size_constraint_statement.setter
@@ -5430,6 +5563,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="sqliMatchStatement")
     def sqli_match_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs']]:
+        """
+        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        """
         return pulumi.get(self, "sqli_match_statement")
 
     @sqli_match_statement.setter
@@ -5439,6 +5575,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs']]:
+        """
+        A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        """
         return pulumi.get(self, "xss_match_statement")
 
     @xss_match_statement.setter
@@ -5924,6 +6063,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -5935,6 +6077,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -5945,6 +6090,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -6281,6 +6429,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -6290,6 +6441,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -6298,6 +6452,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -7235,6 +7392,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -7246,6 +7406,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -7256,6 +7419,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -7592,6 +7758,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -7601,6 +7770,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -7609,6 +7781,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -8213,6 +8388,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -8224,6 +8402,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -8234,6 +8415,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -8570,6 +8754,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -8579,6 +8766,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -8587,6 +8777,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -9210,6 +9403,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -9221,6 +9417,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -9231,6 +9430,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -9567,6 +9769,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -9576,6 +9781,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -9584,6 +9792,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -10182,6 +10393,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -10193,6 +10407,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -10203,6 +10420,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -10539,6 +10759,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -10548,6 +10771,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -10556,6 +10782,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -11141,6 +11370,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -11152,6 +11384,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -11162,6 +11397,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -11498,6 +11736,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 if not MYPY:
     class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -11507,6 +11748,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -11515,6 +11759,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -12119,6 +12366,9 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs:
 if not MYPY:
     class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -12130,6 +12380,9 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAr
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -12140,6 +12393,9 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAr
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -12476,6 +12732,9 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs:
 if not MYPY:
     class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -12485,6 +12744,9 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternA
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -12493,6 +12755,9 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternA
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -13097,6 +13362,9 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
 if not MYPY:
     class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -13108,6 +13376,9 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -13118,6 +13389,9 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -13454,6 +13728,9 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
 if not MYPY:
     class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -13463,6 +13740,9 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -13471,6 +13751,9 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -14094,6 +14377,9 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs:
 if not MYPY:
     class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -14105,6 +14391,9 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatte
                  all: Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -14115,6 +14404,9 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatte
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -14451,6 +14743,9 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs:
 if not MYPY:
     class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -14460,6 +14755,9 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatt
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -14468,6 +14766,9 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatt
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -15066,6 +15367,9 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesArgs:
 if not MYPY:
     class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -15077,6 +15381,9 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArg
                  all: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -15087,6 +15394,9 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArg
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -15423,6 +15733,9 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs:
 if not MYPY:
     class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -15432,6 +15745,9 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAr
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -15440,6 +15756,9 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAr
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -16025,6 +16344,9 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesArgs:
 if not MYPY:
     class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -16036,6 +16358,9 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs
                  all: Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -16046,6 +16371,9 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -16382,6 +16710,9 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs:
 if not MYPY:
     class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -16391,6 +16722,9 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArg
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -16399,6 +16733,9 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArg
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -19775,6 +20112,9 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs:
 if not MYPY:
     class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -19786,6 +20126,9 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs:
                  all: Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -19796,6 +20139,9 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs:
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -20141,6 +20487,9 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs:
 if not MYPY:
     class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -20150,6 +20499,9 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs:
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -20158,6 +20510,9 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs:
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -21478,11 +21833,17 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonArgsDict(TypedDict):
         failure_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Values in the response header with the specified name that indicate a failed login attempt.
+        """
         identifier: pulumi.Input[str]
         """
         The identifier for the value to match against in the JSON.
         """
         success_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Values in the response header with the specified name that indicate a successful login attempt.
+        """
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -21493,7 +21854,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  identifier: pulumi.Input[str],
                  success_values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] failure_values: Values in the response header with the specified name that indicate a failed login attempt.
         :param pulumi.Input[str] identifier: The identifier for the value to match against in the JSON.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] success_values: Values in the response header with the specified name that indicate a successful login attempt.
         """
         pulumi.set(__self__, "failure_values", failure_values)
         pulumi.set(__self__, "identifier", identifier)
@@ -21502,6 +21865,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @property
     @pulumi.getter(name="failureValues")
     def failure_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Values in the response header with the specified name that indicate a failed login attempt.
+        """
         return pulumi.get(self, "failure_values")
 
     @failure_values.setter
@@ -21523,6 +21889,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @property
     @pulumi.getter(name="successValues")
     def success_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Values in the response header with the specified name that indicate a successful login attempt.
+        """
         return pulumi.get(self, "success_values")
 
     @success_values.setter
@@ -22016,11 +22385,17 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgsDict(TypedDict):
         failure_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Values in the response header with the specified name that indicate a failed login attempt.
+        """
         identifier: pulumi.Input[str]
         """
         The identifier for the value to match against in the JSON.
         """
         success_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Values in the response header with the specified name that indicate a successful login attempt.
+        """
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -22031,7 +22406,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  identifier: pulumi.Input[str],
                  success_values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] failure_values: Values in the response header with the specified name that indicate a failed login attempt.
         :param pulumi.Input[str] identifier: The identifier for the value to match against in the JSON.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] success_values: Values in the response header with the specified name that indicate a successful login attempt.
         """
         pulumi.set(__self__, "failure_values", failure_values)
         pulumi.set(__self__, "identifier", identifier)
@@ -22040,6 +22417,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @property
     @pulumi.getter(name="failureValues")
     def failure_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Values in the response header with the specified name that indicate a failed login attempt.
+        """
         return pulumi.get(self, "failure_values")
 
     @failure_values.setter
@@ -22061,6 +22441,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
     @property
     @pulumi.getter(name="successValues")
     def success_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Values in the response header with the specified name that indicate a successful login attempt.
+        """
         return pulumi.get(self, "success_values")
 
     @success_values.setter
@@ -22266,7 +22649,13 @@ if not MYPY:
         allow: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgsDict']]
         block: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgsDict']]
         captcha: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgsDict']]
+        """
+        Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        """
         challenge: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgsDict']]
+        """
+        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        """
         count: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgsDict']]
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgsDict: TypeAlias = Mapping[str, Any]
@@ -22279,6 +22668,10 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
                  captcha: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs']] = None,
                  challenge: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs']] = None,
                  count: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs'] captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs'] challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
         if block is not None:
@@ -22311,6 +22704,9 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
     @property
     @pulumi.getter
     def captcha(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs']]:
+        """
+        Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        """
         return pulumi.get(self, "captcha")
 
     @captcha.setter
@@ -22320,6 +22716,9 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
     @property
     @pulumi.getter
     def challenge(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs']]:
+        """
+        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        """
         return pulumi.get(self, "challenge")
 
     @challenge.setter
@@ -22944,17 +23343,53 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgsDict(TypedDict):
         and_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgsDict']]
+        """
+        Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        """
         byte_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgsDict']]
+        """
+        Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+        """
         geo_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgsDict']]
+        """
+        Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+        """
         ip_set_reference_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgsDict']]
+        """
+        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+        """
         label_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgsDict']]
+        """
+        Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+        """
         not_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgsDict']]
+        """
+        Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+        """
         or_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgsDict']]
+        """
+        Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+        """
         regex_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgsDict']]
+        """
+        Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+        """
         regex_pattern_set_reference_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgsDict']]
+        """
+        Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+        """
         size_constraint_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgsDict']]
+        """
+        Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
+        """
         sqli_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgsDict']]
+        """
+        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+        """
         xss_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgsDict']]
+        """
+        Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+        """
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -22973,6 +23408,20 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
                  size_constraint_statement: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs']] = None,
                  sqli_match_statement: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs']] = None,
                  xss_match_statement: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs'] and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs'] byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs'] geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs'] ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs'] label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs'] not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs'] or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgs'] regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs'] regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs'] size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs'] sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs'] xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+        """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
         if byte_match_statement is not None:
@@ -23001,6 +23450,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="andStatement")
     def and_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs']]:
+        """
+        Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        """
         return pulumi.get(self, "and_statement")
 
     @and_statement.setter
@@ -23010,6 +23462,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="byteMatchStatement")
     def byte_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs']]:
+        """
+        Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+        """
         return pulumi.get(self, "byte_match_statement")
 
     @byte_match_statement.setter
@@ -23019,6 +23474,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="geoMatchStatement")
     def geo_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs']]:
+        """
+        Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+        """
         return pulumi.get(self, "geo_match_statement")
 
     @geo_match_statement.setter
@@ -23028,6 +23486,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs']]:
+        """
+        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+        """
         return pulumi.get(self, "ip_set_reference_statement")
 
     @ip_set_reference_statement.setter
@@ -23037,6 +23498,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="labelMatchStatement")
     def label_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs']]:
+        """
+        Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+        """
         return pulumi.get(self, "label_match_statement")
 
     @label_match_statement.setter
@@ -23046,6 +23510,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="notStatement")
     def not_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs']]:
+        """
+        Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+        """
         return pulumi.get(self, "not_statement")
 
     @not_statement.setter
@@ -23055,6 +23522,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="orStatement")
     def or_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs']]:
+        """
+        Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+        """
         return pulumi.get(self, "or_statement")
 
     @or_statement.setter
@@ -23064,6 +23534,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="regexMatchStatement")
     def regex_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgs']]:
+        """
+        Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+        """
         return pulumi.get(self, "regex_match_statement")
 
     @regex_match_statement.setter
@@ -23073,6 +23546,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs']]:
+        """
+        Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+        """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
     @regex_pattern_set_reference_statement.setter
@@ -23082,6 +23558,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="sizeConstraintStatement")
     def size_constraint_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs']]:
+        """
+        Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
+        """
         return pulumi.get(self, "size_constraint_statement")
 
     @size_constraint_statement.setter
@@ -23091,6 +23570,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="sqliMatchStatement")
     def sqli_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs']]:
+        """
+        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+        """
         return pulumi.get(self, "sqli_match_statement")
 
     @sqli_match_statement.setter
@@ -23100,6 +23582,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs']]:
+        """
+        Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+        """
         return pulumi.get(self, "xss_match_statement")
 
     @xss_match_statement.setter
@@ -23595,6 +24080,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -23606,6 +24094,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -23616,6 +24107,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -23961,6 +24455,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -23970,6 +24467,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -23978,6 +24478,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -24925,6 +25428,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -24936,6 +25442,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -24946,6 +25455,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -25291,6 +25803,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -25300,6 +25815,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -25308,6 +25826,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -25922,6 +26443,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -25933,6 +26457,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -25943,6 +26470,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -26288,6 +26818,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -26297,6 +26830,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -26305,6 +26841,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -26938,6 +27477,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -26949,6 +27491,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -26959,6 +27504,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -27304,6 +27852,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -27313,6 +27864,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -27321,6 +27875,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -27929,6 +28486,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -27940,6 +28500,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -27950,6 +28513,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -28295,6 +28861,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -28304,6 +28873,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -28312,6 +28884,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -28907,6 +29482,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -28918,6 +29496,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -28928,6 +29509,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -29273,6 +29857,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 if not MYPY:
     class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -29282,6 +29869,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -29290,6 +29880,9 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -30439,17 +31032,53 @@ class WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs:
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementArgsDict(TypedDict):
         and_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgsDict']]
+        """
+        Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        """
         byte_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgsDict']]
+        """
+        Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+        """
         geo_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgsDict']]
+        """
+        Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+        """
         ip_set_reference_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgsDict']]
+        """
+        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+        """
         label_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgsDict']]
+        """
+        Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+        """
         not_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgsDict']]
+        """
+        Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+        """
         or_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgsDict']]
+        """
+        Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+        """
         regex_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgsDict']]
+        """
+        Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+        """
         regex_pattern_set_reference_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgsDict']]
+        """
+        Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+        """
         size_constraint_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgsDict']]
+        """
+        Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
+        """
         sqli_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgsDict']]
+        """
+        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+        """
         xss_match_statement: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgsDict']]
+        """
+        Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+        """
 elif False:
     WebAclRuleStatementRateBasedStatementScopeDownStatementArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -30468,6 +31097,20 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
                  size_constraint_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs']] = None,
                  sqli_match_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs']] = None,
                  xss_match_statement: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs'] and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs'] byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs'] geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs'] ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs'] label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs'] not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs'] or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs'] regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs'] regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs'] size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs'] sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs'] xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+        """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
         if byte_match_statement is not None:
@@ -30496,6 +31139,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="andStatement")
     def and_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs']]:
+        """
+        Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        """
         return pulumi.get(self, "and_statement")
 
     @and_statement.setter
@@ -30505,6 +31151,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="byteMatchStatement")
     def byte_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs']]:
+        """
+        Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+        """
         return pulumi.get(self, "byte_match_statement")
 
     @byte_match_statement.setter
@@ -30514,6 +31163,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="geoMatchStatement")
     def geo_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs']]:
+        """
+        Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+        """
         return pulumi.get(self, "geo_match_statement")
 
     @geo_match_statement.setter
@@ -30523,6 +31175,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs']]:
+        """
+        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+        """
         return pulumi.get(self, "ip_set_reference_statement")
 
     @ip_set_reference_statement.setter
@@ -30532,6 +31187,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="labelMatchStatement")
     def label_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs']]:
+        """
+        Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+        """
         return pulumi.get(self, "label_match_statement")
 
     @label_match_statement.setter
@@ -30541,6 +31199,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="notStatement")
     def not_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs']]:
+        """
+        Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+        """
         return pulumi.get(self, "not_statement")
 
     @not_statement.setter
@@ -30550,6 +31211,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="orStatement")
     def or_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs']]:
+        """
+        Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+        """
         return pulumi.get(self, "or_statement")
 
     @or_statement.setter
@@ -30559,6 +31223,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="regexMatchStatement")
     def regex_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs']]:
+        """
+        Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+        """
         return pulumi.get(self, "regex_match_statement")
 
     @regex_match_statement.setter
@@ -30568,6 +31235,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs']]:
+        """
+        Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+        """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
     @regex_pattern_set_reference_statement.setter
@@ -30577,6 +31247,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="sizeConstraintStatement")
     def size_constraint_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs']]:
+        """
+        Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
+        """
         return pulumi.get(self, "size_constraint_statement")
 
     @size_constraint_statement.setter
@@ -30586,6 +31259,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="sqliMatchStatement")
     def sqli_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs']]:
+        """
+        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+        """
         return pulumi.get(self, "sqli_match_statement")
 
     @sqli_match_statement.setter
@@ -30595,6 +31271,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs:
     @property
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs']]:
+        """
+        Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+        """
         return pulumi.get(self, "xss_match_statement")
 
     @xss_match_statement.setter
@@ -31090,6 +31769,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -31101,6 +31783,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -31111,6 +31796,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -31456,6 +32144,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -31465,6 +32156,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -31473,6 +32167,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -32420,6 +33117,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -32431,6 +33131,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -32441,6 +33144,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -32786,6 +33492,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -32795,6 +33504,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -32803,6 +33515,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -33417,6 +34132,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -33428,6 +34146,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -33438,6 +34159,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -33783,6 +34507,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -33792,6 +34519,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -33800,6 +34530,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -34433,6 +35166,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -34444,6 +35180,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -34454,6 +35193,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -34799,6 +35541,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -34808,6 +35553,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -34816,6 +35564,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -35424,6 +36175,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -35435,6 +36189,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -35445,6 +36202,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -35790,6 +36550,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -35799,6 +36562,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -35807,6 +36573,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -36402,6 +37171,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -36413,6 +37185,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -36423,6 +37198,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -36768,6 +37546,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 if not MYPY:
     class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -36777,6 +37558,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -36785,6 +37569,9 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -37399,6 +38186,9 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesArgs:
 if not MYPY:
     class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -37410,6 +38200,9 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs:
                  all: Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -37420,6 +38213,9 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs:
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -37765,6 +38561,9 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs:
 if not MYPY:
     class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -37774,6 +38573,9 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -37782,6 +38584,9 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -38396,6 +39201,9 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArg
 if not MYPY:
     class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -38407,6 +39215,9 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMat
                  all: Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -38417,6 +39228,9 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMat
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -38762,6 +39576,9 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyAr
 if not MYPY:
     class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -38771,6 +39588,9 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMa
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -38779,6 +39599,9 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMa
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -39061,7 +39884,13 @@ if not MYPY:
         allow: NotRequired[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgsDict']]
         block: NotRequired[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgsDict']]
         captcha: NotRequired[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgsDict']]
+        """
+        Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        """
         challenge: NotRequired[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgsDict']]
+        """
+        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        """
         count: NotRequired[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgsDict']]
 elif False:
     WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgsDict: TypeAlias = Mapping[str, Any]
@@ -39074,6 +39903,10 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
                  captcha: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs']] = None,
                  challenge: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs']] = None,
                  count: Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs']] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs'] captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        :param pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs'] challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
         if block is not None:
@@ -39106,6 +39939,9 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     @property
     @pulumi.getter
     def captcha(self) -> Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs']]:
+        """
+        Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        """
         return pulumi.get(self, "captcha")
 
     @captcha.setter
@@ -39115,6 +39951,9 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     @property
     @pulumi.getter
     def challenge(self) -> Optional[pulumi.Input['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs']]:
+        """
+        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        """
         return pulumi.get(self, "challenge")
 
     @challenge.setter
@@ -40193,6 +41032,9 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs:
 if not MYPY:
     class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -40204,6 +41046,9 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternA
                  all: Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -40214,6 +41059,9 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternA
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -40559,6 +41407,9 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs:
 if not MYPY:
     class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -40568,6 +41419,9 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -40576,6 +41430,9 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -41184,6 +42041,9 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs:
 if not MYPY:
     class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -41195,6 +42055,9 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs:
                  all: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -41205,6 +42068,9 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs:
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -41550,6 +42416,9 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs:
 if not MYPY:
     class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -41559,6 +42428,9 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs:
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -41567,6 +42439,9 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs:
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -42162,6 +43037,9 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs:
 if not MYPY:
     class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         excluded_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         included_cookies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -42173,6 +43051,9 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs:
                  all: Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs']] = None,
                  excluded_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
@@ -42183,6 +43064,9 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs:
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter
@@ -42528,6 +43412,9 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs:
 if not MYPY:
     class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgsDict']]
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         included_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgsDict: TypeAlias = Mapping[str, Any]
@@ -42537,6 +43424,9 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs:
     def __init__(__self__, *,
                  all: Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs'] all: An empty configuration block that is used for inspecting all headers.
+        """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if included_paths is not None:
@@ -42545,6 +43435,9 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs:
     @property
     @pulumi.getter
     def all(self) -> Optional[pulumi.Input['WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs']]:
+        """
+        An empty configuration block that is used for inspecting all headers.
+        """
         return pulumi.get(self, "all")
 
     @all.setter

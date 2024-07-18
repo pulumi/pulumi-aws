@@ -227,10 +227,10 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 "c-ip",
             ],
             endpoint={
-                "streamType": "Kinesis",
-                "kinesisStreamConfig": {
-                    "roleArn": example_role.arn,
-                    "streamArn": example_aws_kinesis_stream["arn"],
+                "stream_type": "Kinesis",
+                "kinesis_stream_config": {
+                    "role_arn": example_role.arn,
+                    "stream_arn": example_aws_kinesis_stream["arn"],
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_role_policy]))
@@ -299,10 +299,10 @@ class RealtimeLogConfig(pulumi.CustomResource):
                 "c-ip",
             ],
             endpoint={
-                "streamType": "Kinesis",
-                "kinesisStreamConfig": {
-                    "roleArn": example_role.arn,
-                    "streamArn": example_aws_kinesis_stream["arn"],
+                "stream_type": "Kinesis",
+                "kinesis_stream_config": {
+                    "role_arn": example_role.arn,
+                    "stream_arn": example_aws_kinesis_stream["arn"],
                 },
             },
             opts = pulumi.ResourceOptions(depends_on=[example_role_policy]))

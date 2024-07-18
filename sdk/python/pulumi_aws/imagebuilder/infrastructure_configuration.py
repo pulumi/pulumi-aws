@@ -567,9 +567,9 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             subnet_id=main["id"],
             terminate_instance_on_failure=True,
             logging={
-                "s3Logs": {
-                    "s3BucketName": example_aws_s3_bucket["bucket"],
-                    "s3KeyPrefix": "logs",
+                "s3_logs": {
+                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
+                    "s3_key_prefix": "logs",
                 },
             },
             tags={
@@ -632,9 +632,9 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             subnet_id=main["id"],
             terminate_instance_on_failure=True,
             logging={
-                "s3Logs": {
-                    "s3BucketName": example_aws_s3_bucket["bucket"],
-                    "s3KeyPrefix": "logs",
+                "s3_logs": {
+                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
+                    "s3_key_prefix": "logs",
                 },
             },
             tags={

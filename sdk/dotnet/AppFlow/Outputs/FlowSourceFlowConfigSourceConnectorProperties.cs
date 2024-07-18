@@ -25,7 +25,13 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// Information that is required for querying Datadog. See Generic Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesDatadog? Datadog;
+        /// <summary>
+        /// Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesDynatrace? Dynatrace;
+        /// <summary>
+        /// Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+        /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics? GoogleAnalytics;
         /// <summary>
         /// Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
@@ -59,6 +65,9 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// Information that is required for querying Slack. See Generic Source Properties for more details.
         /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesSlack? Slack;
+        /// <summary>
+        /// Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+        /// </summary>
         public readonly Outputs.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro? Trendmicro;
         /// <summary>
         /// Information that is required for querying Veeva. See Veeva Source Properties for more details.

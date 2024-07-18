@@ -15,9 +15,17 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs();
 
+    /**
+     * Failover condition type-specific settings. See Failover Condition Settings for more details.
+     * 
+     */
     @Import(name="failoverConditionSettings")
     private @Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs> failoverConditionSettings;
 
+    /**
+     * @return Failover condition type-specific settings. See Failover Condition Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs>> failoverConditionSettings() {
         return Optional.ofNullable(this.failoverConditionSettings);
     }
@@ -46,11 +54,23 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             $ = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param failoverConditionSettings Failover condition type-specific settings. See Failover Condition Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failoverConditionSettings(@Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs> failoverConditionSettings) {
             $.failoverConditionSettings = failoverConditionSettings;
             return this;
         }
 
+        /**
+         * @param failoverConditionSettings Failover condition type-specific settings. See Failover Condition Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failoverConditionSettings(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs failoverConditionSettings) {
             return failoverConditionSettings(Output.of(failoverConditionSettings));
         }

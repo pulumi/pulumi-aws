@@ -16,9 +16,17 @@ public final class ResponsePlanIntegrationArgs extends com.pulumi.resources.Reso
 
     public static final ResponsePlanIntegrationArgs Empty = new ResponsePlanIntegrationArgs();
 
+    /**
+     * Details about the PagerDuty configuration for a response plan. The following values are supported:
+     * 
+     */
     @Import(name="pagerduties")
     private @Nullable Output<List<ResponsePlanIntegrationPagerdutyArgs>> pagerduties;
 
+    /**
+     * @return Details about the PagerDuty configuration for a response plan. The following values are supported:
+     * 
+     */
     public Optional<Output<List<ResponsePlanIntegrationPagerdutyArgs>>> pagerduties() {
         return Optional.ofNullable(this.pagerduties);
     }
@@ -47,15 +55,33 @@ public final class ResponsePlanIntegrationArgs extends com.pulumi.resources.Reso
             $ = new ResponsePlanIntegrationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param pagerduties Details about the PagerDuty configuration for a response plan. The following values are supported:
+         * 
+         * @return builder
+         * 
+         */
         public Builder pagerduties(@Nullable Output<List<ResponsePlanIntegrationPagerdutyArgs>> pagerduties) {
             $.pagerduties = pagerduties;
             return this;
         }
 
+        /**
+         * @param pagerduties Details about the PagerDuty configuration for a response plan. The following values are supported:
+         * 
+         * @return builder
+         * 
+         */
         public Builder pagerduties(List<ResponsePlanIntegrationPagerdutyArgs> pagerduties) {
             return pagerduties(Output.of(pagerduties));
         }
 
+        /**
+         * @param pagerduties Details about the PagerDuty configuration for a response plan. The following values are supported:
+         * 
+         * @return builder
+         * 
+         */
         public Builder pagerduties(ResponsePlanIntegrationPagerdutyArgs... pagerduties) {
             return pagerduties(List.of(pagerduties));
         }

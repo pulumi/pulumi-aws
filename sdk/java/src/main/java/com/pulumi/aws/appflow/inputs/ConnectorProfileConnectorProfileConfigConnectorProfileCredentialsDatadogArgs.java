@@ -21,9 +21,17 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
         return this.apiKey;
     }
 
+    /**
+     * Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+     * 
+     */
     @Import(name="applicationKey", required=true)
     private Output<String> applicationKey;
 
+    /**
+     * @return Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+     * 
+     */
     public Output<String> applicationKey() {
         return this.applicationKey;
     }
@@ -62,11 +70,23 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             return apiKey(Output.of(apiKey));
         }
 
+        /**
+         * @param applicationKey Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationKey(Output<String> applicationKey) {
             $.applicationKey = applicationKey;
             return this;
         }
 
+        /**
+         * @param applicationKey Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationKey(String applicationKey) {
             return applicationKey(Output.of(applicationKey));
         }

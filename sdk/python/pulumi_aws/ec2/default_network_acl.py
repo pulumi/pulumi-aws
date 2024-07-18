@@ -306,19 +306,19 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             default_network_acl_id=mainvpc.default_network_acl_id,
             ingress=[{
                 "protocol": "-1",
-                "ruleNo": 100,
+                "rule_no": 100,
                 "action": "allow",
-                "cidrBlock": "0.0.0.0/0",
-                "fromPort": 0,
-                "toPort": 0,
+                "cidr_block": "0.0.0.0/0",
+                "from_port": 0,
+                "to_port": 0,
             }],
             egress=[{
                 "protocol": "-1",
-                "ruleNo": 100,
+                "rule_no": 100,
                 "action": "allow",
-                "cidrBlock": "0.0.0.0/0",
-                "fromPort": 0,
-                "toPort": 0,
+                "cidr_block": "0.0.0.0/0",
+                "from_port": 0,
+                "to_port": 0,
             }])
         ```
 
@@ -335,11 +335,11 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             default_network_acl_id=mainvpc.default_network_acl_id,
             ingress=[{
                 "protocol": "-1",
-                "ruleNo": 100,
+                "rule_no": 100,
                 "action": "allow",
-                "cidrBlock": mainvpc_aws_default_vpc["cidrBlock"],
-                "fromPort": 0,
-                "toPort": 0,
+                "cidr_block": mainvpc_aws_default_vpc["cidrBlock"],
+                "from_port": 0,
+                "to_port": 0,
             }])
         ```
 
@@ -426,19 +426,19 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             default_network_acl_id=mainvpc.default_network_acl_id,
             ingress=[{
                 "protocol": "-1",
-                "ruleNo": 100,
+                "rule_no": 100,
                 "action": "allow",
-                "cidrBlock": "0.0.0.0/0",
-                "fromPort": 0,
-                "toPort": 0,
+                "cidr_block": "0.0.0.0/0",
+                "from_port": 0,
+                "to_port": 0,
             }],
             egress=[{
                 "protocol": "-1",
-                "ruleNo": 100,
+                "rule_no": 100,
                 "action": "allow",
-                "cidrBlock": "0.0.0.0/0",
-                "fromPort": 0,
-                "toPort": 0,
+                "cidr_block": "0.0.0.0/0",
+                "from_port": 0,
+                "to_port": 0,
             }])
         ```
 
@@ -455,11 +455,11 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             default_network_acl_id=mainvpc.default_network_acl_id,
             ingress=[{
                 "protocol": "-1",
-                "ruleNo": 100,
+                "rule_no": 100,
                 "action": "allow",
-                "cidrBlock": mainvpc_aws_default_vpc["cidrBlock"],
-                "fromPort": 0,
-                "toPort": 0,
+                "cidr_block": mainvpc_aws_default_vpc["cidrBlock"],
+                "from_port": 0,
+                "to_port": 0,
             }])
         ```
 

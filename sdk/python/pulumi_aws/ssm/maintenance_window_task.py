@@ -488,8 +488,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 "values": [example_aws_instance["id"]],
             }],
             task_invocation_parameters={
-                "automationParameters": {
-                    "documentVersion": "$LATEST",
+                "automation_parameters": {
+                    "document_version": "$LATEST",
                     "parameters": [{
                         "name": "InstanceId",
                         "values": [example_aws_instance["id"]],
@@ -517,8 +517,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 "values": [example_aws_instance["id"]],
             }],
             task_invocation_parameters={
-                "lambdaParameters": {
-                    "clientContext": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
+                "lambda_parameters": {
+                    "client_context": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
                     "payload": "{\\"key1\\":\\"value1\\"}",
                 },
             })
@@ -542,15 +542,15 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 "values": [example_aws_instance["id"]],
             }],
             task_invocation_parameters={
-                "runCommandParameters": {
-                    "outputS3Bucket": example_aws_s3_bucket["id"],
-                    "outputS3KeyPrefix": "output",
-                    "serviceRoleArn": example_aws_iam_role["arn"],
-                    "timeoutSeconds": 600,
-                    "notificationConfig": {
-                        "notificationArn": example_aws_sns_topic["arn"],
-                        "notificationEvents": ["All"],
-                        "notificationType": "Command",
+                "run_command_parameters": {
+                    "output_s3_bucket": example_aws_s3_bucket["id"],
+                    "output_s3_key_prefix": "output",
+                    "service_role_arn": example_aws_iam_role["arn"],
+                    "timeout_seconds": 600,
+                    "notification_config": {
+                        "notification_arn": example_aws_sns_topic["arn"],
+                        "notification_events": ["All"],
+                        "notification_type": "Command",
                     },
                     "parameters": [{
                         "name": "commands",
@@ -578,7 +578,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 "values": [example_aws_instance["id"]],
             }],
             task_invocation_parameters={
-                "stepFunctionsParameters": {
+                "step_functions_parameters": {
                     "input": "{\\"key1\\":\\"value1\\"}",
                     "name": "example",
                 },
@@ -637,8 +637,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 "values": [example_aws_instance["id"]],
             }],
             task_invocation_parameters={
-                "automationParameters": {
-                    "documentVersion": "$LATEST",
+                "automation_parameters": {
+                    "document_version": "$LATEST",
                     "parameters": [{
                         "name": "InstanceId",
                         "values": [example_aws_instance["id"]],
@@ -666,8 +666,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 "values": [example_aws_instance["id"]],
             }],
             task_invocation_parameters={
-                "lambdaParameters": {
-                    "clientContext": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
+                "lambda_parameters": {
+                    "client_context": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
                     "payload": "{\\"key1\\":\\"value1\\"}",
                 },
             })
@@ -691,15 +691,15 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 "values": [example_aws_instance["id"]],
             }],
             task_invocation_parameters={
-                "runCommandParameters": {
-                    "outputS3Bucket": example_aws_s3_bucket["id"],
-                    "outputS3KeyPrefix": "output",
-                    "serviceRoleArn": example_aws_iam_role["arn"],
-                    "timeoutSeconds": 600,
-                    "notificationConfig": {
-                        "notificationArn": example_aws_sns_topic["arn"],
-                        "notificationEvents": ["All"],
-                        "notificationType": "Command",
+                "run_command_parameters": {
+                    "output_s3_bucket": example_aws_s3_bucket["id"],
+                    "output_s3_key_prefix": "output",
+                    "service_role_arn": example_aws_iam_role["arn"],
+                    "timeout_seconds": 600,
+                    "notification_config": {
+                        "notification_arn": example_aws_sns_topic["arn"],
+                        "notification_events": ["All"],
+                        "notification_type": "Command",
                     },
                     "parameters": [{
                         "name": "commands",
@@ -727,7 +727,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 "values": [example_aws_instance["id"]],
             }],
             task_invocation_parameters={
-                "stepFunctionsParameters": {
+                "step_functions_parameters": {
                     "input": "{\\"key1\\":\\"value1\\"}",
                     "name": "example",
                 },

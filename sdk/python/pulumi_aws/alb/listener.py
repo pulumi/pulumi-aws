@@ -410,7 +410,7 @@ class Listener(pulumi.CustomResource):
             certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
             default_actions=[{
                 "type": "forward",
-                "targetGroupArn": front_end_target_group.arn,
+                "target_group_arn": front_end_target_group.arn,
             }])
         ```
 
@@ -428,7 +428,7 @@ class Listener(pulumi.CustomResource):
             alpn_policy="HTTP2Preferred",
             default_actions=[{
                 "type": "forward",
-                "targetGroupArn": front_end_aws_lb_target_group["arn"],
+                "target_group_arn": front_end_aws_lb_target_group["arn"],
             }])
         ```
 
@@ -448,7 +448,7 @@ class Listener(pulumi.CustomResource):
                 "redirect": {
                     "port": "443",
                     "protocol": "HTTPS",
-                    "statusCode": "HTTP_301",
+                    "status_code": "HTTP_301",
                 },
             }])
         ```
@@ -466,10 +466,10 @@ class Listener(pulumi.CustomResource):
             protocol="HTTP",
             default_actions=[{
                 "type": "fixed-response",
-                "fixedResponse": {
-                    "contentType": "text/plain",
-                    "messageBody": "Fixed response content",
-                    "statusCode": "200",
+                "fixed_response": {
+                    "content_type": "text/plain",
+                    "message_body": "Fixed response content",
+                    "status_code": "200",
                 },
             }])
         ```
@@ -492,15 +492,15 @@ class Listener(pulumi.CustomResource):
             default_actions=[
                 {
                     "type": "authenticate-cognito",
-                    "authenticateCognito": {
-                        "userPoolArn": pool.arn,
-                        "userPoolClientId": client.id,
-                        "userPoolDomain": domain.domain,
+                    "authenticate_cognito": {
+                        "user_pool_arn": pool.arn,
+                        "user_pool_client_id": client.id,
+                        "user_pool_domain": domain.domain,
                     },
                 },
                 {
                     "type": "forward",
-                    "targetGroupArn": front_end_target_group.arn,
+                    "target_group_arn": front_end_target_group.arn,
                 },
             ])
         ```
@@ -520,18 +520,18 @@ class Listener(pulumi.CustomResource):
             default_actions=[
                 {
                     "type": "authenticate-oidc",
-                    "authenticateOidc": {
-                        "authorizationEndpoint": "https://example.com/authorization_endpoint",
-                        "clientId": "client_id",
-                        "clientSecret": "client_secret",
+                    "authenticate_oidc": {
+                        "authorization_endpoint": "https://example.com/authorization_endpoint",
+                        "client_id": "client_id",
+                        "client_secret": "client_secret",
                         "issuer": "https://example.com",
-                        "tokenEndpoint": "https://example.com/token_endpoint",
-                        "userInfoEndpoint": "https://example.com/user_info_endpoint",
+                        "token_endpoint": "https://example.com/token_endpoint",
+                        "user_info_endpoint": "https://example.com/user_info_endpoint",
                     },
                 },
                 {
                     "type": "forward",
-                    "targetGroupArn": front_end_target_group.arn,
+                    "target_group_arn": front_end_target_group.arn,
                 },
             ])
         ```
@@ -546,7 +546,7 @@ class Listener(pulumi.CustomResource):
             load_balancer_type="gateway",
             name="example",
             subnet_mappings=[{
-                "subnetId": example_aws_subnet["id"],
+                "subnet_id": example_aws_subnet["id"],
             }])
         example_target_group = aws.lb.TargetGroup("example",
             name="example",
@@ -560,7 +560,7 @@ class Listener(pulumi.CustomResource):
         example_listener = aws.lb.Listener("example",
             load_balancer_arn=example.id,
             default_actions=[{
-                "targetGroupArn": example_target_group.id,
+                "target_group_arn": example_target_group.id,
                 "type": "forward",
             }])
         ```
@@ -576,12 +576,12 @@ class Listener(pulumi.CustomResource):
         example_listener = aws.lb.Listener("example",
             load_balancer_arn=example.id,
             default_actions=[{
-                "targetGroupArn": example_target_group.id,
+                "target_group_arn": example_target_group.id,
                 "type": "forward",
             }],
             mutual_authentication={
                 "mode": "verify",
-                "trustStoreArn": "...",
+                "trust_store_arn": "...",
             })
         ```
 
@@ -638,7 +638,7 @@ class Listener(pulumi.CustomResource):
             certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
             default_actions=[{
                 "type": "forward",
-                "targetGroupArn": front_end_target_group.arn,
+                "target_group_arn": front_end_target_group.arn,
             }])
         ```
 
@@ -656,7 +656,7 @@ class Listener(pulumi.CustomResource):
             alpn_policy="HTTP2Preferred",
             default_actions=[{
                 "type": "forward",
-                "targetGroupArn": front_end_aws_lb_target_group["arn"],
+                "target_group_arn": front_end_aws_lb_target_group["arn"],
             }])
         ```
 
@@ -676,7 +676,7 @@ class Listener(pulumi.CustomResource):
                 "redirect": {
                     "port": "443",
                     "protocol": "HTTPS",
-                    "statusCode": "HTTP_301",
+                    "status_code": "HTTP_301",
                 },
             }])
         ```
@@ -694,10 +694,10 @@ class Listener(pulumi.CustomResource):
             protocol="HTTP",
             default_actions=[{
                 "type": "fixed-response",
-                "fixedResponse": {
-                    "contentType": "text/plain",
-                    "messageBody": "Fixed response content",
-                    "statusCode": "200",
+                "fixed_response": {
+                    "content_type": "text/plain",
+                    "message_body": "Fixed response content",
+                    "status_code": "200",
                 },
             }])
         ```
@@ -720,15 +720,15 @@ class Listener(pulumi.CustomResource):
             default_actions=[
                 {
                     "type": "authenticate-cognito",
-                    "authenticateCognito": {
-                        "userPoolArn": pool.arn,
-                        "userPoolClientId": client.id,
-                        "userPoolDomain": domain.domain,
+                    "authenticate_cognito": {
+                        "user_pool_arn": pool.arn,
+                        "user_pool_client_id": client.id,
+                        "user_pool_domain": domain.domain,
                     },
                 },
                 {
                     "type": "forward",
-                    "targetGroupArn": front_end_target_group.arn,
+                    "target_group_arn": front_end_target_group.arn,
                 },
             ])
         ```
@@ -748,18 +748,18 @@ class Listener(pulumi.CustomResource):
             default_actions=[
                 {
                     "type": "authenticate-oidc",
-                    "authenticateOidc": {
-                        "authorizationEndpoint": "https://example.com/authorization_endpoint",
-                        "clientId": "client_id",
-                        "clientSecret": "client_secret",
+                    "authenticate_oidc": {
+                        "authorization_endpoint": "https://example.com/authorization_endpoint",
+                        "client_id": "client_id",
+                        "client_secret": "client_secret",
                         "issuer": "https://example.com",
-                        "tokenEndpoint": "https://example.com/token_endpoint",
-                        "userInfoEndpoint": "https://example.com/user_info_endpoint",
+                        "token_endpoint": "https://example.com/token_endpoint",
+                        "user_info_endpoint": "https://example.com/user_info_endpoint",
                     },
                 },
                 {
                     "type": "forward",
-                    "targetGroupArn": front_end_target_group.arn,
+                    "target_group_arn": front_end_target_group.arn,
                 },
             ])
         ```
@@ -774,7 +774,7 @@ class Listener(pulumi.CustomResource):
             load_balancer_type="gateway",
             name="example",
             subnet_mappings=[{
-                "subnetId": example_aws_subnet["id"],
+                "subnet_id": example_aws_subnet["id"],
             }])
         example_target_group = aws.lb.TargetGroup("example",
             name="example",
@@ -788,7 +788,7 @@ class Listener(pulumi.CustomResource):
         example_listener = aws.lb.Listener("example",
             load_balancer_arn=example.id,
             default_actions=[{
-                "targetGroupArn": example_target_group.id,
+                "target_group_arn": example_target_group.id,
                 "type": "forward",
             }])
         ```
@@ -804,12 +804,12 @@ class Listener(pulumi.CustomResource):
         example_listener = aws.lb.Listener("example",
             load_balancer_arn=example.id,
             default_actions=[{
-                "targetGroupArn": example_target_group.id,
+                "target_group_arn": example_target_group.id,
                 "type": "forward",
             }],
             mutual_authentication={
                 "mode": "verify",
-                "trustStoreArn": "...",
+                "trust_store_arn": "...",
             })
         ```
 

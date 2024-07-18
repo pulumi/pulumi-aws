@@ -505,7 +505,7 @@ class Function(pulumi.CustomResource):
             code=std.file(input="some-code-dir").result,
             runtime={
                 "name": "APPSYNC_JS",
-                "runtimeVersion": "1.0.0",
+                "runtime_version": "1.0.0",
             })
         ```
 
@@ -609,7 +609,7 @@ class Function(pulumi.CustomResource):
             code=std.file(input="some-code-dir").result,
             runtime={
                 "name": "APPSYNC_JS",
-                "runtimeVersion": "1.0.0",
+                "runtime_version": "1.0.0",
             })
         ```
 

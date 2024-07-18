@@ -150,14 +150,14 @@ class ServiceIntegration(pulumi.CustomResource):
 
         example = aws.devopsguru.ServiceIntegration("example",
             kms_server_side_encryption={
-                "optInStatus": "ENABLED",
+                "opt_in_status": "ENABLED",
                 "type": "AWS_OWNED_KMS_KEY",
             },
             logs_anomaly_detection={
-                "optInStatus": "ENABLED",
+                "opt_in_status": "ENABLED",
             },
             ops_center={
-                "optInStatus": "ENABLED",
+                "opt_in_status": "ENABLED",
             })
         ```
 
@@ -170,15 +170,15 @@ class ServiceIntegration(pulumi.CustomResource):
         example = aws.kms.Key("example")
         example_service_integration = aws.devopsguru.ServiceIntegration("example",
             kms_server_side_encryption={
-                "kmsKeyId": test["arn"],
-                "optInStatus": "ENABLED",
+                "kms_key_id": test["arn"],
+                "opt_in_status": "ENABLED",
                 "type": "CUSTOMER_MANAGED_KEY",
             },
             logs_anomaly_detection={
-                "optInStatus": "DISABLED",
+                "opt_in_status": "DISABLED",
             },
             ops_center={
-                "optInStatus": "DISABLED",
+                "opt_in_status": "DISABLED",
             })
         ```
 
@@ -213,14 +213,14 @@ class ServiceIntegration(pulumi.CustomResource):
 
         example = aws.devopsguru.ServiceIntegration("example",
             kms_server_side_encryption={
-                "optInStatus": "ENABLED",
+                "opt_in_status": "ENABLED",
                 "type": "AWS_OWNED_KMS_KEY",
             },
             logs_anomaly_detection={
-                "optInStatus": "ENABLED",
+                "opt_in_status": "ENABLED",
             },
             ops_center={
-                "optInStatus": "ENABLED",
+                "opt_in_status": "ENABLED",
             })
         ```
 
@@ -233,15 +233,15 @@ class ServiceIntegration(pulumi.CustomResource):
         example = aws.kms.Key("example")
         example_service_integration = aws.devopsguru.ServiceIntegration("example",
             kms_server_side_encryption={
-                "kmsKeyId": test["arn"],
-                "optInStatus": "ENABLED",
+                "kms_key_id": test["arn"],
+                "opt_in_status": "ENABLED",
                 "type": "CUSTOMER_MANAGED_KEY",
             },
             logs_anomaly_detection={
-                "optInStatus": "DISABLED",
+                "opt_in_status": "DISABLED",
             },
             ops_center={
-                "optInStatus": "DISABLED",
+                "opt_in_status": "DISABLED",
             })
         ```
 

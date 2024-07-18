@@ -168,7 +168,7 @@ class ResourceSet(pulumi.CustomResource):
 
         example = aws.fms.ResourceSet("example", resource_sets=[{
             "name": "testing",
-            "resourceTypeLists": ["AWS::NetworkFirewall::Firewall"],
+            "resource_type_lists": ["AWS::NetworkFirewall::Firewall"],
         }])
         ```
 
@@ -203,7 +203,7 @@ class ResourceSet(pulumi.CustomResource):
 
         example = aws.fms.ResourceSet("example", resource_sets=[{
             "name": "testing",
-            "resourceTypeLists": ["AWS::NetworkFirewall::Firewall"],
+            "resource_type_lists": ["AWS::NetworkFirewall::Firewall"],
         }])
         ```
 

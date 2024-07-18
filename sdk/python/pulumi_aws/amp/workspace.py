@@ -248,7 +248,7 @@ class Workspace(pulumi.CustomResource):
 
         example = aws.cloudwatch.LogGroup("example", name="example")
         example_workspace = aws.amp.Workspace("example", logging_configuration={
-            "logGroupArn": example.arn.apply(lambda arn: f"{arn}:*"),
+            "log_group_arn": example.arn.apply(lambda arn: f"{arn}:*"),
         })
         ```
 
@@ -311,7 +311,7 @@ class Workspace(pulumi.CustomResource):
 
         example = aws.cloudwatch.LogGroup("example", name="example")
         example_workspace = aws.amp.Workspace("example", logging_configuration={
-            "logGroupArn": example.arn.apply(lambda arn: f"{arn}:*"),
+            "log_group_arn": example.arn.apply(lambda arn: f"{arn}:*"),
         })
         ```
 

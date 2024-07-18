@@ -13,6 +13,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings
     {
+        /// <summary>
+        /// The ad marker type for this output group.
+        /// </summary>
         public readonly ImmutableArray<string> AdMarkers;
         public readonly string? BaseUrlContent;
         public readonly string? BaseUrlContent1;
@@ -51,6 +54,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly int? SegmentLength;
         public readonly int? SegmentsPerSubdirectory;
         public readonly string? StreamInfResolution;
+        /// <summary>
+        /// Indicates ID3 frame that has the timecode.
+        /// </summary>
         public readonly string? TimedMetadataId3Frame;
         public readonly int? TimedMetadataId3Period;
         public readonly int? TimestampDeltaMilliseconds;

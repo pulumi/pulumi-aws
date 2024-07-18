@@ -285,10 +285,10 @@ class ReportGroup(pulumi.CustomResource):
             type="TEST",
             export_config={
                 "type": "S3",
-                "s3Destination": {
+                "s3_destination": {
                     "bucket": example_bucket_v2.id,
-                    "encryptionDisabled": False,
-                    "encryptionKey": example_key.arn,
+                    "encryption_disabled": False,
+                    "encryption_key": example_key.arn,
                     "packaging": "NONE",
                     "path": "/some",
                 },
@@ -347,10 +347,10 @@ class ReportGroup(pulumi.CustomResource):
             type="TEST",
             export_config={
                 "type": "S3",
-                "s3Destination": {
+                "s3_destination": {
                     "bucket": example_bucket_v2.id,
-                    "encryptionDisabled": False,
-                    "encryptionKey": example_key.arn,
+                    "encryption_disabled": False,
+                    "encryption_key": example_key.arn,
                     "packaging": "NONE",
                     "path": "/some",
                 },

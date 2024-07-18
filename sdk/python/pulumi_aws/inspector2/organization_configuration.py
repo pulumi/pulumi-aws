@@ -106,8 +106,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example = aws.inspector2.OrganizationConfiguration("example", auto_enable={
             "ec2": True,
             "ecr": False,
-            "lambda": True,
-            "lambdaCode": True,
+            "lambda_": True,
+            "lambda_code": True,
         })
         ```
 
@@ -139,8 +139,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example = aws.inspector2.OrganizationConfiguration("example", auto_enable={
             "ec2": True,
             "ecr": False,
-            "lambda": True,
-            "lambdaCode": True,
+            "lambda_": True,
+            "lambda_code": True,
         })
         ```
 

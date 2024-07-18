@@ -324,10 +324,10 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=dynamodb_table_read_target.scalable_dimension,
             service_namespace=dynamodb_table_read_target.service_namespace,
             target_tracking_scaling_policy_configuration={
-                "predefinedMetricSpecification": {
-                    "predefinedMetricType": "DynamoDBReadCapacityUtilization",
+                "predefined_metric_specification": {
+                    "predefined_metric_type": "DynamoDBReadCapacityUtilization",
                 },
-                "targetValue": 70,
+                "target_value": 70,
             })
         ```
 
@@ -350,12 +350,12 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
             step_scaling_policy_configuration={
-                "adjustmentType": "ChangeInCapacity",
+                "adjustment_type": "ChangeInCapacity",
                 "cooldown": 60,
-                "metricAggregationType": "Maximum",
-                "stepAdjustments": [{
-                    "metricIntervalUpperBound": "0",
-                    "scalingAdjustment": -1,
+                "metric_aggregation_type": "Maximum",
+                "step_adjustments": [{
+                    "metric_interval_upper_bound": "0",
+                    "scaling_adjustment": -1,
                 }],
             })
         ```
@@ -392,12 +392,12 @@ class Policy(pulumi.CustomResource):
             resource_id=replicas.resource_id,
             policy_type="TargetTrackingScaling",
             target_tracking_scaling_policy_configuration={
-                "predefinedMetricSpecification": {
-                    "predefinedMetricType": "RDSReaderAverageCPUUtilization",
+                "predefined_metric_specification": {
+                    "predefined_metric_type": "RDSReaderAverageCPUUtilization",
                 },
-                "targetValue": 75,
-                "scaleInCooldown": 300,
-                "scaleOutCooldown": 300,
+                "target_value": 75,
+                "scale_in_cooldown": 300,
+                "scale_out_cooldown": 300,
             })
         ```
 
@@ -420,15 +420,15 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
             target_tracking_scaling_policy_configuration={
-                "targetValue": 100,
-                "customizedMetricSpecification": {
+                "target_value": 100,
+                "customized_metric_specification": {
                     "metrics": [
                         {
                             "label": "Get the queue size (the number of messages waiting to be processed)",
                             "id": "m1",
-                            "metricStat": {
+                            "metric_stat": {
                                 "metric": {
-                                    "metricName": "ApproximateNumberOfMessagesVisible",
+                                    "metric_name": "ApproximateNumberOfMessagesVisible",
                                     "namespace": "AWS/SQS",
                                     "dimensions": [{
                                         "name": "QueueName",
@@ -437,14 +437,14 @@ class Policy(pulumi.CustomResource):
                                 },
                                 "stat": "Sum",
                             },
-                            "returnData": False,
+                            "return_data": False,
                         },
                         {
                             "label": "Get the ECS running task count (the number of currently running tasks)",
                             "id": "m2",
-                            "metricStat": {
+                            "metric_stat": {
                                 "metric": {
-                                    "metricName": "RunningTaskCount",
+                                    "metric_name": "RunningTaskCount",
                                     "namespace": "ECS/ContainerInsights",
                                     "dimensions": [
                                         {
@@ -459,13 +459,13 @@ class Policy(pulumi.CustomResource):
                                 },
                                 "stat": "Average",
                             },
-                            "returnData": False,
+                            "return_data": False,
                         },
                         {
                             "label": "Calculate the backlog per instance",
                             "id": "e1",
                             "expression": "m1 / m2",
-                            "returnData": True,
+                            "return_data": True,
                         },
                     ],
                 },
@@ -491,10 +491,10 @@ class Policy(pulumi.CustomResource):
             resource_id=msk_target.resource_id,
             policy_type="TargetTrackingScaling",
             target_tracking_scaling_policy_configuration={
-                "predefinedMetricSpecification": {
-                    "predefinedMetricType": "KafkaBrokerStorageUtilization",
+                "predefined_metric_specification": {
+                    "predefined_metric_type": "KafkaBrokerStorageUtilization",
                 },
-                "targetValue": 55,
+                "target_value": 55,
             })
         ```
 
@@ -546,10 +546,10 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=dynamodb_table_read_target.scalable_dimension,
             service_namespace=dynamodb_table_read_target.service_namespace,
             target_tracking_scaling_policy_configuration={
-                "predefinedMetricSpecification": {
-                    "predefinedMetricType": "DynamoDBReadCapacityUtilization",
+                "predefined_metric_specification": {
+                    "predefined_metric_type": "DynamoDBReadCapacityUtilization",
                 },
-                "targetValue": 70,
+                "target_value": 70,
             })
         ```
 
@@ -572,12 +572,12 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
             step_scaling_policy_configuration={
-                "adjustmentType": "ChangeInCapacity",
+                "adjustment_type": "ChangeInCapacity",
                 "cooldown": 60,
-                "metricAggregationType": "Maximum",
-                "stepAdjustments": [{
-                    "metricIntervalUpperBound": "0",
-                    "scalingAdjustment": -1,
+                "metric_aggregation_type": "Maximum",
+                "step_adjustments": [{
+                    "metric_interval_upper_bound": "0",
+                    "scaling_adjustment": -1,
                 }],
             })
         ```
@@ -614,12 +614,12 @@ class Policy(pulumi.CustomResource):
             resource_id=replicas.resource_id,
             policy_type="TargetTrackingScaling",
             target_tracking_scaling_policy_configuration={
-                "predefinedMetricSpecification": {
-                    "predefinedMetricType": "RDSReaderAverageCPUUtilization",
+                "predefined_metric_specification": {
+                    "predefined_metric_type": "RDSReaderAverageCPUUtilization",
                 },
-                "targetValue": 75,
-                "scaleInCooldown": 300,
-                "scaleOutCooldown": 300,
+                "target_value": 75,
+                "scale_in_cooldown": 300,
+                "scale_out_cooldown": 300,
             })
         ```
 
@@ -642,15 +642,15 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
             target_tracking_scaling_policy_configuration={
-                "targetValue": 100,
-                "customizedMetricSpecification": {
+                "target_value": 100,
+                "customized_metric_specification": {
                     "metrics": [
                         {
                             "label": "Get the queue size (the number of messages waiting to be processed)",
                             "id": "m1",
-                            "metricStat": {
+                            "metric_stat": {
                                 "metric": {
-                                    "metricName": "ApproximateNumberOfMessagesVisible",
+                                    "metric_name": "ApproximateNumberOfMessagesVisible",
                                     "namespace": "AWS/SQS",
                                     "dimensions": [{
                                         "name": "QueueName",
@@ -659,14 +659,14 @@ class Policy(pulumi.CustomResource):
                                 },
                                 "stat": "Sum",
                             },
-                            "returnData": False,
+                            "return_data": False,
                         },
                         {
                             "label": "Get the ECS running task count (the number of currently running tasks)",
                             "id": "m2",
-                            "metricStat": {
+                            "metric_stat": {
                                 "metric": {
-                                    "metricName": "RunningTaskCount",
+                                    "metric_name": "RunningTaskCount",
                                     "namespace": "ECS/ContainerInsights",
                                     "dimensions": [
                                         {
@@ -681,13 +681,13 @@ class Policy(pulumi.CustomResource):
                                 },
                                 "stat": "Average",
                             },
-                            "returnData": False,
+                            "return_data": False,
                         },
                         {
                             "label": "Calculate the backlog per instance",
                             "id": "e1",
                             "expression": "m1 / m2",
-                            "returnData": True,
+                            "return_data": True,
                         },
                     ],
                 },
@@ -713,10 +713,10 @@ class Policy(pulumi.CustomResource):
             resource_id=msk_target.resource_id,
             policy_type="TargetTrackingScaling",
             target_tracking_scaling_policy_configuration={
-                "predefinedMetricSpecification": {
-                    "predefinedMetricType": "KafkaBrokerStorageUtilization",
+                "predefined_metric_specification": {
+                    "predefined_metric_type": "KafkaBrokerStorageUtilization",
                 },
-                "targetValue": 55,
+                "target_value": 55,
             })
         ```
 

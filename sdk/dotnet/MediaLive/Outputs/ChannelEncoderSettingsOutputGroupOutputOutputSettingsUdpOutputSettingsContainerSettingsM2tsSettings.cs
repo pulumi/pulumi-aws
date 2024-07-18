@@ -52,6 +52,9 @@ namespace Pulumi.Aws.MediaLive.Outputs
         public readonly string? RateMode;
         public readonly string? Scte27Pids;
         public readonly string? Scte35Control;
+        /// <summary>
+        /// PID from which to read SCTE-35 messages.
+        /// </summary>
         public readonly string? Scte35Pid;
         public readonly string? SegmentationMarkers;
         public readonly string? SegmentationStyle;
