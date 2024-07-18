@@ -441,30 +441,30 @@ class Service(pulumi.CustomResource):
         example = aws.apprunner.Service("example",
             service_name="example",
             source_configuration={
-                "authenticationConfiguration": {
-                    "connectionArn": example_aws_apprunner_connection["arn"],
+                "authentication_configuration": {
+                    "connection_arn": example_aws_apprunner_connection["arn"],
                 },
-                "codeRepository": {
-                    "codeConfiguration": {
-                        "codeConfigurationValues": {
-                            "buildCommand": "python setup.py develop",
+                "code_repository": {
+                    "code_configuration": {
+                        "code_configuration_values": {
+                            "build_command": "python setup.py develop",
                             "port": "8000",
                             "runtime": "PYTHON_3",
-                            "startCommand": "python runapp.py",
+                            "start_command": "python runapp.py",
                         },
-                        "configurationSource": "API",
+                        "configuration_source": "API",
                     },
-                    "repositoryUrl": "https://github.com/example/my-example-python-app",
-                    "sourceCodeVersion": {
+                    "repository_url": "https://github.com/example/my-example-python-app",
+                    "source_code_version": {
                         "type": "BRANCH",
                         "value": "main",
                     },
                 },
             },
             network_configuration={
-                "egressConfiguration": {
-                    "egressType": "VPC",
-                    "vpcConnectorArn": connector["arn"],
+                "egress_configuration": {
+                    "egress_type": "VPC",
+                    "vpc_connector_arn": connector["arn"],
                 },
             },
             tags={
@@ -481,14 +481,14 @@ class Service(pulumi.CustomResource):
         example = aws.apprunner.Service("example",
             service_name="example",
             source_configuration={
-                "imageRepository": {
-                    "imageConfiguration": {
+                "image_repository": {
+                    "image_configuration": {
                         "port": "8000",
                     },
-                    "imageIdentifier": "public.ecr.aws/aws-containers/hello-app-runner:latest",
-                    "imageRepositoryType": "ECR_PUBLIC",
+                    "image_identifier": "public.ecr.aws/aws-containers/hello-app-runner:latest",
+                    "image_repository_type": "ECR_PUBLIC",
                 },
-                "autoDeploymentsEnabled": False,
+                "auto_deployments_enabled": False,
             },
             tags={
                 "Name": "example-apprunner-service",
@@ -509,18 +509,18 @@ class Service(pulumi.CustomResource):
         example = aws.apprunner.Service("example",
             service_name="example",
             observability_configuration={
-                "observabilityConfigurationArn": example_observability_configuration.arn,
-                "observabilityEnabled": True,
+                "observability_configuration_arn": example_observability_configuration.arn,
+                "observability_enabled": True,
             },
             source_configuration={
-                "imageRepository": {
-                    "imageConfiguration": {
+                "image_repository": {
+                    "image_configuration": {
                         "port": "8000",
                     },
-                    "imageIdentifier": "public.ecr.aws/aws-containers/hello-app-runner:latest",
-                    "imageRepositoryType": "ECR_PUBLIC",
+                    "image_identifier": "public.ecr.aws/aws-containers/hello-app-runner:latest",
+                    "image_repository_type": "ECR_PUBLIC",
                 },
-                "autoDeploymentsEnabled": False,
+                "auto_deployments_enabled": False,
             },
             tags={
                 "Name": "example-apprunner-service",
@@ -569,30 +569,30 @@ class Service(pulumi.CustomResource):
         example = aws.apprunner.Service("example",
             service_name="example",
             source_configuration={
-                "authenticationConfiguration": {
-                    "connectionArn": example_aws_apprunner_connection["arn"],
+                "authentication_configuration": {
+                    "connection_arn": example_aws_apprunner_connection["arn"],
                 },
-                "codeRepository": {
-                    "codeConfiguration": {
-                        "codeConfigurationValues": {
-                            "buildCommand": "python setup.py develop",
+                "code_repository": {
+                    "code_configuration": {
+                        "code_configuration_values": {
+                            "build_command": "python setup.py develop",
                             "port": "8000",
                             "runtime": "PYTHON_3",
-                            "startCommand": "python runapp.py",
+                            "start_command": "python runapp.py",
                         },
-                        "configurationSource": "API",
+                        "configuration_source": "API",
                     },
-                    "repositoryUrl": "https://github.com/example/my-example-python-app",
-                    "sourceCodeVersion": {
+                    "repository_url": "https://github.com/example/my-example-python-app",
+                    "source_code_version": {
                         "type": "BRANCH",
                         "value": "main",
                     },
                 },
             },
             network_configuration={
-                "egressConfiguration": {
-                    "egressType": "VPC",
-                    "vpcConnectorArn": connector["arn"],
+                "egress_configuration": {
+                    "egress_type": "VPC",
+                    "vpc_connector_arn": connector["arn"],
                 },
             },
             tags={
@@ -609,14 +609,14 @@ class Service(pulumi.CustomResource):
         example = aws.apprunner.Service("example",
             service_name="example",
             source_configuration={
-                "imageRepository": {
-                    "imageConfiguration": {
+                "image_repository": {
+                    "image_configuration": {
                         "port": "8000",
                     },
-                    "imageIdentifier": "public.ecr.aws/aws-containers/hello-app-runner:latest",
-                    "imageRepositoryType": "ECR_PUBLIC",
+                    "image_identifier": "public.ecr.aws/aws-containers/hello-app-runner:latest",
+                    "image_repository_type": "ECR_PUBLIC",
                 },
-                "autoDeploymentsEnabled": False,
+                "auto_deployments_enabled": False,
             },
             tags={
                 "Name": "example-apprunner-service",
@@ -637,18 +637,18 @@ class Service(pulumi.CustomResource):
         example = aws.apprunner.Service("example",
             service_name="example",
             observability_configuration={
-                "observabilityConfigurationArn": example_observability_configuration.arn,
-                "observabilityEnabled": True,
+                "observability_configuration_arn": example_observability_configuration.arn,
+                "observability_enabled": True,
             },
             source_configuration={
-                "imageRepository": {
-                    "imageConfiguration": {
+                "image_repository": {
+                    "image_configuration": {
                         "port": "8000",
                     },
-                    "imageIdentifier": "public.ecr.aws/aws-containers/hello-app-runner:latest",
-                    "imageRepositoryType": "ECR_PUBLIC",
+                    "image_identifier": "public.ecr.aws/aws-containers/hello-app-runner:latest",
+                    "image_repository_type": "ECR_PUBLIC",
                 },
-                "autoDeploymentsEnabled": False,
+                "auto_deployments_enabled": False,
             },
             tags={
                 "Name": "example-apprunner-service",

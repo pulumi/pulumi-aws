@@ -104,7 +104,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
             "rules": [{
                 "destinations": [{
                     "region": example.names[0],
-                    "registryId": current.account_id,
+                    "registry_id": current.account_id,
                 }],
             }],
         })
@@ -123,11 +123,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 "destinations": [
                     {
                         "region": example.names[0],
-                        "registryId": current.account_id,
+                        "registry_id": current.account_id,
                     },
                     {
                         "region": example.names[1],
-                        "registryId": current.account_id,
+                        "registry_id": current.account_id,
                     },
                 ],
             }],
@@ -146,11 +146,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
             "rules": [{
                 "destinations": [{
                     "region": example.names[0],
-                    "registryId": current.account_id,
+                    "registry_id": current.account_id,
                 }],
-                "repositoryFilters": [{
+                "repository_filters": [{
                     "filter": "prod-microservice",
-                    "filterType": "PREFIX_MATCH",
+                    "filter_type": "PREFIX_MATCH",
                 }],
             }],
         })
@@ -189,7 +189,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
             "rules": [{
                 "destinations": [{
                     "region": example.names[0],
-                    "registryId": current.account_id,
+                    "registry_id": current.account_id,
                 }],
             }],
         })
@@ -208,11 +208,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 "destinations": [
                     {
                         "region": example.names[0],
-                        "registryId": current.account_id,
+                        "registry_id": current.account_id,
                     },
                     {
                         "region": example.names[1],
-                        "registryId": current.account_id,
+                        "registry_id": current.account_id,
                     },
                 ],
             }],
@@ -231,11 +231,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
             "rules": [{
                 "destinations": [{
                     "region": example.names[0],
-                    "registryId": current.account_id,
+                    "registry_id": current.account_id,
                 }],
-                "repositoryFilters": [{
+                "repository_filters": [{
                     "filter": "prod-microservice",
-                    "filterType": "PREFIX_MATCH",
+                    "filter_type": "PREFIX_MATCH",
                 }],
             }],
         })

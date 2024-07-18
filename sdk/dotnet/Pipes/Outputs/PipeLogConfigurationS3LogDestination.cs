@@ -13,9 +13,21 @@ namespace Pulumi.Aws.Pipes.Outputs
     [OutputType]
     public sealed class PipeLogConfigurationS3LogDestination
     {
+        /// <summary>
+        /// Name of the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// Amazon Web Services account that owns the Amazon S3 bucket to which EventBridge delivers the log records for the pipe.
+        /// </summary>
         public readonly string BucketOwner;
+        /// <summary>
+        /// EventBridge format for the log records. Valid values `json`, `plain` and `w3c`.
+        /// </summary>
         public readonly string? OutputFormat;
+        /// <summary>
+        /// Prefix text with which to begin Amazon S3 log object names.
+        /// </summary>
         public readonly string? Prefix;
 
         [OutputConstructor]

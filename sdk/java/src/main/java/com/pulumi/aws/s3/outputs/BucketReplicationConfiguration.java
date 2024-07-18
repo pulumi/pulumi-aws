@@ -12,13 +12,29 @@ import java.util.Objects;
 
 @CustomType
 public final class BucketReplicationConfiguration {
+    /**
+     * @return The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     * 
+     */
     private String role;
+    /**
+     * @return Specifies the rules managing the replication (documented below).
+     * 
+     */
     private List<BucketReplicationConfigurationRule> rules;
 
     private BucketReplicationConfiguration() {}
+    /**
+     * @return The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
+     * 
+     */
     public String role() {
         return this.role;
     }
+    /**
+     * @return Specifies the rules managing the replication (documented below).
+     * 
+     */
     public List<BucketReplicationConfigurationRule> rules() {
         return this.rules;
     }

@@ -17,16 +17,32 @@ public final class DistributionOriginGroupArgs extends com.pulumi.resources.Reso
 
     public static final DistributionOriginGroupArgs Empty = new DistributionOriginGroupArgs();
 
+    /**
+     * The failover criteria for when to failover to the secondary origin.
+     * 
+     */
     @Import(name="failoverCriteria", required=true)
     private Output<DistributionOriginGroupFailoverCriteriaArgs> failoverCriteria;
 
+    /**
+     * @return The failover criteria for when to failover to the secondary origin.
+     * 
+     */
     public Output<DistributionOriginGroupFailoverCriteriaArgs> failoverCriteria() {
         return this.failoverCriteria;
     }
 
+    /**
+     * Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
+     * 
+     */
     @Import(name="members", required=true)
     private Output<List<DistributionOriginGroupMemberArgs>> members;
 
+    /**
+     * @return Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
+     * 
+     */
     public Output<List<DistributionOriginGroupMemberArgs>> members() {
         return this.members;
     }
@@ -64,24 +80,54 @@ public final class DistributionOriginGroupArgs extends com.pulumi.resources.Reso
             $ = new DistributionOriginGroupArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param failoverCriteria The failover criteria for when to failover to the secondary origin.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failoverCriteria(Output<DistributionOriginGroupFailoverCriteriaArgs> failoverCriteria) {
             $.failoverCriteria = failoverCriteria;
             return this;
         }
 
+        /**
+         * @param failoverCriteria The failover criteria for when to failover to the secondary origin.
+         * 
+         * @return builder
+         * 
+         */
         public Builder failoverCriteria(DistributionOriginGroupFailoverCriteriaArgs failoverCriteria) {
             return failoverCriteria(Output.of(failoverCriteria));
         }
 
+        /**
+         * @param members Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
+         * 
+         * @return builder
+         * 
+         */
         public Builder members(Output<List<DistributionOriginGroupMemberArgs>> members) {
             $.members = members;
             return this;
         }
 
+        /**
+         * @param members Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
+         * 
+         * @return builder
+         * 
+         */
         public Builder members(List<DistributionOriginGroupMemberArgs> members) {
             return members(Output.of(members));
         }
 
+        /**
+         * @param members Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
+         * 
+         * @return builder
+         * 
+         */
         public Builder members(DistributionOriginGroupMemberArgs... members) {
             return members(List.of(members));
         }

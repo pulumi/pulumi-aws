@@ -24,9 +24,17 @@ public final class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs extends com.pu
         return this.enabled;
     }
 
+    /**
+     * Name of the Cloudwatch Log Group to deliver logs to.
+     * 
+     */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
+    /**
+     * @return Name of the Cloudwatch Log Group to deliver logs to.
+     * 
+     */
     public Optional<Output<String>> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
@@ -65,11 +73,23 @@ public final class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs extends com.pu
             return enabled(Output.of(enabled));
         }
 
+        /**
+         * @param logGroup Name of the Cloudwatch Log Group to deliver logs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroup(@Nullable Output<String> logGroup) {
             $.logGroup = logGroup;
             return this;
         }
 
+        /**
+         * @param logGroup Name of the Cloudwatch Log Group to deliver logs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logGroup(String logGroup) {
             return logGroup(Output.of(logGroup));
         }

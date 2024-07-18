@@ -870,10 +870,10 @@ class UserPoolClient(pulumi.CustomResource):
             name="pool_client",
             user_pool_id=test_user_pool.id,
             analytics_configuration={
-                "applicationId": test_app.application_id,
-                "externalId": "some_id",
-                "roleArn": test_role.arn,
-                "userDataShared": True,
+                "application_id": test_app.application_id,
+                "external_id": "some_id",
+                "role_arn": test_role.arn,
+                "user_data_shared": True,
             })
         current = aws.get_caller_identity()
         test = aws.iam.get_policy_document_output(statements=[{
@@ -1017,10 +1017,10 @@ class UserPoolClient(pulumi.CustomResource):
             name="pool_client",
             user_pool_id=test_user_pool.id,
             analytics_configuration={
-                "applicationId": test_app.application_id,
-                "externalId": "some_id",
-                "roleArn": test_role.arn,
-                "userDataShared": True,
+                "application_id": test_app.application_id,
+                "external_id": "some_id",
+                "role_arn": test_role.arn,
+                "user_data_shared": True,
             })
         current = aws.get_caller_identity()
         test = aws.iam.get_policy_document_output(statements=[{

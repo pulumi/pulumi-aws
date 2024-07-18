@@ -17,16 +17,32 @@ public final class ServerlessCacheCacheUsageLimitsArgs extends com.pulumi.resour
 
     public static final ServerlessCacheCacheUsageLimitsArgs Empty = new ServerlessCacheCacheUsageLimitsArgs();
 
+    /**
+     * The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+     * 
+     */
     @Import(name="dataStorage")
     private @Nullable Output<ServerlessCacheCacheUsageLimitsDataStorageArgs> dataStorage;
 
+    /**
+     * @return The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+     * 
+     */
     public Optional<Output<ServerlessCacheCacheUsageLimitsDataStorageArgs>> dataStorage() {
         return Optional.ofNullable(this.dataStorage);
     }
 
+    /**
+     * The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+     * 
+     */
     @Import(name="ecpuPerSeconds")
     private @Nullable Output<List<ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs>> ecpuPerSeconds;
 
+    /**
+     * @return The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+     * 
+     */
     public Optional<Output<List<ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs>>> ecpuPerSeconds() {
         return Optional.ofNullable(this.ecpuPerSeconds);
     }
@@ -56,24 +72,54 @@ public final class ServerlessCacheCacheUsageLimitsArgs extends com.pulumi.resour
             $ = new ServerlessCacheCacheUsageLimitsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataStorage The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataStorage(@Nullable Output<ServerlessCacheCacheUsageLimitsDataStorageArgs> dataStorage) {
             $.dataStorage = dataStorage;
             return this;
         }
 
+        /**
+         * @param dataStorage The maximum data storage limit in the cache, expressed in Gigabytes. See Data Storage config for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs dataStorage) {
             return dataStorage(Output.of(dataStorage));
         }
 
+        /**
+         * @param ecpuPerSeconds The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ecpuPerSeconds(@Nullable Output<List<ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs>> ecpuPerSeconds) {
             $.ecpuPerSeconds = ecpuPerSeconds;
             return this;
         }
 
+        /**
+         * @param ecpuPerSeconds The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ecpuPerSeconds(List<ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs> ecpuPerSeconds) {
             return ecpuPerSeconds(Output.of(ecpuPerSeconds));
         }
 
+        /**
+         * @param ecpuPerSeconds The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.See config block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ecpuPerSeconds(ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs... ecpuPerSeconds) {
             return ecpuPerSeconds(List.of(ecpuPerSeconds));
         }

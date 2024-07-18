@@ -237,7 +237,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         main = aws.ec2.VpcIpamResourceDiscovery("main",
             description="My IPAM Resource Discovery",
             operating_regions=[{
-                "regionName": current.name,
+                "region_name": current.name,
             }],
             tags={
                 "Test": "Main",
@@ -279,7 +279,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         main = aws.ec2.VpcIpamResourceDiscovery("main",
             description="My IPAM Resource Discovery",
             operating_regions=[{
-                "regionName": current.name,
+                "region_name": current.name,
             }],
             tags={
                 "Test": "Main",

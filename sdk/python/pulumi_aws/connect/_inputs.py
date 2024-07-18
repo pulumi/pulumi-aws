@@ -1836,6 +1836,9 @@ class UserHierarchyStructureHierarchyStructureArgs:
 if not MYPY:
     class UserHierarchyStructureHierarchyStructureLevelFiveArgsDict(TypedDict):
         name: pulumi.Input[str]
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         arn: NotRequired[pulumi.Input[str]]
         """
         The Amazon Resource Name (ARN) of the hierarchy level.
@@ -1854,6 +1857,7 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[str] id: The identifier of the hierarchy level.
         """
@@ -1866,6 +1870,9 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1900,6 +1907,9 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
 if not MYPY:
     class UserHierarchyStructureHierarchyStructureLevelFourArgsDict(TypedDict):
         name: pulumi.Input[str]
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         arn: NotRequired[pulumi.Input[str]]
         """
         The Amazon Resource Name (ARN) of the hierarchy level.
@@ -1918,6 +1928,7 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgs:
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[str] id: The identifier of the hierarchy level.
         """
@@ -1930,6 +1941,9 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1964,6 +1978,9 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgs:
 if not MYPY:
     class UserHierarchyStructureHierarchyStructureLevelOneArgsDict(TypedDict):
         name: pulumi.Input[str]
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         arn: NotRequired[pulumi.Input[str]]
         """
         The Amazon Resource Name (ARN) of the hierarchy level.
@@ -1982,6 +1999,7 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgs:
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[str] id: The identifier of the hierarchy level.
         """
@@ -1994,6 +2012,9 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2028,6 +2049,9 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgs:
 if not MYPY:
     class UserHierarchyStructureHierarchyStructureLevelThreeArgsDict(TypedDict):
         name: pulumi.Input[str]
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         arn: NotRequired[pulumi.Input[str]]
         """
         The Amazon Resource Name (ARN) of the hierarchy level.
@@ -2046,6 +2070,7 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[str] id: The identifier of the hierarchy level.
         """
@@ -2058,6 +2083,9 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -2092,6 +2120,9 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
 if not MYPY:
     class UserHierarchyStructureHierarchyStructureLevelTwoArgsDict(TypedDict):
         name: pulumi.Input[str]
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         arn: NotRequired[pulumi.Input[str]]
         """
         The Amazon Resource Name (ARN) of the hierarchy level.
@@ -2110,6 +2141,7 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] name: The name of the user hierarchy level. Must not be more than 50 characters.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy level.
         :param pulumi.Input[str] id: The identifier of the hierarchy level.
         """
@@ -2122,6 +2154,9 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
         return pulumi.get(self, "name")
 
     @name.setter

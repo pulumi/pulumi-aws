@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesVolumeHostPath {
+    /**
+     * @return The path of the file or directory on the host to mount into containers on the pod.
+     * 
+     */
     private String path;
 
     private JobDefinitionEksPropertiesPodPropertiesVolumeHostPath() {}
+    /**
+     * @return The path of the file or directory on the host to mount into containers on the pod.
+     * 
+     */
     public String path() {
         return this.path;
     }

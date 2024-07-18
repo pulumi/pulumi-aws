@@ -46,9 +46,17 @@ public final class UserHierarchyStructureHierarchyStructureLevelTwoArgs extends 
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * The name of the user hierarchy level. Must not be more than 50 characters.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of the user hierarchy level. Must not be more than 50 characters.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -121,11 +129,23 @@ public final class UserHierarchyStructureHierarchyStructureLevelTwoArgs extends 
             return id(Output.of(id));
         }
 
+        /**
+         * @param name The name of the user hierarchy level. Must not be more than 50 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of the user hierarchy level. Must not be more than 50 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

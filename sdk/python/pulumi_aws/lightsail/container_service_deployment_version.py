@@ -202,26 +202,26 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
         example = aws.lightsail.ContainerServiceDeploymentVersion("example",
             containers=[{
-                "containerName": "hello-world",
+                "container_name": "hello-world",
                 "image": "amazon/amazon-lightsail:hello-world",
                 "commands": [],
                 "environment": {
-                    "MY_ENVIRONMENT_VARIABLE": "my_value",
+                    "m_y__environmen_t__variable": "my_value",
                 },
                 "ports": {
-                    "80": "HTTP",
+                    "_80": "HTTP",
                 },
             }],
             public_endpoint={
-                "containerName": "hello-world",
-                "containerPort": 80,
-                "healthCheck": {
-                    "healthyThreshold": 2,
-                    "unhealthyThreshold": 2,
-                    "timeoutSeconds": 2,
-                    "intervalSeconds": 5,
+                "container_name": "hello-world",
+                "container_port": 80,
+                "health_check": {
+                    "healthy_threshold": 2,
+                    "unhealthy_threshold": 2,
+                    "timeout_seconds": 2,
+                    "interval_seconds": 5,
                     "path": "/",
-                    "successCodes": "200-499",
+                    "success_codes": "200-499",
                 },
             },
             service_name=example_aws_lightsail_container_service["name"])
@@ -264,26 +264,26 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
         example = aws.lightsail.ContainerServiceDeploymentVersion("example",
             containers=[{
-                "containerName": "hello-world",
+                "container_name": "hello-world",
                 "image": "amazon/amazon-lightsail:hello-world",
                 "commands": [],
                 "environment": {
-                    "MY_ENVIRONMENT_VARIABLE": "my_value",
+                    "m_y__environmen_t__variable": "my_value",
                 },
                 "ports": {
-                    "80": "HTTP",
+                    "_80": "HTTP",
                 },
             }],
             public_endpoint={
-                "containerName": "hello-world",
-                "containerPort": 80,
-                "healthCheck": {
-                    "healthyThreshold": 2,
-                    "unhealthyThreshold": 2,
-                    "timeoutSeconds": 2,
-                    "intervalSeconds": 5,
+                "container_name": "hello-world",
+                "container_port": 80,
+                "health_check": {
+                    "healthy_threshold": 2,
+                    "unhealthy_threshold": 2,
+                    "timeout_seconds": 2,
+                    "interval_seconds": 5,
                     "path": "/",
-                    "successCodes": "200-499",
+                    "success_codes": "200-499",
                 },
             },
             service_name=example_aws_lightsail_container_service["name"])

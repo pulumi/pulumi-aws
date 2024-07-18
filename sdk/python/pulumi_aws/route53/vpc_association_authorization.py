@@ -151,7 +151,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         example_zone = aws.route53.Zone("example",
             name="example.com",
             vpcs=[{
-                "vpcId": example.id,
+                "vpc_id": example.id,
             }])
         alternate = aws.ec2.Vpc("alternate",
             cidr_block="10.7.0.0/16",
@@ -201,7 +201,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         example_zone = aws.route53.Zone("example",
             name="example.com",
             vpcs=[{
-                "vpcId": example.id,
+                "vpc_id": example.id,
             }])
         alternate = aws.ec2.Vpc("alternate",
             cidr_block="10.7.0.0/16",

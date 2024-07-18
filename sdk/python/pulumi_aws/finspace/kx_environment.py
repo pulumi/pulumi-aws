@@ -395,12 +395,12 @@ class KxEnvironment(pulumi.CustomResource):
             description="Environment description",
             kms_key_id=example.arn,
             transit_gateway_configuration={
-                "transitGatewayId": example_transit_gateway.id,
-                "routableCidrSpace": "100.64.0.0/26",
+                "transit_gateway_id": example_transit_gateway.id,
+                "routable_cidr_space": "100.64.0.0/26",
             },
             custom_dns_configurations=[{
-                "customDnsServerName": "example.finspace.amazonaws.com",
-                "customDnsServerIp": "10.0.0.76",
+                "custom_dns_server_name": "example.finspace.amazonaws.com",
+                "custom_dns_server_ip": "10.0.0.76",
             }])
         ```
 
@@ -419,26 +419,26 @@ class KxEnvironment(pulumi.CustomResource):
             description="Environment description",
             kms_key_id=example.arn,
             transit_gateway_configuration={
-                "transitGatewayId": example_transit_gateway.id,
-                "routableCidrSpace": "100.64.0.0/26",
-                "attachmentNetworkAclConfigurations": [{
-                    "ruleNumber": 1,
+                "transit_gateway_id": example_transit_gateway.id,
+                "routable_cidr_space": "100.64.0.0/26",
+                "attachment_network_acl_configurations": [{
+                    "rule_number": 1,
                     "protocol": "6",
-                    "ruleAction": "allow",
-                    "cidrBlock": "0.0.0.0/0",
-                    "portRange": {
-                        "from": 53,
+                    "rule_action": "allow",
+                    "cidr_block": "0.0.0.0/0",
+                    "port_range": {
+                        "from_": 53,
                         "to": 53,
                     },
-                    "icmpTypeCode": {
+                    "icmp_type_code": {
                         "type": -1,
                         "code": -1,
                     },
                 }],
             },
             custom_dns_configurations=[{
-                "customDnsServerName": "example.finspace.amazonaws.com",
-                "customDnsServerIp": "10.0.0.76",
+                "custom_dns_server_name": "example.finspace.amazonaws.com",
+                "custom_dns_server_ip": "10.0.0.76",
             }])
         ```
 
@@ -501,12 +501,12 @@ class KxEnvironment(pulumi.CustomResource):
             description="Environment description",
             kms_key_id=example.arn,
             transit_gateway_configuration={
-                "transitGatewayId": example_transit_gateway.id,
-                "routableCidrSpace": "100.64.0.0/26",
+                "transit_gateway_id": example_transit_gateway.id,
+                "routable_cidr_space": "100.64.0.0/26",
             },
             custom_dns_configurations=[{
-                "customDnsServerName": "example.finspace.amazonaws.com",
-                "customDnsServerIp": "10.0.0.76",
+                "custom_dns_server_name": "example.finspace.amazonaws.com",
+                "custom_dns_server_ip": "10.0.0.76",
             }])
         ```
 
@@ -525,26 +525,26 @@ class KxEnvironment(pulumi.CustomResource):
             description="Environment description",
             kms_key_id=example.arn,
             transit_gateway_configuration={
-                "transitGatewayId": example_transit_gateway.id,
-                "routableCidrSpace": "100.64.0.0/26",
-                "attachmentNetworkAclConfigurations": [{
-                    "ruleNumber": 1,
+                "transit_gateway_id": example_transit_gateway.id,
+                "routable_cidr_space": "100.64.0.0/26",
+                "attachment_network_acl_configurations": [{
+                    "rule_number": 1,
                     "protocol": "6",
-                    "ruleAction": "allow",
-                    "cidrBlock": "0.0.0.0/0",
-                    "portRange": {
-                        "from": 53,
+                    "rule_action": "allow",
+                    "cidr_block": "0.0.0.0/0",
+                    "port_range": {
+                        "from_": 53,
                         "to": 53,
                     },
-                    "icmpTypeCode": {
+                    "icmp_type_code": {
                         "type": -1,
                         "code": -1,
                     },
                 }],
             },
             custom_dns_configurations=[{
-                "customDnsServerName": "example.finspace.amazonaws.com",
-                "customDnsServerIp": "10.0.0.76",
+                "custom_dns_server_name": "example.finspace.amazonaws.com",
+                "custom_dns_server_ip": "10.0.0.76",
             }])
         ```
 

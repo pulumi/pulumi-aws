@@ -390,11 +390,11 @@ class Workspace(pulumi.CustomResource):
             user_volume_encryption_enabled=True,
             volume_encryption_key=workspaces.arn,
             workspace_properties={
-                "computeTypeName": "VALUE",
-                "userVolumeSizeGib": 10,
-                "rootVolumeSizeGib": 80,
-                "runningMode": "AUTO_STOP",
-                "runningModeAutoStopTimeoutInMinutes": 60,
+                "compute_type_name": "VALUE",
+                "user_volume_size_gib": 10,
+                "root_volume_size_gib": 80,
+                "running_mode": "AUTO_STOP",
+                "running_mode_auto_stop_timeout_in_minutes": 60,
             },
             tags={
                 "Department": "IT",
@@ -447,11 +447,11 @@ class Workspace(pulumi.CustomResource):
             user_volume_encryption_enabled=True,
             volume_encryption_key=workspaces.arn,
             workspace_properties={
-                "computeTypeName": "VALUE",
-                "userVolumeSizeGib": 10,
-                "rootVolumeSizeGib": 80,
-                "runningMode": "AUTO_STOP",
-                "runningModeAutoStopTimeoutInMinutes": 60,
+                "compute_type_name": "VALUE",
+                "user_volume_size_gib": 10,
+                "root_volume_size_gib": 80,
+                "running_mode": "AUTO_STOP",
+                "running_mode_auto_stop_timeout_in_minutes": 60,
             },
             tags={
                 "Department": "IT",

@@ -129,11 +129,11 @@ class VoiceConnectorGroup(pulumi.CustomResource):
             name="test-group",
             connectors=[
                 {
-                    "voiceConnectorId": vc1.id,
+                    "voice_connector_id": vc1.id,
                     "priority": 1,
                 },
                 {
-                    "voiceConnectorId": vc2.id,
+                    "voice_connector_id": vc2.id,
                     "priority": 3,
                 },
             ])
@@ -181,11 +181,11 @@ class VoiceConnectorGroup(pulumi.CustomResource):
             name="test-group",
             connectors=[
                 {
-                    "voiceConnectorId": vc1.id,
+                    "voice_connector_id": vc1.id,
                     "priority": 1,
                 },
                 {
-                    "voiceConnectorId": vc2.id,
+                    "voice_connector_id": vc2.id,
                     "priority": 3,
                 },
             ])

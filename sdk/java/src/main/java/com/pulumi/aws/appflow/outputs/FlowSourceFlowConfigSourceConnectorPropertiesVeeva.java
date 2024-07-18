@@ -13,22 +13,54 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
+    /**
+     * @return Document type specified in the Veeva document extract flow.
+     * 
+     */
     private @Nullable String documentType;
+    /**
+     * @return Boolean value to include All Versions of files in Veeva document extract flow.
+     * 
+     */
     private @Nullable Boolean includeAllVersions;
+    /**
+     * @return Boolean value to include file renditions in Veeva document extract flow.
+     * 
+     */
     private @Nullable Boolean includeRenditions;
+    /**
+     * @return Boolean value to include source files in Veeva document extract flow.
+     * 
+     */
     private @Nullable Boolean includeSourceFiles;
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesVeeva() {}
+    /**
+     * @return Document type specified in the Veeva document extract flow.
+     * 
+     */
     public Optional<String> documentType() {
         return Optional.ofNullable(this.documentType);
     }
+    /**
+     * @return Boolean value to include All Versions of files in Veeva document extract flow.
+     * 
+     */
     public Optional<Boolean> includeAllVersions() {
         return Optional.ofNullable(this.includeAllVersions);
     }
+    /**
+     * @return Boolean value to include file renditions in Veeva document extract flow.
+     * 
+     */
     public Optional<Boolean> includeRenditions() {
         return Optional.ofNullable(this.includeRenditions);
     }
+    /**
+     * @return Boolean value to include source files in Veeva document extract flow.
+     * 
+     */
     public Optional<Boolean> includeSourceFiles() {
         return Optional.ofNullable(this.includeSourceFiles);
     }

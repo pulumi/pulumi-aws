@@ -561,7 +561,7 @@ class ImageBuilder(pulumi.CustomResource):
             image_name="AppStream-WinServer2019-10-05-2022",
             instance_type="stream.standard.large",
             vpc_config={
-                "subnetIds": [example["id"]],
+                "subnet_ids": [example["id"]],
             },
             tags={
                 "Name": "Example Image Builder",
@@ -617,7 +617,7 @@ class ImageBuilder(pulumi.CustomResource):
             image_name="AppStream-WinServer2019-10-05-2022",
             instance_type="stream.standard.large",
             vpc_config={
-                "subnetIds": [example["id"]],
+                "subnet_ids": [example["id"]],
             },
             tags={
                 "Name": "Example Image Builder",
