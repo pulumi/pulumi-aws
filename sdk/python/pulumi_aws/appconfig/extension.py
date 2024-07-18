@@ -279,7 +279,7 @@ class Extension(pulumi.CustomResource):
                 "point": "ON_DEPLOYMENT_COMPLETE",
                 "actions": [{
                     "name": "test",
-                    "roleArn": test_role.arn,
+                    "role_arn": test_role.arn,
                     "uri": test_topic.arn,
                 }],
             }],
@@ -337,7 +337,7 @@ class Extension(pulumi.CustomResource):
                 "point": "ON_DEPLOYMENT_COMPLETE",
                 "actions": [{
                     "name": "test",
-                    "roleArn": test_role.arn,
+                    "role_arn": test_role.arn,
                     "uri": test_topic.arn,
                 }],
             }],

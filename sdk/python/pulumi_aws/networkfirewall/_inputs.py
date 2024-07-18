@@ -1357,6 +1357,9 @@ class RuleGroupRuleGroupReferenceSetsArgs:
 if not MYPY:
     class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgsDict(TypedDict):
         ip_set_references: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgsDict']]]
+        """
+        Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+        """
         key: pulumi.Input[str]
 elif False:
     RuleGroupRuleGroupReferenceSetsIpSetReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -1366,12 +1369,18 @@ class RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs:
     def __init__(__self__, *,
                  ip_set_references: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs']]],
                  key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs']]] ip_set_references: Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+        """
         pulumi.set(__self__, "ip_set_references", ip_set_references)
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter(name="ipSetReferences")
     def ip_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs']]]:
+        """
+        Set of configuration blocks that define the IP Reference information. See IP Set Reference below for details.
+        """
         return pulumi.get(self, "ip_set_references")
 
     @ip_set_references.setter
@@ -3324,7 +3333,13 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
 if not MYPY:
     class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgsDict(TypedDict):
         from_port: pulumi.Input[int]
+        """
+        The lower limit of the port range. This must be less than or equal to the `to_port`.
+        """
         to_port: pulumi.Input[int]
+        """
+        The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
 elif False:
     TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3333,12 +3348,19 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     def __init__(__self__, *,
                  from_port: pulumi.Input[int],
                  to_port: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] from_port: The lower limit of the port range. This must be less than or equal to the `to_port`.
+        :param pulumi.Input[int] to_port: The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "to_port", to_port)
 
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
+        """
+        The lower limit of the port range. This must be less than or equal to the `to_port`.
+        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -3348,6 +3370,9 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[int]:
+        """
+        The upper limit of the port range. This must be greater than or equal to the `from_port`.
+        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter

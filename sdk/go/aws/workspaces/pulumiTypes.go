@@ -887,7 +887,8 @@ func (o DirectoryWorkspaceCreationPropertiesPtrOutput) UserEnabledAsLocalAdminis
 type IpGroupRule struct {
 	// The description of the IP group.
 	Description *string `pulumi:"description"`
-	Source      string  `pulumi:"source"`
+	// The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
+	Source string `pulumi:"source"`
 }
 
 // IpGroupRuleInput is an input type that accepts IpGroupRuleArgs and IpGroupRuleOutput values.
@@ -904,7 +905,8 @@ type IpGroupRuleInput interface {
 type IpGroupRuleArgs struct {
 	// The description of the IP group.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	Source      pulumi.StringInput    `pulumi:"source"`
+	// The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
+	Source pulumi.StringInput `pulumi:"source"`
 }
 
 func (IpGroupRuleArgs) ElementType() reflect.Type {
@@ -963,6 +965,7 @@ func (o IpGroupRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IpGroupRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
 func (o IpGroupRuleOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v IpGroupRule) string { return v.Source }).(pulumi.StringOutput)
 }

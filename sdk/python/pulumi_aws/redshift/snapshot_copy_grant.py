@@ -185,8 +185,8 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         test = aws.redshift.SnapshotCopyGrant("test", snapshot_copy_grant_name="my-grant")
         test_cluster = aws.redshift.Cluster("test", snapshot_copy={
-            "destinationRegion": "us-east-2",
-            "grantName": test.snapshot_copy_grant_name,
+            "destination_region": "us-east-2",
+            "grant_name": test.snapshot_copy_grant_name,
         })
         ```
 
@@ -223,8 +223,8 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         test = aws.redshift.SnapshotCopyGrant("test", snapshot_copy_grant_name="my-grant")
         test_cluster = aws.redshift.Cluster("test", snapshot_copy={
-            "destinationRegion": "us-east-2",
-            "grantName": test.snapshot_copy_grant_name,
+            "destination_region": "us-east-2",
+            "grant_name": test.snapshot_copy_grant_name,
         })
         ```
 

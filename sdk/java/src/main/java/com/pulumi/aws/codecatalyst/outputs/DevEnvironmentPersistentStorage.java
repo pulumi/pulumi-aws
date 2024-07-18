@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class DevEnvironmentPersistentStorage {
+    /**
+     * @return The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+     * 
+     */
     private Integer size;
 
     private DevEnvironmentPersistentStorage() {}
+    /**
+     * @return The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+     * 
+     */
     public Integer size() {
         return this.size;
     }

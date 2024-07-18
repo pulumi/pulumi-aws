@@ -21,16 +21,32 @@ public final class SigningJobSourceS3Args extends com.pulumi.resources.ResourceA
         return this.bucket;
     }
 
+    /**
+     * Key name of the object that contains your unsigned code.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return Key name of the object that contains your unsigned code.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * Version of your source image in your version enabled S3 bucket.
+     * 
+     */
     @Import(name="version", required=true)
     private Output<String> version;
 
+    /**
+     * @return Version of your source image in your version enabled S3 bucket.
+     * 
+     */
     public Output<String> version() {
         return this.version;
     }
@@ -70,20 +86,44 @@ public final class SigningJobSourceS3Args extends com.pulumi.resources.ResourceA
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param key Key name of the object that contains your unsigned code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key Key name of the object that contains your unsigned code.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param version Version of your source image in your version enabled S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(Output<String> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version Version of your source image in your version enabled S3 bucket.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

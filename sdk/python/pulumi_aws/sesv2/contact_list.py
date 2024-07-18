@@ -263,10 +263,10 @@ class ContactList(pulumi.CustomResource):
             contact_list_name="example",
             description="description",
             topics=[{
-                "defaultSubscriptionStatus": "OPT_IN",
+                "default_subscription_status": "OPT_IN",
                 "description": "topic description",
-                "displayName": "Example Topic",
-                "topicName": "example-topic",
+                "display_name": "Example Topic",
+                "topic_name": "example-topic",
             }])
         ```
 
@@ -317,10 +317,10 @@ class ContactList(pulumi.CustomResource):
             contact_list_name="example",
             description="description",
             topics=[{
-                "defaultSubscriptionStatus": "OPT_IN",
+                "default_subscription_status": "OPT_IN",
                 "description": "topic description",
-                "displayName": "Example Topic",
-                "topicName": "example-topic",
+                "display_name": "Example Topic",
+                "topic_name": "example-topic",
             }])
         ```
 

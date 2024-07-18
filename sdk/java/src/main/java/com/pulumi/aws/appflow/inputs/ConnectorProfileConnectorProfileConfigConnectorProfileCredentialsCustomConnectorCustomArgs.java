@@ -17,16 +17,32 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs();
 
+    /**
+     * A map that holds custom authentication credentials.
+     * 
+     */
     @Import(name="credentialsMap")
     private @Nullable Output<Map<String,String>> credentialsMap;
 
+    /**
+     * @return A map that holds custom authentication credentials.
+     * 
+     */
     public Optional<Output<Map<String,String>>> credentialsMap() {
         return Optional.ofNullable(this.credentialsMap);
     }
 
+    /**
+     * The custom authentication type that the connector uses.
+     * 
+     */
     @Import(name="customAuthenticationType", required=true)
     private Output<String> customAuthenticationType;
 
+    /**
+     * @return The custom authentication type that the connector uses.
+     * 
+     */
     public Output<String> customAuthenticationType() {
         return this.customAuthenticationType;
     }
@@ -56,20 +72,44 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param credentialsMap A map that holds custom authentication credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder credentialsMap(@Nullable Output<Map<String,String>> credentialsMap) {
             $.credentialsMap = credentialsMap;
             return this;
         }
 
+        /**
+         * @param credentialsMap A map that holds custom authentication credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder credentialsMap(Map<String,String> credentialsMap) {
             return credentialsMap(Output.of(credentialsMap));
         }
 
+        /**
+         * @param customAuthenticationType The custom authentication type that the connector uses.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customAuthenticationType(Output<String> customAuthenticationType) {
             $.customAuthenticationType = customAuthenticationType;
             return this;
         }
 
+        /**
+         * @param customAuthenticationType The custom authentication type that the connector uses.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customAuthenticationType(String customAuthenticationType) {
             return customAuthenticationType(Output.of(customAuthenticationType));
         }

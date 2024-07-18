@@ -117,15 +117,15 @@ class SecurityConfiguration(pulumi.CustomResource):
         example = aws.glue.SecurityConfiguration("example",
             name="example",
             encryption_configuration={
-                "cloudwatchEncryption": {
-                    "cloudwatchEncryptionMode": "DISABLED",
+                "cloudwatch_encryption": {
+                    "cloudwatch_encryption_mode": "DISABLED",
                 },
-                "jobBookmarksEncryption": {
-                    "jobBookmarksEncryptionMode": "DISABLED",
+                "job_bookmarks_encryption": {
+                    "job_bookmarks_encryption_mode": "DISABLED",
                 },
-                "s3Encryption": {
-                    "kmsKeyArn": example_aws_kms_key["arn"],
-                    "s3EncryptionMode": "SSE-KMS",
+                "s3_encryption": {
+                    "kms_key_arn": example_aws_kms_key["arn"],
+                    "s3_encryption_mode": "SSE-KMS",
                 },
             })
         ```
@@ -161,15 +161,15 @@ class SecurityConfiguration(pulumi.CustomResource):
         example = aws.glue.SecurityConfiguration("example",
             name="example",
             encryption_configuration={
-                "cloudwatchEncryption": {
-                    "cloudwatchEncryptionMode": "DISABLED",
+                "cloudwatch_encryption": {
+                    "cloudwatch_encryption_mode": "DISABLED",
                 },
-                "jobBookmarksEncryption": {
-                    "jobBookmarksEncryptionMode": "DISABLED",
+                "job_bookmarks_encryption": {
+                    "job_bookmarks_encryption_mode": "DISABLED",
                 },
-                "s3Encryption": {
-                    "kmsKeyArn": example_aws_kms_key["arn"],
-                    "s3EncryptionMode": "SSE-KMS",
+                "s3_encryption": {
+                    "kms_key_arn": example_aws_kms_key["arn"],
+                    "s3_encryption_mode": "SSE-KMS",
                 },
             })
         ```

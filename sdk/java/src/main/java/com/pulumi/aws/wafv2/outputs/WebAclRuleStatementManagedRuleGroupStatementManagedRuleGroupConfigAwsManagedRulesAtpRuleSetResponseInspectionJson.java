@@ -11,15 +11,27 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson {
+    /**
+     * @return Values in the response header with the specified name that indicate a failed login attempt.
+     * 
+     */
     private List<String> failureValues;
     /**
      * @return The identifier for the value to match against in the JSON.
      * 
      */
     private String identifier;
+    /**
+     * @return Values in the response header with the specified name that indicate a successful login attempt.
+     * 
+     */
     private List<String> successValues;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson() {}
+    /**
+     * @return Values in the response header with the specified name that indicate a failed login attempt.
+     * 
+     */
     public List<String> failureValues() {
         return this.failureValues;
     }
@@ -30,6 +42,10 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     public String identifier() {
         return this.identifier;
     }
+    /**
+     * @return Values in the response header with the specified name that indicate a successful login attempt.
+     * 
+     */
     public List<String> successValues() {
         return this.successValues;
     }

@@ -220,6 +220,10 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     def __init__(__self__, *,
                  classification: Optional[str] = None,
                  properties: Optional[Mapping[str, str]] = None):
+        """
+        :param str classification: The classification within a configuration.
+        :param Mapping[str, str] properties: A set of properties specified within a configuration classification.
+        """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
         if properties is not None:
@@ -228,11 +232,17 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
     @property
     @pulumi.getter
     def classification(self) -> Optional[str]:
+        """
+        The classification within a configuration.
+        """
         return pulumi.get(self, "classification")
 
     @property
     @pulumi.getter
     def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        A set of properties specified within a configuration classification.
+        """
         return pulumi.get(self, "properties")
 
 

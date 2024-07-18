@@ -254,7 +254,7 @@ class View(pulumi.CustomResource):
         example_view = aws.resourceexplorer.View("example",
             name="exampleview",
             filters={
-                "filterString": "resourcetype:ec2:instance",
+                "filter_string": "resourcetype:ec2:instance",
             },
             included_properties=[{
                 "name": "tags",
@@ -297,7 +297,7 @@ class View(pulumi.CustomResource):
         example_view = aws.resourceexplorer.View("example",
             name="exampleview",
             filters={
-                "filterString": "resourcetype:ec2:instance",
+                "filter_string": "resourcetype:ec2:instance",
             },
             included_properties=[{
                 "name": "tags",

@@ -330,19 +330,19 @@ class Selection(pulumi.CustomResource):
             plan_id=example_aws_backup_plan["id"],
             resources=["*"],
             conditions=[{
-                "stringEquals": [{
+                "string_equals": [{
                     "key": "aws:ResourceTag/Component",
                     "value": "rds",
                 }],
-                "stringLikes": [{
+                "string_likes": [{
                     "key": "aws:ResourceTag/Application",
                     "value": "app*",
                 }],
-                "stringNotEquals": [{
+                "string_not_equals": [{
                     "key": "aws:ResourceTag/Backup",
                     "value": "false",
                 }],
-                "stringNotLikes": [{
+                "string_not_likes": [{
                     "key": "aws:ResourceTag/Environment",
                     "value": "test*",
                 }],
@@ -468,19 +468,19 @@ class Selection(pulumi.CustomResource):
             plan_id=example_aws_backup_plan["id"],
             resources=["*"],
             conditions=[{
-                "stringEquals": [{
+                "string_equals": [{
                     "key": "aws:ResourceTag/Component",
                     "value": "rds",
                 }],
-                "stringLikes": [{
+                "string_likes": [{
                     "key": "aws:ResourceTag/Application",
                     "value": "app*",
                 }],
-                "stringNotEquals": [{
+                "string_not_equals": [{
                     "key": "aws:ResourceTag/Backup",
                     "value": "false",
                 }],
-                "stringNotLikes": [{
+                "string_not_likes": [{
                     "key": "aws:ResourceTag/Environment",
                     "value": "test*",
                 }],

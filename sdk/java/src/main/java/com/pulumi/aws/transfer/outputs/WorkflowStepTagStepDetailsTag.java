@@ -11,12 +11,20 @@ import java.util.Objects;
 @CustomType
 public final class WorkflowStepTagStepDetailsTag {
     private String key;
+    /**
+     * @return The value that corresponds to the key.
+     * 
+     */
     private String value;
 
     private WorkflowStepTagStepDetailsTag() {}
     public String key() {
         return this.key;
     }
+    /**
+     * @return The value that corresponds to the key.
+     * 
+     */
     public String value() {
         return this.value;
     }

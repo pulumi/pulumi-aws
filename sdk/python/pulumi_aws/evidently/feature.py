@@ -436,7 +436,7 @@ class Feature(pulumi.CustomResource):
             variations=[{
                 "name": "Variation1",
                 "value": {
-                    "stringValue": "example",
+                    "string_value": "example",
                 },
             }],
             tags={
@@ -458,13 +458,13 @@ class Feature(pulumi.CustomResource):
                 {
                     "name": "Variation1",
                     "value": {
-                        "stringValue": "exampleval1",
+                        "string_value": "exampleval1",
                     },
                 },
                 {
                     "name": "Variation2",
                     "value": {
-                        "stringValue": "exampleval2",
+                        "string_value": "exampleval2",
                     },
                 },
             ])
@@ -486,13 +486,13 @@ class Feature(pulumi.CustomResource):
                 {
                     "name": "Variation1",
                     "value": {
-                        "stringValue": "exampleval1",
+                        "string_value": "exampleval1",
                     },
                 },
                 {
                     "name": "Variation2",
                     "value": {
-                        "stringValue": "exampleval2",
+                        "string_value": "exampleval2",
                     },
                 },
             ])
@@ -514,7 +514,7 @@ class Feature(pulumi.CustomResource):
             variations=[{
                 "name": "Variation1",
                 "value": {
-                    "stringValue": "exampleval1",
+                    "string_value": "exampleval1",
                 },
             }])
         ```
@@ -562,7 +562,7 @@ class Feature(pulumi.CustomResource):
             variations=[{
                 "name": "Variation1",
                 "value": {
-                    "stringValue": "example",
+                    "string_value": "example",
                 },
             }],
             tags={
@@ -584,13 +584,13 @@ class Feature(pulumi.CustomResource):
                 {
                     "name": "Variation1",
                     "value": {
-                        "stringValue": "exampleval1",
+                        "string_value": "exampleval1",
                     },
                 },
                 {
                     "name": "Variation2",
                     "value": {
-                        "stringValue": "exampleval2",
+                        "string_value": "exampleval2",
                     },
                 },
             ])
@@ -612,13 +612,13 @@ class Feature(pulumi.CustomResource):
                 {
                     "name": "Variation1",
                     "value": {
-                        "stringValue": "exampleval1",
+                        "string_value": "exampleval1",
                     },
                 },
                 {
                     "name": "Variation2",
                     "value": {
-                        "stringValue": "exampleval2",
+                        "string_value": "exampleval2",
                     },
                 },
             ])
@@ -640,7 +640,7 @@ class Feature(pulumi.CustomResource):
             variations=[{
                 "name": "Variation1",
                 "value": {
-                    "stringValue": "exampleval1",
+                    "string_value": "exampleval1",
                 },
             }])
         ```

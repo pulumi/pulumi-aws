@@ -152,31 +152,31 @@ class Export(pulumi.CustomResource):
 
         test = aws.bcmdata.Export("test", export={
             "name": "testexample",
-            "dataQueries": [{
-                "queryStatement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
-                "tableConfigurations": {
-                    "COST_AND_USAGE_REPORT": {
-                        "TIME_GRANULARITY": "HOURLY",
-                        "INCLUDE_RESOURCES": "FALSE",
-                        "INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY": "FALSE",
-                        "INCLUDE_SPLIT_COST_ALLOCATION_DATA": "FALSE",
+            "data_queries": [{
+                "query_statement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
+                "table_configurations": {
+                    "cos_t__an_d__usag_e__report": {
+                        "tim_e__granularity": "HOURLY",
+                        "includ_e__resources": "FALSE",
+                        "includ_e__manua_l__discoun_t__compatibility": "FALSE",
+                        "includ_e__spli_t__cos_t__allocatio_n__data": "FALSE",
                     },
                 },
             }],
-            "destinationConfigurations": [{
-                "s3Destinations": [{
-                    "s3Bucket": test_aws_s3_bucket["bucket"],
-                    "s3Prefix": test_aws_s3_bucket["bucketPrefix"],
-                    "s3Region": test_aws_s3_bucket["region"],
-                    "s3OutputConfigurations": [{
+            "destination_configurations": [{
+                "s3_destinations": [{
+                    "s3_bucket": test_aws_s3_bucket["bucket"],
+                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
+                    "s3_region": test_aws_s3_bucket["region"],
+                    "s3_output_configurations": [{
                         "overwrite": "OVERWRITE_REPORT",
                         "format": "TEXT_OR_CSV",
                         "compression": "GZIP",
-                        "outputType": "CUSTOM",
+                        "output_type": "CUSTOM",
                     }],
                 }],
             }],
-            "refreshCadences": [{
+            "refresh_cadences": [{
                 "frequency": "SYNCHRONOUS",
             }],
         })
@@ -213,31 +213,31 @@ class Export(pulumi.CustomResource):
 
         test = aws.bcmdata.Export("test", export={
             "name": "testexample",
-            "dataQueries": [{
-                "queryStatement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
-                "tableConfigurations": {
-                    "COST_AND_USAGE_REPORT": {
-                        "TIME_GRANULARITY": "HOURLY",
-                        "INCLUDE_RESOURCES": "FALSE",
-                        "INCLUDE_MANUAL_DISCOUNT_COMPATIBILITY": "FALSE",
-                        "INCLUDE_SPLIT_COST_ALLOCATION_DATA": "FALSE",
+            "data_queries": [{
+                "query_statement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
+                "table_configurations": {
+                    "cos_t__an_d__usag_e__report": {
+                        "tim_e__granularity": "HOURLY",
+                        "includ_e__resources": "FALSE",
+                        "includ_e__manua_l__discoun_t__compatibility": "FALSE",
+                        "includ_e__spli_t__cos_t__allocatio_n__data": "FALSE",
                     },
                 },
             }],
-            "destinationConfigurations": [{
-                "s3Destinations": [{
-                    "s3Bucket": test_aws_s3_bucket["bucket"],
-                    "s3Prefix": test_aws_s3_bucket["bucketPrefix"],
-                    "s3Region": test_aws_s3_bucket["region"],
-                    "s3OutputConfigurations": [{
+            "destination_configurations": [{
+                "s3_destinations": [{
+                    "s3_bucket": test_aws_s3_bucket["bucket"],
+                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
+                    "s3_region": test_aws_s3_bucket["region"],
+                    "s3_output_configurations": [{
                         "overwrite": "OVERWRITE_REPORT",
                         "format": "TEXT_OR_CSV",
                         "compression": "GZIP",
-                        "outputType": "CUSTOM",
+                        "output_type": "CUSTOM",
                     }],
                 }],
             }],
-            "refreshCadences": [{
+            "refresh_cadences": [{
                 "frequency": "SYNCHRONOUS",
             }],
         })

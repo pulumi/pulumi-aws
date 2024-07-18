@@ -256,7 +256,7 @@ class Workflow(pulumi.CustomResource):
             type="ON_DEMAND",
             workflow_name=example.name,
             actions=[{
-                "jobName": "example-job",
+                "job_name": "example-job",
             }])
         example_inner = aws.glue.Trigger("example-inner",
             name="trigger-inner",
@@ -264,12 +264,12 @@ class Workflow(pulumi.CustomResource):
             workflow_name=example.name,
             predicate={
                 "conditions": [{
-                    "jobName": "example-job",
+                    "job_name": "example-job",
                     "state": "SUCCEEDED",
                 }],
             },
             actions=[{
-                "jobName": "another-example-job",
+                "job_name": "another-example-job",
             }])
         ```
 
@@ -312,7 +312,7 @@ class Workflow(pulumi.CustomResource):
             type="ON_DEMAND",
             workflow_name=example.name,
             actions=[{
-                "jobName": "example-job",
+                "job_name": "example-job",
             }])
         example_inner = aws.glue.Trigger("example-inner",
             name="trigger-inner",
@@ -320,12 +320,12 @@ class Workflow(pulumi.CustomResource):
             workflow_name=example.name,
             predicate={
                 "conditions": [{
-                    "jobName": "example-job",
+                    "job_name": "example-job",
                     "state": "SUCCEEDED",
                 }],
             },
             actions=[{
-                "jobName": "another-example-job",
+                "job_name": "another-example-job",
             }])
         ```
 

@@ -12,12 +12,20 @@ import java.util.Objects;
 @CustomType
 public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction {
     private String eventAction;
+    /**
+     * @return Whether to send a notification.
+     * 
+     */
     private Boolean notify;
 
     private RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction() {}
     public String eventAction() {
         return this.eventAction;
     }
+    /**
+     * @return Whether to send a notification.
+     * 
+     */
     public Boolean notify_() {
         return this.notify;
     }

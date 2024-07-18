@@ -12,14 +12,24 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentDataSourceDataSourceConfigurationS3ConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the bucket that contains the data source.
+        /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// Bucket account owner ID for the S3 bucket.
+        /// </summary>
         [Input("bucketOwnerAccountId")]
         public Input<string>? BucketOwnerAccountId { get; set; }
 
         [Input("inclusionPrefixes")]
         private InputList<string>? _inclusionPrefixes;
+
+        /// <summary>
+        /// List of S3 prefixes that define the object containing the data sources. For more information, see [Organizing objects using prefixes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html).
+        /// </summary>
         public InputList<string> InclusionPrefixes
         {
             get => _inclusionPrefixes ?? (_inclusionPrefixes = new InputList<string>());
